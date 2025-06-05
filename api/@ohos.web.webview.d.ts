@@ -3533,6 +3533,31 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link getAttachState} for indicating the attach state of controller.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enum ControllerAttachState {
+    /**
+     * Indicates webviewController is not attached a web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    UNATTACHED = 0,
+
+    /**
+     * Indicates webviewController is attached a web component.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    ATTACHED = 1
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4443,7 +4468,17 @@ declare namespace webview {
      * @since 12
      */
     /**
-     * Registers the JavaScript object and method list.
+     * Registers the supplied ArkTs object into this Web component.
+     * The object is registered into all frames of the web page, including all iframes, using the specified name.
+     * This allows the methods of the ArkTS object to be accessed from JavaScript.
+     * <p><strong>API Note</strong>:<br>
+     * Registed objects will not appear in JavaScript until the page is next (re)load.
+     * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
+     * To avoid security risks, it is recommended that registerJavaScriptProxy be used with trusted web components.
+     * If the same method is registered repeatedly in both synchronous and asynchronous list, it will default to an asynchronous method.
+     * The synchronous function list and asynchronous function list cannot be empty at the same time.<br>
+     * otherwise, this registration will fail.
+     *  <p>
      *
      * @param { object } object - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
@@ -4629,7 +4664,14 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     * Asynchronously execute JavaScript in the context of the currently displayed page.
+     * The result of the script execution will be returned through a via Promise.
+     * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+     * <p><strong>API Note</strong>:<br>
+     * The state of JavaScript is no longer persisted across navigations like loadUrl.
+     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
+     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+     * <p>
      *
      * @param { string } script - JavaScript Script.
      * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
@@ -4659,7 +4701,14 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Loads a piece of code and execute JS code in the context of the currently displayed page.
+     * Asynchronously execute JavaScript in the context of the currently displayed page.
+     * The result of the script execution will be returned through an asynchronous callback.
+     * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
+     * <p><strong>API Note</strong>:<br>
+     * The state of JavaScript is no longer persisted across navigations like loadUrl.
+     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
+     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+     * <p>
      *
      * @param { string } script - JavaScript Script.
      * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
@@ -6008,6 +6057,11 @@ declare namespace webview {
      * Set render process mode of the ArkWeb.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
+     *        Call {@link getRenderProcessMode} to get the ArkWeb rendering subprocess mode of the current device.
+     *        The enumerated value **0** indicates the single render subprocess mode,
+     *        and **1** indicates the multi-render subprocess mode.
+     *        If an invalid number other than the enumerated value of **RenderProcessMode** is passed,
+     *        the multi-render subprocess mode is used by default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6344,6 +6398,71 @@ declare namespace webview {
      * @since 20
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
+  
+    /**
+     * Get whether webviewController is attached to a web component.
+     * @returns { ControllerAttachState } the attach state of controller
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getAttachState(): ControllerAttachState;
+
+    /**
+     * Register the callback for controller attach state change.
+     *
+     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
+     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    on(type: 'controllerAttachStateChange', callback: Callback<ControllerAttachState>): void;
+
+    /**
+     * Unregister the callback for controller attach state change.
+     *
+     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
+     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
+
+
+    /**
+     * Wait for the controller to attach a web component until timeout.
+     *
+     * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
+     * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    waitForAttached(timeout: number): Promise<ControllerAttachState>;
+
+    /**
+     * Enables debugging of web contents.
+     * <p><strong>API Note</strong>:<br>
+     * The port numbers from 0 to 1024 are prohibited. Ports less than 0 or greater than 65535 are considered invalid.
+     * If an attempt is made to set these disabled or invalid ports, an exception will be thrown.
+     * </p>
+     *
+     * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
+     * socket is created instead of a unix domain socket.
+     * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
+
+    /**
+     * Gets the loading progress for the current page.
+     *
+     * @returns { number } The loading progress for the current page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getProgress() : number;
   }
 
   /**

@@ -800,3 +800,87 @@ export interface AppCloneIdentity {
    */
   readonly appIndex: number;
 }
+
+/**
+ * Obtains dynamic icon information about a bundle
+ *
+ * @typedef DynamicIconInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20
+ */
+export interface DynamicIconInfo {
+  /**
+   * Indicates the name of the bundle.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the name of the dynamic icon.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly moduleName: string;
+
+  /**
+   * Indicates the user id of the bundle.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly userId: number;
+
+  /**
+   * Indicates the index of the bundle.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly appIndex: number;
+}
+
+/**
+  * The bundle options of bundle manager
+  * 
+  * @typedef BundleOptions
+  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+  * @systemapi
+  * @since 20
+  */
+export interface BundleOptions {
+    /**
+   * Indicates the user id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  userId?: number;
+
+  /**
+   * Indicates the app index.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  appIndex?: number;
+}

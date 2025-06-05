@@ -139,6 +139,20 @@ export default class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
+  * Called back asynchronously upon starting specified ability.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         do not create a new instance and pull it back to the top of the stack.
+  *         Otherwise, create a new instance and start it.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onAcceptWantAsync(want: Want): Promise<string>;
+
+  /**
    * Called when the UIAbility is started in the specified process.
    * 
    * <p>**NOTE**:
@@ -153,6 +167,19 @@ export default class AbilityStage {
    * @since 11
    */
   onNewProcessRequest(want: Want): string;
+
+  /**
+  * Called back asynchronously upon starting UIAbility in specified process.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         let the ability run in this process. Otherwise, create a new process.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onNewProcessRequestAsync(want: Want): Promise<string>;
 
   /**
    * Called when the system configuration is updated.
@@ -199,8 +226,11 @@ export default class AbilityStage {
    * @since 9
    */
   /**
-   * Called when the system has decided to adjust the memory level.
-   * For example, this API can be used when there is not enough memory to run as many background processes as possible.
+   * Listens for changes in the system memory level status.
+   * When the system detects low memory resources, it will proactively invoke this callback.
+   * You can implement this callback to promptly release non-essential resources (such as cached data or temporary
+   * objects) upon receiving a memory shortage event, thereby preventing the application process from being forcibly
+   * terminated by the system.
    * 
    * <p>**NOTE**:
    * <br>This API returns the result synchronously and does not support asynchronous callbacks.

@@ -410,7 +410,9 @@ declare namespace util {
   function parseUUID(uuid: string): Uint8Array;
 
   /**
-   * Obtains the hash value of an object.
+   * Obtains the hash value of an object. If no hash value has been obtained, a random hash value is generated
+   * saved to the hash field of the object, and returned. If a hash value has been obtained, the hash value saved
+   * in the hash field is returned (the same value is returned for the same object).
    *
    * @param { object } [object] - Object whose hash value is to be obtained.
    * @returns { number } Return a hash code of an object.
@@ -425,7 +427,8 @@ declare namespace util {
   function getHash(object: object): number;
 
   /**
-   * Get stack trace of main thread.
+   * Get stack trace information for the main thread, returning up to 64 call frames
+   * This interface may impact main thread performance – use with caution.
    *
    * @returns { string } Return a stack trace of main thread.
    * @syscap SystemCapability.Utils.Lang
@@ -2084,7 +2087,8 @@ declare namespace util {
      * @since 10
      */
     /**
-     * Obtains the value of a key.
+     * Obtains the value of a key. If the key is not in the cache, createDefault is called to create the key.
+     * If the value specified in createDefault is not undefined, afterRemoval is called to return the value specified in createDefault.
      *
      * @param { K } key - Indicates the key to query.
      * @returns { V | undefined } Returns the value associated with the key if the specified key is present in the buffer; returns null otherwise.
@@ -2125,6 +2129,7 @@ declare namespace util {
      */
     /**
      * Adds a key-value pair to this cache and returns the value associated with the key.
+     * If the total number of values in the cache is greater than the specified capacity, the deletion operation is performed.
      *
      * @param { K } key - Indicates the key to add.
      * @param { V } value - Indicates the value associated with the key to add.
@@ -2218,7 +2223,7 @@ declare namespace util {
      * @since 10
      */
     /**
-     * Removes a key and its associated value from this cache and returns the value associated with the key.
+     * Removes a key and its associated value from this cache and returns the value associated with the key. If the key does not exist, undefined is returned.
      *
      * @param { K } key - Key to remove.
      * @returns { V | undefined } Returns an Optional object containing the deleted key-value pair; returns an empty Optional object if the key does not exist.
@@ -3390,7 +3395,7 @@ declare namespace util {
      * Encodes the input content into a string. This API returns the result synchronously.
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
-     * @param { Type } options - Encoding format. The following values are available:
+     * @param { Type } [options] - Encoding format. The following values are available:
      * - util.Type.BASIC (default): Base64 encoding. The return value does not contain carriage return characters or newline characters.
      * - util.Type.MIME: Base64 encoding. Each line of the return value contains a maximum of 76 characters and ends with '\r\n'.
      * - util.Type.BASIC_URL_SAFE: Base64URL encoding. The return value does not contain carriage return characters or newline characters.
@@ -4809,7 +4814,7 @@ declare namespace util {
      * Inserts a function before a method of a class object. The inserted function is executed in prior to the original method of the class object.
      *
      * @param { Object } targetClass - Target class object.
-     * @param { string } methodName - Name of the method.
+     * @param { string } methodName - Name of the method. Read-only methods are not supported.
      * @param { boolean } isStatic - Whether the method is a static method.
      * @param { Function } before - Function to insert.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4841,7 +4846,7 @@ declare namespace util {
      * Inserts a function after a method of a class object. The final return value is the return value of the function inserted.
      *
      * @param { Object } targetClass - Target class object.
-     * @param { string } methodName - Name of the method.
+     * @param { string } methodName - Name of the method. Read-only methods are not supported.
      * @param { boolean } isStatic - Whether the method is a static method.
      * @param { Function } after - Function to insert.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4873,7 +4878,7 @@ declare namespace util {
      * is executed. The final return value is the return value of the new function.
      *
      * @param { Object } targetClass - 	Target class object.
-     * @param { string } methodName - Name of the method.
+     * @param { string } methodName - Name of the method. Read-only methods are not supported.
      * @param { boolean } isStatic - Whether the method is a static method.
      * @param { Function } instead - Function to be used replacement.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4913,7 +4918,8 @@ declare namespace util {
      * Returns a decoded string, Any incomplete multi-byte characters at the end of Uint8Array are filtered out from the
      * returned string and stored in an internal buffer for the next call.
      *
-     * @param { string | Uint8Array } chunk - The bytes to decode.
+     * @param { string | Uint8Array } chunk - String to decode. Decoding is performed based on the input encoding type. If the input is of the Uint8Array type,
+     * decoding is performed normally. If the input is of the string type, decoding is performed in the original path.
      * @returns { string } Returns a decoded string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -4927,7 +4933,7 @@ declare namespace util {
     /**
      * Ends the decoding process and returns any remaining input stored in the internal buffer as a string.
      *
-     * @param { string | Uint8Array } [chunk] - The bytes to decode.
+     * @param { string | Uint8Array } [chunk] - String to decode. The default value is undefined.
      * @returns { string } Returns any remaining input stored in the internal buffer as a string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;

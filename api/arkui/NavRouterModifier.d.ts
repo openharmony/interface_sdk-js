@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines NavRouter Modifier
  *
@@ -29,7 +26,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
-*/
+ * @deprecated since 20
+ */
 export declare class NavRouterModifier extends NavRouterAttribute implements AttributeModifier<NavRouterAttribute> {
 
   /**
@@ -40,6 +38,7 @@ export declare class NavRouterModifier extends NavRouterAttribute implements Att
    * @crossplatform
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   applyNormalAttribute?(instance: NavRouterAttribute): void;
 }

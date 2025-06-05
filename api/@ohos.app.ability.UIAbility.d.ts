@@ -104,7 +104,7 @@ export interface Caller {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -123,7 +123,7 @@ export interface Caller {
    * @returns { Promise<rpc.MessageSequence> } Promise used to return the parcelable data from the target UIAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -135,7 +135,7 @@ export interface Caller {
   /**
    * Releases the caller interface of the target UIAbility.
    *
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -150,7 +150,7 @@ export interface Caller {
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9
@@ -164,7 +164,7 @@ export interface Caller {
    * @param { OnRemoteStateChangeCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 10
@@ -179,7 +179,7 @@ export interface Caller {
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9
@@ -779,6 +779,20 @@ export default class UIAbility extends Ability {
    * @since 11
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
+
+  /**
+  * Called back asynchronously when an ability prepares to save.
+  *
+  * @param { AbilityConstant.StateType } stateType - state type when save.
+  * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+  * @returns { Promise<AbilityConstant.OnSaveResult> } agree with the current UIAbility status or not.return 0 if ability
+  *                                           agrees to save data successfully, otherwise errcode.
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
 
   /**
    * Called back when an ability shares data.

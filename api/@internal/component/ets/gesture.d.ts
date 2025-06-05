@@ -4327,6 +4327,36 @@ declare class EventTargetInfo {
 }
 
 /**
+ * Defines the touch recognizer.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class TouchRecognizer {
+    /**
+     * Returns the event target information of the component.
+     *
+     * @returns { EventTargetInfo } - the event target information of the component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getEventTargetInfo(): EventTargetInfo;
+    /**
+     * Dispatch touch cancel to the touch recognizer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cancelTouch(): void;
+}
+
+/**
  * Defines the gesture recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4434,6 +4464,21 @@ declare class GestureRecognizer {
    * @since 18
    */
   isFingerCountLimit(): boolean;
+  /**
+   * Prevent the gesture recognizer from participating in this gesture recognition until all fingers are lifted.
+   * If the system has already made out the result of this gesture recognizer (success and failure), calling this
+   * function will have no any effect.
+   *
+   * [Note]: This method is different from GestureRecognizer.setEnabled(isEnabled: boolean), setEnabled does not
+   * prevent a gesture recognizer object from participating in the gesture recognition process, but only affects
+   * whether the gesture's corresponding callback function is executed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  preventBegin(): void;
 }
 
 /**

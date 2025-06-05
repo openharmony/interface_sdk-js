@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Polygon Modifier
+ *
+ * @extends PolygonAttribute
+ * @implements AttributeModifier<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class PolygonModifier extends PolygonAttribute implements AttributeModifier<PolygonAttribute> {
 
   /**

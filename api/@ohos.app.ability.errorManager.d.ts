@@ -55,7 +55,7 @@ declare namespace errorManager {
    * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -96,7 +96,7 @@ declare namespace errorManager {
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -137,7 +137,7 @@ declare namespace errorManager {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16000003 - Id does not exist.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -176,7 +176,7 @@ declare namespace errorManager {
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18
@@ -189,7 +189,7 @@ declare namespace errorManager {
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18
@@ -202,8 +202,8 @@ declare namespace errorManager {
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18
@@ -216,8 +216,8 @@ declare namespace errorManager {
    * @param { GlobalObserver } observer - the global error observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18
@@ -372,7 +372,7 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -384,7 +384,7 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
+   * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -399,8 +399,8 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } [observer]  - the registered observer
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -412,8 +412,8 @@ declare namespace errorManager {
    * @param { UnhandledRejectionObserver } [observer]  - the registered observer
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -445,7 +445,7 @@ declare namespace errorManager {
    * @param { FreezeObserver } observer - The freeze event observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 16300004 - If the observer does not exist
+   * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 18

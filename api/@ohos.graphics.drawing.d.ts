@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,6 +20,7 @@
 
 import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import { Resource } from './global/resource';
 
 /**
@@ -294,7 +295,8 @@ declare namespace drawing {
   }
 
   /**
-  * Enumerates the types of matrix information obtained during path measurement.
+  * Enumerates the dimensions of matrix information in path measurement.
+  * It is often used in animation scenarios where objects move along a path.
   * @enum { number }
   * @syscap SystemCapability.Graphics.Drawing
   * @since 12
@@ -327,6 +329,16 @@ declare namespace drawing {
    * @since 12
    */
   class RoundRect {
+
+    /**
+     * Creates a deep copy of the specified round rect object.
+     * @param { RoundRect } roundRect - The round rect object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(roundRect: RoundRect);
+
     /**
      * A constructor used to create a RoundRect object. A rounded rectangle is created when both xRadii and yRadii are greater than 0. Otherwise, only a rectangle is created.
      * @param { common2D.Rect } rect - Rectangle that encloses the rounded rectangle to create.
@@ -364,8 +376,10 @@ declare namespace drawing {
 
     /**
      * Translates this rounded rectangle by an offset along the X axis and Y axis.
-     * @param { number } dx - Horizontal distance to translate. A positive number indicates a translation towards the positive direction of the X axis, and a negative number indicates a translation towards the negative direction of the X axis. The value is a floating point number.
-     * @param { number } dy - Vertical distance to translate. A positive number indicates a translation towards the positive direction of the Y axis, and a negative number indicates a translation towards the negative direction of the Y axis. The value is a floating point number.
+     * @param { number } dx - Horizontal distance to translate. A positive number indicates a translation towards the positive direction of the X axis,
+     * and a negative number indicates a translation towards the negative direction of the X axis. The value is a floating point number.
+     * @param { number } dy - Vertical distance to translate. A positive number indicates a translation towards the positive direction of the Y axis,
+     * and a negative number indicates a translation towards the negative direction of the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -375,7 +389,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the operation modes available for a path.
+   * Enumerates the path operation types. It is often used in path combination and clipping scenarios.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -389,7 +403,7 @@ declare namespace drawing {
     DIFFERENCE = 0,
 
     /**
-     * Intersect operation.
+     * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -403,7 +417,7 @@ declare namespace drawing {
     UNION = 2,
 
     /**
-     * Xor operation.
+     * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -490,18 +504,7 @@ declare namespace drawing {
     constructor(path: Path);
 
     /**
-     * Get the next verb in this iterator's path, and fill entries in the point2D array
-     * with point data (if any) for that operation, the point2D array size must be 4 or more.
-     * The number of pairs of point data supplied in the resulting array depends on the PathIteratorVerb:
-     * <ul>
-     * <li>MOVE: 1 pair</li>
-     * <li>LINE: 2 pairs</li>
-     * <li>QUAD: 3 pairs</li>
-     * <li>CONIC: 3.5 pairs</li>
-     * <li>CUBIC: 4 pairs</li>
-     * <li>CLOSE: 0 pairs</li>
-     * <li>DONE: 0 pairs</li>
-     * </ul>
+     * Retrieves the next operation in this path and moves the iterator to that operation.
      * @param { Array<common2D.Point> } points - Indicates the point array.
      * @param { number } offset - Indicates the offset into the array where entries should be placed. The default value is 0.
      * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
@@ -552,6 +555,15 @@ declare namespace drawing {
     constructor(path: Path);
 
     /**
+     * Sets the Path with the same content of another.
+     * @param { Path } src - the path to copy content from.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    set(src: Path): void;
+
+    /**
      * Sets the start point of this path.
      * @param { number } x - X coordinate of the start point. The value is a floating point number.
      * @param { number } y - Y coordinate of the start point. The value is a floating point number.
@@ -574,15 +586,16 @@ declare namespace drawing {
     lineTo(x: number, y: number): void;
 
     /**
-     * Draws an arc to this path. This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
-     * and then a start angle and a sweep angle are specified. The arc is a portion of the ellipse defined by the start angle and the sweep angle.
-     * By default, a line segment from the last point of the path to the start point of the arc is also added.
+     * Draws an arc to this path using angle arc mode. This mode first defines a rectangle and takes its inscribed ellipse.
+     * Then, it specifies a start angle and a sweep angle. The arc is the portion of the ellipse's circumference defined by the start angle
+     * and the sweep angle. By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - X coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @param { number } y1 - Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @param { number } x2 - X coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @param { number } y2 - Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @param { number } startDeg - Start angle. The start direction (0°) of the angle is the positive direction of the X axis.
-     * @param { number } sweepDeg - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by 360.
+     * @param { number } sweepDeg - Angle to sweep, in degrees. A positive number indicates a clockwise sweep,
+     * and a negative value indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by 360.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -609,7 +622,10 @@ declare namespace drawing {
      * @param { number } ctrlY - Y coordinate of the control point. The value is a floating point number.
      * @param { number } endX - X coordinate of the target point. The value is a floating point number.
      * @param { number } endY - Y coordinate of the target point. The value is a floating point number.
-     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point. If the value is less than or equal to 0, this API is equivalent to lineTo, that is, adding a line segment from the last point of the path to the target point. If the value is 1, this API is equivalent to quadTo. The value is a floating point number.
+     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value,
+     * the closer of the curve to the control point. If the value is less than or equal to 0,
+     * this API is equivalent to lineTo, that is, adding a line segment from the last point of the path to the target point.
+     * If the value is 1, this API is equivalent to quadTo. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -634,8 +650,10 @@ declare namespace drawing {
 
     /**
      * Sets the start position relative to the last point of this path. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx - X offset of the start point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy - Y offset of the start point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx - X offset of the start point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy - Y offset of the start point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -645,8 +663,10 @@ declare namespace drawing {
 
     /**
      * Draws a line segment from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -656,10 +676,14 @@ declare namespace drawing {
 
     /**
      * Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } dx1 - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy1 - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } dx2 - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } dy2 - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx1 - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy1 - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } dx2 - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } dy2 - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -669,11 +693,17 @@ declare namespace drawing {
 
     /**
      * Draws a conic curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } ctrlX - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point. If the value is less than or equal to 0, this API is equivalent to rLineTo, that is, adding a line segment from the last point of the path to the target point. If the value is 1, this API is equivalent to rQuadTo. The value is a floating point number.
+     * @param { number } ctrlX - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point,
+     * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point,
+     * and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } weight - Weight of the curve, which determines its shape. The larger the value, the closer of the curve to the control point.
+     * If the value is less than or equal to 0, this API is equivalent to rLineTo, that is, adding a line segment from the last point of the path
+     * to the target point. If the value is 1, this API is equivalent to rQuadTo. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -683,12 +713,18 @@ declare namespace drawing {
 
     /**
      * Draws a cubic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
-     * @param { number } ctrlX1 - X offset of the first control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY1 - Y offset of the first control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlX2 - X offset of the second control point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } ctrlY2 - Y offset of the second control point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
-     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
-     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlX1 - X offset of the first control point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY1 - Y offset of the first control point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlX2 - X offset of the second control point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } ctrlY2 - Y offset of the second control point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
+     * @param { number } endX - X offset of the target point relative to the last point. A positive number indicates a rightward shift
+     * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
+     * @param { number } endY - Y offset of the target point relative to the last point. A positive number indicates an upward shift
+     * from the last point, and a negative number indicates a downward shift from the last point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -699,7 +735,8 @@ declare namespace drawing {
     /**
      * Adds a polygon to this path.
      * @param { Array<common2D.Point> } points - Array that holds the vertex coordinates of the polygon.
-     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment from the start point to the end point of the path. The value true means to close the path, and false means the opposite.
+     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment from the start point
+     * to the end point of the path. The value true means to close the path, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -711,7 +748,8 @@ declare namespace drawing {
      * Combines this path with the passed-in path based on the specified operation mode.
      * @param { Path } path - Path object, which will be combined with the current path.
      * @param { PathOp } pathOp - Operation mode.
-     * @returns { boolean } boolean - Result of the path combination result. The value true means that the path combination is successful, and false means the opposite.
+     * @returns { boolean } boolean - Result of the path combination result. The value true means that the path combination is successful,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -729,8 +767,10 @@ declare namespace drawing {
      * 
      * In other cases, this API adds an arc by applying the result of sweepAngle modulo 360 to the path.
      * @param { common2D.Rect } rect - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle of the arc, in degrees. The value 0 indicates the positive direction of the X axis. The value is a floating point number.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative number indicates a counterclockwise sweep. The value is a floating point number.
+     * @param { number } startAngle - Start angle of the arc, in degrees. The value 0 indicates the positive direction of the X axis.
+     * The value is a floating point number.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. A positive number indicates a clockwise sweep,
+     * and a negative number indicates a counterclockwise sweep. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -742,7 +782,8 @@ declare namespace drawing {
      * Adds a circle to this path in the specified direction. The start point of the circle is (x + radius, y).
      * @param { number } x - X coordinate of the center of the circle. The value is a floating point number.
      * @param { number } y - Y coordinate of the center of the circle. The value is a floating point number.
-     * @param { number } radius - Radius of the circle. The value is a floating point number. If the value is less than or equal to 0, there is no effect.
+     * @param { number } radius - Radius of the circle. The value is a floating point number.
+     * If the value is less than or equal to 0, there is no effect.
      * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -752,9 +793,10 @@ declare namespace drawing {
     addCircle(x: number, y: number, radius: number, pathDirection?: PathDirection): void;
 
     /**
-     * Adds an oval to this path in the specified direction, where the common2D.Rect object specifies the outer tangent rectangle of the oval.
+     * Adds the inscribed ellipse of a rectangle to this path in the specified direction.
      * @param { common2D.Rect } rect - Rectangular boundary of the oval.
-     * @param { number } start - Start point of the oval, where 0, 1, 2, and 3 correspond to the upper, right, lower, and left points, respectively. The value is an integer greater than or equal to 0. If the value is greater than or equal to 4, the remainder of 4 is used.
+     * @param { number } start - Start point of the oval, where 0, 1, 2, and 3 correspond to the upper, right, lower, and left points, respectively.
+     * The value is an integer greater than or equal to 0. If the value is greater than or equal to 4, the remainder of 4 is used.
      * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -775,7 +817,10 @@ declare namespace drawing {
     addRect(rect: common2D.Rect, pathDirection?: PathDirection): void;
 
     /**
-     * Adds a rounded rectangle to this path in the specified direction. When the path direction is clockwise, the start point is at the intersection of the rounded rectangle's left boundary and its lower left corner. When the path direction is counterclockwise, the start point is at the intersection point between the left boundary and the upper left corner.
+     * Adds a rounded rectangle to this path in the specified direction. When the path direction is clockwise,
+     * the start point is at the intersection of the rounded rectangle's left boundary and its lower left corner.
+     * When the path direction is counterclockwise, the start point is at the intersection point
+     * between the left boundary and the upper left corner.
      * @param { RoundRect } roundRect - Rounded rectangle.
      * @param { PathDirection } pathDirection - The default value is CLOCKWISE.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -807,7 +852,7 @@ declare namespace drawing {
     transform(matrix: Matrix): void;
 
     /**
-     * Checks whether a coordinate point is included in this path.
+     * Checks whether a coordinate point is included in this path. For details, see PathFillType.
      * @param { number } x - X coordinate. The value is a floating point number.
      * @param { number } y - Y coordinate. The value is a floating point number.
      * @returns { boolean } Check result. The value true means that the coordinate point is included in the path, and false means the opposite.
@@ -817,6 +862,16 @@ declare namespace drawing {
      * @since 12
      */
     contains(x: number, y: number): boolean;
+
+    /**
+     * Changes the last point of the path to specific value.
+     * @param { number } x - Indicates the new x-axis value for the last point.
+     * @param { number } y - Indicates the new y-axis value for the last point.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setLastPoint(x: number, y: number): void;
 
     /**
      * Sets the fill type of this path. The fill type determines how "inside" of the path is drawn.
@@ -831,6 +886,15 @@ declare namespace drawing {
     setFillType(pathFillType: PathFillType): void;
 
     /**
+     * Gets fill type, the rule used to fill path.
+     * @returns { PathFillType } Returns the pathFillType.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getFillType(): PathFillType;
+
+    /**
      * Obtains the minimum bounding rectangle that encloses this path.
      * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
@@ -839,7 +903,7 @@ declare namespace drawing {
     getBounds(): common2D.Rect;
 
     /**
-     * Draws a line segment from the current point to the start point of this path.
+     * Closes this path by adding a line segment from the start point to the last point of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -847,8 +911,10 @@ declare namespace drawing {
 
     /**
      * Offsets this path by specified distances along the X axis and Y axis and stores the resulting path in the Path object returned.
-     * @param { number } dx - X offset. A positive number indicates an offset towards the positive direction of the X axis, and a negative number indicates an offset towards the negative direction of the X axis. The value is a floating point number.
-     * @param { number } dy - Y offset. A positive number indicates an offset towards the positive direction of the Y axis, and a negative number indicates an offset towards the negative direction of the Y axis. The value is a floating point number.
+     * @param { number } dx - X offset. A positive number indicates an offset towards the positive direction of the X axis,
+     * and a negative number indicates an offset towards the negative direction of the X axis. The value is a floating point number.
+     * @param { number } dy - Y offset. A positive number indicates an offset towards the positive direction of the Y axis,
+     * and a negative number indicates an offset towards the negative direction of the Y axis. The value is a floating point number.
      * @returns { Path } New path generated.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -858,15 +924,43 @@ declare namespace drawing {
     offset(dx: number, dy: number): Path;
 
     /**
-     * Resets path data.
+     * Resets the path data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     reset(): void;
 
     /**
+     * Clears any lines and curves from the path but keeps the internal storage for faster reuse.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    rewind(): void;
+
+    /**
+     * Check if the path is empty (has no line or curve).
+     *
+     * @returns { boolean } Returns true if the path is empty; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    isEmpty(): boolean;
+
+    /**
+     * Check if the path represents a rectangle.
+     *
+     * @param { common2D.Rect | null } rect - Indicates the Rect object.
+     * @returns { boolean } Returns true if the path represents a rectangle; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    isRect(rect: common2D.Rect | null): boolean;
+
+    /**
      * Obtains the path length.
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path.
+     * The value true means that the path is considered closed during measurement,
+     * and false means that the path is measured based on the actual closed status.
      * @returns { number } Return path length.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -876,11 +970,16 @@ declare namespace drawing {
     /**
      * Obtains the coordinates and tangent at a distance from the start point of this path.
      * 
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used. If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path.
+     * The value true means that the path is considered closed during measurement,
+     * and false means that the path is measured based on the actual closed status.
+     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used.
+     * If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
      * @param { common2D.Point } position - Coordinates obtained.
-     * @param { common2D.Point } tangent - Tangent obtained, where tangent.x and tangent.y represent the cosine and sine of the tangent of the point, respectively.
-     * @returns { boolean } - Check result. The value true means that they are obtained, and false means the opposite. The values of position and tangent are not changed.
+     * @param { common2D.Point } tangent - Tangent obtained, where tangent.x and tangent.y represent the cosine
+     * and sine of the tangent of the point, respectively.
+     * @returns { boolean } - Check result. The value true means that they are obtained, and false means the opposite.
+     * The values of position and tangent are not changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -891,10 +990,14 @@ declare namespace drawing {
     /**
      * Extracts a segment of this path and appends it to a destination path.
      *
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } start - Distance from the start point of the path to the start point of the segment. If it is less than 0, it defaults to 0. If it is greater than or equal to stop, the extraction fails. The value is a floating point number.
-     * @param { number } stop - Distance from the start point of the path to the end point of the segment. If it is less than or equal to start, the extraction fails. If it is greater than the path length, it defaults to the path length. The value is a floating point number.
-     * @param { boolean } startWithMoveTo - Whether to execute moveto in the destination path to move to its start point. The value true means to move to the start point, and false means the opposite.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed
+     * during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { number } start - Distance from the start point of the path to the start point of the segment. If it is less than 0, it defaults to 0.
+     * If it is greater than or equal to stop, the extraction fails. The value is a floating point number.
+     * @param { number } stop - Distance from the start point of the path to the end point of the segment. If it is less than or equal to start,
+     * the extraction fails. If it is greater than the path length, it defaults to the path length. The value is a floating point number.
+     * @param { boolean } startWithMoveTo - Whether to execute moveto in the destination path to move to its start point.
+     * The value true means to move to the start point, and false means the opposite.
      * @param { Path } dst - Destination path. If the extraction succeeds, the segment is appended to the path. If the extraction fails, nothing changes.
      * @returns { boolean } - Extraction result. The value **true** means that the extraction is successful, and **false** means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
@@ -912,10 +1015,12 @@ declare namespace drawing {
     isClosed(): boolean;
 
     /**
-     * Obtains a transformation matrix at a distance from the start point of this path.
+     * Obtains a transformation matrix at a specific position along the path, which represents the coordinates and orientation of that point.
      * 
-     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed during measurement, and false means that the path is measured based on the actual closed status.
-     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used. If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
+     * @param { boolean } forceClosed - Whether the path is measured as a closed path. The value true means that the path is considered closed
+     * during measurement, and false means that the path is measured based on the actual closed status.
+     * @param { number } distance - Distance from the start point. If a negative number is passed in, the value 0 is used.
+     * If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
      * @param { Matrix } matrix - Matrix object used to store the matrix obtained.
      * @param { PathMeasureMatrixFlags } flags - Type of the matrix information obtained.
      * @returns { boolean } - Check result. The value true means that a transformation matrix is obtained, and false means the opposite.
@@ -937,13 +1042,59 @@ declare namespace drawing {
     buildFromSvgString(str: string): boolean;
 
     /**
-     * Get pathIterator from path.
+     * Obtains the operation iterator of this path.
      *
      * @returns { PathIterator } Indicates the pointer to an pathIterator object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     getPathIterator(): PathIterator;
+
+    /**
+     * Approximates the path with a series of line segments.
+     *
+     * @param { number } acceptableError - Indicates the acceptable error for a line on the path. Should be no less than 0.
+     * @returns { Array<number> } - Returns with the array containing point components.
+     * <br>There are three components for each point:
+     * <br>1. Fraction along the length of the path that the point resides [0.0, 1.0].
+     * <br>2. The x coordinate of the point.
+     * <br>3. The y coordinate of the point.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    approximate(acceptableError: number): Array<number>;
+
+    /**
+     * Performs interpolation between the current path and another path based on a given weight, and stores the result in the target path object.
+     *
+     * @param { Path } other - Indicates the other path to be interpolated with the current path.
+     * @param { number } weight - Indicates the interpolation weight, which must be in the range [0, 1].
+     * @param { Path } interpolatedPath - Indicates the target path object where the interpolation result will be stored.
+     * @returns { boolean } - Returns true if the interpolation operation was successful; returns false otherwise.
+     * <br>Possible reasons for failure include:
+     * <br>1. The 'other' is incompatible with the current path.
+     * <br>2. The 'weight' is outside the [0, 1] range.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    interpolate(other: Path, weight: number, interpolatedPath: Path): boolean;
+
+    /**
+     * Checks whether the current path is compatible with another path (other) for interpolation, which means
+     * they have exactly the same structure, both paths must have the same operations, in the same order.
+     * If any of the operations are of type PathIteratorVerb.CONIC, then the weights of those conics must also match.
+     *
+     * @param { Path } other - Indicates the path to be checked for compatibility with the current path.
+     * @returns { boolean } - Returns true if the current path and the other path are compatible for interpolation; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isInterpolate(other: Path): boolean;
   }
 
   /**
@@ -998,7 +1149,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the flags used to control shadow drawing to create various shadow effects.
+   * Enumerates the shadow drawing behaviors.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -1034,19 +1185,19 @@ declare namespace drawing {
   }
 
   /**
-   * Provides an interface to the drawing, and samplingOptions used when sampling from the image.
+   * Implements sampling options.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
   class SamplingOptions {
     /**
-     * Constructor for the samplingOptions.
+     * Creates a SamplingOptions object. The default value of FilterMode is FILTER_MODE_NEAREST.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     constructor();
     /**
-     * Constructor for the samplingOptions with filter mode.
+     * Creates a SamplingOptions object.
      * @param { FilterMode } filterMode - Storage filter mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1063,7 +1214,7 @@ declare namespace drawing {
    */
   class Canvas {
     /**
-     * A constructor used to create a Canvas object.
+     * Creates a Canvas object that uses a PixelMap as the drawing target.
      * @param { image.PixelMap } pixelmap - PixelMap used to create the object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1106,7 +1257,8 @@ declare namespace drawing {
     drawRoundRect(roundRect: RoundRect): void;
 
     /**
-     * Draws two nested rounded rectangles. The outer rectangle boundary must contain the inner rectangle boundary. Otherwise, there is no drawing effect.
+     * Draws two nested rounded rectangles. The outer rectangle boundary must contain the inner rectangle boundary.
+     * Otherwise, there is no drawing effect.
      * @param { RoundRect } outer - Outer rounded rectangle.
      * @param { RoundRect } inner - Inner rounded rectangle.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1129,7 +1281,8 @@ declare namespace drawing {
     /**
      * Draws a spot shadow and uses a given path to outline the ambient shadow.
      * @param { Path } path - Path object, which is used to outline the shadow.
-     * @param { common2D.Point3d } planeParams - 3D vector, which is used to determine the z-axis offset of an occluder relative to the canvas, based on its x and y coordinates.
+     * @param { common2D.Point3d } planeParams - 3D vector, which is used to determine the z-axis offset of an occluder relative to the canvas,
+     * based on its x and y coordinates.
      * @param { common2D.Point3d } devLightPos - Position of the light relative to the canvas.
      * @param { number } lightRadius - Radius of the light. The value is a floating point number.
      * @param { common2D.Color } ambientColor - Color of the ambient shadow.
@@ -1215,7 +1368,8 @@ declare namespace drawing {
     /**
      * Splits an image into nine sections using two horizontal and two vertical lines: four edge sections, four corner sections, and a central section.
      * If the four corner sections are smaller than the target rectangle, they will be drawn in the target rectangle without scaling.
-     * Otherwise, they will be scaled to fit the target rectangle. Any remaining space will be filled by stretching or compressing the other five sections to cover the entire target rectangle.
+     * Otherwise, they will be scaled to fit the target rectangle. Any remaining space will be filled by stretching or
+     * compressing the other five sections to cover the entire target rectangle.
      * @param { image.PixelMap } pixelmap - PixelMap to split.
      * @param { common2D.Rect } center - Central rectangle that divides the image into nine sections by extending its four edges.
      * @param { common2D.Rect } dstRect - Target rectangle drawn on the canvas.
@@ -1229,8 +1383,7 @@ declare namespace drawing {
       filterMode: FilterMode): void;
 
     /**
-     * Draws the specified source image onto the canvas,
-     * scaled and translated to the destination rectangle.
+     * Draws an image onto a specified area of the canvas.
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
      * @param { SamplingOptions } samplingOptions - Sampling options. By default, the SamplingOptions object created using the no-argument constructor is used.
@@ -1242,8 +1395,7 @@ declare namespace drawing {
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
     /**
-     * Draws the specified source rectangle of the image onto the canvas,
-     * scaled and translated to the destination rectangle.
+     * Draws a portion of an image onto a specified area of the canvas.
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } srcRect - Rectangle object, which specifies the portion of the image to draw.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
@@ -1258,7 +1410,7 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * Fills clip with color color. Mode determines how ARGB is combined with destination.
+     * Draws the background color.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1269,11 +1421,15 @@ declare namespace drawing {
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
     /**
-     * Draws the background color. This API provides better performance and is recommended.
-     * @param { number } alpha - Alpha channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } red - Red channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } green - Green channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
-     * @param { number } blue - Blue channel value of the color in ARGB format. The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * Fills the drawable area of the canvas with the specified color and blend mode. This API provides better performance and is recommended.
+     * @param { number } alpha - Alpha channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } red - Red channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } green - Green channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
+     * @param { number } blue - Blue channel value of the color in ARGB format.
+     * The value is an integer ranging from 0 to 255. Any passed-in floating point number is rounded down.
      * @param { BlendMode } blendMode - Blend mode. The default mode is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1294,7 +1450,7 @@ declare namespace drawing {
     drawColor(color: number, blendMode?: BlendMode): void;
 
     /**
-     * Draws an oval on the canvas. The shape and position of the oval are defined by the rectangle parameters that specify the oval boundary.
+     * Draws an oval on the canvas, where the shape and position of the oval are defined by its bounding rectangle.
      * @param { common2D.Rect } oval - Rectangle. The oval inscribed within the rectangle is the oval to draw.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1304,10 +1460,17 @@ declare namespace drawing {
     drawOval(oval: common2D.Rect): void;
 
     /**
-     * Draws an arc on the canvas, with the start angle and sweep angle specified. If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
+     * Draws an arc on the canvas, with the start angle and sweep angle specified.
+     * If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
      * @param { common2D.Rect } arc - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise, and a negative number indicates that the start point is placed counterclockwise.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The valid range is from -360 degrees to 360 degrees. If the absolute value of the sweep angle exceeds 360 degrees, an ellipse is drawn.
+     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number.
+     * When the degree is 0, the start point is located at the right end of the oval.
+     * A positive number indicates that the start point is placed clockwise,
+     * and a negative number indicates that the start point is placed counterclockwise.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number.
+     * A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe.
+     * The valid range is from -360 degrees to 360 degrees. If the absolute value of the sweep angle exceeds 360 degrees,
+     * an ellipse is drawn.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1316,11 +1479,18 @@ declare namespace drawing {
     drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void;
 
     /**
-     * Draws an arc on the canvas. It enables you to define the start angle, sweep angle, and whether the arc's endpoints should connect to its center.
+     * Draws an arc on the canvas. It enables you to define the start angle, sweep angle,
+     * and whether the arc's endpoints should connect to its center.
      * @param { common2D.Rect } arc - Rectangular boundary that encapsulates the oval including the arc.
-     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number. When the degree is 0, the start point is located at the right end of the oval. A positive number indicates that the start point is placed clockwise, and a negative number indicates that the start point is placed counterclockwise.
-     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number. A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe. The swipe angle can exceed 360 degrees, and a complete ellipse is drawn.
-     * @param { boolean } useCenter - Whether the start point and end point of the arc are connected to its center. The value true means that they are connected to the center; the value false means the opposite.
+     * @param { number } startAngle - Start angle, in degrees. The value is a floating point number.
+     * When the degree is 0, the start point is located at the right end of the oval.
+     * A positive number indicates that the start point is placed clockwise,
+     * and a negative number indicates that the start point is placed counterclockwise.
+     * @param { number } sweepAngle - Angle to sweep, in degrees. The value is a floating point number.
+     * A positive number indicates a clockwise sweep, and a negative value indicates a counterclockwise swipe.
+     * The swipe angle can exceed 360 degrees, and a complete ellipse is drawn.
+     * @param { boolean } useCenter - Whether the start point and end point of the arc are connected to its center.
+     * The value true means that they are connected to the center; the value false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -1359,7 +1529,8 @@ declare namespace drawing {
     drawPath(path: Path): void;
 
     /**
-     * Draws a line segment from the start point to the end point. If the coordinates of the start point are the same as those of the end point, nothing is drawn.
+     * Draws a line segment from the start point to the end point. If the coordinates of the start point are the same as those of the end point,
+     * nothing is drawn.
      * @param { number } x0 - X coordinate of the start point of the line segment. The value is a floating point number.
      * @param { number } y0 - Y coordinate of the start point of the line segment. The value is a floating point number.
      * @param { number } x1 - X coordinate of the end point of the line segment. The value is a floating point number.
@@ -1372,11 +1543,14 @@ declare namespace drawing {
     drawLine(x0: number, y0: number, x1: number, y1: number): void;
 
     /**
-     * Draws a single character. If the typeface of the current font does not support the character to draw, the system typeface is used to draw the character.
+     * Draws a single character. If the typeface of the current font does not support the character to draw,
+     * the system typeface is used to draw the character.
      * @param { string } text - Single character to draw. The length of the string must be 1.
      * @param { Font } font - Font object.
-     * @param { number } x - X coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below). The value is a floating point number.
-     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below). The value is a floating point number.
+     * @param { number } x - X coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below).
+     * The value is a floating point number.
+     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the character baseline (blue line in the figure below).
+     * The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1387,8 +1561,10 @@ declare namespace drawing {
     /**
      * Draws a text blob. If the typeface used to construct blob does not support a character, that character will not be drawn.
      * @param { TextBlob } blob - TextBlob to draw.
-     * @param { number } x - X coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below). The value is a floating point number.
-     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below). The value is a floating point number.
+     * @param { number } x - X coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below).
+     * The value is a floating point number.
+     * @param { number } y - Y coordinate of the left point (red point in the figure below) of the text baseline (blue line in the figure below).
+     * The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1401,9 +1577,11 @@ declare namespace drawing {
      * @param { image.PixelMap } pixelmap - PixelMap to draw.
      * @param { number } meshWidth - Number of columns in the mesh. The value is an integer greater than 0.
      * @param { number } meshHeight - Number of rows in the mesh. The value is an integer greater than 0.
-     * @param { Array<number> } vertices - Array of vertices, which specify the position to draw. The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
+     * @param { Array<number> } vertices - Array of vertices, which specify the position to draw.
+     * The value is a floating-point array and the size must be ((meshWidth+1) * (meshHeight+1) + vertOffset) * 2.
      * @param { number } vertOffset - Number of vert elements to skip before drawing. The value is an integer greater than or equal to 0.
-     * @param { Array<number> } colors - Array of colors, which specify the color at each vertex. The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
+     * @param { Array<number> } colors - Array of colors, which specify the color at each vertex.
+     * The value is an integer array and can be null. The size must be (meshWidth+1) * (meshHeight+1) + colorOffset.
      * @param { number } colorOffset - Number of color elements to skip before drawing. The value is an integer greater than or equal to 0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1424,7 +1602,7 @@ declare namespace drawing {
     drawRegion(region: Region): void;
 
     /**
-     * Attaches a pen to a canvas so that the canvas can use the style and color of the pen to outline a shape.
+     * Attaches a pen to the canvas. When you draw on the canvas, the pen's style is used to outline shapes.
      * @param { Pen } pen - Pen object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1434,7 +1612,7 @@ declare namespace drawing {
     attachPen(pen: Pen): void;
 
     /**
-     * Attaches a brush to a canvas so that the canvas can use the style and color of the brush to fill in a shape.
+     * Attaches a brush to the canvas. When you draw on the canvas, the brush's style is used to fill the interior of shapes.
      * @param { Brush } brush - Brush object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1444,21 +1622,21 @@ declare namespace drawing {
     attachBrush(brush: Brush): void;
 
     /**
-     * Detaches the pen from a canvas so that the canvas can no longer use the style and color of the pen to outline a shape.
+     * Detaches the pen from the canvas. When you draw on the canvas, the pen is no longer used to outline shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     detachPen(): void;
 
     /**
-     * Detaches the brush from a canvas so that the canvas can no longer use the style and color of the brush to fill in a shape.
+     * Detaches the brush from the canvas. When you draw on the canvas, the brush is no longer used to fill the interior of shapes.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     detachBrush(): void;
 
     /**
-     * Saves the current canvas status (canvas matrix) to the top of the stack. This API must be used in pair with restore.
+     * Saves the canvas states (canvas matrix and drawable area) to the top of the stack. This API must be used in pair with restore.
      * @returns { number } Number of canvas statuses. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1468,8 +1646,10 @@ declare namespace drawing {
     /**
      * Saves the matrix and cropping region of the canvas, and allocates a PixelMap for subsequent drawing.
      * If you call restore, changes made to the matrix and clipping region are discarded, and the PixelMap is drawn.
-     * @param { common2D.Rect | null} rect - Rect object, which is used to limit the size of the graphics layer. The default value is the current canvas size.
-     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the bitmap is drawn. If null is passed in, no effect is applied.
+     * @param { common2D.Rect | null} rect - Rect object, which is used to limit the size of the graphics layer.
+     * The default value is the current canvas size.
+     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the bitmap is drawn.
+     * If null is passed in, no effect is applied.
      * @returns { number } Number of canvas statuses that have been saved. The value is a positive integer.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1478,7 +1658,7 @@ declare namespace drawing {
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
     /**
-     * Clears the canvas with a given color.
+     * Clears the canvas with a given color. This API has the same effect as drawcolor.
      * @param { common2D.Color } color - Color in ARGB format. Each color channel is an integer ranging from 0 to 255.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1496,15 +1676,17 @@ declare namespace drawing {
     clear(color: common2D.Color | number): void;
 
     /**
-     * Restores the canvas status (canvas matrix) saved on the top of the stack.
+     * Restores the canvas state (canvas matrix and clipping area) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     restore(): void;
 
     /**
-     * Restores to a given number of canvas statuses (canvas matrices).
-     * @param { number } count - Depth of the canvas statuses to restore. The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state. If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
+     * Restores the canvas state (canvas matrix and clipping area) to a specified number.
+     * @param { number } count - Depth of the canvas statuses to restore.
+     * The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state.
+     * If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1513,7 +1695,7 @@ declare namespace drawing {
     restoreToCount(count: number): void;
 
     /**
-     * Obtains the number of canvas statuses (canvas matrices) saved in the stack.
+     * Obtains the number of canvas states (canvas matrix and clipping area) saved in the stack.
      * @returns { number } Number of canvas statuses that have been saved. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1553,7 +1735,8 @@ declare namespace drawing {
     getTotalMatrix(): Matrix;
 
     /**
-     * Scales the canvas.
+     * Applies a scaling matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a scaling effect applied to the shapes and positions.
      * @param { number } sx - Scale ratio on the X axis. The value is a floating point number.
      * @param { number } sy - Scale ratio on the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1564,9 +1747,14 @@ declare namespace drawing {
     scale(sx: number, sy: number): void;
 
     /**
-     * Skews the canvas in both the horizontal and vertical directions.
-     * @param { number } sx - Amount of tilt on the X axis. The value is a floating point number. A positive number tilts the drawing rightwards along the positive direction of the Y axis, and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
-     * @param { number } sy - Amount of tilt on the Y axis. The value is a floating point number. A positive number tilts the drawing downwards along the positive direction of the X axis, and a negative number tilts the drawing upwards along the positive direction of the X axis.
+     * Applies a skewing matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a skewing effect applied to the shapes and positions.
+     * @param { number } sx - Amount of tilt on the X axis. The value is a floating point number.
+     * A positive number tilts the drawing rightwards along the positive direction of the Y axis,
+     * and a negative number tilts the drawing leftwards along the positive direction of the Y axis.
+     * @param { number } sy - Amount of tilt on the Y axis. The value is a floating point number.
+     * A positive number tilts the drawing downwards along the positive direction of the X axis,
+     * and a negative number tilts the drawing upwards along the positive direction of the X axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1575,8 +1763,10 @@ declare namespace drawing {
     skew(sx: number, sy: number) : void;
 
     /**
-     * Rotates the canvas by a certain angle.
-     * @param { number } degrees - Angle to rotate, in degrees. The value is a floating point number. A positive value indicates a clockwise rotation, and a negative value indicates a counterclockwise rotation.
+     * Applies a rotation matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a rotation effect applied to their shapes and positions.
+     * @param { number } degrees - Angle to rotate, in degrees. The value is a floating point number.
+     * A positive value indicates a clockwise rotation, and a negative value indicates a counterclockwise rotation.
      * @param { number } sx - X coordinate of the rotation center. The value is a floating point number.
      * @param { number } sy - Y coordinate of the rotation center. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1587,7 +1777,8 @@ declare namespace drawing {
     rotate(degrees: number, sx: number, sy: number) : void;
 
     /**
-     * Translates the canvas by a given distance.
+     * Applies a translation matrix on top of the current canvas matrix (identity matrix by default).
+     * Subsequent drawing and clipping operations will automatically have a translation effect applied to the shapes and positions.
      * @param { number } dx - Distance to translate on the X axis. The value is a floating point number.
      * @param { number } dy - Distance to translate on the Y axis. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1598,11 +1789,11 @@ declare namespace drawing {
     translate(dx: number, dy: number): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference of the current clipping area and path,
-     * and use a clipping edge that is aliased or anti-aliased.
+     * Clips the drawable area of the canvas using a custom path.
      * @param { Path } path - To combine with clip.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1611,11 +1802,11 @@ declare namespace drawing {
     clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference between the
-     * current clipping area and Rect, and use a clipping edge that is aliased or anti-aliased.
+     * Clips the drawable area of the canvas using a rectangle.
      * @param { common2D.Rect } rect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clip mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1624,7 +1815,8 @@ declare namespace drawing {
     clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
     /**
-     * Preconcats the existing matrix of the canvas with the passed-in matrix. The drawing operation triggered before this API is called is not affected.
+     * Multiplies the current canvas matrix by the incoming matrix on the left. This API does not affect previous drawing operations,
+     * but subsequent drawing and clipping operations will be influenced by this matrix in terms of shape and position.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1634,8 +1826,7 @@ declare namespace drawing {
     concatMatrix(matrix: Matrix): void;
 
     /**
-     * Replace the clipping area with the intersection or difference of the
-     * current clipping area and Region, and use a clipping edge that is aliased or anti-aliased.
+     * Clips a region on the canvas.
      * @param { Region } region - Region object, which indicates the range to clip.
      * @param { ClipOp } clipOp - Clipping mode. The default value is INTERSECT.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1646,11 +1837,11 @@ declare namespace drawing {
     clipRegion(region: Region, clipOp?: ClipOp): void;
 
     /**
-     * Replaces the clipping area with the intersection or difference between the
-     * current clipping area and RoundRect, and use a clipping edge that is aliased or anti-aliased.
+     * Clips a rounded rectangle on the canvas.
      * @param { RoundRect } roundRect - To combine with clipping area.
      * @param { ClipOp } clipOp - Clipping mode. The default value is INTERSECT.
-     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite. The default value is false.
+     * @param { boolean } doAntiAlias - Whether to enable anti-aliasing. The value true means to enable anti-aliasing,
+     * and false means the opposite. The default value is false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1667,7 +1858,7 @@ declare namespace drawing {
     isClipEmpty(): boolean;
 
     /**
-     * Sets a matrix for the canvas.
+     * Sets a matrix for the canvas. Subsequent drawing and clipping operations will be affected by this matrix in terms of shape and position.
      * @param { Matrix } matrix - Declares functions related to the matrix object in the drawing module.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1800,7 +1991,8 @@ declare namespace drawing {
      * Converts a value of the string type into a TextBlob object.
      * @param { string } text - Content to be used for drawing the text blob.
      * @param { Font } font - Specify text size, font, text scale, etc.
-     * @param { TextEncoding } encoding - Encoding type. The default value is TEXT_ENCODING_UTF8. Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
+     * @param { TextEncoding } encoding - Encoding type. The default value is TEXT_ENCODING_UTF8.
+     * Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1811,10 +2003,12 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
 
     /**
-     * Creates a TextBlob object from the text. The coordinates of each font in the TextBlob object are determined by the coordinate information in the points array.
+     * Creates a TextBlob object from the text.
+     * The coordinates of each font in the TextBlob object are determined by the coordinate information in the points array.
      * @param { string } text - Content to be used for drawing the text blob.
      * @param { number } len - Number of fonts. The value is an integer and is obtained from countText.
-     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font. The array length must be the same as the value of len.
+     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
+     * The array length must be the same as the value of len.
      * @param { Font } font - Specify text size, font, text scale, etc.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1848,28 +2042,66 @@ declare namespace drawing {
     bounds(): common2D.Rect;
 
     /**
-     * Obtains the unique identifier of a text blob. The identifier is a non-zero value.
+     * Obtains the unique, non-zero identifier of this TextBlob object.
      * @returns { number } Unique ID.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     uniqueID(): number;
+  
+
   }
 
   /**
-   * Describes the typeface such as SimSun and Kaiti.
+   * Provides an interface to the drawing, and describe the arguments for a font.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  class TypefaceArguments {
+    /**
+     * Constructor for the TypefaceArguments.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor();
+    /**
+     * Adds variation axis for the TypefaceArguments.
+     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
+     * @param { number } value  - Indicates the value of the axis field.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    addVariation(axis: string, value: number);
+  }
+
+  /**
+   * Describes the style of a typeface, such as SimSun or KaiTi.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
   class Typeface {
     /**
-     * Obtains the name of the typeface, that is, the name of the font family.
+     * Obtains the name of the typeface family, which is the name given to a collection of related typeface designs.
      * @returns { string } Family name.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     getFamilyName(): string;
+
+    /**
+     * Generate typeface from current typeface and TypefaceArguments.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
 
     /**
      * Constructs a typeface from a file.
@@ -1884,12 +2116,40 @@ declare namespace drawing {
 
     /**
      * Constructs a typeface from a file, which must be stored in the resources/rawfile directory of the application project.
-     * @param { Resource } rawfile - Resource object corresponding to the file. Currently, only resource objects referenced in rawfile format are supported. The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project. If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf'). If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * @param { Resource } rawfile - Resource object corresponding to the file.
+     * Currently, only resource objects referenced in rawfile format are supported.
+     * The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     * If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
     static makeFromRawFile(rawfile: Resource): Typeface;
+
+    /**
+     * Generate typeface from file and TypefaceArguments.
+     * @param { string } filePath - file path for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
+
+    /**
+     * Generate typeface from Rawfile and TypefaceArguments.
+     * @param { Resource } rawfile - RawFile for typeface.
+     * @param { TypefaceArguments } typefaceArguments - TypefaceArguments for typeface.
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
   }
 
   /**
@@ -1968,7 +2228,8 @@ declare namespace drawing {
   class Font {
     /**
      * Enables subpixel font rendering.
-     * @param { boolean } isSubpixel - Whether to enable subpixel font rendering. The value true means to enable subpixel font rendering, and false means the opposite.
+     * @param { boolean } isSubpixel - Whether to enable subpixel font rendering.
+     * The value true means to enable subpixel font rendering, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1978,7 +2239,8 @@ declare namespace drawing {
 
     /**
      * Enables emboldened fonts.
-     * @param { boolean } isEmbolden - Whether to enable emboldened fonts. The value true means to enable emboldened fonts, and false means the opposite.
+     * @param { boolean } isEmbolden - Whether to enable emboldened fonts.
+     * The value true means to enable emboldened fonts, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1988,7 +2250,8 @@ declare namespace drawing {
 
     /**
      * Enables linear font scaling.
-     * @param { boolean } isLinearMetrics - Whether to enable linear font scaling. The value true means to enable linear font scaling, and false means the opposite.
+     * @param { boolean } isLinearMetrics - Whether to enable linear font scaling.
+     * The value true means to enable linear font scaling, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1998,7 +2261,8 @@ declare namespace drawing {
 
     /**
      * Sets the text size.
-     * @param { number } textSize - Text size. The value is a floating point number. If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
+     * @param { number } textSize - Text size. The value is a floating point number.
+     * If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2015,7 +2279,7 @@ declare namespace drawing {
     getSize(): number;
 
     /**
-     * Sets Typeface to font.
+     * Sets the typeface style (including attributes such as font name, weight, and italic) for the font.
      * @param { Typeface } typeface - Font and style used to draw text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2041,7 +2305,8 @@ declare namespace drawing {
     getMetrics(): FontMetrics;
 
     /**
-     * Measures the width of a single character. If the typeface of the current font does not support the character to measure, the system typeface is used to measure the character width.
+     * Measures the width of a single character.
+     * If the typeface of the current font does not support the character to measure, the system typeface is used to measure the character width.
      * @param { string } text - Single character to measure. The length of the string must be 1.
      * @returns { number } Width of the character. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2075,7 +2340,8 @@ declare namespace drawing {
 
     /**
      * Sets a horizontal skew factor for this font.
-     * @param { number } skewX - Horizontal skew factor. A positive number means a skew to the left, and a negative number means a skew to the right. The value is a floating point number.
+     * @param { number } skewX - Horizontal skew factor.
+     * A positive number means a skew to the left, and a negative number means a skew to the right. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2116,7 +2382,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to request that baselines be snapped to pixels when the current canvas matrix is axis aligned.
-     * @param { boolean } isBaselineSnap - Whether to request that baselines be snapped to pixels. The value true means to request that baselines be snapped to pixels, and false means the opposite.
+     * @param { boolean } isBaselineSnap - Whether to request that baselines be snapped to pixels.
+     * The value true means to request that baselines be snapped to pixels, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2126,7 +2393,8 @@ declare namespace drawing {
 
     /**
      * Checks whether baselines are requested to be snapped to pixels when the current canvas matrix is axis aligned.
-     * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels, and false means the opposite.
+     * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels,
+     * and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -2134,7 +2402,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to use bitmaps in this font.
-     * @param { boolean } isEmbeddedBitmaps - Whether to use bitmaps in the font. The value true means to use bitmaps in the font, and false means the opposite.
+     * @param { boolean } isEmbeddedBitmaps - Whether to use bitmaps in the font. The value true means to use bitmaps in the font,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2152,7 +2421,8 @@ declare namespace drawing {
 
     /**
      * Sets whether to forcibly use auto hinting, that is, whether to always hint glyphs.
-     * @param { boolean } isForceAutoHinting - Whether to forcibly use auto hinting. The value true means to forcibly use auto hinting, and false means the opposite.
+     * @param { boolean } isForceAutoHinting - Whether to forcibly use auto hinting. The value true means to forcibly use auto hinting,
+     * and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2182,7 +2452,8 @@ declare namespace drawing {
     /**
      * Converts text into glyph indexes.
      * @param { string } text - Text string.
-     * @param { number } glyphCount - Number of glyphs represented by the text. The value must be the same as the value obtained from countText. The default value is the number of characters in the text string. The value is an integer.
+     * @param { number } glyphCount - Number of glyphs represented by the text. The value must be the same as the value obtained from countText.
+     * The default value is the number of characters in the text string. The value is an integer.
      * @returns { Array<number> } Returns the storage for glyph indices.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2273,7 +2544,8 @@ declare namespace drawing {
     /**
      * Obtains the outline path of a text.
      * @param { string } text - UTF-8 text-encoded characters.
-     * @param { number } byteLength - Length of the outline path, which is obtained based on the minimum value between the passed value of byteLength and the actual text byte size.
+     * @param { number } byteLength - Length of the outline path,
+     * which is obtained based on the minimum value between the passed value of byteLength and the actual text byte size.
      * @param { number } x - X coordinate of the text in the drawing area, with the origin as the start point.
      * @param { number } y - Y coordinate of the text in the drawing area, with the origin as the start point.
      * @returns { Path } Outline path of the text.
@@ -2285,8 +2557,10 @@ declare namespace drawing {
     getTextPath(text: string, byteLength: number, x: number, y: number): Path;
 
     /**
-     * Sets whether to follow the theme font. When followed is set to true, the theme font is used if it is enabled by the system and no typeface is set.
-     * @param { boolean } followed - Whether to follow the theme font. The value true means to follow the theme font, and false means the opposite.
+     * Sets whether to follow the theme font. When followed is set to true,
+     * the theme font is used if it is enabled by the system and no typeface is set.
+     * @param { boolean } followed - Whether to follow the theme font.
+     * The value true means to follow the theme font, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2295,7 +2569,7 @@ declare namespace drawing {
     setThemeFontFollowed(followed: boolean): void;
 
     /**
-     * Checks whether the font follows the theme font. By default, the theme font is not followed.
+     * Checks whether the font follows the theme font. By default, the font follows the theme font.
      * @returns { boolean } Check result. The value true means that the theme font is followed, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 15
@@ -2495,7 +2769,8 @@ declare namespace drawing {
      * @param { number } fXCount - Size of the array that holds the X coordinates. The value range is [0, 5].
      * @param { number } fYCount - Size of the array that holds the Y coordinates. The value range is [0, 5].
      * @param { common2D.Rect | null } fBounds - Source bounds to draw. The rectangle parameter must be an integer.
-     * The default value is the rectangle size of the original image. If the rectangle parameter is a decimal, the decimal part is discarded and converted into an integer.
+     * The default value is the rectangle size of the original image. If the rectangle parameter is a decimal,
+     * the decimal part is discarded and converted into an integer.
      * @param { Array<RectType> | null } fRectTypes - Array that holds the rectangle types. The default value is null.
      * If this parameter is specified, the array size must be (fXCount + 1) * (fYCount + 1).
      * @param { Array<common2D.Color> | null } fColors - Array that holds the colors used to fill the lattices. The default value is null.
@@ -2520,10 +2795,12 @@ declare namespace drawing {
      * @param { number } fXCount - Size of the array that holds the X coordinates. The value range is [0, 5].
      * @param { number } fYCount - Size of the array that holds the Y coordinates. The value range is [0, 5].
      * @param { common2D.Rect | null } fBounds - Source bounds to draw. The rectangle parameter must be an integer.
-     * The default value is the rectangle size of the original image. If the rectangle parameter is a decimal, the decimal part is discarded and converted into an integer.
+     * The default value is the rectangle size of the original image. If the rectangle parameter is a decimal,
+     * the decimal part is discarded and converted into an integer.
      * @param { Array<RectType> | null } fRectTypes - Array that holds the rectangle types. The default value is null.
      * If this parameter is specified, the array size must be (fXCount + 1) * (fYCount + 1).
-     * @param { Array<number> | null } fColors - Array that holds the colors used to fill the lattices. Each color is represented by a 32-bit unsigned integer in hexadecimal ARGB format.
+     * @param { Array<number> | null } fColors - Array that holds the colors used to fill the lattices. 
+     * Each color is represented by a 32-bit unsigned integer in hexadecimal ARGB format.
      * The default value is null. If this parameter is specified, the array size must be (fXCount + 1) * (fYCount + 1).
      * @returns { Lattice } Lattice object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2743,7 +3020,7 @@ declare namespace drawing {
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
-     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
+     * The radial gradient transitions colors from the center to the ending shape in a radial manner.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { number } radius - Radius of the gradient. A negative number is invalid. The value is a floating point number.
      * @param { Array<number> } colors - Array of colors to distribute between the center and ending shape of the circle.
@@ -2765,8 +3042,8 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
-     * either in a clockwise or counterclockwise direction.
+     * Creates a ShaderEffect object that generates a sweep gradient based on the center.
+     * A sweep gradient paints a gradient of colors in a clockwise or counterclockwise direction based on a given circle center.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      * The values in the array are 32-bit (ARGB) unsigned integers.
@@ -2818,6 +3095,38 @@ declare namespace drawing {
     static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
       endRadius: number, colors: Array<number>, mode: TileMode,
       pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates an ShaderEffect object that generates a shader with single image.
+     * @param { image.PixelMap } pixelmap - PixelMap.
+     * @param { TileMode } tileX - Indicates the type of tile mode for horizontal shader effect.
+     * @param { TileMode } tileY - Indicates the type of tile mode for vertical shader effect.
+     * @param { SamplingOptions } samplingOptions - SamplingOptions used to describe the sampling mode.
+     * @param { Matrix | null } matrix - Indicates the Matrix object. The default value is null.
+     * @returns { ShaderEffect } Returns the shader with single image ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode,
+      samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect;
+    
+    /**
+     * Creates an ShaderEffect object that generates a blend ShaderEffect object by two shaders.
+     * @param { ShaderEffect } dstShaderEffect - Indicates a destination ShaderEffect pointer.
+     * @param { ShaderEffect } srcShaderEffect - Indicates a source ShaderEffect pointer.
+     * @param { BlendMode } blendMode - BlendMode.
+     * @returns { ShaderEffect } Returns a blend ShaderEffect object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect,
+      blendMode: BlendMode): ShaderEffect;
   }
 
   /**
@@ -2978,6 +3287,19 @@ declare namespace drawing {
      * @since 12
      */
     static createMatrixColorFilter(matrix: Array<number>): ColorFilter;
+    
+    /**
+     * Makes a color filter with the given mutColor and addColor.
+     * @param { common2D.Color | number } mutColor - The range of color channels must be [0, 255], used to multiply source color.
+     * @param { common2D.Color | number } addColor - The range of color channels must be [0, 255], used to add to source color.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createLightingColorFilter(mutColor: common2D.Color | number, addColor: common2D.Color | number): ColorFilter;
+
   }
 
   /**
@@ -3016,6 +3338,73 @@ declare namespace drawing {
      * @since 12
      */
     static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that instance with the provided x and y offset.
+     * @param { number } dx - Indicates the offset in the X direction.
+     * @param { number } dy - Indicates the offset in the Y direction.
+     * @param { ImageFilter | null } input - Indicates the input image filter used to generate offset effects, or uses
+     * the source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createOffsetImageFilter(dx: number, dy: number, input?: ImageFilter | null): ImageFilter;
+    
+    /**
+     * Makes an ImageFilter object that applies the bitmap to the input.
+     * @param { image.PixelMap } pixelmap - The source input image.
+     * @param { common2D.Rect | null } srcRect - Indicates the input srcRect, or uses the source bitmap if this is null.
+     * @param { common2D.Rect | null } dstRect - Indicates the input dstRect, or uses the source bitmap if this is null.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter;
+  
+    /**
+     * Makes an ImageFilter object that applies the blend to the input.
+     * @param { BlendMode } mode - Blendmode.
+     * @param { ImageFilter } background - Indicates the input background filter.
+     * @param { ImageFilter } foreground - Indicates the input foreground filter.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+    */
+    static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that combines the "inner" and "outer" filters, allowing the output of the "inner"
+     * filter to serve as the input source bitmap for the "outer" filter.
+     * @param { ImageFilter } cOuter - Indicates the instance to apply its effects to the output of the 'inner'
+     * filter.
+     * @param { ImageFilter } cInner - Indicates the output as input for "outer" filters.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter;
+
+    /**
+     * Makes an ImageFilter object that renders the contents of the input Shader.
+     * 
+     * @param { ShaderEffect } shader - Indicates the shader effect to be applied to the image.
+     * @returns { ImageFilter } ImageFilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static createFromShaderEffect(shader: ShaderEffect): ImageFilter;
   }
   /**
    * Enumerates the join styles of a pen. The join style defines the shape of the joints of a polyline segment drawn by the pen.
@@ -3202,12 +3591,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Set the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this pen.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a pen. The color is used by the pen to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this pen.
@@ -3239,7 +3649,7 @@ declare namespace drawing {
     getWidth(): number;
 
     /**
-    * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother. If this API is not called, anti-aliasing is disabled by default.
+    * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
     *
     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3358,7 +3768,7 @@ declare namespace drawing {
     setDither(dither: boolean): void;
 
     /**
-     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
+     * Sets the join style for this pen.
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3378,7 +3788,7 @@ declare namespace drawing {
     getJoinStyle(): JoinStyle;
 
     /**
-     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
+     * Sets the cap style for this pen.
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3478,12 +3888,33 @@ declare namespace drawing {
     setColor(color: number): void;
 
     /**
+     * Sets the color by four floating point values, unpremultiplied. The color values are interpreted as being in
+     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the sRGB color space.
+     *
+     * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
+     * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
+
+    /**
      * Obtains the color of this brush.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of a brush. The color is used by the brush to outline a shape.
+     * @returns { common2D.Color4f } Returns four floating point values that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getColor4f(): common2D.Color4f;
 
     /**
      * Obtains the color of this brush.
@@ -3495,7 +3926,6 @@ declare namespace drawing {
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
-     * If this API is not called, anti-aliasing is disabled by default.
      * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3588,7 +4018,7 @@ declare namespace drawing {
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
     /**
-     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * Sets a blend mode for this brush.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3618,6 +4048,33 @@ declare namespace drawing {
      * @since 12
      */
     constructor();
+
+    /**
+     * Creates a deep copy of the specified matrix object.
+     * @param { Matrix } matrix - The matrix object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(matrix: Matrix);
+
+    /**
+     * Query whether the current matrix is affine or not.
+     * @returns { boolean } Returns true if the matrix is affine; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isAffine(): boolean;
+
+    /**
+     * Query whether a rectangle will map to another rectangle after applying this matrix.
+     * @returns { boolean } Returns true if the transformation keeps rectangles as rectangles; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    rectStaysRect(): boolean;
 
     /**
      * Sets this matrix as an identity matrix and rotates it by a given degree around the rotation point (px, py).
@@ -3661,6 +4118,30 @@ declare namespace drawing {
     setTranslation(dx: number, dy: number): void;
 
     /**
+     * Sets the skew transformation with a pivot point.
+     * @param { number } kx - The skew factor along the x-axis.
+     * @param { number } ky - The skew factor along the y-axis.
+     * @param { number } px - The x-coordinate of the point around which to apply the skew.
+     * @param { number } py - The y-coordinate of the point around which to apply the skew.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setSkew(kx: number, ky: number, px: number, py: number): void;
+
+    /**
+     * Sets the sine and cosine values for a rotation transformation around a point.
+     * @param { number } sinValue - The sine of the angle of rotation.
+     * @param { number } cosValue - The cosine of the angle of rotation.
+     * @param { number } px - The x-coordinate of the point around which to rotate.
+     * @param { number } py - The y-coordinate of the point around which to rotate.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setSinCos(sinValue: number, cosValue: number, px: number, py: number): void;
+
+    /**
      * Sets parameters for this matrix.
      * @param { Array<number> } values - Each value in the array represents the following parameters:
      * values[0] - horizontal scale factor to store.
@@ -3678,6 +4159,34 @@ declare namespace drawing {
      * @since 12
      */
     setMatrix(values: Array<number>): void;
+
+    /**
+     * Sets matrix to the copy of anther matrix object.
+     * @param { Array<number> | Matrix } matrix - Indicates the Matrix object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setMatrix(matrix: Array<number> | Matrix): void;
+
+    /**
+     * Sets matrix to the product of matrix A and matrix B.
+     * @param { Matrix } matrixA - Indicates the MatrixA object.
+     * @param { Matrix } matrixB - Indicates the MatrixB object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setConcat(matrixA: Matrix, matrixB: Matrix): void;
+
+    /**
+     * Sets matrix to the product of 'this' and another.
+     * @param { Matrix } matrix - Indicates the other Matrix object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    postConcat(matrix: Matrix): void;
 
     /**
      * Preconcats the existing matrix with the passed-in matrix.
@@ -3730,7 +4239,8 @@ declare namespace drawing {
      */
     getValue(index: number): number;
     /**
-     * Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a given degree around the rotation point (px, py).
+     * Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a
+     * given degree around the rotation point (px, py).
      * @param { number } degree - Angle to rotate, in degrees. A positive number indicates a clockwise rotation,
      * and a negative number indicates a counterclockwise rotation. The value is a floating point number.
      * @param { number } px - X coordinate of the rotation point. The value is a floating point number.
@@ -3767,8 +4277,23 @@ declare namespace drawing {
      * @since 12
      */
     postTranslate(dx: number, dy: number): void;
+
     /**
-     * Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a given degree around the rotation point (px, py).
+     * Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
+     * This can be thought of as scaling relative to a pivot point before applying matrix.
+     * @param { number } kx - Indicates the horizontal skew factor.
+     * @param { number } ky - Indicates the vertical skew factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    preSkew(kx: number, ky: number, px: number, py: number): void;
+  
+    /**
+     * Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a
+     * given degree around the rotation point (px, py).
      * @param { number } degree - Angle to rotate, in degrees. A positive number indicates a clockwise rotation,
      * and a negative number indicates a counterclockwise rotation. The value is a floating point number.
      * @param { number } px - X coordinate of the rotation point. The value is a floating point number.
@@ -3779,8 +4304,23 @@ declare namespace drawing {
      * @since 12
      */
     preRotate(degree: number, px: number, py: number): void;
+
     /**
-     * Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been scaled with the coefficient (sx, sy) at the scale point (px, py).
+     * Sets matrix to matrix constructed from skewing by (kx, ky) about pivot point (px, py), multiplied by matrix.
+     * This can be thought of as skewing relative to a pivot point after applying matrix.
+     * @param { number } kx - Indicates the horizontal skew factor.
+     * @param { number } ky - Indicates the vertical skew factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    postSkew(kx: number, ky: number, px: number, py: number): void;
+
+    /**
+     * Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been scaled with the
+     * coefficient (sx, sy) at the scale point (px, py).
      * @param { number } sx - Scale coefficient along the X axis. If a negative number is passed in,
      * the matrix is mirrored around y = px before being scaled. The value is a floating point number.
      * @param { number } sy - Scale coefficient along the Y axis. If a negative number is passed in,
@@ -3821,6 +4361,18 @@ declare namespace drawing {
      * @since 12
      */
     mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
+
+    /**
+     * Forms a circle by radius and maps it to a ellipse, returns the average radius of the ellipse.
+     * The average radius is equal to the square root of the product of the major axis length and the minor axis length.
+     * @param { number } radius - circle size to map.
+     * @returns { number } Return average mapped radius.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    mapRadius(radius: number): number;
+
     /**
      * Obtains all element values of this matrix.
      * @returns { Array<number> } nine scalar values contained by Matrix.
@@ -3829,7 +4381,11 @@ declare namespace drawing {
      */
     getAll(): Array<number>;
     /**
-     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the source rectangle with a matrix transformation.
+     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the source rectangle
+     * with a matrix transformation. As shown in the figure below, the blue rectangle represents the source rectangle,
+     * and the yellow rectangle is the shape obtained after a matrix transformation is applied to the source rectangle.
+     * Since the edges of the yellow rectangle are not aligned with the coordinate axes, it cannot be represented by a rectangle object.
+     * To address this issue, a destination rectangle (black rectangle) is defined as the bounding rectangle.
      * @param { common2D.Rect } dst - Rectangle object, which is used to store the bounding rectangle.
      * @param { common2D.Rect } src - Source rectangle.
      * @returns { boolean } Returns true if the mapped src is equal to the dst; returns false is not equal.
@@ -3912,6 +4468,82 @@ declare namespace drawing {
    */
   class Region {
     /**
+     * Creates an empty region.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor();
+
+    /**
+     * Creates a deep copy of the specified region object.
+     * @param { Region } region - The region object to copy.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(region: Region);
+
+    /**
+     * Creates a region with a rectangle.
+     * @param { number } left - Indicates the left edge of the rectangle.
+     * @param { number } top - Indicates the top edge of the rectangle.
+     * @param { number } right - Indicates the right edge of the rectangle.
+     * @param { number } bottom - Indicates the bottom edge of the rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    constructor(left: number, top: number, right: number, bottom: number);
+
+    /**
+     * Query whether this region is equal to the other region.
+     * @param { Region } other - Indicates the region object for comparasion.
+     * @returns { boolean } Returns compare result.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isEqual(other: Region): boolean;
+
+    /**
+     * Query whether the region contains multiple rectangles.
+     * @returns { boolean } Returns true if the region contains more than one rectangle;
+     * <br>returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isComplex(): boolean;
+
+    /**
+     * Query whether the region is empty .
+     * @returns { boolean } Returns true if the region is empty; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    isEmpty(): boolean;
+
+    /**
+     * Gets the bounds of the region.
+     * @returns { common2D.Rect } Returns Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getBounds(): common2D.Rect;
+
+    /** Gets the boundary of the region, which represents by a path.
+     * Gets the bounds of the region.
+     * @returns { Path } Returns Path object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    getBoundaryPath(): Path;
+
+    /**
      * Checks whether a point is contained in this region.
      * @param { number } x - X coordinate of the point. The value must be an integer. If a decimal is passed in, the decimal part is rounded off.
      * @param { number } y - Y coordinate of the point. The value must be an integer. If a decimal is passed in, the decimal part is rounded off.
@@ -3948,6 +4580,16 @@ declare namespace drawing {
     op(region: Region, regionOp: RegionOp): boolean;
 
     /**
+     * Offsets the region by adding dx along the x-axis and dy along the y-axis.
+     * @param { number } dx - Indicates the x coordinate of the point. The parameter must be an integer.
+     * @param { number } dy - Indicates the y coordinate of the point. The parameter must be an integer.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    offset(dx: number, dy: number): void;
+
+    /**
      * Checks whether a rectangle do not intersect with this region. Actually,
      * this API determines whether the rectangle does not intersect with the bounding rectangle of the region, and therefore the result may not be accurate.
      * @param { number } left - Left position of the rectangle. The value must be an integer. If a decimal is passed in, the decimal part is rounded off.
@@ -3961,6 +4603,17 @@ declare namespace drawing {
      * @since 12
      */
     quickReject(left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Determines whether region is intersect with another.
+     * @param { Region } region - Indicates the other region for comparasion.
+     * @returns { boolean } Returns true if the region dose not intersect the other, or the region is empty;
+     * <br>returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    quickRejectRegion(region: Region): boolean;
 
     /**
      * Sets a region that matches the outline of a path within the cropping area.
@@ -3987,6 +4640,23 @@ declare namespace drawing {
      * @since 12
      */
     setRect(left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Sets the region to the specified region.
+     * @param { Region } region - Region object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setRegion(region: Region): void;
+
+    /**
+     * Sets the region to empty.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    setEmpty(): void;
   }
 
   /**
@@ -4077,8 +4747,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the constraints on the source rectangle.
-   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
+   * Enumerates the constraint types of the source rectangle.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -4123,6 +4792,298 @@ declare namespace drawing {
      * @since 15
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
+  }
+
+  /**
+   * This class offers a comprehensive set of operations to handle for common2D Rect object.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  class RectUtils {
+    /**
+     * Makes an uninitialized 2D rectangular object with zero dimensions and origin at (0, 0).
+     *
+     * @returns { common2D.Rect } - Returns an empty Rect object with all coordinates (left, top, right, bottom) set to 0.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeEmpty() : common2D.Rect;
+
+    /**
+     * Makes a 2D rectangular object from boundary coordinates.
+     * @param { number } left - Indicates the X-coordinate of the left edge.
+     * @param { number } top - Indicates the Y-coordinate of the top edge.
+     * @param { number } right - Indicates the X-coordinate of the right edge.
+     * @param { number } bottom - Indicates the Y-coordinate of the bottom edge.
+     * @returns { common2D.Rect } - Returns an Rect object with the specific coordinates (left, top, right, bottom).
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeLtrb(left: number, top: number, right: number, bottom: number) : common2D.Rect;
+
+    /**
+     * Makes a deep copy of a 2D rectangular object.
+     * @param { common2D.Rect } src - Indicates the source rectangle to copy.
+     * @returns { common2D.Rect } - Returns an Rect object has the same boundary coordinates with the source.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static makeCopy(src: common2D.Rect) : common2D.Rect;
+
+    /**
+     * Gets the width of a 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the width.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static getWidth(rect: common2D.Rect): number;
+
+    /**
+     * Gets the height of a 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the height.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static getHeight(rect: common2D.Rect): number;
+
+    /**
+     * Calculates the x-coordinate of the center point of the 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the center X coordinate.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static centerX(rect: common2D.Rect): number;
+
+    /**
+     * Calculates the y-coordinate of the center point of the 2D rectangular object.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object to query.
+     * @returns { number } - Returns the center Y coordinate.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static centerY(rect: common2D.Rect): number;
+
+    /**
+     * Checks if one 2D rectangular object fully contains another.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { common2D.Rect } other - The Rect object to check for containment.
+     * @returns { boolean } - Returns true if 'rect' fully contains 'other'; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Checks if one 2D rectangular object fully contains the specified boundary coordinates.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { number } left - Indicates the left boundary of the target region.
+     * @param { number } top - Indicates the top boundary of the target region.
+     * @param { number } right - Indicates the right boundary of the target region.
+     * @param { number } bottom - Indicates the bottom boundary of the target region.
+     * @returns { boolean } - Returns true if 'rect' fully contains the specified boundary coordinates; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): boolean;
+
+    /**
+     * Checks if one 2D rectangular object contains a specific point.
+     *
+     * @param { common2D.Rect } rect - The container Rect object.
+     * @param { number } x - Indicates the X-coordinate of the point to check.
+     * @param { number } y - Indicates the Y-coordinate of the point to check.
+     * @returns { boolean } - Returns true if 'rect' contains the specified point; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static contains(rect: common2D.Rect, x: number, y: number): boolean;
+
+    /**
+     * Modifies a 2D rectangular's boundaries by inward offsets.
+     *
+     * @param { common2D.Rect } rect - The Rect object to adjust.
+     * @param { number } left - Indicates the amount to add from the left boundary.
+     * @param { number } top - Indicates the amount to add from the top boundary.
+     * @param { number } right - Indicates the amount to substract from the right boundary.
+     * @param { number } bottom - Indicates the amount to substract from the bottom boundary.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static inset(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void;
+
+    /**
+     * Relpace a 2D rectangular object by the intersection of itself and another.
+     * If the intersection is empty, nothing is done.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @returns { boolean } - Returns true if have area in common and 'rect' will be replaced by the intersection;
+     * returns false if the intersection is empty and 'rect' will not be modified.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Checks if two 2D rectangular objects intersect.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @returns { boolean } - Returns true if have area in common, otherwise return false.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isIntersect(rect: common2D.Rect, other: common2D.Rect): boolean;
+
+    /**
+     * Sets a 2D rectangular object to the union of itself and another.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static union(rect: common2D.Rect, other: common2D.Rect): void;
+
+    /**
+     * Checks if the 2D rectangular object is empty.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom); returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isEmpty(rect: common2D.Rect): boolean;
+
+    /**
+     * Offsets the 2D rectangular object by adding dx to its left and right coordinates,
+     * and adding dy to its top and bottom coordinates.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { number } dx - Indicates the amount to add to the rectangle's left and right coordinates.
+     * @param { number } dy - Indicates the amount to add to the rectangle's top and bottom coordinates.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static offset(rect: common2D.Rect, dx: number, dy: number): void;
+
+    /**
+     * Offsets the rectangle to a specific position and kepps the width and height unchanged.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { number } newLeft - Indicates the new left coordinates.
+     * @param { number } newTop - Indicates the new top coordinates.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static offsetTo(rect: common2D.Rect, newLeft: number, newTop: number): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object with that of another.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @param { common2D.Rect } other - Indicates the source rectangle to copy.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setRect(rect: common2D.Rect, other: common2D.Rect): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object with that of specific value.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @param { number } left - Indicates the X-coordinate of the left edge.
+     * @param { number } top - Indicates the Y-coordinate of the top edge.
+     * @param { number } right - Indicates the X-coordinate of the right edge.
+     * @param { number } bottom - Indicates the Y-coordinate of the bottom edge.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setLtrb(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void;
+
+    /**
+     * Sets the boundary coordinates of a 2D rectangular object to zero.
+     * @param { common2D.Rect } rect - Indicates the Rect object to be modified.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static setEmpty(rect: common2D.Rect): void;
+
+    /**
+     * Normalizes the 2D rectangular object to ensuer validity.
+     * Swaps the left and right if the left is greater than right;
+     * and swaps top and bottom if the top is greater than bottom.
+     * If the edges are already valid, then nothing is done.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static sort(rect: common2D.Rect): void;
+
+    /**
+     * Checks if the 2D rectangular object has the same coordinates value with another.
+     *
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { common2D.Rect } other - Indicates the other Rect object for comparison.
+     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal; returns false otherwise.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }
 }
 

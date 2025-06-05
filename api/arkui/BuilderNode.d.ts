@@ -184,7 +184,28 @@ export interface BuildOptions {
    */
   nestingBuilderSupported?: boolean;
 
+  /**
+   * The LocalStorage of the Builder.
+   * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  localStorage?: LocalStorage;
 }
+
+/**
+ * Defines the event type used for posting.
+ *
+ * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
 
 /**
  * Defines BuilderNode.
@@ -494,4 +515,16 @@ export class BuilderNode<Args extends Object[]> {
    * @since 12
    */
    updateConfiguration(): void;
+
+   /**
+   * Dispatch mouse event to targetNode.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
+   *    false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  postInputEvent(event: InputEventType): boolean;
 }

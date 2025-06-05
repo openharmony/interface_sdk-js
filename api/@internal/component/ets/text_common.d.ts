@@ -275,6 +275,47 @@ declare enum TextDeleteDirection {
 }
 
 /**
+ * Defines the superscript style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum SuperscriptStyle {
+  /**
+   * normal font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  NORMAL = 0,
+
+  /**
+   * Superscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUPERSCRIPT = 1,
+
+  /**
+   * Subscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUBSCRIPT = 2,
+}
+
+/**
  * Defines menu type.
  *
  * @enum { number }
@@ -1165,6 +1206,19 @@ declare interface TextMenuItem {
 }
 
 /**
+ * Callback before displaying the menu when the selection range changes.
+ *
+ * @typedef { function } OnPrepareMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
@@ -1197,6 +1251,16 @@ declare interface EditMenuOptions {
    * @since 12
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+  /**
+   * Callback before displaying the menu when the selection range changes.
+   *
+   * @type { ?OnPrepareMenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onPrepareMenu?: OnPrepareMenuCallback;
 }
 
 /**
@@ -1464,6 +1528,123 @@ declare enum KeyboardAppearance {
   DARK_IMMERSIVE = 3,
 }
 
+/**
+ * Defines shader style class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ShaderStyle {
+}
+
+/**
+ * Defines linear gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class LinearGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { LinearGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: LinearGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * angle: Angle of linear gradient.
+   * direction: Direction of Linear Gradient.
+   * colors: Color description for gradients.
+   * repeating: if the gradient colors with repeated coloring.
+   *
+   * @type { LinearGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: LinearGradientOptions;
+}
+
+/**
+ * Defines radial gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class RadialGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { RadialGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: RadialGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * center: Center point of radial gradient
+   * radius: Radius of Radial Gradient. value range [0, +∞)
+   * colors: Color description for gradients
+   * repeating: Refill. The default value is false
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: RadialGradientOptions;
+}
+
+/**
+ * Defines a shader with single color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ColorShaderStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { ResourceColor } color - The color used by shader.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(color: ResourceColor);
+  
+  /**
+   * The color of the shader.
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  color: ResourceColor;
+}
+
   /**
    * Defines the line spacing options.
    * @interface LineSpacingOptions
@@ -1483,4 +1664,122 @@ declare enum KeyboardAppearance {
    * @since 20
    */
   onlyBetweenLines?: boolean;
+}
+
+/**
+ * Defines the reason for text changes.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextChangeReason {
+  /**
+   * Default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNKNOWN = 0,
+
+  /**
+   * Reason for input from input method.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  IME_INPUT = 1,
+
+  /**
+   * Reason for paste.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  PASTE = 2,
+
+  /**
+   * Reason for cut.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CUT = 3,
+
+  /**
+   * Reason for drag.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  DRAG = 4,
+
+  /**
+   * Reason for auto fill.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AUTO_FILL = 5,
+
+  /**
+   * Reason for ai write.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AI_WRITE = 6,
+
+  /**
+   * Reason for redo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  REDO = 7,
+
+  /**
+   * Reason for undo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNDO = 8,
+
+  /**
+   * Reason for controller methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CONTROLLER = 9,
+
+  /**
+   * Reason for accessibilty methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ACCESSIBILITY = 10,
+
+  /**
+   * Reason for input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  INPUT = 1
 }

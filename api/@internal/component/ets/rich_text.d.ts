@@ -73,13 +73,13 @@ interface RichTextInterface {
   /**
    * Set value.
    *
-   * @param { string | resource } content
+   * @param { string | Resource } content
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 20
    */
-  (content: string | resource): RichTextAttribute;
+  (content: string | Resource): RichTextAttribute;
 }
 
 /**

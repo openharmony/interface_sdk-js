@@ -690,11 +690,9 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 202 - not system application.
-     * @throws { BusinessError } 401 - parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800008 - input method manager service error.
-	 * @throws { BusinessError } 12800018 - input method is not found.
-     * @throws { BusinessError } 12800019 - default input method can not be disabled.
+	 * @throws { BusinessError } 12800018 - the input method is not found.
+     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20

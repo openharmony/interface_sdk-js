@@ -2939,6 +2939,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Called when the minimum font scale of the font is set.
+   *
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   minFontScale(scale: Optional<number | Resource>): TextInputAttribute;
 
   /**
@@ -2949,6 +2959,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Called when the maximum font scale of the font is set.
+   *
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxFontScale(scale: Optional<number | Resource>): TextInputAttribute;
   
@@ -3315,6 +3335,30 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
+   /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextInputAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
+
   /**
    * Sets whether enable auto fill animation effect or not.
    *
@@ -3325,6 +3369,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 20
    */
   enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): TextInputAttribute;
 }
 
 /**

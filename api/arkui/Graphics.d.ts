@@ -985,6 +985,24 @@ declare class ColorMetrics {
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
+   * Instantiate the ColorMetrics class using colorSpace and rgba.
+   * Only some properties support setting color in display-p3 colorSpace.
+   *
+   * @param { ColorSpace } colorSpace - colorSpace of color.
+   * @param { number } red - red value of rgba. The range of the red channel is [0, 1].
+   * @param { number } green - green value of rgba. The range of the green channel is [0, 1].
+   * @param { number } blue - blue value of rgba. The range of the blue channel is [0, 1].
+   * @param { number } [alpha] - alpha value of rgba. The range of the alpha channel is [0, 1]. The default value is 1.
+   * @returns { ColorMetrics } ColorMetrics class
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
    * Instantiate the ColorMetrics class using ResourceColor
    *
    * @param { ResourceColor } color - resource color

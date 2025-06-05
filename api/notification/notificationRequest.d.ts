@@ -224,6 +224,16 @@ export interface NotificationRequest {
   extraInfo?: { [key: string]: any };
 
   /**
+   * Extended parameter.
+   *
+   * @type { Record<string, Object> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  extendInfo?: Record<string, Object>;
+
+  /**
    * Background color of the notification.
    *
    * @type { ?number }

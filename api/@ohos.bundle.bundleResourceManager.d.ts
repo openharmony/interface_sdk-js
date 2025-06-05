@@ -85,7 +85,16 @@ declare namespace bundleResourceManager {
      * @systemapi
      * @since 12
      */
-    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010
+    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
+
+    /**
+     * Used to obtain only main ability resource.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 20
+     */
+    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
 
   /**
@@ -111,7 +120,7 @@ declare namespace bundleResourceManager {
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
-   * @param { number } [appIndex] - Indicates the index of the bundle.
+   * @param { number } [appIndex] - Indicates the index of the bundle,The default value is 0.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -148,7 +157,7 @@ declare namespace bundleResourceManager {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { number } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information
    * <br>contained in the LauncherAbilityResourceInfo object that will be returned.
-   * @param { number } [appIndex] - Indicates the index of the bundle.
+   * @param { number } [appIndex] - Indicates the index of the bundle,The default value is 0.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.

@@ -266,7 +266,7 @@ declare class LinkedList<T> {
   /**
    * Removes the first element from this container.
    *
-   * @returns { T } the head of this list
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang
@@ -297,7 +297,7 @@ declare class LinkedList<T> {
   /**
    * Removes the last element from this container.
    *
-   * @returns { T } the head of this list
+   * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
    * @throws { BusinessError } 10200010 - Container is empty.
    * @syscap SystemCapability.Utils.Lang

@@ -1793,6 +1793,88 @@ declare namespace unifiedDataChannel {
      * @since 15
      */
     fileConflictOptions?: FileConflictOptions;
+
+    /**
+     * Indicates the supported data information.
+     *
+     * @type { ?DataLoadInfo }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    acceptableInfo?: DataLoadInfo;
+  }
+
+  /**
+   * Indicates data loading information.
+   *
+   * @interface DataLoadInfo
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface DataLoadInfo {
+    /**
+     * Represents the data type or supported types to load.
+     * <br>This parameter is mandatory when used by the data provider.
+     *
+     * @type { ?Set<string> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    types?: Set<string>;
+
+    /**
+     * Indicates the maximum number of data records to be loaded.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    recordCount?: number;
+  }
+
+  /**
+   * Indicates the callback function for loading data.
+   *
+   * @typedef { function } DataLoadHandler
+   * @param { DataLoadInfo } acceptableInfo Indicates the type and number of data that can be accepted by the receiver.
+   * @returns { UnifiedData | null } the {@link UnifiedData} object to be loaded.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 20
+   */
+  type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null;
+
+  /**
+   * Indicates data loading params.
+   *
+   * @interface DataLoadParams
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface DataLoadParams {
+    /**
+     * Indicates the callback function for loading data.
+     *
+     * @type { DataLoadHandler }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    loadHandler: DataLoadHandler;
+
+    /**
+     * Indicates data loading information.
+     * @type { DataLoadInfo }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     */
+    dataLoadInfo: DataLoadInfo;
   }
 
   /**
@@ -2008,8 +2090,7 @@ declare namespace unifiedDataChannel {
    * system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
-   * share options.
+   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
    * @StageModelOnly
@@ -2027,8 +2108,7 @@ declare namespace unifiedDataChannel {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
-   * @throws { BusinessError } 20400001 - Settings already exist, if need to reconfigure, please remove the previous
-   * share options.
+   * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 14
