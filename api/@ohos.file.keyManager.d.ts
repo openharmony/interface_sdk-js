@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit CoreFileKit
+ * @arkts 1.1&1.2
  */
  
 /**
@@ -23,7 +24,7 @@
  *
  * @namespace keyManager
  * @syscap SystemCapability.FileManagement.StorageService.Encryption
- * @since 15
+ * @since arkts {'1.1':'15', '1.2':'20'}
  */
 declare namespace keyManager {
    /**
@@ -40,7 +41,7 @@ declare namespace keyManager {
     * @throws { BusinessError } 13600009 - User ID out of range. Possible causes: input parameter userId < 100 or userId > 10736.
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
-    * @since 15
+    * @since arkts {'1.1':'15', '1.2':'20'}
     */
    function deactivateUserKey(userId: number):void;
  }
