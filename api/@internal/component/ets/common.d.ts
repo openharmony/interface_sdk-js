@@ -13835,6 +13835,24 @@ declare interface DragEvent {
    * @since 20
    */
   getDisplayId(): number;
+  
+  /**
+   * Enable the internal drop animation, which is only avaiable for system applications.
+   *
+   * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
+   *
+   * This method can only be called in onDrop, and please do not use custom drop animation after this method,
+   * as it will reset the calling result, and use custom drop animation insteadly.
+   *
+   * @param { string } configuration - the internal drop animation's configuration.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 190003 - Operation not allowed for current phase.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  enableInternalDropAnimation(configuration: string): void;
 }
 
 /**
