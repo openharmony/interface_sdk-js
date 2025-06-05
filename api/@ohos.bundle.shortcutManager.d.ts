@@ -34,6 +34,7 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace shortcutManager {
   /**
@@ -46,17 +47,18 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 17700001 - The specified bundle name is not found. 
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
-  
+
   /**
    * Delete desktop shortcut info.
    *
@@ -70,10 +72,11 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
-  
+
   /**
    * Get all desktop shortcut info.
    *
@@ -86,7 +89,8 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
 
@@ -109,7 +113,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    */
-    function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
+  function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
 
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
@@ -125,6 +129,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -141,6 +146,7 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -157,6 +163,7 @@ declare namespace shortcutManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
   }
