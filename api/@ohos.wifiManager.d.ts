@@ -2967,6 +2967,15 @@ declare namespace wifiManager {
      * @since 17
      */
     isAutoConnectAllowed?: boolean;
+
+    /**
+     * Security wifi detect config: false - not, true - yes.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 17
+     */
+    isSecurityWifi?: boolean;
   }
 
   /**
