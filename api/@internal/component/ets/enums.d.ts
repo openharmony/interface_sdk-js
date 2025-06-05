@@ -8569,6 +8569,16 @@ declare enum ImageSpanAlignment {
    * @since 11
    */
   TOP,
+
+  /**
+   * The ImageSpan's alignment is same with the text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FOLLOW_PARAGRAPH,
 }
 
 /**
