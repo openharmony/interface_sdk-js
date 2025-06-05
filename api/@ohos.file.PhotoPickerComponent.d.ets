@@ -467,8 +467,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   uiComponentColorMode?: PickerColorMode;
 }
