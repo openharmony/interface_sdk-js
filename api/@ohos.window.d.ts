@@ -4207,7 +4207,6 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
     enum AnimationType {
@@ -4215,7 +4214,6 @@ declare namespace window {
        * window animation type fade in out
        *
        * @syscap SystemCapability.Window.SessionManager
-       * @atomicservice
        * @since 20
        */
       FADE_IN_OUT = 0,
@@ -4323,7 +4321,6 @@ declare namespace window {
    *
    * @interface StartAnimationSystemOption
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   interface StartAnimationSystemOption {
@@ -4332,7 +4329,6 @@ declare namespace window {
      *
      * @type { AnimationType }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     type: AnimationType;
@@ -4341,7 +4337,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     animationConfig?: WindowAnimationConfig;
@@ -4352,7 +4347,6 @@ declare namespace window {
    *
    * @interface StartAnimationOption
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   interface StartAnimationOption {
@@ -4361,7 +4355,6 @@ declare namespace window {
      *
      * @type { AnimationType }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     type: AnimationType;
