@@ -815,36 +815,12 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   [index: number]: T;
-
-  /**
-   * Returns the item at that index.
-   * 
-   * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the arrayList matching the given index.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T;
-
-  /**
-   * Set the value of item at that index.
-   *
-   * @param { number } index - The index of the element to set.
-   * @param { T } value - The value to set at the specified index.
-   * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_set(index: number, value: T): void;
 
   /**
    * If the newCapacity provided by the user is greater than or equal to length,
