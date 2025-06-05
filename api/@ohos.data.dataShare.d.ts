@@ -77,7 +77,7 @@ declare namespace dataShare {
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -89,10 +89,10 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the path of the file to open.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -108,7 +108,7 @@ declare namespace dataShare {
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -121,10 +121,10 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @param { AsyncCallback<DataShareHelper> } callback - {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -145,7 +145,7 @@ declare namespace dataShare {
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -160,7 +160,7 @@ declare namespace dataShare {
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -173,10 +173,10 @@ declare namespace dataShare {
    * @param { string } uri - Indicates the path of the file to open.
    * @param { DataShareHelperOptions } options - Indicates the optional config.
    * @returns { Promise<DataShareHelper> } {DataShareHelper}: The dataShareHelper for consumer.
-   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700010 - The DataShareHelper is not initialized successfully.
+   * @throws { BusinessError } 15700010 - The DataShareHelper fails to be initialized.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -196,7 +196,7 @@ declare namespace dataShare {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @throws { BusinessError } 15700011 - The URI does not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -208,10 +208,10 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the uri of the data share silent proxy resource.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @throws { BusinessError } 15700011 - The URI does not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -227,7 +227,7 @@ declare namespace dataShare {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @throws { BusinessError } 15700011 - The URI does not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -239,10 +239,10 @@ declare namespace dataShare {
    * @param { Context } context - Indicates the application context.
    * @param { string } uri - Indicates the uri of the data share silent proxy resource.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not System Application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
    *         2. Incorrect parameters types.
-   * @throws { BusinessError } 15700011 - The URI is not exist.
+   * @throws { BusinessError } 15700011 - The URI does not exist.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -633,7 +633,7 @@ declare namespace dataShare {
   }
 
   /**
-   * DataShareHelper
+   * Provides a DataShareHelper interface to access data.
    *
    * @interface DataShareHelper
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -660,7 +660,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of on.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -688,7 +688,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of off.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -705,7 +705,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to subscribe.
      * @param { AsyncCallback<ChangeInfo> } callback - Indicates the callback used to return the data change.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -725,7 +725,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -741,7 +741,7 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI is not exist.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -755,9 +755,9 @@ declare namespace dataShare {
      * @param { Template } template - The template to add.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI is not exist.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -772,7 +772,7 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI is not exist.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -785,9 +785,9 @@ declare namespace dataShare {
      * @param { string } subscriberId - The subscribe id.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700011 - The URI is not exist.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -821,7 +821,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -860,7 +860,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -899,7 +899,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -938,7 +938,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -960,7 +960,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -975,9 +975,9 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -998,7 +998,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1012,9 +1012,9 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1035,7 +1035,7 @@ declare namespace dataShare {
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1050,9 +1050,9 @@ declare namespace dataShare {
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1067,7 +1067,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<PublishedItem>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1080,9 +1080,9 @@ declare namespace dataShare {
      * @param { AsyncCallback<Array<PublishedItem>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1097,7 +1097,7 @@ declare namespace dataShare {
      * @returns { Promise<Array<PublishedItem>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1110,9 +1110,9 @@ declare namespace dataShare {
      * @returns { Promise<Array<PublishedItem>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
-     * @throws { BusinessError } 15700012 - The data area is not exist.
+     * @throws { BusinessError } 15700012 - The data area does not exist.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1144,7 +1144,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1176,7 +1176,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1208,7 +1208,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1240,7 +1240,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1276,7 +1276,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1317,7 +1317,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1355,7 +1355,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1394,7 +1394,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1412,7 +1412,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
      *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1442,7 +1442,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1472,7 +1472,7 @@ declare namespace dataShare {
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
@@ -1506,7 +1506,7 @@ declare namespace dataShare {
      * @param { AsyncCallback<string> } callback - {string}: the normalized Uri,
      * if the DataShare supports uri normalization.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1540,7 +1540,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to normalize.
      * @returns { Promise<string> } {string}: the normalized Uri if the DataShare supports uri normalization;
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1572,7 +1572,7 @@ declare namespace dataShare {
      * there is nothing to do; returns {@code null} if the data identified by the normalized {@code Uri}
      * cannot be found in the current environment.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1604,7 +1604,7 @@ declare namespace dataShare {
      * returns {@code null} if the data identified by the normalized {@code Uri} cannot be found in the
      * current environment.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1630,7 +1630,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @param { AsyncCallback<void> } callback - The callback of notifyChange.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Mandatory parameters are left unspecified.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
@@ -1655,7 +1655,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Mandatory parameters are left unspecified.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
@@ -1670,7 +1670,7 @@ declare namespace dataShare {
      * @param { ChangeInfo } data - Indicates the data change information.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -1695,7 +1695,7 @@ declare namespace dataShare {
      * Close the connection between datashare and extension.
      * 
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
      *         2.The interface is incorrectly used; 3.Permission configuration error; 4.A system error.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
