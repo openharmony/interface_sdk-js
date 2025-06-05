@@ -6646,12 +6646,12 @@ declare namespace ble {
      */
     NORMAL = 1,
     /**
-     * Enables the batch mode in which advertisement packets are sent after the interval specified by {@link ScanOptions#interval}.
-     *
+     * Enables the batch mode in which advertisement packets are sent after the interval specified by {@link
+     * ScanOptions#interval}.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     BATCH = 2,
     /**
@@ -6708,9 +6708,9 @@ declare namespace ble {
      * The type of advertisement packet reported in batch mode.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     ON_BATCH = 3,
   }
