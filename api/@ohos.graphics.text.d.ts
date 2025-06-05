@@ -2234,7 +2234,7 @@ declare namespace text {
     getTextDirection: TextDirection;
 
     /**
-     * Gets the glyph advance array within the range.
+     * Gets the glyph width array within the range.
      * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
      * range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
      * the run.
