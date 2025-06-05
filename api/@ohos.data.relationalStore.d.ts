@@ -267,8 +267,7 @@ declare namespace relationalStore {
    *
    * @typedef { number | string } PRIKeyType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   type PRIKeyType = number | string;
 
@@ -277,8 +276,7 @@ declare namespace relationalStore {
    *
    * @typedef { Date } UTCTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   type UTCTime = Date;
 
@@ -287,8 +285,7 @@ declare namespace relationalStore {
    *
    * @typedef { Map<PRIKeyType, UTCTime> } ModifyTime
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   type ModifyTime = Map<PRIKeyType, UTCTime>;
 
@@ -730,16 +727,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum Progress {
     /**
      * SYNC_BEGIN: means the sync process begin.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_BEGIN,
 
@@ -747,8 +742,7 @@ declare namespace relationalStore {
      * SYNC_BEGIN: means the sync process is in progress
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_IN_PROGRESS,
 
@@ -756,8 +750,7 @@ declare namespace relationalStore {
      * SYNC_BEGIN: means the sync process is finished
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_FINISH
   }
@@ -767,8 +760,7 @@ declare namespace relationalStore {
    *
    * @interface Statistic
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface Statistic {
     /**
@@ -776,8 +768,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     total: number;
 
@@ -786,8 +777,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     successful: number;
 
@@ -796,8 +786,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     failed: number;
 
@@ -806,8 +795,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     remained: number;
   }
@@ -817,8 +805,7 @@ declare namespace relationalStore {
    *
    * @interface TableDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface TableDetails {
     /**
@@ -826,8 +813,7 @@ declare namespace relationalStore {
      *
      * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     upload: Statistic;
 
@@ -836,8 +822,7 @@ declare namespace relationalStore {
      *
      * @type { Statistic }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     download: Statistic;
   }
@@ -847,16 +832,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum ProgressCode {
     /**
      * SUCCESS: means the status of progress is success.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     SUCCESS,
 
@@ -864,8 +847,7 @@ declare namespace relationalStore {
      * UNKNOWN_ERROR: means the progress meets unknown error.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     UNKNOWN_ERROR,
 
@@ -873,8 +855,7 @@ declare namespace relationalStore {
      * NETWORK_ERROR: means the progress meets network error.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     NETWORK_ERROR,
 
@@ -882,8 +863,7 @@ declare namespace relationalStore {
      * CLOUD_DISABLED: means cloud is disabled.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     CLOUD_DISABLED,
 
@@ -891,8 +871,7 @@ declare namespace relationalStore {
      * LOCKED_BY_OTHERS: means the progress is locked by others.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     LOCKED_BY_OTHERS,
 
@@ -900,8 +879,7 @@ declare namespace relationalStore {
      * RECORD_LIMIT_EXCEEDED: means the record exceeds the limit.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     RECORD_LIMIT_EXCEEDED,
 
@@ -909,8 +887,7 @@ declare namespace relationalStore {
      * NO_SPACE_FOR_ASSET: means the cloud has no space for the asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     NO_SPACE_FOR_ASSET,
 
@@ -918,8 +895,7 @@ declare namespace relationalStore {
      * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     BLOCKED_BY_NETWORK_STRATEGY
   }
@@ -929,8 +905,7 @@ declare namespace relationalStore {
    *
    * @interface ProgressDetails
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 10
    */
   interface ProgressDetails {
     /**
@@ -938,8 +913,7 @@ declare namespace relationalStore {
      *
      * @type { Progress }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     schedule: Progress;
 
@@ -948,8 +922,7 @@ declare namespace relationalStore {
      *
      * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     code: ProgressCode;
 
@@ -964,8 +937,7 @@ declare namespace relationalStore {
      *
      * @type { Record<string, TableDetails> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 11
      */
     details: Record<string, TableDetails>;
   }
@@ -975,8 +947,7 @@ declare namespace relationalStore {
    *
    * @interface SqlExecutionInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 11
    */
   interface SqlExecutionInfo {
     /**
@@ -984,8 +955,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     sql: Array<string>;
 
@@ -994,8 +964,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     totalTime: number;
 
@@ -1004,8 +973,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     waitTime: number;
 
@@ -1014,8 +982,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     prepareTime: number;
 
@@ -1024,8 +991,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     executeTime: number;
   }
@@ -1090,16 +1056,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 9
    */
   enum SyncMode {
     /**
      * Indicates the data is pushed to remote device from local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 9
      */
     SYNC_MODE_PUSH = 0,
 
@@ -1107,8 +1071,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from remote device to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 9
      */
     SYNC_MODE_PULL = 1,
 
@@ -1116,8 +1079,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from remote device to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     SYNC_MODE_TIME_FIRST,
 
@@ -1125,8 +1087,7 @@ declare namespace relationalStore {
      * Indicates force push the native data to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     SYNC_MODE_NATIVE_FIRST,
 
@@ -1134,8 +1095,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from cloud to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 10
      */
     SYNC_MODE_CLOUD_FIRST
   }
@@ -1145,16 +1105,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 9
    */
   enum SubscribeType {
     /**
      * Subscription to remote data changes
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 9
      */
     SUBSCRIBE_TYPE_REMOTE = 0,
 
@@ -1169,8 +1127,7 @@ declare namespace relationalStore {
      * Subscription to cloud data changes
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD,
 
@@ -1185,8 +1142,7 @@ declare namespace relationalStore {
      * Subscription to cloud data changes details
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
 
@@ -1194,8 +1150,7 @@ declare namespace relationalStore {
      * Subscription to local data changes details
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 12
      */
     SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
@@ -1205,8 +1160,7 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum ChangeType {
     /**
@@ -1220,8 +1174,7 @@ declare namespace relationalStore {
      * Means the change type is data change.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DATA_CHANGE,
 
@@ -1236,8 +1189,7 @@ declare namespace relationalStore {
      * Means the change type is asset change.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     ASSET_CHANGE
   }
@@ -1247,8 +1199,7 @@ declare namespace relationalStore {
    *
    * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface ChangeInfo {
     /**
@@ -1256,8 +1207,7 @@ declare namespace relationalStore {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     table: string;
 
@@ -1266,8 +1216,7 @@ declare namespace relationalStore {
      *
      * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     type: ChangeType;
 
@@ -1277,8 +1226,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     inserted: Array<string> | Array<number>;
 
@@ -1288,8 +1236,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     updated: Array<string> | Array<number>;
 
@@ -1299,8 +1246,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<number> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     deleted: Array<string> | Array<number>;
   }
@@ -1310,16 +1256,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum DistributedType {
     /**
      * Indicates the table is distributed among the devices
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     DISTRIBUTED_DEVICE,
 
@@ -1334,8 +1278,7 @@ declare namespace relationalStore {
      * Indicates the table is distributed between the cloud and the devices.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DISTRIBUTED_CLOUD
   }
@@ -1346,8 +1289,7 @@ declare namespace relationalStore {
    * @interface Reference
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface Reference {
     /**
@@ -1356,8 +1298,7 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     sourceTable: string;
 
@@ -1367,8 +1308,7 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     targetTable: string;
 
@@ -1378,8 +1318,7 @@ declare namespace relationalStore {
      * @type { Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     refFields: Record<string, string>
   }
@@ -1389,8 +1328,7 @@ declare namespace relationalStore {
    *
    * @interface DistributedConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface DistributedConfig {
     /**
@@ -1398,8 +1336,7 @@ declare namespace relationalStore {
      *
      * @type { boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     autoSync: boolean;
 
@@ -1409,8 +1346,7 @@ declare namespace relationalStore {
      * @type { ?Array<Reference> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     references?: Array<Reference>;
 
@@ -1439,8 +1375,7 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum ConflictResolution {
     /**
@@ -1448,8 +1383,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_NONE = 0,
 
@@ -1458,8 +1392,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_ROLLBACK = 1,
 
@@ -1468,8 +1401,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_ABORT = 2,
 
@@ -1478,8 +1410,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_FAIL = 3,
 
@@ -1488,8 +1419,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_IGNORE = 4,
 
@@ -1498,8 +1428,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     ON_CONFLICT_REPLACE = 5
   }
@@ -1609,16 +1538,14 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum RebuildType {
     /**
      * The database is not rebuilt or repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NONE,
 
@@ -1626,8 +1553,7 @@ declare namespace relationalStore {
      * The database is rebuilt.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     REBUILT,
 
@@ -1635,8 +1561,7 @@ declare namespace relationalStore {
      * The database is repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     REPAIRED
   }
