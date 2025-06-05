@@ -1,7 +1,7 @@
 {
   "name": "@interface/sdk",
   "description": "openharmony sdk",
-  "version": "4.0.2",
+  "version": "3.1",
   "license": "Apache License 2.0",
   "homePage": "https://gitee.com/openharmony/interface_sdk-js",
   "repository": "https://gitee.com/openharmony/interface_sdk-js",
@@ -21,6 +21,8 @@
     "subsystem": "sdk",
     "features": [],
     "adapted_system_type": [
+      "mini",
+      "small",
       "standard"
     ],
     "rom": "0KB",
