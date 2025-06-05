@@ -1142,7 +1142,7 @@ declare namespace vibrator {
    * Retrieve the list of vibrator information about one or all devices.
    *
    * @param { VibratorInfoParam } [param] - Indicate the device and vibrator information that needs to be controlled,
-   * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on local device when param is unspecified.
+   * <br> {@code VibratorInfoParam}. By default, this returns all vibrators on all device when param is unspecified.
    * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
    * <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
