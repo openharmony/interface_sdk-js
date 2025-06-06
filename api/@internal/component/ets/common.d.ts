@@ -65,7 +65,7 @@ import { CircleAttribute } from './circle';
 import { RectAttribute } from './rect';
 import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
-import { LocalStorage } from '../stateManagement/storages/localStorage';
+import { LocalStorage } from '../stateManagement/storage/localStorage';
 import { CustomBuilder, WrappedBuilder } from './builder';
 /*** endif */
 
