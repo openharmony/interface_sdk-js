@@ -742,7 +742,7 @@ declare namespace effectKit {
   function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
 
   /**
-   * Enumerates the tile modes of the shader effect
+   * Enumerates the tile modes of the shader effect.
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -750,7 +750,7 @@ declare namespace effectKit {
    */
   enum TileMode {
     /**
-     * Clamp mode,Replicates the edge color if the shader effect draws outside of its original boundary.
+     * Replicates the edge color if the shader effect draws outside of its original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14
@@ -758,7 +758,7 @@ declare namespace effectKit {
     CLAMP = 0,
 
     /**
-     * Repeat mode,Repeats the shader effect in both horizontal and vertical directions.
+     * Repeats the shader effect in both horizontal and vertical directions.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14
@@ -766,7 +766,7 @@ declare namespace effectKit {
     REPEAT = 1,
 
     /**
-     * Mirror mode,Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
+     * Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14
@@ -774,7 +774,7 @@ declare namespace effectKit {
     MIRROR = 2,
 
     /**
-     * Decal mode,	Renders the shader effect only within the original boundary.
+     * Renders the shader effect only within the original boundary.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 14
