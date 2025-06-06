@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -82,7 +82,8 @@ declare namespace accessibility {
    *
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
   'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
@@ -122,7 +123,8 @@ declare namespace accessibility {
    *
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
@@ -136,7 +138,8 @@ declare namespace accessibility {
    *
    * @typedef {'add' | 'remove' | 'bounds' | 'active' | 'focus'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus';
 
@@ -169,7 +172,8 @@ declare namespace accessibility {
    *
    * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
@@ -218,6 +222,7 @@ declare namespace accessibility {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function isOpenAccessibilitySync(): boolean;
 
@@ -256,7 +261,8 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isOpenTouchGuideSync(): boolean;
 
@@ -384,7 +390,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
 
@@ -398,9 +405,18 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendAccessibilityEvent(event: EventInfo): Promise<void>;
+
+  /**
+   * Gets touch mode type.
+   * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode', and 'none'.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function getTouchModeSync(): string;
 
   /**
    * Register the observe of the accessibility state changed.
@@ -426,6 +442,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
@@ -455,6 +472,19 @@ declare namespace accessibility {
    * @since 18
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the observe of the touch mode changed.
+   * @param { 'touchModeChange' } type touch mode change.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function on(type: 'touchModeChange', callback: Callback<string>): void;
 
   /**
    * Unregister the observe of the accessibility state changed.
@@ -509,6 +539,19 @@ declare namespace accessibility {
    * @since 18
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the touch mode changed.
+   * @param { 'touchModeChange' } type touch mode change.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
   /**
    * Get the captions manager.
@@ -778,7 +821,8 @@ declare namespace accessibility {
    * Indicates the info of events.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class EventInfo {
     /**
@@ -796,14 +840,16 @@ declare namespace accessibility {
      * @param { string } bundleName - The name of the bundle.
      * @param { Action } triggerAction - The action that the ability can execute.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(type: EventType, bundleName: string, triggerAction: Action);
     /**
      * The type of an accessibility event.
      * @type { EventType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: EventType;
 
@@ -811,7 +857,8 @@ declare namespace accessibility {
      * The type of the window change event.
      * @type { ?WindowUpdateType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowUpdateType?: WindowUpdateType;
 
@@ -819,7 +866,8 @@ declare namespace accessibility {
      * The bundle name of the target application.
      * @type { string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -827,7 +875,8 @@ declare namespace accessibility {
      * The type of the event source component,such as button, chart.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     componentType?: string;
 
@@ -835,7 +884,8 @@ declare namespace accessibility {
      * The page id of the event source.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pageId?: number;
 
@@ -843,7 +893,8 @@ declare namespace accessibility {
      * The accessibility event description.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: string;
 
@@ -851,7 +902,8 @@ declare namespace accessibility {
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
      * @type { Action }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     triggerAction: Action;
 
@@ -859,7 +911,8 @@ declare namespace accessibility {
      * The movement step used for reading texts.
      * @type { ?TextMoveUnit }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textMoveUnit?: TextMoveUnit;
 
@@ -867,7 +920,8 @@ declare namespace accessibility {
      * The content list.
      * @type { ?Array<string> }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contents?: Array<string>;
 
@@ -875,7 +929,8 @@ declare namespace accessibility {
      * The content changed before.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lastContent?: string;
 
@@ -883,7 +938,8 @@ declare namespace accessibility {
      * The start index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginIndex?: number;
 
@@ -891,7 +947,8 @@ declare namespace accessibility {
      * The index of the current item on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     currentIndex?: number;
 
@@ -899,7 +956,8 @@ declare namespace accessibility {
      * The end index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endIndex?: number;
 
@@ -907,7 +965,8 @@ declare namespace accessibility {
      * The total of the items, talkback used it when scroll.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     itemCount?: number;
 
@@ -915,7 +974,8 @@ declare namespace accessibility {
      * The id of element.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     elementId?: number;
 
@@ -923,7 +983,8 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textAnnouncedForAccessibility?: string;
 
@@ -931,7 +992,8 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?Resource }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textResourceAnnouncedForAccessibility?: Resource;
 
@@ -939,7 +1001,8 @@ declare namespace accessibility {
      * The customized element id.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customId?: string;
   }
