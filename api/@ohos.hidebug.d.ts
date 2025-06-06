@@ -934,8 +934,8 @@ declare namespace hidebug {
 
   /**
    * Enable the GWP-ASAN grayscale of your application.
-   * @param { GwpAsanOptions } options - The option of GWP-ASAN grayscale.
-   * @param { number } duration - The duration days of GWP-ASAN grayscale.
+   * @param { GwpAsanOptions } [options] - The options of GWP-ASAN grayscale.
+   * @param { number } [duration] - The duration days of GWP-ASAN grayscale.
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20
