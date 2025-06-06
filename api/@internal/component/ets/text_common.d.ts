@@ -172,7 +172,17 @@ declare interface TextDataDetectorConfig {
    * @atomicservice
    * @since 12
    */
-  decoration?: DecorationStyleInterface
+  decoration?: DecorationStyleInterface;
+
+  /**
+   * Used to set whether the preview window will be displayed when long-presses and selects a word.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enablePreviewMenu?: boolean;
 }
 
 /**
