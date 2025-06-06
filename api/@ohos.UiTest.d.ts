@@ -5543,8 +5543,6 @@ declare const ON: On;
  /*** endif */
  
 export {
-  UiComponent,
-  UiDriver,
   Component,
   Driver,
   UiWindow,
