@@ -3689,6 +3689,20 @@ declare namespace window {
   function setStartWindowBackgroundColor(moduleName: string, abilityName: string, color: ColorMetrics): Promise<void>;
 
   /**
+   * Notify screenshot event
+   *
+   * @param { ScreenshotEventType } eventType - Screenshot event type.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
+
+  /**
    * Display orientation
    *
    * @enum { number }
@@ -6857,6 +6871,30 @@ declare namespace window {
     off(type: 'screenshot', callback?: Callback<void>): void;
 
     /**
+     * Register the callback of screenshot app event
+     *
+     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app event.
+     * @param { Callback<ScreenshotEventType> } callback - Callback invoked when a screenshot app event occurs.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    on(type: 'screenshotAppEvent', callback: Callback<ScreenshotEventType>): void;
+
+    /**
+     * Unregister the callback of screenshot app event
+     *
+     * @param { 'screenshotAppEvent' } type - The value is fixed at 'screenshotAppEvent', indicating the screenshot app event.
+     * @param { Callback<ScreenshotEventType> } callback - Callback invoked when a screenshot app event occurs.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    off(type: 'screenshotAppEvent', callback?: Callback<ScreenshotEventType>): void;
+
+    /**
      * Register the callback of dialogTargetTouch
      *
      * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
@@ -8363,7 +8401,6 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300018 - Timeout.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     snapshotSync(): image.PixelMap;
@@ -9952,6 +9989,18 @@ declare namespace window {
      * @since 12
      */
     getImmersiveModeEnabledState(): boolean;
+
+
+    /**
+     * Checks whether the layout is immersive.
+     *
+     * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    isImmersiveLayout(): boolean;
 
     /**
      * Get the window status of current window.
@@ -11591,6 +11640,51 @@ declare namespace window {
      * @since 19
      */
     RELATIVE_TO_PARENT_WINDOW = 1
+  }
+
+  /**
+   * Screenshot event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 20
+   */
+  enum ScreenshotEventType {
+    /**
+     * System screenshot
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    SYSTEM_SCREENSHOT = 0,
+    /**
+     * System screenshot abort
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    SYSTEM_SCREENSHOT_ABORT = 1,
+    /**
+     * Scroll shot start
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    SCROLL_SHOT_START = 2,
+    /**
+     * Scroll shot end
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    SCROLL_SHOT_END = 3,
+    /**
+     * Scroll shot abort
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 20
+     */
+    SCROLL_SHOT_ABORT = 4,
   }
 
   /**
