@@ -7631,36 +7631,6 @@ declare namespace window {
     setWindowBackgroundColor(color: string | ColorMetrics): void;
 
     /**
-     * Sets the container color of window.
-     *
-     * @param { string } activeColor Background active color.
-     * @param { string } inactiveColor Background inactive color.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @since 20
-     */
-    setWindowContainerColor(activeColor: string, inactiveColor: string): void;
-
-    /**
-     * Sets the shadow enable of window.
-     *
-     * @param { boolean } enable - Enable or disable window shadow.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 20
-     */
-    setWindowShadowEnabled(enable: boolean): Promise<void>;
-
-    /**
      * Sets the brightness of window.
      *
      * @param { number } brightness the specified brightness value.
@@ -8417,7 +8387,6 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300018 - Timeout.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     snapshotSync(): image.PixelMap;
@@ -10006,6 +9975,17 @@ declare namespace window {
      * @since 12
      */
     getImmersiveModeEnabledState(): boolean;
+
+    /**
+     * Checks whether the layout is immersive.
+     *
+     * @returns { boolean } The value true means that the layout is immersive, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    isImmersiveLayout(): boolean;
 
     /**
      * Get the window status of current window.
