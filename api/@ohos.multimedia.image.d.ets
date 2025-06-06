@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ImageKit
+ * @arkts 1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
