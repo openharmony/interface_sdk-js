@@ -329,6 +329,54 @@ declare namespace uriPermissionManager {
    * @since 19
    */
     function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
+
+  /**
+   * Grant URIs in UDkey to another application
+   * @param { string } key - Indicates the unique identifier of target UnifiedData.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { number } targetTokenId - Indicates the token id of target application.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
+   * @throws { BusinessError } 16000091 - Failed to get the file URI from the key.
+   * @throws { BusinessError } 16000092 - No permission to authorize the URI.
+   * @throws { BusinessError } 16000094 - The target token ID is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function grantUriPermissionByKey(key: string, flag: wantConstant.Flags, targetTokenId: number): Promise<void>;
+
+  /**
+   * Grant URIs in UDkey to another application
+   * @permission ohos.permission.GRANT_URI_PERMISSION_AS_CALLER
+   * @param { string } key - Indicates the unique identifier of target UnifiedData.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
+   *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { number } callerTokenId - Indicates the token id of caller application.
+   * @param { number } targetTokenId - Indicates the token id of target application.
+   * @returns { Promise<void> } - The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000060 - A sandbox application cannot grant URI permission.
+   * @throws { BusinessError } 16000091 - Failed to get the file URI from the key.
+   * @throws { BusinessError } 16000092 - No permission to authorize the URI.
+   * @throws { BusinessError } 16000093 - The caller token ID is invalid.
+   * @throws { BusinessError } 16000094 - The target token ID is invalid.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function grantUriPermissionByKeyAsCaller(key: string, flag: wantConstant.Flags, callerTokenId: number, targetTokenId: number): Promise<void>;
 }
 
 export default uriPermissionManager;
