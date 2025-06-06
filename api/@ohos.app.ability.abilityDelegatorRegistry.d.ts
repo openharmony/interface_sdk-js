@@ -345,7 +345,7 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 11
    */
   export type AbilityMonitor = _AbilityMonitor;
 
