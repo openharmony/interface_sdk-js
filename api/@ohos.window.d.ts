@@ -10189,8 +10189,6 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#INTERACTIVE
      */
     RESUMED,
     /**
@@ -10201,30 +10199,8 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageEventType#NONINTERACTIVE
      */
-    PAUSED,
-    /**
-     * The window stage is interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    INTERACTIVE = 8,
-    /**
-     * The window stage is non-interactive in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    NONINTERACTIVE
+    PAUSED
   }
 
   /**
