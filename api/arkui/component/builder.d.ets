@@ -44,3 +44,34 @@ export type CustomBuilder = @memo (() => void);
  * @since 20
  */
 export type PageMapBuilder = @memo ((name: string, param: Object | null | undefined) => void)
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class WrappedBuilder<T> {
+
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  @memo public builder: T;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  public constructor(builder: T);
+}
