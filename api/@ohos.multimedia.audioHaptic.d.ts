@@ -338,7 +338,6 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20
-     * @arkts 1.2
      */
     setVolume(volume: number): Promise<void>;
 
