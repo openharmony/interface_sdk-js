@@ -90,7 +90,7 @@ declare namespace motion {
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates holding with the both hands.
+     * indicates holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
