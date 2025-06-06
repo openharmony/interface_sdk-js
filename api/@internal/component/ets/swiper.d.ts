@@ -2417,6 +2417,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Set maintain visible content position.
    *
    * @param { boolean } enabled - maintain visible content position.
+   * Default value is false.
    * @returns { SwiperAttribute } the attribute of swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
