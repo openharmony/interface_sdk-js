@@ -97,6 +97,39 @@ declare namespace text {
   }
 
   /**
+   * Enumerates the vertical alignment modes.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextVerticalAlign {
+    /**
+     * Baseline alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    BASELINE = 0,
+    /**
+     * Bottom alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    BOTTOM = 1,
+    /**
+     * Center alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    CENTER = 2,
+    /**
+     * Top alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TOP = 3
+  }
+
+  /**
    * Enumerate text runs direction.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -1191,6 +1224,14 @@ declare namespace text {
      * @since 20
      */
     autoSpace?: boolean;
+
+    /**
+     * Vertical alignment mode of the paragraph.
+     * @type { ?TextVerticalAlign }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    verticalAlign?: TextVerticalAlign;
   }
 
   /**
@@ -1246,6 +1287,13 @@ declare namespace text {
      * @since 12
      */
     CENTER_OF_ROW_BOX,
+
+    /**
+     * Follow Paragraph setting,
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    FOLLOW_PARAGRAPH,
   }
 
   /**
