@@ -3565,6 +3565,22 @@ declare namespace window {
   function getGlobalWindowMode(displayId?: number): Promise<number>;
 
   /**
+   * Get the name of the top navigation destination.
+   *
+   * @param { number } windowId - Indicates target window id.
+   * @returns { Promise<string> } The name of the top navigation destination.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function getTopNavDestinationName(windowId: number): Promise<string>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
