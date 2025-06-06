@@ -18,8 +18,13 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
+/*** endif */
+/*** if arkts 1.2 */
+import { Callback, AsyncCallback } from './@ohos.base';
+/*** endif */
 
 /**
  * The inputDevice module implements input device management functions such as listening for the connection
@@ -27,7 +32,8 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * 
  * @namespace inputDevice
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace inputDevice {
   /**
@@ -35,7 +41,8 @@ declare namespace inputDevice {
    * 
    * @typedef { 'add' | 'remove' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ChangedType = 'add' | 'remove';
 
@@ -44,7 +51,8 @@ declare namespace inputDevice {
    * 
    * @typedef { 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
@@ -53,7 +61,8 @@ declare namespace inputDevice {
    * 
    * @typedef { 'touchmajor'| 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null' }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AxisType =
     'touchmajor'
@@ -145,7 +154,8 @@ declare namespace inputDevice {
    *
    * @interface DeviceListener
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceListener {
     /**
@@ -153,7 +163,8 @@ declare namespace inputDevice {
      *
      * @type { ChangedType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: ChangedType;
 
@@ -163,7 +174,8 @@ declare namespace inputDevice {
      * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: number;
   }
@@ -177,7 +189,8 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'change', listener: Callback<DeviceListener>): void;
 
@@ -200,7 +213,8 @@ declare namespace inputDevice {
    *
    * @interface AxisRange
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AxisRange {
     /**
@@ -208,7 +222,8 @@ declare namespace inputDevice {
      *
      * @type { SourceType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     source: SourceType;
 
@@ -217,7 +232,8 @@ declare namespace inputDevice {
      *
      * @type { AxisType }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     axis: AxisType;
 
@@ -226,7 +242,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     max: number;
 
@@ -235,7 +252,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     min: number;
 
@@ -244,7 +262,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fuzz: number;
 
@@ -253,7 +272,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flat: number;
 
@@ -262,7 +282,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resolution: number;
   }
@@ -272,7 +293,8 @@ declare namespace inputDevice {
    *
    * @interface InputDeviceData
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InputDeviceData {
     /**
@@ -281,7 +303,8 @@ declare namespace inputDevice {
      * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -290,7 +313,8 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -301,7 +325,8 @@ declare namespace inputDevice {
      *
      * @type { Array<SourceType> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sources: Array<SourceType>;
 
@@ -310,7 +335,8 @@ declare namespace inputDevice {
      *
      * @type { Array<AxisRange> }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     axisRanges: Array<AxisRange>;
 
@@ -319,7 +345,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bus: number;
 
@@ -328,7 +355,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     product: number;
 
@@ -337,7 +365,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendor: number;
 
@@ -346,7 +375,8 @@ declare namespace inputDevice {
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: number;
 
@@ -355,7 +385,8 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     phys: string;
 
@@ -364,7 +395,8 @@ declare namespace inputDevice {
      *
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uniq: string;
   }
@@ -427,7 +459,8 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceList(callback: AsyncCallback<Array<number>>): void;
 
@@ -437,7 +470,8 @@ declare namespace inputDevice {
    * 
    * @returns { Promise<Array<number>> } - Promise used to return the IDs of all input devices.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceList(): Promise<Array<number>>;
 
@@ -451,7 +485,8 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
@@ -464,7 +499,8 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
 
