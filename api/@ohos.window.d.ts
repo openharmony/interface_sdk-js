@@ -9976,6 +9976,17 @@ declare namespace window {
      */
     getImmersiveModeEnabledState(): boolean;
 
+
+    /**
+     * Checks whether the layout is immersive.
+     *
+     * @returns { Promise<boolean> } Promise that returns the result. The value true means that the layout is immersive, and false means the opposite.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    isImmersiveLayout(): Promise<boolean>;
+
     /**
      * Get the window status of current window.
      *
