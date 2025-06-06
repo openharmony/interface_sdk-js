@@ -69,40 +69,40 @@ declare namespace motion {
    */
   export enum HoldingHandStatus {
     /**
-     * indicates not held has been detected.
+     * indicates no helding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
      */
     NOT_HELD = 0,
     /**
-     * indicates the holding hand is left hand.
+     * indicates holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
      */
     LEFT_HAND_HELD = 1,
     /**
-     * indicates the holding hand is right hand.
+     * indicates holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates the holding hands are both hands.
+     * indicates holding with the both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
      */
-    BOTH_HANDS_HELD = 3
+    BOTH_HANDS_HELD = 3,
     /**
      * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
      */
-    UNKNOWN_STATUS = 16,
+    UNKNOWN_STATUS = 16
   }
 
   /**
@@ -159,7 +159,7 @@ declare namespace motion {
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
   /**
-   * Subscribe to detect the holding hand changed event.
+   * Subscribe the holding hand change event.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
@@ -177,7 +177,7 @@ declare namespace motion {
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
 
   /**
-   * Unsubscribe to detect the holding hand changed event.
+   * Unsubscribe the holding hand change event.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
