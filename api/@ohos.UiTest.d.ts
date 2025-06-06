@@ -1407,6 +1407,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @since 11
    * @deprecated since 11
    * @useinstead ohos.UiTest.WindowFilter#active
    */
@@ -5173,6 +5174,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @since 11
    * @deprecated since 11
    * @useinstead ohos.UiTest.UiWindow#isActive
    * @test
