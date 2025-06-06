@@ -4551,6 +4551,16 @@ declare namespace osAccount {
      * @since 10
      */
     sensorInfo?: string;
+
+    /**
+     * Indicates the credential length.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    credentialLength?: number;
   }
 
   /**
@@ -4833,7 +4843,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    NEXT_PHASE_FREEZING_TIME = 6
+    NEXT_PHASE_FREEZING_TIME = 6,
+
+    /**
+     * Indicates the type for getting the credential length.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    CREDENTIAL_LENGTH = 7
   }
 
   /**
