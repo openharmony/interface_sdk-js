@@ -2975,7 +2975,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    isSecurityWifi?: boolean;
+    isSecureWifi?: boolean;
   }
 
   /**
