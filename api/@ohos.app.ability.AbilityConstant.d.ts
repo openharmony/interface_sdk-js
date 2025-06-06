@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -49,6 +49,16 @@ import type appManager from './@ohos.app.ability.appManager';
  * @since 11
  */
 declare namespace AbilityConstant {
+  /**
+   * Indicates that the application is launched by clicking the shortcut icon on the desktop.
+   * 
+   * @constant
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  const REASON_MESSAGE_DESKTOP_SHORTCUT = 'ReasonMessage_DesktopShortcut';
   /**
    * Interface of launch param.
    *
