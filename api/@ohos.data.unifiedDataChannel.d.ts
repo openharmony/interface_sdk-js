@@ -2166,8 +2166,8 @@ declare namespace unifiedDataChannel {
    * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
    * intention.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
-   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
@@ -2197,8 +2197,8 @@ declare namespace unifiedDataChannel {
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
    * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
    * intention.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
-   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
