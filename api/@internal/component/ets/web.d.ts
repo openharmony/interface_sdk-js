@@ -6850,6 +6850,31 @@ declare enum WebResponseType {
 }
 
 /**
+ * Enum type supplied to {@link bypassVsyncCondition} for setting the bypass vsync condition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum WebBypassVsyncCondition {
+  /**
+   * Not bypass vsync.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * bypass vsync.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  SCROLLBY_FROM_ZERO_OFFSET = 1
+}
+
+/**
  * Arkweb audio session Type
  *
  * @enum { number }
@@ -9936,6 +9961,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   onActivateContent(callback: Callback<void>): WebAttribute;
+
+  /**
+   * Set up a condition that bypass vsync
+   * If the condition is matched, the drawing schedule does not reply on Vsync scheduling 
+   * and directly rendering and drawing
+   *
+   * @param { WebBypassVsyncCondition } condition - The condition to bypass render vsync.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
 }
 
 /**
