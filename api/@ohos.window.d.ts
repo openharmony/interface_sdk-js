@@ -4321,6 +4321,7 @@ declare namespace window {
    *
    * @interface StartAnimationSystemOption
    * @syscap SystemCapability.Window.SessionManager
+   * @systemapi
    * @since 20
    */
   interface StartAnimationSystemOption {
@@ -4329,6 +4330,7 @@ declare namespace window {
      *
      * @type { AnimationType }
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
      * @since 20
      */
     type: AnimationType;
@@ -4337,6 +4339,7 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
      * @since 20
      */
     animationConfig?: WindowAnimationConfig;
