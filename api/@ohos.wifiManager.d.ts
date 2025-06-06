@@ -37,7 +37,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.WiFi.STA
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace wifiManager {
   /**
@@ -120,7 +121,8 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isWifiActive(): boolean;
 
