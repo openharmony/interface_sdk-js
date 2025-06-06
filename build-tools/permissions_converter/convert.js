@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 const fs = require('fs');
 
 const copyRight = `/*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -50,21 +50,6 @@ const copyRight = `/*
  * @atomicservice
  * @since 11
  */\n`;
-
- const label_1_2 = `/**
- * @file Defines all permissions.
- * @kit AbilityKit
- */
-
- /**
- * Indicates permissions.
- *
- * @typedef Permissions
- * @syscap SystemCapability.Security.AccessToken
- * @atomicservice
- * @since 20
- */\n`;
-
 const typeHead = 'export type Permissions =\n';
 const typeTail = ';';
 const tab = ' ';
@@ -74,7 +59,6 @@ const commentHead = `${tabs}/**\n`;
 const commentBody = `${tabzz}* `;
 const commentTail = `${tabzz}*/\n`;
 const sinceTag = '@since ';
-const arkTS20Version = 20;
 const deprecatedTag = '@deprecated ';
 const orOperator = `${tabs}|${tab}`;
 
@@ -93,57 +77,33 @@ const getPermissions = downloadPath => {
   return undefined;
 };
 
-const getArkTsVersion = (permission, fileType) => {
-  if (fileType === 'ts') {
-    return permission.since;
-  }
-  if (permission.since <= 20) {
-    if (permission.deprecated && permission.deprecated !== '') {
-      const deprecatedVersion = permission.deprecated.replace(/[^\d]/g, '');
-      if (parseInt(deprecatedVersion) <= 20) {
-        return undefined;
-      }
-      return arkTS20Version;
-    }
-    return arkTS20Version;
-  } else {
-    return permission.since;
-  }
-}
-
 const convertJsonToDTS = (permissions, outputFilePath) => {
   if (fs.existsSync(outputFilePath)) {
     fs.unlinkSync(outputFilePath);
   }
-  const fileType = outputFilePath.substring(outputFilePath.lastIndexOf(".") + 1);
   fs.appendFileSync(outputFilePath, copyRight, 'utf8');
-  if (fileType === 'ts') {
-    fs.appendFileSync(outputFilePath, label, 'utf8');
-  } else {
-    fs.appendFileSync(outputFilePath, label_1_2, 'utf8');
-  }
+  fs.appendFileSync(outputFilePath, label, 'utf8');
   fs.appendFileSync(outputFilePath, typeHead, 'utf8');
-
   permissions.forEach((permission, index) => {
-    const arkTsSinceVersion = getArkTsVersion(permission, fileType);
-    if (arkTsSinceVersion === undefined) {
-      return;
+    if (permission.since || permission.deprecated) {
+      fs.appendFileSync(outputFilePath, commentHead, 'utf8');
+      if (permission.since) {
+        const since = `${commentBody}${sinceTag}${permission.since}\n`;
+        fs.appendFileSync(outputFilePath, since, 'utf8');
+      }
+      if (permission.deprecated) {
+        const deprecated = `${commentBody}${deprecatedTag}${permission.deprecated}\n`;
+        fs.appendFileSync(outputFilePath, deprecated, 'utf8');
+      }
+      fs.appendFileSync(outputFilePath, commentTail, 'utf8');
     }
-    fs.appendFileSync(outputFilePath, commentHead, 'utf8');
-    const since = `${commentBody}${sinceTag}${arkTsSinceVersion}\n`;
-    fs.appendFileSync(outputFilePath, since, 'utf8');
-    if (permission.deprecated) {
-      const deprecated = `${commentBody}${deprecatedTag}${permission.deprecated}\n`;
-      fs.appendFileSync(outputFilePath, deprecated, 'utf8');
-    }
-    fs.appendFileSync(outputFilePath, commentTail, 'utf8');
     const permissionName = `${index === 0 ? tabs : orOperator}'${permission.name}'${
       index === permissions.length - 1 ? '' : '\n'
     }`;
     fs.appendFileSync(outputFilePath, permissionName, 'utf8');
   });
   fs.appendFileSync(outputFilePath, typeTail, 'utf8');
-  console.log('Convert module.json definePermissions to permissions successfully, filename = ' + outputFilePath);
+  console.log('Convert config.json definePermissions to permissions.d.ts successfully');
 };
 
 /**
