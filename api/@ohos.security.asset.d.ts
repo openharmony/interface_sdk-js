@@ -336,7 +336,7 @@ declare namespace asset {
    * @param { AssetMap } query - Attributes of the asset to update, such as the asset alias,
    *     access control attributes, and custom data.
    * @param { AssetMap } attributesToUpdate - New attributes of the asset, such as the asset plaintext and custom data.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -468,8 +468,8 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Performs preprocessing for the asset query. This API is used when user authentication is required for the
-   * access to the asset. After the user authentication is successful, call {@link query} and
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. After the user authentication is successful, call {@link query} and
    * {@link postQuery}. This API uses a promise to return the result.
    *
    * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
@@ -555,8 +555,8 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Performs preprocessing for the asset query. This API is used when user authentication is required for the
-   * access to the asset. After the user authentication is successful, call {@link querySync} and
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. After the user authentication is successful, call {@link querySync} and
    * {@link postQuerySync}. This API returns the result synchronously.
    *
    * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
@@ -751,7 +751,7 @@ declare namespace asset {
    *
    * @param { AssetMap } handle - Handle of the query operation,
    *     including the challenge value returned by {@link preQuery}.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1777,7 +1777,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type containing the Asset error codes.
+   * Enumerates the error codes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
