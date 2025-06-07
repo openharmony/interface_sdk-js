@@ -21,7 +21,9 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
+/*** if arkts 1.1 */
 import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
+/*** endif */
 /**
  * Provides methods for rdbStore create and delete.
  *
@@ -35,7 +37,8 @@ import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
  * @namespace relationalStore
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @crossplatform
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace relationalStore {
   /**
@@ -44,7 +47,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AssetStatus {
     /**
@@ -52,7 +56,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_NORMAL,
 
@@ -61,7 +66,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_INSERT,
 
@@ -70,7 +76,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_UPDATE,
 
@@ -79,7 +86,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_DELETE,
 
@@ -88,7 +96,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_ABNORMAL,
 
@@ -97,7 +106,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_DOWNLOADING
   }
@@ -108,7 +118,8 @@ declare namespace relationalStore {
    * @interface Asset
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Asset {
     /**
@@ -117,7 +128,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -127,7 +139,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -137,7 +150,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     path: string;
 
@@ -147,7 +161,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createTime: string;
 
@@ -157,7 +172,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     modifyTime: string;
 
@@ -167,7 +183,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: string;
 
@@ -177,7 +194,8 @@ declare namespace relationalStore {
      * @type { ?AssetStatus }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status?: AssetStatus;
   }
@@ -188,7 +206,8 @@ declare namespace relationalStore {
    * @typedef { Asset[] } Assets
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Assets = Asset[];
 
@@ -213,7 +232,8 @@ declare namespace relationalStore {
    * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
@@ -238,7 +258,8 @@ declare namespace relationalStore {
    * @typedef { Record<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ValuesBucket = Record<string, ValueType>;
 
@@ -282,7 +303,8 @@ declare namespace relationalStore {
    * @interface StoreConfig
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface StoreConfig {
     /**
@@ -297,7 +319,8 @@ declare namespace relationalStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -307,7 +330,8 @@ declare namespace relationalStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     securityLevel: SecurityLevel;
 
@@ -316,7 +340,8 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encrypt?: boolean;
 
@@ -326,7 +351,8 @@ declare namespace relationalStore {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @StageModelOnly
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataGroupId?: string;
 
@@ -336,7 +362,8 @@ declare namespace relationalStore {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customDir?: string;
 
@@ -356,7 +383,8 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     autoCleanDirtyData?: boolean;
 
@@ -366,7 +394,8 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSearchable?: boolean;
 
@@ -375,7 +404,8 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allowRebuild?: boolean;
 
@@ -384,7 +414,8 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vector?: boolean;
 
@@ -394,7 +425,8 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isReadOnly?: boolean;
 
@@ -403,7 +435,8 @@ declare namespace relationalStore {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pluginLibs?: Array<string>;
 
@@ -413,7 +446,8 @@ declare namespace relationalStore {
      * @type { ?HAMode }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     haMode?: HAMode;
 
@@ -422,7 +456,8 @@ declare namespace relationalStore {
      *
      * @type { ?CryptoParam }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cryptoParam?: CryptoParam;
 
@@ -463,7 +498,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HAMode {
     /**
@@ -471,7 +507,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE = 0,
 
@@ -480,7 +517,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAIN_REPLICA
   }
@@ -490,7 +528,8 @@ declare namespace relationalStore {
    *
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CryptoParam {
     /**
@@ -499,7 +538,8 @@ declare namespace relationalStore {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encryptionKey: Uint8Array;
 
@@ -510,7 +550,8 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     iterationCount?: number;
 
@@ -520,7 +561,8 @@ declare namespace relationalStore {
      *
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encryptionAlgo?: EncryptionAlgo;
 
@@ -530,7 +572,8 @@ declare namespace relationalStore {
      *
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hmacAlgo?: HmacAlgo;
 
@@ -540,7 +583,8 @@ declare namespace relationalStore {
      *
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     kdfAlgo?: KdfAlgo;
 
@@ -550,7 +594,8 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cryptoPageSize?: number;
   }
@@ -560,14 +605,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EncryptionAlgo {
     /**
      * AES_256_GCM: Database is encrypted using AES_256_GCM.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AES_256_GCM = 0,
 
@@ -575,7 +622,8 @@ declare namespace relationalStore {
      * AES_256_CBC: Database is encrypted using AES_256_CBC.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AES_256_CBC
   }
@@ -585,14 +633,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HmacAlgo {
     /**
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHA1 = 0,
 
@@ -600,7 +650,8 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHA256,
 
@@ -608,7 +659,8 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHA512
   }
@@ -618,14 +670,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum KdfAlgo {
     /**
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KDF_SHA1 = 0,
 
@@ -633,7 +687,8 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KDF_SHA256,
 
@@ -641,7 +696,8 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KDF_SHA512
   }
@@ -997,7 +1053,8 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2 
    */
   enum SecurityLevel {
     /**
@@ -1006,7 +1063,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     S1 = 1,
 
@@ -1016,7 +1074,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     S2 = 2,
 
@@ -1026,7 +1085,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     S3 = 3,
 
@@ -1036,7 +1096,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     S4 = 4
   }
@@ -1711,7 +1772,8 @@ declare namespace relationalStore {
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class RdbPredicates {
     /**
@@ -1731,7 +1793,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(name: string);
 
@@ -2518,7 +2581,8 @@ declare namespace relationalStore {
    * @interface ResultSet
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ResultSet {
     /**
@@ -2732,7 +2796,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColumnIndex(columnName: string): number;
 
@@ -3029,7 +3094,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goToFirstRow(): boolean;
 
@@ -3303,7 +3369,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getString(columnIndex: number): string;
 
@@ -3365,7 +3432,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLong(columnIndex: number): number;
 
@@ -3914,7 +3982,8 @@ declare namespace relationalStore {
    * @interface RdbStore
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RdbStore {
     /**
@@ -4324,7 +4393,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -4390,7 +4460,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -4425,7 +4496,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     batchInsertSync(table: string, values: Array<ValuesBucket>): number;
 
@@ -5002,7 +5074,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -5062,7 +5135,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delete(predicates: RdbPredicates): Promise<number>;
 
@@ -5096,7 +5170,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deleteSync(predicates: RdbPredicates): number;
     /**
@@ -5168,7 +5243,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -5241,7 +5317,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -5648,7 +5725,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySqlSync(sql: string, bindArgs?: Array<ValueType>): ResultSet;
 
@@ -6124,7 +6202,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
 
@@ -6188,7 +6267,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -6252,7 +6332,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
@@ -6406,7 +6487,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginTransaction(): void;
 
@@ -6481,7 +6563,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     commit(): void;
 
@@ -6556,7 +6639,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rollBack(): void;
 
@@ -8730,7 +8814,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -8826,7 +8911,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
