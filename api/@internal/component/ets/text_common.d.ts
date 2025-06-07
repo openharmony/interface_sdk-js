@@ -1794,6 +1794,24 @@ declare enum TextChangeReason {
    * @since 20
    */
   ACCESSIBILITY = 10,
+
+  /**
+   * Reason for collarboration input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  COLLABORATION = 11,
+ 
+  /**
+   * Reason for stylus input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  STYLUS = 12
 }
 
 /**
