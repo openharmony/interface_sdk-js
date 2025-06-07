@@ -127,7 +127,7 @@ declare namespace window {
      * @since 7
      * @deprecated since 11
      */
-    TYPE_SYSTEM_ALERT = 1,
+    TYPE_SYSTEM_ALERT,
     /**
      * Input method.
      *
@@ -137,7 +137,7 @@ declare namespace window {
      * @since 9
      * @deprecated since 13
      */
-    TYPE_INPUT_METHOD = 2,
+    TYPE_INPUT_METHOD,
     /**
      * Status bar.
      *
