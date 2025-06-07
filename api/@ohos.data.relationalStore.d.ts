@@ -8646,7 +8646,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8663,7 +8663,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8683,7 +8683,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8712,7 +8712,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8744,7 +8744,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8761,7 +8761,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8781,7 +8781,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -8808,7 +8808,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<RdbStore> } Promise used to return the **RdbStore** object obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed. 
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
