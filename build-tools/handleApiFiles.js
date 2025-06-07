@@ -403,9 +403,6 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   const fileContent = sourceFile.getFullText();
   let newContent = '';
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
-  // TODO: 主干挑单临时处理
-  writeFile(outputPath, saveLatestJsDoc(fileContent));
-  return;
   if (!arktsTagRegx.test(fileContent)) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
       newContent = saveLatestJsDoc(fileContent);
