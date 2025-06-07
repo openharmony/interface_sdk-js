@@ -4582,6 +4582,17 @@ declare namespace media {
      * @since 18
      */
     thresholdForAutoQuickPlay?: number
+
+    /**
+     * Indicates whether to keep the decoder working when closing the media,
+     * which is used to facilitate quick opening of the media. Currently only supports video
+     * @type { ?boolean } The default value is false, which means that the corresponding decoder
+     *                    will be stopped when the media is closed to reduce power consumption.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     */
+    keepDecodingOnMute?: boolean;
   }
 
   /**
