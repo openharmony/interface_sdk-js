@@ -8109,6 +8109,33 @@ declare namespace relationalStore {
      * @since 14
      */
     createTransaction(options?: TransactionOptions): Promise<Transaction>;
+
+    /**
+     * Changes the key used to encrypt the database.
+     *
+     * @param { CryptoParam } cryptoParam - Specifies the crypto parameters used to rekey.
+     * If valid cryptoParam passed, the cryptoParam is used to rekey.
+     * If cryptoParam is null or not passed, the default cryptoParam is used.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. conditions is empty;
+     * <br>2. The GROUP BY clause is missing.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    rekey(cryptoParam?: CryptoParam): Promise<void>;
   }
 
   /**
