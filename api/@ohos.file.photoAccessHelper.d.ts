@@ -4072,6 +4072,37 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumeration change types of data change.
+   *
+   * @enum { number } NotifyChangeType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  enum NotifyChangeType {
+    /**
+     * Data(assets or albums) have been newly created.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    NOTIFY_CHANGE_ADD = 0,
+    /**
+     * Data(assets or albums) have been modified.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    NOTIFY_CHANGE_UPDATE = 1,
+    /**
+     * Data(assets or albums) have been removed.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    NOTIFY_CHANGE_REMOVE = 2,
+  }
+
+  /**
    * Defines the album.
    *
    * @extends AbsAlbum
@@ -5508,6 +5539,707 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
+
+    /**
+     * Register the callback of photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'photoChange' } type - The value is fixed at 'photoChange', indicating the photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback invoked when the photo is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    on(type: 'photoChange', callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unregister the callback of photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'photoChange' } type - The value is fixed at 'photoChange', indicating the photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    off(type: 'photoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Register the callback of hidden photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { 'hiddenPhotoChange' } type - The value is fixed at 'hiddenPhotoChange', indicating the hidden photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback invoked when the hidden photo is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'hiddenPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unregister the callback of hidden photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { 'hiddenPhotoChange' } type - The value is fixed at 'hiddenPhotoChange', indicating the hidden photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'hiddenPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Register the callback of trashed photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'trashedPhotoChange' } type - The value is fixed at 'trashedPhotoChange', indicating the trashed photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback invoked when the trashed photo is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'trashedPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unregister the callback of trashed photo changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'trashedPhotoChange' } type - The value is fixed at 'trashedPhotoChange', indicating the trashed photo change event.
+     * @param { Callback<PhotoAssetChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'trashedPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Register the callback of album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'photoAlbumChange' } type - The value is fixed at 'photoAlbumChange', indicating the album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback invoked when the album is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    on(type: 'photoAlbumChange', callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unregister the callback of album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'photoAlbumChange' } type - The value is fixed at 'photoAlbumChange', indicating the album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    off(type: 'photoAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Register the callback of hidden album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { 'hiddenAlbumChange' } type - The value is fixed at 'hiddenAlbumChange', indicating the hidden album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback invoked when the hidden album is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'hiddenAlbumChange', callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unregister the callback of hidden album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { 'hiddenAlbumChange' } type - The value is fixed at 'hiddenAlbumChange', indicating the hidden album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'hiddenAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Register the callback of trashed album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'trashedAlbumChange' } type - The value is fixed at 'trashedAlbumChange', indicating the trashed album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback invoked when the trashed album is changed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'trashedAlbumChange', callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unregister the callback of trashed album changes.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { 'trashedAlbumChange' } type - The value is fixed at 'trashedAlbumChange', indicating the trashed album change event.
+     * @param { Callback<AlbumChangeInfos> } callback - Callback to be removed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
+  }
+
+  /**
+   * Enumeration status of thumbnail change.
+   *
+   * @enum { number } ThumbnailChangeStatus
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 20
+   */
+  enum ThumbnailChangeStatus {
+    /**
+     * Thumbnail not exists.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    THUMBNAIL_NOT_EXISTS = 0,
+
+    /**
+     * Thumbnail have been newly created.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    THUMBNAIL_ADD = 1,
+
+    /**
+     * Thumbnail have been modified.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    THUMBNAIL_UPDATE = 2,
+    
+    /**
+     * Thumbnail no change.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    THUMBNAIL_NOT_CHANGE = 3
+  }
+
+  /**
+   * Enumeration of strong association types of photos.
+   *
+   * @enum { number } StrongAssociationType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 20
+   */
+  enum StrongAssociationType {
+    /**
+     * Normal photo type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    NORMAL = 0,
+    /**
+     * Cloud enhancement photo type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    CLOUD_ENHANCEMENT = 1
+  }
+
+  /**
+   * Defines the photo asset change infos.
+   *
+   * @interface PhotoAssetChangeInfos
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface PhotoAssetChangeInfos {
+    /**
+     * Notification type of photo asset.
+     *
+     * @type { NotifyChangeType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    type: NotifyChangeType;
+
+    /**
+     * The changed asset datas.
+     *
+     * @type { PhotoAssetChangeData[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    assetChangeDatas: PhotoAssetChangeData[];
+
+    /**
+     * Whether the application should recheck the photo asset infos that use to solve abnormal notification scenarios.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    isForRecheck: boolean;
+  }
+
+  /**
+   * Defines the photo asset change data.
+   *
+   * @interface PhotoAssetChangeData
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface PhotoAssetChangeData {
+    /**
+     * The photo asset info before change.
+     *
+     * @type { PhotoAssetChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    assetBeforeChange: PhotoAssetChangeInfo;
+
+    /**
+     * The photo asset info after change.
+     *
+     * @type { PhotoAssetChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    assetAfterChange: PhotoAssetChangeInfo;
+
+    /**
+     * Whether the photo asset content is changed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    isContentChanged: boolean;
+
+    /**
+     * Whether the photo asset is deleted.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    isDeleted: boolean;
+
+    /**
+     * Thumbnail change status of The photo asset.
+     *
+     * @type { ThumbnailChangeStatus }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    thumbnailChangeStatus: ThumbnailChangeStatus;
+    
+    /**
+     * The version of the photo asset info used to determine the order of notification changes.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    version: number;
+  }
+
+  /**
+   * Defines the photo asset info.
+   *
+   * @interface PhotoAssetChangeInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface PhotoAssetChangeInfo {
+    /**
+     * The uri of photo asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    uri: string;
+
+    /**
+     * The media type of photo asset.
+     *
+     * @type { PhotoType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    mediaType: PhotoType;
+
+    /**
+     * The album uri of photo asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumUri: string;
+
+    /**
+     * The file id of photo asset.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    fileId: number;
+
+    /**
+     * The date day of photo asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    dateDay: string;
+
+    /**
+     * The favorite state of photo asset.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isFavorite: boolean;
+
+    /**
+     * The hidden state of photo asset.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isHidden: boolean;
+
+    /**
+     * The strong association value of photo asset.
+     *
+     * @type { StrongAssociationType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    strongAssociation: StrongAssociationType;
+
+    /**
+     * The visibility of photo asset thumbnail.
+     *
+     * @type { ThumbnailVisibility }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    thumbnailVisible: ThumbnailVisibility;
+
+    /**
+     * The trashed time of photo asset in milliseconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    dateTrashedMs: number;
+
+    /**
+     * The added time of photo asset in milliseconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    dateAddedMs: number;
+
+    /**
+     * The taken time of photo asset in milliseconds.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    dateTakenMs: number;
+  }
+
+  /**
+   * Defines the album change infos.
+   *
+   * @interface AlbumChangeInfos
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface AlbumChangeInfos {
+    /**
+     * Notification type of album.
+     *
+     * @type { NotifyChangeType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    type: NotifyChangeType;
+
+    /**
+     * The changed album datas.
+     *
+     * @type { AlbumChangeData[] }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumChangeDatas: AlbumChangeData[];
+
+    /**
+     * Whether the application should recheck the album infos that use to solve abnormal notification scenarios.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    isForRecheck: boolean;
+  }
+
+  /**
+   * Defines the album change data.
+   *
+   * @interface AlbumChangeData
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface AlbumChangeData {
+    /**
+     * The album info before change.
+     *
+     * @type { AlbumChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumBeforeChange: AlbumChangeInfo;
+    /**
+     * The album info after change.
+     *
+     * @type { AlbumChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumAfterChange: AlbumChangeInfo;
+    /**
+     * Whether the album is deleted.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    isDeleted: boolean;
+
+    /**
+     * The version of the album info used to determine the order of notification changes.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    version: number;
+  }
+
+  /**
+   * Defines the album info.
+   *
+   * @interface AlbumChangeInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 20
+   */
+  interface AlbumChangeInfo {
+    /**
+     * Type of the album.
+     *
+     * @type { AlbumType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumType: AlbumType;
+    /**
+     * Subtype of the album.
+     *
+     * @type { AlbumSubtype }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumSubtype: AlbumSubtype;
+    /**
+     * Name of the album.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumName: string;
+    /**
+     * URI of the album.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    albumUri: string;
+    /**
+     * Number of images in the album.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    imageCount: number;
+
+    /**
+     * Number of videos in the album.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    videoCount: number;
+
+    /**
+     * Number of files in the album.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    count: number;
+
+    /**
+     * URI of the cover file of the album.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 20
+     */
+    coverUri: string;
+
+    /**
+     * Number of hidden files in the album.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    hiddenCount: number;
+
+    /**
+     * URI of the hidden cover file of the album.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    hiddenCoverUri: string;
+
+    /**
+     * Change state of the cover content.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isCoverChanged: boolean;
+
+    /**
+     * Change state of the hidden cover content in the album.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isHiddenCoverChanged: boolean;
+
+    /**
+     * Change info of the cover file of the album.
+     *
+     * @type { ?PhotoAssetChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    coverInfo?: PhotoAssetChangeInfo;
+
+    /**
+     * Change info of the hidden cover file of the album.
+     *
+     * @type { ?PhotoAssetChangeInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    hiddenCoverInfo?: PhotoAssetChangeInfo;
   }
 
   /**
