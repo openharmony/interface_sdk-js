@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
-import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
+/*** if arkts 1.1 */
 import type { AsyncCallback } from '../@ohos.base';
-import resmgr from '../@ohos.resourceManager';
-import BaseContext from './BaseContext';
 import EventHub from './EventHub';
+/*** endif */
+import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
 import ApplicationContext from './ApplicationContext';
+import BaseContext from './BaseContext';
+import resmgr from '../@ohos.resourceManager';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 
 /**
@@ -54,7 +56,8 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class Context extends BaseContext {
   /**
@@ -82,7 +85,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceManager: resmgr.ResourceManager;
 
@@ -111,7 +115,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   applicationInfo: ApplicationInfo;
 
@@ -169,7 +174,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   tempDir: string;
 
@@ -198,7 +204,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   filesDir: string;
 
@@ -384,7 +391,8 @@ export default class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   area: contextConstant.AreaMode;
 
@@ -531,7 +539,8 @@ export default class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getApplicationContext(): ApplicationContext;
 
