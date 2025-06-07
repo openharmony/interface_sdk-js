@@ -111,6 +111,7 @@ import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
+import kioskManager from '@ohos.app.ability.kioskManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -130,7 +131,7 @@ export {
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, kioskManager
 };
 
 /*** if arkts 1.2 */
