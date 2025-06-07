@@ -8050,6 +8050,27 @@ declare enum HitTestMode {
    * @since 11
    */
   None,
+
+  /**
+   * Blocks all lower priority siblings and parents node from receiving the event.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BLOCK_HIERARCHY,
+
+  /**
+   * Self not respond to the hit test for touch events,
+   * and all descebdants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BLOCK_DESCENDANTS,
 }
 
 /**
