@@ -1706,13 +1706,13 @@ declare enum TextChangeReason {
   UNKNOWN = 0,
 
   /**
-   * Reason for input from input method.
+   * Reason for input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    */
-  IME_INPUT = 1,
+  INPUT = 1,
 
   /**
    * Reason for paste.
@@ -1794,15 +1794,6 @@ declare enum TextChangeReason {
    * @since 20
    */
   ACCESSIBILITY = 10,
-
-  /**
-   * Reason for input.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  INPUT = 1
 }
 
 /**
