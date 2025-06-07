@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -76,7 +76,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -85,7 +85,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -95,14 +95,14 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  authResults: Array<number>;
+  authResults: Array<int>;
 
   /**
    * Specifies whether a dialog box is shown for each requested permission.
@@ -126,12 +126,12 @@ export default class PermissionRequestResult {
    *   5  The permission cannot be requested in a pop-up window.
    *   12 The service is abnormal.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18
    */
-  errorReasons?: Array<number>;
+  errorReasons?: Array<int>;
 }
