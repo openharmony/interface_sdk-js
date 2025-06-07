@@ -6646,6 +6646,15 @@ declare namespace ble {
      */
     NORMAL = 1,
     /**
+     * Enables the batch mode in which advertisement packets are sent after the interval specified by {@link
+     * ScanOptions#interval}.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    BATCH = 2,
+    /**
      * In low sensitivity fence mode, the advertisement packets are reported only when they are received for
      * the first time and lost for the last time. The reception sensitivity is low.
      *
@@ -6695,6 +6704,15 @@ declare namespace ble {
      * @since 15
      */
     ON_LOST = 2,
+    /**
+     * The type of advertisement packet reported in batch mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    ON_BATCH = 3,
   }
 
   /**
