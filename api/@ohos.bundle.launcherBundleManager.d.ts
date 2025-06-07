@@ -18,18 +18,21 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
-import { StartOptions } from './@ohos.app.ability.StartOptions';
+import StartOptions from './@ohos.app.ability.StartOptions';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
+/*** endif */
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 
 /**
  * Launcher bundle manager.
  *
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace launcherBundleManager {
   /**
@@ -168,7 +171,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
@@ -188,7 +192,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
 
@@ -251,6 +256,7 @@ declare namespace launcherBundleManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -267,6 +273,7 @@ declare namespace launcherBundleManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ShortcutWant = _ShortcutWant;
   /**
@@ -283,6 +290,7 @@ declare namespace launcherBundleManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
 }

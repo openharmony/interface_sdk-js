@@ -227,7 +227,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -272,7 +272,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -470,7 +470,7 @@ declare namespace installer {
      * @systemapi
      * @since 11
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -553,7 +553,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -844,7 +844,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -1098,7 +1098,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-     /**
+    /**
      * Uninstall an application.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
@@ -1663,7 +1663,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1683,7 +1683,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
 
     /**
      * Destroy clone instance for an application.
@@ -1704,7 +1704,7 @@ declare namespace installer {
      * @systemapi
      * @since 15
      */
-     destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
 
     /**
      * Install application by bundle name with specified user.
@@ -1742,9 +1742,9 @@ declare namespace installer {
      * @systemapi
      * @since 14
      */
-     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
+    installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
 
-     /**
+    /**
      * Install plugin for host application.
      *
      * @permission ohos.permission.INSTALL_PLUGIN_BUNDLE
@@ -1775,9 +1775,9 @@ declare namespace installer {
      * @systemapi
      * @since 19
      */
-     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
+    installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
-     /**
+    /**
      * Uninstall plugin for host application.
      *
      * @permission ohos.permission.UNINSTALL_PLUGIN_BUNDLE
@@ -1794,7 +1794,7 @@ declare namespace installer {
      * @systemapi
      * @since 19
      */
-     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
+    uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
 
   /**

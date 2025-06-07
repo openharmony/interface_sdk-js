@@ -32,6 +32,7 @@
  * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface ShortcutInfo {
   /**
@@ -57,6 +58,7 @@ export interface ShortcutInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   id: string;
 
@@ -83,6 +85,7 @@ export interface ShortcutInfo {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -109,6 +112,7 @@ export interface ShortcutInfo {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   moduleName?: string;
 
@@ -135,6 +139,7 @@ export interface ShortcutInfo {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   hostAbility?: string;
 
@@ -161,6 +166,7 @@ export interface ShortcutInfo {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   icon?: string;
 
@@ -187,6 +193,7 @@ export interface ShortcutInfo {
    * @type { ?number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   iconId?: number;
 
@@ -213,6 +220,7 @@ export interface ShortcutInfo {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   label?: string;
 
@@ -239,6 +247,7 @@ export interface ShortcutInfo {
    * @type { ?number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   labelId?: number;
 
@@ -265,6 +274,7 @@ export interface ShortcutInfo {
    * @type { ?Array<ShortcutWant> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   wants?: Array<ShortcutWant>;
 
@@ -282,9 +292,10 @@ export interface ShortcutInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   appIndex: number;
-  
+
   /**
    * Indicates the source type of shortcut.
    *
@@ -299,6 +310,7 @@ export interface ShortcutInfo {
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   sourceType: number;
 
@@ -326,6 +338,7 @@ export interface ShortcutInfo {
  * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface ShortcutWant {
   /**
@@ -351,6 +364,7 @@ export interface ShortcutWant {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   targetBundle: string;
 
@@ -377,6 +391,7 @@ export interface ShortcutWant {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   targetModule?: string;
 
@@ -403,6 +418,7 @@ export interface ShortcutWant {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   targetAbility: string;
 
@@ -420,6 +436,7 @@ export interface ShortcutWant {
    * @type { ?Array<ParameterItem> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   parameters?: Array<ParameterItem>;
 }
@@ -438,6 +455,7 @@ export interface ShortcutWant {
  * @typedef ParameterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface ParameterItem {
   /**
@@ -454,6 +472,7 @@ export interface ParameterItem {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   key: string;
 
@@ -471,6 +490,7 @@ export interface ParameterItem {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   value: string;
 }

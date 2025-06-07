@@ -44,7 +44,8 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ApplicationInfo {
   /**
@@ -72,7 +73,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -101,7 +103,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly description: string;
 
@@ -130,7 +133,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly descriptionId: number;
 
@@ -160,6 +164,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly enabled: boolean;
 
@@ -188,7 +193,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly label: string;
 
@@ -217,7 +223,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 
@@ -246,7 +253,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly icon: string;
 
@@ -275,7 +283,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly iconId: number;
 
@@ -305,6 +314,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly process: string;
 
@@ -334,6 +344,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly permissions: Array<string>;
 
@@ -362,7 +373,8 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly codePath: string;
 
@@ -404,6 +416,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly metadataArray: Array<ModuleMetadata>;
 
@@ -433,6 +446,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly removable: boolean;
 
@@ -462,6 +476,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly accessTokenId: number;
 
@@ -491,6 +506,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly uid: number;
 
@@ -520,6 +536,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly iconResource: Resource;
 
@@ -549,6 +566,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly labelResource: Resource;
 
@@ -578,6 +596,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly descriptionResource: Resource;
 
@@ -607,6 +626,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly appDistributionType: string;
 
@@ -636,6 +656,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly appProvisionType: string;
 
@@ -665,6 +686,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly systemApp: boolean;
 
@@ -683,7 +705,8 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleType: bundleManager.BundleType;
 
@@ -713,6 +736,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly debug: boolean;
 
@@ -734,6 +758,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly dataUnclearable: boolean;
 
@@ -753,6 +778,7 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly nativeLibraryPath: string;
 
@@ -762,7 +788,8 @@ export interface ApplicationInfo {
    * @type { MultiAppMode }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly multiAppMode: MultiAppMode;
 
@@ -772,7 +799,8 @@ export interface ApplicationInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 
@@ -783,7 +811,8 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installSource: string;
 
@@ -805,6 +834,7 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly releaseType: string;
 
@@ -815,7 +845,8 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly cloudFileSyncEnabled: boolean;
 
@@ -826,7 +857,8 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly flags?: number;
 }
@@ -854,6 +886,7 @@ export interface ApplicationInfo {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface ModuleMetadata {
   /**
@@ -882,6 +915,7 @@ export interface ModuleMetadata {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly moduleName: string;
 
@@ -911,6 +945,7 @@ export interface ModuleMetadata {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly metadata: Array<Metadata>;
 }
@@ -920,7 +955,8 @@ export interface ModuleMetadata {
  *
  * @typedef MultiAppMode
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface MultiAppMode {
   /**
@@ -929,7 +965,8 @@ export interface MultiAppMode {
    * @type { bundleManager.MultiAppModeType }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly multiAppModeType: bundleManager.MultiAppModeType;
 
@@ -939,7 +976,8 @@ export interface MultiAppMode {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly maxCount: number;
 }
@@ -950,7 +988,8 @@ export interface MultiAppMode {
  * @typedef PreinstalledApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PreinstalledApplicationInfo {
 
@@ -961,7 +1000,8 @@ export interface PreinstalledApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -972,7 +1012,8 @@ export interface PreinstalledApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly moduleName: string;
 
@@ -983,7 +1024,8 @@ export interface PreinstalledApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly iconId: number;
 
@@ -994,7 +1036,8 @@ export interface PreinstalledApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 }

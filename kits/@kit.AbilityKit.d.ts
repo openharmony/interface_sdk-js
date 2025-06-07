@@ -132,3 +132,14 @@ export {
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility
 };
+
+/*** if arkts 1.2 */
+import bundleManager from '@ohos.bundle.bundleManager';
+import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import shortcutManager from '@ohos.bundle.shortcutManager';
+
+export {
+  bundleManager, bundleResourceManager, launcherBundleManager, shortcutManager
+};
+/*** endif */
