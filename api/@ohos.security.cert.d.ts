@@ -45,7 +45,8 @@ import cryptoFramework from './@ohos.security.cryptoFramework';
  * @syscap SystemCapability.Security.Cert
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cert {
   /**

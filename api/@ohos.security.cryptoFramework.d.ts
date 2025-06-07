@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,7 +35,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Security.CryptoFramework
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cryptoFramework {
   /**
@@ -174,7 +175,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DataBlob {
     /**
@@ -191,7 +193,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
   }
@@ -652,7 +655,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Key {
     /**
@@ -776,7 +780,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SymKey extends Key {
     /**
@@ -1813,7 +1818,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SymKeyGenerator {
     /**
@@ -1973,7 +1979,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertKeySync(key: DataBlob): SymKey;
 
@@ -2082,7 +2089,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
@@ -2178,7 +2186,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Mac {
     /**
@@ -2277,7 +2286,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     initSync(key: SymKey): void;
 
@@ -2374,7 +2384,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateSync(input: DataBlob): void;
 
@@ -2454,7 +2465,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doFinalSync(): DataBlob;
 
@@ -2551,7 +2563,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createMac(algName: string): Mac;
 
@@ -3925,7 +3938,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Sign type, which is used for generating signatures.
-   * Before using any API of the Sign class, you must create a Sign instance by using createSign。 
+   * Before using any API of the Sign class, you must create a Sign instance by using createSign.
    *
    * @typedef Sign
    * @syscap SystemCapability.Security.CryptoFramework.Signature
