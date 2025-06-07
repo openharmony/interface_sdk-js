@@ -54,6 +54,40 @@ declare namespace deviceStatus {
   }
 
   /**
+   * Interface for device rotation radian
+   * @interface DeviceRotationRadian
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @systemapi
+   * @since 20
+   */
+  export interface DeviceRotationRadian {
+    /**
+     * indicates X-RotationRadian
+     * @type { number }
+     * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+     * @systemapi
+     * @since 20
+     */
+    x: number;
+    /**
+     * indicates Y-RotationRadian
+     * @type { number }
+     * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+     * @systemapi
+     * @since 20
+     */
+    y: number;
+    /**
+     * indicates Z-RotationRadian
+     * @type { number }
+     * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+     * @systemapi
+     * @since 20
+     */
+    z: number;
+  }
+
+  /**
    * Subscribe to detect the steady standing status
    * @param { 'steadyStandingDetect' } type - Indicates the event type.
    * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
@@ -82,5 +116,31 @@ declare namespace deviceStatus {
    * @since 18
    */
   function off(type: 'steadyStandingDetect', callback?: Callback<SteadyStandingStatus>): void;
+
+  /**
+   * Unsubscribe to detect the steady standing status
+   * @param { 'steadyStandingDetect' } type - Indicates the event type.
+   * @param { Callback<SteadyStandingStatus> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 
+   * <br> 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @throws { BusinessError } 32500003 - Unsubscribe Failed.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @since 18
+   */
+  function off(type: 'steadyStandingDetect', callback?: Callback<SteadyStandingStatus>): void;
+
+  /**
+   * Get the device rotation radian
+   * @returns { Promise<DeviceRotationRadian> } The result of device roatation radian.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 32500001 - Service exception.
+   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @systemapi
+   * @since 20
+   */
+  function getDeviceRotationRadian(): Promise<DeviceRotationRadian>;
 }
 export default deviceStatus;
