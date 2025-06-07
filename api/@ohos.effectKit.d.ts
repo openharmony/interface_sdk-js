@@ -18,8 +18,13 @@
  * @kit ArkGraphics2D
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
+/*** endif */
+/*** if arkts 1.2 */
+import image from './@ohos.multimedia.image';
+/*** endif */
 
 /**
  * @namespace effectKit
@@ -36,7 +41,8 @@ import image from './@ohos.multimedia.image';
  * @crossplatform
  * @form
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare namespace effectKit {
@@ -62,7 +68,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Filter {
 
@@ -91,7 +98,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 14
+    * @since arkts {'1.1':'14', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     blur(radius: number): Filter;
 
@@ -230,7 +238,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since 14
+    * @since arkts {'1.1':'14', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
   }
@@ -590,7 +599,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createEffect(source: image.PixelMap): Filter;
 
