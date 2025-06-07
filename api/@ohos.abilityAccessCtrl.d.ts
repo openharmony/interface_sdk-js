@@ -22,9 +22,6 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 import type _Context from './application/Context';
 import type _PermissionRequestResult from './security/PermissionRequestResult';
-/*** if arkts 1.1 */
-import { int } from '@ohos.base';
-/*** endif */
 
 /**
  * @namespace abilityAccessCtrl
@@ -42,8 +39,7 @@ import { int } from '@ohos.base';
  * @syscap SystemCapability.Security.AccessToken
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -68,8 +64,7 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function createAtManager(): AtManager;
 
@@ -86,8 +81,7 @@ declare namespace abilityAccessCtrl {
    * @interface AtManager
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface AtManager {
     /**
@@ -117,21 +111,20 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission synchronously.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
+    verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -143,7 +136,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -156,7 +149,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -164,16 +157,15 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
+    checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -186,7 +178,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { int } tokenID - Token ID of the application.
+     * @param { number } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -194,10 +186,9 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
+    checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
     /**
      * Requests certain permissions from the user.
@@ -239,8 +230,7 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     requestPermissionsFromUser(
       context: Context,
@@ -288,8 +278,7 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -643,14 +632,14 @@ declare namespace abilityAccessCtrl {
   /**
    * GrantStatus.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @since 8
    */
   /**
    * GrantStatus.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @since 10
@@ -658,12 +647,11 @@ declare namespace abilityAccessCtrl {
   /**
    * GrantStatus.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum GrantStatus {
     /**
@@ -685,8 +673,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     PERMISSION_DENIED = -1,
     /**
@@ -708,8 +695,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     PERMISSION_GRANTED = 0
   }
@@ -717,11 +703,10 @@ declare namespace abilityAccessCtrl {
   /**
    * Enum for permission state change type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export enum PermissionStateChangeType {
     /**
@@ -729,8 +714,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
@@ -738,8 +722,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -747,11 +730,10 @@ declare namespace abilityAccessCtrl {
   /**
    * Enum for permission request toggle status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum PermissionRequestToggleStatus {
     /**
@@ -759,8 +741,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CLOSED = 0,
     /**
@@ -768,8 +749,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     OPEN = 1,
   }
@@ -780,8 +760,7 @@ declare namespace abilityAccessCtrl {
    * @interface PermissionStateChangeInfo
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -791,21 +770,19 @@ declare namespace abilityAccessCtrl {
      * @type { PermissionStateChangeType }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     change: PermissionStateChangeType;
 
     /**
      * Indicates the application whose permission state has been changed.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    tokenID: int;
+    tokenID: number;
 
     /**
      * Indicates the permission whose state has been changed.
@@ -813,8 +790,7 @@ declare namespace abilityAccessCtrl {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     permissionName: Permissions;
   }
@@ -822,11 +798,10 @@ declare namespace abilityAccessCtrl {
   /**
    * PermissionStatus.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum PermissionStatus {
     /**
@@ -834,8 +809,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DENIED = -1,
     /**
@@ -843,8 +817,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     GRANTED = 0,
     /**
@@ -852,8 +825,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NOT_DETERMINED = 1,
     /**
@@ -861,8 +833,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     INVALID = 2,
     /**
@@ -870,8 +841,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     RESTRICTED = 3
   }
@@ -879,11 +849,10 @@ declare namespace abilityAccessCtrl {
   /**
    * SwitchType.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
     export enum SwitchType {
       /**
@@ -891,8 +860,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       CAMERA = 0,
       /**
@@ -900,8 +868,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       MICROPHONE = 1,
       /**
@@ -909,8 +876,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       LOCATION = 2,
     }
@@ -935,8 +901,7 @@ export { Permissions };
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export type PermissionRequestResult = _PermissionRequestResult;
 /**
@@ -956,7 +921,6 @@ export type PermissionRequestResult = _PermissionRequestResult;
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export type Context = _Context;
