@@ -21,7 +21,6 @@ import { Permissions } from './permissions';
 import type _Context from './application/Context';
 import type _PermissionRequestResult from './security/PermissionRequestResult';
 
-
 /**
  * @namespace abilityAccessCtrl
  * @syscap SystemCapability.Security.AccessToken
@@ -30,8 +29,6 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @since 20
  */
 declare namespace abilityAccessCtrl {
-    
-    
     /**
      * Obtains the AtManager instance.
      *
@@ -63,8 +60,7 @@ declare namespace abilityAccessCtrl {
          * @syscap SystemCapability.Security.AccessToken
          * @since 20
          */
-        verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
-        
+        verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;   
         
         /**
          * Checks whether a specified application has been granted the given permission.
@@ -96,8 +92,7 @@ declare namespace abilityAccessCtrl {
          * @atomicservice
          * @since 20
          */
-        checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
-        
+        checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;      
         
         /**
          * Requests certain permissions from the user.
@@ -115,7 +110,6 @@ declare namespace abilityAccessCtrl {
          * @since 20
          */
         requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
-        
         
         /**
          * Requests certain permissions from the user.
@@ -154,7 +148,6 @@ declare namespace abilityAccessCtrl {
         requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
     }
     
-    
     /**
      * GrantStatus.
      *
@@ -164,9 +157,7 @@ declare namespace abilityAccessCtrl {
      * @atomicservice
      * @since 20
      */
-    export enum GrantStatus {
-        
-        
+    export enum GrantStatus {      
         /**
          * access_token permission check fail
          *
@@ -176,8 +167,7 @@ declare namespace abilityAccessCtrl {
          * @since 20
          */
         PERMISSION_DENIED = -1,
-        
-        
+
         /**
          * access_token permission check success
          *

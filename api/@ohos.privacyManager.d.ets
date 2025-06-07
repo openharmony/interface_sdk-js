@@ -24,7 +24,6 @@ import { Permissions } from './permissions';
  * @since 20
  */
 declare namespace privacyManager {
-    
     /**
      * Adds an access record of a sensitive permission.
      *
