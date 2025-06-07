@@ -2373,6 +2373,26 @@ declare namespace commonEventManager {
      * @since 20
      */
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
+
+    /**
+     * This common event means that kiosk mode is on.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_ON = 'usual.event.KIOSK_MODE_ON',
+
+    /**
+     * This common event means that kiosk mode is off.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_OFF = 'usual.event.KIOSK_MODE_OFF',
   }
 
   /**
