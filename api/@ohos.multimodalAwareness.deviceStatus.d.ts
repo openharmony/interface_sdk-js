@@ -121,6 +121,8 @@ declare namespace deviceStatus {
    * Get the device rotation radian
    * @returns { Promise<DeviceRotationRadian> } The result of device roatation radian.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @systemapi
