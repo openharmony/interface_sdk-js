@@ -37,7 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class HashSet<T> {
   /**
@@ -62,7 +63,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -90,6 +92,17 @@ declare class HashSet<T> {
    * @since 12
    */
   length: number;
+    /**
+   * Gets the element number of the HashSet.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
   /**
    * Returns whether the Set object contains elements
    *
@@ -115,7 +128,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -158,7 +172,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(value: T): boolean;
   /**
@@ -201,7 +216,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(value: T): boolean;
   /**
@@ -244,7 +260,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   remove(value: T): boolean;
   /**
@@ -269,7 +286,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -324,6 +342,19 @@ declare class HashSet<T> {
    * @since 12
    */
   forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Iterates over all elements in the HashSet and executes a callback function for each element.
+   *
+   * @param { HashSetCbFn<T> } callbackFn - A callback function to execute for each element.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: HashSetCbFn<T>): void;
+
   /**
    * Returns a new Iterator object that contains the values contained in this set
    *
@@ -349,7 +380,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<T>;
   /**
@@ -377,7 +409,8 @@ declare class HashSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -408,6 +441,33 @@ declare class HashSet<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> } an iterator for the HashSet
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
 }
+
+/**
+ * The type of HashSet callback function.
+ *
+ * @typedef { function } HashSetCbFn
+ * @param { T } value - The current element being processed
+ * @param { T } key - [Deprecated] HashSet does not use key-value pairs, this parameter exists only for API compatibility
+ * @param { HashSet<T> } set - The HashSet instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
 
 export default HashSet;
