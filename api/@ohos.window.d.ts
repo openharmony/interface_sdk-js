@@ -4209,15 +4209,15 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
-    enum AnimationType {
-      /**
-       * window animation type fade in out
-       *
-       * @syscap SystemCapability.Window.SessionManager
-       * @since 20
-       */
-      FADE_IN_OUT = 0,
-    }
+  enum AnimationType {
+    /**
+     * window animation type fade in out
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    FADE_IN_OUT = 0,
+  }
 
   /**
    * Describes the window animation curve
@@ -4317,7 +4317,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of start system scene aniamtion
+   * The animation configuration of start system scene animation
    *
    * @interface StartAnimationSystemOption
    * @syscap SystemCapability.Window.SessionManager
@@ -4335,9 +4335,9 @@ declare namespace window {
      */
     type: AnimationType;
     /**
-     * The opacity of window
+     * The config of start system scene animation
      *
-     * @type { ?number }
+     * @type { ?WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 20
@@ -4346,7 +4346,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of start scene aniamtion
+   * The animation configuration of start scene animation
    *
    * @interface StartAnimationOption
    * @syscap SystemCapability.Window.SessionManager
