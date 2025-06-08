@@ -4864,6 +4864,18 @@ declare namespace camera {
      * @since 12
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
+
+    /**
+     * Checks whether zoom center point is supported.
+     *
+     * @returns { boolean } Is zoom center point supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    isZoomCenterPointSupported(): boolean;
   }
 
   /**
@@ -4981,6 +4993,30 @@ declare namespace camera {
      * @since 11
      */
     unprepareZoom(): void;
+
+    /**
+     * Gets current zoom center point.
+     *
+     * @returns { Point } The zoom center point
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    getZoomCenterPoint(): Point;
+
+    /**
+     * Sets the zoom center point.
+     *
+     * @param { Point } point - The point of zoom center.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    setZoomCenterPoint(point: Point): void;
   }
 
   /**
