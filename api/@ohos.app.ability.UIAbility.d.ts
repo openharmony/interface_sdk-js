@@ -20,10 +20,12 @@
 
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
-import UIAbilityContext from './application/UIAbilityContext';
-import rpc from './@ohos.rpc';
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
+/*** if arkts 1.1 */
+import UIAbilityContext from './application/UIAbilityContext';
+import rpc from './@ohos.rpc';
+/*** endif */
 
 /**
  * The prototype of the listener function interface registered by the Caller.
@@ -285,9 +287,10 @@ export interface Callee {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class UIAbility extends Ability {
+declare class UIAbility extends Ability {
   /**
    * Indicates configuration information about an ability context.
    *
@@ -396,7 +399,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -425,7 +429,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
@@ -462,7 +467,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(): void;
 
@@ -523,6 +529,48 @@ export default class UIAbility extends Ability {
   onDestroy(): void | Promise<void>;
 
   /**
+   * Called to clear resources when this UIAbility is destroyed.
+   * This API returns the result synchronously or uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be
+   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
+   * asynchronous function in onDestroy() finishes the execution.
+   * </p>
+   *
+   * @returns { void } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDestroy(): void;
+
+  /**
+   * Called to clear resources when this UIAbility is destroyed.
+   * This API returns the result synchronously or uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>After the onDestroyAsync() lifecycle callback is executed, the application may exit. Consequently,
+   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroyAsync() may fail to be
+   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
+   * asynchronous function in onDestroyAsync() finishes the execution.
+   * </p>
+   *
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDestroyAsync(): Promise<void>;
+
+  /**
    * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -551,7 +599,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onForeground(): void;
 
@@ -615,7 +664,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBackground(): void;
 
@@ -723,7 +773,8 @@ export default class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
@@ -924,3 +975,5 @@ export default class UIAbility extends Ability {
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }
+
+export default UIAbility;
