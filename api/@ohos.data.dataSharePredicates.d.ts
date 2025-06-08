@@ -45,7 +45,8 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since arkts {'1.1':'20', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace dataSharePredicates {
   /**
@@ -74,7 +75,8 @@ declare namespace dataSharePredicates {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class DataSharePredicates {
     /**
@@ -574,7 +576,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupBy(fields: Array<string>): DataSharePredicates;
 
