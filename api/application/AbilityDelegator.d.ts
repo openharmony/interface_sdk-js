@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from '../@ohos.base';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
@@ -26,6 +27,7 @@ import { AbilityStageMonitor } from './AbilityStageMonitor';
 import Context from './Context';
 import Want from '../@ohos.app.ability.Want';
 import { ShellCmdResult } from './shellCmdResult';
+/*** endif */
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -49,7 +51,8 @@ import { ShellCmdResult } from './shellCmdResult';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityDelegator {
   /**
