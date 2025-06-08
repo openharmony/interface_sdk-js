@@ -16,6 +16,7 @@
 /**
  * @file Defines all permissions.
  * @kit AbilityKit
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -31,6 +32,6 @@
  * @typedef { string }
  * @syscap SystemCapability.Security.AccessToken
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
  */
 export type Permissions = string;
