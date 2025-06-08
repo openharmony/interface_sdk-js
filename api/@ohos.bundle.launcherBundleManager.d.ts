@@ -21,10 +21,10 @@
 /*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
-import StartOptions from './@ohos.app.ability.StartOptions';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 /*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
+import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * Launcher bundle manager.
@@ -211,7 +211,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
