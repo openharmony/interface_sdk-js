@@ -18,7 +18,9 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import UIAbility from '../@ohos.app.ability.UIAbility';
+/*** endif */
 
 /**
  * Provide methods for matching monitored Ability objects that meet specified conditions.
@@ -45,7 +47,8 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityMonitor {
   /**
@@ -261,4 +264,6 @@ export interface AbilityMonitor {
   onWindowStageDestroy?: (ability: UIAbility) => void;
 }
 
+/*** if arkts 1.1 */
 export default AbilityMonitor;
+/*** endif */

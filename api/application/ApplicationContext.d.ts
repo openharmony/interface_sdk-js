@@ -59,7 +59,7 @@ import Want from '../@ohos.app.ability.Want';
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class ApplicationContext extends Context {
+declare class ApplicationContext extends Context {
   /**
    * Register ability lifecycle callback.
    *
@@ -800,3 +800,5 @@ export default class ApplicationContext extends Context {
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }
+
+export default ApplicationContext;
