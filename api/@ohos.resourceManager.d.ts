@@ -18,13 +18,13 @@
  * @kit LocalizationKit
  */
 
+/*** if arkts 1.1&1.2 */
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
+/*** endif */
+/*** if arkts 1.1 */
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
-
-/*** if arkts 1.2 */
-import { Resource as _Resource } from './global/resource';
 /*** endif */
 
 /**
