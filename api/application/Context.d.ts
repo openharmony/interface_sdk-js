@@ -59,7 +59,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class Context extends BaseContext {
+declare class Context extends BaseContext {
   /**
    * Indicates the capability of accessing application resources.
    *
@@ -648,3 +648,5 @@ export default class Context extends BaseContext {
    */
   createDisplayContext(displayId: number): Context;
 }
+
+export default Context;
