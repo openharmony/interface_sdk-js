@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions , Optional} from "./common";
+import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional, Bindable} from "./common";
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow,
    CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from './enums';
@@ -1078,10 +1078,21 @@ declare interface TextInputOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text?: ResourceStr;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { ?(ResourceStr | Bindable<ResourceStr>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  text?: ResourceStr | Bindable<ResourceStr>;
 
   /**
    * Called when the position of the insertion cursor is set.

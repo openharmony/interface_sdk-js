@@ -27,7 +27,7 @@ import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextCo
 import { EnterKeyType, SubmitEvent, ContentType } from './textInput';
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units';
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions,
-    TextDecorationOptions, CommonMethod, Callback, Optional } from './common';
+    TextDecorationOptions, CommonMethod, Callback, Optional, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { Resource } from '../../global/resource';
 /*** endif */
@@ -235,10 +235,21 @@ declare interface TextAreaOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text?: ResourceStr;
+
+  /**
+   * Sets the current value of TextArea.
+   *
+   * @type { ?(ResourceStr | Bindable<ResourceStr>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  text?: ResourceStr | Bindable<ResourceStr>;
 
   /**
    * Called when the position of the insertion cursor is set.
