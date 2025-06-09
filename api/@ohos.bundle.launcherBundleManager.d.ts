@@ -198,6 +198,25 @@ declare namespace launcherBundleManager {
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
 
   /**
+   * Obtains shortcut info based on bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Array<ShortcutInfo> } the ShortcutInfo object.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
+
+  /**
    * Starts shortcut.
    *
    * @permission ohos.permission.START_SHORTCUT
