@@ -32,9 +32,10 @@ import { Resource } from './global/resource';
  */
 declare namespace drawing {
   /**
-   * Enumerates the blend modes. In blend mode, each operation generates a new color from two colors (source color and destination color).
-   * These operations are the same for the red, green, and blue color channels (the alpha channel follows a different rule).
-   * For simplicity, the following description uses the alpha channel as an example rather than naming each channel individually.
+   * Enumerates the blend modes. A blend mode combines two colors (source color and destination color) in a specific way to create a new color.
+   * This is commonly used in graphics operations like overlaying, filtering, and masking.
+   * The blending process applies the same logic to the red, green, and blue color channels separately.
+   * The alpha channel, however, is handled according to the specific definitions of each blend mode.
    * 
    * For brevity, the following abbreviations are used:
    * 
@@ -624,8 +625,7 @@ declare namespace drawing {
      * @param { number } endY - Y coordinate of the target point. The value is a floating point number.
      * @param { number } weight - Weight of the curve, which determines its shape. The larger the value,
      * the closer of the curve to the control point. If the value is less than or equal to 0,
-     * this API is equivalent to lineTo, that is, adding a line segment from the last point of the path to the target point.
-     * If the value is 1, this API is equivalent to quadTo. The value is a floating point number.
+     * this API has the same effect as lineTo. If the value is 1, it has the same effect as quadTo. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1023,7 +1023,8 @@ declare namespace drawing {
      * If a value greater than the path length is passed in, the path length is used. The value is a floating point number.
      * @param { Matrix } matrix - Matrix object used to store the matrix obtained.
      * @param { PathMeasureMatrixFlags } flags - Type of the matrix information obtained.
-     * @returns { boolean } - Check result. The value true means that a transformation matrix is obtained, and false means the opposite.
+     * @returns { boolean } - Result indicating whether the transformation matrix is obtained.
+     * The value true means that the operation is successful, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1034,7 +1035,7 @@ declare namespace drawing {
      * Parses the path represented by an SVG string.
      *
      * @param { string } str - String in SVG format, which is used to describe the path.
-     * @returns { boolean } Check result. The value true means that the parsing is successful, and false means the opposite.
+     * @returns { boolean } Result of the parsing operation. The value true means that the operation is successful, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1410,9 +1411,9 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * Draws the background color.
-     * @param { common2D.Color } color - The range of color channels must be [0, 255].
-     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
+     * Fills the drawable area of the canvas with the specified color and blend mode.
+     * @param { common2D.Color } color - Color in ARGB format. The value of each color channel is an integer ranging from 0 to 255.
+     * @param { BlendMode } blendMode - Blend mode. The default mode is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1497,7 +1498,7 @@ declare namespace drawing {
     drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, useCenter: boolean): void;
 
     /**
-     * Draw a point.
+     * Draws a point.
      * @param { number } x - X coordinate of the point. The value is a floating point number.
      * @param { number } y - Y coordinate of the point. The value is a floating point number.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1648,7 +1649,7 @@ declare namespace drawing {
      * If you call restore, changes made to the matrix and clipping region are discarded, and the PixelMap is drawn.
      * @param { common2D.Rect | null} rect - Rect object, which is used to limit the size of the graphics layer.
      * The default value is the current canvas size.
-     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the bitmap is drawn.
+     * @param { Brush | null} brush - Brush object. The alpha value, filter effect, and blend mode of the brush are applied when the PixelMap is drawn.
      * If null is passed in, no effect is applied.
      * @returns { number } Number of canvas statuses that have been saved. The value is a positive integer.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
@@ -1658,8 +1659,8 @@ declare namespace drawing {
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
     /**
-     * Clears the canvas with a given color. This API has the same effect as drawcolor.
-     * @param { common2D.Color } color - Color in ARGB format. Each color channel is an integer ranging from 0 to 255.
+     * Clears the canvas with a given color. This API has the same effect as drawColor.
+     * @param { common2D.Color } color - Color in ARGB format. The value of each color channel is an integer ranging from 0 to 255.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2043,7 +2044,7 @@ declare namespace drawing {
 
     /**
      * Obtains the unique, non-zero identifier of this TextBlob object.
-     * @returns { number } Unique ID.
+     * @returns { number } Unique, non-zero identifier of this TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -2220,7 +2221,7 @@ declare namespace drawing {
   }
 
   /**
-   * Describes the attributes, such as the size, used for drawing text.
+   * Describes the attributes used for text rendering, such as size and typeface.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -2260,8 +2261,8 @@ declare namespace drawing {
     enableLinearMetrics(isLinearMetrics: boolean): void;
 
     /**
-     * Sets the text size.
-     * @param { number } textSize - Text size. The value is a floating point number.
+     * Sets the font size.
+     * @param { number } textSize - Font size. The value is a floating point number.
      * If a negative number is passed in, the size is set to 0. If the size is 0, the text drawn will not be displayed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2271,8 +2272,8 @@ declare namespace drawing {
     setSize(textSize: number): void;
 
     /**
-     * Obtains the text size.
-     * @returns { number } Text size. The value is a floating point number.
+     * Obtains the font size.
+     * @returns { number } Font size. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -2280,7 +2281,7 @@ declare namespace drawing {
 
     /**
      * Sets the typeface style (including attributes such as font name, weight, and italic) for the font.
-     * @param { Typeface } typeface - Font and style used to draw text.
+     * @param { Typeface } typeface - Typeface style (including attributes such as font name, weight, and italic).
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3020,7 +3021,7 @@ declare namespace drawing {
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
-     * The radial gradient transitions colors from the center to the ending shape in a radial manner.
+     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { number } radius - Radius of the gradient. A negative number is invalid. The value is a floating point number.
      * @param { Array<number> } colors - Array of colors to distribute between the center and ending shape of the circle.
@@ -3042,8 +3043,8 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates a ShaderEffect object that generates a sweep gradient based on the center.
-     * A sweep gradient paints a gradient of colors in a clockwise or counterclockwise direction based on a given circle center.
+     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
+     * either in a clockwise or counterclockwise direction.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      * The values in the array are 32-bit (ARGB) unsigned integers.
@@ -3642,7 +3643,7 @@ declare namespace drawing {
 
     /**
      * Obtains the stroke width of this pen. The width describes the thickness of the outline of a shape.
-     * @returns { number } Returns the thickness.
+     * @returns { number } Stroke width for the pen, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -3650,6 +3651,7 @@ declare namespace drawing {
 
     /**
     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
+    * If this API is not called, anti-aliasing is disabled by default.
     *
     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3768,7 +3770,7 @@ declare namespace drawing {
     setDither(dither: boolean): void;
 
     /**
-     * Sets the join style for this pen.
+     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3788,7 +3790,7 @@ declare namespace drawing {
     getJoinStyle(): JoinStyle;
 
     /**
-     * Sets the cap style for this pen.
+     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3926,6 +3928,7 @@ declare namespace drawing {
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
+     * If this API is not called, anti-aliasing is disabled by default.
      * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4018,7 +4021,7 @@ declare namespace drawing {
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
     /**
-     * Sets a blend mode for this brush.
+     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4212,7 +4215,8 @@ declare namespace drawing {
     /**
      * Inverts this matrix and returns the result.
      * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Returns true if matrix can be inverted; returns false otherwise.
+     * @returns { Boolean } Check result. The value true means that the matrix is revertible and the matrix object is set to its inverse,
+     * and false means that the matrix is not revertible and the matrix object remains unchanged.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4400,10 +4404,10 @@ declare namespace drawing {
      * @param { common2D.Rect } src - Source rectangle.
      * @param { common2D.Rect } dst - Destination rectangle.
      * @param { ScaleToFit } scaleToFit - Mapping mode from the source rectangle to the target rectangle.
-     * @returns { boolean } Returns true if dst is empty, and sets matrix to:
-               | 0 0 0 |
-               | 0 0 0 |
-               | 0 0 1 |.
+     * @returns { boolean } Check result. The value true means that the matrix can represent the mapping, and false means the opposite.
+     * If either the width or the height of the source rectangle is less than or equal to 0, the API returns false
+     * and sets the matrix to an identity matrix. If either the width or height of the destination rectangle is less than or equal to 0,
+     * the API returns true and sets the matrix to a matrix with all values 0, except for a perspective scaling coefficient of 1.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4747,7 +4751,8 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the constraint types of the source rectangle.
+   * Enumerates the constraints on the source rectangle.
+   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
