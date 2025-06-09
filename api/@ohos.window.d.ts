@@ -10516,6 +10516,8 @@ declare namespace window {
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 20
+   * @useinstead ohos.window#LifecycleEventType
    */
   export enum WindowStageEventType {
     /**
@@ -10644,6 +10646,112 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     PAUSED = 6
+  }
+
+  /**
+   * Window stage lifecycle callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum LifecycleEventType {
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    SHOWN = 1,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    RESUMED,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    PAUSED,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    HIDDEN
+  }
+
+  /**
+   * Window stage lifecycle callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum LifecycleEventType {
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    SHOWN = 1,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    RESUMED,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    PAUSED,
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    HIDDEN
   }
 
   /**
@@ -11423,6 +11531,43 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<LifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
+     *                                                                  2. Incorrect parameter types; 
+     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    on(eventType: 'windowStageLifecycleEvent', callback: Callback<LifecycleEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<LifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     *                                                    If a value is passed in, the corresponding subscription is canceled.
+     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    off(eventType: 'windowStageLifecycleEvent', callback?: Callback<LifecycleEventType>): void;
 
     /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
