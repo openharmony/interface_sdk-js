@@ -370,7 +370,16 @@ declare namespace wantConstant {
     * @atomicservice
     * @since 20
     */
-    ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey'
+    ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey',
+
+    /**
+    * Indicates the key of the page route upon sharing atomic service.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 20
+    */
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
   }
 
   /**
