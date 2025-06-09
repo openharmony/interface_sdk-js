@@ -649,7 +649,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Key type, which is the common parent class of keys.
-   * Before performing cryptographic operations (such as encryption and decryption), you need to construct a child class object of Key and pass it to init of the Cipher instance.
+   * Before performing cryptographic operations, you need to construct a child class object of Key and pass it to init of the Cipher instance.
    *
    * @typedef Key
    * @syscap SystemCapability.Security.CryptoFramework.Key
@@ -682,7 +682,8 @@ declare namespace cryptoFramework {
      */
     /**
      * Encode the key object to binary data.
-     * The key can be a symmetric key, public key, or private key. The public key must be in DER encoding format and comply with the ASN.1 syntax and X.509 specifications.
+     * The key can be a symmetric key, public key, or private key.
+     * The public key must be in DER encoding format and comply with the ASN.1 syntax and X.509 specifications.
      * The private key must be in DER encoding format and comply with the ASN.1 syntax and PKCS#8 specifications.
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
@@ -2096,7 +2097,7 @@ declare namespace cryptoFramework {
 
   /**
    * Represents the message authentication code (MAC) parameters.
-   * You need to construct a child class object and use it as a parameter when generating a Hash-based Message Authentication Code (HMAC) or Cipher-based Message Authentication Code (‌CMAC).
+   * You need to construct a child class object and use it as a parameter when generating a HMAC or CMAC.
    *
    * @typedef MacSpec
    * @syscap SystemCapability.Security.CryptoFramework.Mac
@@ -2217,7 +2218,8 @@ declare namespace cryptoFramework {
      */
     /**
      * Init mac with given SymKey.
-     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
@@ -2259,7 +2261,8 @@ declare namespace cryptoFramework {
      */
     /**
      * Init mac with given SymKey.
-     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @returns { Promise<void> } the promise returned by the function.
@@ -2276,7 +2279,8 @@ declare namespace cryptoFramework {
 
     /**
      * Init mac with given SymKey.
-     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
