@@ -36,7 +36,7 @@ import lang from './@arkts.lang'
  * @crossplatform
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1 & 1.2
+ * @arkts 1.1&1.2
  */
 declare namespace collections {
   /**
