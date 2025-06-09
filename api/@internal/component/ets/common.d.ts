@@ -14895,6 +14895,16 @@ declare enum SheetKeyboardAvoidMode {
    * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
+
+  /**
+   * Popup sheet will avoid keyboard by default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  POPUP_SHEET = 4,
 }
 
 /**
