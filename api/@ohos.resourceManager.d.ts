@@ -2402,7 +2402,6 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 20
      * @arkts 1.2
-
      */
     getStringSync(resId: number, ...args: (string | number)[]): string;
 
