@@ -5529,6 +5529,19 @@ declare namespace window {
     getWindowDensityInfo(): WindowDensityInfo;
 
     /**
+     * Determine whether the window spans multiple screens and displays in full screen mode.
+     *
+     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the window spans multiple screens and displays in full screen mode, and false means the opposite.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    isMainWindowFullScreenAcrossMultiDisplay(): Promise<boolean>;
+
+    /**
      * Get the avoid area
      *
      * @param { AvoidAreaType } type - Type of the area
@@ -7024,6 +7037,35 @@ declare namespace window {
      * @since 15
      */
     off(type: 'systemDensityChange', callback?: Callback<number>): void;
+
+    /**
+     *  Register Callback for window spans multiple screens and displays in full screen mode changed.
+     * 
+     *
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */   
+    on(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback: Callback<boolean>): void;
+
+    /**
+     * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
+     *
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    off(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback?: Callback<boolean>): void;
 
     /**
      * Subscribes to non-interaction events in a window within the specified period.
