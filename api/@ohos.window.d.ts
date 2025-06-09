@@ -10514,8 +10514,7 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    * @deprecated since 20
    * @useinstead ohos.window#LifecycleEventType
    */
@@ -10656,7 +10655,8 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum LifecycleEventType {
     /**
@@ -10666,7 +10666,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHOWN = 1,
     /**
@@ -10676,9 +10677,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    RESUMED,
+    RESUMED = 2,
     /**
      * The window stage is running in the foreground.
      *
@@ -10686,9 +10688,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    PAUSED,
+    PAUSED = 3,
     /**
      * The window stage is running in the foreground.
      *
@@ -10696,62 +10699,10 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    HIDDEN
-  }
-
-  /**
-   * Window stage lifecycle callback event type
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  enum LifecycleEventType {
-    /**
-     * The window stage is running in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    SHOWN = 1,
-    /**
-     * The window stage is running in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    RESUMED,
-    /**
-     * The window stage is running in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    PAUSED,
-    /**
-     * The window stage is running in the foreground.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    HIDDEN
+    HIDDEN = 4
   }
 
   /**
@@ -11546,7 +11497,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<LifecycleEventType>): void;
 
@@ -11565,7 +11517,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<LifecycleEventType>): void;
 
