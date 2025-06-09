@@ -12026,14 +12026,14 @@ declare namespace window {
      */
     type: RotationChangeType;
     /**
-     * Orientation
+     * window orientation
      *
-     * @type { Orientation }
+     * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
      */
-    orientation: Orientation;
+    orientation: number;
     /**
      * Display id
      *
