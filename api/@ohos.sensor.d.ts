@@ -31,7 +31,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace sensor
  * @syscap SystemCapability.Sensors.Sensor
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace sensor {
   /**
@@ -564,6 +565,22 @@ declare namespace sensor {
    * @since 11
    */
   function on(type: SensorId.ORIENTATION, callback: Callback<OrientationResponse>,
+    options?: Options): void;
+
+  /**
+   * Subscribe to orientation sensor data.
+   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function on(type: 'ORIENTATION', callback: Callback<OrientationResponse>,
     options?: Options): void;
 
   /**
@@ -1432,6 +1449,19 @@ declare namespace sensor {
    * @since 19
    */
   function off(type: SensorId.ORIENTATION, sensorInfoParam?: SensorInfoParam, callback?: Callback<OrientationResponse>): void;
+  
+  /**
+   * Unsubscribe to orientation sensor data.
+   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function off(type: 'ORIENTATION', callback?: Callback<OrientationResponse>): void;
 
   /**
    * Unsubscribe to pedometer sensor data.
@@ -3252,7 +3282,8 @@ declare namespace sensor {
    * @typedef Options
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Options {
     /**
@@ -3266,7 +3297,8 @@ declare namespace sensor {
      * @type { ?(number | SensorFrequency) }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval?: number | SensorFrequency;
 
@@ -3284,7 +3316,8 @@ declare namespace sensor {
    * @typedef {'game' | 'ui' | 'normal'}
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SensorFrequency = 'game' | 'ui' | 'normal';
 
@@ -3471,14 +3504,16 @@ declare namespace sensor {
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SensorAccuracy {
     /**
      * The sensor data is unreliable. It is possible that the sensor does not contact with the device to measure.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_UNRELIABLE = 0,
 
@@ -3486,7 +3521,8 @@ declare namespace sensor {
      * The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being used.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_LOW = 1,
 
@@ -3494,7 +3530,8 @@ declare namespace sensor {
      * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_MEDIUM = 2,
 
@@ -3502,7 +3539,8 @@ declare namespace sensor {
      * The sensor data is at a high accuracy level. The data can be used directly.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_HIGH = 3
   }
@@ -3518,7 +3556,8 @@ declare namespace sensor {
    * @typedef Response
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Response {
     /**
@@ -3532,7 +3571,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timestamp: number;
 
@@ -3541,7 +3581,8 @@ declare namespace sensor {
      * @type { SensorAccuracy }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accuracy: SensorAccuracy;
   }
@@ -3740,7 +3781,8 @@ declare namespace sensor {
    * @typedef OrientationResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface OrientationResponse extends Response {
     /**
@@ -3754,7 +3796,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alpha: number;
 
@@ -3769,7 +3812,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beta: number;
 
@@ -3784,7 +3828,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gamma: number;
   }
