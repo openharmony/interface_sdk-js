@@ -946,7 +946,7 @@ declare namespace bundleManager {
      * Indicates extension info with type of distributed
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     DISTRIBUTED = 28,
