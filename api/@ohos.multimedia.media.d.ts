@@ -2636,8 +2636,19 @@ declare namespace media {
      * Media URI. It can be set only when the AVPlayer is in the idle state.
      * The video formats MP4, MPEG-TS, and MKV are supported.
      * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
+     * 
+     * <br>**NOTE:**<br>
      * To set a network playback path, you must declare the ohos.permission.INTERNET permission by following the
      * instructions provided in Declaring Permissions. The error code 201 may be reported.
+     * 
+     * WebM is no longer supported since API version 11.
+     * 
+     * After the resource handle (FD) is transferred to an **AVPlayer** instance, do not use the resource handle to
+     * perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance. Competition
+     * occurs when multiple AVPlayers use the same resource handle to read and write files at the same time,
+     * resulting in errors in obtaining data.
+     * 
      * Network:http://xxx
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2663,6 +2674,10 @@ declare namespace media {
      * This attribute is required when media assets of an application are continuously stored in a file.
      * The video formats MP4, MPEG-TS, and MKV are supported.
      * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
+     * 
+     * <br>**NOTE:**<br>
+     * WebM is no longer supported since API version 11.
+     * 
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -4121,6 +4136,7 @@ declare namespace media {
    * @returns { number } - return the handle of current resource open request.
    *                        A value greater than 0 means the request is successful.
    *                        A value less than or equal to 0 means it fails.
+   *                     - The handle for the request object is unique.
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -4294,8 +4310,8 @@ declare namespace media {
      * @param { number } offset - Offset of the current media data relative to the start of the resource.
      * @param { ArrayBuffer } buffer - Media data sent to the player.
      * @returns { number } - accept bytes for current read. The value less than zero means failed.
-     *                    - 2, means player need current data any more, the client should stop current read process.
-     *                    - 3, means player buffer is full, the client should wait for next read.
+     *                    -2, means player need current data any more, the client should stop current read process.
+     *                    -3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
