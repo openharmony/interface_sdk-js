@@ -53,7 +53,7 @@ declare namespace systemSoundManager {
     ERROR_IO = 5400103,
 
     /**
-     * Parameter is invalid.
+     * No error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 20
@@ -1068,7 +1068,7 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700006 - Insufficient ROM space.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since 20
      */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: number, offset?: number, length?: number)
       : Promise<string>;
@@ -1100,7 +1100,7 @@ declare namespace systemSoundManager {
      * array memeber, the first item is the tone uri, and the second item is the error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 20700007- Prameter is invalid, e.g. the length of uriList is too long.
+     * @throws { BusinessError } 20700007 - Prameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 20
