@@ -52,6 +52,32 @@ declare namespace backgroundProcessManager {
     }
 
     /**
+     * Describes the status of the power saving mode.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since 20
+     */
+    export enum PowerSaveMode {
+        /**
+         * Means the process request not to entry power saving mode
+         * This setting may be overridden by settings in Task Manager
+         *
+         * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+         * @since 20
+         */
+        EFFICIENCY_MODE = 1,
+
+        /** 
+         * Means the process operating mode follows the system and may entry power saving mode
+         *
+         * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+         * @since 20
+         */
+        DEFAULT_MODE = 2,
+    }
+
+    /**
      * Set the priority of process.
      *
      * @param { number } pid - Indicates the pid of the process to be set.
@@ -72,6 +98,42 @@ declare namespace backgroundProcessManager {
      * @since 17
      */
     function resetProcessPriority(pid: number): Promise<void>;
+
+    /**
+     * Set the power saving mode of process. The setting may fail due to user setting reasons or
+     * <br> system scheduling reasons.
+     *
+     * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
+     * @param { number } pid - Indicates the pid of the power saving mode to be set.
+     * @param { PowerSaveMode } powerSaveMode - Indicates the power saving mode that needs to be set.
+     * <br> For details, please refer to PowerSaveModeStatus.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified;
+     * <br> 2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
+     * @throws { BusinessError } 31800003 - Setup error, This setting is overridden by setting in Task Manager.
+     * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since 20
+     */
+    function setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise<void>;
+
+    /**
+     * Check if the process is in power saving mode.
+     *
+     * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
+     * @param { number } pid - Indicates the process to be checked is the pid of the power saving mode.
+     * @returns { Promise<boolean> } The promise returns whether it is in power saving mode.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
+     * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since 20
+     */
+    function isPowerSaveMode(pid: number): Promise<boolean>;
 }
 
 export default backgroundProcessManager;
