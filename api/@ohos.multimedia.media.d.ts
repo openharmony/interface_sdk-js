@@ -7599,7 +7599,8 @@ declare namespace media {
      * @atomicservice
      * @since 20
      */
-    VIDEO_SCALE_TYPE_FIT_ASPECT = 2,
+    VIDEO_SCALE_TYPE_SCALED_ASPECT = 2
+
   }
 
   /**
