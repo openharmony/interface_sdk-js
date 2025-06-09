@@ -10516,7 +10516,7 @@ declare namespace window {
    * @atomicservice
    * @since 11
    * @deprecated since 20
-   * @useinstead ohos.window#LifecycleEventType
+   * @useinstead ohos.window#WindowStageLifecycleEventType
    */
   export enum WindowStageEventType {
     /**
@@ -10658,7 +10658,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  enum LifecycleEventType {
+  enum WindowStageLifecycleEventType {
     /**
      * The window stage is running in the foreground.
      *
@@ -11487,7 +11487,7 @@ declare namespace window {
      * Subscribes to the window stage lifecycle change event.
      *
      * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<LifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -11500,13 +11500,13 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    on(eventType: 'windowStageLifecycleEvent', callback: Callback<LifecycleEventType>): void;
+    on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Unsubscribes from the window stage lifecycle change event.
      *
      * @param { 'windowStageEvent' } eventType Event type. The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<LifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
      *                                                    If a value is passed in, the corresponding subscription is canceled.
      *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -11520,7 +11520,7 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    off(eventType: 'windowStageLifecycleEvent', callback?: Callback<LifecycleEventType>): void;
+    off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
