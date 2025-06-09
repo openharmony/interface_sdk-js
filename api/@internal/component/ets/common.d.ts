@@ -6323,6 +6323,108 @@ declare interface RotateOptions {
 }
 
 /**
+ * The param of rotate about angle.
+ *
+ * @interface RotateAngleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare interface RotateAngleOptions {
+  /**
+   * the angle of the x-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleX?: number | string;
+
+  /**
+   * the angle of the y-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleY?: number | string;
+
+  /**
+   * the angle of the z-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleZ?: number | string;
+
+  /**
+   * The param of center point of x.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerX?: number | string;
+
+  /**
+   * The param of center point of y.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerY?: number | string;
+
+  /**
+   * The param of center point of z.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerZ?: number;
+
+  /**
+   * The param of camera distance, value range (-∞, ∞).
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  perspective?: number;
+}
+
+/**
  * Defines the param of transition.
  *
  * @interface TransitionOptions
@@ -24143,6 +24245,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   rotate(options: Optional<RotateOptions>): T;
+
+  /**
+   * Set component rotation.
+   *
+   * @param { Optional<RotateOptions | RotateAngleOptions> } options default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0,angle:0}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
 
   /**
    * Sets the transformation matrix of the component.
