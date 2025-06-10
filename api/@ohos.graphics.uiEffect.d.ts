@@ -19,9 +19,10 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.1 */
 import type common2D from './@ohos.graphics.common2D';
 import type image from './@ohos.multimedia.image';
-
+/*** endif */
 
 /**
  * @namespace uiEffect
