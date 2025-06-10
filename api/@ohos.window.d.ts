@@ -5539,6 +5539,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     isMainWindowFullScreenAcrossMultiDisplay(): Promise<boolean>;
