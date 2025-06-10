@@ -19,12 +19,15 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import type common2D from './@ohos.graphics.common2D';
+import type image from './@ohos.multimedia.image';
 
 
 /**
  * @namespace uiEffect
  * @syscap SystemCapability.Graphics.Drawing
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiEffect {
 
@@ -32,7 +35,8 @@ declare namespace uiEffect {
    * The Filter for Component.
    * @typedef Filter
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Filter {
     /**
@@ -102,6 +106,104 @@ declare namespace uiEffect {
      * @since 13
      */
     distort(distortionK: number): Filter;
+
+    /**
+     * Adds the content radius gradient blurring effect for the current component. The input parameter is the blurring radius.
+     *
+     * @param { number } value - the blurring radius.
+     * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+     * @param { LinearGradientBlurOptions } options - the radius gradient blur options.
+     * @returns { Filter } - Returns radius gradient blur Filter.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 19
+     */
+    radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
+
+    /**
+     * Sets the deformation effect controlled by bezier curves of the component.
+     *
+     * @param { Array<common2D.Point> } controlPoints - The bezier control points, 12 points needed.
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    bezierWarp(controlPoints: Array<common2D.Point>): Filter;
+
+    /**
+     * Sets the color gradient filter, may blend with alpha mask.
+     *
+     * @param { Array<Color> } colors
+     * @param { Array<common2D.Point> } positions
+     * @param { Array<number> } strengths
+     * @param { Mask } [alphaMask]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<number>,
+        alphaMask?: Mask): Filter;
+
+    /**
+     * Detects and glows edges of contents.
+     *
+     * @param { number } alpha
+     * @param { Color } [color]
+     * @param { Mask } [mask]
+     * @param { boolean } [bloom]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    edgeLight(alpha: number, color?: Color, mask?: Mask, bloom?: boolean): Filter;
+
+    /**
+     * Sets distort effect with displacement map.
+     *
+     * @param { Mask } displacementMap
+     * @param { [number, number] } [factor]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    displacementDistort(displacementMap: Mask, factor?: [number, number]): Filter;
+
+    /**
+     * Sets dispersion effect with mask map.
+     *
+     * @param { Mask } dispersionMap
+     * @param { number } alpha
+     * @param { [number, number] } [rFactor]
+     * @param { [number, number] } [gFactor]
+     * @param { [number, number] } [bFactor]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    maskDispersion(dispersionMap: Mask, alpha: number, rFactor?: [number, number], gFactor?: [number, number],
+      bFactor?: [number, number]): Filter;
+
+    /**
+    * Applies a high dynamic range (HDR) brightness enhancement filter to the component.
+    * @param { number } ratio - The brightness multiplier ratio (1.0 = original, >1.0 = brighter).
+    * @returns { Filter } - Returns hdr brightness Filter.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @syscap SystemCapability.Graphics.Drawing
+    * @systemapi
+    * @since 20
+    */
+    hdrBrightnessRatio(ratio: number): Filter;
   }
 
   /**
@@ -228,7 +330,8 @@ declare namespace uiEffect {
    * The VisualEffect of Component.
    * @typedef VisualEffect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VisualEffect {
     /**
@@ -237,7 +340,8 @@ declare namespace uiEffect {
     * @returns { VisualEffect } VisualEffects for the current effect have been added.
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
-    * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
   }
@@ -247,7 +351,8 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Blender = BrightnessBlender;
 
@@ -256,7 +361,8 @@ declare namespace uiEffect {
    * @typedef BrightnessBlender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BrightnessBlender {
     /**
@@ -265,7 +371,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cubicRate: number;
 
@@ -275,7 +382,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     quadraticRate: number;
 
@@ -285,7 +393,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     linearRate: number;
 
@@ -295,7 +404,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     degree: number;
 
@@ -305,7 +415,8 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     saturation: number;
 
@@ -315,7 +426,8 @@ declare namespace uiEffect {
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     positiveCoefficient: [number, number, number];
 
@@ -325,7 +437,8 @@ declare namespace uiEffect {
      * @type { [number, number, number] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     negativeCoefficient: [number, number, number];
 
@@ -335,9 +448,87 @@ declare namespace uiEffect {
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fraction: number;
+  }
+
+  /**
+   * The Color of Light.
+   * @typedef Color
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  interface Color {
+    /**
+     * Red component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    red: number;
+    /**
+     * Green component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    green: number;
+    /**
+     * Blue component of color
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    blue: number;
+    /**
+     * Alpha component of color.
+     * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    alpha: number;
+  }
+
+  /**
+   * Defines the mask for Filter or VisualEffect.
+   * @typedef { Mask }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   */
+  class Mask {
+    /**
+     * Create a Mask of ripple.
+     * @param { common2D.Point } center
+     * @param { number } radius
+     * @param { number } width
+     * @param { number } [offset]
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createRippleMask(center: common2D.Point, radius: number, width: number, offset?: number): Mask;
+
+    /**
+     * Create a Mask of pixelmap.
+     * @param { image.PixelMap } pixelMap
+     * @param { common2D.Rect } srcRect
+     * @param { common2D.Rect } dstRect
+     * @param { Color } [fillColor]
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
+      fillColor?: Color): Mask;
   }
 
   /**
@@ -352,7 +543,8 @@ declare namespace uiEffect {
    * Create a VisualEffect to add multiple effects to the component.
    * @returns { VisualEffect } Returns the head node of visualEffect.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createEffect(): VisualEffect;
 
@@ -362,7 +554,8 @@ declare namespace uiEffect {
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 }
@@ -372,7 +565,8 @@ declare namespace uiEffect {
  * @typedef BrightnessBlenderParam
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BrightnessBlenderParam {
   /**
@@ -381,7 +575,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cubicRate: number;
 
@@ -391,7 +586,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   quadraticRate: number;
 
@@ -401,7 +597,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   linearRate: number;
 
@@ -411,7 +608,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   degree: number;
 
@@ -421,7 +619,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   saturation: number;
 
@@ -431,7 +630,8 @@ declare interface BrightnessBlenderParam {
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   positiveCoefficient: [number, number, number];
 
@@ -441,7 +641,8 @@ declare interface BrightnessBlenderParam {
    * @type { [number, number, number] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   negativeCoefficient: [number, number, number];
 
@@ -451,7 +652,8 @@ declare interface BrightnessBlenderParam {
    * @type { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fraction: number;
 }

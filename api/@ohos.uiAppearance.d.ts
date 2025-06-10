@@ -28,6 +28,13 @@ import type { AsyncCallback } from './@ohos.base';
  * @systemapi hide this for inner system use
  * @since 10
  */
+ /**
+ * Provide APIs to set system uiAppearance.
+ *
+ * @namespace uiAppearance
+ * @syscap SystemCapability.ArkUI.UiAppearance
+ * @since 20
+ */
 declare namespace uiAppearance {
   /**
    * Enumerates dark-mode.
@@ -37,6 +44,13 @@ declare namespace uiAppearance {
    * @systemapi hide this for inner system use
    * @since 10
    */
+  /**
+   * Enumerates dark-mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 20
+   */
   enum DarkMode {
     /**
      * Always display with dark mode.
@@ -44,6 +58,12 @@ declare namespace uiAppearance {
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
      * @since 10
+     */
+    /**
+     * Always display with dark mode.
+     *
+     * @syscap SystemCapability.ArkUI.UiAppearance
+     * @since 20
      */
     ALWAYS_DARK = 0,
 
@@ -53,6 +73,12 @@ declare namespace uiAppearance {
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use
      * @since 10
+     */
+    /**
+     * Always display with light mode.
+     *
+     * @syscap SystemCapability.ArkUI.UiAppearance
+     * @since 20
      */
     ALWAYS_LIGHT = 1
   }
@@ -108,6 +134,18 @@ declare namespace uiAppearance {
    * @systemapi hide this for inner system use
    * @since 10
    */
+  /**
+   * Acquire the current dark-mode.
+   *
+   * @returns { DarkMode } current dark-mode.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 20
+   */
   function getDarkMode(): DarkMode;
 
   /**
@@ -145,6 +183,18 @@ declare namespace uiAppearance {
    * @systemapi hide this for inner system use
    * @since 12
    */
+  /**
+   * Acquire the current font-scale.
+   *
+   * @returns { number } current font-scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 20
+   */
   function getFontScale(): number;
 
   /**
@@ -181,6 +231,18 @@ declare namespace uiAppearance {
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
    * @since 12
+   */
+  /**
+   * Acquire the current font-weight-scale.
+   *
+   * @returns { number } current font-weight-scale.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 20
    */
   function getFontWeightScale(): number;
 }

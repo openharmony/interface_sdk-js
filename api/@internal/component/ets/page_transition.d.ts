@@ -355,6 +355,7 @@ declare class CommonTransition<T> {
   /**
    * Called when the translation effect of page transition is set.
    *
+   * Anonymous Object Rectification.
    * @param { TranslateOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -394,6 +395,7 @@ declare class CommonTransition<T> {
   /**
    * Called when setting the zoom effect of page transition.
    *
+   * Anonymous Object Rectification.
    * @param { ScaleOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -657,6 +659,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * Called frame by frame to customize pageTransition animation when the page enters.
    * The incoming parameter is the normalized progress of the current incoming animation.
    *
+   * Anonymous Object Rectification.
    * @param { PageTransitionCallback } event - animation callback frame by frame
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -757,6 +760,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * Called frame by frame to customize pageTransition animation when the page exits.
    * The input parameter is the normalized progress of the current exit animation.
    *
+   * Anonymous Object Rectification.
    * @param { PageTransitionCallback } event
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

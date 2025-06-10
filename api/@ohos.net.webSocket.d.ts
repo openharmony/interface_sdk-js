@@ -410,7 +410,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -422,7 +422,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -439,7 +439,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -466,7 +466,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -479,7 +479,7 @@ declare namespace webSocket {
      * @param { AsyncCallback<boolean> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -497,7 +497,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -524,7 +524,7 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -537,7 +537,7 @@ declare namespace webSocket {
      * @returns { Promise<boolean> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -555,7 +555,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
      * @throws { BusinessError } 2302003 - Websocket connection already exists.
      * @throws { BusinessError } 2302998 - It is not allowed to access this domain.
-     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @throws { BusinessError } 2302999 - Internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
@@ -1006,6 +1006,296 @@ declare namespace webSocket {
      * @since 12
      */
     off(type: 'headerReceive', callback?: Callback<ResponseHeaders>): void;
+  }
+
+  /**
+   * Creates a web socket Server.
+   * @returns { WebSocketServer } the WebSocketServer Object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  function createWebSocketServer(): WebSocketServer;
+
+  /**
+   * Defines parameters for a WebSocket Server.
+   * @interface WebSocketServerConfig
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export interface WebSocketServerConfig {
+    /**
+     * Network card that the server listens on.
+     * The server listens on this specific address. It's 0.0.0.0 by default.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    serverIP?: string;
+
+    /**
+     * Port number that the server listens on.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    serverPort: number;
+
+    /**
+     * Server cert.
+     * @type {?ServerCert}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    serverCert?: ServerCert;
+
+    /**
+     * Maximum number of concurrent clients. When it's reached, the server will reject new connections.
+     * @type { number }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    maxConcurrentClientsNumber: number;
+
+    /**
+     * Self defined protocol.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    protocol?: string;
+
+    /**
+     * Maximum number of one client's connections. When it's reached, the server will reject new connections.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    maxConnectionsForOneClient: number;
+  }
+
+  /**
+   * The serverCert field of the server certificate, which includes two attributes:
+   * File paths of server certificate (certPath) and certificate private key (keyPath). Only support PEM format.
+   * @interface ServerCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export interface ServerCert {
+    /**
+     * File path for the server cert.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    certPath: string;
+
+    /**
+     * The path of the server certificate private key file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    keyPath: string;
+  }
+
+  /**
+   * Info about the connection from each specific client.
+   * @interface WebSocketConnection
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export interface WebSocketConnection {
+    /**
+     * IP address of the client.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    clientIP: string;
+
+    /**
+     * Port of the client.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    clientPort: number;
+  }
+
+  /**
+   * Info about the message received from a specific client.
+   * @interface WebSocketMessage
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export interface WebSocketMessage {
+    /**
+     * Contend of the message.
+     * @type {string | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    data: string | ArrayBuffer;
+
+    /**
+     * The connection where the message comes from.
+     * @type {WebSocketConnection}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    clientConnection: WebSocketConnection;
+  }
+
+  /**
+   * Callback function when a client connection is closed.
+   * @typedef { function } ClientConnectionCloseCallback
+   * @param { WebSocketConnection } clientConnection - the connection which is closed.
+   * @param { CloseResult } closeReason - the error code and reason why the connection is closed.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, closeReason: CloseResult) => void;
+
+  /**
+   * <p>Defines a WebSocketServer object. Before invoking WebSocketServer APIs,
+   * you need to call webSocketServer.createWebSocketServer to create a WebSocket Server.</p>
+   * @interface WebSocketServer
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 19
+   */
+  export interface WebSocketServer {
+    /**
+     * Start the WebSocket Server, and listen to a given port.
+     * @permission ohos.permission.INTERNET
+     * @param { WebSocketServerConfig } config - setting for the server, such as ip address and port to listen to.
+     * @returns { Promise<boolean> } Indicating whether the server starts sucessfully.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302002 - Websocket certificate file does not exist.
+     * @throws { BusinessError } 2302004 - Can't listen on the given NIC.
+     * @throws { BusinessError } 2302005 - Can't listen on the given Port.
+     * @throws { BusinessError } 2302999 - Websocket other unknown error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    start(config: WebSocketServerConfig): Promise<boolean>;
+
+    /**
+     * List all alive connections.
+     * @permission ohos.permission.INTERNET
+     * @returns { WebSocketConnection[] } an array consists connections from all clients.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    listAllConnections(): WebSocketConnection[];
+
+    /**
+     * Close a given WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { WebSocketConnection } connection - which on to be closed.
+     * @param { webSocket.WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
+     * @returns { Promise<boolean> } Indicating whether the connection is closed sucessfully.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302006 - websocket connection does not exist.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise<boolean>;
+
+    /**
+     * Send a message using a specific connection.
+     * @permission ohos.permission.INTERNET
+     * @param { string | ArrayBuffer } data - What to send. It can be a string or an ArrayBuffer.
+     * @param { WebSocketConnection } connection - Where to sent.
+     * @returns { Promise<boolean> } Indicating whether the message is sent sucessfully.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2302006 - websocket connection does not exist.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    send(data: string | ArrayBuffer, connection: WebSocketConnection): Promise<boolean>;
+
+     /**
+      * Stop listening.
+      * @permission ohos.permission.INTERNET
+      * @returns { Promise<boolean> } The Indicating whether the server stops sucessfully.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @syscap SystemCapability.Communication.NetStack
+      * @since 19
+      */
+    stop(): Promise<boolean>;
+
+    /**
+     * Enables listening for the error events of a WebSocket Server.
+     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
+     * @param { ErrorCallback } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    on(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Enables listening for events that a client requested to connect the server.
+     * @param { 'connect' } type - event indicating that a client requested to connect the server.
+     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+     on(type: 'connect', callback: Callback<WebSocketConnection>): void;
+
+     /**
+      * Enables listening for events that the server received a message.
+      * @param { 'messageReceive' } type - event indicating that the server received a message.
+      * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
+      * @syscap SystemCapability.Communication.NetStack
+      * @since 19
+      */
+     on(type: 'messageReceive', callback: Callback<WebSocketMessage>): void;
+
+     /**
+      * Enables listening for events that a connection from a given client has been closed.
+      * @param { 'close' } type - event indicating that a connection from a given client has been closed.
+      * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
+      * @syscap SystemCapability.Communication.NetStack
+      * @since 19
+      */
+     on(type: 'close', callback: ClientConnectionCloseCallback): void;
+
+    /**
+     * Cancels listening for the error events of a WebSocket Server.
+     * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
+     * @param { ErrorCallback } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Cancels listening for events that a client requested to connect the server.
+     * @param { 'connect' } type - event indicating that a client requested to connect the server.
+     * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    off(type: 'connect', callback?: Callback<WebSocketConnection>): void;
+
+    /**
+     * Cancels listening for events that a connection from a given client has been closed.
+     * @param { 'close' } type - event indicating that a connection from a given client has been closed.
+     * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    off(type: 'close', callback?: ClientConnectionCloseCallback): void;
+
+    /**
+     * Cancels listening for events that the server received a message.
+     * @param { 'messageReceive' } type - event indicating that the server received a message.
+     * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 19
+     */
+    off(type: 'messageReceive', callback?: Callback<WebSocketMessage>): void;
   }
 }
 

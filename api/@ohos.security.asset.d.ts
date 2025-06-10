@@ -65,12 +65,12 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
-   *     by setting {@link Tag.IS_PERSISTENT} tag.
+   * Add an asset. This API uses a promise to return the result.
+   * To set {@link Tag.IS_PERSISTENT}, the application must have the ohos.permission.STORE_PERSISTENT_DATA permission.
    *
-   * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @param { AssetMap } attributes - Attributes of the asset to add, including the asset plaintext,
+   *     access control attributes, and custom data.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -157,11 +157,11 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Add an Asset.
-   * Permission ohos.permission.STORE_PERSISTENT_DATA is required when the Asset needs to be stored persistently
-   *     by setting {@link Tag.IS_PERSISTENT} tag.
+   * Add an asset. This API returns the result synchronously.
+   * To set {@link Tag.IS_PERSISTENT}, the application must have the ohos.permission.STORE_PERSISTENT_DATA permission.
    *
-   * @param { AssetMap } attributes - a map object containing attributes of the Asset to be added.
+   * @param { AssetMap } attributes - Attributes of the asset to add, including the asset plaintext,
+   *     access control attributes, and custom data.
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -208,10 +208,11 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Remove one or more Assets that match a search query.
+   * Removes one or more assets. This API uses a promise to return the result.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @param { AssetMap } query - Attributes of the asset to remove, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -281,9 +282,10 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Remove one or more Assets that match a search query.
+   * Removes one or more assets. This API returns the result synchronously.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be removed.
+   * @param { AssetMap } query - Attributes of the asset to remove, such as the asset alias,
+   *     access control attributes, and custom data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -329,11 +331,12 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Update an Asset that matches a search query.
+   * Updates an asset. This API uses a promise to return the result.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
-   * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @param { AssetMap } query - Attributes of the asset to update, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @param { AssetMap } attributesToUpdate - New attributes of the asset, such as the asset plaintext and custom data.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -413,10 +416,11 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Update an Asset that matches a search query.
+   * Updates an asset. This API returns the result synchronously.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be updated.
-   * @param { AssetMap } attributesToUpdate - a map object containing attributes with new values.
+   * @param { AssetMap } query - Attributes of the asset to update, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @param { AssetMap } attributesToUpdate - New attributes of the asset, such as the asset plaintext and custom data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -464,10 +468,13 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication.
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. After the user authentication is successful, call {@link query} and
+   * {@link postQuery}. This API uses a promise to return the result.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
-   * @returns { Promise<Uint8Array> } the promise object returned by the function.
+   * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @returns { Promise<Uint8Array> } Promise used to return a challenge value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -548,10 +555,13 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Preprocessing (e.g. get challenge) for querying one or more Assets that require user authentication.
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. After the user authentication is successful, call {@link querySync} and
+   * {@link postQuerySync}. This API returns the result synchronously.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
-   * @returns { Uint8Array } the challenge value to be used when {@link querySync} is called.
+   * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @returns { Uint8Array } Challenge value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -599,10 +609,14 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Query one or more Assets that match a search query.
+   * Queries one or more assets. If user authentication is required for the access to the asset,
+   * call {@link preQuery} before this API and call {@link postQuery} after this API.
+   * For details about the development procedure, see Querying an Asset with User Authentication.
+   * This API uses a promise to return the result.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
-   * @returns { Promise<Array<AssetMap>> } the promise object returned by the function.
+   * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @returns { Promise<Array<AssetMap>> } Promise used to return the result obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -682,10 +696,14 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Query one or more Assets that match a search query.
+   * Queries one or more assets. If user authentication is required for the access to the asset,
+   * call {@link preQuerySync} before this API and call {@link postQuerySync} after this API.
+   * For details about the development procedure, see Querying an Asset with User Authentication.
+   * This API returns the result synchronously.
    *
-   * @param { AssetMap } query - a map object containing attributes of the Asset to be queried.
-   * @returns { Array<AssetMap> } the query result.
+   * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias,
+   *     access control attributes, and custom data.
+   * @returns { Array<AssetMap> } Array of query results.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types.
    *     2. Parameter verification failed.
@@ -727,10 +745,13 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication.
+   * Performs postprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. This API must be used with {@link preQuery} together.
+   * This API uses a promise to return the result.
    *
-   * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuery}.
-   * @returns { Promise<void> } the promise object returned by the function.
+   * @param { AssetMap } handle - Handle of the query operation,
+   *     including the challenge value returned by {@link preQuery}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -792,9 +813,12 @@ declare namespace asset {
    * @since 12
    */
   /**
-   * Post-processing (e.g. release cached resource) for querying multiple Assets that require user authentication.
+   * Performs postprocessing for the asset query. This API is used when user authentication is required for
+   * the access to the asset. This API must be used with {@link preQuerySync} together.
+   * This API returns the result synchronously.
    *
-   * @param { AssetMap } handle - a map object containing the handle returned by {@link preQuerySync}.
+   * @param { AssetMap } handle - Handle of the query operation,
+   *     including the challenge value returned by {@link preQuerySync}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -812,6 +836,25 @@ declare namespace asset {
   function postQuerySync(handle: AssetMap): void;
 
   /**
+   * The ASSET service provides the ability to synchronize Assets between devices.
+   * This function is used to query the synchronization result.
+   *
+   * @param { AssetMap } query - a map object containing attributes of the Asset to be synchronized.
+   * @returns { Promise<SyncResult> } a promise object that can be resolved into the result of asset synchronization.
+   * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
+   * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000010 - IPC failed.
+   * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
+   * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
+   * @throws { BusinessError } 24000014 - The file operation failed.
+   * @throws { BusinessError } 24000018 - Parameter verification failed.
+   * @syscap SystemCapability.Security.Asset
+   * @since 20
+   */
+  function querySyncResult(query: AssetMap): Promise<SyncResult>;
+
+  /**
    * A Map type containing tag-value pairs that describe the attributes of an Asset.
    *
    * @typedef { Map<Tag, Value> }
@@ -819,7 +862,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * A Map type containing tag-value pairs that describe the attributes of an Asset.
+   * Represents a set of asset attributes in the form of KV pairs.
    *
    * @typedef { Map<Tag, Value> }
    * @syscap SystemCapability.Security.Asset
@@ -836,7 +879,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * A type that indicates the secret or attribute value of an Asset tag.
+   * Represents the value of each attribute in {@link AssetMap}.
    *
    * @typedef { boolean | number | Uint8Array }
    * @syscap SystemCapability.Security.Asset
@@ -853,7 +896,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type indicates when the Asset is accessible.
+   * Enumerates the types of access control based on the lock screen status.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -868,7 +911,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The secret value in the Asset can only be accessed after the device is powered on.
+     * The asset can be accessed after the device is powered on.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -882,7 +925,10 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The secret value in the Asset can only be accessed after the device is first unlocked.
+     * The asset can be accessed only after the device is unlocked for the first time.
+     * <p><strong>NOTE</strong>:
+     * If no lock screen password is set, this option is equivalent to <strong>DEVICE_POWERED_ON</strong>.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -896,7 +942,10 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The secret value in the Asset can only be accessed while the device is unlocked.
+     * The asset can be accessed only when the device is unlocked.
+     * <p><strong>NOTE</strong>:
+     * If no lock screen password is set, this option is equivalent to <strong>DEVICE_POWERED_ON</strong>.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -913,7 +962,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type indicates the user authentication type for Asset access control.
+   * Enumerates the types of user authentication supported by an asset.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -928,7 +977,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The access to an Asset doesn't require user authentication.
+     * No user authentication is required before the asset is accessed.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -942,7 +991,8 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The access to an Asset requires user authentication using either PIN/pattern/password or biometric traits.
+     * The asset can be accessed if any user authentication (such as PIN, facial, or fingerprint authentication)
+     * is successful.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -959,7 +1009,10 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type indicates the type of Asset synchronization.
+   * Enumerates the sync types supported by an asset.
+   * <p><strong>NOTE</strong>:
+   * This field is an embedded parameter. Currently, asset sync is not supported.
+   * </p>
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -974,7 +1027,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * An Asset with this attribute value is never allowed to be transferred out.
+     * Asset sync is not allowed.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -988,7 +1041,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * An Asset with this attribute value can only be restored to the device from which it was transferred out.
+     * Asset sync is allowed only on the local device, for example, in data restore on the local device.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1002,7 +1055,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * An Asset with this attribute value can only be transferred out to a trusted device (user authorized).
+     * Asset sync is allowed only between trusted devices, for example, in the case of cloning.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1016,7 +1069,8 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * An Asset with this attribute value can only be transferred out to devices logged in with trusted accounts.
+     * Asset sync is allowed only between the devices that are logged in with trusted accounts, for example,
+     * in cloud sync scenarios.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1057,7 +1111,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type indicates the strategy for conflict resolution when handling duplicated Asset alias.
+   * Enumerates the policies for resolving conflicts (for example, a duplicate alias) when an asset is added.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1072,7 +1126,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * Directly overwrite an Asset with duplicated alias when a conflict is detected.
+     * Overwrite the original asset.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1086,7 +1140,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * Throw an error so that the caller can take measures when a conflict is detected.
+     * Throw an exception for the service to perform subsequent processing.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1103,7 +1157,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type indicates the return type of the queried Asset.
+   * Enumerates the type of information returned by an asset query operation.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1118,7 +1172,10 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * Specify that the return data should contain both secret value and attributes.
+     * The query result contains the asset plaintext and its attributes.
+     * <p><strong>NOTE</strong>:
+     * Use this option when you need to query the plaintext of a single asset.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1132,7 +1189,10 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * Specify that the return data contains only attributes.
+     * The query result contains only the asset attributes.
+     * <p><strong>NOTE</strong>:
+     * Use this option when you need to query attributes of multiple assets.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1142,7 +1202,7 @@ declare namespace asset {
   }
 
   /**
-   * An enum type indicates the additional action to be performed during operation.
+   * Enumerates the types of additional operation to perform.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1150,19 +1210,56 @@ declare namespace asset {
    */
   enum OperationType {
     /**
-     * Synchronization is required during operation.
+     * Sync.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
     NEED_SYNC = 0,
     /**
-     * Logout is required during operation.
+     * Logout.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
     NEED_LOGOUT = 1,
+  }
+
+  /**
+   * Interface of synchronization result.
+   *
+   * @typedef SyncResult
+   * @syscap SystemCapability.Security.Asset
+   * @since 20
+   */
+  interface SyncResult {
+    /**
+     * The result code of synchronization.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly resultCode: number;
+    /**
+     * The total count of synchronized Assets.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly totalCount?: number;
+    /**
+     * The count of Assets that fail to synchronize.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Security.Asset
+     * @since 20
+     */
+    readonly failedCount?: number;
   }
 
   /**
@@ -1173,7 +1270,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type containing the data type definitions for Asset attribute value.
+   * Enumerates the asset attribute types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1188,7 +1285,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The data type of Asset attribute value is bool.
+     * Boolean.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1202,7 +1299,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The data type of Asset attribute value is uint32.
+     * Number.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1216,7 +1313,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * The data type of Asset attribute value is byte array.
+     * Byte array.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1233,7 +1330,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type containing the Asset attribute tags.
+   * Enumerate the keys of asset attributes ({@link AssetMap}), which are in key-value (KV) pairs.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1248,7 +1345,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the sensitive user data such as passwords and tokens.
+     * Asset plaintext.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1262,7 +1359,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array identifying an Asset.
+     * Asset alias, which uniquely identifies an asset.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1276,7 +1373,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating when the Asset can be accessed.
+     * Access control based on the lock screen status.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1290,7 +1387,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a bool indicating whether a screen lock password is required for the device.
+     * Whether the asset is accessible only when a lock screen password is set.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1304,7 +1401,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the user authentication type for Asset access control.
+     * Type of user authentication required for accessing the asset.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1318,7 +1415,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the validity period in seconds of user authentication.
+     * Validity period of the user authentication.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1332,7 +1429,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the authentication challenge for anti-replay protection.
+     * Challenge for the user authentication.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1346,7 +1443,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the authentication token after a user is verified.
+     * Authorization token obtained after the user authentication is successful.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1360,7 +1457,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the type of Asset synchronization.
+     * Asset sync type.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1368,7 +1465,7 @@ declare namespace asset {
      */
     SYNC_TYPE = TagType.NUMBER | 0x10,
     /**
-     * A tag whose value is a bool indicating whether Asset is stored persistently.
+     * Whether to retain the asset when the application is uninstalled.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
@@ -1381,7 +1478,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the first user-defined Asset data label (not allow to update).
+     * Additional asset data customized by the service with integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1395,7 +1492,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the second user-defined Asset data label (not allow to update).
+     * Additional asset data customized by the service with integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1409,7 +1506,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the third user-defined Asset data label (not allow to update).
+     * Additional asset data customized by the service with integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1423,7 +1520,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the fourth user-defined Asset data label (not allow to update).
+     * Additional asset data customized by the service with integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1437,7 +1534,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the first user-defined Asset data label (allow to update).
+     * Additional asset data customized by the service without integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1451,7 +1548,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the second user-defined Asset data label (allow to update).
+     * Additional asset data customized by the service without integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1465,7 +1562,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the third user-defined Asset data label (allow to update).
+     * Additional asset data customized by the service without integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1479,7 +1576,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a byte array indicating the fourth user-defined Asset data label (allow to update).
+     * Additional asset data customized by the service without integrity protection.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1494,8 +1591,8 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * A local tag whose value is a byte array indicating the first user-defined Asset data label (allow to update).
-     * The information of a local tag will not be synchronized.
+     * Local information about the asset. The value is assigned by the service without integrity protection and
+     * will not be synced.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1510,8 +1607,8 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * A local tag whose value is a byte array indicating the second user-defined Asset data label (allow to update).
-     * The information of a local tag will not be synchronized.
+     * Local information about the asset. The value is assigned by the service without integrity protection and
+     * will not be synced.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1526,8 +1623,8 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * A local tag whose value is a byte array indicating the third user-defined Asset data label (allow to update).
-     * The information of a local tag will not be synchronized.
+     * Local information about the asset. The value is assigned by the service without integrity protection and
+     * will not be synced.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1542,8 +1639,8 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * A local tag whose value is a byte array indicating the fourth user-defined Asset data label (allow to update).
-     * The information of a local tag will not be synchronized.
+     * Local information about the asset. The value is assigned by the service without integrity protection and
+     * will not be synced.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1557,7 +1654,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the return type of the queried Asset.
+     * Type of the asset query result to return.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1571,7 +1668,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the maximum number of returned Assets in one query.
+     * Maximum number of asset records to return.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1585,7 +1682,10 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the offset of return data in batch query.
+     * Offset of the asset query result.
+     * <p><strong>NOTE</strong>:
+     * This parameter specifies the starting asset record to return in batch asset query.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1599,7 +1699,11 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating how the query results are sorted.
+     * Sorting order of the query results. Currently, the results can be sorted only by
+     * <strong>ASSET_TAG_DATA_LABEL</strong>.
+     * <p><strong>NOTE</strong>:
+     * By default, assets are returned in the order in which they are added.
+     * </p>
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1613,7 +1717,7 @@ declare namespace asset {
      * @since 11
      */
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the strategy for resolving Asset conflicts.
+     * Policy for resolving the conflict (for example, a duplicate alias).
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1627,7 +1731,7 @@ declare namespace asset {
      * @since 12
      */
     /**
-     * A tag whose value is a byte array indicating the update time of an Asset.
+     * Data update time, in timestamp.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1635,14 +1739,14 @@ declare namespace asset {
      */
     UPDATE_TIME = TagType.BYTES | 0x45,
     /**
-     * A tag whose value is a 32-bit unsigned integer indicating the additional action to be performed during operation.
+     * Additional operation type.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12
      */
     OPERATION_TYPE = TagType.NUMBER | 0x46,
     /**
-     * A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
+     * Whether to encrypt the additional asset information customized by the service.
      *
      * @syscap SystemCapability.Security.Asset
      * @atomicservice
@@ -1650,7 +1754,7 @@ declare namespace asset {
      */
     REQUIRE_ATTR_ENCRYPTED = TagType.BOOL | 0x47,
     /**
-     * A tag whose value is a byte array indicating the group id an asset belongs to.
+     * Group to which the asset belongs.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 18
@@ -1673,7 +1777,7 @@ declare namespace asset {
    * @since 11
    */
   /**
-   * An enum type containing the Asset error codes.
+   * Enumerates the error codes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Asset
@@ -1947,6 +2051,14 @@ declare namespace asset {
      * @since 14
      */
     UNSUPPORTED = 24000017,
+    /**
+     * The error code indicates that verifying the parameter failed.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @atomicservice
+     * @since 20
+     */
+    PARAM_VERIFICATION_FAILED = 24000018,
   }
 }
 

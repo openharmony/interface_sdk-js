@@ -485,9 +485,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -509,9 +510,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -533,9 +535,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -556,9 +559,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -581,9 +585,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -605,9 +610,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -631,9 +637,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -657,9 +664,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -682,9 +690,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
@@ -716,9 +725,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -741,9 +751,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -774,9 +785,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -798,9 +810,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -880,9 +893,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -912,9 +926,10 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -941,9 +956,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -966,9 +982,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -989,9 +1006,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1012,9 +1030,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1036,9 +1055,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1060,9 +1080,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1083,9 +1104,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1106,9 +1128,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1194,9 +1217,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -1218,9 +1242,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -1242,9 +1267,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -1265,9 +1291,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -1286,9 +1313,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -1307,9 +1335,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
@@ -1331,9 +1360,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1356,9 +1386,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1381,9 +1412,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -1410,9 +1442,10 @@ declare namespace usageStatistics {
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Parcel operation failed.
-   * @throws { BusinessError } 10000003 - System service operation failed.
-   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App

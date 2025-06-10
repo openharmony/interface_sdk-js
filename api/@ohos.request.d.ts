@@ -23,13 +23,13 @@ import { Callback } from './@ohos.base';
 import BaseContext from './application/BaseContext';
 
 /**
- * upload and download
+ * Upload and download
  *
  * @namespace request
  * @since 6
  */
 /**
- * upload and download
+ * Upload and download
  *
  * @namespace request
  * @syscap SystemCapability.Request.FileTransferAgent
@@ -37,23 +37,24 @@ import BaseContext from './application/BaseContext';
  * @since 10
  */
 /**
- * upload and download
+ * Upload and download
  *
  * @namespace request
  * @syscap SystemCapability.Request.FileTransferAgent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace request {
   /**
-   * Error code 201 - the permissions check fails.
+   * Error code 201 - The permissions check fails.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 201 - the permissions check fails.
+   * Error code 201 - The permissions check fails.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -61,13 +62,13 @@ declare namespace request {
    */
   const EXCEPTION_PERMISSION: number;
   /**
-   * Error code 401 - the parameters check fails.
+   * Error code 401 - The parameters check fails.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 401 - the parameters check fails.
+   * Error code 401 - The parameters check fails.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -75,13 +76,13 @@ declare namespace request {
    */
   const EXCEPTION_PARAMCHECK: number;
   /**
-   * Error code 801 - call unsupported api.
+   * Error code 801 - Call unsupported api.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 801 - call unsupported api.
+   * Error code 801 - Call unsupported api.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -89,13 +90,13 @@ declare namespace request {
    */
   const EXCEPTION_UNSUPPORTED: number;
   /**
-   * Error code 13400001 - file operation error.
+   * Error code 13400001 - Invalid file or file system error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 13400001 - file operation error.
+   * Error code 13400001 - Invalid file or file system error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -103,13 +104,13 @@ declare namespace request {
    */
   const EXCEPTION_FILEIO: number;
   /**
-   * Error code 13400002 - bad file path.
+   * Error code 13400002 - File path not supported or invalid.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 13400002 - bad file path.
+   * Error code 13400002 - File path not supported or invalid.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -117,13 +118,13 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * Error code 13400003 - task service ability error.
+   * Error code 13400003 - Task service ability error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 13400003 - task service ability error.
+   * Error code 13400003 - Task service ability error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -131,13 +132,13 @@ declare namespace request {
    */
   const EXCEPTION_SERVICE: number;
   /**
-   * Error code 13499999 - others error.
+   * Error code 13499999 - Others error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   /**
-   * Error code 13499999 - others error.
+   * Error code 13499999 - Others error.
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
@@ -498,7 +499,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @param { DownloadConfig } config Download config
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
+   * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
    * @since 6
@@ -514,11 +515,11 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { DownloadConfig } config Download config
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - file operation error
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400001 - Invalid file or file system error.
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @throws { BusinessError } 13400003 - task service ability error
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
@@ -530,12 +531,12 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { DownloadConfig } config Download config
    * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - file operation error
-   * @throws { BusinessError } 13400002 - bad file path
-   * @throws { BusinessError } 13400003 - task service ability error
+   * @throws { BusinessError } 13400001 - Invalid file or file system error.
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
+   * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -548,7 +549,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @param { DownloadConfig } config Download config
    * @returns { Promise<DownloadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
+   * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
    * @since 6
@@ -564,11 +565,11 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { DownloadConfig } config Download config
    * @returns { Promise<DownloadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - file operation error
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400001 - Invalid file or file system error.
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @throws { BusinessError } 13400003 - task service ability error
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
@@ -580,12 +581,12 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { DownloadConfig } config Download config
    * @returns { Promise<DownloadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - file operation error
-   * @throws { BusinessError } 13400002 - bad file path
-   * @throws { BusinessError } 13400003 - task service ability error
+   * @throws { BusinessError } 13400001 - Invalid file or file system error.
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
+   * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform
    * @since 10
@@ -598,7 +599,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @param { UploadConfig } config Upload config
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
+   * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
    * @since 6
@@ -614,10 +615,10 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { UploadConfig } config Upload config
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    */
@@ -628,10 +629,10 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { UploadConfig } config Upload config
    * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10
@@ -644,7 +645,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @param { UploadConfig } config Upload config
    * @returns { Promise<UploadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
+   * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
    * @since 6
@@ -660,10 +661,10 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { UploadConfig } config Upload config
    * @returns { Promise<UploadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    */
@@ -674,10 +675,10 @@ declare namespace request {
    * @param { BaseContext } context Indicates the application BaseContext.
    * @param { UploadConfig } config Upload config
    * @returns { Promise<UploadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - the permissions check fails
-   * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+   * @throws { BusinessError } 201 - The permissions check fails.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
    * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - bad file path
+   * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform
    * @since 10
@@ -685,7 +686,8 @@ declare namespace request {
   function uploadFile(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * DownloadConfig data Structure
+   * DownloadConfig data structure.
+   * Defines the download task configuration.
    *
    * @interface DownloadConfig
    * @syscap SystemCapability.MiscServices.Download
@@ -693,7 +695,8 @@ declare namespace request {
    * @name DownloadConfig
    */
   /**
-   * DownloadConfig data Structure
+   * DownloadConfig data structure.
+   * Defines the download task configuration.
    *
    * @typedef DownloadConfig
    * @syscap SystemCapability.MiscServices.Download
@@ -804,13 +807,13 @@ declare namespace request {
      */
     networkType?: number;
     /**
-     * Sets the path for downloads.
+     * Sets the path where the downloaded file is stored.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * Sets the path for downloads.
+     * Sets the path where the downloaded file is stored.
      *
      * @type { ?string }
      * @syscap SystemCapability.MiscServices.Download
@@ -851,7 +854,8 @@ declare namespace request {
   }
 
   /**
-   * DownloadInfo data Structure
+   * DownloadInfo data structure.
+   * Defines the download task information.
    *
    * @interface DownloadInfo
    * @syscap SystemCapability.MiscServices.Download
@@ -859,7 +863,8 @@ declare namespace request {
    * @name DownloadInfo
    */
   /**
-   * DownloadInfo data Structure
+   * DownloadInfo data structure.
+   * Defines the download task information.
    *
    * @typedef DownloadInfo
    * @syscap SystemCapability.MiscServices.Download
@@ -868,13 +873,13 @@ declare namespace request {
    */
   interface DownloadInfo {
     /**
-     * the description of a file to be downloaded.
+     * The description of a file to be downloaded.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the description of a file to be downloaded.
+     * The description of a file to be downloaded.
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
@@ -883,13 +888,13 @@ declare namespace request {
      */
     description: string;
     /**
-     * the real-time downloads size (in bytes).
+     * The real-time downloads size (in bytes).
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the real-time downloads size (in bytes).
+     * The real-time downloads size (in bytes).
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -898,13 +903,13 @@ declare namespace request {
      */
     downloadedBytes: number;
     /**
-     * the ID of a file to be downloaded.
+     * The ID of a file to be downloaded.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the ID of a file to be downloaded.
+     * The ID of a file to be downloaded.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -913,13 +918,13 @@ declare namespace request {
      */
     downloadId: number;
     /**
-     * a download failure cause, which can be any DownloadSession.ERROR_* constant.
+     * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * a download failure cause, which can be any DownloadSession.ERROR_* constant.
+     * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -928,13 +933,13 @@ declare namespace request {
      */
     failedReason: number;
     /**
-     * the name of a file to be downloaded.
+     * The name of a file to be downloaded.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the name of a file to be downloaded.
+     * The name of a file to be downloaded.
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
@@ -943,13 +948,13 @@ declare namespace request {
      */
     fileName: string;
     /**
-     * the URI of a stored file.
+     * The URI of a stored file.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the URI of a stored file.
+     * The URI of a stored file.
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
@@ -958,13 +963,13 @@ declare namespace request {
      */
     filePath: string;
     /**
-     * the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
+     * Cause of download pause which can be any DownloadSession.PAUSED_* constant.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
+     * Cause of download pause, which can be any DownloadSession.PAUSED_* constant.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -973,13 +978,13 @@ declare namespace request {
      */
     pausedReason: number;
     /**
-     * the download status code, which can be any DownloadSession.SESSION_* constant.
+     * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the download status code, which can be any DownloadSession.SESSION_* constant.
+     * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -988,13 +993,13 @@ declare namespace request {
      */
     status: number;
     /**
-     * the URI of files to be downloaded.
+     * The URI of files to be downloaded.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the URI of files to be downloaded.
+     * The URI of files to be downloaded.
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
@@ -1003,13 +1008,13 @@ declare namespace request {
      */
     targetURI: string;
     /**
-     * the title of a file to be downloaded.
+     * The title of a file to be downloaded.
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the title of a file to be downloaded.
+     * The title of a file to be downloaded.
      *
      * @type { string }
      * @syscap SystemCapability.MiscServices.Download
@@ -1018,13 +1023,13 @@ declare namespace request {
      */
     downloadTitle: string;
     /**
-     * the total size of files to be downloaded (in bytes).
+     * The total size of files to be downloaded (in bytes).
      *
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      */
     /**
-     * the total size of files to be downloaded (in bytes).
+     * The total size of files to be downloaded (in bytes).
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Download
@@ -1035,14 +1040,16 @@ declare namespace request {
   }
 
   /**
-   * Download task interface
+   * Download task interface.
+   * Implements file downloads.
    *
    * @interface DownloadTask
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
-   * Download task interface
+   * Download task interface.
+   * Implements file downloads.
    *
    * @typedef DownloadTask
    * @syscap SystemCapability.MiscServices.Download
@@ -1052,6 +1059,7 @@ declare namespace request {
   interface DownloadTask {
     /**
      * Called when the current download session is in process.
+     * Subscribes to download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } callback
@@ -1063,6 +1071,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session is in process.
+     * Subscribes to download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } callback
@@ -1075,13 +1084,14 @@ declare namespace request {
      */
     /**
      * Called when the current download session is in process.
+     * Subscribes to download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } callback
      * <br>The callback function for the download progress change event
      * <br>receivedSize the length of downloaded data, in bytes
      * <br>totalSize the length of data expected to be downloaded, in bytes.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1091,6 +1101,7 @@ declare namespace request {
 
     /**
      * Called when the current download session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } [callback]
@@ -1102,6 +1113,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } [callback]
@@ -1114,13 +1126,14 @@ declare namespace request {
      */
     /**
      * Called when the current download session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the download task progress.
      * @param { function } [callback]
      * <br>The callback function for the download progress change event
      * <br>receivedSize the length of downloaded data, in bytes
      * <br>totalSize the length of data expected to be downloaded, in bytes.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1130,6 +1143,7 @@ declare namespace request {
 
     /**
      * Called when the current download session complete pause or remove.
+     * Subscribes to download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      *        complete: download task completed,
@@ -1141,6 +1155,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session complete pause or remove.
+     * Subscribes to download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      *        complete: download task completed,
@@ -1153,13 +1168,14 @@ declare namespace request {
      */
     /**
      * Called when the current download session complete pause or remove.
+     * Subscribes to download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      * <br>complete: download task completed,
      * <br>pause: download task stopped,
      * <br>remove: download task deleted.
      * @param { function } callback The callback function for the download complete pause or remove change event.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1169,6 +1185,7 @@ declare namespace request {
 
     /**
      * Called when the current download session complete pause or remove.
+     * Unsubscribes from download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      *        complete: download task completed,
@@ -1180,6 +1197,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session complete pause or remove.
+     * Unsubscribes from download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      *        complete: download task completed,
@@ -1192,13 +1210,14 @@ declare namespace request {
      */
     /**
      * Called when the current download session complete pause or remove.
+     * Unsubscribes from download events.
      *
      * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
      * <br>complete: download task completed,
      * <br>pause: download task stopped,
      * <br>remove: download task deleted.
      * @param { function } [callback] The callback function for the download complete pause or remove change event.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1208,6 +1227,7 @@ declare namespace request {
 
     /**
      * Called when the current download session fails.
+     * Subscribes to download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } callback The callback function for the download fail change event
@@ -1217,6 +1237,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session fails.
+     * Subscribes to download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } callback The callback function for the download fail change event
@@ -1227,11 +1248,12 @@ declare namespace request {
      */
     /**
      * Called when the current download session fails.
+     * Subscribes to download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } callback The callback function for the download fail change event
      * <br>err The error code for download task.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1241,6 +1263,7 @@ declare namespace request {
 
     /**
      * Called when the current download session fails.
+     * Unsubscribes from download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } [callback] Indicate the callback function to receive err.
@@ -1250,6 +1273,7 @@ declare namespace request {
      */
     /**
      * Called when the current download session fails.
+     * Unsubscribes from download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } [callback] Indicate the callback function to receive err.
@@ -1260,11 +1284,12 @@ declare namespace request {
      */
     /**
      * Called when the current download session fails.
+     * Unsubscribes from download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
      * @param { function } [callback] Indicate the callback function to receive err.
      * <br>err The error code for download task.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
@@ -1277,7 +1302,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6
      * @deprecated since 9
@@ -1290,7 +1315,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6
      * @deprecated since 9
@@ -1303,7 +1328,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1316,7 +1341,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1329,7 +1354,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1342,7 +1367,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1355,7 +1380,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<DownloadInfo> } callback Indicate the callback function to receive download info.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1368,7 +1393,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1381,7 +1406,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<string> } callback Indicate the callback function to receive download file MIME type.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1394,7 +1419,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @deprecated since 9
@@ -1407,8 +1432,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1417,8 +1442,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1428,7 +1453,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1440,8 +1465,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1450,8 +1475,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1461,7 +1486,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1473,8 +1498,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1483,8 +1508,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1494,7 +1519,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1506,8 +1531,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1516,8 +1541,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1527,7 +1552,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1539,8 +1564,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1549,8 +1574,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1560,7 +1585,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1572,8 +1597,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
@@ -1582,8 +1607,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
@@ -1593,7 +1618,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1601,32 +1626,35 @@ declare namespace request {
     restore(): Promise<boolean>;
 
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<DownloadInfo> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<DownloadInfo> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<DownloadInfo> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1634,32 +1662,35 @@ declare namespace request {
     getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
 
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
     /**
-     * Get the download task info
+     * Get the download task info.
+     * Obtains the information about this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1667,32 +1698,35 @@ declare namespace request {
     getTaskInfo(): Promise<DownloadInfo>;
 
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1700,32 +1734,35 @@ declare namespace request {
     getTaskMimeType(callback: AsyncCallback<string>): void;
 
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 9
      */
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
     /**
-     * Get mimetype of the download task
+     * Get mimetype of the download task.
+     * Obtains the MimeType of this download task.
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12
@@ -1734,7 +1771,8 @@ declare namespace request {
   }
 
   /**
-   * File data Structure
+   * File data structure.
+   * Defines the file list in UploadConfig.
    *
    * @interface File
    * @syscap SystemCapability.MiscServices.Download
@@ -1742,7 +1780,8 @@ declare namespace request {
    * @name File
    */
   /**
-   * File data Structure
+   * File data structure.
+   * Defines the file list in UploadConfig.
    *
    * @typedef File
    * @syscap SystemCapability.MiscServices.Download
@@ -1813,7 +1852,8 @@ declare namespace request {
   }
 
   /**
-   * RequestData data Structure
+   * RequestData data structure.
+   * Defines the form data in UploadConfig.
    *
    * @interface RequestData
    * @syscap SystemCapability.MiscServices.Download
@@ -1821,7 +1861,8 @@ declare namespace request {
    * @name RequestData
    */
   /**
-   * RequestData data Structure
+   * RequestData data structure.
+   * Defines the form data in UploadConfig.
    *
    * @typedef RequestData
    * @syscap SystemCapability.MiscServices.Download
@@ -1862,7 +1903,8 @@ declare namespace request {
   }
 
   /**
-   * UploadConfig data Structure
+   * UploadConfig data structure.
+   * Describes the configuration of an upload task.
    *
    * @interface UploadConfig
    * @syscap SystemCapability.MiscServices.Upload
@@ -1870,7 +1912,8 @@ declare namespace request {
    * @name UploadConfig
    */
   /**
-   * UploadConfig data Structure
+   * UploadConfig data structure.
+   * Describes the configuration of an upload task.
    *
    * @typedef UploadConfig
    * @syscap SystemCapability.MiscServices.Upload
@@ -1982,13 +2025,13 @@ declare namespace request {
      */
     files: Array<File>;
     /**
-     * The requested form data.
+     * The requested form data in the request body.
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6
      */
     /**
-     * The requested form data.
+     * The requested form data in the request body.
      *
      * @type { Array<RequestData> }
      * @syscap SystemCapability.MiscServices.Upload
@@ -1999,7 +2042,8 @@ declare namespace request {
   }
 
   /**
-   * TaskState data Structure
+   * TaskState data structure.
+   * Implements a TaskState object.
    *
    * @interface TaskState
    * @syscap SystemCapability.MiscServices.Upload
@@ -2007,7 +2051,8 @@ declare namespace request {
    * @name TaskState
    */
   /**
-   * TaskState data Structure
+   * TaskState data structure.
+   * Implements a TaskState object.
    *
    * @typedef TaskState
    * @syscap SystemCapability.MiscServices.Upload
@@ -2031,13 +2076,17 @@ declare namespace request {
      */
     path: string;
     /**
-     * Upload task return value.
+     * Return value of an upload task.
+     * The value 0 means that the task is successful,
+     * and other values means that the task fails.
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @since 9
      */
     /**
-     * Upload task return value.
+     * Return value of an upload task.
+     * The value 0 means that the task is successful,
+     * and other values means that the task fails.
      *
      * @type { number }
      * @syscap SystemCapability.MiscServices.Upload
@@ -2063,14 +2112,16 @@ declare namespace request {
   }
 
   /**
-   * Upload task interface
+   * Upload task interface.
+   * Implements file uploads.
    *
    * @interface UploadTask
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    */
   /**
-   * Upload task interface
+   * Upload task interface.
+   * Implements file uploads.
    *
    * @typedef UploadTask
    * @syscap SystemCapability.MiscServices.Download
@@ -2080,6 +2131,7 @@ declare namespace request {
   interface UploadTask {
     /**
      * Called when the current upload session is in process.
+     * Subscribes to upload progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } callback
@@ -2091,6 +2143,7 @@ declare namespace request {
      */
     /**
      * Called when the current upload session is in process.
+     * Subscribes to upload progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } callback
@@ -2103,13 +2156,14 @@ declare namespace request {
      */
     /**
      * Called when the current upload session is in process.
+     * Subscribes to upload progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } callback
      * <br>The callback function for the upload progress change event
      * <br>uploadedSize The length of uploaded data, in bytes
      * <br>totalSize The length of data expected to be uploaded, in bytes.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2119,6 +2173,7 @@ declare namespace request {
 
     /**
      * Called when the current upload session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } [callback]
@@ -2130,6 +2185,7 @@ declare namespace request {
      */
     /**
      * Called when the current upload session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } [callback]
@@ -2142,13 +2198,14 @@ declare namespace request {
      */
     /**
      * Called when the current upload session is in process.
+     * Unsubscribes from download progress events.
      *
      * @param { 'progress' } type progress Indicates the upload task progress.
      * @param { function } [callback]
      * <br>The callback function for the upload progress change event
      * <br>uploadedSize The length of uploaded data, in bytes
      * <br>totalSize The length of data expected to be uploaded, in bytes.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2158,6 +2215,7 @@ declare namespace request {
 
     /**
      * Called when the header of the current upload session has been received.
+     * Subscribes to HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } callback The callback function for the HTTP Response Header event
@@ -2167,6 +2225,7 @@ declare namespace request {
      */
     /**
      * Called when the header of the current upload session has been received.
+     * Subscribes to HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } callback The callback function for the HTTP Response Header event
@@ -2177,11 +2236,12 @@ declare namespace request {
      */
     /**
      * Called when the header of the current upload session has been received.
+     * Subscribes to HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } callback The callback function for the HTTP Response Header event
      * <br>header HTTP Response Header returned by the developer server.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2191,6 +2251,7 @@ declare namespace request {
 
     /**
      * Called when the header of the current upload session has been received.
+     * Unsubscribes from HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } [callback] The callback function for the HTTP Response Header event
@@ -2200,6 +2261,7 @@ declare namespace request {
      */
     /**
      * Called when the header of the current upload session has been received.
+     * Unsubscribes from HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } [callback] The callback function for the HTTP Response Header event
@@ -2210,11 +2272,12 @@ declare namespace request {
      */
     /**
      * Called when the header of the current upload session has been received.
+     * Unsubscribes from HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
      * @param { function } [callback] The callback function for the HTTP Response Header event
      * <br>header HTTP Response Header returned by the developer server.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2250,7 +2313,7 @@ declare namespace request {
      * <br>complete: upload task completed
      * <br>fail: upload task failed
      * @param { Callback<Array<TaskState>> } callback The callback function for the upload complete or fail change event.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2286,7 +2349,7 @@ declare namespace request {
      * <br>complete: upload task completed
      * <br>fail: upload task failed
      * @param { Callback<Array<TaskState>> } [callback]
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
@@ -2299,7 +2362,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6
      * @deprecated since 9
@@ -2312,7 +2375,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6
      * @deprecated since 9
@@ -2325,8 +2388,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 9
      */
@@ -2335,8 +2398,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 10
@@ -2346,7 +2409,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12
@@ -2358,8 +2421,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 9
      */
@@ -2368,8 +2431,8 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
-     * @throws { BusinessError } 401 - the parameters check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
+     * @throws { BusinessError } 401 - The parameters check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 10
@@ -2379,7 +2442,7 @@ declare namespace request {
      *
      * @permission ohos.permission.INTERNET
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - the permissions check fails
+     * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12
@@ -2426,7 +2489,8 @@ declare namespace request {
    * @syscap SystemCapability.Request.FileTransferAgent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace agent {
     /**
@@ -2443,7 +2507,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum Action {
       /**
@@ -2458,7 +2523,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       DOWNLOAD,
       /**
@@ -2473,7 +2539,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       UPLOAD
     }
@@ -2623,11 +2690,13 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface FileSpec {
       /**
        * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
+       * Provides the file information of a table item.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2635,6 +2704,7 @@ declare namespace request {
        */
       /**
        * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
+       * Provides the file information of a table item.
        *
        * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2655,7 +2725,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       path: string;
       /**
@@ -2702,11 +2773,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       filename?: string;
       /**
        * The extras for the file information.
+       * This parameter is not included in HTTP requests.
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2714,6 +2787,7 @@ declare namespace request {
        */
       /**
        * The extras for the file information.
+       * This parameter is not included in HTTP requests.
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2738,7 +2812,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface FormItem {
       /**
@@ -2755,7 +2830,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       name: string;
       /**
@@ -2772,13 +2848,14 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       value: string | FileSpec | Array<FileSpec>;
     }
 
     /**
-     * Options of the custom notification of backend tasks.
+     * Describes the custom information of the notification bar.
      *
      * @typedef Notification
      * @syscap SystemCapability.Request.FileTransferAgent
@@ -2805,10 +2882,85 @@ declare namespace request {
        * @since 15
        */
       text?: string;
+      /**
+       * Disables the notification.
+       * If the value is false, a notification will be displayed, otherwise nothing will be displayed.
+       * If not specified, the value is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      disable?: boolean;
+    }
+
+    /**
+     * Options of the minimum speed of the task.
+     *
+     * @typedef MinSpeed
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    interface MinSpeed {
+      /**
+       * The minimum speed of the task, in bytes per second.
+       * If the speed of the task is lower than this value for a period of time, the task fails.
+       * If the value is set to 0, no minimum speed limit will be activated.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      speed: number;
+      /**
+       * Duration of the speed which is allowed to be below the minimum speed, in seconds.
+       * If the speed of the task is lower than this value for a period of time, the task fails.
+       * If the value is set to 0, no minimum speed limit will be activated.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      duration: number;
+    }
+
+    /**
+     * Options of the custom task timeout.
+     *
+     * @typedef Timeout
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    interface Timeout {
+      /**
+       * The connection timeout of the task, in seconds.
+       * Connection timeout is the maximum time required for a client and a server to establish a connection.
+       * If this value is not specified, use default value instead. The default value is 60 seconds.
+       * The minimum value allowed is 1 second.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      connectionTimeout?: number;
+      /**
+       * Total timeout of the task, in seconds.
+       * Total timeout includes the time to establish a connection, send a request and receive a response.
+       * If this value is not specified, use default value instead. The default value is 604,800 seconds(1 week).
+       * The minimum value allowed is 1 second.
+       * The maximum value allowed is 604,800 seconds(1 week).
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      totalTimeout?: number;
     }
 
     /**
      * The configurations for a task.
+     * Provides the configuration information of an upload or download task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
      *
@@ -2818,6 +2970,7 @@ declare namespace request {
      */
     /**
      * The configurations for a task.
+     * Provides the configuration information of an upload or download task.
      * Using a flexible configuration for clear upload and download functions.
      * If without emphasis, an option is for any task.
      *
@@ -2825,7 +2978,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface Config {
       /**
@@ -2842,7 +2996,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       action: Action;
       /**
@@ -2875,7 +3030,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 15
+       * @since arkts {'1.1':'15', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       url: string;
       /**
@@ -2943,12 +3099,11 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
-
       mode?: Mode;
       /**
        * The solution choice when path already exists during download.
        * Currently support:
-       * true, rewrite the existed file.
+       * true, rewrite the existed file;
        * false, go to fail.
        *
        * @type { ?boolean }
@@ -2959,7 +3114,7 @@ declare namespace request {
        * The solution choice when path already exists during download.
        * The default is false.
        * Currently support:
-       * true, rewrite the existed file.
+       * true, rewrite the existed file;
        * false, go to fail.
        *
        * @type { ?boolean }
@@ -2989,7 +3144,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       method?: string;
       /**
@@ -3017,7 +3173,7 @@ declare namespace request {
        * The arguments, it can be any text, uses json usually.
        * For download, it can be raw string, the default is empty string.
        * For upload, it can be form items, the default is a empty form.
-       * there must be one `FileSpec` item at least or will be a parameter error.
+       * There must be one `FileSpec` item at least or will be a parameter error.
        *
        * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3027,13 +3183,14 @@ declare namespace request {
        * The arguments, it can be any text, uses json usually.
        * For download, it can be raw string, the default is empty string.
        * For upload, it can be form items, the default is a empty form.
-       * there must be one `FileSpec` item at least or will be a parameter error.
+       * There must be one `FileSpec` item at least or will be a parameter error.
        *
        * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       data?: string | Array<FormItem>;
       /**
@@ -3073,11 +3230,13 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       saveas?: string;
       /**
-       * The network.
+       * Network used for the task.
+       * The default value is ANY (Wi-Fi or cellular).
        *
        * @type { ?Network }
        * @default Network.ANY
@@ -3085,7 +3244,8 @@ declare namespace request {
        * @since 10
        */
       /**
-       * The network.
+       * Network used for the task.
+       * The default value is ANY (Wi-Fi or cellular).
        *
        * @type { ?Network }
        * @default Network.ANY
@@ -3336,6 +3496,7 @@ declare namespace request {
       priority?: number;
       /**
        * The extras for the configuration.
+       * This parameter is left empty by default.
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3343,6 +3504,7 @@ declare namespace request {
        */
       /**
        * The extras for the configuration.
+       * This parameter is left empty by default.
        *
        * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -3370,6 +3532,22 @@ declare namespace request {
        * @since 15
        */
       notification?: Notification;
+      /**
+       * Customizes the minimum speed of the task.
+       *
+       * @type { ?MinSpeed }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      minSpeed?: MinSpeed;
+      /**
+       * Customizes the timeout of the task.
+       *
+       * @type { ?Timeout }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      timeout?: Timeout;
     }
 
     /**
@@ -3386,7 +3564,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum State {
       /**
@@ -3401,7 +3580,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       INITIALIZED = 0x00,
       /**
@@ -3416,7 +3596,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       WAITING = 0x10,
       /**
@@ -3431,7 +3612,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       RUNNING = 0x20,
       /**
@@ -3446,7 +3628,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       RETRYING = 0x21,
       /**
@@ -3461,7 +3644,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       PAUSED = 0x30,
       /**
@@ -3476,7 +3660,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       STOPPED = 0x31,
       /**
@@ -3491,7 +3676,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       COMPLETED = 0x40,
       /**
@@ -3506,7 +3692,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       FAILED = 0x41,
       /**
@@ -3521,7 +3708,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       REMOVED = 0x50
     }
@@ -3556,7 +3744,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface Progress {
       /**
@@ -3575,7 +3764,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly state: State;
       /**
@@ -3594,7 +3784,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly index: number;
       /**
@@ -3613,11 +3804,12 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly processed: number;
       /**
-       * The sizes of files in a task.
+       * The sizes of files in a task, in bytes.
        *
        * @type { Array<number> }
        * @readonly
@@ -3625,7 +3817,7 @@ declare namespace request {
        * @since 10
        */
       /**
-       * The sizes of files in a task.
+       * The sizes of files in a task, in bytes.
        *
        * @type { Array<number> }
        * @readonly
@@ -3799,7 +3991,14 @@ declare namespace request {
        * @atomicservice
        * @since 12
        */
-      REDIRECT = 0x80
+      REDIRECT = 0x80,
+      /**
+       * Indicates the speed of the task is too slow.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      LOW_SPEED = 0x90
     }
 
     /**
@@ -4291,11 +4490,13 @@ declare namespace request {
 
     /**
      * The HTTP response.
+     * Describes the data structure of the task response header.
      *
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interface HttpResponse {
       /**
@@ -4305,7 +4506,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly version: string,
       /**
@@ -4315,7 +4517,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly statusCode: number,
       /**
@@ -4325,7 +4528,8 @@ declare namespace request {
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       readonly reason: string,
       /**
@@ -4338,6 +4542,44 @@ declare namespace request {
        * @since 12
        */
       readonly headers: Map<string, Array<string>>,
+    }
+
+    /**
+     * Reason for task waiting.
+     *
+     * @enum { number }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     */
+    enum WaitingReason {
+      /**
+       * Indicates the task is waiting for running queue to be free.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      TASK_QUEUE_FULL = 0x00,
+      /**
+       * Indicates the task is waiting for network to recover.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      NETWORK_NOT_MATCH = 0x01,
+      /**
+       * Indicates the task is waiting for app to return to the foreground.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      APP_BACKGROUND = 0x02,
+      /**
+       * Indicates the task is waiting for user to become activated.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      USER_INACTIVATED = 0x03,
     }
 
     /**
@@ -4364,7 +4606,8 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2 
      */
     interface Task {
       /**
@@ -4407,6 +4650,7 @@ declare namespace request {
       config: Config;
       /**
        * Enable the specified callback for a frontend task.
+       * Subscribes to task progress changes.
        *
        * @param { 'progress' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
@@ -4418,6 +4662,7 @@ declare namespace request {
        */
       /**
        * Enables the specified callback.
+       * Subscribes to task progress changes.
        *
        * @param { 'progress' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4431,6 +4676,7 @@ declare namespace request {
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
+       * Unsubscribes from task progress events.
        *
        * @param { 'progress' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
@@ -4442,6 +4688,7 @@ declare namespace request {
        */
       /**
        * Disables the specified callback.
+       * Unsubscribes from task progress events.
        *
        * @param { 'progress' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4455,17 +4702,19 @@ declare namespace request {
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
        * Enable the specified callback for a frontend task.
+       * Subscribes to task completion events.
        *
        * @param { 'completed' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
        * Enables the specified callback.
+       * Subscribes to task completion events.
        *
        * @param { 'completed' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4474,22 +4723,25 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
+       * Unsubscribes from task completion events.
        *
        * @param { 'completed' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
        * Disables the specified callback.
+       * Unsubscribes from task completion events.
        *
        * @param { 'completed' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4503,17 +4755,19 @@ declare namespace request {
       off(event: 'completed', callback?: (progress: Progress) => void): void;
       /**
        * Enable the specified callback for a frontend task.
+       * Subscribes to task failure events.
        *
        * @param { 'failed' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
        * Enables the specified callback.
+       * Subscribes to task failure events.
        *
        * @param { 'failed' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4527,17 +4781,19 @@ declare namespace request {
       on(event: 'failed', callback: (progress: Progress) => void): void;
       /**
        * Disable the specified callback for a frontend task.
+       * Unsubscribes from task failure events.
        *
        * @param { 'failed' } event event types.
        * @param { function } callback callback function with a `Progress` argument.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
        * Disables the specified callback.
+       * Unsubscribes from task failure events.
        *
        * @param { 'failed' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4551,6 +4807,7 @@ declare namespace request {
       off(event: 'failed', callback?: (progress: Progress) => void): void;
       /**
        * Enables the specified callback.
+       * Subscribes to task pause events.
        *
        * @param { 'pause' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4562,6 +4819,7 @@ declare namespace request {
       on(event: 'pause', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
+       * Unsubscribes from the foreground task pause event.
        *
        * @param { 'pause' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4573,6 +4831,7 @@ declare namespace request {
       off(event: 'pause', callback?: (progress: Progress) => void): void;
       /**
        * Enables the specified callback.
+       * Subscribes to task resume events.
        *
        * @param { 'resume' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4584,6 +4843,7 @@ declare namespace request {
       on(event: 'resume', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
+       * Unsubscribes from the foreground task resume event.
        *
        * @param { 'resume' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4595,6 +4855,7 @@ declare namespace request {
       off(event: 'resume', callback?: (progress: Progress) => void): void;
       /**
        * Enables the specified callback.
+       * Subscribes to task removal events.
        *
        * @param { 'remove' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4606,6 +4867,7 @@ declare namespace request {
       on(event: 'remove', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
+       * Unsubscribes from the task removal event.
        *
        * @param { 'remove' } event - event types.
        * @param { function } callback - callback function with a `Progress` argument.
@@ -4617,6 +4879,7 @@ declare namespace request {
       off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
        * Enables the response callback.
+       * Subscribes to task response headers.
        *
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
@@ -4624,11 +4887,13 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**
        * Disables the response callback.
+       * Unsubscribes from task response headers.
        *
        * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
@@ -4640,13 +4905,61 @@ declare namespace request {
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
+       * Enables the 'faultOccur' callback.
+       * This callback is triggered when the task failed.
+       * The returned `Faults` will contain the reason why the task failed.
+       *
+       * @param { 'faultOccur' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'faultOccur', callback: Callback<Faults>): void;
+      /**
+       * Disables the 'faultOccur' callback.
+       *
+       * @param { 'faultOccur' } event - event types.
+       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'faultOccur', callback?: Callback<Faults>): void;
+      /**
+       * Enables the wait callback.
+       * This callback is triggered when the task changes from other states to the waiting state.
+       * The returned `WaitingReason` will contain the reason why the task enters waiting state.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      on(event: 'wait', callback: Callback<WaitingReason>): void;
+      /**
+       * Disables the wait callback.
+       *
+       * @param { 'wait' } event - event types.
+       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20
+       */
+      off(event: 'wait', callback?: Callback<WaitingReason>): void;
+      /**
        * Starts the task.
        *
        * @permission ohos.permission.INTERNET
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
@@ -4656,8 +4969,8 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
@@ -4671,12 +4984,13 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       start(callback: AsyncCallback<void>): void;
       /**
@@ -4685,8 +4999,8 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
@@ -4696,8 +5010,8 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
@@ -4711,30 +5025,31 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 12
+       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @arkts 1.1&1.2 
        */
       start(): Promise<void>;
       /**
        * Pauses the background task.
        *
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900005 - task mode error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Pauses the task.
+       * Pauses a task that is waiting, running, or retrying.
        *
        * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
@@ -4743,18 +5058,18 @@ declare namespace request {
        * Pauses the background task.
        *
        * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900005 - task mode error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Pauses the task.
+       * Pauses a task that is waiting, running, or retrying.
        *
        * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
@@ -4765,20 +5080,20 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900005 - task mode error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Resumes the task.
+       * Resumes a paused task.
        *
        * @permission ohos.permission.INTERNET
        * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
@@ -4789,39 +5104,39 @@ declare namespace request {
        * @permission ohos.permission.INTERNET
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900005 - task mode error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Resumes the task.
+       * Resumes a paused task.
        *
        * @permission ohos.permission.INTERNET
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
       resume(): Promise<void>;
       /**
-       * Stops the task.
+       * Stop a running, waiting, or retrying task.
        *
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Stops the task.
+       * Stop a running, waiting, or retrying task.
        *
        * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
@@ -4829,20 +5144,20 @@ declare namespace request {
        */
       stop(callback: AsyncCallback<void>): void;
       /**
-       * Stops the task.
+       * Stop a running, waiting, or retrying task.
        *
        * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
       /**
-       * Stops the task.
+       * Stop a running, waiting, or retrying task.
        *
        * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - task service ability error.
-       * @throws { BusinessError } 21900007 - task state error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
+       * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
@@ -4855,9 +5170,9 @@ declare namespace request {
        *
        * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
        * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 13400003 - Task service ability error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 18
        */
@@ -4876,36 +5191,37 @@ declare namespace request {
      * @param { BaseContext } context context of the caller.
      * @param { Config } config configurations for a task.
      * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - file operation error.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400001 - Invalid file or file system error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Creates a task for upload or download and enqueue it.
      * When an application enters the background, the frontend tasks associated
-     * with it will gradually be paused until the application returns to the foreground. 
+     * with it will gradually be paused until the application returns to the foreground.
      *
      * @permission ohos.permission.INTERNET
      * @param { BaseContext } context context of the caller.
      * @param { Config } config configurations for a task.
      * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - file operation error.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 13400001 - Invalid file or file system error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900004 - The application task queue is full.
+     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
@@ -4921,13 +5237,13 @@ declare namespace request {
      * @param { BaseContext } context context of the caller.
      * @param { Config } config configurations for a task.
      * @returns { Promise<Task> } the promise returned by the function.
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - file operation error.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400001 - Invalid file or file system error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -4940,31 +5256,33 @@ declare namespace request {
      * @param { BaseContext } context context of the caller.
      * @param { Config } config configurations for a task.
      * @returns { Promise<Task> } the promise returned by the function.
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - file operation error.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - task mode error.
+     * @throws { BusinessError } 13400001 - Invalid file or file system error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900004 - The application task queue is full.
+     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
      * Gets the task with the specified id.
+     * Obtains task information based on the task ID.
      *
      * @param { BaseContext } context - context of the caller.
      * @param { string } id - the id of the task.
      * @param { string } token - the token of the task, length between 8 and 2048 bytes.
      * @returns { Promise<Task> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11
      */
@@ -4976,10 +5294,10 @@ declare namespace request {
      *
      * @param { string } id the task id.
      * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating success or not.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -4989,10 +5307,10 @@ declare namespace request {
      *
      * @param { string } id the task id.
      * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating success or not.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
@@ -5006,10 +5324,10 @@ declare namespace request {
      *
      * @param { string } id the task id.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
@@ -5019,10 +5337,10 @@ declare namespace request {
      *
      * @param { string } id the task id.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
@@ -5032,25 +5350,27 @@ declare namespace request {
 
     /**
      * Shows specified task details belongs to the caller.
+     * Queries a task details based on the task ID.
      *
      * @param { string } id the task id.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Shows specified task details belongs to the caller.
+     * Queries a task details based on the task ID.
      *
      * @param { string } id the task id.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5059,25 +5379,27 @@ declare namespace request {
 
     /**
      * Shows specified task details belongs to the caller.
+     * Queries a task details based on the task ID.
      *
      * @param { string } id the task id.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Shows specified task details belongs to the caller.
+     * Queries a task details based on the task ID.
      *
      * @param { string } id the task id.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5086,27 +5408,29 @@ declare namespace request {
 
     /**
      * Touches specified task with token.
+     * Queries the task details based on the task ID and token.
      *
      * @param { string } id the task id.
      * @param { string } token the in-application isolation key.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Touches specified task with token.
+     * Queries the task details based on the task ID and token.
      *
      * @param { string } id the task id.
      * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5115,27 +5439,29 @@ declare namespace request {
 
     /**
      * Touches specified task with token.
+     * Queries the task details based on the task ID and token.
      *
      * @param { string } id the task id.
      * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Touches specified task with token.
+     * Queries the task details based on the task ID and token.
      *
      * @param { string } id the task id.
      * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5144,21 +5470,23 @@ declare namespace request {
 
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5167,23 +5495,25 @@ declare namespace request {
 
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { Filter } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { Filter } filter an instance of `Filter`.
      * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5192,23 +5522,25 @@ declare namespace request {
 
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { Filter } filter an instance of `Filter`.
      * @returns { Promise<Array<string>> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 10
      */
     /**
      * Searches tasks, for system.
+     * Searches for task IDs based on Filter.
      *
      * @param { Filter } filter an instance of `Filter`.
      * @returns { Promise<Array<string>> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Incorrect parameter type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @since 11
@@ -5217,16 +5549,17 @@ declare namespace request {
 
     /**
      * Queries specified task details.
+     * Creates a group based on GroupConfig
      *
      * @permission ohos.permission.DOWNLOAD_SESSION_MANAGER or ohos.permission.UPLOAD_SESSION_MANAGER
      * @param { string } id the task id.
      * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5239,12 +5572,12 @@ declare namespace request {
      * @permission ohos.permission.DOWNLOAD_SESSION_MANAGER or ohos.permission.UPLOAD_SESSION_MANAGER
      * @param { string } id the task id.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900006 - task not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5252,8 +5585,8 @@ declare namespace request {
     function query(id: string): Promise<TaskInfo>;
 
     /**
-     * The config of the task group.
-     * 
+     * Describes group configuration options for download tasks.
+     *
      * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15
@@ -5264,7 +5597,7 @@ declare namespace request {
        * If true, progress, completed, and failed notifications will be displayed.
        * If false, only completed or failed notifications will be displayed.
        * The default value is false.
-       * 
+       *
        * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15
@@ -5272,7 +5605,7 @@ declare namespace request {
       gauge?: boolean;
       /**
        * Customizes the notification of the task group.
-       * 
+       *
        * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15
@@ -5282,30 +5615,33 @@ declare namespace request {
 
     /**
      * Creates a background download task notification group.
-     * 
+     * Creates a group based on GroupConfig and returns the group ID.
+     *
      * @param { GroupConfig } config - config of the group.
      * @returns { Promise<string> } the gid of the group.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
+     * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15
      */
     function createGroup(config: GroupConfig): Promise<string>;
 
     /**
-     * Adds a newly created background download task to the target group.
-     * 
+     * Attaches multiple download task IDs to a specified group ID.
+     * If any task ID does not meet the attachment conditions,
+     * all tasks in the list will not be added to the group.
+     *
      * @param { string } gid - the gid of the target group.
      * @param { string[] } tids - the tid list of tasks to be attached.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900005 - task mode error.
-     * @throws { BusinessError } 21900006 - task not found.
-     * @throws { BusinessError } 21900007 - task state error.
-     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+     * @throws { BusinessError } 21900006 - Task removed or not found.
+     * @throws { BusinessError } 21900007 - Operation with wrong task state.
+     * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15
      */
@@ -5314,13 +5650,13 @@ declare namespace request {
     /**
      * Deletes the target group, no more new tasks can be added to this group.
      * If all tasks in this group end, completed or failed notifications will be displayed.
-     * 
+     *
      * @param { string } gid - the gid of the target group.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - task service ability error.
-     * @throws { BusinessError } 21900008 - group deleted or not found.
+     * @throws { BusinessError } 13400003 - Task service ability error.
+     * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15
      */

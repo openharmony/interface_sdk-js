@@ -63,7 +63,28 @@ interface EllipseOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Set width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Set width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Set height.
@@ -99,7 +120,28 @@ interface EllipseOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number;
+  /**
+   * Set height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Set height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**
@@ -177,6 +219,7 @@ interface EllipseInterface {
    */
   /**
    * use new function to set the value.
+   * Anonymous Object Rectification.
    *
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }
@@ -228,6 +271,7 @@ interface EllipseInterface {
    */
   /**
    * Set the value.
+   * Anonymous Object Rectification.
    *
    * @param { EllipseOptions } [options] - ellipse options
    * @returns { EllipseAttribute }

@@ -18,7 +18,9 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
+/*** endif */
 
 /**
  * Obtains resource information about a bundle
@@ -26,7 +28,8 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
  * @typedef BundleResourceInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BundleResourceInfo {
   /**
@@ -36,7 +39,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -47,7 +51,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly icon: string;
 
@@ -58,7 +63,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly label: string;
 
@@ -80,7 +86,8 @@ export interface BundleResourceInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 }

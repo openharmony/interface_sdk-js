@@ -3414,7 +3414,7 @@ declare interface TouchPoint {
  */
 declare interface DirectionalEdgesT<T> {
   /**
-   * Start property.
+   * Start edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3426,7 +3426,7 @@ declare interface DirectionalEdgesT<T> {
   start: T;
 
   /**
-   * End property.
+   * End edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3438,7 +3438,7 @@ declare interface DirectionalEdgesT<T> {
   end: T;
 
   /**
-   * Top property.
+   * Top edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3450,7 +3450,7 @@ declare interface DirectionalEdgesT<T> {
   top: T;
 
   /**
-   * Bottom property.
+   * Bottom edge.
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3523,7 +3523,7 @@ declare interface DividerStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   mode?: DividerMode;
 }
@@ -3581,4 +3581,34 @@ declare interface AccessibilityOptions {
    * @since 14
    */
   accessibilityPreferred?: boolean;
+}
+
+/**
+ * Define scrollbar margin options.
+ *
+ * @interface ScrollBarMargin
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare interface ScrollBarMargin {
+  /**
+   * Start margin of the scroll bar.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  start?: LengthMetrics;
+
+  /**
+   * End margin of the scroll bar.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  end?: LengthMetrics;
 }

@@ -1278,6 +1278,46 @@ declare enum TouchType {
    * @since 11
    */
   Cancel,
+
+  /**
+   * Triggers when the touch event turns to hover enter in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_ENTER = 9,
+
+  /**
+   * Triggers when the touch event turns to hover move in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_MOVE = 10,
+
+  /**
+   * Triggers when the touch event turns to hover exit in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_EXIT = 11,
+
+  /**
+   * Triggers when the touch event turns to hover cancel in accessibility processing.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  HOVER_CANCEL = 12,
 }
 
 /**
@@ -3691,6 +3731,109 @@ declare enum Alignment {
 }
 
 /**
+ * Alignment enumeration description.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum LocalizedAlignment {
+  /**
+   * Top Start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP_START = "top_start",
+  /**
+   * The top is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP = "top",
+  /**
+   * Top tail end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  TOP_END = "top_end",
+  /**
+   * The starting end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  START = "start",
+  /**
+   * Center horizontal and vertical.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  CENTER = "center",
+  /**
+   * The tail end is centered longitudinally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  END = "end",
+  /**
+   * Bottom starting end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM_START = "bottom_start",
+  /**
+   * The bottom is centered horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM = "bottom",
+  /**
+   * Bottom end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM_END = "bottom_end",
+}
+
+/**
  * TransitionType enumeration description.
  *
  * @enum { number }
@@ -5618,20 +5761,20 @@ declare enum ImageSize {
   Auto,
 
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5639,7 +5782,7 @@ declare enum ImageSize {
    * @since 10
    */
   /**
-   * Default value. Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8426,6 +8569,16 @@ declare enum ImageSpanAlignment {
    * @since 11
    */
   TOP,
+
+  /**
+   * The ImageSpan's alignment is same with the text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FOLLOW_PARAGRAPH,
 }
 
 /**
@@ -8679,6 +8832,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   NODE,
 }
@@ -10226,6 +10380,38 @@ declare enum PageFlipMode {
 }
 
 /**
+ * Focus wrap mode of a list or grid when moving focus using the arrow keys.
+
+ * @enum { number } FocusWrapMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum FocusWrapMode {
+  /**
+   * No wrap when moving focus using the arrow keys.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  DEFAULT = 0,
+
+  /**
+   * Auto wrap when moving focus using the arrow keys.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  WRAP_WITH_ARROW = 1,
+}
+
+/**
  * Rotating crown event behavior.
  *
  * @enum { number }
@@ -10362,7 +10548,7 @@ declare enum AxisAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
  declare enum FocusDrawLevel {
   /**
@@ -10372,7 +10558,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   SELF = 0,
 
@@ -10383,7 +10569,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   TOP = 1,
 }
@@ -10395,7 +10581,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum DividerMode {
   /**
@@ -10404,7 +10590,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -10414,7 +10600,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   EMBEDDED_IN_MENU = 1,
 }
@@ -10426,7 +10612,7 @@ declare enum DividerMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum EventQueryType {
   /**
@@ -10435,7 +10621,119 @@ declare enum EventQueryType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   ON_CLICK = 0,
+}
+
+/**
+ * Follow position type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TipsAnchorType {
+  /**
+   * Follow the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET,
+
+  /**
+   * Follow the cursor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CURSOR
+}
+
+/**
+ * Define ColorSpace enumeration.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum ColorSpace {
+  /**
+   * SRGB ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SRGB = 0,
+  /**
+   * Display-P3 ColorSpace.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  DISPLAY_P3 = 1,
+}
+
+/**
+ * Define the property type enumeration used in animation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum AnimationPropertyType {
+  /**
+   * Rotation angle in the x, y, z direction.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ROTATION = 0,
+
+  /**
+   * Tranlation in the x and y direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TRANSLATION = 1,
+
+  /**
+   * Scale in the x and y direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SCALE = 2,
+
+  /**
+   * Opacity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  OPACITY = 3,
 }

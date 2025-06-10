@@ -18,7 +18,9 @@
  * @kit CoreFileKit
  */
 
+/*** if arkts 1.1 */
 import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
+/*** endif */
 
 /**
  * Describe bundle version
@@ -26,7 +28,8 @@ import type BackupExtensionContext from './@ohos.file.BackupExtensionContext';
  * @interface BundleVersion
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BundleVersion {
   /**
@@ -35,7 +38,8 @@ export interface BundleVersion {
    * @type { number }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code: number;
 
@@ -45,7 +49,8 @@ export interface BundleVersion {
    * @type { string }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   name: string;
 }
@@ -55,9 +60,10 @@ export interface BundleVersion {
  *
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @StageModelOnly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class BackupExtensionAbility {
+declare class BackupExtensionAbility {
   /**
    * Indicates backup extension ability context.
    *
@@ -82,7 +88,8 @@ export default class BackupExtensionAbility {
    *
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBackup(): void;
 
@@ -107,7 +114,8 @@ export default class BackupExtensionAbility {
    * @param { BundleVersion } bundleVersion Bundle version to be restore.
    * @syscap SystemCapability.FileManagement.StorageService.Backup
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRestore(bundleVersion: BundleVersion): void;
 
@@ -149,3 +157,5 @@ export default class BackupExtensionAbility {
     */
   onProcess(): string;
 }
+
+export default BackupExtensionAbility;

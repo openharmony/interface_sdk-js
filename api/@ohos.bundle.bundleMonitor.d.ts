@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Bundle monitor
+ * Bundle monitor，monitor application installation, updates, and uninstallation events.
  *
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core

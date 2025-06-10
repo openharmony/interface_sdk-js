@@ -227,7 +227,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -272,7 +272,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -470,7 +470,7 @@ declare namespace installer {
      * @systemapi
      * @since 11
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -553,7 +553,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -844,7 +844,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -1098,7 +1098,7 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-     /**
+    /**
      * Uninstall an application.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
@@ -1663,7 +1663,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1683,7 +1683,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
 
     /**
      * Destroy clone instance for an application.
@@ -1704,7 +1704,7 @@ declare namespace installer {
      * @systemapi
      * @since 15
      */
-     destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
 
     /**
      * Install application by bundle name with specified user.
@@ -1742,9 +1742,9 @@ declare namespace installer {
      * @systemapi
      * @since 14
      */
-     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
+    installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
 
-     /**
+    /**
      * Install plugin for host application.
      *
      * @permission ohos.permission.INSTALL_PLUGIN_BUNDLE
@@ -1760,6 +1760,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700011 - Failed to install the plugin because the plugin signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the plugin because the HSP path is invalid or the HSP is too large.
      * @throws { BusinessError } 17700015 - Failed to install the plugin because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the plugin because of insufficient system disk space.
      * @throws { BusinessError } 17700017 - Failed to install the plugin since the version of the plugin to install is too early.
      * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification is failed.
      * @throws { BusinessError } 17700052 - Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
@@ -1772,11 +1773,11 @@ declare namespace installer {
      * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
-     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
+    installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
-     /**
+    /**
      * Uninstall plugin for host application.
      *
      * @permission ohos.permission.UNINSTALL_PLUGIN_BUNDLE
@@ -1791,9 +1792,9 @@ declare namespace installer {
      * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
-     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
+    uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
 
   /**
@@ -2134,7 +2135,7 @@ declare namespace installer {
    * @typedef PluginParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   export interface PluginParam {
     /**
@@ -2143,7 +2144,7 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     userId?: number;
 
@@ -2153,7 +2154,7 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since 19
      */
     parameters?: Array<Parameters>;
   }

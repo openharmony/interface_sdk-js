@@ -92,7 +92,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onLazyLoading?(index: number): void;
 
@@ -103,7 +103,7 @@ interface VirtualScrollOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onTotalCount?(): number;
 }
@@ -142,7 +142,7 @@ interface TemplateOptions {
  * @atomicservice
  * @since 12
  */
-declare type TemplateTypedFunc<T> = (item : T, index : number) => string;
+declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
 
 /**
  * Define builder function to render one template type.
@@ -173,7 +173,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
@@ -223,7 +223,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @atomicservice
    * @since 12
    */
-  template(type : string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
+  template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
   /**
    * Typed function to render specific type of data item.
    *

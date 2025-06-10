@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screen
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screen {
   /**
@@ -65,7 +66,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
 
@@ -81,7 +83,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 
@@ -190,13 +193,10 @@ declare namespace screen {
    * @param { Rect } mainScreenRegion mirror screen region
    * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
-   * @since 15
+   * @since 19
    */
   function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
 
@@ -364,7 +364,7 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 19
    */
   function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
 
@@ -785,7 +785,7 @@ declare namespace screen {
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * Active the mode
+     * Set the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
@@ -800,7 +800,7 @@ declare namespace screen {
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Active the mode
+     * Sets the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
@@ -901,7 +901,7 @@ declare namespace screen {
   }
 
   /**
-   * The information of the screen
+   * The information of the screen mode
    *
    * @interface ScreenModeInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -910,7 +910,7 @@ declare namespace screen {
    */
   interface ScreenModeInfo {
     /**
-     * Screen id
+     * Mode id
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -956,8 +956,7 @@ declare namespace screen {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @atomicservice
-   * @since 15
+   * @since 19
    */
   interface Rect {
     /**
@@ -966,8 +965,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     left: number;
 
@@ -977,8 +975,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     top: number;
 
@@ -988,8 +985,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     width: number;
 
@@ -999,8 +995,7 @@ declare namespace screen {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 19
      */
     height: number;
   }

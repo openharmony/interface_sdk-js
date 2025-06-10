@@ -29,6 +29,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Button Modifier
+ *
+ * @extends ButtonAttribute
+ * @implements AttributeModifier<ButtonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ButtonModifier extends ButtonAttribute implements AttributeModifier<ButtonAttribute> {
 
   /**

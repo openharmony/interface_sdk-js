@@ -37,6 +37,16 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @atomicservice
  * @since 11
  */
+/**
+ * Obtains configuration information about a bundle
+ *
+ * @typedef BundleInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
 export interface BundleInfo {
   /**
    * Indicates the name of this bundle
@@ -54,6 +64,17 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the name of this bundle
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -74,6 +95,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the bundle vendor
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly vendor: string;
 
   /**
@@ -92,6 +124,17 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the version code of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   readonly versionCode: number;
 
@@ -112,6 +155,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the version name of the bundle
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly versionName: string;
 
   /**
@@ -130,6 +184,17 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the **minimum ** version compatible with the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   readonly minCompatibleVersionCode: number;
 
@@ -150,6 +215,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the target version number of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly targetVersion: number;
 
   /**
@@ -168,6 +244,17 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   readonly appInfo: ApplicationInfo;
 
@@ -188,6 +275,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Obtains configuration information about a module
+   *
+   * @type { Array<HapModuleInfo> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
   /**
@@ -206,6 +304,17 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the required permissions details defined in the bundle
+   *
+   * @type { Array<ReqPermissionDetail> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
@@ -226,6 +335,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the grant state of required permissions
+   *
+   * @type { Array<bundleManager.PermissionGrantState> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
   /**
@@ -245,6 +365,17 @@ export interface BundleInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the SignatureInfo of the bundle
+   *
+   * @type { SignatureInfo }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly signatureInfo: SignatureInfo;
 
   /**
@@ -262,7 +393,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installTime: number;
 
@@ -281,7 +413,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly updateTime: number;
 
@@ -292,7 +425,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly routerMap: Array<RouterItem>;
 
@@ -302,7 +436,8 @@ export interface BundleInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 
@@ -313,7 +448,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly firstInstallTime?: number;
 }
@@ -333,6 +469,16 @@ export interface BundleInfo {
  * @atomicservice
  * @since 11
  */
+/**
+ * Indicates the required permissions details defined in configuration file
+ *
+ * @typedef ReqPermissionDetail
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
 export interface ReqPermissionDetail {
   /**
    * Indicates the name of this required permissions
@@ -349,6 +495,16 @@ export interface ReqPermissionDetail {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the name of this required permissions
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   name: string;
 
   /**
@@ -364,7 +520,8 @@ export interface ReqPermissionDetail {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -383,6 +540,16 @@ export interface ReqPermissionDetail {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the reason of this required permissions
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   reason: string;
 
   /**
@@ -400,6 +567,16 @@ export interface ReqPermissionDetail {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the reason id of this required permissions
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   reasonId: number;
 
   /**
@@ -416,6 +593,16 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the used scene of this required permissions
+   *
+   * @type { UsedScene }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   usedScene: UsedScene;
 }
@@ -435,6 +622,16 @@ export interface ReqPermissionDetail {
  * @atomicservice
  * @since 11
  */
+/**
+ * The scene which is used
+ *
+ * @typedef UsedScene
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
 export interface UsedScene {
   /**
    * Indicates the abilities that need the permission
@@ -450,6 +647,16 @@ export interface UsedScene {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicates the abilities that need the permission
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   abilities: Array<string>;
 
@@ -468,6 +675,16 @@ export interface UsedScene {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the time when the permission is used
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   when: string;
 }
 
@@ -485,6 +702,16 @@ export interface UsedScene {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 11
+ */
+/**
+ * Indicates SignatureInfo
+ *
+ * @typedef SignatureInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
  */
 export interface SignatureInfo {
   /**
@@ -506,6 +733,18 @@ export interface SignatureInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the ID of the application to which this bundle belongs
+   * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly appId: string;
 
   /**
@@ -525,6 +764,17 @@ export interface SignatureInfo {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Indicates the fingerprint of the certificate
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   readonly fingerprint: string;
 
   /**
@@ -536,7 +786,8 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIdentifier: string;
 
@@ -547,7 +798,8 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly certificate?: string;
 }
@@ -557,7 +809,8 @@ export interface SignatureInfo {
  *
  * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AppCloneIdentity {
   /**
@@ -566,7 +819,8 @@ export interface AppCloneIdentity {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
   /**
@@ -575,7 +829,92 @@ export interface AppCloneIdentity {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
+}
+
+/**
+ * Obtains dynamic icon information about a bundle
+ *
+ * @typedef DynamicIconInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20
+ */
+export interface DynamicIconInfo {
+  /**
+   * Indicates the name of the bundle.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly bundleName: string;
+
+  /**
+   * Indicates the name of the dynamic icon.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly moduleName: string;
+
+  /**
+   * Indicates the user id of the bundle.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly userId: number;
+
+  /**
+   * Indicates the index of the bundle.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  readonly appIndex: number;
+}
+
+/**
+  * The bundle options of bundle manager
+  * 
+  * @typedef BundleOptions
+  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+  * @systemapi
+  * @since 20
+  */
+export interface BundleOptions {
+    /**
+   * Indicates the user id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  userId?: number;
+
+  /**
+   * Indicates the app index.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  appIndex?: number;
 }

@@ -36,7 +36,8 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.BundleManager.Zlib
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace zlib {
   /**
@@ -76,7 +77,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressLevel {
     /**
@@ -91,7 +93,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     /**
@@ -106,7 +109,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
     /**
@@ -121,7 +125,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
     /**
@@ -136,7 +141,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
   }
@@ -155,7 +161,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompressStrategy {
     /**
@@ -170,7 +177,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     /**
@@ -185,7 +193,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_FILTERED = 1,
     /**
@@ -200,7 +209,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
     /**
@@ -215,7 +225,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_RLE = 3,
     /**
@@ -230,7 +241,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPRESS_STRATEGY_FIXED = 4
   }
@@ -279,7 +291,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum MemLevel {
     /**
@@ -294,7 +307,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_MIN = 1,
     /**
@@ -309,7 +323,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_MAX = 9,
     /**
@@ -324,7 +339,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEM_LEVEL_DEFAULT = 8
   }
@@ -492,7 +508,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Options {
     /**
@@ -508,7 +525,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     level?: CompressLevel;
     /**
@@ -524,7 +542,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     memLevel?: MemLevel;
     /**
@@ -540,7 +559,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     strategy?: CompressStrategy;
     /**
@@ -1099,7 +1119,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1129,7 +1150,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
 
@@ -1174,7 +1196,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
@@ -1431,7 +1454,7 @@ declare namespace zlib {
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1448,8 +1471,8 @@ declare namespace zlib {
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1478,8 +1501,8 @@ declare namespace zlib {
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800005 - Data error.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1495,8 +1518,8 @@ declare namespace zlib {
      * @returns { Promise<DecompressionOutputInfo> } Return ReturnStatus and total sizeof the destination buffer and total sizeof the sourceLen.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800005 - Data error.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1511,7 +1534,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1525,7 +1548,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1539,9 +1562,9 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800005 - Data error.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1556,8 +1579,8 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800005 - Data error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1571,7 +1594,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1586,7 +1609,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1600,7 +1623,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1616,7 +1639,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1661,7 +1684,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1689,7 +1712,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1704,7 +1727,7 @@ declare namespace zlib {
      * @returns { Promise<DictionaryOutputInfo> } Return ReturnStatus and dictionary length.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1718,7 +1741,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1732,7 +1755,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1761,7 +1784,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1775,7 +1798,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1793,7 +1816,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1808,8 +1831,8 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800005 - Data error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1824,7 +1847,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1843,7 +1866,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1859,8 +1882,8 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
-     * @throws { BusinessError } 17800007 - Buffer error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1874,7 +1897,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1903,7 +1926,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1917,7 +1940,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1932,7 +1955,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1947,7 +1970,7 @@ declare namespace zlib {
      * @returns { Promise<DictionaryOutputInfo> } Return ReturnStatus and dictionary length
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1965,7 +1988,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1979,7 +2002,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -1993,7 +2016,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2007,7 +2030,7 @@ declare namespace zlib {
      * @returns { Promise<DeflatePendingOutputInfo> } Return ReturnStatus along with the number of bytes and bits generated.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2023,7 +2046,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2039,7 +2062,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2125,7 +2148,7 @@ declare namespace zlib {
      * Flush all pending output for file, if necessary, close file and deallocate the (de)compression state.
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2147,7 +2170,7 @@ declare namespace zlib {
      * The error message for the last error which occurred on file.
      *
      * @returns { Promise<GzErrorOutputInfo> } Return the status message for the last status which occurred on file and ReturnStatus.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2172,7 +2195,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2215,7 +2238,7 @@ declare namespace zlib {
      * Same as gzclose(), gzclosew() only for use when writing or appending.
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2227,7 +2250,7 @@ declare namespace zlib {
      * Same as gzclose(), gzcloser() is only for use when reading.
      *
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2282,7 +2305,7 @@ declare namespace zlib {
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
@@ -2365,7 +2388,7 @@ declare namespace zlib {
      * @returns { Promise<number> } Return the number of uncompressed bytes actually written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - ZStream error.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice

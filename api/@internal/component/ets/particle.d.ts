@@ -54,6 +54,16 @@ declare interface VelocityOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Particle speed.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   speed: ParticleTuple<number, number>;
 
   /**
@@ -70,6 +80,16 @@ declare interface VelocityOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Angle of particle's direction.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   angle: ParticleTuple<number, number>;
 }
@@ -102,6 +122,16 @@ declare interface AccelerationOptions<
    * @atomicservice
    * @since 11
    */
+  /**
+   * Speed property options.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
   /**
@@ -118,6 +148,16 @@ declare interface AccelerationOptions<
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Angle property options.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   angle?: ParticlePropertyOptions<number, ACC_ANGLE_UPDATER>;
 }
@@ -239,6 +279,8 @@ interface ParticleOptions<
    */
   /**
    * Particle velocity.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?VelocityOptions }
    * @default {speed:[0,0];angle:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -267,6 +309,8 @@ interface ParticleOptions<
    */
   /**
    * Particle acceleration.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> }
    * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -380,6 +424,8 @@ interface ImageParticleParameters {
    */
   /**
    * Particle image size.
+   * 
+   * Anonymous Object Rectification.
    * @type { ParticleTuple<Dimension, Dimension> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -513,6 +559,17 @@ interface EmitterProperty {
    * @since 12
    */
   size?: SizeT<number>;
+
+  /**
+   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
+   *
+   * @type { ?ParticleAnnulusRegion }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -540,6 +597,16 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Particle type.
+   * 
+   * Anonymous Object Rectification.
+   * @type { PARTICLE }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   type: PARTICLE;
   /**
    * Particle config.
@@ -555,6 +622,16 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Particle config.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleConfigs[PARTICLE] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   config: ParticleConfigs[PARTICLE];
 
@@ -572,6 +649,16 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Particle count.
+   * 
+   * Anonymous Object Rectification.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   count: number;
 
@@ -592,6 +679,17 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Particle lifetime.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ?number }
+   * @default 1000
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   lifetime?: number;
 
   /**
@@ -603,6 +701,18 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Particle lifetimeRange,value range [0, ∞).
+   * when lifetimeRange>lifetime,minimum lifetime is 0.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   lifetimeRange?: number;
 }
@@ -640,6 +750,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Set particle config.
+   * 
+   * Anonymous Object Rectification.
    * @type { EmitterParticleOptions<PARTICLE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -711,6 +823,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Position of emitter.
    * The first element means X-axis location.
    * The second element means the Y-axis location.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default [0,0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -745,6 +859,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Size of emitter.
    * The first element means emitter width.
    * The second element means emitter height.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default ['100%','100%']
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -753,6 +869,18 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @since 18
    */
   size?: ParticleTuple<Dimension, Dimension>;
+
+  /**
+   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
+   *
+   * @type { ?ParticleAnnulusRegion }
+   * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -807,6 +935,8 @@ interface ParticlePropertyUpdaterConfigs<T> {
    */
   /**
    * Random effect of particle updater.
+   * 
+   * Anonymous Object Rectification.
    * @type { ParticleTuple<T, T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -858,6 +988,16 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Particle updater type.
+   * 
+   * Anonymous Object Rectification.
+   * @type { UPDATER }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   type: UPDATER;
 
   /**
@@ -874,6 +1014,16 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Particle updater configuration.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   config: ParticlePropertyUpdaterConfigs<TYPE>[UPDATER];
 }
@@ -903,6 +1053,16 @@ interface ParticleColorOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Red component of particle color.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   r: ParticleTuple<number, number>;
 
   /**
@@ -919,6 +1079,16 @@ interface ParticleColorOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Green component of particle color.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   g: ParticleTuple<number, number>;
 
@@ -937,6 +1107,16 @@ interface ParticleColorOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Blue component of particle color.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   b: ParticleTuple<number, number>;
 
   /**
@@ -953,6 +1133,16 @@ interface ParticleColorOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Opacity component of particle color.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleTuple<number, number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   a: ParticleTuple<number, number>;
 }
@@ -982,6 +1172,16 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Color updater.
+   * 
+   * Anonymous Object Rectification.
+   * @type { UPDATER }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   type: UPDATER;
 
   /**
@@ -998,6 +1198,16 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Color updater configuration.
+   * 
+   * Anonymous Object Rectification.
+   * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
    */
   config: ParticleColorPropertyUpdaterConfigs[UPDATER];
 }
@@ -1035,6 +1245,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Initial range, within which the initial value are randomly generated.
+   * 
+   * Anonymous Object Rectification.
    * @type { ParticleTuple<TYPE, TYPE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1062,6 +1274,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle property updater.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?ParticleUpdaterOptions<TYPE, UPDATER> }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1124,6 +1338,8 @@ interface ParticleColorPropertyUpdaterConfigs {
    */
   /**
    * Random effect of particle color property updater.
+   * 
+   * Anonymous Object Rectification.
    * @type { ParticleColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1185,6 +1401,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Initial color range, within which the initial color is randomly generated.
+   * 
+   * Anonymous Object Rectification.
    * @type { ParticleTuple<ResourceColor, ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1223,6 +1441,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle color property updater.
+   * 
+   * Anonymous Object Rectification.
    * @type { ?ParticleColorUpdaterOptions<UPDATER> }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1370,6 +1590,16 @@ interface Particles<
    * @atomicservice
    * @since 11
    */
+  /**
+   * Array of particles.
+   * 
+   * Anonymous Object Rectification.
+   * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
   particles: Array<
     ParticleOptions<
       PARTICLE,
@@ -1420,6 +1650,8 @@ interface ParticleInterface {
    */
   /**
    * create a particle array.
+   * 
+   * Anonymous Object Rectification.
    * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
    *          SPIN_UPDATER> } particles - Array of particles.
    * @returns { ParticleAttribute } Returns the particle attribute.
@@ -1554,6 +1786,15 @@ declare enum ParticleEmitterShape {
    * @since 11
    */
   ELLIPSE = 'ellipse',
+
+  /**
+   * Annulus.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ANNULUS = 'annulus',
 }
 
 /**
@@ -1881,4 +2122,68 @@ declare enum DisturbanceFieldShape {
    */
   ELLIPSE
 
+}
+
+/**
+ * Defines particle annuslus region params.
+ * @interface ParticleAnnulusRegion
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface ParticleAnnulusRegion {
+  /**
+   * The coordinates of the center of the annulus
+   *
+   * @type { ?PositionT<LengthMetrics> }
+   * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  center?: PositionT<LengthMetrics>,
+  /**
+   * The outer radius of the annulus
+   *
+   * @type { LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  outerRadius: LengthMetrics,
+  /**
+   * The inner radius of the annulus
+   *
+   * @type { LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  innerRadius: LengthMetrics,
+  /**
+   * The start angle of the annulus, in degree
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  startAngle?: number,
+  /**
+   * The end angle of the annulus, in degree
+   *
+   * @type { ?number }
+   * @default 360
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  endAngle?: number,
 }

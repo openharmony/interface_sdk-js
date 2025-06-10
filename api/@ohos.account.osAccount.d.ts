@@ -4174,7 +4174,16 @@ declare namespace osAccount {
      * @systemapi
      * @since 14
      */
-    QUESTION_AUTH = 3
+    QUESTION_AUTH = 3,
+
+    /**
+     * Indicates the intent of the abandoned PIN authentication.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    ABANDONED_PIN_AUTH = 4
   }
 
   /**
@@ -4542,6 +4551,16 @@ declare namespace osAccount {
      * @since 10
      */
     sensorInfo?: string;
+
+    /**
+     * Indicates the credential length.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    credentialLength?: number;
   }
 
   /**
@@ -4742,6 +4761,25 @@ declare namespace osAccount {
      * @since 8
      */
     templateId: Uint8Array;
+
+    /**
+     * Indicates whether the credential is abandoned.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    isAbandoned?: boolean;
+
+    /**
+     * Indicates the validity period.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    validityPeriod?: number;
   }
 
   /**
@@ -4805,7 +4843,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    NEXT_PHASE_FREEZING_TIME = 6
+    NEXT_PHASE_FREEZING_TIME = 6,
+
+    /**
+     * Indicates the type for getting the credential length.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    CREDENTIAL_LENGTH = 7
   }
 
   /**

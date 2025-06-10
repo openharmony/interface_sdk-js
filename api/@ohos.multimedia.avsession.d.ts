@@ -276,8 +276,6 @@ declare namespace avSession {
    * @returns { Promise<Array<AVSessionController>> } Promise for AVSessionController.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Parameter verification failed.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -443,8 +441,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -458,8 +454,6 @@ declare namespace avSession {
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
    * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -597,6 +591,14 @@ declare namespace avSession {
      * @since 12
      */
     TYPE_DLNA = 4,
+
+    /**
+     * This type indicates the device supports audio casting with high defination to get a better sound quality.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_CAST_PLUS_AUDIO = 8,
   }
 
   /**
@@ -1939,6 +1941,8 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.avsession.AVSessoin#on
      */
     on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
 
@@ -1964,8 +1968,34 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.avsession.AVSessoin#off
      */
     off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
+
+    /**
+     * Subscribes to playWithAssetId events.
+     * @param { 'playWithAssetId' } type - Event type.
+     * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'playWithAssetId', callback: Callback<string>): void;
+
+    /**
+     * Unsubscribes to playWithAssetId events.
+     * @param { 'playWithAssetId' } type - Event type.
+     * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'playWithAssetId', callback?: Callback<string>): void;
 
     /**
      * Register seek command callback
@@ -2122,8 +2152,6 @@ declare namespace avSession {
      * Application should change playmode to the loopmode which is requested.
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
      * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2136,8 +2164,6 @@ declare namespace avSession {
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
      * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2871,8 +2897,6 @@ declare namespace avSession {
      * Get recommended resolution of remote player based on each decoder.
      * @param { DecoderType } decoderType - The decoder type.
      * @returns { Promise<ResolutionLevel> } ResolutionLevel returned through promise
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -3796,6 +3820,26 @@ declare namespace avSession {
   }
 
   /**
+   * Audio capabilities.
+   *
+   * @typedef AudioCapabilities
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 20
+   */
+  interface AudioCapabilities {
+    /**
+     * Audio stream information.
+     * @type { Array<audio.AudioStreamInfo> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    readonly streamInfos: Array<audio.AudioStreamInfo>;
+  }
+
+  /**
    * An option to make different picker usage
    *
    * @typedef AVCastPickerOptions
@@ -4665,6 +4709,14 @@ declare namespace avSession {
      * @since 12
      */
     dataSrc?: media.AVDataSrcDescriptor;
+
+    /**
+     * Pcm source type. The app should send pcm data directly to the system.
+     * @type { ?boolean}
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 20
+     */
+    pcmSrc?: boolean;
 
     /**
      * The drm scheme supported by this resource which is represented by uuid.
@@ -5558,6 +5610,15 @@ declare namespace avSession {
      * @since 13
      */
     mediumTypes?: number;
+
+    /**
+     * When the device protocol is {@link ProtocolType.TYPE_HIGH_DEFINITION_AUDIO},
+     * the device audio capabilities will be presented to let application choose proper resource to play.
+     * @type { ?AudioCapabilities }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 20
+     */
+    audioCapabilities?: AudioCapabilities;
   }
 
   /**
@@ -6713,8 +6774,6 @@ declare namespace avSession {
      * Get extra information for remote device, such as volume level, connected devices.
      * @param { string } extraEvent - the event name to get
      * @returns { Promise<ExtraInfo> } the value returned for such event
-     * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7418,8 +7477,17 @@ declare namespace avSession {
   * @atomicservice
   * @since 18
   */
+  /**
+   * The type of control command, add new support 'playWithAssetId'
+   * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
+  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
+  *     'toggleCallMute' } AVControlCommandType
+  * @syscap SystemCapability.Multimedia.AVSession.Core
+  * @atomicservice
+  * @since 20
+  */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
   /**
    * The definition of command to be sent to the session

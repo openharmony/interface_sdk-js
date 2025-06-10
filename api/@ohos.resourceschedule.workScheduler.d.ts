@@ -192,7 +192,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
@@ -210,7 +211,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -226,7 +228,8 @@ declare namespace workScheduler {
    * @param { AsyncCallback<WorkInfo> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -242,7 +245,8 @@ declare namespace workScheduler {
    * @returns { Promise<WorkInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -259,7 +263,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -275,7 +280,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -290,7 +296,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -304,7 +311,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -320,7 +328,8 @@ declare namespace workScheduler {
    * @returns { boolean } true if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -337,7 +346,8 @@ declare namespace workScheduler {
    * @param { AsyncCallback<boolean> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -353,7 +363,8 @@ declare namespace workScheduler {
    * @returns { Promise<boolean> } True if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
-   * @throws { BusinessError } 9700002 - Parcel operation failed.
+   * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -862,6 +862,174 @@ declare namespace wifiManager {
    * @since 11
    */
   function isWifiDisabled(admin: Want): boolean;
+  
+  /**
+   * Wi-Fi access information.
+   *
+   * @typedef WifiAccessInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  interface WifiAccessInfo {
+
+    /**
+     * ssid info.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 19
+     */
+    ssid: string;
+
+    /**
+     * bssid info.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 19
+     */
+    bssid?: string;
+  }
+
+  /**
+   * Adds disallowed wifi list by {@link WifiAccessInfo} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<WifiAccessInfo> } list - an array of added Wi-Fi access information.
+   *                                         The size of the array after setting cannot be greater 200.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
+
+  /**
+   * Removes disallowed wifi list by {@link WifiAccessInfo} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<WifiAccessInfo> } list - an array of removed Wi-Fi access information.
+   *                                         The size of the array after setting cannot be greater 200.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
+
+  /**
+   * Gets the disallowed wifi list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<WifiAccessInfo> } disallowed Wi-Fi access information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>;
+
+  /**
+   * Adds allowed wifi list by {@link WifiAccessInfo} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<WifiAccessInfo> } list -  an array of added Wi-Fi access information.
+   *                                          The size of the array after setting cannot be greater 200.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
+
+  /**
+   * Removes allowed wifi list by {@link WifiAccessInfo} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<WifiAccessInfo> } list -  an array of removed Wi-Fi access information.
+   *                                          The size of the array after setting cannot be greater 200.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
+
+  /**
+   * Gets the allowed wifi list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<WifiAccessInfo> } allowed Wi-Fi access information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 19
+   */
+  function getAllowedWifiList(admin: Want): Array<WifiAccessInfo>;
+
+  /**
+   * Turn on wifi.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { boolean } isForce - True means force open wifi, user can not turn off it, false means user can turn off it.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function turnOnWifi(admin: Want, isForce: boolean): void;
+
+  /**
+   * Turn off wifi.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function turnOffWifi(admin: Want): void;
 }
 
 export default wifiManager;

@@ -222,6 +222,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     colorMode: ColorMode;
 
@@ -449,6 +450,28 @@ declare namespace formInfo {
      * @since 18
      */
     readonly enableBlurBackground?: boolean;
+
+    /**
+     * Indicates the fun interaction form params
+     *
+     * @type { ?FunInteractionParams }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    readonly funInteractionParams?: FunInteractionParams;
+
+    /**
+     * Indicates the scene animation form params
+     *
+     * @type { ?SceneAnimationParams }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    readonly sceneAnimationParams?: SceneAnimationParams;
   }
 
   /**
@@ -512,6 +535,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
+   * @deprecated since 20
    */
   enum ColorMode {
     /**
@@ -1808,7 +1832,6 @@ declare namespace formInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
-   * @systemapi
    * @since 12
    */
   enum FormLocation {
@@ -1825,7 +1848,6 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     DESKTOP = 0,
@@ -1834,7 +1856,6 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     FORM_CENTER = 1,
@@ -1843,7 +1864,6 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     FORM_MANAGER = 2,
@@ -1852,7 +1872,6 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     NEGATIVE_SCREEN = 3,
@@ -1879,7 +1898,6 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     SCREEN_LOCK = 6,
@@ -1888,10 +1906,231 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 12
      */
     AI_SUGGESTION = 7,
+  }
+
+  /**
+   * Provides OverflowInfo about funInteraction or sceneAniamtion form
+   *
+   * @typedef { OverflowInfo }
+   * @syscap SystemCapability.Ability.Form
+   * @since 20
+   */
+  interface OverflowInfo {
+    /**
+     * The overflow animation area
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    area: Rect;
+
+    /**
+     * The overflow animation duration
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    duration: number;
+  }
+
+  /**
+   * Provides OverflowRequest about request/cancel form's overflow
+   *
+   * @typedef { OverflowRequest }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface OverflowRequest {
+    /**
+     * The form id about request/cancel overflow animation
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    formId: string;
+
+    /**
+     * Whether the form request or cancel overflow animation
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    isOverflow: boolean;
+
+    /**
+     * The form's overflow animation paramter
+     *
+     * @type { ?OverflowInfo }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    overflowInfo?: OverflowInfo;
+  }
+
+  /**
+   * ChangeSceneAnimationStateRequest
+   *
+   * @typedef { ChangeSceneAnimationStateRequest }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface ChangeSceneAnimationStateRequest {
+    /**
+     * The form id about request change scene animation state
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    formId: string;
+
+    /**
+     * The state of scene animation.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    state: number;
+  }
+
+  /**
+   * Indicates rectangle
+   *
+   * @typedef { Rect }
+   * @syscap SystemCapability.Ability.Form
+   * @since 20
+   */
+  interface Rect {
+    /**
+     * The left position of rect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    left: number;
+
+    /**
+     * The top position of rect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    top: number;
+
+    /**
+     * The width of rect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    width: number;
+
+    /**
+     * The height of rect
+     *
+     * @type { number }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    height: number;
+  }
+
+  /**
+   * The fun interaction form params.
+   *
+   * @typedef { FunInteractionParams }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface FunInteractionParams {
+    /**
+     * The ability name of the fun interaction form.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    abilityName?: string;
+
+    /**
+     * The bundle name used by game engine.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    targetBundleName: string;
+
+    /**
+     * The sub bundle name used by game engine.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    subBundleName: string;
+
+    /**
+     * The duration of the fun interaction form will be paused if not operate, default is 10s
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    keepStateDuration? :number;
+  }
+
+  /**
+   * The scene animation form params.
+   *
+   * @typedef { SceneAnimationParams }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface SceneAnimationParams {
+    /**
+     * Ability name of the scene animation form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    abilityName: string;
+
+    /**
+     * Indicates disabled desktop behaviors, only takes effect for system app.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    disabledDesktopBehaviors?: string;
   }
 }
 export default formInfo;

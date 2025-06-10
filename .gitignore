@@ -20,3 +20,6 @@ build-tools/dts_parser/mochawesome-report
 
 #忽略本地typescript离线包
 build-tools/dts_parser/deps/*
+
+# 忽略vscode的配置文件
+.vscode/

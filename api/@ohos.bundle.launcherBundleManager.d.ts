@@ -18,17 +18,21 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
+import AbilityConstant from './@ohos.app.ability.AbilityConstant';
+/*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
-import { StartOptions } from './@ohos.app.ability.StartOptions';
+import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * Launcher bundle manager.
  *
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace launcherBundleManager {
   /**
@@ -167,7 +171,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
@@ -187,7 +192,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
 
@@ -205,9 +211,28 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
+
+  /**
+   * Starts shortcut with start reason.
+   *
+   * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
+   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
+   * @param { string } startReason {@link AbilityConstant} - Indicates the start reason.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   */
+  function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
@@ -226,6 +251,14 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Provides information about a shortcut, including the shortcut ID and label.
+   *
+   * @typedef { _ShortcutInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   export type ShortcutInfo = _ShortcutInfo;
   /**
    * Obtains information about the ability that a shortcut will start.
@@ -235,6 +268,14 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains information about the ability that a shortcut will start.
+   *
+   * @typedef { _ShortcutWant }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   export type ShortcutWant = _ShortcutWant;
   /**
    * Indicates the custom parameters in shortcut want.
@@ -243,6 +284,14 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
+   */
+  /**
+   * Indicates the custom parameters in shortcut want.
+   *
+   * @typedef { _ParameterItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
 }

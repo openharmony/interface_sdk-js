@@ -25,7 +25,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace json {
   /**
@@ -35,9 +36,11 @@ declare namespace json {
    * @param { Object } this - The object to which the parsed key value pair belongs.
    * @param { string } key - Attribute name.
    * @param { Object } value - The value of the parsed key value pair.
+   * @returns { Object | undefined | null } Return an Object, undefined or null value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null;
 
@@ -59,6 +62,22 @@ declare namespace json {
   function parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null;
 
   /**
+   * Converts a JavaScript Object Notation (JSON) string into an Object or null.
+   *
+   * @param { string } text - A valid JSON string.
+   * @param { Type } type - A constructor or class representing the expected type of the parsed result.
+   * @param { Transformer } [reviver] - A function that transforms the results.
+   * @param {ParseOptions} options - The config of parse.
+   * @returns { T | null | undefined } Return an Object, array, string, number, boolean, undefined, or null value corresponding to JSON text.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function parse<T>(text: string, type: Type, reviver?: Transformer, options?: ParseOptions): T | null | undefined;
+
+  /**
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
    *
    * @param { Object } value - A JavaScript value, usually an Object or array.
@@ -76,6 +95,22 @@ declare namespace json {
    * @since 12
    */
   function stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string;
+
+  /**
+   * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+   *
+   * @param { NullishType } value - A JavaScript value, usually an NullishType or array.
+   * @param { Transformer | ((number | string)[]) | null } [replacer] - An array of strings and numbers that acts as an approved list
+   * for selecting the object properties that will be stringify.
+   * @param { string | number } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+   * @returns { string } Return a JSON text.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function stringify(value: NullishType, replacer?: Transformer | ((number | string)[]) | null, space?: string | number): string;
 
   /**
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
@@ -105,7 +140,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function has(obj: object, property: string): boolean;
 
@@ -129,7 +165,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const enum BigIntMode {
     /**
@@ -138,7 +175,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
     /**
@@ -147,7 +185,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARSE_AS_BIGINT = 1,
     /**
@@ -156,7 +195,8 @@ declare namespace json {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALWAYS_PARSE_AS_BIGINT = 2,
   }
@@ -168,7 +208,8 @@ declare namespace json {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ParseOptions {
     /**
@@ -177,7 +218,8 @@ declare namespace json {
     * @syscap SystemCapability.Utils.Lang
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     bigIntMode: BigIntMode;
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -45,7 +45,8 @@ import cryptoFramework from './@ohos.security.cryptoFramework';
  * @syscap SystemCapability.Security.Cert
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cert {
   /**
@@ -120,20 +121,20 @@ declare namespace cert {
     NOT_SUPPORT = 801,
 
     /**
-     * Indicates the memory error.
+     * Indicates the memory malloc failed.
      *
      * @syscap SystemCapability.Security.Cert
      * @since 9
      */
     /**
-     * Indicates the memory error.
+     * Indicates the memory malloc failed.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
      */
     /**
-     * Indicates the memory error.
+     * Indicates the memory malloc failed.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -164,6 +165,16 @@ declare namespace cert {
      * @since 12
      */
     ERR_RUNTIME_ERROR = 19020002,
+
+    /**
+     * Indicates that parameter check failed.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ERR_PARAMETER_CHECK_FAILED = 19020003,
 
     /**
      * Indicates the crypto operation error.
@@ -1168,8 +1179,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1180,8 +1192,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1193,8 +1206,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1209,8 +1223,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of X509 cert encoded data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1221,8 +1236,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of X509 cert encoded data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1234,8 +1250,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of X509 cert encoded data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1248,7 +1265,7 @@ declare namespace cert {
      * Get X509 cert public key.
      *
      * @returns { cryptoFramework.PubKey } X509 cert pubKey.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1257,7 +1274,7 @@ declare namespace cert {
      * Get X509 cert public key.
      *
      * @returns { cryptoFramework.PubKey } X509 cert pubKey.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1267,7 +1284,7 @@ declare namespace cert {
      * Get X509 cert public key.
      *
      * @returns { cryptoFramework.PubKey } X509 cert pubKey.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1282,7 +1299,7 @@ declare namespace cert {
      * @param { string } date - indicates the cert date.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
      * @throws { BusinessError } 19030004 - the certificate has expired.
@@ -1295,7 +1312,7 @@ declare namespace cert {
      * @param { string } date - indicates the cert date.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
      * @throws { BusinessError } 19030004 - the certificate has expired.
@@ -1309,7 +1326,7 @@ declare namespace cert {
      * @param { string } date - indicates the cert date.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
      * @throws { BusinessError } 19030004 - the certificate has expired.
@@ -1361,7 +1378,8 @@ declare namespace cert {
      * Get X509 cert serial number.
      *
      * @returns { bigint } X509 cert serial number.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
@@ -1369,7 +1387,8 @@ declare namespace cert {
      * Get X509 cert serial number.
      *
      * @returns { bigint } X509 cert serial number.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @since 11
@@ -1378,7 +1397,8 @@ declare namespace cert {
      * Get X509 cert serial number.
      *
      * @returns { bigint } X509 cert serial number.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
@@ -1390,8 +1410,9 @@ declare namespace cert {
      * Get X509 cert issuer name.
      *
      * @returns { DataBlob } X509 cert issuer name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1400,8 +1421,9 @@ declare namespace cert {
      * Get X509 cert issuer name.
      *
      * @returns { DataBlob } X509 cert issuer name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1411,8 +1433,9 @@ declare namespace cert {
      * Get X509 cert issuer name.
      *
      * @returns { DataBlob } X509 cert issuer name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1422,11 +1445,30 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
+     * Get X509 cert issuer name according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } X509 cert issuer name.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getIssuerName(encodingType: EncodingType): string;
+
+    /**
      * Get X509 cert subject name.
      *
      * @returns { DataBlob } X509 cert subject name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1435,8 +1477,9 @@ declare namespace cert {
      * Get X509 cert subject name.
      *
      * @returns { DataBlob } X509 cert subject name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1450,8 +1493,9 @@ declare namespace cert {
      * @returns { DataBlob } X509 cert subject name.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Incorrect parameter types;
      * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1464,8 +1508,9 @@ declare namespace cert {
      * Get X509 cert not before time.
      *
      * @returns { string } X509 cert not before time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1474,8 +1519,9 @@ declare namespace cert {
      * Get X509 cert not before time.
      *
      * @returns { string } X509 cert not before time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1485,8 +1531,9 @@ declare namespace cert {
      * Get X509 cert not before time.
      *
      * @returns { string } X509 cert not before time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1499,8 +1546,9 @@ declare namespace cert {
      * Get X509 cert not after time.
      *
      * @returns { string } X509 cert not after time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1509,8 +1557,9 @@ declare namespace cert {
      * Get X509 cert not after time.
      *
      * @returns { string } X509 cert not after time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1520,8 +1569,9 @@ declare namespace cert {
      * Get X509 cert not after time.
      *
      * @returns { string } X509 cert not after time.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1534,8 +1584,9 @@ declare namespace cert {
      * Get X509 cert signature.
      *
      * @returns { DataBlob } X509 cert signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1544,8 +1595,9 @@ declare namespace cert {
      * Get X509 cert signature.
      *
      * @returns { DataBlob } X509 cert signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1555,8 +1607,9 @@ declare namespace cert {
      * Get X509 cert signature.
      *
      * @returns { DataBlob } X509 cert signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1569,8 +1622,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm name.
      *
      * @returns { string } X509 cert signature's algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1579,8 +1633,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm name.
      *
      * @returns { string } X509 cert signature's algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1590,8 +1645,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm name.
      *
      * @returns { string } X509 cert signature's algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1604,8 +1660,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm oid.
      *
      * @returns { string } X509 cert signature's algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1614,8 +1671,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm oid.
      *
      * @returns { string } X509 cert signature's algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1625,8 +1683,9 @@ declare namespace cert {
      * Get X509 cert signature's algorithm oid.
      *
      * @returns { string } X509 cert signature's algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1640,8 +1699,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } X509 cert signature's algorithm name.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1651,8 +1711,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } X509 cert signature's algorithm name.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1663,8 +1724,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } X509 cert signature's algorithm name.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1677,7 +1739,7 @@ declare namespace cert {
      * Get X509 cert key usage.
      *
      * @returns { DataBlob } X509 cert key usage.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1686,7 +1748,7 @@ declare namespace cert {
      * Get X509 cert key usage.
      *
      * @returns { DataBlob } X509 cert key usage.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1696,7 +1758,7 @@ declare namespace cert {
      * Get X509 cert key usage.
      *
      * @returns { DataBlob } X509 cert key usage.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1709,8 +1771,9 @@ declare namespace cert {
      * Get X509 cert extended key usage.
      *
      * @returns { DataArray } X509 cert extended key usage.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1719,8 +1782,9 @@ declare namespace cert {
      * Get X509 cert extended key usage.
      *
      * @returns { DataArray } X509 cert extended key usage.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1730,8 +1794,9 @@ declare namespace cert {
      * Get X509 cert extended key usage.
      *
      * @returns { DataArray } X509 cert extended key usage.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1770,8 +1835,9 @@ declare namespace cert {
      * Get X509 cert subject alternative name.
      *
      * @returns { DataArray } X509 cert subject alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1780,8 +1846,9 @@ declare namespace cert {
      * Get X509 cert subject alternative name.
      *
      * @returns { DataArray } X509 cert subject alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1791,8 +1858,9 @@ declare namespace cert {
      * Get X509 cert subject alternative name.
      *
      * @returns { DataArray } X509 cert subject alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1805,8 +1873,9 @@ declare namespace cert {
      * Get X509 cert issuer alternative name.
      *
      * @returns { DataArray } X509 cert issuer alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -1815,8 +1884,9 @@ declare namespace cert {
      * Get X509 cert issuer alternative name.
      *
      * @returns { DataArray } X509 cert issuer alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1826,8 +1896,9 @@ declare namespace cert {
      * Get X509 cert issuer alternative name.
      *
      * @returns { DataArray } X509 cert issuer alternative name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1843,8 +1914,9 @@ declare namespace cert {
      * @returns { DataBlob } cert item value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -1856,8 +1928,9 @@ declare namespace cert {
      * @returns { DataBlob } cert item value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1870,8 +1943,9 @@ declare namespace cert {
      * @returns { DataBlob } cert item value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1887,7 +1961,7 @@ declare namespace cert {
      * @returns { boolean } true - match X509Cert, false - not match.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1900,7 +1974,7 @@ declare namespace cert {
      * @returns { boolean } true - match X509Cert, false - not match.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1913,8 +1987,9 @@ declare namespace cert {
      * Obtain CRL distribution points.
      *
      * @returns { DataArray } X509 cert CRL distribution points.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1927,8 +2002,9 @@ declare namespace cert {
      * Get X500 distinguished name of the issuer.
      *
      * @returns { X500DistinguishedName } X500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1941,8 +2017,9 @@ declare namespace cert {
      * Get X500 distinguished name of the subject.
      *
      * @returns { X500DistinguishedName } X500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1955,8 +2032,9 @@ declare namespace cert {
      * Get the string type data of the object.
      *
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1966,11 +2044,30 @@ declare namespace cert {
     toString(): string;
 
     /**
+     * Get the string type data of the object according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(encodingType: EncodingType): string;
+
+    /**
      * Get the hash value of DER format data.
      *
      * @returns { Uint8Array } the hash value of DER format data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -1983,8 +2080,9 @@ declare namespace cert {
      * Get the extension der encoding data for the corresponding entity.
      *
      * @returns { CertExtension } the certExtension object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2003,7 +2101,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
@@ -2016,7 +2115,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2030,7 +2130,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2047,7 +2148,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    */
@@ -2060,7 +2162,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2074,7 +2177,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2111,8 +2215,9 @@ declare namespace cert {
      * Get certificate extension encoded data.
      *
      * @returns { EncodingBlob } cert extension encoded data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -2121,8 +2226,9 @@ declare namespace cert {
      * Get certificate extension encoded data.
      *
      * @returns { EncodingBlob } cert extension encoded data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2132,8 +2238,9 @@ declare namespace cert {
      * Get certificate extension encoded data.
      *
      * @returns { EncodingBlob } cert extension encoded data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2149,8 +2256,9 @@ declare namespace cert {
      * @returns { DataArray } cert extension OID list value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -2162,8 +2270,9 @@ declare namespace cert {
      * @returns { DataArray } cert extension OID list value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2176,8 +2285,9 @@ declare namespace cert {
      * @returns { DataArray } cert extension OID list value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2194,8 +2304,9 @@ declare namespace cert {
      * @returns { DataBlob } cert extension entry value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -2208,8 +2319,9 @@ declare namespace cert {
      * @returns { DataBlob } cert extension entry value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2223,8 +2335,9 @@ declare namespace cert {
      * @returns { DataBlob } cert extension entry value.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2239,8 +2352,9 @@ declare namespace cert {
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
      * @returns { number } path length constraint.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 10
@@ -2251,8 +2365,9 @@ declare namespace cert {
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
      * @returns { number } path length constraint.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2264,8 +2379,9 @@ declare namespace cert {
      * If the certificate is a CA and the path length constraint does not appear, then return -2 to indicate that there is no limit to path length.
      *
      * @returns { number } path length constraint.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2278,8 +2394,9 @@ declare namespace cert {
      * Check if exists Unsupported critical extension.
      *
      * @returns { boolean } true - exists unsupported critical extension, false - else.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2289,8 +2406,9 @@ declare namespace cert {
      * Check if exists Unsupported critical extension.
      *
      * @returns { boolean } true - exists unsupported critical extension, false - else.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2309,7 +2427,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
@@ -2322,7 +2441,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2336,7 +2456,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2353,7 +2474,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 10
    */
@@ -2366,7 +2488,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -2380,7 +2503,8 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -2404,8 +2528,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2420,8 +2545,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of crl entry blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2446,8 +2572,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of issuer.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
@@ -2459,8 +2586,9 @@ declare namespace cert {
      * Get the revocation date from x509crl entry.
      *
      * @returns { string } string of revocation date.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2494,8 +2622,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2507,8 +2636,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2523,8 +2653,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of CRL entry blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2536,8 +2667,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of CRL entry blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2550,8 +2682,9 @@ declare namespace cert {
      * Get the serial number from this x509CRL entry.
      *
      * @returns { bigint } serial number of CRL entry.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2561,8 +2694,9 @@ declare namespace cert {
      * Get the serial number from this x509CRL entry.
      *
      * @returns { bigint } serial number of CRL entry.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2576,8 +2710,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of issuer.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2588,8 +2723,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of issuer.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2599,11 +2735,31 @@ declare namespace cert {
     getCertIssuer(): DataBlob;
 
     /**
+     * Get the issuer name of the x509 certificate described by this entry according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } issuer name.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getCertIssuer(encodingType: EncodingType): string;
+
+    /**
      * Get the revocation date from x509CRL entry.
      *
      * @returns { string } string of revocation date.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2613,8 +2769,9 @@ declare namespace cert {
      * Get the revocation date from x509CRL entry.
      *
      * @returns { string } string of revocation date.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2627,8 +2784,9 @@ declare namespace cert {
      * Get Extensions of CRL Entry.
      *
      * @returns { DataBlob } DataBlob of extensions
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2638,8 +2796,9 @@ declare namespace cert {
      * Get Extensions of CRL Entry.
      *
      * @returns { DataBlob } DataBlob of extensions
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2652,8 +2811,9 @@ declare namespace cert {
      * Check if CRL Entry has extension .
      *
      * @returns { boolean } true - CRL Entry has extension,  false - else.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2663,8 +2823,9 @@ declare namespace cert {
      * Check if CRL Entry has extension .
      *
      * @returns { boolean } true - CRL Entry has extension,  false - else.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2677,8 +2838,9 @@ declare namespace cert {
      *  Get X500 distinguished name of the issuer.
      *
      * @returns { X500DistinguishedName } X500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2691,8 +2853,9 @@ declare namespace cert {
      *  Get the string type data of the object.
      *
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2705,8 +2868,9 @@ declare namespace cert {
      *  Get the hash value of DER format data.
      *
      * @returns { Uint8Array } the hash value of DER format data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2719,8 +2883,9 @@ declare namespace cert {
      *  Get the extension der encoding data for the corresponding entity.
      *
      * @returns { CertExtension } the certExtension object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -2771,8 +2936,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2787,8 +2953,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of crl blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2842,8 +3009,9 @@ declare namespace cert {
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
      *
      * @returns { DataBlob } issuer name of crl.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2856,8 +3024,9 @@ declare namespace cert {
      * Get lastUpdate value from CRL.
      *
      * @returns { string } last update of crl.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2870,8 +3039,9 @@ declare namespace cert {
      * Get nextUpdate value from CRL.
      *
      * @returns { string } next update of crl.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2887,7 +3057,7 @@ declare namespace cert {
      * @returns { X509CrlEntry } next update of crl.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2903,7 +3073,7 @@ declare namespace cert {
      * @returns { X509CrlEntry } X509CrlEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2918,7 +3088,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - the callback of getRevokedCerts.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2933,7 +3103,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509CrlEntry>> } the promise of X509CrlEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2946,8 +3116,9 @@ declare namespace cert {
      * Get the CRL information encoded by Der from this CRL.
      *
      * @returns { DataBlob } DataBlob of tbs info.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2960,8 +3131,9 @@ declare namespace cert {
      * Get signature value from CRL.
      *
      * @returns { DataBlob } DataBlob of signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2974,8 +3146,9 @@ declare namespace cert {
      * Get the signature algorithm name of the CRL signature algorithm.
      *
      * @returns { string } string of signature algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -2988,8 +3161,9 @@ declare namespace cert {
      * Get the signature algorithm oid string from CRL.
      *
      * @returns { string } string of signature algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -3003,8 +3177,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of signature algorithm params.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
@@ -3023,7 +3198,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    * @deprecated since 11
@@ -3040,7 +3215,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @since 9
    * @deprecated since 11
@@ -3116,8 +3291,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3129,8 +3305,9 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3145,8 +3322,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of CRL blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3158,8 +3336,9 @@ declare namespace cert {
      * @returns { Promise<EncodingBlob> } the promise of CRL blob data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3245,8 +3424,9 @@ declare namespace cert {
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
      *
      * @returns { DataBlob } issuer name of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3256,8 +3436,9 @@ declare namespace cert {
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
      *
      * @returns { DataBlob } issuer name of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3267,11 +3448,30 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
+     * Get the issuer name from CRL according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } issuer name of CRL.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getIssuerName(encodingType: EncodingType): string;
+
+    /**
      * Get lastUpdate value from CRL.
      *
      * @returns { string } last update of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3281,8 +3481,9 @@ declare namespace cert {
      * Get lastUpdate value from CRL.
      *
      * @returns { string } last update of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3295,8 +3496,9 @@ declare namespace cert {
      * Get nextUpdate value from CRL.
      *
      * @returns { string } next update of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3306,8 +3508,9 @@ declare namespace cert {
      * Get nextUpdate value from CRL.
      *
      * @returns { string } next update of CRL.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3323,7 +3526,7 @@ declare namespace cert {
      * @returns { X509CRLEntry } next update of CRL.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3336,7 +3539,7 @@ declare namespace cert {
      * @returns { X509CRLEntry } next update of CRL.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3352,7 +3555,7 @@ declare namespace cert {
      * @returns { X509CRLEntry } X509CRLEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3365,7 +3568,7 @@ declare namespace cert {
      * @returns { X509CRLEntry } X509CRLEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3380,7 +3583,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - the callback of getRevokedCerts.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3392,7 +3595,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - the callback of getRevokedCerts.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3407,7 +3610,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509CRLEntry>> } the promise of X509CRLEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3419,7 +3622,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509CRLEntry>> } the promise of X509CRLEntry instance.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types;
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3432,8 +3635,9 @@ declare namespace cert {
      * Get the CRL information encoded by Der from this CRL.
      *
      * @returns { DataBlob } DataBlob of tbs info.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3443,8 +3647,9 @@ declare namespace cert {
      * Get the CRL information encoded by Der from this CRL.
      *
      * @returns { DataBlob } DataBlob of tbs info.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3457,8 +3662,9 @@ declare namespace cert {
      * Get signature value from CRL.
      *
      * @returns { DataBlob } DataBlob of signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3468,8 +3674,9 @@ declare namespace cert {
      * Get signature value from CRL.
      *
      * @returns { DataBlob } DataBlob of signature.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3482,8 +3689,9 @@ declare namespace cert {
      * Get the signature algorithm name of the CRL signature algorithm.
      *
      * @returns { string } string of signature algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3493,8 +3701,9 @@ declare namespace cert {
      * Get the signature algorithm name of the CRL signature algorithm.
      *
      * @returns { string } string of signature algorithm name.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3507,8 +3716,9 @@ declare namespace cert {
      * Get the signature algorithm oid string from CRL.
      *
      * @returns { string } string of signature algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3518,8 +3728,9 @@ declare namespace cert {
      * Get the signature algorithm oid string from CRL.
      *
      * @returns { string } string of signature algorithm oid.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3533,8 +3744,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of signature algorithm params.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3545,8 +3757,9 @@ declare namespace cert {
      *
      * @returns { DataBlob } DataBlob of signature algorithm params.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3559,8 +3772,9 @@ declare namespace cert {
      * Get Extensions of CRL Entry.
      *
      * @returns { DataBlob } DataBlob of extensions
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3570,8 +3784,9 @@ declare namespace cert {
      * Get Extensions of CRL Entry.
      *
      * @returns { DataBlob } DataBlob of extensions
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3587,7 +3802,7 @@ declare namespace cert {
      * @returns { boolean } true - match X509CRL, false - not match.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3600,7 +3815,7 @@ declare namespace cert {
      * @returns { boolean } true - match X509CRL, false - not match.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3613,8 +3828,9 @@ declare namespace cert {
      * Get X500 distinguished name of the issuer.
      *
      * @returns { X500DistinguishedName } X500 distinguished name object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3627,8 +3843,9 @@ declare namespace cert {
      * Get the string type data of the object.
      *
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3638,11 +3855,30 @@ declare namespace cert {
     toString(): string;
 
     /**
+     * Get the string type data of the object according to the encoding type.
+     *
+     * @param { EncodingType } encodingType indicates the encoding type.
+     * @returns { string } the string type data of the object.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(encodingType: EncodingType): string;
+
+    /**
      * Get the hash value of DER format data.
      *
      * @returns { Uint8Array } the hash value of DER format data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3655,8 +3891,9 @@ declare namespace cert {
      * Get the extension der encoding data for the corresponding entity.
      *
      * @returns { CertExtension } the certExtension object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3675,7 +3912,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -3689,7 +3926,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -3706,7 +3943,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -3720,7 +3957,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -3760,8 +3997,9 @@ declare namespace cert {
      * @param { AsyncCallback<void> } callback - the callback of validate.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3779,8 +4017,9 @@ declare namespace cert {
      * @param { AsyncCallback<void> } callback - the callback of validate.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3799,8 +4038,9 @@ declare namespace cert {
      * @param { AsyncCallback<void> } callback - the callback of validate.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3822,8 +4062,9 @@ declare namespace cert {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3841,8 +4082,9 @@ declare namespace cert {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3861,8 +4103,9 @@ declare namespace cert {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -3915,8 +4158,9 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
@@ -3929,8 +4173,9 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3944,8 +4189,9 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4576,7 +4822,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509Cert>> }
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4589,7 +4835,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509Cert>> }
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4605,7 +4851,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509Cert>> } callback - the callback of select cert.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4618,7 +4864,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509Cert>> } callback - the callback of select cert.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4634,7 +4880,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509CRL>> }
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4647,7 +4893,7 @@ declare namespace cert {
      * @returns { Promise<Array<X509CRL>> }
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4663,7 +4909,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRL>> } callback - the callback of select CRL.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4676,7 +4922,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRL>> } callback - the callback of select CRL.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4694,7 +4940,7 @@ declare namespace cert {
    * @returns { CertCRLCollection }
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @since 11
@@ -4707,7 +4953,7 @@ declare namespace cert {
    * @returns { CertCRLCollection }
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
@@ -4739,7 +4985,7 @@ declare namespace cert {
      * @returns { Array<X509Cert> } the X509 certificate list.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4751,7 +4997,7 @@ declare namespace cert {
      * @returns { Array<X509Cert> } the X509 certificate list.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4767,8 +5013,9 @@ declare namespace cert {
      * @returns { Promise<CertChainValidationResult> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -4787,8 +5034,9 @@ declare namespace cert {
      * @returns { Promise<CertChainValidationResult> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -4810,8 +5058,9 @@ declare namespace cert {
      * @param { AsyncCallback<CertChainValidationResult> } callback - indicate the cert chain validate result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -4830,8 +5079,9 @@ declare namespace cert {
      * @param { AsyncCallback<CertChainValidationResult> } callback - indicate the cert chain validate result.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030002 - the certificate signature verification failed.
      * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -4850,8 +5100,9 @@ declare namespace cert {
      * Get the string type data of the object.
      *
      * @returns { string } the string type data of the object.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4864,8 +5115,9 @@ declare namespace cert {
      * Get the hash value of DER format data.
      *
      * @returns { Uint8Array } the hash value of DER format data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4883,7 +5135,7 @@ declare namespace cert {
    * @returns { Promise<X509CertChain> }
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4897,7 +5149,7 @@ declare namespace cert {
    * @returns { Promise<X509CertChain> }
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4914,7 +5166,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509CertChain> } callback
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4928,7 +5180,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509CertChain> } callback
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4944,7 +5196,7 @@ declare namespace cert {
    * @returns { X509CertChain } the certificate chain object.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4957,7 +5209,7 @@ declare namespace cert {
    * @returns { X509CertChain } the certificate chain object.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4973,8 +5225,9 @@ declare namespace cert {
    * @returns { Promise<CertChainBuildResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030002 - the certificate signature verification failed.
    * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -5142,8 +5395,9 @@ declare namespace cert {
    * @returns { Pkcs12Data } the Pkcs12Data.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030008 - maybe wrong password.
    * @syscap SystemCapability.Security.Cert
@@ -5161,8 +5415,9 @@ declare namespace cert {
    * @returns { Promise<Array<X509TrustAnchor>> } the promise returned by the function.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030002 - the certificate signature verification failed.
    * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -5184,8 +5439,9 @@ declare namespace cert {
    * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030002 - the certificate signature verification failed.
    * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -5207,8 +5463,9 @@ declare namespace cert {
    * @returns { Promise<X500DistinguishedName> } the promise returned by the function.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030002 - the certificate signature verification failed.
    * @throws { BusinessError } 19030003 - the certificate has not taken effect.
@@ -5234,11 +5491,12 @@ declare namespace cert {
    */
   interface X500DistinguishedName {
     /**
-     * Get distinguished name string.
+     * Get distinguished name string in ASCII encoding type.
      *
      * @returns { string } distinguished name string.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5248,14 +5506,33 @@ declare namespace cert {
     getName(): string;
 
     /**
+     * Get distinguished name string according to the encoding type.
+     *
+     * @param { EncodingType } encodingType - the specified encoding type.
+     * @returns { string } distinguished name string.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     * <br>1. The value of encodingType is not in the EncodingType enumeration range.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getName(encodingType: EncodingType): string;
+
+    /**
      * Get distinguished name string by type.
      *
      * @param { string } type - the specified type name.
      * @returns { Array<string> } distinguished name string.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5268,8 +5545,9 @@ declare namespace cert {
      * Get distinguished name in der coding format.
      *
      * @returns { EncodingBlob } distinguished name encoded data.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6141,8 +6419,9 @@ declare namespace cert {
      * @param { CmsSignerConfig } config - the configuration for CMS signer.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @throws { BusinessError } 19030008 - maybe wrong password.
      * @syscap SystemCapability.Security.Cert
@@ -6158,8 +6437,9 @@ declare namespace cert {
      * @param { X509Cert } cert - the certificate.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6176,8 +6456,9 @@ declare namespace cert {
      * @returns { Promise<Uint8Array | string> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6194,8 +6475,9 @@ declare namespace cert {
      * @returns { Uint8Array | string } the CMS final data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 19020001 - memory error.
-     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6212,8 +6494,9 @@ declare namespace cert {
    * @returns { CmsGenerator } the CmsGenerator.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6319,8 +6602,9 @@ declare namespace cert {
    * @returns { string | Uint8Array } the CSR in PEM or DER format.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 19020001 - memory error.
-   * @throws { BusinessError } 19020002 - runtime error.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   * <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
    * @throws { BusinessError } 19030001 - crypto operation error.
    * @throws { BusinessError } 19030008 - maybe wrong password.
    * @syscap SystemCapability.Security.Cert

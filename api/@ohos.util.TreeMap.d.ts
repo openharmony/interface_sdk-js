@@ -43,7 +43,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TreeMap<K, V> {
   /**
@@ -92,6 +93,20 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
+
+  /**
+   * A constructor used to create a TreeMap object.
+   *
+   * @param { TreeMapComparator<K> } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(comparator?: TreeMapComparator<K>);
+
   /**
    * Gets the element number of the hashmap.
    *
@@ -117,6 +132,19 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the TreeMap.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Returns whether the Map object contains elements
    *
@@ -142,7 +170,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -173,7 +202,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasKey(key: K): boolean;
   /**
@@ -204,7 +234,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasValue(value: V): boolean;
   /**
@@ -300,6 +331,46 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   getLastKey(): K;
+
+  /**
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
+   *
+   * @param { K } key - key key the index in TreeMap
+   * @returns { V | undefined } value if associated with key presents, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(key: K): V | undefined;
+
+  /**
+   * Obtains the first sorted key in the treemap.
+   * Or returns undefined if tree map is empty
+   *
+   * @returns { K | undefined } the key of the first element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFirstKey(): K | undefined;
+
+  /**
+   * Obtains the last sorted key in the treemap.
+   * Or returns undefined if tree map is empty
+   *
+   * @returns { K | undefined } the key of the last element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLastKey(): K | undefined;
+
   /**
    * Adds all element groups in one map to another map
    *
@@ -334,7 +405,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAll(map: TreeMap<K, V>): void;
   /**
@@ -380,7 +452,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   set(key: K, value: V): Object;
   /**
@@ -414,6 +487,20 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   remove(key: K): V;
+
+  /**
+   * Remove a specified element from a Map object
+   *
+   * @param { K } key - key key Target to be deleted
+   * @returns { V | undefined } the value of the removed element, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: K): V | undefined;
+
   /**
    * Clear all element groups in the map
    *
@@ -436,7 +523,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -507,6 +595,35 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   getHigherKey(key: K): K;
+
+  /**
+   * Returns the greatest element smaller than or equal to the specified key
+   * if the key does not exist, undefined is returned
+   *
+   * @param { K } key - key key Objective of comparison
+   * @returns { K | undefined } the lower key of the given key's element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLowerKey(key: K): K | undefined;
+
+  /**
+   * Returns the least element greater than or equal to the specified key
+   * if the key does not exist, undefined is returned
+   *
+   * @param { K } key - key key Objective of comparison
+   * @returns { K | undefined } the higher key of the given key's element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getHigherKey(key: K): K | undefined;
+
   /**
    * Returns a new Iterator object that contains the keys contained in this map
    *
@@ -532,7 +649,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keys(): IterableIterator<K>;
   /**
@@ -560,7 +678,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<V>;
   /**
@@ -594,7 +713,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -652,6 +772,20 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   forEach(callbackFn: (value?: V, key?: K, map?: TreeMap<K, V>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes the given callback function once for each real key in the map.
+   * It does not perform functions on deleted keys
+   *
+   * @param { TreeMapForEachCb<K, V> } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: TreeMapForEachCb<K, V>): void;
+
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    *
@@ -677,7 +811,8 @@ declare class TreeMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -708,6 +843,48 @@ declare class TreeMap<K, V> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
+
+  /**
+   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<[K, V]> } an iterator for the TreeMap
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<[K, V]>;
+
 }
+
+/**
+ * The type of TreeMap callback function.
+ *
+ * @typedef { function } TreeMapForEachCb
+ * @param { V } value - The value of current element
+ * @param { K } key - The key of current element
+ * @param { TreeMap<K, V> } map - The TreeMap instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => void
+
+/**
+ * The type of TreeMap comparator.
+ *
+ * @typedef { function } TreeMapComparator
+ * @param { K } firstValue - The first value compared
+ * @param { K } secondValue - The second value compared
+ * @returns { number } - Comparison results
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type TreeMapComparator<K> = (firstValue: K, secondValue: K) => number
 
 export default TreeMap;

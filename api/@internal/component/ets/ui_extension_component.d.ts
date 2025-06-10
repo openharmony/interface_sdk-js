@@ -213,7 +213,7 @@ declare interface UIExtensionProxy {
    *
    * @param { object } data - data send to the UIExtensionAbility
    * @returns { object } data - data transferred from the UIExtensionAbility
-   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -225,7 +225,7 @@ declare interface UIExtensionProxy {
    *
    * @param { Record<string, Object> } data - Data send to the UIExtensionAbility.
    * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility.
-   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

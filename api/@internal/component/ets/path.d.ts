@@ -59,7 +59,27 @@ declare interface PathOptions {
    * @atomicservice
    * @since 11
    */
-  width?: number | string;
+  /**
+   * Width option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Width option.
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Height option.
@@ -91,7 +111,27 @@ declare interface PathOptions {
    * @atomicservice
    * @since 11
    */
-  height?: number | string;
+  /**
+   * Height option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Height option.
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 
   /**
    * Commands option.
@@ -123,7 +163,27 @@ declare interface PathOptions {
    * @atomicservice
    * @since 11
    */
-  commands?: string
+  /**
+   * Commands option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Commands option.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  commands?: ResourceStr;
 }
 
 /**
@@ -201,6 +261,7 @@ interface PathInterface {
    */
   /**
    * Use new to create Path.
+   * Annonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }
@@ -252,6 +313,7 @@ interface PathInterface {
    */
   /**
    * Called when drawing path.
+   * Anonymous Object Rectification.
    *
    * @param { PathOptions } [options] - path options
    * @returns { PathAttribute }
@@ -337,7 +399,18 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @atomicservice
    * @since 11
    */
-  commands(value: string): PathAttribute;
+  /**
+   * Called when the command string drawn by the path is set.
+   *
+   * @param { ResourceStr } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  commands(value: ResourceStr): PathAttribute;
 }
 
 /**

@@ -474,7 +474,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -485,7 +485,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -532,7 +532,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidAppear?: Callback<void>;
 
@@ -543,7 +543,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onDidDisappear?: Callback<void>;
 
@@ -554,7 +554,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillAppear?: Callback<void>;
 
@@ -565,7 +565,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onWillDisappear?: Callback<void>;
 
@@ -635,7 +635,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   focusable?: boolean;
 }
@@ -672,6 +672,16 @@ declare interface DismissDialogAction {
    */
   reason: DismissReason;
 }
+
+/**
+ * Import the CommonState type from promptAction.
+ *
+ * @typedef { import('../api/@ohos.promptAction').promptAction.CommonState } PromptActionCommonState
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type PromptActionCommonState = import('../api/@ohos.promptAction').promptAction.CommonState;
 
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
@@ -766,4 +776,15 @@ declare class CustomDialogController {
    * @since 11
    */
   close();
+
+  /**
+   * Get the state of the custom pop-up window.
+   *
+   * @returns { PromptActionCommonState } return the state of dialog.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  getState(): PromptActionCommonState;
 }

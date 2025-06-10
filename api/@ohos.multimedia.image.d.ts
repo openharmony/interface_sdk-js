@@ -597,14 +597,16 @@ declare namespace image {
   }
 
   /**
-   * Enumerates exchangeable image file format (Exif) information types of an image.
+   * Enumerates exchangeable image file format (Exif) information types of an image. This enumeration follows the EXIF
+   * standard. Please refer to the EXIF specification for more details.
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 7
    */
   /**
-   * Enumerates exchangeable image file format (Exif) information types of an image.
+   * Enumerates exchangeable image file format (Exif) information types of an image. This enumeration follows the EXIF
+   * standard. Please refer to the EXIF specification for more details.
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -613,13 +615,15 @@ declare namespace image {
    */
   enum PropertyKey {
     /**
-     * Number of bits in each pixel of an image.
+     * The number of bits per image component. In this standard each component of the image is 8 bits, so the value for 
+     * this tag is 8. In JPEG compressed data a JPEG marker is used instead of this tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Number of bits in each pixel of an image.
+     * The number of bits per image component. In this standard each component of the image is 8 bits, so the value for 
+     * this tag is 8. In JPEG compressed data a JPEG marker is used instead of this tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -628,13 +632,35 @@ declare namespace image {
     BITS_PER_SAMPLE = 'BitsPerSample',
 
     /**
-     * Image rotation mode.
+     * Image orientation.
+     * 1. "Top-left"      - The image is not rotated.
+     * 2. "Top-right"     - The image is mirrored horizontally.
+     * 3. "Bottom-right"  - The image is rotated 180 degrees.
+     * 4. "Bottom-left"   - The image is mirrored vertically.
+     * 5. "Left-top"      - The image is mirrored horizontally, then rotated 270 degrees clockwise.
+     * 6. "Right-top"     - The image is rotated 90 degrees clockwise.
+     * 7. "Right-bottom"  - The image is mirrored horizontally, then rotated 90 degrees clockwise.
+     * 8. "Left-bottom"   - The image is rotated 270 degrees clockwise.
+     * If an undefined value is read, the result will be "Unknown Value <number>".
+     * When retrieving the Orientation property, the value is returned as a string.
+     * When setting the Orientation property, both numeric values (1–8) and string labels are supported.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * Image rotation mode.
+     * Image orientation.
+     * 1. "Top-left"       - The image is not rotated.
+     * 2. "Top-right"      - The image is mirrored horizontally.
+     * 3. "Bottom-right"   - The image is rotated 180 degrees.
+     * 4. "Bottom-left"    - The image is mirrored vertically.
+     * 5. "Left-top"       - The image is mirrored horizontally, then rotated 270 degrees clockwise.
+     * 6. "Right-top"      - The image is rotated 90 degrees clockwise.
+     * 7. "Right-bottom"   - The image is mirrored horizontally, then rotated 90 degrees clockwise.
+     * 8. "Left-bottom"    - The image is rotated 270 degrees clockwise.
+     * If an undefined value is read, the result will be "Unknown Value <number>".
+     * When retrieving the Orientation property, the value is returned as a string.
+     * When setting the Orientation property, both numeric values (1–8) and string labels are supported.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -673,13 +699,19 @@ declare namespace image {
     IMAGE_WIDTH = 'ImageWidth',
 
     /**
-     * GPS latitude.
+     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format 
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * GPS latitude.
+     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format 
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -688,13 +720,19 @@ declare namespace image {
     GPS_LATITUDE = 'GPSLatitude',
 
     /**
-     * GPS longitude.
+     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format 
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 7
      */
     /**
-     * GPS longitude.
+     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
+     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format 
+     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
+     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -733,13 +771,15 @@ declare namespace image {
     GPS_LONGITUDE_REF = 'GPSLongitudeRef',
 
     /**
-     * Shooting time
+     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
+     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * Shooting time
+     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
+     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -778,13 +818,13 @@ declare namespace image {
     SCENE_TYPE = 'SceneType',
 
     /**
-     * ISO speedratings
+     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * ISO speedratings
+     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -793,13 +833,13 @@ declare namespace image {
     ISO_SPEED_RATINGS = 'ISOSpeedRatings',
 
     /**
-     * Aperture value
+     * Aperture value, such as f/1.8.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
-     * Aperture value
+     * Aperture value, such as f/1.8.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -808,7 +848,8 @@ declare namespace image {
     F_NUMBER = 'FNumber',
 
     /**
-     * Date time
+     * The date and time of image creation. In this standard it is the date and time the file was changed. The format
+     * is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
@@ -888,7 +929,7 @@ declare namespace image {
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
  
     /**
-     * ISO speed
+     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
@@ -896,7 +937,7 @@ declare namespace image {
     ISO_SPEED = 'ISOSpeedRatings',
  
     /**
-     * Aperture value
+     * The lens aperture. The unit is the APEX((Additive System of Photographic Exposure) value.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
@@ -1153,7 +1194,8 @@ declare namespace image {
     STRIP_OFFSETS = 'StripOffsets',
 
     /**
-     * The number of components per pixel.
+     * The number of components per pixel. As the standard applies to both RGB and YCbCr images, the tag value is set
+     * to 3. For JPEG-compressed images, this tag is replaced by corresponding JPEG markers.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1360,7 +1402,9 @@ declare namespace image {
     EXIF_VERSION = 'ExifVersion',
 
     /**
-     * The date and time when the image was stored as digital data.
+     * The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and
+     * at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same
+     * contents. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2053,7 +2097,7 @@ declare namespace image {
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
     /**
-     * Exposure times of source images for a composite image.
+     * Exposure times of source images for a composite image, such as 1/33 sec.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2486,7 +2530,9 @@ declare namespace image {
    */
   enum DecodingDynamicRange {
     /**
-     * Decoding according to the content of the image.
+     * Decoding according to the content of the image. If the image is an HDR image, it will be decoded as HDR content;
+     * otherwise, it will be decoded as SDR content.
+     * Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -2502,7 +2548,7 @@ declare namespace image {
     SDR = 1,
 
     /**
-     * Decoding to high dynamic range.
+     * Decoding to high dynamic range. Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -2519,7 +2565,8 @@ declare namespace image {
    */
   enum PackingDynamicRange {
     /**
-     * Packing according to the content of the image.
+     * Packing according to the content of the image. If the image is an HDR image, it will be encoded as HDR content;
+     * otherwise, it will be encoded as SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -4445,8 +4492,10 @@ declare namespace image {
    */
   interface HdrStaticMetadata {
     /**
-     * The X-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
-     *
+     * The X-coordinate of the primary colors. Specifies the normalized X-coordinates of the display device's three
+     * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
+     * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
+     * 
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -4454,8 +4503,10 @@ declare namespace image {
     displayPrimariesX: Array<number>;
 
     /**
-     * The Y-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
-     *
+     * The Y-coordinate of the primary colors. Specifies the normalized Y-coordinates of the display device's three
+     * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
+     * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
+     * 
      * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
@@ -4463,7 +4514,8 @@ declare namespace image {
     displayPrimariesY: Array<number>;
 
     /**
-     * The X-coordinate of the white point value.
+     * The X-coordinate of the white point value. Specifies the normalized X-coordinate of the white point. 
+     * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4472,7 +4524,8 @@ declare namespace image {
     whitePointX: number;
 
     /**
-     * The Y-coordinate of the white point value.
+     * The Y-coordinate of the white point value. Specifies the normalized Y-coordinate of the white point. 
+     * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4481,7 +4534,8 @@ declare namespace image {
     whitePointY: number;
 
     /**
-     * Max luminance.
+     * Maximum luminance of the image's primary display.
+     * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4490,7 +4544,8 @@ declare namespace image {
     maxLuminance: number;
 
     /**
-     * Min luminance.
+     * Minimum luminance of the image's primary display.
+     * The value is measured in units of 0.0001, with a maximum allowed value of 6.55535.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4500,6 +4555,7 @@ declare namespace image {
 
     /**
      * Maximum brightness of displayed content.
+     * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4509,6 +4565,7 @@ declare namespace image {
 
     /**
      * Maximum average brightness of displayed content.
+     * The value is measured in units of 1, with a maximum allowed value of 65,535.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4709,6 +4766,44 @@ declare namespace image {
   function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
 
   /**
+   * Create pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
+   * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @throws { BusinessError } 7600302 - Memory copy failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocator(colors: ArrayBuffer, options: InitializationOptions,
+    allocatorType?: AllocatorType): Promise<PixelMap>;
+
+  /**
+   * Create pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @throws { BusinessError } 7600302 - Memory copy failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, options: InitializationOptions,
+    allocatorType?: AllocatorType): PixelMap;
+
+  /**
    * Create an empty pixelmap.
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -4720,6 +4815,22 @@ declare namespace image {
    * @since 12
    */
 function createPixelMapSync(options: InitializationOptions): PixelMap;
+
+  /**
+   * Create an empty pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocatorSync(options: InitializationOptions, allocatorType?: AllocatorType): PixelMap;
 
   /**
    * Transforms pixelmap from unpremultiplied alpha format to premultiplied alpha format.
@@ -4798,14 +4909,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, an exception will be thrown.
-   * @throws { BusinessError } 62980096 - Operation failed.
-   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+   * 2. Decoding process exception. 3. Insufficient memory.
+   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+   * 3. Decode process exception. 4. Insufficient memory.
    * @throws { BusinessError } 62980115 - Invalid input parameter.
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980177 - Abnormal API environment.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
    * @throws { BusinessError } 62980179 - Abnormal buffer size.
    * @throws { BusinessError } 62980180 - FD mapping failed.
+   * Possible cause: 1. Size and address does not match. 2. Memory map in memalloc failed.
    * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 11
@@ -6686,7 +6800,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -6698,8 +6813,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980097 - IPC error.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -6904,7 +7021,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -6962,7 +7079,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980302 - Memory copy failed.
+     * @throws { BusinessError } 62980302 - Memory copy failed. Possibly caused by invalid metadata value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -6970,7 +7087,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Picture instance.
+   * Picture instance. It is composed of a main pixelmap, auxiliary pictures and metadata. The main pixelmap contains 
+   * the main visual content; auxiliary pictures store additional information related to the main pixelmap;
+   * and metadata stores other information associated with the image.
    *
    * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -6990,8 +7109,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @throws { BusinessError } 7600901 - Unknown error.
-     * @throws { BusinessError } 7600201 - Unsupported operation.
+     * @throws { BusinessError } 7600901 - Inner unknown error. Please check the logs for detailed information.
+     * @throws { BusinessError } 7600201 - Unsupported operation. e.g.,1. The picture does not has a gainmap.
+     * 2. MainPixelMap's allocator type is not DMA.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
@@ -7037,7 +7157,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
@@ -7050,7 +7171,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Metadata> } Return the metadata of main picture.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
+     * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
@@ -7062,7 +7184,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+     * 3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
      */
@@ -7089,13 +7212,32 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPicture(mainPixelmap : PixelMap): Picture;
 
   /**
+   * Creates a Picture object by a HDR PixelMap and a SDR PixelMap.A gainmap will be generated using the
+   * HDR and SDR PixelMap, and the returned Picture will contain the SDR PixelMap and the generated gainmap.
+   * 
+   * @param { PixelMap } hdrPixelMap A HDR PixelMap, which PixelMapFormat should be RGBA_F16\RGBA_1010102\YCBCR_P010
+   * and color space should be BT2020_HLG.
+   * @param { PixelMap } sdrPixelMap A SDR PixelMap, which PixelMapFormat should be RGBA_8888\NV21\NV12,
+   * and color space should be P3.
+   * @returns { Promise<Picture> } Returns the Picture object.
+   * @throws { BusinessError } 7600201 - Unsupported operation. HdrPixelMap's PixelMapFormat is not
+   * RGBA_F16\RGBA_1010102\YCBCR_P010, or its color space is not BT2020_HLG. Or sdrPixelMap's PixelMapFormat is not 
+   * RGBA_8888\NV21\NV12, or its color space is not P3.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 20
+   */
+  function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
+
+  /**
    * Creates a Picture object based on MessageSequence parameter.
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
    * @returns { Picture } Returns the Picture object.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 62980097 - IPC error.
+   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
+   * 3. Decode process exception. 4. Insufficient memory.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13
    */
@@ -7227,7 +7369,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   enum AuxiliaryPictureType {
     /**
-     * Gain map.
+     * Gain Map, which is an auxiliary image that describes how the brightness of each pixel should be scaled in order 
+     * to correctly map image luminance between display devices with different dynamic ranges. It is typically used to
+     * convert a Standard Dynamic Range (SDR) image into a High Dynamic Range (HDR) image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
@@ -7235,7 +7379,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     GAINMAP = 1,
 
     /**
-     * Depth map.
+     * Depth map, which stores the depth information of an image by capturing the distance between each pixel and
+     * the camera. It provides three-dimensional structural information of the scene and is commonly used for 3D
+     * reconstruction and scene understanding.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
@@ -7243,7 +7389,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     DEPTH_MAP = 2,
 
     /**
-     * Unrefocus map.
+     * Unrefocus map, representing an original portrait image with unfocused background, which provides a way to
+     * emphasize background blur inportrait photography.
+     * It helps users select the focus area during post-processing, enhancing creative flexibility.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
@@ -7251,7 +7399,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     UNREFOCUS_MAP = 3,
 
     /**
-     * Linear map.
+     * Linear map, used to provide an additional data perspective or supplementary information, typically for enhancing
+     * visual effects. It can contain a linear representation of lighting, color, or other visual elements in the scene.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
@@ -7259,7 +7408,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     LINEAR_MAP = 4,
 
     /**
-     * Fragment map.
+     * Fragment map, representing the region in the original image that is covered by a watermark.
+     * This image is used to restore or remove the effects of the watermark, helping to recover the image’s integrity
+     * and visual clarity.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13
@@ -7504,7 +7655,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains information about an image with the specified sequence number and uses a callback
      * to return the result.
      *
-     * @param { number } index Sequence number of an image.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 6
@@ -7513,7 +7666,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains information about an image with the specified sequence number and uses a callback
      * to return the result.
      *
-     * @param { number } index Sequence number of an image.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7523,7 +7678,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains information about an image with the specified sequence number and uses a callback
      * to return the result.
      *
-     * @param { number } index Sequence number of an image.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7534,7 +7691,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains information about an image with the specified sequence number and uses a callback
      * to return the result.
      *
-     * @param { number } index Sequence number of an image.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7583,7 +7742,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source.
      *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 6
@@ -7591,7 +7752,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source.
      *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7600,7 +7763,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source.
      *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7610,7 +7775,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source.
      *
-     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7623,7 +7790,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source synchronously.
      *
-     * @param { number } index - Index of sequence images. If this parameter is not specified, default value is 0.
+     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
+     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
+     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
      * @returns { ImageInfo } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -7766,14 +7935,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source incomplete.
+     * 3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported mimetype.
-     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the process of
+     * checking size.
      * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
      * only DMA supported hdr metadata.
      * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
-     * @throws { BusinessError } 7700301 - Decode failed.
-     * @throws { BusinessError } 7700302 - Memory allocation failed.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 15
      */
@@ -7801,14 +7972,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source incomplete.
+     * 3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported mimetype.
-     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the process of
+     * checking size.
      * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
      * only DMA supported hdr metadata.
      * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
-     * @throws { BusinessError } 7700301 - Decode failed.
-     * @throws { BusinessError } 7700302 - Memory allocation failed.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
+     * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 15
      */
@@ -7816,24 +7989,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
-     * return the array.
+     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
@@ -7843,20 +8019,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
      /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
-     * return the array.
+     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -7872,22 +8051,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Creates a PixelMap array. This method uses a callback to return the array.
+     * For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
@@ -7897,18 +8080,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Creates a PixelMap array. This method uses a callback to return the array.
+     * For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -7924,24 +8111,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array.
+     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
@@ -7951,20 +8141,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array.
+     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
+     * For static images, it returns a single frame of image data.
      *
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -7982,17 +8175,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -8001,11 +8196,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -8022,17 +8219,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -8041,11 +8240,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -8062,7 +8263,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
      *
      * @returns { Promise<Array<number>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
@@ -8076,15 +8278,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -8094,11 +8298,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -8114,15 +8320,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -8132,11 +8340,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -8156,17 +8366,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImagePropertyOptions } options - Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
-     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980122 - Failed to decode the image header.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -8180,17 +8392,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImagePropertyOptions } options - Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -8285,15 +8499,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
      * property values. If the operation fails, the null is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
      */
     getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
+
+    /**
+     * Obtains the value of a property in the image.
+     *
+     * @param { PropertyKey } key Property name.
+     * @returns { string } Value of the property.
+     * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image
+     * source incomplete. 3. Read image data failed. 4. Codec create failed.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 20
+     */
+    getImagePropertySync(key: PropertyKey): string;
 
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -8303,7 +8533,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { string } value - The value to be set to property.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
@@ -8523,7 +8753,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700301 - Failed to decode image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13
      */
@@ -8657,11 +8887,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOption } options Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8755,11 +8987,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PackingOption } options Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8778,8 +9012,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<ArrayBuffer> } encoded buffer.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types;3.Parameter verification failed.
-     * @throws { BusinessError } 7800201 - Unsupported options.
-     * @throws { BusinessError } 7800301 - Encoding failed.
+     * @throws { BusinessError } 7800201 - Unsupported packing options.
+     * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18
      */
@@ -8792,12 +9026,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980115 - If the parameter is invalid.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8814,12 +9050,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980115 - If the parameter is invalid.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8836,12 +9074,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980115 - If the parameter is invalid.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8858,12 +9098,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 62980096 - The Operation failed.
+     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
+     * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image is too large.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980115 - If the parameter is invalid.
-     * @throws { BusinessError } 62980119 - If encoder occur error during encoding.
+     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
      * @throws { BusinessError } 62980252 - Failed to create surface.
@@ -8882,8 +9124,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } void.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types;3.Parameter verification failed.
-     * @throws { BusinessError } 7800201 - Unsupported options.
-     * @throws { BusinessError } 7800301 - Encoding failed.
+     * @throws { BusinessError } 7800201 - Unsupported packing options.
+     * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18
      */
@@ -9295,6 +9537,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      */
     release(): Promise<void>;
   }
+
+  /**
+   * Obtains the image formats (MIME types) that can be decoded.
+   *
+   * @returns { string[] } Returns an array of the supported image formats.
+   * @syscap SystemCapability.Multimedia.ImageSource
+   * @since 20
+   */
+  function getImageSourceSupportedFormats(): string[];
+
+  /**
+   * Obtains the image formats (MIME types) that can be encoded.
+   *
+   * @returns { string[] } Returns an array of the supported image formats.
+   * @syscap SystemCapability.Multimedia.ImagePacker
+   * @since 20
+   */
+  function getImagePackerSupportedFormats(): string[];
 }
 
 export default image;

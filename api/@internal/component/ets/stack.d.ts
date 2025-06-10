@@ -63,6 +63,18 @@ declare interface StackOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Alignment of child components in the container.
+   *
+   * Anonymous Object Rectification
+   * @type { ?Alignment }
+   * @default Alignment.Center
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   alignContent?: Alignment;
 }
 
@@ -222,7 +234,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
   alignContent(value: Alignment): StackAttribute;
 
   /**
-   * Defines the PointLight
+   * Sets the point light style.
    *
    * @param { PointLightStyle } value - The point light style.
    * @returns { StackAttribute } The attribute of the stack.

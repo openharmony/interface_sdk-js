@@ -95,7 +95,6 @@
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Telephony.CoreService",
     "SystemCapability.Telephony.CallManager",
-    "SystemCapability.Telephony.CellularCall",
     "SystemCapability.Telephony.CellularData",
     "SystemCapability.Telephony.SmsMms",
     "SystemCapability.Telephony.StateRegistry",
@@ -118,7 +117,6 @@
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
     "SystemCapability.HiviewDFX.HiChecker",
-    "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
@@ -234,6 +232,8 @@
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Ability.AppStartup",
-    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.Test.PerfTest"
   ]
 }

@@ -36,6 +36,85 @@
  */
 declare namespace deviceInfo {
   /**
+   * Enumerates thedevice types.
+   * @enum { string }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum DeviceTypes {
+    /**
+     * Default device for phones
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_DEFAULT = 'default',
+
+    /**
+     * Phone device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_PHONE = 'phone',
+
+    /**
+     * Tablet device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_TABLET = 'tablet',
+
+    /**
+     * 2in1 device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_2IN1 = '2in1',
+
+    /**
+     * Tv device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_TV = 'tv',
+
+    /**
+     * Wearable device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_WEARABLE = 'wearable',
+
+    /**
+     * Car device
+     * 
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    TYPE_CAR = 'car'
+  }
+  /**
    * Obtains the device type represented by a string,
    * which can be {@code phone} (or {@code default} for phones), {@code wearable}, {@code liteWearable},
    * {@code tablet}, {@code tv}, {@code car}, or {@code smartVision}.
@@ -693,7 +772,7 @@ declare namespace deviceInfo {
    * @enum { number }
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   export enum PerformanceClassLevel {
     /**
@@ -701,7 +780,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_HIGH,
     /**
@@ -709,7 +788,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_MEDIUM,
     /**
@@ -717,7 +796,7 @@ declare namespace deviceInfo {
      * 
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 18
+     * @since 19
      */
     CLASS_LEVEL_LOW
   }
@@ -727,9 +806,31 @@ declare namespace deviceInfo {
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 18
+   * @since 19
    */
   const performanceClass: PerformanceClassLevel;
+
+  /**
+   * Obtains the SDK Minor api version.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  const sdkMinorApiVersion: number;
+
+  /**
+   * Obtains the SDK Patch api version.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  const sdkPatchApiVersion: number;
 }
 
 export default deviceInfo;

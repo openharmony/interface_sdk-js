@@ -940,7 +940,16 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @atomicservice
    * @since 11
    */
-  content?: string;
+  /**
+   * Set the text content.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  content?: ResourceStr;
 
   /**
    * Set the text style.

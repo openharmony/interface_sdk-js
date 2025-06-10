@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -102,6 +102,15 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   symbolIcon?: SymbolGlyphModifier;
 }
@@ -284,7 +293,7 @@ declare enum MenuAlignType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare enum AvoidanceMode {
   /**
@@ -293,7 +302,7 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   COVER_TARGET,
   /**
@@ -302,7 +311,7 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   AVOID_AROUND_TARGET
 }
@@ -327,7 +336,7 @@ declare type OnSelectCallback = (index: number, selectStr: string) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 20
  */
 declare interface MenuOutlineOptions {
   /**
@@ -337,7 +346,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   width?: Dimension | EdgeOutlineWidths;
  
@@ -348,7 +357,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   color?: ResourceColor | EdgeColors;
  }
@@ -1178,7 +1187,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   dividerStyle(style: Optional<DividerStyleOptions>): SelectAttribute;
 
@@ -1190,7 +1199,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   avoidance(mode: AvoidanceMode): SelectAttribute;
 
@@ -1202,9 +1211,33 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 20
    */
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
+
+  /**
+   * Sets whether to display in the sub window.
+   *
+   * @param { Optional<boolean> } showInSubWindow Whether to display in the sub window.
+   * @returns { SelectAttribute } The attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showInSubWindow(showInSubWindow: Optional<boolean>): SelectAttribute;
+
+  /**
+   * Set whether to display the default selected icon
+   *
+   * @param { boolean } show - whether to display the default selected icon.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showDefaultSelectedIcon(show: boolean): SelectAttribute;
 }
 
 /**
@@ -1247,6 +1280,15 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Indicates the symbol icon of this menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   symbolIcon?: SymbolGlyphModifier;
 

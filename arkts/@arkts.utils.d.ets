@@ -655,9 +655,6 @@ declare namespace utils {
        *
        * @param { string } name - Name of the ConditionVariable to find or create.
        * @returns { ConditionVariable } Returns an instance of ConditionVariable.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes:
-       * 1. Incorrect parameter types;
-       * 2. Parameter verification failed.
        * @static
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
@@ -679,9 +676,6 @@ declare namespace utils {
        * @param { number } timeout - The maximum time to wait.
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        * specified time limit is reached.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes:
-       * 1. Incorrect parameter types;
-       * 2. Parameter verification failed.
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18
@@ -1040,9 +1034,6 @@ declare namespace utils {
      * @param { K } key - The key to query.
      * @returns { V | undefined } The value associated with the key if the specified key is present;
      * returns undefined otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -1055,9 +1046,6 @@ declare namespace utils {
      * @param { V } value - The value associated with the key to add.
      * @returns { V } The value associated with the added key or the original value
      * if the key to add already exists.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -1068,9 +1056,6 @@ declare namespace utils {
      *
      * @param { K } key - The key to delete.
      * @returns { V | undefined } The deleted value or undefined.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -1081,9 +1066,6 @@ declare namespace utils {
      *
      * @param { K } key - The key to check.
      * @returns { boolean } The result of the checked.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18

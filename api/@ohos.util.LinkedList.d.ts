@@ -38,12 +38,13 @@
 /**
  * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
  * references pointing to the previous element and the next element. When querying an element,
- * the system traverses the list from the beginning or end. 
+ * the system traverses the list from the beginning or end.
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LinkedList<T> {
   /**
@@ -68,7 +69,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -96,6 +98,19 @@ declare class LinkedList<T> {
    * @since 12
    */
   length: number;
+
+    /**
+   * Gets the element number of the LinkedList.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Appends the specified element to the end of this linkedlist.
    *
@@ -124,7 +139,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(element: T): boolean;
   /**
@@ -170,7 +186,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   insert(index: number, element: T): void;
   /**
@@ -216,6 +233,21 @@ declare class LinkedList<T> {
    * @since 12
    */
   get(index: number): T;
+
+  /**
+   * Returns the element at the specified position in this linkedList,
+   * or returns undefined if this linkedList is empty
+   *
+   * @param { number } index - specified position
+   * @returns { T | undefined} the element at the specified index, or undefined if the index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(index: number): T | undefined;
+
   /**
    * Inserts the specified element at the beginning of this LinkedList.
    *
@@ -241,7 +273,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addFirst(element: T): void;
   /**
@@ -275,6 +308,20 @@ declare class LinkedList<T> {
    * @since 12
    */
   removeFirst(): T;
+
+  /**
+   * Retrieves and removes the head (first element) of this linkedList.
+   *
+   * @returns { T | undefined } the head of this list
+   * @throws { BusinessError } 10200010 - Container is empty.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  removeFirst(): T | undefined;
+
   /**
    * Removes and returns the last element from this linkedlist.
    *
@@ -306,6 +353,20 @@ declare class LinkedList<T> {
    * @since 12
    */
   removeLast(): T;
+
+  /**
+   * Removes and returns the last element from this linkedList.
+   *
+   * @returns { T | undefined } the head of this list
+   * @throws { BusinessError } 10200010 - Container is empty.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  removeLast(): T | undefined;
+
   /**
    * Check if linkedlist contains the specified element
    *
@@ -334,7 +395,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(element: T): boolean;
   /**
@@ -368,7 +430,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOf(element: T): number;
   /**
@@ -420,6 +483,23 @@ declare class LinkedList<T> {
    * @since 12
    */
   removeByIndex(index: number): T;
+
+  /**
+   * Find the corresponding element according to the index.
+   *
+   * @param { number } index - the index in the linkedList
+   * @returns { T | undefined } the T type, if the index is
+   * out of bounds (greater than or equal to length or less than 0), throw an exception
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= ${length}.
+   * Received value is: ${index}
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  removeByIndex(index: number): T | undefined;
+
   /**
    * Removes the first occurrence of the specified element from this linkedlist,
    * if it is present.  If the linkedlist does not contain the element, it is
@@ -454,7 +534,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   remove(element: T): boolean;
   /**
@@ -497,7 +578,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeFirstFound(element: T): boolean;
   /**
@@ -540,7 +622,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeLastFound(element: T): boolean;
   /**
@@ -574,7 +657,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLastIndexOf(element: T): number;
   /**
@@ -608,6 +692,20 @@ declare class LinkedList<T> {
    * @since 12
    */
   getFirst(): T;
+
+  /**
+   * Returns the first element (the item at index 0) of this linkedList.
+   * or returns undefined if linkedList is empty
+   *
+   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFirst(): T | undefined;
+
   /**
    * Returns the Last element (the item at index length-1) of this linkedlist.
    * or returns undefined if linkedlist is empty
@@ -639,6 +737,20 @@ declare class LinkedList<T> {
    * @since 12
    */
   getLast(): T;
+
+  /**
+   * Returns the Last element (the item at index length - 1) of this linkedList.
+   * or returns undefined if linkedList is empty
+   *
+   * @returns { T | undefined } the T type, returns undefined if linkedList is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLast(): T | undefined;
+
   /**
    * Replaces the element at the specified position in this Vector with the specified element
    *
@@ -688,6 +800,25 @@ declare class LinkedList<T> {
    * @since 12
    */
   set(index: number, element: T): T;
+
+  /**
+   * Replaces the element at the specified position in this Vector with the specified element
+   *
+   * @param { number } index - index index index to find
+   * @param { T } element - element element replaced element
+   * @returns { T | undefined } the T type ,returns undefined if linkedList is empty
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set(index: number, element: T): T | undefined;
+
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
@@ -749,6 +880,19 @@ declare class LinkedList<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Replaces each element of this linkedList with the result of applying the operator to that element.
+   *
+   * @param { LinkedListForEachCb } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackfn: LinkedListForEachCb<T>): void;
+
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will
    * be empty after this call returns.length becomes 0
@@ -774,7 +918,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -802,7 +947,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clone(): LinkedList<T>;
   /**
@@ -830,7 +976,8 @@ declare class LinkedList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   convertToArray(): Array<T>;
   /**
@@ -861,6 +1008,34 @@ declare class LinkedList<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<T> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
 }
+
+/**
+ * The type of LinkedList callback function.
+ *
+ * @typedef { function } LinkedListForEachCb
+ * @param { T } value - The value of current element
+ * @param { number } index - The index of current element
+ * @param { LinkedList<T> } linkedList - The LinkedList instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type LinkedListForEachCb<T> = (value: T, index: number, linkedList: LinkedList<T>) => void
 
 export default LinkedList;

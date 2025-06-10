@@ -63,7 +63,28 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Polyline width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Polyline width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Polyline height.
@@ -99,7 +120,28 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number
+  /**
+   * Polyline height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Polyline height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**
@@ -169,6 +211,7 @@ interface PolylineInterface {
    */
   /**
    * Uses new to create Polyline.
+   * Anonymous Object Rectification.
    *
    * @param { PolylineOptions } [options] - Poly line options
    * @returns { PolylineAttribute }
@@ -220,6 +263,7 @@ interface PolylineInterface {
    */
   /**
    * Called when using the draw fold.
+   * Anonymous Object Rectification.
    *
    * @param { PolylineOptions } [options] - Poly line options
    * @returns { PolylineAttribute }

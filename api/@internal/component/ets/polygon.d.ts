@@ -63,7 +63,28 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  width?: string | number;
+  /**
+   * Polygon width.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Polygon width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  width?: Length;
 
   /**
    * Polygon height.
@@ -99,7 +120,28 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  height?: string | number
+  /**
+   * Polygon height.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
+  /**
+   * Polygon height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  height?: Length;
 }
 
 /**
@@ -168,6 +210,7 @@ interface PolygonInterface {
    */
   /**
    * Uses new to create Polygon.
+   * Anonymous Object Rectification.
    *
    * @param { PolygonOptions } [options] - Polygon options
    * @returns { PolygonAttribute }
@@ -219,6 +262,7 @@ interface PolygonInterface {
    */
   /**
    * Called when drawing a polygon.
+   * Anonymous Object Rectification.
    *
    * @param { PolygonOptions } [options] - Polygon options
    * @returns { PolygonAttribute }

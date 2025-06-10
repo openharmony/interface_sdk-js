@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uri {
   /**
@@ -64,7 +65,8 @@ declare namespace uri {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name URI
    */
   class URI {
@@ -108,7 +110,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(uri: string);
     /**
@@ -133,7 +136,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
 
@@ -183,7 +187,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     equalsTo(other: URI): boolean;
 
@@ -209,7 +214,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkIsAbsolute(): boolean;
 
@@ -235,7 +241,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     normalize(): URI;
     /**
@@ -253,6 +260,21 @@ declare namespace uri {
      */
     getQueryValue(key: string): string;
     /**
+     * Searches the query string for the first value with the given key.
+     *
+     * @param { string } key - Given the first value of the key.
+     * @returns { string | null } Return decoded value, If no corresponding value is found return a null object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getQueryValue(key: string): string | null;
+    /**
      * Encodes the key and value and then appends the result to the query string.
      *
      * @param { string } [key] - The key it will be encoded with.
@@ -264,7 +286,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addQueryValue(key: string, value: string): URI;
     /**
@@ -277,6 +300,17 @@ declare namespace uri {
      * @since 12
      */
     getQueryNames(): string[];
+    /**
+     * Returns a set of the unique names of all query parameters.
+     *
+     * @returns { Array<string> } Return a set of decoded names.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getQueryNames(): Array<string>;
     /**
      * Searches the query string for parameter values with the given key.
      *
@@ -291,6 +325,19 @@ declare namespace uri {
      * @since 12
      */
     getQueryValues(key: string): string[];
+
+    /**
+     * Searches the query string for parameter values with the given key.
+     *
+     * @param { string } key - The key it will be encoded with.
+     * @returns { Array<string> } Return a set of decoded values.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getQueryValues(key: string): Array<string>;    
     /**
      * Searches the query string for the first value with the given key and interprets it as a boolean value.
      *
@@ -303,7 +350,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getBooleanQueryValue(key: string, defaultValue: boolean): boolean;
     /**
@@ -313,7 +361,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clearQuery(): URI;
     /**
@@ -323,7 +372,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLastSegment(): string;
     /**
@@ -337,6 +387,17 @@ declare namespace uri {
      */
     getSegment(): string[];
     /**
+     * Gets the decoded path segments.
+     *
+     * @returns { Array<string> } Return decoded path segments, each without a leading or trailing "/".
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getSegment(): Array<string>;
+    /**
      * Encodes the given path segment and appends it to the path.
      *
      * @param { string } [pathSegment] - path segment to be added.
@@ -347,7 +408,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addSegment(pathSegment: string): URI;
     /**
@@ -361,7 +423,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addEncodedSegment(pathSegment: string): URI;
     /**
@@ -371,7 +434,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkHierarchical(): boolean;
     /**
@@ -381,7 +445,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkOpaque(): boolean;
     /**
@@ -391,7 +456,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     checkRelative(): boolean;
     /**
@@ -408,7 +474,8 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static createFromParts(scheme: string, ssp: string, fragment: string): URI;
     /**
@@ -768,6 +835,334 @@ declare namespace uri {
      * @since 12
      */
     encodedSSP: string;
+    /**
+     * Gets the protocol part of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get scheme(): string | null;
+
+    /**
+     * Sets the protocol part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set scheme(input: string | null);
+
+    /**
+     * Gets Obtains the user information part of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get userInfo(): string | null;
+
+    /**
+     * Sets Obtains the user information part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set userInfo(input: string | null);
+
+    /**
+     * Gets the hostname portion of the URI without a port.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @since 20
+     * @arkts 1.2
+     */
+    get host(): string | null;
+
+    /**
+     * Gets the port portion of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @since 20
+     * @arkts 1.2
+     */
+    get port(): string;
+
+    /**
+     * Gets the path portion of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get path(): string | null;
+
+    /**
+     * Sets the path portion of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set path(input: string | null);
+
+    /**
+     * Gets the query portion of the URI
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get query(): string | null;
+
+    /**
+     * Sets the query portion of the URI
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set query(input: string | null);
+
+    /**
+     * Gets the fragment part of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get fragment(): string | null;
+
+    /**
+     * Sets the fragment part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set fragment(input: string | null);
+
+    /**
+     * Gets the decoding permission component part of this URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get authority(): string | null;
+
+    /**
+     * Sets the decoding permission component part of this URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set authority(input: string | null);
+
+    /**
+     * Gets the decoding scheme-specific part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get ssp(): string;
+
+    /**
+     * Sets the decoding scheme-specific part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set ssp(input: string | null);
+
+    /**
+     * Gets Obtains the encoded user information part of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedUserInfo(): string | null;
+    /**
+     * Sets Obtains the encoded user information part of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedUserInfo(input: string | null);
+
+    /**
+     * Gets the encoded path portion of the URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedPath(): string | null;
+    /**
+     * Sets the encoded path portion of the URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedPath(input: string | null);
+
+    /**
+     * Gets the encoded query component from this URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedQuery(): string | null;
+    /**
+     * Sets the encoded query component from this URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedQuery(input: string | null);
+
+    /**
+     * Gets the encoded fragment part of this URI, everything after the '#'.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedFragment(): string | null;
+    /**
+     * Sets the encoded fragment part of this URI, everything after the '#'.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedFragment(input: string | null);
+
+    /**
+     * Gets the encoded authority part of this URI.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedAuthority(): string | null;
+    /**
+     * Sets the encoded authority part of this URI.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedAuthority(input: string | null);
+
+    /**
+     * Gets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
+     * the fragment separator '#'.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get encodedSSP(): string;
+
+    /**
+     * Sets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
+     * the fragment separator '#'.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set encodedSSP(input: string | null);
   }
 }
 export default uri;

@@ -19,6 +19,25 @@
  */
 
 /**
+ * Defines the focus param.
+ *
+ * @interface FocusParamObj
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 3
+ */
+export interface FocusParamObj {
+  /**
+   * Whether needs to focus
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 3
+   */
+  focus: boolean;
+}
+
+
+/**
  * View model
  * @interface ViewModel
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
@@ -80,6 +99,60 @@ export interface ListElement {
    * @since 4
    */
   scrollTo(position: ListScrollToOptions): void;
+
+  /**
+   * Requests or cancels the crown rotation focus for a component.
+   * If focus is set to true, the crown event focus is requested.
+   * If focus is set to false, the crown event focus is canceled.
+   * This attribute can be defaulted to true.
+   *
+   * @param { FocusParamObj } [obj] - { focus: true | false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
+   */
+  rotation(obj?: FocusParamObj): void;
+}
+
+/**
+ * The <swiper> component provides a swiper container.
+ *
+ * @interface SwiperElement
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
+export interface SwiperElement {
+  /**
+   * Requests or cancels the crown rotation focus for a component.
+   * If focus is set to true, the crown event focus is requested.
+   * If focus is set to false, the crown event focus is canceled.
+   * This attribute can be defaulted to true.
+   *
+   * @param { FocusParamObj } [obj] - { focus: true | false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
+   */
+  rotation(obj?: FocusParamObj): void;
+}
+
+/**
+ * The <picker> component supports common, date, time, and multi-column text.
+ *
+ * @interface PickerElement
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
+export interface PickerElement {
+  /**
+   * Requests or cancels the crown rotation focus for a component.
+   * If focus is set to true, the crown event focus is requested.
+   * If focus is set to false, the crown event focus is canceled.
+   * This attribute can be defaulted to true.
+   *
+   * @param { FocusParamObj } [obj] - { focus: true | false }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
+   */
+  rotation(obj?: FocusParamObj): void;
 }
 
 /**

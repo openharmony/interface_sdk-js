@@ -40,16 +40,18 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace xml {
-  /**
+    /**
    * The XmlDynamicSerializer interface is used to dynamically generate an xml file.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name XmlDynamicSerializer
    */
   class XmlDynamicSerializer {
@@ -62,7 +64,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(encoding?: string);
 
@@ -77,7 +80,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAttributes(name: string, value: string): void;
 
@@ -90,7 +94,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addEmptyElement(name: string): void;
 
@@ -101,7 +106,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDeclaration(): void;
 
@@ -114,7 +120,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startElement(name: string): void;
 
@@ -126,7 +133,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endElement(): void;
 
@@ -140,7 +148,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setNamespace(prefix: string, namespace: string): void;
 
@@ -153,7 +162,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setComment(text: string): void;
 
@@ -166,7 +176,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCdata(text: string): void;
 
@@ -179,7 +190,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setText(text: string): void;
 
@@ -192,21 +204,23 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDocType(text: string): void;
 
     /**
      * Get an ArrayBuffer from a XmlDynamicSerializer instance.
      *
-     * @returns { ArrayBuffer } - Returns ArrayBuffer result from a XmlDynamicSerializer instance. Empty ArrayBuffer would return if internal error happens.
+     * @returns { ArrayBuffer } - Returns ArrayBuffer result from a XmlDynamicSerializer instance.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOutput(): ArrayBuffer;
-}
+  }
   /**
    * The XmlSerializer interface is used to generate an xml file.
    *
@@ -228,7 +242,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name XmlSerializer
    */
   class XmlSerializer {
@@ -281,7 +296,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
@@ -321,7 +337,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAttributes(name: string, value: string): void;
 
@@ -359,7 +376,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addEmptyElement(name: string): void;
 
@@ -382,7 +400,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDeclaration(): void;
 
@@ -420,7 +439,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startElement(name: string): void;
 
@@ -443,7 +463,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endElement(): void;
 
@@ -484,7 +505,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setNamespace(prefix: string, namespace: string): void;
 
@@ -522,7 +544,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setComment(text: string): void;
 
@@ -560,7 +583,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCDATA(text: string): void;
 
@@ -598,7 +622,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setText(text: string): void;
 
@@ -636,7 +661,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDocType(text: string): void;
   }
@@ -663,7 +689,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EventType {
     /**
@@ -685,7 +712,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_DOCUMENT,
     /**
@@ -707,7 +735,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     END_DOCUMENT,
     /**
@@ -729,7 +758,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_TAG,
     /**
@@ -751,7 +781,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     END_TAG,
     /**
@@ -773,7 +804,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT,
     /**
@@ -795,7 +827,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CDSECT,
     /**
@@ -817,7 +850,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMENT,
     /**
@@ -839,7 +873,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOCDECL,
     /**
@@ -861,7 +896,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INSTRUCTION,
     /**
@@ -883,7 +919,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTITY_REFERENCE,
     /**
@@ -905,7 +942,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WHITESPACE
   }
@@ -932,7 +970,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ParseInfo {
     /**
@@ -957,7 +996,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColumnNumber(): number;
     /**
@@ -982,7 +1022,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDepth(): number;
     /**
@@ -1007,7 +1048,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLineNumber(): number;
     /**
@@ -1032,7 +1074,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getName(): string;
     /**
@@ -1057,7 +1100,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNamespace(): string;
     /**
@@ -1082,7 +1126,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPrefix(): string;
     /**
@@ -1107,7 +1152,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getText(): string;
     /**
@@ -1132,7 +1178,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEmptyElementTag(): boolean;
     /**
@@ -1157,7 +1204,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWhitespace(): boolean;
     /**
@@ -1182,7 +1230,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAttributeCount(): number;
   }
@@ -1209,7 +1258,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ParseOptions {
     /**
@@ -1234,7 +1284,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     supportDoctype?: boolean;
 
@@ -1260,7 +1311,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ignoreNameSpace?: boolean;
 
@@ -1286,7 +1338,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tagValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -1312,7 +1365,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attributeValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -1338,7 +1392,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
   }
@@ -1364,7 +1419,8 @@ declare namespace xml {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    * @name XmlPullParser
    */
   class XmlPullParser {
@@ -1405,7 +1461,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
@@ -1473,7 +1530,8 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parseXml(option: ParseOptions): void;
   }

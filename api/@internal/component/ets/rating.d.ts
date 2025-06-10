@@ -63,6 +63,17 @@ declare interface RatingOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Rating option.
+   * Anonymous Object Rectification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
+   */
   rating: number;
 
   /**
@@ -98,6 +109,16 @@ declare interface RatingOptions {
    * @form
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Indicator option.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   indicator?: boolean
 }
@@ -147,7 +168,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  backgroundUri: string;
+  /**
+   * Background URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  backgroundUri: ResourceStr;
 
   /**
    * Foreground URI option.
@@ -183,7 +215,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  foregroundUri: string;
+  /**
+   * Foreground URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  foregroundUri: ResourceStr;
 
   /**
    * Secondary URI option.
@@ -219,7 +262,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  secondaryUri?: string
+  /**
+   * Secondary URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  secondaryUri?: ResourceStr
 }
 
 /**
@@ -297,6 +351,7 @@ interface RatingInterface {
    */
   /**
    * Called when a score bar is created.
+   * Anonymous Object Rectification.
    *
    * @param { RatingOptions } [options] - rating options
    * @returns { RatingAttribute }
@@ -569,6 +624,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    */
   /**
    * Called when a picture is set.
+   * Anonymous Object Rectification.
    *
    * @param { StarStyleOptions } options - star style options
    * @returns { RatingAttribute }

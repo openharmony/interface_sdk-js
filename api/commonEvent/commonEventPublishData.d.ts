@@ -14,19 +14,19 @@
  */
 
 /**
- * @file Containing the common event content and attributes
+ * @file The CommonEventPublishData module provides APIs for defining common event content and attributes.
  * @kit BasicServicesKit
  */
 
 /**
- * containing the common event content and attributes
+ * The CommonEventPublishData module provides APIs for defining common event content and attributes.
  *
  * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */
 /**
- * containing the common event content and attributes
+ * The CommonEventPublishData module provides APIs for defining common event content and attributes.
  *
  * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
@@ -34,34 +34,36 @@
  * @since 11
  */
 /**
- * containing the common event content and attributes
+ * The CommonEventPublishData module provides APIs for defining common event content and attributes.
  *
  * @typedef CommonEventPublishData
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventPublishData {
   /**
-   * bundle name
+   * Bundle name of the subscriber that can receive the common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * bundle name
+   * Bundle name of the subscriber that can receive the common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
   /**
-   * The custom result code of the common event.
+   * Common event data transferred by the publisher. The default value is 0.
    *
    * @type { ?number }
    * @default 0
@@ -69,25 +71,26 @@ export interface CommonEventPublishData {
    * @since 7
    */
   /**
-   * The custom result code of the common event.
+   * Common event data transferred by the publisher. The default value is 0.
    *
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code?: number;
 
   /**
-   * The custom result data of the common event.
+   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * The custom result data of the common event.
+   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -95,63 +98,67 @@ export interface CommonEventPublishData {
    * @since 11
    */
   /**
-   * The custom result data of the common event.
+   * Common event data transferred by the publisher. The data size cannot exceed 64 KB.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data?: string;
 
   /**
-   * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
+   * Permissions required for subscribers to receive the common event.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
+   * Permissions required for subscribers to receive the common event.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subscriberPermissions?: Array<string>;
 
   /**
-   * Whether the type of a common event is ordered or not.
+   * Whether the common event is an ordered one.
    *
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isOrdered?: boolean;
 
   /**
-   * Whether the type of a common event is sticky or not.
+   * Whether the common event is a sticky one. Only system applications and system services are allowed to send sticky events.
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isSticky?: boolean;
 
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event transferred by the publisher.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event transferred by the publisher.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -159,4 +166,14 @@ export interface CommonEventPublishData {
    * @since 11
    */
   parameters?: { [key: string]: any };
+
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: Record<string, Object>;
 }

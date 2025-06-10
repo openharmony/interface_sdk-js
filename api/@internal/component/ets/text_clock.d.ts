@@ -394,7 +394,24 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @atomicservice
    * @since 11
    */
-  format(value: string): TextClockAttribute;
+  /**
+   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
+   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
+   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * The default value is "hh:mm:ss" when TextClock is not in a form.
+   * The default value is "hh:mm" when TextClock is in a form.
+   * If the value has second or millisecond, the value will be set to the default value.
+   *
+   * @param { ResourceStr } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  format(value: ResourceStr): TextClockAttribute;
 
   /**
    * Provides a date change callback.

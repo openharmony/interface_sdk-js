@@ -155,6 +155,37 @@ declare enum RichEditorSpanType {
 }
 
 /**
+ * Defines undo style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum UndoStyle {
+  /**
+   * Undo without style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLEAR_STYLE = 0,
+
+  /**
+   * Undo keep style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  KEEP_STYLE = 1,
+}
+
+/**
  * ResponseType for contextMenu
  *
  * @enum { number }
@@ -598,6 +629,17 @@ declare interface RichEditorParagraphStyle {
   textAlign?: TextAlign;
 
   /**
+   * Vertical alignment of text.
+   *
+   * @type { ?TextVerticalAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textVerticalAlign?: TextVerticalAlign;
+
+  /**
    * Leading margin.
    *
    * @type { ?(Dimension | LeadingMarginPlaceholder) }
@@ -645,7 +687,7 @@ declare interface RichEditorParagraphStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   paragraphSpacing?: number;
 }
@@ -1548,7 +1590,7 @@ declare interface RichEditorTextSpanResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   urlStyle?: RichEditorUrlStyle;
 }
@@ -2040,7 +2082,7 @@ declare interface RichEditorTextSpanOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   urlStyle?: RichEditorUrlStyle;
 }
@@ -2346,7 +2388,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
     urlStyle?: RichEditorUrlStyle;
 }
@@ -2748,6 +2790,17 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
+
+  /**
+   * The reason for text changes.
+   *
+   * @type { ?TextChangeReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @atomicservice
+   * @since 20
+   */
+  changeReason?: TextChangeReason;
 }
 
 /**
@@ -3049,6 +3102,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setTypingStyle(value: RichEditorTextStyle): void;
 
   /**
+   * Set the typing paragraph style.
+   *
+   * @param { RichEditorParagraphStyle } style - set the typing paragraph style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  setTypingParagraphStyle(style: RichEditorParagraphStyle): void;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the rich editor.
    *
    * @param { number } selectionStart - The start position of the selected text.
@@ -3169,7 +3233,18 @@ declare class RichEditorController extends RichEditorBaseController {
    * @atomicservice
    * @since 11
    */
-  addTextSpan(value: string, options?: RichEditorTextSpanOptions): number;
+   /**
+   * Add a text span.
+   *
+   * @param { ResourceStr } content - text value.
+   * @param { RichEditorTextSpanOptions } [options] - span info.
+   * @returns { number } span index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
 
   /**
    * Add a image span.
@@ -3423,6 +3498,15 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get the StyledString of the RichEditor.
+   *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   getStyledString(): MutableStyledString;
 
@@ -4019,6 +4103,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
 
   /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enable: Optional<boolean>): RichEditorAttribute;
+
+  /**
    * Set the keyboard appearance.
    *
    * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
@@ -4039,6 +4135,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 18
    */
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Set undo style.
+   *
+   * @param { Optional<UndoStyle> } style - Default value is UndoStyle.CLEAR_STYLE.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
 }
 
 /**
@@ -4089,7 +4197,7 @@ declare interface CopyEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface RichEditorUrlStyle {
   /**
@@ -4099,7 +4207,7 @@ declare interface RichEditorUrlStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   url?: ResourceStr;
 }
