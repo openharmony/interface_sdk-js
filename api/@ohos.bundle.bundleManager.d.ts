@@ -854,14 +854,6 @@ declare namespace bundleManager {
     FORM_EDIT = 27,
 
     /**
-     * Indicates extension info with type of distributed
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
-     */
-    DISTRIBUTED = 28,
-
-    /**
      * Indicates extension info with type of app service
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
