@@ -6323,6 +6323,108 @@ declare interface RotateOptions {
 }
 
 /**
+ * The param of rotate about angle.
+ *
+ * @interface RotateAngleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare interface RotateAngleOptions {
+  /**
+   * the angle of the x-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleX?: number | string;
+
+  /**
+   * the angle of the y-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleY?: number | string;
+
+  /**
+   * the angle of the z-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleZ?: number | string;
+
+  /**
+   * The param of center point of x.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerX?: number | string;
+
+  /**
+   * The param of center point of y.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerY?: number | string;
+
+  /**
+   * The param of center point of z.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerZ?: number;
+
+  /**
+   * The param of camera distance, value range (-∞, ∞).
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  perspective?: number;
+}
+
+/**
  * Defines the param of transition.
  *
  * @interface TransitionOptions
@@ -13835,6 +13937,24 @@ declare interface DragEvent {
    * @since 20
    */
   getDisplayId(): number;
+  
+  /**
+   * Enable the internal drop animation, which is only avaiable for system applications.
+   *
+   * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
+   *
+   * This method can only be called in onDrop, and please do not use custom drop animation after this method,
+   * as it will reset the calling result, and use custom drop animation insteadly.
+   *
+   * @param { string } configuration - the internal drop animation's configuration.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 190003 - Operation not allowed for current phase.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  enableInternalDropAnimation(configuration: string): void;
 }
 
 /**
@@ -16222,6 +16342,18 @@ declare interface PopupCommonOptions {
   followTransformOfTarget?: boolean;
 
   /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
+  /**
    * The width of popup's outline.
    *
    * @type { ?Dimension }
@@ -17057,6 +17189,19 @@ declare interface PopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
@@ -17694,6 +17839,19 @@ declare interface CustomPopupOptions {
    * @since 15
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
+
+  /**
+   * Determine if popup can avoid the target when the display space is insufficient.
+   *
+   * @type { ?AvoidanceMode }
+   * @default AvoidanceMode.COVER_TARGET
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  avoidTarget?: AvoidanceMode;
+
   /**
    * The width of popup's outline.
    *
@@ -18462,6 +18620,61 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   modalMode?: ModalMode;
+
+  /**
+   * Defines the menu position.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  anchorPosition?: Position;
+
+  /**
+   * Callback function when the menu appears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidAppear?: Callback<void>;
+
+  /**
+   * Callback function when the menu disappears.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidDisappear?: Callback<void>;
+
+  /**
+   * Callback function before the menu openAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAppear?: Callback<void>;
+
+  /**
+   * Callback function before the menu closeAnimation starts.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillDisappear?: Callback<void>;
 }
 
 /**
@@ -24032,6 +24245,19 @@ declare class CommonMethod<T> {
    * @since 18
    */
   rotate(options: Optional<RotateOptions>): T;
+
+  /**
+   * Set component rotation.
+   *
+   * @param { Optional<RotateOptions | RotateAngleOptions> } options default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0,angle:0}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
 
   /**
    * Sets the transformation matrix of the component.

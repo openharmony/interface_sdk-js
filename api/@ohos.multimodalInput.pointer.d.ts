@@ -18,8 +18,14 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
 import type image from './@ohos.multimedia.image';
+/*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback } from './@ohos.base';
+import image from './@ohos.multimedia.image';
+/*** endif */
 
 /**
  * The pointer module provides APIs related to pointer attribute management, such as querying and setting pointer attributes.
@@ -34,7 +40,8 @@ import type image from './@ohos.multimedia.image';
  * @namespace pointer
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace pointer {
   /**
@@ -50,14 +57,17 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+
    */
   enum PointerStyle {
     /**
      * Default
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT,
 
@@ -65,7 +75,8 @@ declare namespace pointer {
      * East arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAST,
 
@@ -73,7 +84,8 @@ declare namespace pointer {
      * West arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WEST,
 
@@ -81,7 +93,8 @@ declare namespace pointer {
      * South arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH,
 
@@ -89,7 +102,8 @@ declare namespace pointer {
      * North arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH,
 
@@ -97,7 +111,8 @@ declare namespace pointer {
      * East-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WEST_EAST,
 
@@ -105,7 +120,8 @@ declare namespace pointer {
      * North-south arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_SOUTH,
 
@@ -113,7 +129,8 @@ declare namespace pointer {
      * North-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_EAST,
 
@@ -121,7 +138,8 @@ declare namespace pointer {
      * North-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_WEST,
 
@@ -129,7 +147,8 @@ declare namespace pointer {
      * South-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH_EAST,
 
@@ -137,7 +156,8 @@ declare namespace pointer {
      * South-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH_WEST,
 
@@ -145,7 +165,8 @@ declare namespace pointer {
      * Northeast and southwest adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -153,7 +174,8 @@ declare namespace pointer {
      * Northwest and southeast adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -161,7 +183,8 @@ declare namespace pointer {
      * Cross (accurate selection)
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CROSS,
 
@@ -169,7 +192,8 @@ declare namespace pointer {
      * Copy
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_COPY,
 
@@ -177,7 +201,8 @@ declare namespace pointer {
      * Forbid
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_FORBID,
 
@@ -185,7 +210,8 @@ declare namespace pointer {
      * Sucker
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR_SUCKER,
 
@@ -193,7 +219,8 @@ declare namespace pointer {
      * Grabbing hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_GRABBING,
 
@@ -201,7 +228,8 @@ declare namespace pointer {
      * Opening hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_OPEN,
 
@@ -209,7 +237,8 @@ declare namespace pointer {
      * Hand-shaped pointer
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_POINTING,
 
@@ -217,7 +246,8 @@ declare namespace pointer {
      * Help
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HELP,
 
@@ -225,7 +255,8 @@ declare namespace pointer {
      * Move
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MOVE,
 
@@ -233,7 +264,8 @@ declare namespace pointer {
      * Left and right resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESIZE_LEFT_RIGHT,
 
@@ -241,7 +273,8 @@ declare namespace pointer {
      * Up and down resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESIZE_UP_DOWN,
 
@@ -249,7 +282,8 @@ declare namespace pointer {
      * Screenshot crosshair
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENSHOT_CHOOSE,
 
@@ -257,7 +291,8 @@ declare namespace pointer {
      * Screenshot
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENSHOT_CURSOR,
 
@@ -265,7 +300,8 @@ declare namespace pointer {
      * Text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT_CURSOR,
 
@@ -273,7 +309,8 @@ declare namespace pointer {
      * Zoom in
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ZOOM_IN,
 
@@ -281,7 +318,8 @@ declare namespace pointer {
      * Zoom out
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ZOOM_OUT,
 
@@ -289,7 +327,8 @@ declare namespace pointer {
      * Scrolling east
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_EAST,
 
@@ -297,7 +336,8 @@ declare namespace pointer {
      * Scrolling west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_WEST,
 
@@ -305,7 +345,8 @@ declare namespace pointer {
      * Scrolling south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH,
 
@@ -313,7 +354,8 @@ declare namespace pointer {
      * Scrolling north
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH,
 
@@ -321,7 +363,8 @@ declare namespace pointer {
      * Scrolling north and south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -329,7 +372,8 @@ declare namespace pointer {
      * Scrolling northeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -337,7 +381,8 @@ declare namespace pointer {
      * Scrolling northwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -345,7 +390,8 @@ declare namespace pointer {
      * Scrolling southeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -353,7 +399,8 @@ declare namespace pointer {
      * Scrolling southwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -361,7 +408,8 @@ declare namespace pointer {
      * Moving as a cone in four directions
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -369,7 +417,8 @@ declare namespace pointer {
      * Horizontal text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -377,7 +426,8 @@ declare namespace pointer {
      * Precise selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_CROSS,
 
@@ -385,7 +435,8 @@ declare namespace pointer {
      * Cursor with circle style
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_CIRCLE,
 
@@ -393,14 +444,16 @@ declare namespace pointer {
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING,
 
@@ -408,14 +461,16 @@ declare namespace pointer {
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RUNNING,
 
@@ -423,7 +478,8 @@ declare namespace pointer {
      * Scrolling east and west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_EAST_WEST
   }
@@ -482,7 +538,7 @@ declare namespace pointer {
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
-     * Touchpad two fingers tap or right button
+     * Touchpad two fingers tap or right button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
@@ -490,7 +546,7 @@ declare namespace pointer {
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
       /**
-     * Touchpad two fingers tap or left button
+     * Touchpad two fingers tap or left button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
@@ -681,7 +737,8 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
@@ -694,7 +751,8 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
@@ -1341,7 +1399,7 @@ declare namespace pointer {
   function getTouchpadTapSwitch(): Promise<boolean>;
 
   /**
-   * SSets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
+   * Sets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
    * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.

@@ -1562,6 +1562,18 @@ declare type NodeIdentity = string | number;
 declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
+ * Defines the callback type used in UIObserver to monitor specific gesture triggered information.
+ *
+ * @typedef { function } GestureListenerCallback
+ * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
+
+/**
  * Defines the PageInfo type.
  * The value of routerPageInfo indicates the information of the router page, or undefined if the
  * frameNode does not have router page information. And the value of navDestinationInfo indicates
@@ -1767,7 +1779,7 @@ export class UIObserver {
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { 'navDestinationUpdateByUniqueId' } type - The type of event to listen for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1775,12 +1787,12 @@ export class UIObserver {
    * @atomicservice
    * @since 20
    */
-  on(type: 'navDestinationUpdate', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
+  on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
    *                                                      will be removed.
@@ -1789,7 +1801,7 @@ export class UIObserver {
    * @atomicservice
    * @since 20
    */
-  off(type: 'navDestinationUpdate', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
+  off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the scroll event start or stop.
@@ -2342,6 +2354,33 @@ export class UIObserver {
    * @since 20
    */
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Registers a callback to monitor the gesture trigger information.
+   *
+   * @param { GestureListenerType } type - The type of gesture to monitor.
+   * @param { GestureObserverConfigs } option - The options when bind the global listener.
+   * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
+   *                                               is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  addGlobalGestureListener(type: GestureListenerType,
+      option: GestureObserverConfigs, callback: GestureListenerCallback): void;
+  /**
+   * Removes a callback function for one gesture listener type.
+   *
+   * @param { GestureListenerType } type - The type of event to remove the listener for.
+   * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
+   *                                                      all callbacks for the given gesture type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 }
 
 /**
@@ -2587,6 +2626,82 @@ export interface AtomicServiceBar {
    * @since 15
    */
   getBarRect(): Frame;
+}
+
+/**
+ * The information when one gesture specific callback is triggered.
+ *
+ * @interface GestureTriggerInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface GestureTriggerInfo {
+  /**
+   * The gesture event object.
+   *
+   * @type { GestureEvent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  event: GestureEvent;
+  /**
+   * The gesture recognizer object. You can obtain the detailed information of the gesture from it,
+   * but please do not keep this object locally, as it might be unavailable when the node is released.
+   *
+   * @type { GestureRecognizer }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  current: GestureRecognizer;
+  /**
+   * The gesture action callback phase.
+   *
+   * @type { GestureActionPhase }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  currentPhase: GestureActionPhase;
+  /**
+   * The node which the gesture is being triggered on.
+   *
+   * @type { ?FrameNode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  node?: FrameNode;
+}
+
+/**
+ * The observer options for global gesture listener.
+ *
+ * @interface GestureObserverConfigs
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface GestureObserverConfigs {
+  /**
+   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the gesture is triggered.
+   * If empty array provided, the register will has no any effect.
+   *
+   * @type { Array<GestureActionPhase> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  actionPhases: Array<GestureActionPhase>;
 }
 
 /**
@@ -3283,6 +3398,26 @@ export class ComponentSnapshot {
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Get a component snapshot by component range.
+   *
+   * @param { NodeIdentity } start - the start component ID, set by developer through .id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { NodeIdentity } end - the end component ID, set by developer through.id attribute or the unique ID
+   *     get from FrameNode.
+   * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
+   *     rect of the start component, false for using the rect of the end component.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 }
 
 /**
@@ -4302,6 +4437,18 @@ export class UIContext {
   getTextMenuController(): TextMenuController;
 
   /**
+   * Set the keyboard appearance config for this input component before attach InputMethod.
+   *
+   * @param { number } uniqueId - The unique id of the input component.
+   * @param { KeyboardAppearanceConfig } config - The config of keyboard.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
+
+  /**
    * Create a UI instance singleton without window and get its UIContext object.
    *
    * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
@@ -4514,4 +4661,105 @@ export const enum NodeRenderState {
    * @since 20
    */
   ABOUT_TO_RENDER_OUT = 1
+}
+
+/**
+ * This is an enumeration type representing the gesture callback phases to be triggered, corresponding to
+ * the action callbacks defined in gesture.d.ts. Therefore, not all gesture types have all the following
+ * phase definitions. For example, SwipeGesture only has one callback named onAction, so it also only has
+ * one enumeration type, which is WILL_START.
+ *
+ * @enum { number } GestureActionPhase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export const enum GestureActionPhase {
+  /**
+   * The gesture has been successfully recognized by the system, and the action-start/action callback will be
+   * executed immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  WILL_START = 0,
+  /**
+   * This indicates the gesture has been determined to be an end, which usually happens when the user lifts their
+   * fingers, ending the entire interaction, and the action-end callback will be executed immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  WILL_END = 1
+}
+
+/**
+ * This is an enumeration type indicating what kind of gesture you want to monitor for.
+ *
+ * @enum { number } GestureListenerType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+ export const enum GestureListenerType {
+  /**
+   * The tap gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TAP = 0,
+  /**
+   * The long press gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  LONG_PRESS = 1,
+  /**
+   * The pan gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  PAN = 2,
+  /**
+   * The pinch gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  PINCH = 3,
+  /**
+   * The swipe gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SWIPE = 4,
+  /**
+   * The rotation gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  ROTATION = 5
 }

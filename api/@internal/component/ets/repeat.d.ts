@@ -142,7 +142,7 @@ interface TemplateOptions {
  * @atomicservice
  * @since 12
  */
-declare type TemplateTypedFunc<T> = (item : T, index : number) => string;
+declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
 
 /**
  * Define builder function to render one template type.
@@ -223,7 +223,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @atomicservice
    * @since 12
    */
-  template(type : string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
+  template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>;
   /**
    * Typed function to render specific type of data item.
    *

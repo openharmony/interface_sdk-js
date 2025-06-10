@@ -31,7 +31,8 @@
  * @typedef ShellCmdResult
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShellCmdResult {
   /**
@@ -69,4 +70,6 @@ export interface ShellCmdResult {
   exitCode: number;
 }
 
+/*** if arkts 1.1 */
 export default ShellCmdResult;
+/*** endif */

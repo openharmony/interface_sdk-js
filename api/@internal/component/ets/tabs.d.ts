@@ -1353,6 +1353,11 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    *
    * @param { Curve | ICurve } curve - animation curve for tabs switch animation,
    *     Curve is an enumeration type for common curves, ICurve is a curve object.
+   * Default value:
+   * When pages are turned by swiping in TabContent, the default value is
+   * interpolatingSpring(-1, 1, 228, 30).
+   * When pages are turned by tapping tabs or calling the changeIndex API of TabsController,
+   * the default value is cubicBezierCurve(0.2, 0.0, 0.1, 1.0).
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -19,13 +19,15 @@
  */
 
 import { AsyncCallback } from '../@ohos.base';
-import UIAbility from '../@ohos.app.ability.UIAbility';
-import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityMonitor } from './AbilityMonitor';
-import { AbilityStageMonitor } from './AbilityStageMonitor';
 import Context from './Context';
 import Want from '../@ohos.app.ability.Want';
 import { ShellCmdResult } from './shellCmdResult';
+/*** if arkts 1.1 */
+import UIAbility from '../@ohos.app.ability.UIAbility';
+import AbilityStage from '../@ohos.app.ability.AbilityStage';
+import { AbilityStageMonitor } from './AbilityStageMonitor';
+/*** endif */
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -49,7 +51,8 @@ import { ShellCmdResult } from './shellCmdResult';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityDelegator {
   /**
@@ -83,7 +86,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
@@ -118,7 +122,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
@@ -668,7 +673,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getAppContext(): Context;
 
@@ -836,7 +842,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -911,7 +918,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want): Promise<void>;
 
@@ -1166,7 +1174,8 @@ export interface AbilityDelegator {
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -1187,7 +1196,8 @@ export interface AbilityDelegator {
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
 
@@ -1208,7 +1218,8 @@ export interface AbilityDelegator {
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
@@ -1308,4 +1319,6 @@ export interface AbilityDelegator {
   setMockList(mockList: Record<string, string>): void;
 }
 
+/*** if arkts 1.1 */
 export default AbilityDelegator;
+/*** endif */

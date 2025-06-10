@@ -954,6 +954,25 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
   /**
+   * Sets the fill color to be superimposed on the image.
+   * By default, no fill color is applied. If an invalid value is passed, the system uses the default theme color:
+   * black in light mode and white in dark mode.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute applies only to SVG images.
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ResourceColor | ColorContent | ColorMetrics } color
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fillColor(color: ResourceColor | ColorContent | ColorMetrics): ImageAttribute;
+
+  /**
    * Sets the zoom type of an image.
    *
    * @param { ImageFit } value

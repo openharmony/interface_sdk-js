@@ -25,7 +25,8 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
- * @since 10
+ * @since arkts{ '1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cloudSyncManager {
   /**
@@ -41,7 +42,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
@@ -58,7 +60,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function changeAppCloudSwitch(
     accountId: string,
@@ -79,7 +82,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
@@ -95,7 +99,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -112,7 +117,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
@@ -129,7 +135,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableCloud(accountId: string, switches: Record<string, boolean>, callback: AsyncCallback<void>): void;
 
@@ -145,7 +152,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableCloud(accountId: string): Promise<void>;
 
@@ -161,7 +169,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
@@ -171,7 +180,8 @@ declare namespace cloudSyncManager {
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum Action {
     /**
@@ -179,7 +189,8 @@ declare namespace cloudSyncManager {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RETAIN_DATA,
 
@@ -188,7 +199,8 @@ declare namespace cloudSyncManager {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CLEAR_DATA
   }
@@ -206,7 +218,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
@@ -223,7 +236,8 @@ declare namespace cloudSyncManager {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
@@ -241,7 +255,8 @@ declare namespace cloudSyncManager {
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function notifyDataChange(userId: number, extraData: ExtraData): Promise<void>;
 
@@ -259,7 +274,8 @@ declare namespace cloudSyncManager {
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function notifyDataChange(userId: number, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
@@ -269,7 +285,8 @@ declare namespace cloudSyncManager {
    * @interface ExtraData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ExtraData {
     /**
@@ -278,7 +295,8 @@ declare namespace cloudSyncManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 11
+     * @since arkts{ '1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventId: string;
     /**
@@ -287,7 +305,8 @@ declare namespace cloudSyncManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
-     * @since 11
+     * @since arkts{ '1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraData: string;
   }

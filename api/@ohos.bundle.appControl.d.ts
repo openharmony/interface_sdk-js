@@ -251,6 +251,46 @@ declare namespace appControl {
   }
 
   /**
+   * Indicate the configuration for batch interception settings.
+   *
+   * @typedef DisposedRuleConfiguration
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 20
+   */
+  export interface DisposedRuleConfiguration {
+    /**
+     * Indicates the app ID of the application.
+     *
+     * @type { string }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 20
+     */
+    appId: string;
+
+    /**
+     * Indicates the index of clone app.
+     *
+     * @type { number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 20
+     */
+    appIndex: number;
+
+    /**
+     * Indicates the rule for interception.
+     *
+     * @type { DisposedRule }
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 20
+     */
+    disposedRule: DisposedRule;
+  }
+
+  /**
    * Set the disposed status of a specified bundle.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
@@ -544,6 +584,22 @@ declare namespace appControl {
    * @since 15
    */
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: number): void;
+
+  /**
+   * Batch set disposed rules for specified bundles.
+   *
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @param { Array<DisposedRuleConfiguration> } disposedRuleConfigurations - Indicate the configuration for batch interception settings.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700005 - The specified app ID is invalid.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 20
+   */
+  function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
 }
 
 export default appControl;

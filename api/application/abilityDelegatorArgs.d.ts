@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityDelegatorArgs {
   /**
@@ -65,7 +66,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -148,4 +150,6 @@ export interface AbilityDelegatorArgs {
   testRunnerClassName: string;
 }
 
+/*** if arkts 1.1 */
 export default AbilityDelegatorArgs;
+/*** endif */

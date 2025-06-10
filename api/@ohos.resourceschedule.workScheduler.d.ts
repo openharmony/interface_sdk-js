@@ -194,7 +194,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -213,7 +213,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -230,7 +230,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -247,7 +247,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -265,7 +265,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
@@ -282,7 +282,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 10
@@ -298,7 +298,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
@@ -313,7 +313,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since 9
@@ -330,7 +330,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -348,7 +348,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
@@ -365,7 +365,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9700003 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly

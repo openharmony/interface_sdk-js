@@ -18,10 +18,12 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
-import CompletionHandler from "./@ohos.app.ability.CompletionHandler";
+import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** endif */
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -36,7 +38,8 @@ import CompletionHandler from "./@ohos.app.ability.CompletionHandler";
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class StartOptions {
   /**
@@ -67,7 +70,8 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   displayId?: number;
 

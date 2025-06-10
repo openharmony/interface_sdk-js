@@ -698,6 +698,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textAlign(value: TextAlign): TextAttribute;
 
   /**
+   * Set the vertical align of the text.
+   *
+   * @param { Optional<TextVerticalAlign> } textVerticalAlign - The default value is BASELINE.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textVerticalAlign(textVerticalAlign: Optional<TextVerticalAlign>): TextAttribute;
+
+  /**
    * Called when the vertical center mode of the font is set.
    *
    * @param { number | string | Resource } value
@@ -1667,14 +1679,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Whether to enable automatic spacing between Chinese and Latin characters.
    *
-   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  enableAutoSpacing(enable: Optional<boolean>): TextAttribute;
+  enableAutoSpacing(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**

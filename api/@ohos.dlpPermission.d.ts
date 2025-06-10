@@ -1520,14 +1520,14 @@ declare namespace dlpPermission {
   }
 
   /**
-   * Generates a DLP file. This method uses a promise to return result.
+   * Generates a DLP file. This method uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-   * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
-   * @param { DLPProperty } property - Indicates the property of the DLP file.
-   * @param { CustomProperty } customProperty - Indicates the custom property of the DLP file.
-   * @returns { Promise<void> }.
+   * @param { number } plaintextFd - FD of the file in plaintext.
+   * @param { number } dlpFd - FD of the DLP file to generate.
+   * @param { DLPProperty } property - General DLP policy to use.
+   * @param { CustomProperty } customProperty - Custom DLP policy to use.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1537,6 +1537,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100005 - Credential authentication server error.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100014 - Account not logged in.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 20
@@ -1544,7 +1545,7 @@ declare namespace dlpPermission {
   function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
 
   /**
-   * Query a DLP file. This method uses a promise to return the result.
+   * Queries the DLP policy. This method uses a promise to return the result.
    * 
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
@@ -1552,7 +1553,14 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
+   * @throws { BusinessError } 19100003 - Credential task time out.
+   * @throws { BusinessError } 19100004 - Credential service error.
+   * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
+   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 20
@@ -1560,7 +1568,7 @@ declare namespace dlpPermission {
   function queryDlpPolicy(dlpFd: number): Promise<string>;
 
   /**
-   * Decrypt a DLP file. This method uses a promise to return result.
+   * Decrypts a DLP file. This method uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
@@ -1573,8 +1581,10 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100003 - Credential task time out.
    * @throws { BusinessError } 19100004 - Credential service error.
    * @throws { BusinessError } 19100005 - Credential authentication server error.
+   * @throws { BusinessError } 19100008 - The file is not a DLP file.
    * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
+   * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 20

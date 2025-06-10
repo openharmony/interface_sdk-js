@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventPublishData {
   /**
@@ -56,7 +57,8 @@ export interface CommonEventPublishData {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
@@ -75,7 +77,8 @@ export interface CommonEventPublishData {
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code?: number;
 
@@ -101,7 +104,8 @@ export interface CommonEventPublishData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data?: string;
 
@@ -118,7 +122,8 @@ export interface CommonEventPublishData {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subscriberPermissions?: Array<string>;
 
@@ -128,7 +133,8 @@ export interface CommonEventPublishData {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isOrdered?: boolean;
 
@@ -139,7 +145,8 @@ export interface CommonEventPublishData {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isSticky?: boolean;
 
@@ -159,4 +166,14 @@ export interface CommonEventPublishData {
    * @since 11
    */
   parameters?: { [key: string]: any };
+
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: Record<string, Object>;
 }

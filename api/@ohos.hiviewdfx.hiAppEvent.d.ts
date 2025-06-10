@@ -369,6 +369,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     const MAIN_THREAD_JANK: string;
+
+    /**
+     * App killed event. This is a system event name constant.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    const APP_KILLED: string;
   }
 
   /**
@@ -2232,6 +2242,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     customConfigs?: Record<string, string>;
+  
+    /**
+     * Initialize the processor by reading the configuration file based on the name.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 20
+     */
+    configName?: string;
   }
 
   /**
@@ -2252,6 +2272,21 @@ declare namespace hiAppEvent {
    * @since 11
    */
   function addProcessor(processor: Processor): number;
+
+  /**
+   * Add the processor from config asynchronously, who can report the event.
+   *
+   * @param { string } processorName The name of the processor.
+   * @param { string } [configName] Initialize the processor by reading the configuration file based on the name.
+   * @returns { Promise<number> }  The processor unique ID.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 20
+   */
+  function addProcessorFromConfig(processorName: string, configName?: string): Promise<number>;
 
   /**
    * Removes the data processor of a reported event.

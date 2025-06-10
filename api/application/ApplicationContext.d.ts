@@ -18,14 +18,17 @@
  * @kit AbilityKit
  */
 
-import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
+
+/*** if arkts 1.1 */
+import { AsyncCallback } from '../@ohos.base';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+/*** endif */
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -53,9 +56,10 @@ import Want from '../@ohos.app.ability.Want';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class ApplicationContext extends Context {
+declare class ApplicationContext extends Context {
   /**
    * Register ability lifecycle callback.
    *
@@ -705,7 +709,8 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setSupportedProcessCache(isSupported : boolean): void;
 
@@ -795,3 +800,5 @@ export default class ApplicationContext extends Context {
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }
+
+export default ApplicationContext;

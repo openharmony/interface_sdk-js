@@ -506,6 +506,20 @@ declare class CanvasGradient {
    * @since 11
    */
   addColorStop(offset: number, color: string): void;
+
+  /**
+   * Add a breakpoint defined by offset and color to the gradient
+   *
+   * @param { number } offset - Value between 0 and 1.
+   * @param { string | ColorMetrics } color - Set the gradient color.
+   * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  addColorStop(offset: number, color: string | ColorMetrics): void;
 }
 
 /**
