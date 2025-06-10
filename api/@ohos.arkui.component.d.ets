@@ -56,6 +56,7 @@ export * from './arkui/component/effectComponent';
 export * from './arkui/component/ellipse';
 export * from './arkui/component/embeddedComponent';
 export * from './arkui/component/enums';
+export * from './arkui/component/extendableComponent';
 export * from './arkui/component/flex';
 export * from './arkui/component/flowItem';
 export * from './arkui/component/focus';

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,8 +18,22 @@
  * @arkts 1.2
  */
 
- export declare class BackingValue<T> {
-    public constructor(initValue: T)
-    public get value(): T
-    public set value(newVale: T)
- }
+/**
+ * Defining interface of LifeCycle for custom component and custom dialog
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export interface LifeCycle {
+}
+
+/**
+ * Definition of extendable component, which is base class of custom component and custom dialog.
+ *
+ * @implements LifeCycle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare abstract class ExtendableComponent implements LifeCycle {
+
+}
