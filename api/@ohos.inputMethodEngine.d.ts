@@ -2277,9 +2277,10 @@ declare namespace inputMethodEngine {
 
     /**
      * Set immersive effect.
+     * If a normal application uses the fluidLightMode property and sets it to a value other than NONE,
+     * the interface will throw 202.
      * 
      * @param { ImmersiveEffect } effect - immersive effect.
-     * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 801 - capability not supported.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1. input method panel not created. 2. the input method application does not subscribe to related events.
