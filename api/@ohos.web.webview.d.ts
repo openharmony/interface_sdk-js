@@ -6349,6 +6349,16 @@ declare namespace webview {
     getLastHitTest(): HitTestValue;
 
     /**
+     * Get the page offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.  
+     * And the unit is virtual pixel.
+     *
+     * @returns { ScrollOffset } page offset
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getPageOffset(): ScrollOffset;
+
+    /**
      * Set the default User-Agent for the application.
      *
      * <p><strong>API Note</strong>:<br>
