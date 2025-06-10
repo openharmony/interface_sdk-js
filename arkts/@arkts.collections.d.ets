@@ -16,10 +16,11 @@
 /**
  * @file Defines the collections for ArkTS
  * @kit ArkTS
- * @arkts 1.1
  */
 
+/*** if arkts 1.1 */
 import lang from './@arkts.lang'
+/*** endif */
 
 /**
  * ArkTS collections.
@@ -37,7 +38,7 @@ import lang from './@arkts.lang'
  * @crossplatform
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1 & 1.2
+ * @arkts 1.1&1.2
  */
 declare namespace collections {
   /**
