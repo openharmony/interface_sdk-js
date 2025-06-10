@@ -10385,7 +10385,6 @@ declare enum PageFlipMode {
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @form
  * @atomicservice
  * @since 20
  */
