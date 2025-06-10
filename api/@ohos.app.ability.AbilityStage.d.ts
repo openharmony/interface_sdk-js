@@ -47,9 +47,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityStage {
+declare class AbilityStage {
   /**
    * Indicates configuration information about context.
    *
@@ -76,7 +77,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AbilityStageContext;
 
@@ -106,7 +108,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(): void;
 
@@ -212,7 +215,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -256,7 +260,8 @@ export default class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 
@@ -303,3 +308,6 @@ export default class AbilityStage {
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }
+
+
+export default AbilityStage;

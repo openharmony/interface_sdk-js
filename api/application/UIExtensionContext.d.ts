@@ -18,10 +18,13 @@
  * @kit AbilityKit
  */
 
-import type { AbilityResult } from '../ability/abilityResult';
+/*** if arkts 1.2 */
+import { AbilityResult } from '../ability/abilityResult';
+/*** endif */
 import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 /*** if arkts 1.1 */
+import type { AbilityResult } from '../ability/abilityResult';
 import type { ConnectOptions } from '../ability/connectOptions';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';

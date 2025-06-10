@@ -22,8 +22,8 @@ import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
-/*** if arkts 1.1 */
 import UIAbilityContext from './application/UIAbilityContext';
+/*** if arkts 1.1 */
 import rpc from './@ohos.rpc';
 /*** endif */
 
@@ -316,7 +316,8 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: UIAbilityContext;
 

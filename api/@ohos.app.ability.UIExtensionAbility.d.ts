@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
-/*** endif */
 import type Want from './@ohos.app.ability.Want';
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
@@ -60,7 +58,8 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the LaunchParam information about UIExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(launchParam: AbilityConstant.LaunchParam): void;
 
