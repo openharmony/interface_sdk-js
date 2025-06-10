@@ -106,7 +106,7 @@ declare namespace media {
    * The actual number of instances that can be created may be different. It depends on the specifications of
    * the device chip in use.
    * 
-   * @returns { Promise<AVPlayer> } Callback used to return the result. If the operation is successful, an 
+   * @returns { Promise<AVPlayer> } A Promise instance used to return the result. If the operation is successful, an
    * **AVPlayer** instance is returned; **null** is returned otherwise. The instance can be used to play
    * audio and video.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -2608,8 +2608,8 @@ declare namespace media {
      * @param { number } width - width of the window. The value range is [320-1920], in px.
      * @param { number } height - height of the window. The value range is [320-1080], in px.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5410003 - Super-resolution not supported. Return by promise.
      * @throws { BusinessError } 5410004 - Missing enable super-resolution feature in {@link PlaybackStrategy}.
      *                                     Return by promise.
@@ -2636,6 +2636,19 @@ declare namespace media {
      * Media URI. It can be set only when the AVPlayer is in the idle state.
      * The video formats MP4, MPEG-TS, and MKV are supported.
      * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
+     * 
+     * <br>**NOTE:**<br>
+     * To set a network playback path, you must declare the ohos.permission.INTERNET permission by following the
+     * instructions provided in Declaring Permissions. The error code 201 may be reported.
+     * 
+     * WebM is no longer supported since API version 11.
+     * 
+     * After the resource handle (FD) is transferred to an **AVPlayer** instance, do not use the resource handle to
+     * perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance. Competition
+     * occurs when multiple AVPlayers use the same resource handle to read and write files at the same time,
+     * resulting in errors in obtaining data.
+     * 
      * Network:http://xxx
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2661,6 +2674,10 @@ declare namespace media {
      * This attribute is required when media assets of an application are continuously stored in a file.
      * The video formats MP4, MPEG-TS, and MKV are supported.
      * The audio formats M4A, AAC, MP3, OGG, WAV, FLAC, and AMR are supported.
+     * 
+     * <br>**NOTE:**<br>
+     * WebM is no longer supported since API version 11.
+     * 
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
@@ -3745,7 +3762,7 @@ declare namespace media {
      * connected or disconnected by referring to Responding to Audio Output Device Changes.
      * @param { 'audioOutputDeviceChangeWithInfo' } type - Type of the event to listen for.
      * The event is triggered when the output device is changed.
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - 	Callback used to return the output device
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to return the output device
      * descriptor of the current audio stream and the change reason.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -4174,6 +4191,7 @@ declare namespace media {
    * @returns { number } - return the handle of current resource open request.
    *                        A value greater than 0 means the request is successful.
    *                        A value less than or equal to 0 means it fails.
+   *                     - The handle for the request object is unique.
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -4347,8 +4365,8 @@ declare namespace media {
      * @param { number } offset - Offset of the current media data relative to the start of the resource.
      * @param { ArrayBuffer } buffer - Media data sent to the player.
      * @returns { number } - accept bytes for current read. The value less than zero means failed.
-     *                    - 2, means player need current data any more, the client should stop current read process.
-     *                    - 3, means player buffer is full, the client should wait for next read.
+     *                    -2, means player need current data any more, the client should stop current read process.
+     *                    -3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 18
@@ -4582,6 +4600,17 @@ declare namespace media {
      * @since 18
      */
     thresholdForAutoQuickPlay?: number
+
+    /**
+     * Indicates whether to keep the decoder working when closing the media,
+     * which is used to facilitate quick opening of the media. Currently only supports video
+     * @type { ?boolean } The default value is false, which means that the corresponding decoder
+     *                    will be stopped when the media is closed to reduce power consumption.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     */
+    keepDecodingOnMute?: boolean;
   }
 
   /**
