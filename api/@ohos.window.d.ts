@@ -33,6 +33,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
+import { Callback } from './@ohos.base';
 /*** endif */
 
 /*** if arkts 1.1 */
@@ -56,18 +57,6 @@ declare interface Callback<T, V = void> {
    */
   (data: T): V;
 }
-/*** endif */
-
-/*** if arkts 1.2 */
-/**
- * Defines the window callback.
- *
- * @typedef { Callback<T, V = void> }
- * @syscap SystemCapability.Window.SessionManager
- * @atomicservice
- * @since 20
- */
-type Callback<T, V = void> = (data: T) => V;
 /*** endif */
 
 /**
