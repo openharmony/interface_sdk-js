@@ -74,8 +74,9 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+	 * @since arkts{ '1.1':'15','1.2':'20'}
+	 * @arkts 1.1&1.2
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
@@ -93,8 +94,9 @@ declare namespace motion {
    * <br>2. N-API invocation exception, invalid N-API status.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+	 * @since arkts{ '1.1':'15','1.2':'20'}
+	 * @arkts 1.1&1.2
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
@@ -108,8 +110,9 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
-   * @since 15
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+	 * @since arkts{ '1.1':'15','1.2':'20'}
+	 * @arkts 1.1&1.2
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 }
