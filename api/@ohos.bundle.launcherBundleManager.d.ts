@@ -226,13 +226,6 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  /**
-   * Provides information about a shortcut, including the shortcut ID and label.
-   *
-   * @typedef { _ShortcutInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   export type ShortcutInfo = _ShortcutInfo;
   /**
    * Obtains information about the ability that a shortcut will start.
@@ -242,13 +235,6 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
-  /**
-   * Obtains information about the ability that a shortcut will start.
-   *
-   * @typedef { _ShortcutWant }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   export type ShortcutWant = _ShortcutWant;
   /**
    * Indicates the custom parameters in shortcut want.
@@ -257,13 +243,6 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the custom parameters in shortcut want.
-   *
-   * @typedef { _ParameterItem }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   export type ParameterItem = _ParameterItem;
 }

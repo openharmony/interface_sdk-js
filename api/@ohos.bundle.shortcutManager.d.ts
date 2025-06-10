@@ -28,13 +28,6 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @systemapi
  * @since 12
  */
-/**
- * Desktop shortcut bundle manager.
- *
- * @namespace shortcutManager
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- */
 declare namespace shortcutManager {
   /**
    * Add desktop shortcut info.
@@ -103,28 +96,12 @@ declare namespace shortcutManager {
   function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
 
   /**
-   * Obtains all shortcut info of the application.
-   *
-   * @returns { Promise<Array<ShortcutInfo>> } The LauncherShortcutInfo object.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
-    function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
-
-  /**
    * Provides information about a shortcut, including the shortcut ID and label.
    *
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Provides information about a shortcut, including the shortcut ID and label.
-   *
-   * @typedef { _ShortcutInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   export type ShortcutInfo = _ShortcutInfo;
   /**
@@ -135,13 +112,6 @@ declare namespace shortcutManager {
    * @systemapi
    * @since 12
    */
-  /**
-   * Obtains information about the ability that a shortcut will start.
-   *
-   * @typedef { _ShortcutWant }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   export type ShortcutWant = _ShortcutWant;
   /**
    * Indicates the custom parameters in shortcut want.
@@ -150,13 +120,6 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-    /**
-   * Indicates the custom parameters in shortcut want.
-   *
-   * @typedef { _ParameterItem }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   export type ParameterItem = _ParameterItem;
   }

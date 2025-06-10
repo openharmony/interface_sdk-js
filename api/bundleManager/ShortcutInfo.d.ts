@@ -26,13 +26,6 @@
  * @systemapi
  * @since 9
  */
-/**
- * Provides information about a shortcut, including the shortcut ID and label.
- *
- * @typedef ShortcutInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- */
 export interface ShortcutInfo {
   /**
    * Indicates the ID of the application to which this shortcut belongs
@@ -50,13 +43,6 @@ export interface ShortcutInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the ID of the application to which this shortcut belongs
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   id: string;
 
@@ -77,13 +63,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the name of the bundle containing the shortcut
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   bundleName: string;
 
   /**
@@ -102,13 +81,6 @@ export interface ShortcutInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the moduleName of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   moduleName?: string;
 
@@ -129,13 +101,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the host ability of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   hostAbility?: string;
 
   /**
@@ -154,13 +119,6 @@ export interface ShortcutInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the icon of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   icon?: string;
 
@@ -181,13 +139,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the icon id of the shortcut
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   iconId?: number;
 
   /**
@@ -206,13 +157,6 @@ export interface ShortcutInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the label of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   label?: string;
 
@@ -233,13 +177,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the label id of the shortcut
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   labelId?: number;
 
   /**
@@ -259,13 +196,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the wants of the shortcut
-   *
-   * @type { ?Array<ShortcutWant> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   wants?: Array<ShortcutWant>;
 
   /**
@@ -276,13 +206,6 @@ export interface ShortcutInfo {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the index of application clone.
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   appIndex: number;
   
   /**
@@ -292,13 +215,6 @@ export interface ShortcutInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the source type of shortcut.
-   *
-   * @type { number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   sourceType: number;
 
@@ -320,13 +236,6 @@ export interface ShortcutInfo {
  * @systemapi
  * @since 9
  */
-/**
- * Obtains information about the ability that a shortcut will start.
- *
- * @typedef ShortcutWant
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- */
 export interface ShortcutWant {
   /**
    * Indicates the target bundle of the shortcut want
@@ -344,13 +253,6 @@ export interface ShortcutWant {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the target bundle of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   targetBundle: string;
 
@@ -371,13 +273,6 @@ export interface ShortcutWant {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the target module of the shortcut want
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   targetModule?: string;
 
   /**
@@ -397,13 +292,6 @@ export interface ShortcutWant {
    * @systemapi
    * @since 12
    */
-  /**
-   * Indicates the target ability of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
   targetAbility: string;
 
   /**
@@ -413,13 +301,6 @@ export interface ShortcutWant {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the parameters of the shortcut want
-   *
-   * @type { ?Array<ParameterItem> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   parameters?: Array<ParameterItem>;
 }
@@ -432,13 +313,6 @@ export interface ShortcutWant {
  * @systemapi
  * @since 12
  */
-/**
- * Obtains information about the ability that a shortcut will start.
- *
- * @typedef ParameterItem
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20
- */
 export interface ParameterItem {
   /**
    * Indicates the key of the parameter item.
@@ -447,13 +321,6 @@ export interface ParameterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the key of the parameter item.
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   key: string;
 
@@ -464,13 +331,6 @@ export interface ParameterItem {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
-   */
-  /**
-   * Indicates the value of the parameter item.
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
    */
   value: string;
 }
