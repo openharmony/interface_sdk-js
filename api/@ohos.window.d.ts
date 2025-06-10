@@ -5531,7 +5531,9 @@ declare namespace window {
     /**
      * Determine whether the window spans multiple screens and displays in full screen mode.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the window spans multiple screens and displays in full screen mode, and false means the opposite.
+     * @returns { Promise<boolean> } Whether the window spans multiple screens and displays in full screen mode. 
+     * The value true means that the window spans multiple screens and displays in full screen mode,and false means the opposite.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -7042,13 +7044,16 @@ declare namespace window {
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
      * 
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', indicating the window spans multiple screens and displays in full screen mode changed.
-     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', 
+     *                                                                   indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<number> } callback - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
      * @since 20
      */   
     on(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback: Callback<boolean>): void;
@@ -7056,13 +7061,16 @@ declare namespace window {
     /**
      * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', indicating the window spans multiple screens and displays in full screen mode changed.
-     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', 
+     *                                                                   indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<number> } [callback] - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     off(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback?: Callback<boolean>): void;
