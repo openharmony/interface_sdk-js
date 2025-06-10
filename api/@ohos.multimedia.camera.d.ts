@@ -833,7 +833,8 @@ declare namespace camera {
     /**
      * Gets supported scene mode for specific camera.
      *
-     * @param { CameraDevice } camera - Camera device.
+     * @param { CameraDevice } camera - Camera device, obtained through the getSupportedCameras interface.
+     * An error code will be returned if there is an exception in parameter passing.
      * @returns { Array<SceneMode> } An array of supported scene mode of camera.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -853,8 +854,8 @@ declare namespace camera {
     /**
      * Gets supported output capability for specific camera.
      *
-     * @param { CameraDevice } camera - Camera device.
-     * @param { SceneMode } mode - Scene mode.
+     * @param { CameraDevice } camera - Camera device, obtained through the getSupportedCameras interface.
+     * @param { SceneMode } mode - Scene mode, obtained through the getSupportedSceneModes interface.
      * @returns { CameraOutputCapability } The camera output capability.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -1036,7 +1037,8 @@ declare namespace camera {
     /**
      * Creates a PreviewOutput instance.
      *
-     * @param { Profile } profile - Preview output profile.
+     * @param { Profile } profile - Supported preview configuration information,
+     * obtained through the getSupportedOutputCapability API.
      * @param { string } surfaceId - Surface object id used in camera photo output.
      * @returns { PreviewOutput } The PreviewOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -1120,7 +1122,10 @@ declare namespace camera {
      * You can use this method to create a photo output instance without a profile, This instance can
      * only be used in a preconfiged session.
      *
-     * @param { Profile } profile - Photo output profile.
+     * @param { Profile } profile - Supported photo configuration information, obtained through the
+     * getSupportedOutputCapability API. This parameter is mandatory for API version 11.
+     * Starting from API version 12, if the preconfig API is used for preconfiguration, the
+     * profile parameter, if specified, will override the settings configured by the preconfig API.
      * @returns { PhotoOutput } The PhotoOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -1154,7 +1159,8 @@ declare namespace camera {
     /**
      * Creates a VideoOutput instance.
      *
-     * @param { VideoProfile } profile - Video profile.
+     * @param { VideoProfile } profile - Supported recording configuration information,
+     * obtained through the getSupportedOutputCapability API.
      * @param { string } surfaceId - Surface object id used in camera video output.
      * @returns { VideoOutput } The VideoOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -1214,7 +1220,8 @@ declare namespace camera {
     /**
      * Creates a MetadataOutput instance.
      *
-     * @param { Array<MetadataObjectType> } metadataObjectTypes - Array of MetadataObjectType.
+     * @param { Array<MetadataObjectType> } metadataObjectTypes - Metadata stream type information,
+     * obtained through the getSupportedOutputCapability API.
      * @returns { MetadataOutput } The MetadataOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -1333,7 +1340,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes camera status change event callback.
+     * Camera state callback to get the state change of the camera by registering a callback
+     * function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'cameraStatus' } type - Event type.
      * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
@@ -1371,7 +1382,10 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Registers a listener for folding device fold state changes. Use callback asynchronous callback.
+     * Registers a listener for fold state changes. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'foldStatusChanged' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
@@ -1663,7 +1677,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes torch status change event callback.
+     * Registers a listener for flashlight state changes to get flashlight state change by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'torchStatusChange' } type - Event type
      * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the torch status change
@@ -2719,7 +2737,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for CameraInput error events to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { CameraDevice } camera - Camera device.
@@ -7338,7 +7360,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for error events from a normal video session to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
@@ -7376,7 +7402,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes focus state change event callback.
+     * Registers a listener for camera focus state changes to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -7414,7 +7444,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes zoom info event callback.
+     * Registers a listener for state changes in the camera's smooth zoom to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
@@ -7524,7 +7558,11 @@ declare namespace camera {
      * @since 13
      */
     /**
-     * Subscribes to auto device switch status event callback.
+     * Registers a listener for the camera's automatic lens switching state changes to get the result
+     * by registering a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
@@ -7766,7 +7804,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for error events in normal photo sessions to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
@@ -7804,7 +7846,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes focus state change event callback.
+     * Registers a listener for error events in normal photo sessions to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -7842,7 +7888,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes zoom info event callback.
+     * Registers a listener for state changes in the camera's smooth zoom to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
@@ -7928,7 +7978,12 @@ declare namespace camera {
      * @since 13
      */
     /**
-     * Subscribes to auto device switch status event callback.
+     * Registers a listener for the camera's automatic lens switching state changes to get the
+     * result by registering a callback function. This API uses an asynchronous callback to
+     * return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
@@ -9805,7 +9860,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for error events on security camera sessions to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().  
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
@@ -9843,7 +9902,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes focus status change event callback.
+     * Registers a listener for error events on security camera sessions to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -10449,7 +10512,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes frame start event callback.
+     * Registers a listener for the preview frame to start to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -10487,7 +10554,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes frame end event callback.
+     * Registers a listener for the end of the preview frame to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'frameEnd' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -10525,7 +10596,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for error events on the preview output to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the preview output errors.
@@ -11165,7 +11240,9 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Set the mirror photo function switch, default to false.
+     * Mirror enable switch (default off).
+     * It is necessary to utilize the function isMirrorSupported to ascertain whether it is supported
+     * prior to its implementation.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -11657,7 +11734,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes photo available event callback.
+     * Registers a listener for full quality chart uploads to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().   
      *
      * @param { 'photoAvailable' } type - Event type.
      * @param { AsyncCallback<Photo> } callback - Callback used to get the Photo.
@@ -11723,7 +11804,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes to photo asset event callback.
+     * Registers a listener for photoAsset uploads to monitor the upload process. This API
+     * uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * <p>This API processes deferred photo delivery data by quickly displaying low-quality images to give
      * users the impression of faster photo capture, while also generating high-quality images to maintain the
@@ -11784,7 +11869,12 @@ declare namespace camera {
      * @since 13
      */
     /**
-     * Enable mirror for photo capture.
+     * Whether to enable moving photo mirroring.
+     * 
+     * Prior to invoking this interface, it is necessary to determine whether the video mirroring function
+     * is supported by querying the status through isMirrorSupported.
+     * After enabling or disabling the video mirroring function, it is required to update the rotation
+     * by invoking getVideoRotation and subsequently applying the updated rotation through updateRotation.
      *
      * @param { boolean } enabled - enable photo mirror if TRUE.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -11829,7 +11919,11 @@ declare namespace camera {
      * @since 11
      */
     /**
-     * Subscribes capture start event callback.
+     * Registers a listener for the start of the photo taking to get the CaptureStartInfo by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'captureStartWithInfo' } type - Event type.
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
@@ -11905,7 +11999,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes frame shutter end event callback.
+     * Registers a listener for the end of photo exposure capture to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'frameShutterEnd' } type - Event type.
      * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to get the frame shutter end information.
@@ -11943,10 +12041,14 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes capture end event callback.
+     * Registers a listener for the end of the photo shoot to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
-     * @param { 'captureEnd' } type - Listen to the event, fixed to 'captureEnd', when photoOutput is created successfully.
-     * This event can be triggered when the photoOutput is created successfully.
+     * @param { 'captureEnd' } type - Listens to the event, fixed to 'captureEnd', when photoOutput is
+     * created successfully. This event can be triggered when the photoOutput is created successfully.
      * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
@@ -11982,7 +12084,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes capture ready event callback. After receiving the callback, can proceed to the next capture
+     * Registers a listener for the next available shot to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'captureReady' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to notice capture ready.
@@ -12020,7 +12126,11 @@ declare namespace camera {
      * @since 12
      */
     /**
-     * Subscribes estimated capture duration event callback.
+     * Registers a listener for the estimated time to take a picture to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'estimatedCaptureDuration' } type - Event type.
      * @param { AsyncCallback<number> } callback - Callback used to notify the estimated capture duration (in milliseconds).
@@ -12058,7 +12168,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for errors in the photo output to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the photo output errors.
@@ -12708,7 +12822,14 @@ declare namespace camera {
      * @since 15
      */
     /**
-     * Enable mirror for video capture.
+     * Enable/disable mirror recording.
+     * 
+     * Before calling this API, it is necessary to use isMirrorSupported to check whether
+     * video mirroring is supported.
+     * 
+     * When enabling or disabling video mirroring, you must first call getVideoRotation
+     * to retrieve the current rotation value and then call updateRotation to apply the
+     * updated rotation.
      *
      * @param { boolean } enabled - enable video mirror if TRUE.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -12926,7 +13047,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes frame start event callback.
+     * Registers a listener for the start of the video recording to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -12946,7 +13071,7 @@ declare namespace camera {
      */
     /**
      * Unsubscribes from frame start event callback.
-     *
+     * 
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -13002,7 +13127,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for errors in the metadata stream to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
@@ -13831,7 +13960,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to metadata objects available event callback.
+     * Registers a listener for the detected metadata object to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'metadataObjectsAvailable' } type - Event type.
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
@@ -13869,7 +14002,11 @@ declare namespace camera {
      * @since 10
      */
     /**
-     * Subscribes to error events.
+     * Registers a listener for errors in the video output to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
