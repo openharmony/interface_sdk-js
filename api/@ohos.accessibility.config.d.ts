@@ -356,6 +356,20 @@ declare namespace config {
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
 
   /**
+   * Set display magnification state.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { boolean } state Indicates that whether trigger display magnification.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300007 - Trigger magnification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  function setMagnificationState(state: boolean): void;
+
+  /**
    * Indicates setting, getting, and listening to changes in configuration.
    *
    * @typedef Config<T>
