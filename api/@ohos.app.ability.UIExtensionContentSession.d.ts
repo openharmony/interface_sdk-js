@@ -23,11 +23,12 @@ import type AbilityStartCallback from './application/AbilityStartCallback';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtension from './@ohos.arkui.uiExtension';
+import type { AbilityResult } from './ability/abilityResult';
 /*** endif */
 import type { AsyncCallback } from './@ohos.base';
-import type { AbilityResult } from './ability/abilityResult';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
 /*** if arkts 1.2 */
+import { AbilityResult } from './ability/abilityResult';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 /*** endif */
 
