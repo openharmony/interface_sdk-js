@@ -18,6 +18,7 @@
  * @kit ArkData
  */
 
+import collections from '../arkts/@arkts.collections';
 import lang from '../arkts/@arkts.lang';
 import relationalStore from './@ohos.data.relationalStore';
 
@@ -98,31 +99,31 @@ declare namespace sendableRelationalStore {
   /**
    * Defines multiple assets in a column.
    *
-   * @typedef { Array<Asset> } Assets
+   * @typedef { collections.Array<Asset> } Assets
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type Assets = Array<Asset>;
+  type Assets = collections.Array<Asset>;
 
   /**
    * Defines the types of the value in a KV pair.
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets |
-   * Float32Array | bigint } ValueType
+   * @typedef { null | number | string | boolean | collections.Uint8Array | Asset | Assets |
+   * collections.Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets |
-    Float32Array | bigint;
+  type ValueType = null | number | string | boolean | collections.Uint8Array | Asset | Assets |
+    collections.Float32Array | bigint;
 
   /**
    * Defines the data stored in KV pairs in a ValuesBucket object.
    *
-   * @typedef { Map<string, ValueType> } ValuesBucket
+   * @typedef { collections.Map<string, ValueType> } ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
-  type ValuesBucket = Map<string, ValueType>;
+  type ValuesBucket = collections.Map<string, ValueType>;
 
   /**
    * Defines NonSendableBucket for convenience.
