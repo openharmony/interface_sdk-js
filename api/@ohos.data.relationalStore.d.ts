@@ -2559,8 +2559,8 @@ declare namespace relationalStore {
      * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
      * @param { Array<ValueType> } args - Parameters to be used in the conditions.
      * @returns { RdbPredicates } - Returns the RdbPredicates object.
-     * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. conditions is empty;
-     * <br>2. The GROUP BY clause is missing.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+     * <br>2. Missing GROUP BY clause. 
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -8202,8 +8202,8 @@ declare namespace relationalStore {
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. conditions is empty;
-     * <br>2. The GROUP BY clause is missing.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+     * <br>2. Missing GROUP BY clause. 
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
