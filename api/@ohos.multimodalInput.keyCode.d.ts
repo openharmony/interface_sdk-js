@@ -1235,7 +1235,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_RIGHT_PAREN = 2122,
 
   /**
-   * Joystick key A
+   * KEYCODE_VIRTUAL_MULTITASK
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1243,7 +1243,7 @@ export declare enum KeyCode {
   KEYCODE_VIRTUAL_MULTITASK = 2210,
 
   /**
-   * Joystick key B
+   * Joystick key A
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1251,7 +1251,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_A = 2301,
 
   /**
-   * Joystick key X
+   * Joystick key B
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1259,7 +1259,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_B = 2302,
 
   /**
-   * Joystick key Y
+   * Joystick key X
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1267,7 +1267,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_X = 2304,
 
   /**
-   * KEYCODE_BUTTON_Y
+   * Joystick key Y
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1315,7 +1315,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_SELECT = 2311,
 
   /**
-   * Joystick key Select
+   * Joystick key Start
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
