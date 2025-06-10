@@ -7045,8 +7045,8 @@ declare namespace window {
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
      * 
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', 
-     *                                                                   indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged',
+     * indicating the window spans multiple screens and displays in full screen mode changed.
      * @param { Callback<number> } callback - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7062,8 +7062,8 @@ declare namespace window {
     /**
      * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged', 
-     *                                                                   indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged',
+     * indicating the window spans multiple screens and displays in full screen mode changed.
      * @param { Callback<number> } [callback] - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
