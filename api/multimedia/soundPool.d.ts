@@ -50,21 +50,21 @@ export interface PlayParameters {
   /**
    * left volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  leftVolume?: number;
+  leftVolume?: double;
   /**
    * right volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  rightVolume?: number;
+  rightVolume?: double;
   /**
    * stream priority (0 = lowest priority)
    *
@@ -125,8 +125,8 @@ export interface SoundPool {
    * Load the sound from a FileDescriptor.
    *
    * @param {int} fd A FileDescriptor object
-   * @param {number} offset Offset to the start of the sound
-   * @param {number} length Length of the sound
+   * @param {double} offset Offset to the start of the sound
+   * @param {double} length Length of the sound
    * @param {AsyncCallback<int>} callback Callback a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
@@ -135,13 +135,13 @@ export interface SoundPool {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  load(fd: int, offset: number, length: number, callback: AsyncCallback<int>): void;
+  load(fd: int, offset: double, length: double, callback: AsyncCallback<int>): void;
   /**
    * Load the sound from a FileDescriptor.
    *
    * @param {int} fd A FileDescriptor object
-   * @param {number} offset Offset to the start of the sound
-   * @param {number} length Length of the sound
+   * @param {double} offset Offset to the start of the sound
+   * @param {double} length Length of the sound
    * @returns {Promise<int>} Promise a sound ID. This value can be used to play or unload the sound.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
@@ -150,7 +150,7 @@ export interface SoundPool {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  load(fd: int, offset: number, length: number): Promise<int>;
+  load(fd: int, offset: double, length: double): Promise<int>;
   /**
    * Play a sound from a sound ID.
    *
@@ -311,8 +311,8 @@ export interface SoundPool {
    * Set stream volume.
    *
    * @param {int} streamID Returned by the play()
-   * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * @param {double} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * @param {double} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @param {AsyncCallback<void>} callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
@@ -321,13 +321,13 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setVolume(streamID: int, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
+  setVolume(streamID: int, leftVolume: double, rightVolume: double, callback: AsyncCallback<void>): void;
   /**
    * Set stream volume.
    *
    * @param {int} streamID Returned by the play()
-   * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * @param {double} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * @param {double} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
    * @returns {Promise<void>} Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
@@ -336,7 +336,7 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  setVolume(streamID: int, leftVolume: number, rightVolume: number): Promise<void>;
+  setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
   /**
    * Unload a sound from a sound ID.
    *
@@ -389,79 +389,90 @@ export interface SoundPool {
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @param {Callback<number>} callback Callback used to listen for load result event
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   on(type: 'loadComplete', callback: Callback<number>): void;
+  on(type: 'loadComplete', callback: Callback<number>): void;
   /**
    * Cancel Listens for load result event.
    *
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   off(type: 'loadComplete'): void;
+  off(type: 'loadComplete'): void;
   /**
    * Register the listener for playing finished event. The conditions which this event is called
    * are the same as {@link #playFinished}, additionally, this event can callback the streamId of finishing playing.
    * If this event and the {@link #playFinished} event are registered at the same time,
    * only this event will be called, and the {@link #playFinished} event will not be called.
    *
-   * @param {'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete'} type name of the play finished event to listen for. 
-   * @param {Callback<int> | Callback<void> | ErrorCallback<BusinessError>} callback Callback used to listen which stream id has finished playback.
+   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
+   * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
-  on(type: 'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete',
-    callback: Callback<int> | Callback<void> | ErrorCallback<BusinessError>): void;
+  on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
   /**
    * Cancel listening for playing finished event.
    *
-   * @param {'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'} type name of the play finished event to listen for.
+   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
-  off(type: 'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'): void;
+  off(type: 'playFinishedWithStreamId'): void;
   /**
    * Register listens for play finish event.
    *
    * @param {'playFinished'} type Type of the play finish event to listen for.
    * @param {Callback<void>} callback Callback used to listen for the play finish
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   on(type: 'playFinished', callback: Callback<void>): void;
+  on(type: 'playFinished', callback: Callback<void>): void;
   /**
    * Cancel Listens for play finish event.
    *
    * @param {'playFinished'} type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   off(type: 'playFinished'): void;
+  off(type: 'playFinished'): void;
   /**
    * Register listens for sound play error events.
    *
    * @param {'error'} type Type of the sound play error event to listen for.
    * @param {ErrorCallback} callback Callback used to listen for sound play error events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   on(type: 'error', callback: ErrorCallback): void;
+  on(type: 'error', callback: ErrorCallback): void;
   /**
    * Cancel Listens for sound play error events.
    *
    * @param {'error'} type Type of the sound play error event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-//   off(type: 'error'): void;
+  off(type: 'error'): void;
+  /**
+   * Register listens for events.
+   *
+   * @param {'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete'} type name of the event to listen for. 
+   * @param {Callback<int> | Callback<void> | ErrorCallback<BusinessError>} callback Callback used to listen.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since arkts {'1.2':'20'}
+   * @arkts 1.2
+   */
+  on(type: 'playFinishedWithStreamId' | 'playFinished' | 'error' | 'loadComplete',
+    callback: Callback<int> | Callback<void> | ErrorCallback<BusinessError>): void;
+  /**
+   * Cancel listening for event.
+   *
+   * @param {'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'} type name of the event to listen for.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since arkts {'1.2':'20'}
+   * @arkts 1.2
+   */
+  off(type: 'playFinishedWithStreamId' | 'loadComplete' | 'playFinished' | 'error'): void;
 }
 
