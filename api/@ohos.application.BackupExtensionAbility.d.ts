@@ -156,6 +156,18 @@ declare class BackupExtensionAbility {
     * @since 12
     */
   onProcess(): string;
+  
+  /**
+   * Callback to be called before extension ability exits.
+   * Developer could override this method to clean abnormal data.
+   *
+   * @param { number } scenario - The value 1 indicates backup and the value 2 indicates restoration.
+   * @returns { Promise<void> } the promise returned by the function
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @StageModelOnly
+   * @since 20
+   */
+  onRelease(scenario: number): Promise<void>;
 }
 
 export default BackupExtensionAbility;
