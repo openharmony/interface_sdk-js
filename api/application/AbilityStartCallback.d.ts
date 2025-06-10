@@ -18,14 +18,17 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { AbilityResult } from '../ability/abilityResult';
+/*** endif */
 
 /**
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class AbilityStartCallback {
 
