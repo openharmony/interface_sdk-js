@@ -101,8 +101,8 @@ declare namespace xml {
 
     /**
      * Writes xml declaration with encoding. For example: <?xml version="1.0" encoding="utf-8"?>.
-     * @throws { BusinessError } 10200062 - The cumulative length of xml exceeded the upper limit 100000.
-     * @throws { BusinessError } 10200063 - illegal position for xml.
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200063 - Illegal position for xml.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
