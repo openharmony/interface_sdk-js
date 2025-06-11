@@ -62,7 +62,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
-   * @throws { BusinessError } 32500002 - Subscribe Failed.
+   * @throws { BusinessError } 32500002 - Subscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18
    */
@@ -77,7 +77,7 @@ declare namespace deviceStatus {
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 32500001 - Service exception.
-   * @throws { BusinessError } 32500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 32500003 - Unsubscription failed.
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18
    */
