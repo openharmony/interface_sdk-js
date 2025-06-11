@@ -10541,8 +10541,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @deprecated since 20
+     * @useinstead ohos.window.WindowStageLifecycleEventType#SHOWN
      */
     SHOWN = 1,
     /**
@@ -10619,8 +10619,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @deprecated since 20
+     * @useinstead ohos.window.WindowStageLifecycleEventType#HIDDEN
      */
     HIDDEN = 4,
     /**
@@ -10630,8 +10630,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @deprecated since 20
+     * @useinstead ohos.window.WindowStageLifecycleEventType#RESUMED
      */
     RESUMED = 5,
     /**
@@ -10641,8 +10641,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @deprecated since 20
+     * @useinstead ohos.window.WindowStageLifecycleEventType#PAUSED
      */
     PAUSED = 6
   }
