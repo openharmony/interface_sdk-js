@@ -606,7 +606,7 @@ export interface SoundPool {
   on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
 
   /**
-   * Unegister listens for soundpool errorOccurred events.
+   * Unregister listens for soundpool errorOccurred events.
    *
    * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
    * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
