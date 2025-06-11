@@ -18601,7 +18601,6 @@ declare interface ContextMenuOptions {
    * Whether it is a menu without mask.
    *
    * @type { ?(boolean | MenuMaskType) }
-   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
