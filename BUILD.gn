@@ -15,7 +15,6 @@ import("//build/config/components/ets_frontend/ets2abc_config.gni")
 import("//build/ohos.gni")
 import("//build/ohos/notice/notice.gni")
 import("//build/ohos_var.gni")
-import("//build/templates/bpf/ohos_bpf_config.gni")
 import("//build/templates/metadata/module_info.gni")
 import("interface_config.gni")
 
