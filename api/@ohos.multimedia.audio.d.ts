@@ -6608,7 +6608,7 @@ declare namespace audio {
     readonly spatializationSupported?: boolean;
 
     /**
-     * Only {@link DeviceType.SPEAKER} with networkId銆亄@link DeviceType.REMOTE_CAST}
+     * Only {@link DeviceType.SPEAKER} with networkId, {@link DeviceType.REMOTE_CAST}
      * or {@link DeviceType.REMOTE_DAUDIO} has dmDeviceType which indicated deviceTypeId.
      * @type { number }
      * @readonly
