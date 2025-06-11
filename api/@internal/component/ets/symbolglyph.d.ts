@@ -1198,6 +1198,22 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 20
    */
   maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
+
+  /**
+   * Set the shadow of symbol.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
+   * </p>
+   *
+   * @param { Optional<ShadowOptions> } shadow - The shadow options.
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  symbolShadow(shadow: Optional<ShadowOptions>): SymbolGlyphAttribute;
 }
 
 /**
