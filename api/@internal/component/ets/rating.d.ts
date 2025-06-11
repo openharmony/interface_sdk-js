@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration,Callback,CommonMethod,Optional,ContentModifier } from './common'
+import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier, Bindable } from './common'
 import { ResourceStr } from './units';
 /*** endif */
 
@@ -67,10 +67,22 @@ declare interface RatingOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rating: number;
+
+  /**
+   * Rating option.
+   *
+   * @type { number | undefined | Bindable<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  rating: number | undefined | Bindable<number>;
 
   /**
    * Indicator option.
