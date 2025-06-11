@@ -4577,7 +4577,6 @@ declare namespace window {
    *
    * @interface KeyFramePolicy
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   interface KeyFramePolicy {
@@ -4586,7 +4585,6 @@ declare namespace window {
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     enable: boolean;
@@ -4596,7 +4594,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     interval?: number;
@@ -4606,7 +4603,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     distance?: number;
@@ -4616,7 +4612,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     animationDuration?: number;
@@ -4626,7 +4621,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     animationDelay?: number;
@@ -10482,8 +10476,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Incorrect parameter format.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
