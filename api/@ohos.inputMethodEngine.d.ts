@@ -2294,6 +2294,15 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     setImmersiveEffect(effect: ImmersiveEffect): void;
+    /**
+     * Set keep screen on.
+     * 
+     * @param { boolean } isKeepScreenOn - is keep screen on.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
   }
 
   /**
