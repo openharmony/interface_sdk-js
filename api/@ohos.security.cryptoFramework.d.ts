@@ -685,6 +685,7 @@ declare namespace cryptoFramework {
      * The key can be a symmetric key, public key, or private key.
      * The public key must be in DER encoding format and comply with the ASN.1 syntax and X.509 specifications.
      * The private key must be in DER encoding format and comply with the ASN.1 syntax and PKCS#8 specifications.
+     *
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
