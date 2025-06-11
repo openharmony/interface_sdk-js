@@ -462,7 +462,7 @@ declare namespace backgroundTaskManager {
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
   /**
-   * Obtains all the transient task before an application enters the suspended state.
+   * Obtains transient task info before an application enters the suspended state.
    *
    * @returns { Promise<TransientTaskInfo> } The promise returns the transient task info.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -472,7 +472,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20
    */
-  function getAllTransientTasks(): Promise<TransientTaskInfo>;
+  function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
   /**
    * Service ability uses this method to request start running in background.
