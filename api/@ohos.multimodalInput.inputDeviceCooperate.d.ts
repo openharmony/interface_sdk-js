@@ -341,7 +341,7 @@ declare namespace inputDeviceCooperate {
   /**
    * Disables listening for screen hopping status change events.
    * 
-   * @param { 'cooperation' } Event type. The value is cooperation.
+   * @param { 'cooperation' } type Event type. The value is cooperation.
    * @param { AsyncCallback<void> } callback Callback to be unregistered. If this parameter is not specified, all callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
