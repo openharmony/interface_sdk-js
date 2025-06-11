@@ -4174,16 +4174,7 @@ declare namespace osAccount {
      * @systemapi
      * @since 14
      */
-    QUESTION_AUTH = 3,
-
-    /**
-     * Indicates the intent of the abandoned PIN authentication.
-     *
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi
-     * @since 20
-     */
-    ABANDONED_PIN_AUTH = 4
+    QUESTION_AUTH = 3
   }
 
   /**
@@ -4751,25 +4742,6 @@ declare namespace osAccount {
      * @since 8
      */
     templateId: Uint8Array;
-
-    /**
-     * Indicates whether the credential is abandoned.
-     * @type { ?boolean }
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi
-     * @since 20
-     */
-    isAbandoned?: boolean;
-
-    /**
-     * Indicates the validity period.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi
-     * @since 20
-     */
-    validityPeriod?: number;
   }
 
   /**
