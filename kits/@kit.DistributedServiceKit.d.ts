@@ -24,10 +24,7 @@ import deviceManager from '@ohos.distributedHardware.deviceManager';
 import hardwareManager from '@ohos.distributedHardware.hardwareManager';
 import abilityConnectionManager from '@ohos.distributedsched.abilityConnectionManager';
 import linkEnhance from '@ohos.distributedsched.linkEnhance'
-import DistributedExtensionAbility from '@ohos.application.DistributedExtensionAbility';
-import DistributedExtensionContext from '@ohos.application.DistributedExtensionContext';
 
 export { 
-  cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager,
-  linkEnhance, DistributedExtensionAbility, DistributedExtensionContext
+  cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager, linkEnhance
 };
