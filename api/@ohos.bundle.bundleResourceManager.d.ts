@@ -249,7 +249,8 @@ declare namespace bundleResourceManager {
    * @systemapi
    * @since 20
    */
-  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: number, appIndex?: number): Array<LauncherAbilityResourceInfo>;
+  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType,
+    resourceFlags: number, appIndex?: number): Array<LauncherAbilityResourceInfo>;
 
   /**
    * Obtains resource info of a bundle.
