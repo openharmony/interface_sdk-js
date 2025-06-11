@@ -29,16 +29,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines CalendarPicker Modifier
- *
- * @extends CalendarPickerAttribute
- * @implements AttributeModifier<CalendarPickerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class CalendarPickerModifier extends CalendarPickerAttribute implements AttributeModifier<CalendarPickerAttribute> {
 
   /**

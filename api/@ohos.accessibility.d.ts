@@ -37,15 +37,6 @@ import { Resource } from './global/resource';
  * @atomicservice
  * @since 11
  */
-/**
- * Accessibility
- *
- * @namespace accessibility
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 declare namespace accessibility {
   /**
    * The type of the Ability app.
@@ -209,15 +200,6 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @atomicservice
    * @since 11
-   */
-  /**
-   * Checks whether accessibility ability is enabled.
-   *
-   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20
    */
   function isOpenAccessibilitySync(): boolean;
 
@@ -414,19 +396,6 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
-  /**
-   * Register the observe of the accessibility state changed.
-   *
-   * @param { 'accessibilityStateChange' } type state event type.
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 20
-   */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
@@ -467,19 +436,6 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
-   */
-  /**
-   * Unregister the observe of the accessibility state changed.
-   *
-   * @param { 'accessibilityStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @crossplatform
-   * @since 20
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 

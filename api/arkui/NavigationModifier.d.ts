@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Navigation Modifier
- *
- * @extends NavigationAttribute
- * @implements AttributeModifier<NavigationAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class NavigationModifier extends NavigationAttribute implements AttributeModifier<NavigationAttribute> {
 
   /**

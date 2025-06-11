@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines ListItem Modifier
- *
- * @extends ListItemAttribute
- * @implements AttributeModifier<ListItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class ListItemModifier extends ListItemAttribute implements AttributeModifier<ListItemAttribute> {
 
   /**

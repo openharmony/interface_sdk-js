@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines TextClock Modifier
- *
- * @extends TextClockAttribute
- * @implements AttributeModifier<TextClockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
 
   /**

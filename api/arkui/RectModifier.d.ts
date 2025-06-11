@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Rect Modifier
- *
- * @extends RectAttribute
- * @implements AttributeModifier<RectAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class RectModifier extends RectAttribute implements AttributeModifier<RectAttribute> {
 
   /**

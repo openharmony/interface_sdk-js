@@ -29,16 +29,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Image Modifier
- *
- * @extends ImageAttribute
- * @implements AttributeModifier<ImageAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class ImageModifier extends ImageAttribute implements AttributeModifier<ImageAttribute> {
 
   /**
