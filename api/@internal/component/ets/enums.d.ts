@@ -10707,7 +10707,7 @@ declare enum AnimationPropertyType {
   ROTATION = 0,
 
   /**
-   * Tranlation in the x and y direction.
+   * Translation in the x and y direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
