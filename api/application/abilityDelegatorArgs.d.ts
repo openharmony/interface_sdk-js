@@ -93,7 +93,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   parameters: Record<string, string>;
 
@@ -119,7 +120,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   testCaseNames: string;
 
@@ -145,7 +147,8 @@ export interface AbilityDelegatorArgs {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   testRunnerClassName: string;
 }
