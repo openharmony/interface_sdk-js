@@ -2163,6 +2163,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @returns { XComponentAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'XComponent'): XComponentAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Checkbox.
    * 
    * <p><strong>NOTE</strong>:
