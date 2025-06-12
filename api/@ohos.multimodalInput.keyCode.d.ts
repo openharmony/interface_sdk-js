@@ -28,7 +28,7 @@
 /**
  * KeyCode
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since arkts {'1.1':'12', '1.2':'20'}
