@@ -136,6 +136,7 @@ export declare function canIUse(syscap: string): boolean;
  *                      false - operating system version is less than the given value or invalid api version
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 20
+ * @arkts 1.2
  * @example
  * if (isApiVersionGreaterOrEqual("20.1")) {
  *    // Use 20.1 APIs.

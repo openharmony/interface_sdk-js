@@ -764,6 +764,7 @@ export declare function canIUse(syscap: string): boolean;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.2
  * @example
  * if (isApiVersionGreaterOrEqual("20.1")) {
  *    // Use 20.1 APIs.
