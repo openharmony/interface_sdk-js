@@ -58,7 +58,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
    * @systemapi
    * @since 19
    */
-  alwaysSnapshot(enable: boolean): EffectComponentAttribute
+  alwaysSnapshot(enable: boolean): EffectComponentAttribute;
 }
 
 /**
