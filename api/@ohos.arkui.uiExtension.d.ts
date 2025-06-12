@@ -211,21 +211,21 @@ declare namespace uiExtension {
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
     /**
-    * Sets the events that the component (EmbeddedComponent or UIExtensionComponent) will occupy,
-    * preventing the host from responding to these events within the component's area.
-    *
-    * @param { EventFlag } eventFlags - Type of events to occupy. For details about the available values, see {@link uiExtension.EventFlag }.
-    * @returns { Promise<void> } - The promise returned by the function
-    * @throws { BusinessError } 401 - Parameter error. Possible cause: 
-    * <br> 1. Mandatory parameters are left unspecified.
-    * <br> 2. Incorrect parameters types.
-    * <br> 3. Parameter verification failed.
-    * @throws { BusinessError } 1300002 - This window state is abnormal.
-    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @atomicservice
-    * @since 18
-    */
+     * Sets the events that the component (EmbeddedComponent or UIExtensionComponent) will occupy,
+     * preventing the host from responding to these events within the component's area.
+     *
+     * @param { EventFlag } eventFlags - Type of events to occupy. For details about the available values, see {@link uiExtension.EventFlag }.
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
     occupyEvents(eventFlags: number): Promise<void>;
 
     /**
