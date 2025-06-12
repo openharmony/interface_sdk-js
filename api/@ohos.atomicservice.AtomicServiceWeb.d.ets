@@ -461,8 +461,7 @@ export declare class AtomicServiceWebController {
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 17100001 - Init error. The AtomicServiceWebController must be associated with a
    *    AtomicServiceWeb component.
-   * @throws { BusinessError } 17100002 - URL error. Possible causes: 1. No valid cookie found for the specified URL. 
-   * <br>2. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048.
+   * @throws { BusinessError } 17100002 - Invalid url.
    * @throws { BusinessError } 17100003 - Invalid resource path or file type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
