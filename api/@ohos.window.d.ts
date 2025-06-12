@@ -10671,7 +10671,7 @@ declare namespace window {
      */
     SHOWN = 1,
     /**
-     * The window stage is running in the foreground.
+     * The window stage is interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -10682,7 +10682,7 @@ declare namespace window {
      */
     RESUMED = 2,
     /**
-     * The window stage is running in the foreground.
+     * The window stage is not interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -10693,7 +10693,7 @@ declare namespace window {
      */
     PAUSED = 3,
     /**
-     * The window stage is running in the foreground.
+     * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
