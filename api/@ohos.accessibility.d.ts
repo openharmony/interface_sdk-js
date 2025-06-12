@@ -45,6 +45,7 @@ import { Resource } from './global/resource';
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace accessibility {
   /**
