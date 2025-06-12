@@ -56,7 +56,8 @@ import Want from "./@ohos.app.ability.Want";
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace unifiedDataChannel {
   /**
@@ -108,7 +109,8 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
 
@@ -185,7 +187,8 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class UnifiedData {
     /**
@@ -216,7 +219,8 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(record: UnifiedRecord);
     /**
@@ -232,7 +236,8 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -288,7 +293,8 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRecords(): Array<UnifiedRecord>;
 
@@ -361,7 +367,8 @@ declare namespace unifiedDataChannel {
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Summary {
     /**
@@ -418,7 +425,8 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class UnifiedRecord {
     /**
@@ -460,7 +468,8 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -489,7 +498,8 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(type: string, value: ValueType);
 
@@ -2166,8 +2176,8 @@ declare namespace unifiedDataChannel {
    * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
    * intention.
    * @param { ShareOptions } shareOptions - Types of scope that UnifiedData can be used.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
-   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.
@@ -2197,8 +2207,8 @@ declare namespace unifiedDataChannel {
    * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION
    * @param { Intention } intention - Describe the sharing channel that UDMF support. Currently only supports DRAG
    * intention.
-   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
-   * "ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION".
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *                                                                   2. Incorrect parameter types;
    *                                                                   3. Parameter verification failed.

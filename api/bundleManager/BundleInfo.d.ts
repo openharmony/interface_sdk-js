@@ -45,6 +45,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface BundleInfo {
   /**
@@ -73,6 +74,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -102,6 +104,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly vendor: string;
 
@@ -131,6 +134,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly versionCode: number;
 
@@ -160,6 +164,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly versionName: string;
 
@@ -189,6 +194,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly minCompatibleVersionCode: number;
 
@@ -218,6 +224,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly targetVersion: number;
 
@@ -247,6 +254,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly appInfo: ApplicationInfo;
 
@@ -276,6 +284,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
@@ -305,6 +314,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
@@ -334,6 +344,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
@@ -363,6 +374,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly signatureInfo: SignatureInfo;
 
@@ -381,7 +393,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installTime: number;
 
@@ -400,7 +413,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly updateTime: number;
 
@@ -411,7 +425,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly routerMap: Array<RouterItem>;
 
@@ -421,7 +436,8 @@ export interface BundleInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 
@@ -432,7 +448,8 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly firstInstallTime?: number;
 }
@@ -460,6 +477,7 @@ export interface BundleInfo {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface ReqPermissionDetail {
   /**
@@ -485,6 +503,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   name: string;
 
@@ -501,7 +520,8 @@ export interface ReqPermissionDetail {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -528,6 +548,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   reason: string;
 
@@ -554,6 +575,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   reasonId: number;
 
@@ -580,6 +602,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   usedScene: UsedScene;
 }
@@ -607,6 +630,7 @@ export interface ReqPermissionDetail {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface UsedScene {
   /**
@@ -632,6 +656,7 @@ export interface UsedScene {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   abilities: Array<string>;
 
@@ -658,6 +683,7 @@ export interface UsedScene {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   when: string;
 }
@@ -685,6 +711,7 @@ export interface UsedScene {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface SignatureInfo {
   /**
@@ -716,6 +743,7 @@ export interface SignatureInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly appId: string;
 
@@ -745,6 +773,7 @@ export interface SignatureInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly fingerprint: string;
 
@@ -757,7 +786,8 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIdentifier: string;
 
@@ -768,7 +798,8 @@ export interface SignatureInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly certificate?: string;
 }
@@ -778,7 +809,8 @@ export interface SignatureInfo {
  *
  * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AppCloneIdentity {
   /**
@@ -787,7 +819,8 @@ export interface AppCloneIdentity {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
   /**
@@ -796,7 +829,8 @@ export interface AppCloneIdentity {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly appIndex: number;
 }

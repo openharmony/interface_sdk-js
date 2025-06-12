@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit LocalizationKit
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -40,7 +41,7 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
  */
 export interface RawFileDescriptor {
   /**
@@ -63,7 +64,7 @@ export interface RawFileDescriptor {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
    */
   fd: number;
 
@@ -87,7 +88,7 @@ export interface RawFileDescriptor {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
    */
   offset: number;
 
@@ -111,7 +112,7 @@ export interface RawFileDescriptor {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
    */
   length: number;
 }

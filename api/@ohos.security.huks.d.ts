@@ -82,10 +82,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -109,10 +109,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -139,10 +139,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -166,10 +166,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -198,10 +198,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
@@ -252,7 +252,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -275,7 +275,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -300,7 +300,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -322,7 +322,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -349,7 +349,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -403,10 +403,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -430,10 +430,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -458,10 +458,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
@@ -487,10 +487,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -513,10 +513,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -546,10 +546,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
@@ -577,10 +577,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -605,10 +605,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
@@ -644,10 +644,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
@@ -674,10 +674,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -701,10 +701,10 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
@@ -757,7 +757,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -782,7 +782,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -813,7 +813,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -840,7 +840,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -864,7 +864,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -918,7 +918,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -943,7 +943,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -978,7 +978,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1005,7 +1005,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1029,7 +1029,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1083,7 +1083,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1109,7 +1109,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1135,7 +1135,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1164,7 +1164,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1191,7 +1191,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1246,7 +1246,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1272,7 +1272,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1300,7 +1300,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1325,7 +1325,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1357,7 +1357,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1415,7 +1415,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1442,7 +1442,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1473,7 +1473,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1501,7 +1501,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1538,7 +1538,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1567,7 +1567,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1623,7 +1623,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1650,7 +1650,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1681,7 +1681,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1709,7 +1709,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1746,7 +1746,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1775,7 +1775,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1823,7 +1823,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1842,7 +1842,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1864,7 +1864,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1883,7 +1883,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1912,7 +1912,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1942,7 +1942,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1971,7 +1971,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -2000,7 +2000,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
@@ -2027,7 +2027,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2058,7 +2058,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -2088,7 +2088,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
@@ -2115,7 +2115,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2145,7 +2145,7 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2165,7 +2165,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
@@ -2189,9 +2189,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
@@ -3172,6 +3172,14 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016,
+    /**
+     * The key with same alias is already exist.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
     /**
      * The input parameter is invalid.
      * 
@@ -5915,6 +5923,14 @@ declare namespace huks {
      * @since 12
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
+    /**
+     * The tag indicates wheather to override the key with same alias.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
 
     /*
      * Other reserved TAG: 601 - 1000

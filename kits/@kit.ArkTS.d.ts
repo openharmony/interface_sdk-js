@@ -19,6 +19,7 @@
  */
 
 import buffer from '@ohos.buffer';
+import fastbuffer from '@ohos.fastbuffer';
 import convertxml from '@ohos.convertxml';
 import process from '@ohos.process';
 import taskpool from '@ohos.taskpool';
@@ -56,6 +57,6 @@ export {
   ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
-  TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
-  uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal
+  TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, fastbuffer, process,
+  taskpool, uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal
 };

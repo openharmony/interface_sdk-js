@@ -736,6 +736,17 @@ export class FrameNode {
   isAttached(): boolean;
 
   /**
+   * Get if the node is disposed.
+   * 
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
+
+  /**
    * Get the inspector information of the FrameNode.
    * Obtains the structure information of the node, which is consistent with what is found in DevEco Studio's built-in
    * ArkUI Inspector tool.
@@ -2908,4 +2919,15 @@ declare class NodeAdapter {
    * @since 12
    */
   static detachNodeAdapter(node: FrameNode): void;
+
+  /**
+   * Get if the NodeAdapter is disposed.
+   * 
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
 }

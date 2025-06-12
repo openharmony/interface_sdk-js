@@ -7212,6 +7212,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPicture(mainPixelmap : PixelMap): Picture;
 
   /**
+   * Creates a Picture object by a HDR PixelMap and a SDR PixelMap.A gainmap will be generated using the
+   * HDR and SDR PixelMap, and the returned Picture will contain the SDR PixelMap and the generated gainmap.
+   * 
+   * @param { PixelMap } hdrPixelMap A HDR PixelMap, which PixelMapFormat should be RGBA_F16\RGBA_1010102\YCBCR_P010
+   * and color space should be BT2020_HLG.
+   * @param { PixelMap } sdrPixelMap A SDR PixelMap, which PixelMapFormat should be RGBA_8888\NV21\NV12,
+   * and color space should be P3.
+   * @returns { Promise<Picture> } Returns the Picture object.
+   * @throws { BusinessError } 7600201 - Unsupported operation. HdrPixelMap's PixelMapFormat is not
+   * RGBA_F16\RGBA_1010102\YCBCR_P010, or its color space is not BT2020_HLG. Or sdrPixelMap's PixelMapFormat is not 
+   * RGBA_8888\NV21\NV12, or its color space is not P3.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 20
+   */
+  function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
+
+  /**
    * Creates a Picture object based on MessageSequence parameter.
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.

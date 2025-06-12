@@ -32,7 +32,8 @@
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventData {
   /**
@@ -49,7 +50,8 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   event: string;
 
@@ -66,7 +68,8 @@ export interface CommonEventData {
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
@@ -85,7 +88,8 @@ export interface CommonEventData {
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code?: number;
 
@@ -111,7 +115,8 @@ export interface CommonEventData {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data?: string;
 
@@ -131,4 +136,14 @@ export interface CommonEventData {
    * @since 11
    */
   parameters?: { [key: string]: any };
+
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: Record<string, Object>;
 }

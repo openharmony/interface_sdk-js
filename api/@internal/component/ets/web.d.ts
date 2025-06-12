@@ -1089,7 +1089,7 @@ declare interface WebMediaOptions {
    * The type for audio sessions.
    *
    * @type { ?AudioSessionType }
-   * @syscap SystemCapability.Web.Webview.Core   
+   * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
   audioSessionType?: AudioSessionType;
@@ -1302,6 +1302,17 @@ declare interface FullScreenEnterEvent {
  * @since 18
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
+
+
+/**
+ * The callback when mouse event is triggered in native embed area
+ *
+ * @typedef { function } MouseInfoCallback
+ * @param { NativeEmbedMouseInfo } event - callback information of mouse event in native embed area.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
 
 /**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
@@ -2573,7 +2584,23 @@ declare enum ContextMenuMediaType {
    * @atomicservice
    * @since 11
    */
-  Image = 1
+  Image = 1,
+
+  /**
+   * Video.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  VIDEO = 2,
+
+  /**
+   * Audio.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  AUDIO = 3
 }
 
 /**
@@ -2684,9 +2711,9 @@ declare enum ContextMenuInputFieldType {
 }
 
 /**
- * Defines the lifecycle of the same-layer tag. 
- * When the same-layer tag exists on the loaded page, 
- * CREATE is triggered. When the same-layer tag is moved or is enlarged, 
+ * Defines the lifecycle of the same-layer tag.
+ * When the same-layer tag exists on the loaded page,
+ * CREATE is triggered. When the same-layer tag is moved or is enlarged,
  * **UPDATE **is triggered. When the page exits, DESTROY is triggered.
  *
  * @enum { number }
@@ -2906,8 +2933,8 @@ declare enum WebNavigationType {
  */
 declare enum RenderMode {
   /**
-   * The Web component is rendered asynchronously. 
-   * The ArkWeb component as a graphic surface node is displayed independently. 
+   * The Web component is rendered asynchronously.
+   * The ArkWeb component as a graphic surface node is displayed independently.
    * The maximum width of the Web component is 7,680 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -2917,8 +2944,8 @@ declare enum RenderMode {
   ASYNC_RENDER = 0,
 
   /**
-   * The Web component is rendered synchronously. 
-   * The ArkWeb component as a graphic canvas node is displayed together with the system component. 
+   * The Web component is rendered synchronously.
+   * The ArkWeb component as a graphic canvas node is displayed together with the system component.
    * The maximum width of the Web component is 500,000 px (physical pixel).
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -4398,10 +4425,10 @@ declare class WebCookie {
 }
 
 /**
- * Represents the event consumption result sent to the Web component. 
- * For details about the supported events, see TouchType. 
- * If the application does not consume the event, set this parameter to false, 
- * and the event will be consumed by the Web component. If the application has consumed the event, 
+ * Represents the event consumption result sent to the Web component.
+ * For details about the supported events, see TouchEvent/mouseEvent.
+ * If the application does not consume the event, set this parameter to false,
+ * and the event will be consumed by the Web component. If the application has consumed the event,
  * set this parameter to true, and the event will not be consumed by the Web component.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -4419,7 +4446,7 @@ declare class EventResult {
   constructor();
 
   /**
-   * Sets the gesture event consumption result.
+   * Set whether the event is consumed.
    *
    * @param { boolean } result -  Whether to consume the gesture event.
    *    {@code true} Indicates the consumption of the gesture event.
@@ -4439,7 +4466,7 @@ declare class EventResult {
    *    {@code false} Indicates the non-consumption of the gesture event.
    *    Default value: true.
    * @param { boolean } stopPropagation - Whether to stop propagation.
-   *    This parameter is valid only when result is set to true. 
+   *    This parameter is valid only when result is set to true.
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
    *    Default value: true.
@@ -4447,6 +4474,17 @@ declare class EventResult {
    * @since 14
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
+
+    /**
+   * Sets the mouse event consumption result.
+   *
+   * @param { boolean } result - True if the event is consumed.
+   * @param { boolean } [stopPropagation] - {@code true} means to prevent mouse events from bubbling up
+   * {code false} otherwise, The default value is true.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  setMouseEventResult(result: boolean, stopPropagation?: boolean): void;
 }
 
 /**
@@ -5269,6 +5307,42 @@ declare interface NativeEmbedTouchInfo {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   */
+  result?: EventResult;
+}
+
+/**
+ * Defines the user mouse info on embed layer.
+ *
+ * @typedef NativeEmbedMouseInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare interface NativeEmbedMouseInfo {
+  /**
+   * The native embed id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  embedId?: string;
+
+  /**
+   * An event sent when the state of contacts with a mouse-sensitive surface changes.
+   *
+   * @type { ?MouseEvent }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  mouseEvent?: MouseEvent;
+
+  /**
+   * Handle the user's mouse result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
    */
   result?: EventResult;
 }
@@ -6850,6 +6924,31 @@ declare enum WebResponseType {
 }
 
 /**
+ * Enum type supplied to {@link bypassVsyncCondition} for setting the bypass vsync condition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum WebBypassVsyncCondition {
+  /**
+   * Not bypass vsync.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * bypass vsync.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  SCROLLBY_FROM_ZERO_OFFSET = 1
+}
+
+/**
  * Arkweb audio session Type
  *
  * @enum { number }
@@ -6858,9 +6957,9 @@ declare enum WebResponseType {
  */
 declare enum AudioSessionType {
   /**
-   * Ambient audio, which is mixable with other types of audio. 
+   * Ambient audio, which is mixable with other types of audio.
    * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -7121,7 +7220,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Sets whether to enable automatic image loading.
-   * 
+   *
    * @param { boolean } imageAccess - Sets whether to enable automatic image loading.
    *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
    *    Default value: true.
@@ -7207,7 +7306,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether to enable geolocation access. By default, this feature is enabled.
    * For details, see Managing Location Permissions.
-   * 
+   *
    * @param { boolean } geolocationAccess - Whether to enable geolocation access. {@code true} means the Web
    *                                        allows access to geographical locations; {@code false} means the
    *                                        Web disallows access to geographical locations. The default value is true.
@@ -7333,9 +7432,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets the web dark mode. By default, web dark mode is disabled. When it is enabled, 
-   * the Web component enables the dark theme defined for web pages 
-   * if the theme has been defined in prefers-color-scheme of a media query, 
+   * Sets the web dark mode. By default, web dark mode is disabled. When it is enabled,
+   * the Web component enables the dark theme defined for web pages
+   * if the theme has been defined in prefers-color-scheme of a media query,
    * and remains unchanged otherwise. To enable the forcible dark mode, use this API with forceDarkAccess.
    *
    * @param { WebDarkMode } mode - Web dark mode to set.
@@ -7356,10 +7455,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets whether to enable forcible dark mode for the web page. 
+   * Sets whether to enable forcible dark mode for the web page.
    * This API is applicable only when dark mode is enabled in {@link darkMode}.
    *
-   * @param { boolean } access Sets whether to enable forcible dark mode for the web page. 
+   * @param { boolean } access Sets whether to enable forcible dark mode for the web page.
    *    {@code true} means enable forcible dark mode for the web page. ;
    *    {@code false} means not enable forcible dark mode for the web page.
    *    The default value is false.
@@ -7431,11 +7530,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   /**
-   * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width. 
+   * Sets whether to load web pages by using the overview mode, which means reducing the content to fit the screen width.
    * Currently, only mobile devices are supported.
    *
    * @param { boolean } overviewModeAccess Whether to load web pages by using the overview mode.
-   *    {@code true} means the Web access overview mode; 
+   *    {@code true} means the Web access overview mode;
    *    {@code false} means the Web not access overview mode.
    *    Default value: true
    * @returns { WebAttribute }
@@ -7512,7 +7611,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Sets whether to enable database access. By default, this feature is disabled.
-   * 
+   *
    *
    * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
    *                                     database access; {@code false} means to disable database access.
@@ -7559,26 +7658,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether the viewport property of the meta tag is enabled.
-   * 
+   *
    * <p><strong>API Note</strong>:<br>
-   * If the device is 2-in-1, the viewport property is not supported. This means that, 
-   * regardless of whether this parameter is set to true or false, 
+   * If the device is 2-in-1, the viewport property is not supported. This means that,
+   * regardless of whether this parameter is set to true or false,
    * the viewport property will not be parsed and a default layout will be used.<br>
-   * If the device is a tablet, the viewport-fit property of the meta tag is parsed regardless of 
-   * whether this parameter is set to true or false. When viewport-fit is set to cover, 
+   * If the device is a tablet, the viewport-fit property of the meta tag is parsed regardless of
+   * whether this parameter is set to true or false. When viewport-fit is set to cover,
    * the size of the safe area can be obtained through the CSS attribute.<br>
-   * The viewport parameter of the meta tag on the frontend HTML page is enabled or 
-   * disabled based on whether User-Agent contains the Mobile field. 
-   * If a User-Agent does not contain the Mobile field, the viewport property in the meta tag is disabled by default. 
+   * The viewport parameter of the meta tag on the frontend HTML page is enabled or
+   * disabled based on whether User-Agent contains the Mobile field.
+   * If a User-Agent does not contain the Mobile field, the viewport property in the meta tag is disabled by default.
    * In this case, you can explicitly set the metaViewport property to true to overwrite the disabled state.
    * </p>
    *
-   * @param { boolean } enabled Whether the viewport property of the meta tag is enabled. 
+   * @param { boolean } enabled Whether the viewport property of the meta tag is enabled.
    *    {@code true} means support the viewport attribute of the meta tag,
-   *    the viewport property of the meta tag is not enabled. 
-   *    This means that the property will not be parsed and a default layout will be used.; 
+   *    the viewport property of the meta tag is not enabled.
+   *    This means that the property will not be parsed and a default layout will be used.;
    *    {@code false} means not support the viewport attribute of the meta tag,
-   *    the viewport property of the meta tag is enabled. 
+   *    the viewport property of the meta tag is enabled.
    *    This means that the property will be parsed and used for the layout.
    *    Default value: true.
    * @returns { WebAttribute }
@@ -7744,7 +7843,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Called to notify the user that the request for obtaining the geolocation information received
    * when {@link onGeolocationShow} is called has been canceled.
-   * 
+   *
    * @param { function } callback - Callback invoked when the request for obtaining geolocation information has been canceled.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8458,7 +8557,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Called when a screen capture request is received.
-   * 
+   *
    * @param { Callback<OnScreenCaptureRequestEvent> } callback Called when a screen capture request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8770,7 +8869,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the standard font family for the web page.
    *
-   * @param { string } family Sets the standard font family for the web page. 
+   * @param { string } family Sets the standard font family for the web page.
    *    Default value: sans-serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8830,7 +8929,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the fixed font family for the web page.
    *
-   * @param { string } family Sets the fixed font family for the web page. 
+   * @param { string } family Sets the fixed font family for the web page.
    *    Default value: monospace.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8870,7 +8969,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the cursive font family for the web page.
    *
-   * @param { string } family Sets the cursive font family for the web page. 
+   * @param { string } family Sets the cursive font family for the web page.
    *    Default value: cursive.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8890,9 +8989,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { number } size Default fixed font size to set, in px. 
-   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
-   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   * @param { number } size Default fixed font size to set, in px.
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering,
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 13.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8912,8 +9011,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { number } size Default font size to set, in px. 
-   *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72, 
+   * @param { number } size Default font size to set, in px.
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72,
    *    and values less than 1 are handled as 1. Default value: 16.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8933,9 +9032,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum font size for the web page.
    *
-   * @param { number } size Minimum font size to set, in px. 
-   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
-   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   * @param { number } size Minimum font size to set, in px.
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering,
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -8956,9 +9055,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum logical font size for the web page.
    *
-   * @param { number } size Minimum logical font size to set, in px. 
-   *    The value ranges from -2^31 to 2^31-1. In actual rendering, 
-   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1. 
+   * @param { number } size Minimum logical font size to set, in px.
+   *    The value ranges from -2^31 to 2^31-1. In actual rendering,
+   *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9238,7 +9337,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * To check the settings of **persist.web.allowWindowOpenMethod.enabled**,
    * run the **hdc shell param get persist.web.allowWindowOpenMethod.enabled** command.
    * If the attribute value is 1, it means the system attribute is enabled;
-   * If the attribute value is 0 or does not exist, it means that the system attribute has not been enabled.  
+   * If the attribute value is 0 or does not exist, it means that the system attribute has not been enabled.
    * you can run the **hdc shell param set persist.web.allowWindowOpenMethod.enabled 1** command to enable it.
    * </p>
    *
@@ -9491,23 +9590,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the web layout mode.
-   * 
+   *
    * <p><strong>API Note</strong>:<br>
    * Currently, only two web layout modes are supported: WebLayoutMode.NONE and WebLayoutMode.FIT_CONTENT.
    * The following restrictions apply with the usage of WebLayoutMode.FIT_CONTENT:
-   * - If the Web component is wider or longer than 7680 px, specify the RenderMode.SYNC_RENDER mode 
+   * - If the Web component is wider or longer than 7680 px, specify the RenderMode.SYNC_RENDER mode
    *   when creating the Web component; otherwise, the screen may be blank.
    * - After the Web component is created, dynamic switching of the layoutMode is not supported.
-   * - The width and height of a Web component cannot exceed 500,000 px when the RenderMode.SYNC_RENDER mode is specified, 
+   * - The width and height of a Web component cannot exceed 500,000 px when the RenderMode.SYNC_RENDER mode is specified,
    *   and cannot exceed 7680 px when the RenderMode.ASYNC_RENDER mode is specified.
-   * - Frequent changes to the page width and height will trigger a re-layout of the Web component, 
+   * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
    *   which can affect the user experience.
    * - Waterfall web pages are not supported (drop down to the bottom to load more).
    * - Only height adaptation is supported. Width adaptation is not supported.
-   * - Because the height is adaptive to the web page height, 
+   * - Because the height is adaptive to the web page height,
    *   the component height cannot be changed by modifying the component height attribute.
    * </p>
-   * 
+   *
    * @param { WebLayoutMode } mode - The web layout mode, follow the system or adaptive layout.
    *    The default value is WebLayoutMode.NONE.
    * @returns { WebAttribute }
@@ -9569,13 +9668,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
   /**
-   * Registers the HTML tag name and type for same-layer rendering. 
-   * The tag name only supports object and embed. 
+   * Registers the HTML tag name and type for same-layer rendering.
+   * The tag name only supports object and embed.
    * The tag type only supports visible ASCII characters.<br>
-   * If the specified type is the same as the W3C standard object or embed type, 
+   * If the specified type is the same as the W3C standard object or embed type,
    * the ArkWeb kernel identifies the type as a non-same-layer tag.<br>
-   * This API is also controlled by the enableNativeEmbedMode API and 
-   * does not take effect if same-layer rendering is not enabled. When this API is not used, 
+   * This API is also controlled by the enableNativeEmbedMode API and
+   * does not take effect if same-layer rendering is not enabled. When this API is not used,
    * the ArkWeb engine recognizes the embed tags with the "native/" prefix as same-layer tags.
    *
    * @param { string } tag - Tag name.
@@ -9605,11 +9704,11 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
   /**
-   * Called when the visibility of a same-layer tag (such as an Embed tag or an Object tag) on a web page changes in the viewport. 
-   * By default, the same-layer tag is invisible. If the rendering tag is visible when you access the page for the first time, 
-   * the callback is triggered; otherwise, it is not triggered. That is, if the same-layer tag changes from a non-zero value to 0 x 0, 
-   * the callback is triggered. If the rendering tag size changes from 0 x 0 to a non-zero value, the callback is not triggered. 
-   * If all the same-layer tags are invisible, they are reported as invisible. If all the same-layer rendering tags or part of them are visible, 
+   * Called when the visibility of a same-layer tag (such as an Embed tag or an Object tag) on a web page changes in the viewport.
+   * By default, the same-layer tag is invisible. If the rendering tag is visible when you access the page for the first time,
+   * the callback is triggered; otherwise, it is not triggered. That is, if the same-layer tag changes from a non-zero value to 0 x 0,
+   * the callback is triggered. If the rendering tag size changes from 0 x 0 to a non-zero value, the callback is not triggered.
+   * If all the same-layer tags are invisible, they are reported as invisible. If all the same-layer rendering tags or part of them are visible,
    * they are reported as invisible.
    *
    * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
@@ -9635,6 +9734,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onNativeEmbedGestureEvent(callback: (event: NativeEmbedTouchInfo) => void): WebAttribute;
+
+  /**
+   * Triggered when mouse effect on embed tag.
+   *
+   * @param { MouseInfoCallback } callback - callback Triggered when mouse effect on embed tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
 
   /**
    * Called to set copy option
@@ -9734,7 +9843,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
   /**
-   * Called when the viewport-fit configuration in the web page's <meta> tag changes. 
+   * Called when the viewport-fit configuration in the web page's <meta> tag changes.
    * The application can adapt its layout to the viewport within this callback.
    *
    * @param { OnViewportFitChangedCallback } callback - Callback invoked when the viewport-fit configuration in the web page's <meta> tag changes.
@@ -9936,6 +10045,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   onActivateContent(callback: Callback<void>): WebAttribute;
+
+  /**
+   * Set up a condition that bypass vsync
+   * If the condition is matched, the drawing schedule does not reply on Vsync scheduling
+   * and directly rendering and drawing
+   *
+   * @param { WebBypassVsyncCondition } condition - The condition to bypass render vsync.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
 }
 
 /**
@@ -10175,4 +10296,17 @@ declare interface EmbedOptions {
    * @since 16
    */
   supportDefaultIntrinsicSize?: boolean;
+
+  /**
+   * Whether the {@link onNativeEmbedVisibilityChange} event supports display-related attributes
+   * of the embed element.
+   * <br>Default value is false. If true, the changes of the display-related attributes of the
+   * embed element will be reported through the {@link onNativeEmbedVisibilityChange} event.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  supportCssDisplayChange?: boolean;
 }

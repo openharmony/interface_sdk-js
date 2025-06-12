@@ -1135,6 +1135,44 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Copies the source directory to the destination directory. This API uses a promise to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination folder.
+ * @param { number } [mode = 0] - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @returns { Promise<void> } Promise that returns no value.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
@@ -1164,6 +1202,34 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Copies the source directory to the destination directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
@@ -1176,6 +1242,18 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Copies the source directory to the destination directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -1217,6 +1295,44 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Copies the source directory to the destination directory. You can set the copy mode.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
@@ -1239,6 +1355,28 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Copies the source directory to the destination directory. You can set the copy mode.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -1305,6 +1443,44 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
+ */
+/**
+ * Copies the source directory to the destination directory. This API returns the result synchronously.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the source directory.
+ * @param { number } [mode = 0] - Copy mode. The default value is 0.
+ * <br>0: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory will be moved
+ * <br>to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>1: Forcibly overwrite the files with the same name in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function copyDirSync(src: string, dest: string, mode?: number): void;
 
@@ -3230,6 +3406,26 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses a promise to return the result.
+ *
+ * @param { string } path - Application sandbox path of the file.
+ * @returns { Promise<Stat> } Promise used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function lstat(path: string): Promise<Stat>;
 
 /**
@@ -3251,6 +3447,26 @@ declare function lstat(path: string): Promise<Stat>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } path - Application sandbox path of the file.
+ * @param { AsyncCallback<Stat> } callback - Callback used to return the symbolic link information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
@@ -3271,6 +3487,26 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Obtains information about a symbolic link that is used to refer to a file or directory.
+ * This API returns the result synchronously.
+ *
+ * @param { string } path - Application sandbox path of the file.
+ * @returns { Stat } File information obtained.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function lstatSync(path: string): Stat;
 
@@ -3373,6 +3609,33 @@ declare function mkdir(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
+ */
+/**
+ * Creates a directory. This API uses a promise to return the result. The value true means to create a directory recursively.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ * @returns { Promise<void> } Promise that returns no value.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
  */
 declare function mkdir(path: string, recursion: boolean): Promise<void>;
 
@@ -3477,6 +3740,34 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @atomicservice
  * @since 11
  */
+/**
+ * Creates a directory. This API uses an asynchronous callback to return the result.
+ * The value true means to create a directory recursively.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
+ */
 declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
 /**
@@ -3574,6 +3865,32 @@ declare function mkdirSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
+ */
+/**
+ * Creates a directory. This API returns the result synchronously. The value true means to create a directory recursively.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { boolean } recursion - Whether to create a directory recursively.
+ * <br>The value true means to create a directory recursively. The value false means to create a single-level directory.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
  */
 declare function mkdirSync(path: string, recursion: boolean): void;
 
@@ -3770,6 +4087,51 @@ declare function mkdtempSync(prefix: string): string;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Moves the source directory to the destination directory. This API uses a promise to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } [mode = 0] - Move mode. The default value is 0.
+ * <br>0: Throw an exception if a directory conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
+ * <br>1: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
+ * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * <br>3: Forcibly overwrite the conflicting directory.
+ * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ * <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ * <br>as the source directory, all original files in the directory will be deleted.
+ * @returns { Promise<void> } Promise that returns no value.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
@@ -3799,6 +4161,34 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Moves the source directory to the destination directory. This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
@@ -3810,6 +4200,17 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Moves the source directory to the destination directory. This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -3857,6 +4258,51 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Moves the source directory to the destination directory. You can set the move mode.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Move mode. The default value is 0.
+ * <br>0: Throw an exception if a directory conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
+ * <br>1: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
+ * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * <br>3: Forcibly overwrite the conflicting directory.
+ * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ * <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ * <br>as the source directory, all original files in the directory will be deleted.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
@@ -3885,6 +4331,34 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Moves the source directory to the destination directory. You can set the move mode.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } mode - Move mode. The default value is 0.
+ * <br>0: Throw an exception if a directory conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
+ * <br>1: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
+ * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * <br>3: Forcibly overwrite the conflicting directory.
+ * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ * <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ * <br>as the source directory, all original files in the directory will be deleted.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Callback used to return the result.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -3930,6 +4404,50 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Moves the source directory to the destination directory. This API returns the result synchronously.
+ *
+ * @param { string } src - Application sandbox path of the source directory.
+ * @param { string } dest - Application sandbox path of the destination directory.
+ * @param { number } [mode = 0] - Move mode. The default value is 0.
+ * <br>0: Throw an exception if a directory conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a non-empty directory with the same name as the source directory.
+ * <br>1: Throw an exception if a file conflict occurs.
+ * <br>An exception will be thrown if the destination directory contains a directory with the same name as the source directory,
+ * <br>and a file with the same name exists in the conflict directory. All the non-conflicting files in the source directory
+ * <br>will be moved to the destination directory, and the non-conflicting files in the destination directory will be retained.
+ * <br>The data attribute in the error returned provides information about the conflicting files in the Array<ConflictFiles> format.
+ * <br>2: Forcibly overwrite the conflicting files in the destination directory.
+ * <br>When the destination directory contains a directory with the same name as the source directory,
+ * <br>the files with the same names in the destination directory are overwritten forcibly;
+ * <br>the files without conflicts in the destination directory are retained.
+ * <br>3: Forcibly overwrite the conflicting directory.
+ * <br>The source directory is moved to the destination directory, and the content of the moved directory is the
+ * <br>same as that of the source directory. If the destination directory contains a directory with the same name
+ * <br>as the source directory, all original files in the directory will be deleted.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function moveDirSync(src: string, dest: string, mode?: number): void;
 
@@ -7199,6 +7717,29 @@ declare function disconnectDfs(networkId: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Sets an extended attribute of a file or directory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { string } key - Key of the extended attribute to obtain.
+ * <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
+ * @param { string } value -Value of the extended attribute to set.
+ * @returns { Promise<void> } Promise that returns no value.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function setxattr(path: string, key: string, value: string): Promise<void>;
 
 /**
@@ -7222,6 +7763,28 @@ declare function setxattr(path: string, key: string, value: string): Promise<voi
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Sets an extended attribute of a file or directory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { string } key - Key of the extended attribute to obtain.
+ * <br>The value is a string of less than 256 bytes and can contain only the user. prefix.
+ * @param { string } value - Value of the extended attribute to set.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function setxattrSync(path: string, key: string, value: string): void;
 
 /**
@@ -7242,6 +7805,25 @@ declare function setxattrSync(path: string, key: string, value: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Obtains an extended attribute of a file or directory.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { string } key - Key of the extended attribute to obtain.
+ * @returns { Promise<string> } Promise used to return the value of the extended attribute obtained.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900007 - Arg list too long
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900037 - No data available
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function getxattr(path: string, key: string): Promise<string>;
 
 /**
@@ -7261,6 +7843,25 @@ declare function getxattr(path: string, key: string): Promise<string>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
+ */
+/**
+ * Obtains an extended attribute of a file. This API returns the result synchronously.
+ *
+ * @param { string } path - Application sandbox path of the directory.
+ * @param { string } key - Key of the extended attribute to obtain.
+ * @returns { string } Value of the extended attribute obtained.
+ * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+ * <br>2.Incorrect parameter types.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900007 - Arg list too long
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900037 - No data available
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function getxattrSync(path: string, key: string): string;
 
@@ -9923,6 +10524,14 @@ export interface Filter {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Defines conflicting file information used in copyDir() or moveDir().
+ *
+ * @interface ConflictFiles
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface ConflictFiles {
   /**
    * The path of the source file.
@@ -9937,6 +10546,14 @@ export interface ConflictFiles {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * The path of the source file.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   srcFile: string;
 
@@ -9953,6 +10570,14 @@ export interface ConflictFiles {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * The path of the destination file.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   destFile: string;
 }
@@ -9983,6 +10608,15 @@ export interface Options {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the options used in read().
+ *
+ * @interface ReadOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
+ */
 export interface ReadOptions {
   /**
    * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
@@ -9991,6 +10625,15 @@ export interface ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Length of the data to read, in bytes. This parameter is optional. The default value is the buffer length.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   offset?: number;
   /**
@@ -10001,6 +10644,16 @@ export interface ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Start position of the file to read (current filePointer plus offset), in bytes. This parameter is optional.
+   * By default, data is read from the filePointer.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   length?: number;
 }
@@ -10014,6 +10667,16 @@ export interface ReadOptions {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines the options used in readText(). It inherits from ReadOptions.
+ *
+ * @extends ReadOptions
+ * @interface ReadTextOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
+ */
 export interface ReadTextOptions extends ReadOptions {
   /**
    * Format of the data to be encoded. This parameter is valid only when the data type is string.
@@ -10023,6 +10686,16 @@ export interface ReadTextOptions extends ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Format of the data to be encoded. This parameter is valid only when the data type is string.
+   * The default value is 'utf-8', which is the only value supported.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   encoding?: string;
 }
@@ -10035,6 +10708,16 @@ export interface ReadTextOptions extends ReadOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
+ */
+/**
+ * Defines the options use din write(). It inherits from Options.
+ *
+ * @extends Options
+ * @interface WriteOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
  */
 export interface WriteOptions extends Options {
   /**
@@ -10058,6 +10741,28 @@ export interface WriteOptions extends Options {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Option for creating the writeable stream. You must specify one of the following options.
+   * OpenMode.READ_ONLY(0o0): read-only, which is the default value.
+   * OpenMode.WRITE_ONLY(0o1): write-only.
+   * OpenMode.READ_WRITE(0o2): read/write.
+   * You can also specify the following options, separated by a bitwise OR operator (|).
+   * By default, no additional options are given.
+   * OpenMode.CREATE(0o100): If the file does not exist, create it.
+   * OpenMode.TRUNC(0o1000): If the file exists and is opened in write mode, truncate the file length to 0.
+   * OpenMode.APPEND(0o2000): Open the file in append mode. New data will be added to the end of the file.
+   * OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+   * or character special file, perform non-blocking operations on the opened file and in subsequent I/Os.
+   * OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+   * OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+   * OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
+   */
   offset?: number;
   /**
    * Length of the data to write, in bytes. This parameter is optional. The default value is the buffer length.
@@ -10066,6 +10771,15 @@ export interface WriteOptions extends Options {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Length of the data to write, in bytes. This parameter is optional. The default value is the buffer length.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   length?: number;
 }
@@ -10332,6 +11046,15 @@ declare enum LocationType {
  * @atomicservice
  * @since 12
  */
+/**
+ * Enumerates the access modes to verify. If this parameter is left blank, the system checks whether the file exists.
+ *
+ * @enum { number } access mode type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
+ */
 declare enum AccessModeType {
   /**
    * Whether the file exists.
@@ -10339,6 +11062,14 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Whether the file exists.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   EXIST = 0,
 
@@ -10349,6 +11080,14 @@ declare enum AccessModeType {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Verify the write permission on the file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
+   */
   WRITE = 2,
 
   /**
@@ -10358,6 +11097,14 @@ declare enum AccessModeType {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Verify the read permission on the file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
+   */
   READ = 4,
 
   /**
@@ -10366,6 +11113,14 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Verify the read/write permission on the file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @atomicservice
+   * @crossplatform
+   * @since 20
    */
   READ_WRITE = 6
 }

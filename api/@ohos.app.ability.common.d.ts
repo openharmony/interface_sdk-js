@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
@@ -30,7 +31,6 @@ import * as _FormExtensionContext from './application/FormExtensionContext';
 import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
-import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
@@ -43,6 +43,17 @@ import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
+/*** endif */
+import { AbilityResult as _AbilityResult } from './ability/abilityResult';
+/*** if arkts 1.2 */
+import _UIAbilityContext from './application/UIAbilityContext';
+import type _UIExtensionContext from './application/UIExtensionContext';
+import _AbilityStageContext from './application/AbilityStageContext';
+import _ApplicationContext from './application/ApplicationContext';
+import _Context from './application/Context';
+import _ExtensionContext from './application/ExtensionContext';
+import _ServiceExtensionContext from './application/ServiceExtensionContext';
+/*** endif */
 
 /**
  * This module provides application context classes and common data structures.
@@ -68,7 +79,8 @@ import * as _AppServiceExtensionContext from './application/AppServiceExtensionC
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace common {
   /**
@@ -99,6 +111,19 @@ declare namespace common {
   export type UIAbilityContext = _UIAbilityContext.default;
 
   /**
+   * The context of an ability. It allows access to ability-specific resources.
+   *
+   * @typedef { _UIAbilityContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIAbilityContext = _UIAbilityContext;
+
+  /**
    * The context of an abilityStage. It allows access to abilityStage-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -126,6 +151,19 @@ declare namespace common {
   export type AbilityStageContext = _AbilityStageContext.default;
 
   /**
+   * The context of an abilityStage. It allows access to abilityStage-specific resources.
+   *
+   * @typedef { _AbilityStageContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityStageContext = _AbilityStageContext;
+
+  /**
    * The context of an application. It allows access to application-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -151,6 +189,19 @@ declare namespace common {
    * @since 11
    */
   export type ApplicationContext = _ApplicationContext.default;
+
+  /**
+   * The context of an application. It allows access to application-specific resources.
+   *
+   * @typedef { _ApplicationContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ApplicationContext = _ApplicationContext;
 
   /**
    * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
@@ -210,6 +261,20 @@ declare namespace common {
   export type Context = _Context.default;
 
   /**
+   * The base context of an ability or an application. It allows access to
+   * application-specific resources.
+   *
+   * @typedef { _Context }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Context = _Context;
+
+  /**
    * The context of an extension. It allows access to extension-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -226,6 +291,18 @@ declare namespace common {
    * @since 11
    */
   export type ExtensionContext = _ExtensionContext.default;
+
+  /**
+   * The context of an extension. It allows access to extension-specific resources.
+   *
+   * @typedef { _ExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ExtensionContext = _ExtensionContext;
 
   /**
    * The context of form extension. It allows access to
@@ -258,6 +335,19 @@ declare namespace common {
    * @since 9
    */
   export type ServiceExtensionContext = _ServiceExtensionContext.default;
+
+  /**
+   * The context of service extension. It allows access to
+   * serviceExtension-specific resources.
+   *
+   * @typedef { _ServiceExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ServiceExtensionContext = _ServiceExtensionContext;
 
   /**
    * The event center of a context, support the subscription and publication of events.
@@ -317,7 +407,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityResult = _AbilityResult;
 
@@ -341,6 +432,18 @@ declare namespace common {
    * @since 10
    */
   export type UIExtensionContext = _UIExtensionContext.default;
+
+  /**
+   * The context of UI extension. It allows access to
+   * UIExtension-specific resources.
+   *
+   * @typedef { _UIExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UIExtensionContext = _UIExtensionContext;
 
   /**
    * The context of auto fill extension. It allows access to

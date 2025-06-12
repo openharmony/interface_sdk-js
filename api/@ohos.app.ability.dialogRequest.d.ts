@@ -18,14 +18,17 @@
  * @kit AbilityKit
  */
 
+ /*** if arkts 1.1 */
 import Want from './@ohos.app.ability.Want';
+/*** endif */
 
 /**
  * Interface of request dialog.
  *
  * @namespace dialogRequest
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace dialogRequest {
   /**

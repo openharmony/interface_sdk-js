@@ -38,7 +38,8 @@ import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace commonEventManager {
   /**
@@ -95,7 +96,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -157,7 +159,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -256,7 +259,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
@@ -283,7 +287,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -306,7 +311,8 @@ declare namespace commonEventManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
@@ -350,7 +356,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
@@ -398,7 +405,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -505,7 +513,8 @@ declare namespace commonEventManager {
    * @enum { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Support {
     /**
@@ -577,7 +586,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the screen is turned off.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_OFF = 'usual.event.SCREEN_OFF',
 
@@ -585,7 +595,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is awakened and interactive.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_ON = 'usual.event.SCREEN_ON',
 
@@ -650,7 +661,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the time is set.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_TIME_CHANGED = 'usual.event.TIME_CHANGED',
 
@@ -666,7 +678,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the time zone is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_TIMEZONE_CHANGED = 'usual.event.TIMEZONE_CHANGED',
 
@@ -940,6 +953,26 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
     /**
+     * Indicates the target user (i.e the OS account) is going to be locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
+
+    /**
+     * Indicates the target user (i.e the OS acount) is locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
+
+    /**
      * Remind new user of that the service has been stopping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -967,7 +1000,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN = 'common.event.DISTRIBUTED_ACCOUNT_LOGIN',
 
@@ -982,7 +1016,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT = 'common.event.DISTRIBUTED_ACCOUNT_LOGOUT',
 
@@ -1909,7 +1944,8 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_INFO_UPDATED = 'usual.event.USER_INFO_UPDATED',
 
@@ -1918,7 +1954,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_HTTP_PROXY_CHANGE = 'usual.event.HTTP_PROXY_CHANGE',
 
@@ -2264,7 +2301,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MINORSMODE_ON = 'usual.event.MINORSMODE_ON',
 
@@ -2274,7 +2312,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
 
@@ -2353,6 +2392,26 @@ declare namespace commonEventManager {
      * @since 20
      */
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
+
+    /**
+     * This common event means that kiosk mode is on.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_ON = 'usual.event.KIOSK_MODE_ON',
+
+    /**
+     * This common event means that kiosk mode is off.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_OFF = 'usual.event.KIOSK_MODE_OFF',
   }
 
   /**
@@ -2367,7 +2426,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventData } CommonEventData
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventData = _CommonEventData;
 
@@ -2383,7 +2443,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventSubscriber } CommonEventSubscriber
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
@@ -2399,7 +2460,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
@@ -2414,7 +2476,8 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Describes the information of the subscriber
@@ -2423,7 +2486,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }

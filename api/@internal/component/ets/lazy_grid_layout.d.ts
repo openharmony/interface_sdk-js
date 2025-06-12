@@ -53,7 +53,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
    * The spacing between rows.
    *
-   * @param { Length } value
+   * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -65,7 +65,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
    * The spacing between columns.
    *
-   * @param { Length } value
+   * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

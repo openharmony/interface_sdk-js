@@ -42,7 +42,8 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Notification.Emitter
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace emitter {
   /**
@@ -70,7 +71,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
@@ -106,6 +108,19 @@ declare namespace emitter {
    * @since 12
    */
   function on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
+   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   *
+   * @param { string } eventId - indicate ID of the event to subscribe to.
+   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function on<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
@@ -191,7 +206,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventId: number): void;
 
@@ -239,7 +255,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventId: number, callback: Callback<EventData>): void;
 
@@ -277,6 +294,19 @@ declare namespace emitter {
   function off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
+   * Unsubscribe specified callback function  from an event.
+   *
+   * @param { string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function off<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+
+  /**
    * Emits the specified event.
    *
    * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
@@ -301,7 +331,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function emit(event: InnerEvent, data?: EventData): void;
 
@@ -337,6 +368,19 @@ declare namespace emitter {
    * @since 12
    */
   function emit<T>(eventId: string, data?: GenericEventData<T>): void;
+
+  /**
+   * Emits an event by specific id to the event queue.
+   *
+   * @param { string } eventId - indicate ID of the event to emit.
+   * @param { EventData | GenericEventData<T> } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function emit<T>(eventId: string, data?: EventData | GenericEventData<T>): void;
 
   /**
    * Emits an event of a specified priority.
@@ -391,7 +435,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getListenerCount(eventId: number | string): number;
 
@@ -417,7 +462,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface EventData {
     /**
@@ -445,6 +491,17 @@ declare namespace emitter {
      * @since 12
      */
     data?: { [key: string]: any };
+
+    /**
+     * Data carried by the event.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Notification.Emitter
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    data?: Record<string, Object>;
   }
 
   /**
@@ -469,7 +526,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InnerEvent {
     /**
@@ -494,7 +552,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventId: number;
 
@@ -520,7 +579,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: EventPriority;
   }
@@ -547,7 +607,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum EventPriority {
     /**
@@ -569,7 +630,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMMEDIATE = 0,
 
@@ -592,7 +654,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH,
 
@@ -615,7 +678,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW,
 
@@ -638,7 +702,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IDLE,
   }
@@ -657,7 +722,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Options {
     /**
@@ -675,7 +741,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: EventPriority;
   }
@@ -687,7 +754,8 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface GenericEventData<T> {
     /**
@@ -697,7 +765,8 @@ declare namespace emitter {
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data?: T;
   }

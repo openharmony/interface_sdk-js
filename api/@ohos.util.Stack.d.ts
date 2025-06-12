@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class Stack<T> {
   /**
@@ -65,7 +66,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -93,6 +95,19 @@ declare class Stack<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the Stack.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Tests if this stack is empty
    *
@@ -118,7 +133,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -152,6 +168,20 @@ declare class Stack<T> {
    * @since 12
    */
   peek(): T;
+
+  /**
+   * Looks at the object at the top of this stack without removing it from the stack
+   * Return undefined if this stack is empty
+   *
+   * @returns { T | undefined } the top value, or undefined if container is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  peek(): T | undefined;
+
   /**
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
@@ -183,6 +213,20 @@ declare class Stack<T> {
    * @since 12
    */
   pop(): T;
+
+  /**
+   * Removes the object at the top of this stack and returns that object as the value of this function
+   * an exception if the stack is empty
+   *
+   * @returns { T | undefined } Stack top value, or undefined if container is empty
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pop(): T | undefined;
+
   /**
    * Pushes an item onto the top of this stack
    *
@@ -211,7 +255,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   push(item: T): T;
   /**
@@ -242,7 +287,8 @@ declare class Stack<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   locate(element: T): number;
   /**
@@ -297,6 +343,19 @@ declare class Stack<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes a provided function once for each value in the Stack object.
+   *
+   * @param { StackForEachCb } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackfn: StackForEachCb<T>): void;
+
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    *
@@ -325,6 +384,34 @@ declare class Stack<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<T> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
 }
+
+/**
+ * The type of Stack callback function.
+ *
+ * @typedef { function } StackForEachCb
+ * @param { T } value - The value of current element
+ * @param { number } index - The key of current element
+ * @param { Stack<T> } stack - The Stack instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type StackForEachCb<T> = (value: T, index: number, stack: Stack<T>) => void
 
 export default Stack;
