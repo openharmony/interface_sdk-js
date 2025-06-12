@@ -3140,7 +3140,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
@@ -3184,7 +3184,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
@@ -3288,7 +3288,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
     /**
@@ -3349,7 +3349,7 @@ declare namespace media {
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
@@ -3442,7 +3442,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'durationUpdate', callback?: Callback<number>): void;
 
@@ -3523,7 +3523,7 @@ declare namespace media {
      * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
 
