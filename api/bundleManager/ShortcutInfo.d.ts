@@ -217,15 +217,6 @@ export interface ShortcutInfo {
    * @since 12
    */
   sourceType: number;
-
-  /**
-   * Display control for indicating shortcut.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20
-   */
-  visible?: boolean;
 }
 
 /**
