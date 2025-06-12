@@ -18,13 +18,8 @@
  * @kit InputKit
  */
 
-/*** if arkts 1.1 */
 import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
-/*** endif */
-/*** if arkts 1.2 */
-import { Callback } from './@ohos.base';
-/*** endif */
 
 /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
@@ -48,24 +43,24 @@ declare namespace inputConsumer {
     /**
      * The pre-keys that want to subscribe or unsubscribe.
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    preKeys: Array<number>;
+    preKeys: Array<int>;
 
     /**
      * The post position key that want to subscribe or unsubscribe.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKey: number;
+    finalKey: int;
 
     /**
      * The final key press down or up.
@@ -81,13 +76,13 @@ declare namespace inputConsumer {
     /**
      * Duration of final key press.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKeyDownDuration: number;
+    finalKeyDownDuration: int;
 
     /**
      * Whether to report repeated key events. By default, the value is true if it is left unspecified.
@@ -106,33 +101,37 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HotkeyOptions {
     /**
      * Defines modifier keys. One or two modifier keys are supported.
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    preKeys: Array<number>;
+    preKeys: Array<int>;
 
     /**
      * Defines modified keys.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    finalKey: number;
+    finalKey: int;
 
     /**
      * Whether to report repeated key events. By default, the value is true if it is left unspecified.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRepeat?: boolean;
   }
@@ -142,34 +141,38 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KeyPressedConfig {
     /**
      * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    key: number;
+    key: int;
 
     /**
      * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently
      * listening is supported only for key press events.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    action: number;
+    action: int;
 
     /**
      * Whether to report repeated key events.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRepeat: boolean;
   }
@@ -304,7 +307,8 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
@@ -318,7 +322,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
@@ -333,7 +338,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
@@ -346,7 +352,8 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }
