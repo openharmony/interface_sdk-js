@@ -1931,7 +1931,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2075,7 +2075,6 @@ declare interface RichEditorTextSpanOptions {
    */
   urlStyle?: RichEditorUrlStyle;
 }
-
 /**
  * Defines the custom keyboard options of RichEditor.
  *
@@ -2085,7 +2084,7 @@ declare interface RichEditorTextSpanOptions {
  * @atomicservice
  * @since 12
  */
-declare interface KeyboardOptions {
+ declare interface KeyboardOptions {
   /**
    * Indicates whether to support custom keyboard avoidance.
    *
@@ -2779,17 +2778,6 @@ declare interface RichEditorChangeValue {
    * @since 12
    */
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
-
-  /**
-   * The reason for text changes.
-   *
-   * @type { ?TextChangeReason }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @atomicservice
-   * @since 20
-   */
-  changeReason?: TextChangeReason;
 }
 
 /**
@@ -2915,7 +2903,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3089,17 +3077,6 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * @since 12
    */
   setTypingStyle(value: RichEditorTextStyle): void;
-
-  /**
-   * Set the typing paragraph style.
-   *
-   * @param { RichEditorParagraphStyle } style - set the typing paragraph style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  setTypingParagraphStyle(style: RichEditorParagraphStyle): void;
 
   /**
    * Text selection is achieved by specifying the start and end positions of the rich editor.
@@ -4116,7 +4093,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    */
   undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
 }
-
+ 
 /**
  * the callback of cut event.
  * @interface CutEvent
@@ -4137,7 +4114,7 @@ declare interface CutEvent {
    */
   preventDefault?: Callback<void>;
 }
-
+ 
 /**
  * the callback of copy event.
  * @interface CopyEvent
