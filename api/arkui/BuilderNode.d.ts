@@ -529,6 +529,18 @@ export class BuilderNode<Args extends Object[]> {
   postInputEvent(event: InputEventType): boolean;
 
   /**
+   * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   *
+   * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  inheritFreezeOptions(enabled: boolean): void;
+
+  /**
    * Get if the node is disposed.
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
