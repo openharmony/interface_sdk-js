@@ -457,7 +457,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
@@ -511,6 +512,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
@@ -524,7 +526,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
@@ -993,8 +996,7 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?Resource }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     textResourceAnnouncedForAccessibility?: Resource;
 
