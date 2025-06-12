@@ -12722,6 +12722,17 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
+ * Import the DataLoadParams type object for ui component.
+ *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams } DataLoadParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams;
+
+/**
  * Enum for Drag Result.
  *
  * @enum { number }
@@ -13947,6 +13958,20 @@ declare interface DragEvent {
    * @since 20
    */
   getDisplayId(): number;
+  
+  /**
+   * Use this method to provide a data representation to the system instead of directly providing a complete data
+   * object. When the user releases the drag over the target application, the system will use this data
+   * representation to request the actual data from drag source. This approach significantly improves the
+   * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+   * reception. It is recommended to use this method instead of the setData method.
+   *
+   * @param { DataLoadParams } dataLoadParams The data backend representation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  setDataLoadParams(dataLoadParams: DataLoadParams): void;
   
   /**
    * Enable the internal drop animation, which is only avaiable for system applications.
