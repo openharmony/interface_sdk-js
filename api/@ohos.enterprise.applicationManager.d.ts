@@ -425,26 +425,6 @@ declare namespace applicationManager {
    * @since 14
    */
   function getKeepAliveApps(admin: Want, accountId: number): Array<string>;
-
-  /**
-   * Clear up application data.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *              The admin must have the corresponding permission.
-   * @param { string } bundleName - bundleName indicates the bundle name of application.
-   * @param { number } appIndex - appIndex indicates the index of bundle.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
-   *              required to call the API
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  function clearUpApplicationData(admin: Want, bundleName: string, appIndex: number, accountId: number): void;
 }
 
 export default applicationManager;
