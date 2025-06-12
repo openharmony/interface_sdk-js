@@ -679,10 +679,19 @@ export interface Edges<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the Length Unit.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
-declare enum LengthUnit {
+export declare enum LengthUnit {
   /**
    * Logical pixel used in Ace1.0. It's based on frontend design width.
    * For example, when a frontend with 750px design width running on a
