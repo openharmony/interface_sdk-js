@@ -33,7 +33,7 @@ declare namespace dragInteraction {
   /**
    * Enumerates the dragging states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
@@ -95,13 +95,13 @@ declare namespace dragInteraction {
     /**
      * Data length of the dragged object.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    dataSize: number;
+    dataSize: int;
   }
 
   /**
