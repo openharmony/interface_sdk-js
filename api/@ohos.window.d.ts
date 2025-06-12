@@ -9807,7 +9807,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    on(type: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
+    on(eventType: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
 
     /**
      * UIExtension in window secure limit change callback off.
@@ -9821,7 +9821,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    off(type: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
+    off(eventType: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
  
 
     /**
