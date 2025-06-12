@@ -17,44 +17,56 @@
  * @kit ArkUI
  * @arkts 1.2
  */
- 
+
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
 
 /**
- * Defines the CustomBuilder Type.
+ * Defines Builder Annotation.
  *
- * @typedef { @memo (() => void) } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
-export type CustomBuilder = @memo (() => void);
+@Retention({policy: "SOURCE"})
+export declare @interface Builder {}
 
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { @memo ((t:T) => void) } CustomBuilderT
+ * @typedef { @Builder (() => void) } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
- export type CustomBuilderT<T> = @memo ((t: T) => void);
+export type CustomBuilder = @Builder (() => void);
+
+/**
+ * Defines the CustomBuilder Type.
+ *
+ * @typedef { @Builder ((t:T) => void) } CustomBuilderT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type CustomBuilderT<T> = @Builder ((t: T) => void);
 
 /**
  * Defines the PageMapBuilder Type.
  *
- * @typedef { @memo ((name: string, param: Object | null | undefined) => void) } PageMapBuilder
+ * @typedef { @Builder ((name: string, param: Object | null | undefined) => void) } PageMapBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
-export type PageMapBuilder = @memo ((name: string, param: Object | null | undefined) => void)
+export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void)
 
 /**
  * Defining wrapBuilder function.
@@ -77,7 +89,7 @@ export declare class WrappedBuilder<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @memo public builder: T;
+  @Builder public builder: T;
 
   /**
    * @param { function } builder
