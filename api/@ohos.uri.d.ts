@@ -1162,7 +1162,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedSSP(input: string | null)
+    set encodedSSP(input: string | null);
   }
 }
 export default uri;

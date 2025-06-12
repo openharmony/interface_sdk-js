@@ -12,14 +12,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * @file
- * @kit ArkUI
- * @arkts 1.2
- */
 
- export declare class BackingValue<T> {
-    public constructor(initValue: T)
-    public get value(): T
-    public set value(newVale: T)
- }
+// import { Command } from "commander";
+// import { PackagingType } from "./model/Enums";
+// import { makePackagingOption } from "./utils/utils";
+import { packagingEntry } from "./src/PackagingEntry";
+
+function main(type: string, inputDir: string, outputDir?: string): void {
+  // const program: Command = makePackagingOption('package_tools', '1.0.0', packagingEntry);
+  // program.parse(process.argv);
+  packagingEntry(type, inputDir, outputDir);
+}
+
+// node package_tools.js type inputDir outputDir
+main(process.argv[2], process.argv[3], process.argv[4]);

@@ -23,10 +23,7 @@
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
 
 import { UIContext } from './../../../api/@ohos.arkui.UIContext'
-import { WatchFuncType } from '../stateManagement/decorators/decoratorWatch'
-import { ProvideDecoratedVariable } from '../stateManagement/decorators/decoratorProvide'
-import { ConsumeDecoratedVariable } from '../stateManagement/decorators/decoratorConsume'
-
+import { ExtendableComponent } from './extendableComponent';
 
 
 @Retention({policy: "SOURCE"})
@@ -59,9 +56,10 @@ export interface CustomLayout {
 
 }
 
-export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> {
-    public addProvidedVar<T>(varName: string, providedPropName: string, initValue: T, allowOverride: boolean = false, watchFunc?: WatchFuncType): ProvideDecoratedVariable<T>;
-    public initConsume<T>(varName: string, providedPropName: string, watchFunc?: WatchFuncType): ConsumeDecoratedVariable<T>;
+export declare abstract class BaseCustomComponent extends ExtendableComponent {
+}
+
+export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
     @memo
     @ComponentBuilder
     static $_instantiate<S extends CustomComponent<S, S_Options>, S_Options>(

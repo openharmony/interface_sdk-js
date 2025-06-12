@@ -17,10 +17,8 @@
  * @file
  * @kit AbilityKit
  */
-
-import PageNodeInfo from './PageNodeInfo';
-import AutoFillRect from './AutoFillRect';
-
+import type PageNodeInfo from './PageNodeInfo';
+import type AutoFillRect from './AutoFillRect';
 /**
  * View data for automatic filling.
  *

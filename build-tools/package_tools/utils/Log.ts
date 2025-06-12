@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,19 +13,4 @@
  * limitations under the License.
  */
 
-/**
- * @file
- * @kit ArkUI
- * @arkts 1.2
- */
-
-import { DecoratedV1VariableBase, IDecoratedMutableVariable } from '../base/decoratorBase';
-import { WatchFuncType } from './decoratorWatch';
-
-export declare class StorageLinkDecoratedVariable<T> extends DecoratedV1VariableBase<T>
-    implements IDecoratedMutableVariable<T> {
-    public constructor(propName: string, varName: string, localValue: T, watchFunc?: WatchFuncType)
-    public getInfo(): string
-    public get(): T
-    public set(newValue: T): void
-}
+// TODO 补充日志分析接口

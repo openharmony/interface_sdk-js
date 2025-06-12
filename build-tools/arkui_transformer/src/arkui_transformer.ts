@@ -14,6 +14,7 @@
  */
 
 import { program } from "commander"
+import { exit } from "process"
 import * as ts from 'typescript';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -58,44 +59,68 @@ function printResult(source: string, file: ComponentFile) {
   fs.writeFileSync(outPath, source.concat(file.concactSource))
 }
 
-function withM3Config(f: string, func: () => void) {
-  if (uiconfig.withM3File(f)) {
-    uiconfig.useMemoM3 = true;
-    func()
-    uiconfig.useMemoM3 = false;
-    return;
-  }
-  func()
-}
-
 function main() {
-  uiconfig.loadConfig(options)
-  const files = getFiles(options.inputDir, f => f.endsWith(".d.ets"))
-  const convertedFile = convertFiles(files)
-  const program = ts.createProgram(convertedFile, { allowJs: true })
-  const componentFileMap = new Map<string, ComponentFile>()
-  convertedFile.forEach(f => {
-    const sourceFile = program.getSourceFile(f)!
-    const componentFile = new ComponentFile(f, sourceFile)
-    componentFileMap.set(f, componentFile)
-    ts.transform(sourceFile, [componentInterfaceCollector(program, componentFile)])
-  })
+  uiconfig.loadConfig(options);
+  const files = getFiles(options.inputDir, f => f.endsWith(".d.ets"));
+  const program = ts.createProgram(files, { allowJs: true });
   const { printFile } = ts.createPrinter({ removeComments: false });
-  convertedFile.forEach(f => {
-    withM3Config(f, () => {
-      try {
-        const sourceFile = program.getSourceFile(f)!;
+  const componentFileMap = new Map<string, ComponentFile>();
+  const componentFileCallback = (f: string) => {
+    return (context: ts.TransformationContext) => {
+      return (sourceFile: ts.SourceFile) => {
+        const componentFile = new ComponentFile(f, sourceFile);
+        componentFileMap.set(f, componentFile);
+        ts.transform(sourceFile, [componentInterfaceCollector(program, componentFile)]);
+        return sourceFile;
+      }
+    }
+  }
+
+  const transformerCallback = (f: string) => {
+    return (context: ts.TransformationContext) => {
+      return (sourceFile: ts.SourceFile) => {
         const componentFile = componentFileMap.get(f)!;
         const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
         const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
-        const addMemoResult = ts.transform(transformedFile, [addMemoTransformer(componentFile)]);
-        const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
-        printResult(transformedSource, componentFile)
-        fs.unlinkSync(f)
-      } catch (e) {
-        console.log("Error transforming file:", f, e);
+        const transformedSource = ts.createPrinter().printFile(transformedFile);
+        printResult(transformedSource, componentFile);
+        return ts.createSourceFile("", "", ts.ScriptTarget.Latest, true);
       }
-    })
+    }
+  }
+
+  // Step1 collect all component dependencies
+  files.forEach(f => {
+    try {
+      const content = fs.readFileSync(f, 'utf-8');
+      ts.transpileModule(content, {
+        compilerOptions: {
+          target: ts.ScriptTarget.ES2017,
+        },
+        fileName: f,
+        transformers: { before: [componentFileCallback(f)] }
+      })
+    } catch (e) {
+      console.log("Error collecting file: ", f, e);
+      exit(1)
+    }
+  })
+
+  // Step2 make transformation
+  files.forEach(f => {
+    try {
+      const content = fs.readFileSync(f, 'utf-8');
+      ts.transpileModule(content, {
+        compilerOptions: {
+          target: ts.ScriptTarget.ES2017,
+        },
+        fileName: f,
+        transformers: { before: [transformerCallback(f)] }
+      })
+    } catch (e) {
+      console.log("Error transforming file: ", f, e);
+      exit(1)
+    }
   })
 }
 

@@ -18,13 +18,5 @@
  * @arkts 1.2
  */
 
-import { DecoratedV1VariableBase, IDecoratedMutableVariable } from '../base/decoratorBase';
-import { WatchFuncType } from './decoratorWatch';
-
-export declare class StoragePropDecoratedVariable<T> extends DecoratedV1VariableBase<T>
-    implements IDecoratedMutableVariable<T> {
-    public constructor(propName: string, varName:string, localVal: T, watchFunc?: WatchFuncType)
-    public getInfo(): string
-    public get(): T
-    public set(newValue: T): void
-}
+@Retention({policy: "SOURCE"})
+export declare @interface AnimatableExtend {}

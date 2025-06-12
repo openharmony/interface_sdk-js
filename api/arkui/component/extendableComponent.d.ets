@@ -17,12 +17,23 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { int32 } from '@koalaui.runtime.common';
 
-export declare interface IObservedObject {
-    _permissibleAddRefDepth: int32;
+/**
+ * Defining interface of LifeCycle for custom component and custom dialog
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export interface LifeCycle {
 }
 
-export declare function castToIObservedObject<T>(obj: T): T | undefined;
+/**
+ * Definition of extendable component, which is base class of custom component and custom dialog.
+ *
+ * @implements LifeCycle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare abstract class ExtendableComponent implements LifeCycle {
 
-export declare function setObservationDepth<T>(obj: T, depth: int32): void;
+}

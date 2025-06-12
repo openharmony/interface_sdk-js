@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr, Font, ResourceColor } from './units';
-import { CommonMethod } from './common';
+import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 /*** endif */
@@ -317,10 +317,23 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selected(value: boolean): MenuItemAttribute;
+
+    /**
+   * Setting whether menuItem is selected.
+   *
+   * @param { boolean | undefined | Bindable<boolean> } value
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    selected(value: boolean | undefined | Bindable<boolean>): MenuItemAttribute;
+
 
   /**
    * Whether the relevant check icon is displayed when a menu item is selected.

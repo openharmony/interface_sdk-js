@@ -28,7 +28,7 @@
  * @atomicservice
  * @since 12
  */
-export type Initializer<T> = () => T;
+declare type Initializer<T> = () => T;
 
 /**
  * Defines a modifier which can update attributes to native side.

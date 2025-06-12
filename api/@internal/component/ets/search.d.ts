@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions } from './common';
+import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr,Length,ResourceColor ,Dimension,Font} from './units';
 import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions,KeyboardAppearance,EditableTextChangeValue,AutoCapitalizationMode } from './textCommon';
@@ -352,10 +352,20 @@ declare interface SearchOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value?: string;
+
+  /**
+   * Text input in the search text box.
+   *
+   * @type { ?(string | Bindable<string>)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value?: string | Bindable<string>;
 
   /**
    * Text displayed when there is no input.

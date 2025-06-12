@@ -547,7 +547,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
@@ -567,7 +568,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessWithAccount(bundleName: string, accountId: number, clearPageStack: boolean, appIndex?: number):
     Promise<void>;
@@ -603,7 +605,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
@@ -890,7 +893,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInformationByBundleType(
     bundleType: bundleManager.BundleType): Promise<Array<ProcessInformation>>;
@@ -935,7 +939,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSharedBundleRunning(bundleName: string, versionCode: number): Promise<boolean>;
 
@@ -954,7 +959,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
@@ -969,7 +975,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProcessMemoryByPid(pid: number): Promise<number>;
 
@@ -984,7 +991,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
 
@@ -1145,7 +1153,8 @@ declare namespace appManager {
   * @throws { BusinessError } 16000050 - Internal error.
   * @throws { BusinessError } 16000073 - The app clone index is invalid.
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @since 14
+  * @since arkts {'1.1':'14', '1.2':'20'}
+  * @arkts 1.1&1.2
   */
   function isAppRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
 
@@ -1200,7 +1209,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSupportedProcessCachePids(bundleName : string): Promise<Array<number>>;
 
@@ -1224,7 +1234,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16300010 - The target application is not attached to status bar.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     function setKeepAliveForBundle(bundleName: string, userId: number, enable: boolean): Promise<void>;
 
@@ -1243,7 +1254,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
 
@@ -1261,7 +1273,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function killProcessesInBatch(pids: Array<number>): Promise<void>;
 

@@ -24,6 +24,9 @@ import { NotificationSortingMap } from './notificationSortingMap';
 import notification from '../@ohos.notification';
 import type notificationManager from '../@ohos.notificationManager';
 /*** endif */
+/*** if arkts 1.2 */
+import type notificationManager from '../@ohos.notificationManager';
+/*** endif */
 
 /**
  * Provides methods that will be called back when the subscriber receives a new notification or
@@ -42,7 +45,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConsume?: (data: SubscribeCallbackData) => void;
 
@@ -52,7 +56,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancel?: (data: SubscribeCallbackData) => void;
 
@@ -62,7 +67,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onUpdate?: (data: NotificationSortingMap) => void;
 
@@ -72,7 +78,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnect?: () => void;
 
@@ -82,7 +89,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDisconnect?: () => void;
 
@@ -92,7 +100,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy?: () => void;
 
@@ -114,7 +123,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDoNotDisturbChanged?: (mode: notificationManager.DoNotDisturbDate) => void;
 
@@ -124,7 +134,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onEnabledNotificationChanged?: (callbackData: EnabledNotificationCallbackData) => void;
 
@@ -134,7 +145,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBadgeChanged?: (data: BadgeNumberCallbackData) => void;
 
@@ -144,7 +156,8 @@ export interface NotificationSubscriber {
    * @type { ?BadgeEnabledChangedCallback }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
@@ -154,7 +167,8 @@ export interface NotificationSubscriber {
    * @type { ?function }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBatchCancel?: (data: Array<SubscribeCallbackData>) => void;
 }

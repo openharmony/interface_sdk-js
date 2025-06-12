@@ -19,7 +19,7 @@
  */
 
 import { LocalStorage } from './localStorage';
-import { AbstractProperty, SubscribedAbstractProperty } from '../base/decoratorBase';
+import { AbstractProperty, SubscribedAbstractProperty } from '../decorator';
 
 export declare class AppStorage extends LocalStorage {
     public static ref<T>(propName: string): AbstractProperty<T> | undefined;
