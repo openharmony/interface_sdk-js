@@ -617,7 +617,7 @@ declare namespace distributedDataObject {
      * @param { Array<string> } uris - Indicates the uri array of asset.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 15400002 - Parameter error. Possible causes:
-     * 1. The assetKey is invalid, such as "";
+     * 1. The assetsKey is invalid, such as "";
      * 2. The uris is invalid, such as the length of uris is more than 50.
      * @throws {BusinessError} 15400003 - The sessionId of the distributed object has been set.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
