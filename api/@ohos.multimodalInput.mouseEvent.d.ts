@@ -445,7 +445,21 @@ export declare interface MouseEvent extends InputEvent {
    */
   toolType: ToolType;
 
-globalX?: number;
+  /**
+   * globalX - Global X coordinate.
+   * @type { ?number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  globalX?: number;
 
+  /**
+   * globalY - Global Y coordinate.
+   * @type { ?number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   globalY?: number;
 }
