@@ -31,7 +31,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 /**
  * Action
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since arkts {'1.1':'12', '1.2':'20'}
@@ -128,13 +128,13 @@ export declare interface Key {
    */
   /**
    * Time when the key is pressed
-   * @type { int }
+   * @type { long }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pressedTime: int;
+  pressedTime: long;
 
   /**
    * Device to which the key belongs
