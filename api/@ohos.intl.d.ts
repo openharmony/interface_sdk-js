@@ -853,6 +853,266 @@ declare namespace intl {
     numeric: boolean;
 
     /**
+     * Indicates the language of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get language(): string;
+
+    /**
+     * Indicates the language of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set language(value: string);
+
+    /**
+     * Indicates the script of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get script(): string;
+
+    /**
+     * Indicates the script of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set script(value: string);
+
+    /**
+     * Indicates the region of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get region(): string;
+
+    /**
+     * Indicates the region of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set region(value: string);
+
+    /**
+     * Indicates the baseName of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get baseName(): string;
+
+    /**
+     * Indicates the baseName of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set baseName(value: string);
+
+    /**
+     * Indicates the caseFirst of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get caseFirst(): string;
+
+    /**
+     * Indicates the caseFirst of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set caseFirst(value: string);
+
+    /**
+     * Indicates the calendar of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get calendar(): string;
+
+    /**
+     * Indicates the calendar of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set calendar(value: string);
+
+    /**
+     * Indicates the collation of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get collation(): string;
+
+    /**
+     * Indicates the collation of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set collation(value: string);
+
+    /**
+     * Indicates the hourCycle of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get hourCycle(): string;
+
+    /**
+     * Indicates the hourCycle of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set hourCycle(value: string);
+
+    /**
+     * Indicates the numberingSystem of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get numberingSystem(): string;
+
+    /**
+     * Indicates the numberingSystem of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set numberingSystem(value: string);
+
+    /**
+     * Indicates the numeric of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get numeric(): boolean;
+
+    /**
+     * Indicates the numeric of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set numeric(value: boolean);
+
+    /**
      * Convert the locale information to string.
      *
      * @returns { string } locale information in string form.
