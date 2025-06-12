@@ -364,6 +364,10 @@ export declare interface Touch {
    * @since 19
    */
   fixedDisplayY?: number;
+
+  globalX?: number;
+
+  globalY?: number;
 }
 
 /**

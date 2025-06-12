@@ -444,4 +444,8 @@ export declare interface MouseEvent extends InputEvent {
    * @since 11
    */
   toolType: ToolType;
+
+globalX?: number;
+
+  globalY?: number;
 }
