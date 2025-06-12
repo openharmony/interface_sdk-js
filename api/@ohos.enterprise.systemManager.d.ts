@@ -625,7 +625,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { boolean } isAllowed - isAllowed indicates if allow auto unlock after reboot.
+   * @param { boolean } isAllowed - true if allow auto unlock after reboot, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -641,7 +641,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { boolean } indicates if allow auto unlock after reboot.
+   * @returns { boolean } true if allow auto unlock after reboot, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
