@@ -280,7 +280,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -315,7 +315,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -443,7 +443,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -480,7 +480,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -524,7 +524,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -662,7 +662,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -701,7 +701,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -747,7 +747,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1243,7 +1243,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1272,7 +1272,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000071 - App clone is not supported.
    * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
@@ -1887,7 +1887,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1922,7 +1922,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1964,7 +1964,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2094,7 +2094,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2128,7 +2128,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2169,7 +2169,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2305,7 +2305,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2341,7 +2341,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2384,7 +2384,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
