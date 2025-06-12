@@ -95,6 +95,7 @@ declare namespace inputEventClient {
      * @since 11
      */
     mouseEvent: MouseEvent;
+
   }
 
   /**
@@ -115,6 +116,7 @@ declare namespace inputEventClient {
      * @since 11
      */
     touchEvent: TouchEvent;
+    
   }
 
   /**
