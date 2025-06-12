@@ -716,7 +716,7 @@ export default class ApplicationContext extends Context {
    * <br>This API can be called only by the main thread.
    * </P>
    *
-   * @param { string } font - Font, which can be registered by calling {@link font.registerFont}.
+   * @param { string } font - Font, which can be registered by calling UIContext.registerFont.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.

@@ -47,7 +47,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
  */
 /**
  * The Context module, inherited frome {@link BaseContext}, provides context for abilities or applications, including
- * accessto application-specific resources.
+ * access to application-specific resources.
  *
  * @extends BaseContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -527,6 +527,7 @@ export default class Context extends BaseContext {
    * Obtains the context of this application.
    *
    * @returns { ApplicationContext } Application context obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
