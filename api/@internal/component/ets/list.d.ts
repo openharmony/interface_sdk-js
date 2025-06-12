@@ -778,8 +778,8 @@ declare interface VisibleListContentInfo {
  * Called when a child component enters or leaves the list display area.
  *
  * @typedef {function} OnScrollVisibleContentChangeCallback
- * @param {number} start - Information about the currently displayed first list item or list item group.
- * @param {number} end - Information about the currently displayed last list item or list item group.
+ * @param {VisibleListContentInfo} start - Information about the currently displayed first list item or list item group.
+ * @param {VisibleListContentInfo} end - Information about the currently displayed last list item or list item group.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
