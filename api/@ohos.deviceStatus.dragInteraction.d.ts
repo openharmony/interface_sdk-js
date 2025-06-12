@@ -33,7 +33,7 @@ declare namespace dragInteraction {
   /**
    * Enumerates the dragging states.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
