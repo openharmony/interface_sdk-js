@@ -43,24 +43,24 @@ declare namespace inputConsumer {
     /**
      * The pre-keys that want to subscribe or unsubscribe.
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    preKeys: Array<number>;
+    preKeys: Array<int>;
 
     /**
      * The post position key that want to subscribe or unsubscribe.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKey: number;
+    finalKey: int;
 
     /**
      * The final key press down or up.
@@ -76,13 +76,13 @@ declare namespace inputConsumer {
     /**
      * Duration of final key press.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKeyDownDuration: number;
+    finalKeyDownDuration: int;
 
     /**
      * Whether to report repeated key events. By default, the value is true if it is left unspecified.
@@ -108,22 +108,22 @@ declare namespace inputConsumer {
     /**
      * Defines modifier keys. One or two modifier keys are supported.
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    preKeys: Array<number>;
+    preKeys: Array<int>;
 
     /**
      * Defines modified keys.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKey: number;
+    finalKey: int;
 
     /**
      * Whether to report repeated key events. By default, the value is true if it is left unspecified.
@@ -148,23 +148,23 @@ declare namespace inputConsumer {
     /**
      * Key value. Currently listening is supported only for KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since arkts {'1.1':'16', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    key: number;
+    key: int;
 
     /**
      * Key event type. The value 1 indicates key press and the value 2 indicates key release. Currently
      * listening is supported only for key press events.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since arkts {'1.1':'16', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    action: number;
+    action: int;
 
     /**
      * Whether to report repeated key events.
