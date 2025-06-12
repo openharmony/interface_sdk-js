@@ -1138,6 +1138,34 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_PERMISSION_GRANTED_KEY = 'ohos.extra.param.key.permission_granted',
+
+    /**
+     * Indicates the key specifying the width(vp) of the form to be obtained, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_WIDTH_VP_KEY: 400vp
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
+     */
+    FORM_WIDTH_VP_KEY = 'ohos.extra.param.key.form_width_vp',
+
+    /**
+     * Indicates the key specifying the height(vp) of the form to be obtained, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_HEIGHT_VP_KEY: 400vp
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
+     */
+    FORM_HEIGHT_VP_KEY = 'ohos.extra.param.key.form_height_vp',
   }
 
   /**
