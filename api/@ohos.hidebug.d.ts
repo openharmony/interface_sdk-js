@@ -28,16 +28,6 @@
  */
 
 /**
- * Provide interfaces related to debugger access and obtaining CPU,
- * memory and other virtual machine information during runtime for JS programs
- *
- * @namespace hidebug
- * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
- * @atomicservice
- * @since 12
- */
-
-/**
  * This module provides multiple methods for debugging and profiling applications. With these methods, you can obtain
  * memory, CPU, GPU, and GC data, collect process trace and profiler data, and dump VM heap snapshots. Since most APIs
  * of this module are both performance-consuming and time-consuming, and are defined based on the HiDebug module,
@@ -46,7 +36,8 @@
  *
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
- * @since 20
+ * @atomicservice
+ * @since 12
  */
 declare namespace hidebug {
   /**
@@ -379,8 +370,8 @@ declare namespace hidebug {
      */
     sharedClean: bigint;
     /**
-     * 	Size of the private clean memory, in KB. The value of this parameter is obtained by reading the value of
-     * 	Private_Clean in the /proc/{pid}/smaps_rollup node.
+     * Size of the private clean memory, in KB. The value of this parameter is obtained by reading the value of
+     * Private_Clean in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -424,7 +415,7 @@ declare namespace hidebug {
      */
     vssLimit: bigint;
     /**
-     * 	Limit on the JS VM heap size of the calling thread, in KB.
+     * Limit on the JS VM heap size of the calling thread, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -624,7 +615,7 @@ declare namespace hidebug {
      */
     const FFRT: number;
     /**
-     * 	File management system. The corresponding HiTrace command is tagName:filemanagement.
+     * File management system. The corresponding HiTrace command is tagName:filemanagement.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
@@ -673,7 +664,7 @@ declare namespace hidebug {
      */
     const NET: number;
     /**
-     * 	Notification module. The corresponding HiTrace command is tagName:notification.
+     * Notification module. The corresponding HiTrace command is tagName:notification.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
@@ -694,7 +685,7 @@ declare namespace hidebug {
      */
     const OHOS: number;
     /**
-     * 	Power management. The corresponding HiTrace command is tagName:power.
+     * Power management. The corresponding HiTrace command is tagName:power.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
@@ -729,7 +720,7 @@ declare namespace hidebug {
      */
     const AUDIO: number;
     /**
-     * 	Camera module. The corresponding HiTrace command is tagName:zcamera.
+     * Camera module. The corresponding HiTrace command is tagName:zcamera.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
