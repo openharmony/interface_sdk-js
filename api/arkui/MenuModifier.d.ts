@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Menu Modifier
- *
- * @extends MenuAttribute
- * @implements AttributeModifier<MenuAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class MenuModifier extends MenuAttribute implements AttributeModifier<MenuAttribute> {
 
   /**

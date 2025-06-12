@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Search Modifier
- *
- * @extends SearchAttribute
- * @implements AttributeModifier<SearchAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
 
   /**

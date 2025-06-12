@@ -29,16 +29,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Hyperlink Modifier
- *
- * @extends HyperlinkAttribute
- * @implements AttributeModifier<HyperlinkAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class HyperlinkModifier extends HyperlinkAttribute implements AttributeModifier<HyperlinkAttribute> {
 
   /**

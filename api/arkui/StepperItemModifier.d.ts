@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines StepperItem Modifier
- *
- * @extends StepperItemAttribute
- * @implements AttributeModifier<StepperItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class StepperItemModifier extends StepperItemAttribute implements AttributeModifier<StepperItemAttribute> {
 
   /**

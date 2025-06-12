@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines ImageAnimator Modifier
- *
- * @extends ImageAnimatorAttribute
- * @implements AttributeModifier<ImageAnimatorAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {
 
   /**

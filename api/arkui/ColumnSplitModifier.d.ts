@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines ColumnSplit Modifier
- *
- * @extends ColumnSplitAttribute
- * @implements AttributeModifier<ColumnSplitAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class ColumnSplitModifier extends ColumnSplitAttribute implements AttributeModifier<ColumnSplitAttribute> {
 
   /**

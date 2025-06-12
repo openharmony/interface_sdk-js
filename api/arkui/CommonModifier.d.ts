@@ -29,16 +29,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Common Modifier
- *
- * @extends CommonAttribute
- * @implements AttributeModifier<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class CommonModifier extends CommonAttribute implements AttributeModifier<CommonAttribute> {
 
   /**

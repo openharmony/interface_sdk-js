@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Toggle Modifier
- *
- * @extends ToggleAttribute
- * @implements AttributeModifier<ToggleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class ToggleModifier extends ToggleAttribute implements AttributeModifier<ToggleAttribute> {
 
   /**

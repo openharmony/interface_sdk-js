@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines DataPanel Modifier
- *
- * @extends DataPanelAttribute
- * @implements AttributeModifier<DataPanelAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class DataPanelModifier extends DataPanelAttribute implements AttributeModifier<DataPanelAttribute> {
 
   /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -621,15 +621,6 @@ declare interface NavigationMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */
-  /**
-   * The symbol of navigation menu item.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -2053,15 +2044,6 @@ declare enum NavigationOperation {
  * @atomicservice
  * @since 11
  */
-/**
- * Defines configurable parameters for toolbar item.
- *
- * @interface ToolbarItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 declare interface ToolbarItem {
   /**
    * The value of navigation toolbar item.
@@ -2108,15 +2090,6 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */
-  /**
-   * The symbol of navigation toolbar item.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -2184,15 +2157,6 @@ declare interface ToolbarItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */
-  /**
-   * The symbol of navigation toolbar item in active state.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
    */
   activeSymbolIcon?: SymbolGlyphModifier;
 }

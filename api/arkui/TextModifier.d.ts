@@ -30,16 +30,6 @@
  * @atomicservice
  * @since 12
 */
-/**
- * Defines Text Modifier
- *
- * @extends TextAttribute
- * @implements AttributeModifier<TextAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 
   /**
