@@ -26,7 +26,8 @@ import type Context from './application/Context';
  *
  * @namespace print
  * @syscap SystemCapability.Print.PrintFramework
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace print {
 
@@ -34,7 +35,8 @@ declare namespace print {
    * PrintTask provide event callback.
    * @interface PrintTask
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrintTask {
     /**
@@ -45,7 +47,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'block', callback: Callback<void>): void;
 
@@ -57,7 +60,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'succeed', callback: Callback<void>): void;
 
@@ -69,7 +73,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'fail', callback: Callback<void>): void;
 
@@ -81,7 +86,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'cancel', callback: Callback<void>): void;
 
@@ -93,7 +99,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'block', callback?: Callback<void>): void;
 
@@ -105,7 +112,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'succeed', callback?: Callback<void>): void;
 
@@ -117,7 +125,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'fail', callback?: Callback<void>): void;
 
@@ -129,7 +138,8 @@ declare namespace print {
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'cancel', callback?: Callback<void>): void;
   }
@@ -179,7 +189,8 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
 
@@ -191,7 +202,8 @@ declare namespace print {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function print(files: Array<string>): Promise<PrintTask>;
 
@@ -330,7 +342,8 @@ declare namespace print {
    * @typedef PrintMargin
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrintMargin {
     /**
@@ -338,7 +351,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top?: number;
 
@@ -347,7 +361,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom?: number;
 
@@ -356,7 +371,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left?: number;
 
@@ -365,7 +381,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     right?: number;
   }
@@ -375,7 +392,8 @@ declare namespace print {
    * @typedef PrinterRange
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrinterRange {
     /**
@@ -383,7 +401,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startPage?: number;
 
@@ -392,7 +411,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endPage?: number;
 
@@ -401,7 +421,8 @@ declare namespace print {
      * @type { ?Array<number> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pages?: Array<number>;
   }
@@ -411,7 +432,8 @@ declare namespace print {
    * @typedef PreviewAttribute
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PreviewAttribute {
     /**
@@ -419,7 +441,8 @@ declare namespace print {
      * @type { PrinterRange }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     previewRange: PrinterRange;
 
@@ -428,7 +451,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     result?: number;
   }
@@ -438,7 +462,8 @@ declare namespace print {
    * @typedef PrintResolution
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrintResolution {
     /**
@@ -446,7 +471,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: string;
 
@@ -455,7 +481,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     horizontalDpi: number;
 
@@ -464,7 +491,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verticalDpi: number;
   }
@@ -514,7 +542,8 @@ declare namespace print {
    * @typedef PrinterCapability
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrinterCapability {
     /**
@@ -522,7 +551,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     colorMode: number;
 
@@ -531,7 +561,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duplexMode: number;
 
@@ -540,7 +571,8 @@ declare namespace print {
      * @type { Array<PrintPageSize> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pageSize: Array<PrintPageSize>;
 
@@ -549,7 +581,8 @@ declare namespace print {
      * @type { ?Array<PrintResolution> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resolution?: Array<PrintResolution>;
 
@@ -558,7 +591,8 @@ declare namespace print {
      * @type { ?PrintMargin }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minMargin?: PrintMargin;
 
@@ -577,7 +611,8 @@ declare namespace print {
    * @typedef PrinterInfo
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrinterInfo {
     /**
@@ -585,7 +620,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     printerId: string;
 
@@ -594,7 +630,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     printerName: string;
 
@@ -603,7 +640,8 @@ declare namespace print {
      * @type { PrinterState }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     printerState: PrinterState;
 
@@ -612,7 +650,8 @@ declare namespace print {
      * @type { ?number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     printerIcon?: number;
 
@@ -621,7 +660,8 @@ declare namespace print {
      * @type { ?string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: string;
 
@@ -630,7 +670,8 @@ declare namespace print {
      * @type { ?PrinterCapability }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     capability?: PrinterCapability;
 
@@ -639,7 +680,8 @@ declare namespace print {
      * @type { ?Object }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     options?: Object;
   }
@@ -649,7 +691,8 @@ declare namespace print {
    * @typedef PrintJob
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrintJob {
     /**
@@ -657,7 +700,8 @@ declare namespace print {
      * @type { Array<number> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdList: Array<number>;
 
@@ -666,7 +710,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     jobId: string;
 
@@ -675,7 +720,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     printerId: string;
 
@@ -684,7 +730,8 @@ declare namespace print {
      * @type { PrintJobState }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     jobState: PrintJobState;
 
@@ -702,7 +749,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     copyNumber: number;
 
@@ -711,7 +759,8 @@ declare namespace print {
      * @type { PrinterRange }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pageRange: PrinterRange;
 
@@ -720,7 +769,8 @@ declare namespace print {
      * @type { boolean }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSequential: boolean;
 
@@ -729,7 +779,8 @@ declare namespace print {
      * @type { PrintPageSize }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pageSize: PrintPageSize;
 
@@ -738,7 +789,8 @@ declare namespace print {
      * @type { boolean }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isLandscape: boolean;
 
@@ -747,7 +799,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     colorMode: number;
 
@@ -756,7 +809,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duplexMode: number;
 
@@ -765,7 +819,8 @@ declare namespace print {
      * @type { ?PrintMargin }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     margin?: PrintMargin;
 
@@ -774,7 +829,8 @@ declare namespace print {
      * @type { ?PreviewAttribute }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preview?: PreviewAttribute;
 
@@ -783,7 +839,8 @@ declare namespace print {
      * @type { ?Object }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     options?: Object;
   }
@@ -1455,7 +1512,8 @@ declare namespace print {
    * @typedef PrinterExtensionInfo
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PrinterExtensionInfo {
     /**
@@ -1463,7 +1521,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extensionId: string;
 
@@ -1472,7 +1531,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorId: string;
 
@@ -1481,7 +1541,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorName: string;
 
@@ -1490,7 +1551,8 @@ declare namespace print {
      * @type { number }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorIcon: number;
 
@@ -1499,7 +1561,8 @@ declare namespace print {
      * @type { string }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: string;
   }
@@ -1512,7 +1575,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAllPrinterExtensionInfos(callback: AsyncCallback<Array<PrinterExtensionInfo>>): void;
 
@@ -1524,7 +1588,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAllPrinterExtensionInfos(): Promise<Array<PrinterExtensionInfo>>;
 
@@ -1539,7 +1604,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1554,7 +1620,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
 
@@ -1566,7 +1633,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
@@ -1578,7 +1646,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDiscoverPrinter(): Promise<void>;
 
@@ -1592,7 +1661,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
@@ -1606,7 +1676,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string): Promise<void>;
 
@@ -1620,7 +1691,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
@@ -1634,7 +1706,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disconnectPrinter(printerId: string): Promise<void>;
 
@@ -1648,7 +1721,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryPrinterCapability(printerId: string, callback: AsyncCallback<void>): void;
 
@@ -1662,7 +1736,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryPrinterCapability(printerId: string): Promise<void>;
 
@@ -1676,7 +1751,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<void>): void;
 
@@ -1690,7 +1766,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startPrintJob(jobInfo: PrintJob): Promise<void>;
 
@@ -1704,7 +1781,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
@@ -1718,7 +1796,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelPrintJob(jobId: string): Promise<void>;
 
@@ -1732,7 +1811,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestPrintPreview(jobInfo: PrintJob, callback: Callback<number>): void;
 
@@ -1746,7 +1826,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestPrintPreview(jobInfo: PrintJob): Promise<number>;
 
@@ -1760,7 +1841,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
 
@@ -1774,7 +1856,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'printerStateChange', callback?: Callback<boolean>): void;
 
@@ -1788,7 +1871,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
 
@@ -1802,7 +1886,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'jobStateChange', callback?: Callback<boolean>): void;
 
@@ -1816,7 +1901,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
 
@@ -1830,7 +1916,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'extInfoChange', callback?: Callback<boolean>): void;
 
@@ -1844,7 +1931,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
@@ -1858,7 +1946,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addPrinters(printers: Array<PrinterInfo>): Promise<void>;
 
@@ -1872,7 +1961,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removePrinters(printerIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1886,7 +1976,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removePrinters(printerIds: Array<string>): Promise<void>;
 
@@ -1900,7 +1991,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
@@ -1914,7 +2006,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrinters(printers: Array<PrinterInfo>): Promise<void>;
 
@@ -1929,7 +2022,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
@@ -1944,7 +2038,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrinterState(printerId: string, state: PrinterState): Promise<void>;
 
@@ -1960,7 +2055,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void;
 
@@ -1976,7 +2072,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>;
 
@@ -1990,7 +2087,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateExtensionInfo(info: string, callback: AsyncCallback<void>): void;
 
@@ -2004,7 +2102,8 @@ declare namespace print {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateExtensionInfo(info: string): Promise<void>;
 
@@ -2016,7 +2115,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
    */
@@ -2030,7 +2130,8 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
    */
