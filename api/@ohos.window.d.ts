@@ -598,8 +598,8 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform 
    * @atomicservice
-   * @crossplatform
    * @since 20
    */
   enum WindowStatusType {
@@ -1497,7 +1497,7 @@ declare namespace window {
      *
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossPlatform
+     * @crossplatform
      * @since 20
      */
     windowStatusType: WindowStatusType;
@@ -7969,8 +7969,8 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform 
      * @atomicservice
-     * @crossplatform
      * @since 20
      */
     setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
