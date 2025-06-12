@@ -54,7 +54,7 @@ export class ComponentFile {
     public attributeSource: string[] = [],
     public functionSource: string = '',
   ) {
-    const pureName = path.basename(this.fileName).replaceAll(".d.ts", "");
+    const pureName = path.basename(this.fileName).replaceAll(".d.ts", "").replaceAll(".d.ets", "");
     this.componentName = ComponentFile.snake2Camel(pureName)
     this.outFileName = ComponentFile.snake2Camel(pureName, true).concat(".d.ets")
   }

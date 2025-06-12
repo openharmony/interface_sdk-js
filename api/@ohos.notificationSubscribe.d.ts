@@ -138,7 +138,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-  * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -386,7 +387,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -404,7 +406,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
@@ -424,7 +427,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAll(userId: number, callback: AsyncCallback<void>): void;
 
@@ -444,7 +448,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAll(userId: number): Promise<void>;
 
@@ -464,7 +469,8 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 

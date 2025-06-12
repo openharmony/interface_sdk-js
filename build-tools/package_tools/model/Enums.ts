@@ -13,15 +13,31 @@
  * limitations under the License.
  */
 
-/**
- * @file
- * @kit ArkUI
- * @arkts 1.2
-*/
+export enum PackagingType {
+  ETS = 'ets',
+  ETS2 = 'ets2',
+  NO_TAG_IN_ETS2 = 'noTagInEts2'
+}
 
-import promptAction from '@ohos.promptAction';
-import { ComponentContent } from '@ohos.arkui.node';
-export { promptAction, ComponentContent };
-export * from '@ohos.arkui.component';
-export * from '@ohos.arkui.stateManagement';
-export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
+export enum PackagingModelType {
+  ETS = 'ets',
+  ETS2 = 'ets2',
+  BOTH = 'both'
+}
+
+export enum LogType {
+  INFO = 'info',
+  ERROR = 'error'
+}
+
+export enum OperateType {
+  DELETE_FILE = 'delete_file',
+  COPY_FILE = 'copy_file',
+  DELETE_IF_STATEMENT = 'delete_if_statement',
+  ADD_USE_STATIC = 'add_use_static',
+  DELETE_ARKTS_TAG = 'delete_arkts_tag',
+  UPDATE_SINCE_TAG = 'update_since_tag',
+  DELETE_HISTORY_JSDOC = 'delete_history_jsdoc',
+  DELETE_DEPRECATED_API = 'delete_deprecated_api'
+  // TODO
+}

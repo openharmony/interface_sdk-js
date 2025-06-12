@@ -18,7 +18,7 @@
  * @arkts 1.2
  */
 
-import { AbstractProperty, SubscribedAbstractProperty } from '../base/decoratorBase';
+import { AbstractProperty, SubscribedAbstractProperty } from '../decorator';
 
 export declare class LocalStorage {
     public constructor(initializingProperties?: Object);

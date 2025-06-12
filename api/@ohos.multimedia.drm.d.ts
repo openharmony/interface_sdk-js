@@ -29,7 +29,8 @@
  * @namespace drm
  * @syscap SystemCapability.Multimedia.Drm.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace drm {
 /**

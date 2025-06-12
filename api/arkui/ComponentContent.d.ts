@@ -29,7 +29,7 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
 import { BuildOptions } from './BuilderNode';
 import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder } from './component/common';
+import { WrappedBuilder } from './component/builder';
 /*** endif */
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace storageStatistics
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace storageStatistics {
   /**
@@ -112,7 +113,8 @@ parameters are left unspecified;
    *
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface BundleStats {
     /**
@@ -120,7 +122,8 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appSize: number;
 
@@ -129,7 +132,8 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cacheSize: number;
 
@@ -138,7 +142,8 @@ parameters are left unspecified;
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataSize: number;
   }
@@ -225,7 +230,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentBundleStats(callback: AsyncCallback<BundleStats>): void;
 
@@ -238,7 +244,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentBundleStats(): Promise<BundleStats>;
 
@@ -282,7 +289,8 @@ parameters are left unspecified;
    * @interface StorageStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface StorageStats {
     /**
@@ -291,7 +299,8 @@ parameters are left unspecified;
      * @type { number }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     total: number;
 
@@ -360,7 +369,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(): Promise<StorageStats>;
 
@@ -378,7 +388,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(callback: AsyncCallback<StorageStats>): void;
 
@@ -398,7 +409,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(userId: number): Promise<StorageStats>;
 
@@ -418,7 +430,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
 
@@ -446,7 +459,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTotalSize(callback: AsyncCallback<number>): void;
 
@@ -472,7 +486,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTotalSize(): Promise<number>;
 
@@ -526,7 +541,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFreeSize(callback: AsyncCallback<number>): void;
 
@@ -552,7 +568,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFreeSize(): Promise<number>;
 

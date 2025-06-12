@@ -17,14 +17,8 @@
  * @file
  * @kit AbilityKit
  */
-/*** if arkts 1.1 */
 import type PageNodeInfo from './PageNodeInfo';
 import type AutoFillRect from './AutoFillRect';
-/*** endif */
-/*** if arkts 1.2 */
-import PageNodeInfo from './PageNodeInfo';
-import AutoFillRect from './AutoFillRect';
-/*** endif */
 /**
  * View data for automatic filling.
  *

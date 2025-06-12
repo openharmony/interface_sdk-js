@@ -22,7 +22,8 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 /*** if arkts 1.2 */
-import { WrappedBuilder, TouchEvent} from './component/common';
+import { TouchEvent} from './component/common';
+import { WrappedBuilder } from './component/builder';
 /*** endif */
 
 /**

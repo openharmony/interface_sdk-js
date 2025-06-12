@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource';
 import { ResourceColor } from './units';
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 /*** endif */
 
 /**
@@ -351,10 +351,22 @@ declare interface ToggleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   isOn?: boolean
+
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?(boolean | undefined | Bindable<boolean>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  isOn?: boolean | undefined | Bindable<boolean>
 }
 
 /**
