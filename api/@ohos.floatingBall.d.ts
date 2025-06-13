@@ -188,7 +188,6 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300025 - Failed to restore the ability.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
-     * @test
      */
     restoreAbility(want: Want): Promise<void>;
   }
