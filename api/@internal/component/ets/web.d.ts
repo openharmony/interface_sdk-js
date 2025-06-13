@@ -6732,15 +6732,7 @@ declare enum WebElementType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  IMAGE = 1,
-
-  /**
-   * Link,corresponding link type.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  LINK = 2
+  IMAGE = 1
 }
 
 /**
