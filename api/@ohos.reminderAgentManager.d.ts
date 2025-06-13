@@ -223,7 +223,7 @@ declare namespace reminderAgentManager {
   function getAllValidReminders(): Promise<Array<ReminderInfo>>;
 
   /**
-   * Updates a reminder.
+   * Updates a scheduled reminder.
    *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { reminderId } number - Indicates the reminder id.
@@ -707,7 +707,7 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     autoDeletedTime?: number;
-     
+
     /**
      * Type of the snoozeSlot used by the reminder.
      *
