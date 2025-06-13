@@ -300,14 +300,15 @@ declare namespace audio {
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
 
   /**
-   * Obtains a {@link AudioLoopback} instance. This method uses a promise to return the audio loopback instance.
-   * The instance will build low-latency capturer and low-latency render to implement in-ear monitor.
+   * Creates an <b>AudioLoopback</b> instance, which provides low-latency in-ear monitoring using a fast capturer and renderer.
+   *
    * @permission ohos.permission.MICROPHONE
-   * @param { AudioLoopbackMode } mode - The audio loopback mode.
-   * @returns { Promise<AudioLoopback> } Promise used to return the AudioLoopback instance.
+   * @param { AudioLoopbackMode } mode Audio loopback mode.
+   * @returns { Promise<AudioLoopback> } Promise used to return the <b>AudioLoopback</b> instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Unsupported API.
-   * @throws { BusinessError } 6800101 - Parameter verification failed, the mode is unsupported.
+   * @throws { BusinessError } 6800101 - Parameter verification failed.
+   * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20
    */
@@ -4442,11 +4443,11 @@ declare namespace audio {
     isAcousticEchoCancelerSupported(sourceType: SourceType): boolean;
 
     /**
-     * Checks whether the audio loopback is supported.
-     * @param   { AudioLoopbackMode } mode - The audio loopback mode.
-     * @returns { boolean } The value true means that the audio loopback is supported,
-     *          and false means the opposite.
-     * @throws  { BusinessError } 6800101 - Parameter verification failed, the mode is unsupported.
+     * Checks whether the current platform supports audio loopback.
+     * @param   { AudioLoopbackMode } mode Audio loopback mode.
+     * @returns { boolean } Check result. The value <b>true</b> means that the current platform supports audio loopback,
+     *          and <b>false</b> means the opposite.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
@@ -10981,13 +10982,21 @@ declare namespace audio {
 
   /**
    * Provides APIs for audio loopback.
+   * When audio loopback is enabled, the system creates fast playback and recording streams to implement low-latency in-ear
+   * monitoring. The recorded audio is directly routed back to the playback device internally. For the renderer, its audio
+   * focus strategy matches that of {@link StreamUsage#STREAM_USAGE_MUSIC}. For the capturer, its audio focus strategy matches
+   * that of {@link SourceType#SOURCE_TYPE_MIC}. The input and output devices are automatically selected by the system.
+   * If the current input or output does not support low latency, audio loopback fails to be enabled. During operation,
+   * if the audio focus is preempted by another audio stream or the input or output device switches to one that does not support
+   * low latency, the system automatically disables audio loopback.
+   *
    * @typedef AudioLoopback
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20
    */
   interface AudioLoopback {
     /**
-     * Obtains the status of the audio loopback. This method uses a promise to return the query result.
+     * Obtains the status of audio loopback.
      * @returns { Promise<AudioLoopbackStatus> } Promise used to return the audio loopback status.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
@@ -10995,8 +11004,8 @@ declare namespace audio {
     getStatus(): Promise<AudioLoopbackStatus>;
 
     /**
-     * Sets the volume for a audio loopback. This method uses a promise to return the result.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * Sets the volume for a audio loopback. This volume does not affect other audio streams or the system volume.
+     * @param { number } volume - Volume to set. The value type is float, ranging form 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed, form 0.0 to 1.0.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -11005,10 +11014,11 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
-     * Subscribes audio loopback status change event callback.
-     * @param { 'statusChange' } type - Type of the event to listen for. Only the statusChange event is supported.
-     * @param { Callback<AudioLoopbackStatus> } callback - Callback used to listen for the audio loopback status
+     * Subscribes to audio loopback status changes.
+     * @param { 'statusChange' } type Type of the event to listen for. Only the statusChange event is supported.
+     * @param { Callback<AudioLoopbackStatus> } callback Callback used to return the audio loopback status
      * change event.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
@@ -11019,19 +11029,25 @@ declare namespace audio {
      * @param { 'statusChange' } type - Type of the event to listen for.
      * @param { Callback<AudioLoopbackStatus> } callback - Callback used to listen for the audio loopback status
      * change event.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
     off(type: 'statusChange', callback?: Callback<AudioLoopbackStatus>): void;
 
     /**
-     * Enable or disable audio loopback. This method uses a promise to return the result.
+     * Enable or disable audio loopback.
+     * When audio loopback is enabled, the system automatically creates fast playback and recording streams
+     * to implement low-latency in-ear monitoring. When audio loopback is disabled, the audio stream is destroyed.
+     * If enabling audio loopback fails, you can use {@link AudioLoopback#getStatus} to query the cause. After audio
+     * loopback is enabled, you can subscribe to the statusChange event to listen for audio loopback status changes.
+     *
      * @permission ohos.permission.MICROPHONE
-     * @param { boolean } enable - Ability to set. The value true means to enable the audio loopback,
-     * and false means the opposite.
+     * @param { boolean } enable - Whether to enable or disable audio loopback.
      * @returns { Promise<boolean> } Promise used to return the result.
-     * The value true means to enable successfully, and false means the opposite.
+     * The value <b>true</b> means that audio loopback is enabled, and <b>false</b> means the opposite.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
