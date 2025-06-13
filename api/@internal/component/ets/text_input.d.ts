@@ -2756,7 +2756,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-
   /**
    * Define custom keyboard of the text input.
    *
@@ -3202,6 +3201,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute;
 
   /**
+   * Called before the text input component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAttachIME(callback: Callback<IMEClient>): TextInputAttribute;
+
+  /**
    * Set the custom text menu.
    * Sets the extended options of the custom context menu on selection,
    * including the text content, icon, and callback.
@@ -3267,7 +3278,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 18
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
-  
+
   /**
    * Set the ellipsis mode.
    *
@@ -3315,7 +3326,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
-   /**
+  /**
    * Set the stroke width.
    *
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
@@ -3349,18 +3360,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 20
    */
   enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * Whether to enable automatic spacing between Chinese and Latin characters.
-   *
-   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  enableAutoSpacing(enable: Optional<boolean>): TextInputAttribute;
 }
 
 /**

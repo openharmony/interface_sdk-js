@@ -535,7 +535,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 11
    */
-   /**
+  /**
    * Called when the font weight is set.
    *
    * @param { number | FontWeight | ResourceStr } value
@@ -1339,18 +1339,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
   /**
-   * Set the shader style of the text, such as lineargradient or radialgradient.
-   *
-   * @param { ShaderStyle } shader - The shader style of the text.
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  shaderStyle(shader: ShaderStyle): TextAttribute;
-
-  /**
    * Set the ellipsis mode.
    *
    * @param { EllipsisMode } value - The ellipsis mode.
@@ -1620,16 +1608,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
 
   /**
-   * Whether to enable automatic spacing between Chinese and Latin characters.
+   * Set whether to optimize the trailing spaces at the end of each line during text layout.
    *
-   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @param { Optional<boolean> } optimize - Default value is false, set true to optimize the trailing spaces at the end of each line.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  enableAutoSpacing(enable: Optional<boolean>): TextAttribute;
+  optimizeTrailingSpace(optimize: Optional<boolean>): TextAttribute;
 }
 
 /**
