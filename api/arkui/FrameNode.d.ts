@@ -2097,6 +2097,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Button'): Button;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { ButtonAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Button'): ButtonAttribute | undefined;
+
+  /**
    * Define the FrameNode type for ListItemGroup.
    * 
    * <p><strong>NOTE</strong>:
@@ -2352,6 +2368,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Checkbox' } nodeType - node type.
+   * @returns { CheckboxAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Checkbox'): CheckboxAttribute | undefined;
+
+  /**
    * Define the FrameNode type for CheckboxGroup.
    * 
    * <p><strong>NOTE</strong>:
@@ -2410,6 +2442,22 @@ export namespace typeNode {
    * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Radio'): Radio;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Radio' } nodeType - node type.
+   * @returns { RadioAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Radio'): RadioAttribute | undefined;
 
   /**
    * Define the FrameNode type for Rating.
@@ -2502,6 +2550,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Slider'): Slider;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Slider' } nodeType - node type.
+   * @returns { SliderAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Slider'): SliderAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Toggle.
    * 
    * <p><strong>NOTE</strong>:
@@ -2531,6 +2595,22 @@ export namespace typeNode {
    * @since 18
    */
   function createNode(context: UIContext, nodeType: 'Toggle', options?: ToggleOptions): Toggle;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Toggle' } nodeType - node type.
+   * @returns { ToggleAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Toggle'): ToggleAttribute | undefined;
 
   /**
    * Define the FrameNode type for Marquee.
