@@ -481,7 +481,15 @@ declare namespace pointer {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    MIDDLE_BTN_EAST_WEST
+    MIDDLE_BTN_EAST_WEST,
+
+    /**
+     * Screenrecorder
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    SCREENRECORDER_CURSOR
   }
 
   /**
