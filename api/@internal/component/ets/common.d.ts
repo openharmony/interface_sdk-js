@@ -10070,7 +10070,7 @@ declare interface BaseEvent {
   sourceTool: SourceTool;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13030,7 +13030,7 @@ declare interface DragEvent {
   getVelocity(): number;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13040,7 +13040,7 @@ declare interface DragEvent {
    * @since 12
    */
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the keys of the ModifierKey.
    * @returns { boolean }
@@ -13398,7 +13398,7 @@ declare interface KeyEvent {
   intentionCode: IntentionCode;
 
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the modifier keys.
    * @returns { boolean }
@@ -13408,7 +13408,7 @@ declare interface KeyEvent {
    * @since 12
    */
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
    *
    * @param { Array<string> } keys - indicate the modifier keys.
    * @returns { boolean }
