@@ -37,6 +37,39 @@ interface EffectComponentInterface {
    * @since 10
    */
   (): EffectComponentAttribute;
+  
+  /**
+   * Return effectComponent.
+   *
+   * @param { EffectComponentOptions } [options] - EffectComponent constructor options.
+   * @returns { EffectComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  (options?: EffectComponentOptions): EffectComponentAttribute;
+}
+
+/**
+ * Defines the Effect Component constructor options.
+ *
+ * @interface EffectComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface EffectComponentOptions {
+
+  /**
+   * Use this to determine the component layer level. Set true to put the component to the independent layer. Set false
+   * to put the component to the unified render layer. Default value is false.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  independentLayer?: boolean;
 }
 
 /**
