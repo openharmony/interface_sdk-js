@@ -10335,40 +10335,6 @@ declare enum AxisModel {
 }
 
 /**
- * Page flip mode of Swiper and Tabs on mouse wheel event.
-
- * @enum { number } PageFlipMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 15
- */
-declare enum PageFlipMode {
-  /**
-   * Turn pages continuously according to the number of mouse wheel events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 15
-   */
-  CONTINUOUS = 0,
-
-  /**
-   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 15
-   */
-  SINGLE = 1,
-}
-
-/**
  * Focus wrap mode of a list or grid when moving focus using the arrow keys.
 
  * @enum { number } FocusWrapMode
@@ -10472,6 +10438,40 @@ declare enum CrownSensitivity {
    * @since 18
    */
   HIGH = 2
+}
+
+/**
+ * Page flip mode of Swiper and Tabs on mouse wheel event.
+
+ * @enum { number } PageFlipMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 15
+ */
+declare enum PageFlipMode {
+  /**
+   * Turn pages continuously according to the number of mouse wheel events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  CONTINUOUS = 0,
+
+  /**
+   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  SINGLE = 1,
 }
 
 /**
@@ -10616,36 +10616,6 @@ declare enum EventQueryType {
 }
 
 /**
- * Define ColorSpace enumeration.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare enum ColorSpace {
-  /**
-   * SRGB ColorSpace.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  SRGB = 0,
-  /**
-   * Display-P3 ColorSpace.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  DISPLAY_P3 = 1,
-}
-
-/**
  * Define the property type enumeration used in animation.
  *
  * @enum { number }
@@ -10666,7 +10636,7 @@ declare enum AnimationPropertyType {
   ROTATION = 0,
 
   /**
-   * Tranlation in the x and y direction.
+   * Translation in the x and y direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
