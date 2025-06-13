@@ -70,16 +70,7 @@ interface RichTextInterface {
    * @crossplatform
    * @since 12
    */
-  /**
-   * Set value.
-   *
-   * @param { string | Resource } content
-   * @returns { RichTextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 20
-   */
-  (content: string | Resource): RichTextAttribute;
+  (content: string): RichTextAttribute;
 }
 
 /**

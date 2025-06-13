@@ -9749,6 +9749,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
 
   /**
+   * Triggered when the web page is activated for window.open called by other web component.
+   *
+   * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onActivateContent(callback: Callback<void>): WebAttribute;
+
+  /**
    * Enable data detector.
    *
    * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
