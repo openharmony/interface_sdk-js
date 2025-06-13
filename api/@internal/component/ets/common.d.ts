@@ -19,26 +19,6 @@
  */
 
 /**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
-
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
-
-/**
  * Defines the options of Component ClassDecorator.
  *
  * @interface ComponentOptions
@@ -12368,21 +12348,7 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
- *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } touchRecognizers - the touch recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>) => GestureJudgeResult;
 
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
@@ -13788,26 +13754,7 @@ declare interface DragEvent {
    * @since 15
    */
   startDataLoading(options: DataSyncOptions): string;
-
-  /**
-   * Retrieve the bundle information of the drag source application.
-   *
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  getDragSource(): string;
-
-  /**
-   * Call this method to determine whether the current drag operation is a cross-device drag.
-   *
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  isRemote(): boolean;
+  
 
   /**
    * Get the id of display which the drag event is occuring on.
@@ -19745,17 +19692,6 @@ declare interface DragInteractionOptions {
   defaultAnimationBeforeLifting?: boolean;
 
   /**
-  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
-  *
-  * @type { ?boolean }
-  * @default true
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 18
-  */
-  enableEdgeAutoScroll?: boolean;
-
-  /**
   * Define whether to enable the haptic feedback when dragging, the default value is false.
   *
   * @type { ?boolean }
@@ -19765,6 +19701,17 @@ declare interface DragInteractionOptions {
   * @since 18
   */
   enableHapticFeedback?: boolean;
+
+  /**
+  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
+  *
+  * @type { ?boolean }
+  * @default true
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 18
+  */
+  enableEdgeAutoScroll?: boolean;
 
   /**
   * Define whether to lifting trigger drag by finger.
@@ -20780,19 +20727,6 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor>): T;
 
   /**
-   * Background color
-   *
-   * @param { Optional<ResourceColor | ColorMetrics> } color
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
-
-  /**
    * Sets the pixel rounding policy for the current component in the specified direction.
    * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
    *
@@ -21070,8 +21004,6 @@ declare class CommonMethod<T> {
    * @param { Optional<BackgroundEffectOptions> } options - Background effect, including saturation,
    * brightness, and color.
    * <br>If **options** is **undefined**, the background reverts to its default state with no effect.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - System adaptive adjustment options.
-   * <br>Default value: **{ disableSystemAdaptation: false }**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -25291,7 +25223,7 @@ declare class CommonMethod<T> {
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
-  /**
+   /**
    * Config toolbar for current component.
    *
    * @param { CustomBuilder } value
@@ -26606,7 +26538,6 @@ declare class CommonMethod<T> {
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
-
   /**
    * Set or reset the callback which is triggered when the visibleArea of component changed.
    * The interval between two visible area change callbacks will not be less than the expected update interval.
@@ -27444,36 +27375,6 @@ declare class CommonMethod<T> {
    * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
-
-  /**
- * Enables the component as a drag-and-drop target with spring loading functionality.
- *
- * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
- * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
- * by hovering (hover) without needing to use another hand.
- * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
- * some common scenarios suitable for supporting this feature:
- *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
- *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
- *  automatically opened.
- *
- * Please note:
- *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a control makes it a
- *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
- *   child controls always have higher priority.
- *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
- *   dragged object leaves and re-enters the component's range.
- *
- * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
- *    sets it to null to reset the component's support for spring loading.
- * @param { dragController.DragSpringLoadingConfiguration } configuration The initialized spring loading configuration which is
- *    only used when the entire spring detecting.
- * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 }
 
 /**
@@ -32131,7 +32032,7 @@ declare enum KeyboardAvoidMode {
  * @since 14
  */
 declare enum HoverModeAreaType {
-
+ 
   /**
    * Layout top half screen when the phone in hover mode.
    *
@@ -32141,7 +32042,7 @@ declare enum HoverModeAreaType {
    * @since 14
    */
   TOP_SCREEN = 0,
-
+ 
   /**
    * Layout bottom half screen when the phone in hover mode.
    *
