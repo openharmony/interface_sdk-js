@@ -4797,18 +4797,6 @@ declare interface SweepGradientOptions {
    * @since 18
    */
   colors: Array<[ResourceColor, number]>;
-  
-  /**
-   * Defines color description in ColorMetrics format for gradients.
-   * This parameter takes precedence over colors parameter.
-   *
-   * @type { ?Array<[ColorMetrics, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  metricsColors?: Array<[ColorMetrics, number]>;
 
   /**
    * repeating:repeating. The default value is false
@@ -6320,6 +6308,108 @@ declare interface RotateOptions {
    * @since 11
    */
   angle: number | string;
+}
+
+/**
+ * The param of rotate about angle.
+ *
+ * @interface RotateAngleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare interface RotateAngleOptions {
+  /**
+   * the angle of the x-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleX?: number | string;
+
+  /**
+   * the angle of the y-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleY?: number | string;
+
+  /**
+   * the angle of the z-axis direction.
+   *
+   * @type { ?(number | string) }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  angleZ?: number | string;
+
+  /**
+   * The param of center point of x.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerX?: number | string;
+
+  /**
+   * The param of center point of y.
+   *
+   * @type { ?(number | string) }
+   * @default '50%'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerY?: number | string;
+
+  /**
+   * The param of center point of z.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  centerZ?: number;
+
+  /**
+   * The param of camera distance, value range (-∞, ∞).
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  perspective?: number;
 }
 
 /**
@@ -14485,18 +14575,6 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 12
    */
   transition?: TransitionEffect;
-
-  /**
-   * Set contentCover content adapts to safeArea.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  enableSafeArea?: boolean;
 }
 
 /**
@@ -14922,18 +15000,6 @@ declare interface SheetOptions extends BindOptions {
   dragBar?: boolean;
 
   /**
-   * Defines whether the sheet dragbar is floating, when it's displayed.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  enableFloatingDragBar?: boolean;
-
-  /**
    * Mask color of the sheet.
    * 
    * @type { ?ResourceColor }
@@ -15294,7 +15360,6 @@ declare interface SheetOptions extends BindOptions {
    * <br>The return value is in px.
    * </p>
    * @type { ?Callback<number> }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19976,17 +20041,6 @@ declare type Optional<T> = T | undefined;
 declare type TipsMessageType = ResourceStr | StyledString;
 
 /**
- * Import the Matrix4Transit type object for common method.
- *
- * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Transit;
-
-/**
  * Define the options for background image.
  *
  * @interface BackgroundImageOptions
@@ -20780,19 +20834,6 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor>): T;
 
   /**
-   * Background color
-   *
-   * @param { Optional<ResourceColor | ColorMetrics> } color
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
-
-  /**
    * Sets the pixel rounding policy for the current component in the specified direction.
    * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
    *
@@ -21070,8 +21111,6 @@ declare class CommonMethod<T> {
    * @param { Optional<BackgroundEffectOptions> } options - Background effect, including saturation,
    * brightness, and color.
    * <br>If **options** is **undefined**, the background reverts to its default state with no effect.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - System adaptive adjustment options.
-   * <br>Default value: **{ disableSystemAdaptation: false }**.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -23925,6 +23964,19 @@ declare class CommonMethod<T> {
    */
   rotate(options: Optional<RotateOptions>): T;
 
+    /**
+   * Set component rotation.
+   *
+   * @param { Optional<RotateOptions | RotateAngleOptions> } options default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0,angle:0}
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+    rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
+
   /**
    * Sets the transformation matrix of the component.
    *
@@ -23967,19 +24019,6 @@ declare class CommonMethod<T> {
    * @since 18
    */
   transform(transform: Optional<object>): T;
-
-  /**
-   * Sets the transformation matrix for the current component.
-   * The interface can display the effect of three-dimensional matrix transformation.
-   *
-   * @param { Optional<Matrix4Transit> } transform - transform3D matrix
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  transform3D(transform: Optional<Matrix4Transit>): T;
 
   /**
    * This callback is triggered when a component mounts a display.
@@ -25358,10 +25397,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Linear Gradient
-   * angle: Angle of Linear Gradient. The default value is 180;
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   * colors: Color description for gradients.
-   * repeating: repeating. The default value is false
+   * angle: Angle of Linear Gradient; direction:Direction of Linear Gradient;  colors:Color description for gradients,repeating:repeating.
    *
    * @param { object } value - Linear gradient.
    * @returns { T }
