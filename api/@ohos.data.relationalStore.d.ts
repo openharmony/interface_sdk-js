@@ -982,6 +982,36 @@ declare namespace relationalStore {
   }
 
   /**
+   * Defines an SQL statement.
+   *
+   * @interface SqlInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  interface SqlInfo {
+    /**
+     * SQL statement.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    sql: string;
+
+    /**
+     * Parameters of the SQL statement.
+     *
+     * @type { Array<ValueType> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
+    args: Array<ValueType>;
+  }
+
+  /**
    * Describes the {@code RdbStore} type.
    *
    * @enum { number }
@@ -8058,14 +8088,13 @@ declare namespace relationalStore {
      * If valid cryptoParam passed, the cryptoParam is used to rekey.
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * <br>2. Missing GROUP BY clause.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
@@ -8616,10 +8645,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8635,10 +8662,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8718,10 +8743,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8737,10 +8760,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
-   * @throws { BusinessError } 14800011 -
-   * Failed to open database by Failed to open the database because it is corrupted.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8816,8 +8837,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8831,8 +8851,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8850,8 +8869,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8870,8 +8888,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
@@ -8885,8 +8902,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
@@ -8919,8 +8935,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 14800000 - Inner error.
-   * @throws { BusinessError } 14800010 -
-   * Failed to open or delete database by Failed to open or delete the database by an invalid database path.
+   * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8966,6 +8981,63 @@ declare namespace relationalStore {
    * @since 18
    */
     function isTokenizerSupported(tokenizer: Tokenizer): boolean;
+
+  /**
+   * Obtains an SQL statement used for inserting data.
+   *
+   * @param { string } table - Name of the target table.
+   * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
+   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
+   * @returns { SqlInfo } - Returns an SQL insert statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+   * <br>2. Missing GROUP BY clause.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
+  
+  /**
+   * Obtains an SQL statement used for updating data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for updating data. For details, see {@link RdbPredicates}.
+   * @param { ValuesBucket } values - Row of data to be updated in the database.
+   * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
+   * @returns { SqlInfo } - Returns an SQL update statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+   * <br>2. Missing GROUP BY clause. 
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
+
+  /**
+   * Obtains an SQL statement used for deleting data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
+   * @returns { SqlInfo } - Returns an SQL delete statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+   * <br>2. Missing GROUP BY clause. 
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
+  
+  /**
+   * Obtains an SQL statement used for querying data.
+   *
+   * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
+   * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
+   * @returns { SqlInfo } - Returns an SQL query statement including parameters.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+   * <br>2. Missing GROUP BY clause. 
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
+  function getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>):SqlInfo;
 }
 
 export default relationalStore;
