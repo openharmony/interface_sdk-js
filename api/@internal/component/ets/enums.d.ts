@@ -8569,6 +8569,16 @@ declare enum ImageSpanAlignment {
    * @since 11
    */
   TOP,
+
+  /**
+   * The ImageSpan's alignment is same with the text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FOLLOW_PARAGRAPH,
 }
 
 /**
@@ -8822,6 +8832,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   NODE,
 }
@@ -10374,7 +10385,6 @@ declare enum PageFlipMode {
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @form
  * @atomicservice
  * @since 20
  */
@@ -10616,6 +10626,37 @@ declare enum EventQueryType {
 }
 
 /**
+ * Follow position type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TipsAnchorType {
+  /**
+   * Follow the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TARGET,
+
+  /**
+   * Follow the cursor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CURSOR
+}
+
+/**
  * Define ColorSpace enumeration.
  *
  * @enum { number }
@@ -10666,7 +10707,7 @@ declare enum AnimationPropertyType {
   ROTATION = 0,
 
   /**
-   * Tranlation in the x and y direction.
+   * Translation in the x and y direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

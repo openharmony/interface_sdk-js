@@ -44,6 +44,7 @@ import stream from './@ohos.util.stream';
  * @atomicservice
  * @crossplatform
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace hash {
   /**
@@ -81,6 +82,7 @@ declare namespace hash {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
@@ -119,6 +121,7 @@ declare namespace hash {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 

@@ -33,7 +33,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace systemDateTime
  * @syscap SystemCapability.MiscServices.Time
  * @crossplatform
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace systemDateTime {
   /**
@@ -115,7 +116,8 @@ declare namespace systemDateTime {
    * @returns { number } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTime(isNanoseconds?: boolean): number;
 
@@ -381,7 +383,8 @@ declare namespace systemDateTime {
    * @param { AsyncCallback<string> } callback - The callback of getTimezone
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -406,7 +409,8 @@ declare namespace systemDateTime {
    * @returns { Promise<string> } The promise returned by the function
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTimezone(): Promise<string>;
 
@@ -423,7 +427,8 @@ declare namespace systemDateTime {
    * @returns { string } The timezone returned of getTimezoneSync.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTimezoneSync(): string;
 

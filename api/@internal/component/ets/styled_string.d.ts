@@ -432,7 +432,7 @@ declare class TextStyle {
     readonly fontStyle?: FontStyle;
 
     /**
-     * Get the stroke width of the StyledString with the unit 'px'.
+     * Get the stroke width of the StyledString with the unit 'vp'.
      *
      * @type { ?number } - the stroke width of the StyledString or undefined
      * @readonly
@@ -976,6 +976,18 @@ declare class ParagraphStyle {
     readonly textAlign?: TextAlign;
 
     /**
+     * Get the text vertical alignment of the StyledString.
+     *
+     * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly textVerticalAlign?: TextVerticalAlign;
+
+    /**
      * Get the first line indentation of the StyledString.
      * The unit is vp.
      *
@@ -1069,6 +1081,17 @@ declare interface ParagraphStyleInterface {
      * @since 12
      */
     textAlign?: TextAlign;
+
+    /**
+     * Vertical alignment of text.
+     *
+     * @type { ?TextVerticalAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textVerticalAlign?: TextVerticalAlign;
 
     /**
      * Set the first line indentation.

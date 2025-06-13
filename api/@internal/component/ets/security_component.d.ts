@@ -246,7 +246,16 @@ declare class SecurityComponentMethod<T> {
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): T;
+  /**
+   * Font weight of the inner text.
+   *
+   * @param { number | FontWeight | string | Resource } value - Indicates the font weight of the text in the security component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | string | Resource): T;
 
   /**
    * Font family of the inner text.
@@ -626,7 +635,16 @@ declare class SecurityComponentMethod<T> {
    * @atomicservice
    * @since 18
    */
-  maxLines(line: number): T;
+  /**
+   * Called when the maximum number of lines of text is set.
+   *
+   * @param { number | Resource } line
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  maxLines(line: number | Resource): T;
 
   /**
    * Called when the minimum font size of the font is set.

@@ -308,9 +308,9 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since 20
      */
-    isFullScreenCapture?: boolean;
+    isCaptureFullOfScreen?: boolean;
   }
 }
 

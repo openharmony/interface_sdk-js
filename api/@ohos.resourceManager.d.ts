@@ -18,10 +18,14 @@
  * @kit LocalizationKit
  */
 
+/*** if arkts 1.1&1.2 */
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
+/*** endif */
+/*** if arkts 1.1 */
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
+/*** endif */
 
 /**
  * Provides resource related APIs.
@@ -45,7 +49,8 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace resourceManager {
   /**
@@ -831,7 +836,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getSystemResourceManager(): ResourceManager;
 
@@ -857,7 +863,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ResourceManager {
     /**
@@ -924,7 +931,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
@@ -968,7 +976,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resource: Resource): Promise<string>;
 
@@ -2339,7 +2348,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringSync(resId: number): string;
 
@@ -2375,6 +2385,25 @@ declare namespace resourceManager {
      * @since 11
      */
     getStringSync(resId: number, ...args: Array<string | number>): string;
+    
+    /**
+     * Obtains string resources associated with a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getStringSync(resId: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -2416,7 +2445,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringSync(resource: Resource): string;
 
@@ -2454,6 +2484,26 @@ declare namespace resourceManager {
      * @since 11
      */
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
+    
+    /**
+     * Obtains string resources associated with a specified resource object.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getStringSync(resource: Resource, ...args: (string | number)[]): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
@@ -2692,7 +2742,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNumber(resId: number): number;
 
@@ -2736,7 +2787,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNumber(resource: Resource): number;
 
@@ -2842,7 +2894,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
@@ -2883,7 +2936,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStringValue(resId: number): Promise<string>;
 
@@ -3094,6 +3148,27 @@ declare namespace resourceManager {
     getIntPluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
     /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getIntPluralStringValueSync(resId: number, num: number, ...args: (string | number)[]): string;
+
+    /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to the
      * specified number.
      *
@@ -3113,6 +3188,28 @@ declare namespace resourceManager {
      * @since 18
      */
     getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getIntPluralStringValueSync(resource: Resource, num: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to
@@ -3135,6 +3232,27 @@ declare namespace resourceManager {
     getIntPluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
     /**
+     * Obtains the singular-plural character string represented by the name string corresponding to
+     * the specified number.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - An integer used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the name string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getIntPluralStringByNameSync(resName: string, num: number, ...args: (string | number)[]): string;
+
+    /**
      * Obtains the singular-plural character string represented by the ID string corresponding to
      * the specified number.
      *
@@ -3153,6 +3271,27 @@ declare namespace resourceManager {
      * @since 18
      */
     getDoublePluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to
+     * the specified number.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getDoublePluralStringValueSync(resId: number, num: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to the
@@ -3176,6 +3315,28 @@ declare namespace resourceManager {
     getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
     /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the ID string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getDoublePluralStringValueSync(resource: Resource, num: number, ...args: (string | number)[]): string;
+
+    /**
      * Obtains the singular-plural character string represented by the name string corresponding to
      * the specified number.
      *
@@ -3194,6 +3355,27 @@ declare namespace resourceManager {
      * @since 18
      */
     getDoublePluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
+
+    /**
+     * Obtains the singular-plural character string represented by the name string corresponding to
+     * the specified number.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @returns { string } The singular-plural character string represented by the name string
+     *         corresponding to the specified number.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @throws { BusinessError } 9001008 - Failed to format the resource obtained based on the resource name.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getDoublePluralStringByNameSync(resName: string, num: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
@@ -3505,7 +3687,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3540,7 +3723,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
 
@@ -4081,7 +4265,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColorSync(resId: number) : number;
 
@@ -4111,7 +4296,8 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColorSync(resource: Resource) : number;
 
@@ -4277,7 +4463,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawFileContentSync(path: string): Uint8Array;
 
@@ -4855,7 +5042,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type Resource = _Resource;
 }

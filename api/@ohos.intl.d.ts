@@ -50,7 +50,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace intl {
   /**
@@ -85,7 +86,8 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface LocaleOptions {
     /**
@@ -129,7 +131,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.calendar
      */
@@ -175,7 +178,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.collation
      */
@@ -220,7 +224,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.hourCycle
      */
@@ -270,7 +275,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numberingSystem
      */
@@ -316,7 +322,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.numeric
      */
@@ -361,7 +368,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.LocaleOptions.caseFirst
      */
@@ -396,7 +404,8 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class Locale {
     /**
@@ -427,7 +436,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead i18n.System.getSystemLocaleObject
      */
@@ -472,7 +482,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.Locale.constructor
      */
@@ -842,6 +853,266 @@ declare namespace intl {
     numeric: boolean;
 
     /**
+     * Indicates the language of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get language(): string;
+
+    /**
+     * Indicates the language of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set language(value: string);
+
+    /**
+     * Indicates the script of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get script(): string;
+
+    /**
+     * Indicates the script of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set script(value: string);
+
+    /**
+     * Indicates the region of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get region(): string;
+
+    /**
+     * Indicates the region of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set region(value: string);
+
+    /**
+     * Indicates the baseName of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get baseName(): string;
+
+    /**
+     * Indicates the baseName of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set baseName(value: string);
+
+    /**
+     * Indicates the caseFirst of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get caseFirst(): string;
+
+    /**
+     * Indicates the caseFirst of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set caseFirst(value: string);
+
+    /**
+     * Indicates the calendar of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get calendar(): string;
+
+    /**
+     * Indicates the calendar of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set calendar(value: string);
+
+    /**
+     * Indicates the collation of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get collation(): string;
+
+    /**
+     * Indicates the collation of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set collation(value: string);
+
+    /**
+     * Indicates the hourCycle of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get hourCycle(): string;
+
+    /**
+     * Indicates the hourCycle of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set hourCycle(value: string);
+
+    /**
+     * Indicates the numberingSystem of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get numberingSystem(): string;
+
+    /**
+     * Indicates the numberingSystem of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set numberingSystem(value: string);
+
+    /**
+     * Indicates the numeric of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get numeric(): boolean;
+
+    /**
+     * Indicates the numeric of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set numeric(value: boolean);
+
+    /**
      * Convert the locale information to string.
      *
      * @returns { string } locale information in string form.
@@ -989,7 +1260,8 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DateTimeOptions {
     /**
@@ -1031,7 +1303,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.locale
      */
@@ -1076,7 +1349,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.dateStyle
      */
@@ -1121,7 +1395,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.timeStyle
      */
@@ -1166,7 +1441,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.hourCycle
      */
@@ -1211,7 +1487,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.timeZone
      */
@@ -1261,7 +1538,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.numberingSystem
      */
@@ -1308,7 +1586,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.hour12
      */
@@ -1353,7 +1632,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.weekday
      */
@@ -1398,7 +1678,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.era
      */
@@ -1443,7 +1724,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.year
      */
@@ -1488,7 +1770,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.month
      */
@@ -1533,7 +1816,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.day
      */
@@ -1578,7 +1862,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.hour
      */
@@ -1623,7 +1908,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.minute
      */
@@ -1668,7 +1954,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.second
      */
@@ -1713,7 +2000,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.timeZoneName
      */
@@ -1758,7 +2046,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.dayPeriod
      */
@@ -1805,7 +2094,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.localeMatcher
      */
@@ -1852,7 +2142,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeOptions.formatMatcher
      */
@@ -1887,7 +2178,8 @@ declare namespace intl {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class DateTimeFormat {
     /**
@@ -1918,7 +2210,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
      */
@@ -1965,7 +2258,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.constructor
      */
@@ -2007,7 +2301,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.format
      */
@@ -2092,7 +2387,8 @@ declare namespace intl {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.DateTimeFormat.resolvedOptions
      */
@@ -2122,7 +2418,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NumberOptions {
     /**
@@ -2154,7 +2451,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.locale
      */
@@ -2191,7 +2489,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.currency
      */
@@ -2226,7 +2525,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.currencySign
      */
@@ -2262,7 +2562,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.currencyDisplay
      */
@@ -2300,7 +2601,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.unit
      */
@@ -2335,7 +2637,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.unitDisplay
      */
@@ -2375,7 +2678,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      */
     unitUsage?: string;
@@ -2414,7 +2718,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.signDisplay
      */
@@ -2449,7 +2754,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.compactDisplay
      */
@@ -2485,7 +2791,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.notation
      */
@@ -2520,7 +2827,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.localeMatcher
      */
@@ -2556,7 +2864,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.style
      */
@@ -2596,7 +2905,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.numberingSystem
      */
@@ -2632,7 +2942,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.useGrouping
      */
@@ -2668,7 +2979,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.minimumIntegerDigits
      */
@@ -2704,7 +3016,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.minimumFractionDigits
      */
@@ -2740,7 +3053,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.maximumFractionDigits
      */
@@ -2775,7 +3089,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.minimumSignificantDigits
      */
@@ -2810,7 +3125,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberOptions.maximumSignificantDigits
      */
@@ -2893,7 +3209,8 @@ declare namespace intl {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class NumberFormat {
     /**
@@ -2915,7 +3232,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberFormat.constructor
      */
@@ -2949,7 +3267,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberFormat.constructor
      */
@@ -2980,7 +3299,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberFormat.format
      */
@@ -3022,7 +3342,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.NumberFormat.resolvedOptions
      */
@@ -3086,7 +3407,8 @@ declare namespace intl {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      * @useinstead Intl.CollatorOptions.localeMatcher
      */

@@ -1676,7 +1676,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   maxFontSize(value: number | string | Resource): SearchAttribute;
 
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1693,7 +1693,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 18
    */
-   /**
+  /**
    * Called when the minimum font scale of the font is set.
    * Value range: [0, 1]
    * 
@@ -1711,7 +1711,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @atomicservice
    * @since 20
    */
-   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
+  minFontScale(scale: Optional<number | Resource>): SearchAttribute;
 
    /**
     * Called when the maximum font scale of the font is set.
@@ -1947,6 +1947,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
 
   /**
+   * Called before the search component attach the InputMethod.
+   *
+   * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAttachIME(callback: Callback<IMEClient>): SearchAttribute;
+
+  /**
    * Set the custom text menu.
    * Sets the extended options of the custom context menu on selection,
    * including the text content, icon, and callback.
@@ -2091,14 +2103,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Whether to enable automatic spacing between Chinese and Latin characters.
    *
-   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  enableAutoSpacing(enable: Optional<boolean>): SearchAttribute;
+  enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
 }
 
 /**

@@ -113,6 +113,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace hiTraceMeter {
 
@@ -263,6 +264,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function startTrace(name: string, taskId: number): void;
 
@@ -304,6 +306,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function finishTrace(name: string, taskId: number): void;
 

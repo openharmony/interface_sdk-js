@@ -7481,7 +7481,7 @@ declare namespace avSession {
    * The type of control command, add new support 'playWithAssetId'
    * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
   *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
-  *     'toggleCallMute' } AVControlCommandType
+  *     'toggleCallMute' | 'setTargetLoopMode' } AVControlCommandType
   * @syscap SystemCapability.Multimedia.AVSession.Core
   * @atomicservice
   * @since 20

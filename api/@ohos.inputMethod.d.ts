@@ -692,7 +692,7 @@ declare namespace inputMethod {
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 12800008 - input method manager service error.
 	 * @throws { BusinessError } 12800018 - the input method is not found.
-     * @throws { BusinessError } 12800019 - the preconfigured default input method cannot be disabled.
+     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 20

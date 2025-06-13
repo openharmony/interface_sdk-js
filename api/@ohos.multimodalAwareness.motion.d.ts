@@ -24,7 +24,7 @@ import type { Callback } from "./@ohos.base";
  * This module provides the capability to subscribe to report the action or motion.
  *
  * @namespace motion
- * @syscap SystemCapability.MultimodalAwarness.Motion
+ * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since 15
  */
 
@@ -33,31 +33,76 @@ declare namespace motion {
    * Enum for operating hand status.
    *
    * @enum { number } OperatingHandStatus
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   export enum OperatingHandStatus {
     /**
      * indicates nothing has been detected.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15
      */
     UNKNOWN_STATUS = 0,
     /**
      * indicates the operating hand is left hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15
      */
     LEFT_HAND_OPERATED = 1,
     /**
      * indicates the operating hand is right hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 15
      */
     RIGHT_HAND_OPERATED = 2
+  }
+
+  /**
+   * Enum for holding hand status
+   *
+   * @enum { number } HoldingHandStatus
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @since 20
+   */
+  export enum HoldingHandStatus {
+    /**
+     * indicates no helding has been detected.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     */
+    NOT_HELD = 0,
+    /**
+     * indicates holding with the left hand.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     */
+    LEFT_HAND_HELD = 1,
+    /**
+     * indicates holding with the right hand.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     */
+    RIGHT_HAND_HELD = 2,
+    /**
+     * indicates holding with both hands.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     */
+    BOTH_HANDS_HELD = 3,
+    /**
+     * indicates nothing has been detected.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     */
+    UNKNOWN_STATUS = 16
   }
 
   /**
@@ -72,9 +117,9 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
@@ -91,9 +136,9 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
@@ -108,9 +153,45 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 15
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
+
+  /**
+   * Subscribe the holding hand change event.
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @param { 'holdingHandChanged' } type - Indicates the event type.
+   * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @since 20
+   */
+  function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
+
+  /**
+   * Unsubscribe the holding hand change event.
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @param { 'holdingHandChanged' } type - Indicates the event type.
+   * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
+   * <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @since 20
+   */
+  function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
 }
 export default motion;

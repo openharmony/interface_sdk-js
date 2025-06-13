@@ -172,7 +172,17 @@ declare interface TextDataDetectorConfig {
    * @atomicservice
    * @since 12
    */
-  decoration?: DecorationStyleInterface
+  decoration?: DecorationStyleInterface;
+
+  /**
+   * Used to set whether the preview window will be displayed when long-presses and selects a word.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enablePreviewMenu?: boolean;
 }
 
 /**
@@ -1206,6 +1216,19 @@ declare interface TextMenuItem {
 }
 
 /**
+ * Callback before displaying the menu when the selection range changes.
+ *
+ * @typedef { function } OnPrepareMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
@@ -1238,6 +1261,16 @@ declare interface EditMenuOptions {
    * @since 12
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+  /**
+   * Callback before displaying the menu when the selection range changes.
+   *
+   * @type { ?OnPrepareMenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onPrepareMenu?: OnPrepareMenuCallback;
 }
 
 /**
@@ -1282,6 +1315,17 @@ interface DecorationStyleResult {
    * @since 12
    */
   style?: TextDecorationStyle;
+
+  /**
+   * The thicknessScale value of the decoration property object.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  thicknessScale?: number;
 }
 
 /**
@@ -1662,13 +1706,13 @@ declare enum TextChangeReason {
   UNKNOWN = 0,
 
   /**
-   * Reason for input from input method.
+   * Reason for input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    */
-  IME_INPUT = 1,
+  INPUT = 1,
 
   /**
    * Reason for paste.
@@ -1752,11 +1796,231 @@ declare enum TextChangeReason {
   ACCESSIBILITY = 10,
 
   /**
-   * Reason for input.
+   * Reason for collarboration input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    */
-  INPUT = 1
+  COLLABORATION = 11,
+ 
+  /**
+   * Reason for stylus input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  STYLUS = 12
+}
+
+/**
+ * Vertical Alignment of text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextVerticalAlign {
+  /**
+   * Baseline alignment, the default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BASELINE = 0,
+
+  /**
+   * Bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM = 1,
+
+  /**
+   * Center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CENTER = 2,
+
+  /**
+   * Top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TOP = 3,
+}
+
+/**
+ * Defines the options of max lines.
+ * @interface MaxLinesOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface MaxLinesOptions {
+  /**
+   * The mode of max lines.
+   *
+   * @type { ?MaxLinesMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  overflowMode?: MaxLinesMode;
+}
+
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum MaxLinesMode {
+  /**
+   * Default maxlines mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLIP = 0,
+
+  /**
+   * Scroll mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SCROLL = 1,
+}
+
+/**
+ * Keyboard Gradient mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardGradientMode {
+  /**
+   * Disable gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Linear gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  LINEAR_GRADIENT = 1,
+}
+
+/**
+ * Keyboard fluid light mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardFluidLightMode {
+  /**
+   * Disable fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Background fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  BACKGROUND_FLUID_LIGHT = 1,
+}
+
+/**
+ * Defines the keyboard appearance config.
+ *
+ * @interface KeyboardAppearanceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface KeyboardAppearanceConfig {
+/**
+  * Used to set keyboard gradient mode.
+  *
+  * @type { ?KeyboardGradientMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  gradientMode?: KeyboardGradientMode;
+
+/**
+  * Used to set keyboard fluid light mode..
+  *
+  * @type { ?KeyboardFluidLightMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  fluidLightMode?: KeyboardFluidLightMode;
+}
+
+/**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  nodeId: number;
 }

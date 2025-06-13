@@ -558,7 +558,8 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of keyPressed.
-   * @param { Array<KeyCode> }  keys - Key code list. The options are KEYCODE_META_LEFT, KEYCODE_META_RIGHT, KEYCODE_POWER, KEYCODE_VOLUME_DOWN, and KEYCODE_VOLUME_UP.
+   * @param { Array<KeyCode> }  keys - Key code list. 
+   * The options are KEYCODE_META_LEFT, KEYCODE_META_RIGHT, KEYCODE_POWER, KEYCODE_VOLUME_DOWN, and KEYCODE_VOLUME_UP.
    * @param { Callback<KeyEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
