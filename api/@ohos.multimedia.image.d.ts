@@ -8760,6 +8760,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
     /**
+     * Decodes to a SDR PixelMap, using a as wide gamut as possible.
+     * For a SDR ImageSource, decodes to a SDR PixelMap using its native color space.
+     * For a HDR ImageSource with a single-channel gainmap, decodes its base(SDR) image and ingores its gainmap.
+     * For a HDR ImageSource with a three-channel gainmap, decodes to a SDR PixelMap using CM_DISPLAY_BT2020_SRGB
+     * color space.
+     * 
+     * @returns { Promise<PixelMap> } Decoded PixelMap.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @since 20
+     */
+    createWideGamutSdrPixelMap(): Promise<PixelMap>
+
+    /**
      * Supported image formats.
      *
      * @type { Array<string> }
