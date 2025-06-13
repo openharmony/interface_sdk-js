@@ -576,18 +576,7 @@ declare namespace uiObserver {
      * @atomicservice
      * @since 12
      */
-    offset: number,
-
-    /**
-     * Scroll axis.
-     *
-     * @type { ?Axis }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    axis?: Axis
+    offset: number
   }
 
   /**
