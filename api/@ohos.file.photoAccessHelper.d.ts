@@ -100,8 +100,8 @@ declare namespace photoAccessHelper {
    * @throws { BusinessError } 202 - Called by non-system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @StageModelOnly
    * @systemapi
+   * @StageModelOnly
    * @crossplatform
    * @since 19
    */
@@ -178,7 +178,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    VIDEO
+    VIDEO = 2
   }
 
   /**
@@ -2849,15 +2849,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 18
-     */
-    /**
-     * Timestamp when the album was modified, in milliseconds.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATE_MODIFIED = 'date_modified',
   }
@@ -4172,7 +4165,7 @@ declare namespace photoAccessHelper {
     /**
      * Lpath for the album, one album has a virtual path
      *
-     * @type { string }
+     * @type { ?string }
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -8364,7 +8357,7 @@ declare namespace photoAccessHelper {
     /**
      * modified time of thumbnail status
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 14
@@ -9094,7 +9087,7 @@ declare namespace photoAccessHelper {
      * @param { Array<PhotoAsset> } photoAssets - PhotoAsset to enhance.
      * @param { boolean } hasCloudWatermark - Whether to add a cloud watermark to the enhanced image.
      * The value true means to add the watermark, and false means the opposite.
-     * @param { number } triggerMode - Trigger mode of the cloud enhancement task.
+     * @param { number } [triggerMode] - Trigger mode of the cloud enhancement task.
      * 0: manually triggered. 1: automatically triggered. The default value is 0.
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied

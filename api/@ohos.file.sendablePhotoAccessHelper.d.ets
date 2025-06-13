@@ -57,8 +57,8 @@ declare namespace sendablePhotoAccessHelper {
    * @throws { BusinessError } 202 - Called by non-system application
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @StageModelOnly
    * @systemapi
+   * @StageModelOnly
    * @crossplatform
    * @since 19
    */
@@ -88,7 +88,7 @@ declare namespace sendablePhotoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    VIDEO
+    VIDEO = 2
   }
 
   /**
