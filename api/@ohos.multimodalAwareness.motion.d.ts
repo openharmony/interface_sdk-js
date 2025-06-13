@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -17,7 +17,9 @@
  * @file
  * @kit MultimodalAwarenessKit
  */
+
 import type { Callback } from "./@ohos.base";
+
 /**
  * This module provides the capability to subscribe to report the action or motion.
  *
@@ -26,6 +28,7 @@ import type { Callback } from "./@ohos.base";
  * @since arkts{ '1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
  */
+
 declare namespace motion {
   /**
    * Enum for operating hand status.
@@ -61,8 +64,9 @@ declare namespace motion {
      */
     RIGHT_HAND_OPERATED = 2
   }
+
   /**
-   * Enum for holding hand status.
+   * Enum for holding hand status
    *
    * @enum { number } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
@@ -71,7 +75,7 @@ declare namespace motion {
    */
   export enum HoldingHandStatus {
     /**
-     * indicates not held has been detected.
+     * indicates no helding has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
@@ -79,7 +83,7 @@ declare namespace motion {
      */
     NOT_HELD = 0,
     /**
-     * indicates the holding hand is left hand.
+     * indicates holding with the left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
@@ -87,7 +91,7 @@ declare namespace motion {
      */
     LEFT_HAND_HELD = 1,
     /**
-     * indicates the holding hand is right hand.
+     * indicates holding with the right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
@@ -95,7 +99,7 @@ declare namespace motion {
      */
     RIGHT_HAND_HELD = 2,
     /**
-     * indicates the holding hands are both hands.
+     * indicates holding with both hands.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
@@ -103,7 +107,7 @@ declare namespace motion {
      */
     BOTH_HANDS_HELD = 3,
     /**
-     * indicates unknown status.
+     * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
@@ -111,6 +115,7 @@ declare namespace motion {
      */
     UNKNOWN_STATUS = 16
   }
+
   /**
    * Subscribe to detect the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -121,13 +126,16 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
+   * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
+
   /**
    * Unsubscribe from the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -138,13 +146,16 @@ declare namespace motion {
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
+   * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
+
   /**
    * Get the recent operating hand status.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
@@ -153,14 +164,16 @@ declare namespace motion {
    * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
+
   /**
-   * Subscribe to detect the holding hand changed event.
+   * Subscribe the holding hand change event.
    * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
@@ -168,13 +181,16 @@ declare namespace motion {
    * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500002 - Subscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20
    * @arkts 1.1&1.2
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
+
   /**
    * Unsubscribe from the holding hand changed event.
    * @permission ohos.permission.DETECT_GESTURE
@@ -184,8 +200,10 @@ declare namespace motion {
    * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
+   * <br>2. N-API invocation exception, invalid N-API status.
+   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20
    * @arkts 1.1&1.2
