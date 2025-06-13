@@ -9588,7 +9588,7 @@ declare enum WordBreak {
  * @atomicservice
  * @since 12
  */
-declare enum LineBreakStrategy  {
+declare enum LineBreakStrategy {
   /**
    * By default. Display as many characters as possible on each line until no more characters
    * can be displayed on that line, and do not automatically add hyphens under this strategy
@@ -9609,7 +9609,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -9620,7 +9620,7 @@ declare enum LineBreakStrategy  {
    * @atomicservice
    * @since 12
    */
-  BALANCED  = 2,
+  BALANCED = 2,
 }
 
 /**
