@@ -240,4 +240,14 @@ export default class StartOptions {
    * @since 20
    */
   completionHandler?: CompletionHandler;
+
+  /**
+   * Hide start window or not when launch ability from same bundle.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  hideStartWindow?: boolean;
 }
