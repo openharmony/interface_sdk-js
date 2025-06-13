@@ -139,6 +139,29 @@ declare namespace insightIntent {
      */
     flags?: number;
   }
+
+  /**
+   * Define IntentEntity.
+   *
+   * @interface IntentEntity
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  interface IntentEntity {
+    /**
+     * The entity Id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     */
+    entityId: string;
+  }
+  
   /**
    * The class of insight intent result.
    *

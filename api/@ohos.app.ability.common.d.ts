@@ -31,7 +31,6 @@ import * as _FormExtensionContext from './application/FormExtensionContext';
 import * as _ServiceExtensionContext from './application/ServiceExtensionContext';
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
-import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
 import type * as _VpnExtensionContext from './application/VpnExtensionContext';
@@ -45,6 +44,7 @@ import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
 import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 /*** endif */
+import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
 import type _UIExtensionContext from './application/UIExtensionContext';
@@ -52,7 +52,6 @@ import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
-import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 /*** endif */
 
@@ -262,6 +261,20 @@ declare namespace common {
   export type Context = _Context.default;
 
   /**
+   * The base context of an ability or an application. It allows access to
+   * application-specific resources.
+   *
+   * @typedef { _Context }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Context = _Context;
+
+  /**
    * The context of an extension. It allows access to extension-specific resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -310,19 +323,6 @@ declare namespace common {
    * @since 11
    */
   export type FormExtensionContext = _FormExtensionContext.default;
-
-  /**
-   * The context of form extension. It allows access to
-   * formExtension-specific resources.
-   *
-   * @typedef { _FormExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export type FormExtensionContext = _FormExtensionContext;
 
   /**
    * The context of service extension. It allows access to
@@ -407,7 +407,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityResult = _AbilityResult;
 

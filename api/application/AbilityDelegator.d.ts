@@ -1155,7 +1155,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   printSync(msg: string): void;
 
@@ -1260,7 +1261,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
 
@@ -1301,7 +1303,8 @@ export interface AbilityDelegator {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   finishTest(msg: string, code: number): Promise<void>;
 

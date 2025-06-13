@@ -596,7 +596,7 @@ export interface SoundPool {
    */
   off(type: 'error'): void;
   /**
-   * Register listeners for soundpool errorOccurred events.
+   * Subscribes to errorOccurred events of this **SoundPool** instance.
    *
    * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
    * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
@@ -606,7 +606,7 @@ export interface SoundPool {
   on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
 
   /**
-   * Cancel Listens for soundpool errorOccurred events.
+   * Unsubscribes from errorOccurred events of this **SoundPool** instance.
    *
    * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
    * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.

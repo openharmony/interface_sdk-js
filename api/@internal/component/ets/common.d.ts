@@ -19,26 +19,6 @@
  */
 
 /**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
-
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
-
-/**
  * Defines the options of Component ClassDecorator.
  *
  * @interface ComponentOptions
@@ -6681,6 +6661,16 @@ declare class DrawModifier {
    * @since 12
    */
   drawFront?(drawContext: DrawContext): void;
+
+  /**
+   * drawforeground Method. Executed after drawing associated Node and its children.
+   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  drawForeground?(drawContext: DrawContext): void;
   
   /**
    * Invalidate the component, which will cause a re-render of the component.
@@ -12712,6 +12702,37 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
 
 /**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+ 
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
+
+/**
+ * Import the DataLoadParams type object for ui component.
+ *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams } DataLoadParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams;
+
+/**
  * Enum for Drag Result.
  *
  * @enum { number }
@@ -13937,6 +13958,20 @@ declare interface DragEvent {
    * @since 20
    */
   getDisplayId(): number;
+  
+  /**
+   * Use this method to provide a data representation to the system instead of directly providing a complete data
+   * object. When the user releases the drag over the target application, the system will use this data
+   * representation to request the actual data from drag source. This approach significantly improves the
+   * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+   * reception. It is recommended to use this method instead of the setData method.
+   *
+   * @param { DataLoadParams } dataLoadParams The data backend representation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  setDataLoadParams(dataLoadParams: DataLoadParams): void;
   
   /**
    * Enable the internal drop animation, which is only avaiable for system applications.
@@ -24892,6 +24927,19 @@ declare class CommonMethod<T> {
   align(alignment: Alignment | LocalizedAlignment): T;
 
   /**
+   * Defines the align rules of child component in Stack container.
+   *
+   * @param { LocalizedAlignment } alignment
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  layoutGravity(alignment: LocalizedAlignment): T;
+
+  /**
    * position
    *
    * @param { Position } value
@@ -25454,6 +25502,36 @@ declare class CommonMethod<T> {
    * @since 14
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
+
+  /**
+   * Enables the component as a drag-and-drop target with spring loading functionality.
+   *
+   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+   * by hovering (hover) without needing to use another hand.
+   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+   * some common scenarios suitable for supporting this feature:
+   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+   *  automatically opened.
+   *
+   * Please note:
+   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
+   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
+   *   child components always have higher priority.
+   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
+   *   dragged object leaves and re-enters the component's range.
+   *
+   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
+   *    sets it to null to disable the support for spring loading.
+   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
+   *    only used when the entire spring detecting.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 
   /**
    * Allowed drop uniformData type for this node.
@@ -27778,36 +27856,6 @@ declare class CommonMethod<T> {
    * @since 19
    */
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
-
-  /**
- * Enables the component as a drag-and-drop target with spring loading functionality.
- *
- * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
- * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
- * by hovering (hover) without needing to use another hand.
- * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
- * some common scenarios suitable for supporting this feature:
- *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
- *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
- *  automatically opened.
- *
- * Please note:
- *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a control makes it a
- *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
- *   child controls always have higher priority.
- *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
- *   dragged object leaves and re-enters the component's range.
- *
- * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
- *    sets it to null to reset the component's support for spring loading.
- * @param { dragController.DragSpringLoadingConfiguration } configuration The initialized spring loading configuration which is
- *    only used when the entire spring detecting.
- * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 
   /**
    * Register one callback which will be executed when all gesture recognizers are collected done, this happens

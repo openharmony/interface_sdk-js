@@ -19,7 +19,6 @@
  */
 
 
-
 /**
  * Defines the console info.
  *

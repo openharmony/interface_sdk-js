@@ -29,7 +29,6 @@
     "SystemCapability.Graphic.Graphic2D.GLES2",
     "SystemCapability.Graphic.Graphic2D.EGL",
     "SystemCapability.Graphic.Vulkan",
-    "SystemCapability.Graphic.Graphic2D.HyperGraphicManager",
     "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Graphic.Graphic2D.NativeVsync",
     "SystemCapability.Graphic.Graphic2D.NativeImage",

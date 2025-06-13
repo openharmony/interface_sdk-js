@@ -460,6 +460,20 @@ declare namespace dragController {
      * @since 18
      */
     previewOptions?: DragPreviewOptions;
+    
+    /**
+     * Provide a data representation to the system instead of providing a complete data
+     * object directly. When the user releases the drag over the target application, the system will use this data
+     * representation to request the actual data from drag source. This approach significantly improves the
+     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+     * reception. It is recommended to use this instead of the data field.
+     *
+     * @type { ?unifiedDataChannel.DataLoadParams }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    dataLoadParams?: unifiedDataChannel.DataLoadParams;
   }
 
   /**
