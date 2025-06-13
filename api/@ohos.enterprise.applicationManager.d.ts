@@ -492,6 +492,49 @@ declare namespace applicationManager {
    * @since 20
    */
   function isAppKioskAllowed(bundleName: string): boolean;
+
+  /**
+   * Adds keep alive applications which are not allowed to modify their keep alive settings.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *              The admin must have the corresponding permission.
+   * @param { Array<string> } bundleNames - bundleNames indicates the bundle names of applications added to the keep
+   *              alive list.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { boolean } disallowModify - disallowModify specifies whether the applications
+   *              are disallowed to modify their keep alive setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9201005 - Add keep alive applications failed.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *              required to call the API
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+   function addKeepAliveApps(admin: Want, bundleNames: Array<string>, accountId: number, disallowModify: boolean): void;
+
+  /**
+   * Checks whether the specified application is allowed to modify its keep alive setting.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { string } bundleName - bundleName indicates the bundle name of application to be checked.
+   * @returns { boolean } true indicates the application is not allowed to modify its keep alive setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+   function isModifyKeepAliveAppsDisallowed(admin: Want, accountId: number, bundleName: string): boolean;
 }
 
 export default applicationManager;
