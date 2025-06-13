@@ -23,7 +23,7 @@ import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 import hardwareManager from '@ohos.distributedHardware.hardwareManager';
 import abilityConnectionManager from '@ohos.distributedsched.abilityConnectionManager';
-import linkEnhance from '@ohos.distributedsched.linkEnhance'
+import linkEnhance from '@ohos.distributedsched.linkEnhance';
 
 export { 
   cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager, linkEnhance
