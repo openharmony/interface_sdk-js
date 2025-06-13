@@ -3100,16 +3100,6 @@ declare namespace i18n {
      * @since 12
      */
     static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
-
-    /**
-     * Get the zone rules object corresponds to the timezone objects.
-     *
-     * @returns { ZoneRules } Returns a ZoneRuels object which defines timezone offset changing rule.
-     * @syscap SystemCapability.Global.I18n
-     * @atomicservice
-     * @since 20
-     */
-    public getZoneRules(): ZoneRules;
   }
 
   /**
