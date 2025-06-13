@@ -489,21 +489,24 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PrimaryButton {
     /**
      * Left mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEFT = 0,
     /**
      * Right mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RIGHT = 1
   }
@@ -513,28 +516,32 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RightClickType {
     /**
      * Touchpad right button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
      * Touchpad left button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
      * Touchpad two fingers tap
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
   }
@@ -575,14 +582,16 @@ declare namespace pointer {
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CursorConfig {
     /**
      * followSystem - Whether to adjust the cursor size based on the system settings.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     followSystem : boolean;
   }
@@ -707,7 +716,7 @@ declare namespace pointer {
   /**
    * Sets the pointer style.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -716,12 +725,12 @@ declare namespace pointer {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+  function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the pointer style.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -730,19 +739,20 @@ declare namespace pointer {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
+  function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
 
   /**
    * Sets the pointer style through sync mode.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
+  function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
 
   /**
    * Queries the pointer style.
@@ -759,14 +769,15 @@ declare namespace pointer {
   /**
    * Queries the pointer style.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @returns { Promise<PointerStyle> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPointerStyle(windowId: number): Promise<PointerStyle>;
+  function getPointerStyle(windowId: int): Promise<PointerStyle>;
 
   /**
    * Queries the pointer style through sync mode.
@@ -826,7 +837,8 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
