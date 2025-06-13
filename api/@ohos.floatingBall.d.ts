@@ -43,14 +43,9 @@ declare namespace floatingBall {
   /**
    * Create floating-ball controller
    *
-   * @permission ohos.permission.USE_FLOAT_BALL
    * @param { FloatingBallConfiguration } config - Params for floating-ball controller creation. 
    * The config must be valid, the context in config should not be null. 
    * @returns { Promise<FloatingBallController> } - The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                2. Incorrect parameter types.
-   *                                                                3. Parameter verification failed
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
@@ -86,11 +81,10 @@ declare namespace floatingBall {
     /**
      * Start floating-ball
      * 
-     * @param { FloatingBallOptions } option - Params for floating-ball start. The config must be valid,
+     * @permission ohos.permission.USE_FLOAT_BALL
+     * @param { FloatingBallParams } params - Params for floating-ball start. The config must be valid,
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed
+     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300019 - Failed to create the floating-Ball window.
      * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
      * @throws { BusinessError } 1300021 - Repeated floating-Ball operation.
@@ -99,23 +93,20 @@ declare namespace floatingBall {
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    startFloatingBall(option: FloatingBallOptions): Promise<void>;
+    startFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
      * Update floating-ball
      * 
-     * @param { FloatingBallOptions } option - Params for floating-ball update. The config must be valid,
+     * @param { FloatingBallParams } params - Params for floating-ball update. The config must be valid,
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *                                                                2. Incorrect parameter types.
-     *                                                                3. Parameter verification failed
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
      * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    updateFloatingBall(option: FloatingBallOptions): Promise<void>;
+    updateFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
      * Stop floating-ball.
@@ -143,10 +134,11 @@ declare namespace floatingBall {
      * Unregister floating-ball lifecycle event listener.
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
+     * @param { Callback<FloatingBallState> } callback - Indicates the callback function.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    off(type: 'stateChange'): void;
+    off(type: 'stateChange', callback?: Callback<FloatingBallState>): void;
 
     /**
      * Register floating-ball click event listener.
@@ -162,10 +154,11 @@ declare namespace floatingBall {
      * Unregister floating-ball click event listener.
      * 
      * @param { 'clickEvent' } type - Used to unregister listener for {'clickEvent'} command.
+     * @param { Callback<void> } callback - Indicates the callback function.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    off(type: 'clickEvent'): void;
+    off(type: 'clickEvent', callback?: Callback<void>): void;
 
     /**
      * Get the info of floating-ball window.
@@ -195,19 +188,19 @@ declare namespace floatingBall {
   /**
    * The option of floating-ball
    *
-   * @interface FloatingBallOptions
+   * @interface FloatingBallParams
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
-  interface FloatingBallOptions {
+  interface FloatingBallParams {
     /**
      * The template of floating-ball.
      *
-     * @type { ?number }
+     * @type { ?FloatingBallTemplate }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    template?: number;
+    template?: FloatingBallTemplate;
     
     /**
      * The title of floating-ball.
@@ -219,13 +212,13 @@ declare namespace floatingBall {
     title?: string;
     
     /**
-     * The titleContent of floating-ball.
+     * The content of floating-ball.
      *
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    titleContent?: string;
+    content?: string;
     
     /**
      * The icon of floating-ball.
@@ -238,7 +231,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Enum for FloatingBall window callback event type.
+   * Enum for FloatingBall state type.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -260,6 +253,47 @@ declare namespace floatingBall {
      * @since 20
      */
     STOPPED = 2,
+  }
+
+  /**
+   * Enum for FloatingBall template type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  enum FloatingBallTemplate {
+    /**
+     * Static layout, support icon and title.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    STATIC = 1,
+  
+    /**
+     * Normal layout, support title and content with different color.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    NORMAL = 2,
+  
+    /**
+     * Emphatic layout, support title and content with different size.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    EMPHATIC = 3,
+  
+    /**
+     * Simple layout, support title with 2-lines display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    SIMPLE = 4,
   }
 
   /**
