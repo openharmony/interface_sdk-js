@@ -10335,38 +10335,6 @@ declare enum AxisModel {
 }
 
 /**
- * Focus wrap mode of a list or grid when moving focus using the arrow keys.
-
- * @enum { number } FocusWrapMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-declare enum FocusWrapMode {
-  /**
-   * No wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  DEFAULT = 0,
-
-  /**
-   * Auto wrap when moving focus using the arrow keys.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  WRAP_WITH_ARROW = 1,
-}
-
-/**
  * Rotating crown event behavior.
  *
  * @enum { number }
