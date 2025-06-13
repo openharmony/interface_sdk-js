@@ -1295,6 +1295,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Column'): Column;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Column' } nodeType - node type.
+   * @returns { ColumnAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Column'): ColumnAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Row.
    * 
    * <p><strong>NOTE</strong>:
@@ -1325,6 +1341,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Row'): Row;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Row' } nodeType - node type.
+   * @returns { RowAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Row'): RowAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Stack.
    * 
    * <p><strong>NOTE</strong>:
@@ -1353,6 +1385,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Stack'): Stack;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Stack' } nodeType - node type.
+   * @returns { StackAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Stack'): StackAttribute | undefined;
 
   /**
    * Define the FrameNode type for GridRow.
@@ -1443,6 +1491,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Flex'): Flex;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Flex' } nodeType - node type.
+   * @returns { FlexAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Flex'): FlexAttribute | undefined;
 
   /**
    * Define the FrameNode type for Swiper.
@@ -1642,6 +1706,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'RelativeContainer'): RelativeContainer;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'RelativeContainer' } nodeType - node type.
+   * @returns { RelativeContainerAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'RelativeContainer'): RelativeContainerAttribute | undefined;
 
   /**
    * Define the FrameNode type for Divider.
