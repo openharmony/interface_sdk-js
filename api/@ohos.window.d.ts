@@ -8314,7 +8314,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimize(callback: AsyncCallback<void>): void;
 
@@ -8337,7 +8338,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     minimize(): Promise<void>;
 
@@ -8746,7 +8748,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDecorButtonStyle(dectorStyle: DecorButtonStyle): void;
 
@@ -8873,7 +8876,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMoving(): Promise<void>;
 
@@ -8892,7 +8896,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMoving(offsetX: number, offsetY: number): Promise<void>;
 
@@ -8965,7 +8970,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowTitleButtonRectChange', callback: Callback<TitleButtonRect>): void;
 
@@ -8992,40 +8998,10 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
-
-    /**
-     * Register the callback of title buttons visible change.
-     *
-     * @param { 'windowTitleButtonVisibleChange' } type - The value is fixed at 'windowTitleButtonVisibleChange', indicating the title buttons visible change event.
-     * @param { Callback<boolean> } callback - Callback used to return the current title buttons visibility.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    on(type: 'windowTitleButtonVisibleChange', callback: Callback<boolean>): void;
-
-    /**
-     * Unregister the callback of title buttons visible change.
-     *
-     * @param { 'windowTitleButtonVisibleChange' } type - The value is fixed at 'windowTitleButtonVisibleChange', indicating the title buttons visible change event.
-     * @param { Callback<boolean> } callback - Callback used to return the current title buttons visibility.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
-     *                                                                  2. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 18
-     */
-    off(type: 'windowTitleButtonVisibleChange', callback?: Callback<boolean>): void;
 
     /**
      *  Set the window mask of window
@@ -9133,7 +9109,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowStatus(): WindowStatusType;
 
@@ -10192,7 +10169,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(eventType: 'windowStageClose', callback: Callback<void>): void;
 
@@ -10209,7 +10187,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageClose', callback?: Callback<void>): void;
 
