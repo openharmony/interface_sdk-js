@@ -24,7 +24,7 @@ import type { Callback } from "./@ohos.base";
  * This module provides the capability to subscribe to report the action or motion.
  *
  * @namespace motion
- * @syscap SystemCapability.MultimodalAwarness.Motion
+ * @syscap SystemCapability.MultimodalAwareness.Motion
  * @since arkts{ '1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
  */
@@ -33,7 +33,7 @@ declare namespace motion {
    * Enum for operating hand status.
    *
    * @enum { number } OperatingHandStatus
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -41,7 +41,7 @@ declare namespace motion {
     /**
      * indicates nothing has been detected.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since arkts{ '1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -49,7 +49,7 @@ declare namespace motion {
     /**
      * indicates the operating hand is left hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since arkts{ '1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -57,7 +57,7 @@ declare namespace motion {
     /**
      * indicates the operating hand is right hand.
      *
-     * @syscap SystemCapability.MultimodalAwarness.Motion
+     * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since arkts{ '1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -103,7 +103,15 @@ declare namespace motion {
      * @since 20
      * @arkts 1.1&1.2
      */
-    BOTH_HANDS_HELD = 3
+    BOTH_HANDS_HELD = 3,
+    /**
+     * indicates unknown status.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    UNKNOWN_STATUS = 16
   }
   /**
    * Subscribe to detect the operating hand changed event.
@@ -117,13 +125,13 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500002 - Subscribe Failed.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
   /**
-   * Unsubscribe to detect the operating hand changed event.
+   * Unsubscribe from the operating hand changed event.
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
@@ -134,7 +142,7 @@ declare namespace motion {
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
    * @throws { BusinessError } 31500003 - Unsubscribe Failed.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -148,18 +156,18 @@ declare namespace motion {
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
-   * @syscap SystemCapability.MultimodalAwarness.Motion
+   * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since arkts{ '1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
   /**
    * Subscribe to detect the holding hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
@@ -170,12 +178,12 @@ declare namespace motion {
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
   /**
-   * Unsubscribe to detect the holding hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * Unsubscribe from the holding hand changed event.
+   * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
+   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception.
@@ -185,19 +193,6 @@ declare namespace motion {
    * @arkts 1.1&1.2
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
-  /**
-   * Get the recent holding hand status.
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
-   * @returns { HoldingHandStatus } The result of holding hand status.
-   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent holding hand
-   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
-   * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
-   * @throws { BusinessError } 31500001 - Service exception.
-   * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 20
-   * @arkts 1.1&1.2
-   */
-  function getRecentHoldingHandStatus(): HoldingHandStatus;
 }
 export default motion;
+
