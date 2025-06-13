@@ -2345,7 +2345,7 @@ declare namespace usbManager {
    * <br>2. The interface is claimed by another program or driver.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
    * @throws { BusinessError } 14400009 - Insufficient memory. Possible causes:
-   * <br>1. Malloc allocation failed.
+   * <br>1. Memory allocation failed.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18
