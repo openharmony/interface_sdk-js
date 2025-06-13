@@ -732,16 +732,14 @@ declare namespace colorSpaceManager {
     /**
      * Get the name of color space type.
      * @returns { ColorSpace } Returns the name of color space type.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
     /**
      * Get the name of color space type.
      * @returns { ColorSpace } Returns the name of color space type.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11
@@ -751,16 +749,14 @@ declare namespace colorSpaceManager {
     /**
      * Get white point(x, y) of color space.
      * @returns { Array<number> } Returns the white point value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
     /**
      * Get white point(x, y) of color space.
      * @returns { Array<number> } Returns the white point value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11
@@ -770,16 +766,14 @@ declare namespace colorSpaceManager {
     /**
      * Get gamma value of color space.
      * @returns { number } Returns the gamma value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
     /**
      * Get gamma value of color space.
      * @returns { number } Returns the gamma value of color space.
-     * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-     *                                      color space type enum values to directly create a colorSpaceManager object.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 11
@@ -793,8 +787,7 @@ declare namespace colorSpaceManager {
    * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
+   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
@@ -804,8 +797,7 @@ declare namespace colorSpaceManager {
    * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
+   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11
@@ -819,8 +811,7 @@ declare namespace colorSpaceManager {
    * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
+   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
@@ -831,8 +822,7 @@ declare namespace colorSpaceManager {
    * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *                                 2.Parameter verification failed.
-   * @throws { BusinessError } 18600001 - Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM
-   *                                      color space type enum values to directly create a colorSpaceManager object.
+   * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 11
