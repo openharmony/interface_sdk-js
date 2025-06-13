@@ -1468,6 +1468,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number): TextAreaAttribute;
 
   /**
+   * Define max lines of the text area, behavior can be displayed as the scrolling capability.
+   *
+   * @param { number } lines - Max lines of the node
+   * @param { MaxLinesOptions } options - max lines of setting options.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maxLines(lines: number, options: MaxLinesOptions): TextAreaAttribute;
+
+  /**
    * Define min lines of the text area.
    *
    * @param { Optional<number> } lines - Min lines of the node
@@ -1840,7 +1853,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 18
    */
   halfLeading(halfLeading: Optional<boolean>): TextAreaAttribute;
-  
+
   /**
    * Set the ellipsis mode.
    * 
@@ -1921,18 +1934,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 20
    */
   strokeColor(color: Optional<ResourceColor>): TextAreaAttribute;
-
-  /**
-   * Whether to enable automatic spacing between Chinese and Latin characters.
-   *
-   * @param { Optional<boolean> } enable - The default value is false, indicates the flag whether to enable automatic spacing.
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  enableAutoSpacing(enable: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

@@ -959,7 +959,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static of(id: ResourceStr): TextMenuItemId;
-
+ 
   /**
    * Judge if two TextMenuItemId are equal.
    *
@@ -971,7 +971,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   equals(id: TextMenuItemId): boolean;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy and delete the currently selected text.
    *
@@ -983,7 +983,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly CUT: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy the currently selected text to the clipboard.
    *
@@ -995,7 +995,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly COPY: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy the current contents of the clipboard into the text view.
    *
@@ -1007,7 +1007,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly PASTE: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to select all text in a text view.
    * 
@@ -1019,7 +1019,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly SELECT_ALL: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId for collaboration service menu items.
    *
@@ -1031,7 +1031,7 @@ declare class TextMenuItemId {
    * @since 12
    */
   static readonly COLLABORATION_SERVICE: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to recognize the text in the picture and input it into the text view.
    *
@@ -1152,7 +1152,7 @@ declare class TextMenuItemId {
    */
   static readonly dateTime: TextMenuItemId;
 }
-
+ 
 /**
  * TextMenuItem
  *
@@ -1204,7 +1204,7 @@ declare interface TextMenuItem {
    */
   labelInfo?: ResourceStr;
 }
-
+ 
 /**
  * EditMenuOptions
  *
@@ -1282,6 +1282,17 @@ interface DecorationStyleResult {
    * @since 12
    */
   style?: TextDecorationStyle;
+
+  /**
+   * The thicknessScale value of the decoration property object.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  thicknessScale?: number;
 }
 
 /**
@@ -1505,123 +1516,6 @@ declare enum KeyboardAppearance {
   DARK_IMMERSIVE = 3,
 }
 
-/**
- * Defines shader style class.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare class ShaderStyle {
-}
-
-/**
- * Defines linear gradient class.
- *
- * @extends ShaderStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare class LinearGradientStyle extends ShaderStyle {
-  /**
-   * The constructor.
-   *
-   * @param { LinearGradientOptions } options - The options of the gradient.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  constructor(options: LinearGradientOptions);
-  
-  /**
-   * The options of the gradient.
-   * angle: Angle of linear gradient.
-   * direction: Direction of Linear Gradient.
-   * colors: Color description for gradients.
-   * repeating: if the gradient colors with repeated coloring.
-   *
-   * @type { LinearGradientOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  options: LinearGradientOptions;
-}
-
-/**
- * Defines radial gradient class.
- *
- * @extends ShaderStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare class RadialGradientStyle extends ShaderStyle {
-  /**
-   * The constructor.
-   *
-   * @param { RadialGradientOptions } options - The options of the gradient.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  constructor(options: RadialGradientOptions);
-  
-  /**
-   * The options of the gradient.
-   * center: Center point of radial gradient
-   * radius: Radius of Radial Gradient. value range [0, +∞)
-   * colors: Color description for gradients
-   * repeating: Refill. The default value is false
-   *
-   * @type { RadialGradientOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  options: RadialGradientOptions;
-}
-
-/**
- * Defines a shader with single color.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare class ColorShaderStyle extends ShaderStyle {
-  /**
-   * The constructor.
-   *
-   * @param { ResourceColor } color - The color used by shader.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  constructor(color: ResourceColor);
-  
-  /**
-   * The color of the shader.
-   *
-   * @type { RadialGradientOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  color: ResourceColor;
-}
-
   /**
    * Defines the line spacing options.
    * @interface LineSpacingOptions
@@ -1644,119 +1538,161 @@ declare class ColorShaderStyle extends ShaderStyle {
 }
 
 /**
- * Defines the reason for text changes.
- *
- * @enum { number }
+ * Defines the options of max lines.
+ * @interface MaxLinesOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20
  */
-declare enum TextChangeReason {
+declare interface MaxLinesOptions {
   /**
-   * Default value.
+   * The mode of max lines.
    *
+   * @type { ?MaxLinesMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20
    */
-  UNKNOWN = 0,
+  overflowMode?: MaxLinesMode;
+}
+
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum MaxLinesMode {
+  /**
+   * Default maxlines mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLIP = 0,
 
   /**
-   * Reason for input from input method.
+   * Scroll mode of max lines
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20
    */
-  IME_INPUT = 1,
+  SCROLL = 1,
+}
+
+/**
+ * Keyboard Gradient mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardGradientMode {
+  /**
+   * Disable gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
 
   /**
-   * Reason for paste.
+   * Linear gradient mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
-  PASTE = 2,
+  LINEAR_GRADIENT = 1,
+}
+
+/**
+ * Keyboard fluid light mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardFluidLightMode {
+  /**
+   * Disable fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
 
   /**
-   * Reason for cut.
+   * Background fluid light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
-  CUT = 3,
+  BACKGROUND_FLUID_LIGHT = 1,
+}
 
-  /**
-   * Reason for drag.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  DRAG = 4,
+/**
+ * Defines the keyboard appearance config.
+ *
+ * @interface KeyboardAppearanceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface KeyboardAppearanceConfig {
+/**
+  * Used to set keyboard gradient mode.
+  *
+  * @type { ?KeyboardGradientMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  gradientMode?: KeyboardGradientMode;
 
-  /**
-   * Reason for auto fill.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  AUTO_FILL = 5,
+/**
+  * Used to set keyboard fluid light mode..
+  *
+  * @type { ?KeyboardFluidLightMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  fluidLightMode?: KeyboardFluidLightMode;
+}
 
+/**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface IMEClient {
   /**
-   * Reason for ai write.
+   * The unique ID of this input component node.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20
    */
-  AI_WRITE = 6,
-
-  /**
-   * Reason for redo.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  REDO = 7,
-
-  /**
-   * Reason for undo.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  UNDO = 8,
-
-  /**
-   * Reason for controller methods.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  CONTROLLER = 9,
-
-  /**
-   * Reason for accessibilty methods.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  ACCESSIBILITY = 10,
-
-  /**
-   * Reason for input.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  INPUT = 1
+  nodeId: number;
 }

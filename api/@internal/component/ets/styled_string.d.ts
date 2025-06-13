@@ -432,7 +432,7 @@ declare class TextStyle {
     readonly fontStyle?: FontStyle;
 
     /**
-     * Get the stroke width of the StyledString with the unit 'px'.
+     * Get the stroke width of the StyledString with the unit 'vp'.
      *
      * @type { ?number } - the stroke width of the StyledString or undefined
      * @readonly
@@ -553,7 +553,7 @@ declare interface TextStyleInterface {
      * @atomicservice
      * @since 20
      */
-    strokeColor?: ResourceColor;
+    strokeColor?: ResourceColor;    
 
     /**
      * The superscript value of the font property object.
