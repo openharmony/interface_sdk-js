@@ -20,6 +20,7 @@
  */
 
 export * from './arkui/UserView';
+export * from './arkui/component/animation';
 export * from './arkui/component/customComponent';
 export * from './arkui/component/common';
 export * from './arkui/component/column';
