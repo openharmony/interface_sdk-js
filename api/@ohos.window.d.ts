@@ -5542,7 +5542,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    isMainWindowFullScreenAcrossMultiDisplay(): Promise<boolean>;
+    isMainWindowFullScreenAcrossDisplays(): Promise<boolean>;
 
     /**
      * Get the avoid area
@@ -7045,7 +7045,7 @@ declare namespace window {
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
      * 
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged',
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
      * indicating the window spans multiple screens and displays in full screen mode changed.
      * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7057,12 +7057,12 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 20
      */   
-    on(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback: Callback<boolean>): void;
+    on(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback: Callback<boolean>): void;
 
     /**
      * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
      *
-     * @param { 'mainWindowFullScreenAcrossMultiDisplayChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossMultiDisplayChanged',
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
      * indicating the window spans multiple screens and displays in full screen mode changed.
      * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -7074,7 +7074,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    off(type: 'mainWindowFullScreenAcrossMultiDisplayChanged', callback?: Callback<boolean>): void;
+    off(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback?: Callback<boolean>): void;
 
     /**
      * Subscribes to non-interaction events in a window within the specified period.
