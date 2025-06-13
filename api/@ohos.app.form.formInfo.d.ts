@@ -222,6 +222,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     colorMode: ColorMode;
 
@@ -534,6 +535,7 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
+   * @deprecated since 20
    */
   enum ColorMode {
     /**
@@ -548,6 +550,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     MODE_AUTO = -1,
 
@@ -563,6 +566,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     MODE_DARK = 0,
 
@@ -578,6 +582,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     MODE_LIGHT = 1
   }
