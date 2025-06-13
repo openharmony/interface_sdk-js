@@ -21,15 +21,16 @@
 import type BaseContext from './application/BaseContext';
 import type image from './@ohos.multimedia.image';
 import type Want from './@ohos.app.ability.Want';
+import type { Callback } from './@ohos.base';
 
 /**
  * Floating-ball
  *
- * @namespace FloatingBall
+ * @namespace floatingBall
  * @syscap SystemCapability.Window.SessionManager
  * @since 20
  */
-declare namespace FloatingBall {
+declare namespace floatingBall {
   /**
    * If floating-ball enabled in current OS.
    *
@@ -42,6 +43,7 @@ declare namespace FloatingBall {
   /**
    * Create floating-ball controller
    *
+   * @permission ohos.permission.USE_FLOAT_BALL
    * @param { FloatingBallConfiguration } config - Params for floating-ball controller creation. 
    * The config must be valid, the context in config should not be null. 
    * @returns { Promise<FloatingBallController> } - The promise returned by the function.
@@ -83,13 +85,12 @@ declare namespace FloatingBall {
   interface FloatingBallController {
     /**
      * Start floating-ball
-     * @param { FloatingBallOption } option - Params for floating-ball start. The config must be valid,
+     * 
+     * @param { FloatingBallOptions } option - Params for floating-ball start. The config must be valid,
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300019 - Failed to create the floating-Ball window.
      * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
      * @throws { BusinessError } 1300021 - Repeated floating-Ball operation.
@@ -98,30 +99,28 @@ declare namespace FloatingBall {
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    startFloatingBall(option: FloatingBallOption): Promise<void>;
+    startFloatingBall(option: FloatingBallOptions): Promise<void>;
 
     /**
      * Update floating-ball
-     * @param { FloatingBallOption } option - Params for floating-ball update. The config must be valid,
+     * 
+     * @param { FloatingBallOptions } option - Params for floating-ball update. The config must be valid,
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
      * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    updateFloatingBall(option: FloatingBallOption): Promise<void>;
+    updateFloatingBall(option: FloatingBallOptions): Promise<void>;
 
     /**
      * Stop floating-ball.
+     * 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
@@ -132,15 +131,17 @@ declare namespace FloatingBall {
 
     /**
      * Register floating-ball lifecycle event listener.
+     * 
      * @param { 'stateChange' } type - Registration type, floating-ball lifecycle state change, 'stateChange'.
-     * @param { function } callback - Used to handle {'stateChange'} command.
+     * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    on(type: 'stateChange', callback: (state: FloatingBallState) => void): void;
+    on(type: 'stateChange', callback: Callback<FloatingBallState>): void;
 
     /**
      * Unregister floating-ball lifecycle event listener.
+     * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -149,15 +150,17 @@ declare namespace FloatingBall {
 
     /**
      * Register floating-ball click event listener.
+     * 
      * @param { 'clickEvent' } type - Registration type, user click event, 'clickEvent'.
-     * @param { function } callback - Used to handle {'clickEvent'} command.
+     * @param { Callback<void> } callback - Used to handle {'clickEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    on(type: 'clickEvent', callback: () => void): void;
+    on(type: 'clickEvent', callback: Callback<void>): void;
 
     /**
      * Unregister floating-ball click event listener.
+     * 
      * @param { 'clickEvent' } type - Used to unregister listener for {'clickEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -166,9 +169,8 @@ declare namespace FloatingBall {
 
     /**
      * Get the info of floating-ball window.
+     * 
      * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating-ball window info.
-     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -180,9 +182,10 @@ declare namespace FloatingBall {
      *
      * @param { Want } want - Params for floating-ball restoration. The config must be valid,
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
+     * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
+     * @throws { BusinessError } 1300025 - Failed to restore the ability.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      * @test
@@ -193,11 +196,11 @@ declare namespace FloatingBall {
   /**
    * The option of floating-ball
    *
-   * @interface FloatingBallOption
+   * @interface FloatingBallOptions
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
-  interface FloatingBallOption {
+  interface FloatingBallOptions {
     /**
      * The template of floating-ball.
      *
@@ -279,4 +282,4 @@ declare namespace FloatingBall {
   }
 }
 
-export default FloatingBall;
+export default floatingBall;
