@@ -280,7 +280,8 @@ declare namespace inputDeviceCooperate {
    * This API uses a promise to return the result.
    * 
    * @param deviceDescriptor Descriptor of the target device for screen hopping.
-   * @returns { Promise<{ state: boolean }> } Promise used to return the result. The value true indicates that screen hopping is enabled, and the false indicates the opposite.
+   * @returns { Promise<{ state: boolean }> } Promise used to return the result. 
+   * The value true indicates that screen hopping is enabled, and the false indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -292,7 +293,8 @@ declare namespace inputDeviceCooperate {
    * This API uses a promise to return the result.
    * 
    * @param deviceDescriptor Descriptor of the target device for screen hopping.
-   * @returns { Promise<{ state: boolean }> } Promise used to return the result. The value true indicates that screen hopping is enabled, and the false indicates the opposite.
+   * @returns { Promise<{ state: boolean }> } Promise used to return the result. 
+   * The value true indicates that screen hopping is enabled, and the false indicates the opposite.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -331,7 +333,8 @@ declare namespace inputDeviceCooperate {
    * Disables listening for screen hopping status change events.
    * 
    * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<void> } callback Callback to be unregistered. If this parameter is not specified, all callbacks registered by the current application will be unregistered.
+   * @param { AsyncCallback<void> } callback Callback to be unregistered. 
+   * If this parameter is not specified, all callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
@@ -342,7 +345,8 @@ declare namespace inputDeviceCooperate {
    * Disables listening for screen hopping status change events.
    * 
    * @param { 'cooperation' } type Event type. The value is cooperation.
-   * @param { AsyncCallback<void> } callback Callback to be unregistered. If this parameter is not specified, all callbacks registered by the current application will be unregistered.
+   * @param { AsyncCallback<void> } callback Callback to be unregistered. 
+   * If this parameter is not specified, all callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.

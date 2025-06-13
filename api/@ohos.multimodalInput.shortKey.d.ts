@@ -37,7 +37,8 @@ declare namespace shortKey {
    * @param { string } businessKey - Unique service ID registered on the multimodal side. 
    * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
    * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined. Otherwise, err is an error object.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
