@@ -649,11 +649,13 @@ declare namespace cloudData {
      * @throws { BusinessError } 202 - Permission verification failed,
      * <br>application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 14800001 - Invalid args.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+     * <br>2. Missing GROUP BY clause.
      * @static
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     static cloudSync(
       bundleName: string,
