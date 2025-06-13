@@ -32,7 +32,7 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  * @atomicservice
  * @since 12
  */
-export class ComponentContent<T extends Object> extends Content{
+export class ComponentContent<T extends Object> extends Content {
   /**
    * Constructor.
    *
@@ -124,4 +124,15 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   updateConfiguration(): void;
+  
+  /**
+   * Get if the node is disposed.
+   *
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
 }
