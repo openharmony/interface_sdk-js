@@ -1603,6 +1603,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'Progress'): Progress;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Progress' } nodeType - node type.
+   * @returns { ProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Progress'): ProgressAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Scroll.
    * 
    * <p><strong>NOTE</strong>:
@@ -1784,6 +1800,22 @@ export namespace typeNode {
   function createNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'LoadingProgress' } nodeType - node type.
+   * @returns { LoadingProgressAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'LoadingProgress'): LoadingProgressAttribute | undefined;
+
+  /**
    * Define the FrameNode type for Search.
    * 
    * <p><strong>NOTE</strong>:
@@ -1872,6 +1904,22 @@ export namespace typeNode {
    * @since 12
    */
   function createNode(context: UIContext, nodeType: 'Image'): Image;
+
+  /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'Image' } nodeType - node type.
+   * @returns { ImageAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'Image'): ImageAttribute | undefined;
 
   /**
    * Define the FrameNode type for List.
