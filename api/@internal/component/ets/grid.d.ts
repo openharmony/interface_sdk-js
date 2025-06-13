@@ -1223,18 +1223,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    */
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
-    /**
-     * Sets the focus wrap mode of the grid.
-     *
-     * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the grid.
-     * @returns { GridAttribute } the attribute of the grid.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    focusWrapMode(mode: Optional<FocusWrapMode>): GridAttribute;
-
   /**
    * Called When sliding the grid.
    *
