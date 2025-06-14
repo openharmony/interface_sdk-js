@@ -2186,7 +2186,7 @@ declare namespace display {
     /**
      * All supported refresh rates.
      *
-     * @type { Array<number> }
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
