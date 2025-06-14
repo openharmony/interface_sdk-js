@@ -453,7 +453,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the serial number of the select item, starting from 0.
    *
-   * @param { number | Resource | undefined | Bindable<number | Resource> } numCount - the serial number of the select item.
+   * @param { number | Resource | undefined | Bindable<number> | Bindable<Resource> } numCount - the serial number of the select item.
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -461,7 +461,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20
    * @arkts 1.2
    */
-  selected(numCount: number | Resource | undefined | Bindable<number | Resource>): SelectAttribute;
+  selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): SelectAttribute;
 
 
   /**
@@ -508,7 +508,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the text display of the select button itself.
    *
-   * @param { ResourceStr | undefined | Bindable<ResourceStr> } resStr - the text display of the select button itself.
+   * @param { ResourceStr | undefined | Bindable<string> | Bindable<Resource> } resStr - the text display of the select button itself.
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -516,7 +516,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20
    * @arkts 1.2
    */
-  value(resStr: ResourceStr | undefined | Bindable<ResourceStr>): SelectAttribute;
+  value(resStr: ResourceStr | undefined | Bindable<string> | Bindable<Resource>): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
