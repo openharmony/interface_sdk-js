@@ -20,7 +20,6 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import stream from './@ohos.util.stream';
 
 /**
  * FileIO
