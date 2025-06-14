@@ -3374,7 +3374,7 @@ declare namespace buffer {
      * A constructor used to create a Blob instance.
      *
      * @param { string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] } sources - Data sources of the Blob instance.
-     * @param { Object } options:
+     * @param { Object } [options] - options {endings: string, type: string}
      * - endings: specifies how the terminator '\n' is output. The value can be 'native' or 'transparent'. 'native'
      * means that the terminator follows the system. 'transparent' means that the terminator stored in the Blob
      * instance remains unchanged. The default value is 'transparent'.
