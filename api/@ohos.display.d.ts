@@ -2184,6 +2184,16 @@ declare namespace display {
     y?: number;
 
     /**
+     * All supported refresh rates.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    supportedRefreshRates?: Array<number>;
+
+    /**
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
