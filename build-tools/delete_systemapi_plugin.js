@@ -303,28 +303,36 @@ function tsTransform(utFiles, callback) {
       }
       return;
     }
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts' || !/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
-      // 特殊类型文件处理
-      writeFile(url, content);
-    } else if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
-      // dts文件处理
-      const fileName = processFileName(url);
-      let references = content.match(PATT.GET_REFERENCE);
-      if (references) {
-        referencesMap.set(url, { references: references });
-        for (let index = 0; index < references.length; index++) {
-          const item = references[index];
-          content = content.replace(item, '');
-        }
-      }
-      ts.transpileModule(content, {
-        compilerOptions: {
-          target: ts.ScriptTarget.ES2017,
-        },
-        fileName: fileName,
-        transformers: { before: [callback(url)] },
-      });
+    let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
+      isTransformer = false;
     }
+    if (etsType === 'ets2') {
+      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
+        isTransformer = false;
+      }
+    }
+    if (!isTransformer) {
+      writeFile(url, content);
+      return;
+    }
+    // dts文件处理
+    const fileName = processFileName(url);
+    let references = content.match(PATT.GET_REFERENCE);
+    if (references) {
+      referencesMap.set(url, { references: references });
+      for (let index = 0; index < references.length; index++) {
+        const item = references[index];
+        content = content.replace(item, '');
+      }
+    }
+    ts.transpileModule(content, {
+      compilerOptions: {
+        target: ts.ScriptTarget.ES2017,
+      },
+      fileName: fileName,
+      transformers: { before: [callback(url)] },
+    });
   });
 }
 /**
