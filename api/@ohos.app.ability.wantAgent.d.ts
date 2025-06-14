@@ -22,7 +22,6 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
-import Context from './application/Context';
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -34,7 +33,7 @@ import Context from './application/Context';
  */
 /**
  * app.ability.WantAgent is a class that encapsulates a {@link Want} object and allows the application to execute the
- * Want at a future time point.The module provides APIs for creating and comparing WantAgent objects, and obtaining
+ * Want at a future time point. The module provides APIs for creating and comparing WantAgent objects, and obtaining
  * the user ID and bundle name of a WantAgent object.
  * 
  * A typical use scenario of WantAgent is notification processing. For example, when a user touches a notification,
@@ -275,24 +274,6 @@ declare namespace wantAgent {
    * @since 12
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
-
-  /**
-   * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger information.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { Context } context - Indicates current context.
-   * @returns { Promise<CompleteData> } Returns the CompleteData.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 16000020 - The context is not ability context.
-   * @throws { BusinessError } 16000151 - Invalid wantagent object.
-   * @throws { BusinessError } 16000153 - The Wantagent has been canceled.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   */
-  function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
   /**
    * Checks whether two WantAgent objects are equal.
@@ -563,7 +544,7 @@ declare namespace wantAgent {
      * @since 9
      */
     /**
-     * 	Extra information of the existing WantAgent object is replaced with that of the new object.
+     * Extra information of the existing WantAgent object is replaced with that of the new object.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice

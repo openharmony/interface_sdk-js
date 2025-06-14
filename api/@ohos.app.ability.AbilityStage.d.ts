@@ -226,8 +226,11 @@ export default class AbilityStage {
    * @since 9
    */
   /**
-   * Called when the system has decided to adjust the memory level.
-   * For example, this API can be used when there is not enough memory to run as many background processes as possible.
+   * Listens for changes in the system memory level status.
+   * When the system detects low memory resources, it will proactively invoke this callback.
+   * You can implement this callback to promptly release non-essential resources (such as cached data or temporary
+   * objects) upon receiving a memory shortage event, thereby preventing the application process from being forcibly
+   * terminated by the system.
    * 
    * <p>**NOTE**:
    * <br>This API returns the result synchronously and does not support asynchronous callbacks.

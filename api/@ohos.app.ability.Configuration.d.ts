@@ -233,16 +233,6 @@ export interface Configuration {
   mcc?: string;
 
   /**
-   * Indicates the mobile network code.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 12
-   */
-  mnc?: string;
-
-  /**
    * Current locale.
    *
    * @type { ?Intl.Locale }
@@ -251,4 +241,14 @@ export interface Configuration {
    * @since 20
    */
     locale?: Intl.Locale;
+
+  /**
+   * Indicates the mobile network code.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 12
+   */
+  mnc?: string;
 }
