@@ -445,6 +445,16 @@ declare namespace relationalStore {
      */
 
     persist?: boolean;
+
+    /**
+     * Specifies whether the database enable the capabilities for semantic indexing processing.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+
+    enableSemanticIndex?: boolean;
   }
 
   /**
