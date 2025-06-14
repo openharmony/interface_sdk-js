@@ -225,8 +225,8 @@ declare namespace formInfo {
      * @deprecated since 20
      */
     colorMode: ColorMode;
-
-    /**
+	
+	/**
      * Obtains the rendering mode of the form.
      *
      * @type { ?RenderingMode }
@@ -586,7 +586,7 @@ declare namespace formInfo {
      */
     MODE_LIGHT = 1
   }
-
+  
   /**
    * Rendering mode.
    *
@@ -1129,7 +1129,7 @@ declare namespace formInfo {
      * @since 12
      */
     FORM_PERMISSION_NAME_KEY = 'ohos.extra.param.key.permission_name',
-
+ 
     /**
      * Indicates the key specifying whether the user granted, which is represented as
      * want: {
@@ -1352,7 +1352,7 @@ declare namespace formInfo {
      * @since 12
      */
     DIMENSION_6_4,
-
+  
     /**
      * 2 x 3 form used for wearable devices
      *
@@ -1370,15 +1370,6 @@ declare namespace formInfo {
      * @since 18
      */
     DIMENSION_3_3 = 9,
-
-    /**
-     * 3 x 4 form used for tv devices
-     *
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 18
-     */
-    DIMENSION_3_4 = 10,
   }
 
    /**
@@ -1863,6 +1854,7 @@ declare namespace formInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
+   * @systemapi
    * @since 12
    */
   enum FormLocation {
@@ -1879,6 +1871,7 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     DESKTOP = 0,
@@ -1887,6 +1880,7 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     FORM_CENTER = 1,
@@ -1895,6 +1889,7 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     FORM_MANAGER = 2,
@@ -1903,6 +1898,7 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     NEGATIVE_SCREEN = 3,
@@ -1929,6 +1925,7 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     SCREEN_LOCK = 6,
@@ -1937,6 +1934,7 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
      */
     AI_SUGGESTION = 7,
@@ -2055,7 +2053,7 @@ declare namespace formInfo {
      * @since 20
      */
     left: number;
-
+    
     /**
      * The top position of rect
      *
