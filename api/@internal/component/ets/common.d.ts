@@ -15859,7 +15859,6 @@ declare interface DismissPopupAction {
 declare interface PopupStateChangeParam {
   /**
    * is Visible.
-   * Anonymous Object Rectification.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15894,7 +15893,6 @@ declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 declare interface PopupMaskType {
   /**
    * Color.
-   * Anonymous Object Rectification.
    *
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
