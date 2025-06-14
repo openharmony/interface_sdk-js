@@ -25,9 +25,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import type cert from './@ohos.security.cert';
 import type image from './@ohos.multimedia.image';
-/*** if arkts 1.1 */
 import type print from './@ohos.print';
-/*** endif */
+
 import { WebNetErrorList } from './@ohos.web.netErrorList';
 
 /**
@@ -5681,7 +5680,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
 
