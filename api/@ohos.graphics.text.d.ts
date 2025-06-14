@@ -730,7 +730,7 @@ declare namespace text {
 
   /**
    * Describes badge type of text.
-   * @typedef TextBadgeType
+   * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 20
    */
