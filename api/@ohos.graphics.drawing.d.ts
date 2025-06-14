@@ -138,7 +138,8 @@ declare namespace drawing {
      */
     MODULATE = 13,
     /**
-     * r = s + d - s * d, inverts the color values of the source and destination pixels, multiplies them, and then inverts the result, typically producing a brighter outcome.	
+     * r = s + d - s * d, inverts the color values of the source and destination pixels, multiplies them,
+     * and then inverts the result, typically producing a brighter outcome.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -339,7 +340,8 @@ declare namespace drawing {
     constructor(roundRect: RoundRect);
 
     /**
-     * A constructor used to create a RoundRect object. A rounded rectangle is created when both xRadii and yRadii are greater than 0. Otherwise, only a rectangle is created.
+     * A constructor used to create a RoundRect object. A rounded rectangle is created when both xRadii and yRadii are greater than 0.
+     * Otherwise, only a rectangle is created.
      * @param { common2D.Rect } rect - Rectangle that encloses the rounded rectangle to create.
      * @param { number } xRadii - Radius of the rounded corner on the X axis. The value is a floating point number. A negative number is invalid.
      * @param { number } yRadii - Radius of the rounded corner on the Y axis. The value is a floating point number. A negative number is invalid.
@@ -365,7 +367,8 @@ declare namespace drawing {
     /**
      * Obtains the radii of the specified rounded corner in this rounded rectangle.
      * @param { CornerPos } pos - Position of the rounded corner.
-     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of the rounded corner on the X axis, and the vertical coordinate indicates the radius on the Y axis.
+     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of the rounded corner on the X axis,
+     * and the vertical coordinate indicates the radius on the Y axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -402,7 +405,7 @@ declare namespace drawing {
     DIFFERENCE = 0,
 
     /**
-     * Intersect operation.
+     * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -674,7 +677,8 @@ declare namespace drawing {
     rLineTo(dx: number, dy: number): void;
 
     /**
-     * Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
+     * Draws a quadratic Bezier curve from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
      * @param { number } dx1 - X offset of the control point relative to the last point. A positive number indicates a rightward shift from the last point,
      * and a negative number indicates a leftward shift from the last point. The value is a floating point number.
      * @param { number } dy1 - Y offset of the control point relative to the last point. A positive number indicates an upward shift from the last point,
@@ -711,7 +715,8 @@ declare namespace drawing {
     rConicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void;
 
     /**
-     * Draws a cubic Bezier curve from the last point of this path to a point relative to the last point. If the path is empty, the start point (0, 0) is used.
+     * Draws a cubic Bezier curve from the last point of this path to a point relative to the last point.
+     * If the path is empty, the start point (0, 0) is used.
      * @param { number } ctrlX1 - X offset of the first control point relative to the last point. A positive number indicates a rightward shift
      * from the last point, and a negative number indicates a leftward shift from the last point. The value is a floating point number.
      * @param { number } ctrlY1 - Y offset of the first control point relative to the last point. A positive number indicates an upward shift
@@ -1301,7 +1306,8 @@ declare namespace drawing {
     drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void;
     
     /**
-     * Splits an image into multiple sections based on the lattice object's configuration and draws each section into the specified target rectangle on the canvas.
+     * Splits an image into multiple sections based on the lattice object's configuration and
+     * draws each section into the specified target rectangle on the canvas.
      * The intersections of even-numbered rows and columns (starting from 0) are fixed points.
      * If the fixed lattice area fits within the target rectangle, it will be drawn without scaling.
      * Otherwise, it will be scaled proportionally to fit the target rectangle.
@@ -1339,7 +1345,8 @@ declare namespace drawing {
      * Draws an image onto a specified area of the canvas.
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
-     * @param { SamplingOptions } samplingOptions - Sampling options. By default, the SamplingOptions object created using the no-argument constructor is used.
+     * @param { SamplingOptions } samplingOptions - Sampling options.
+     * By default, the SamplingOptions object created using the no-argument constructor is used.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1352,7 +1359,8 @@ declare namespace drawing {
      * @param { image.PixelMap } pixelmap - The source image.
      * @param { common2D.Rect } srcRect - Rectangle object, which specifies the portion of the image to draw.
      * @param { common2D.Rect } dstRect - Rectangle object, which specifies the area of the canvas onto which the image will be drawn.
-     * @param { SamplingOptions } samplingOptions - Sampling options. By default, the SamplingOptions object created using the no-argument constructor is used.
+     * @param { SamplingOptions } samplingOptions - Sampling options.
+     * By default, the SamplingOptions object created using the no-argument constructor is used.
      * @param { SrcRectConstraint } constraint - Constraint type of the source rectangle. The default value is STRICT.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1363,7 +1371,7 @@ declare namespace drawing {
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
 
     /**
-     * Fills clip with color color. Mode determines how ARGB is combined with destination.
+     * Draws the background color.
      * @param { common2D.Color } color - The range of color channels must be [0, 255].
      * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1637,8 +1645,8 @@ declare namespace drawing {
 
     /**
      * Restores the canvas state (canvas matrix and clipping area) to a specified number.
-     * @param { number } count - Depth of the canvas statuses to restore.
-     * The value is an integer. If the value is less than or equal to 1, the canvas is restored to the initial state.
+     * @param { number } count - Depth of the canvas statuses to restore. The value is an integer.
+     * If the value is less than or equal to 1, the canvas is restored to the initial state.
      * If the value is greater than the number of canvas statuses that have been saved, no operation is performed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -2001,8 +2009,6 @@ declare namespace drawing {
      * @since 12
      */
     uniqueID(): number;
-  
-
   }
 
   /**
@@ -2650,7 +2656,8 @@ declare namespace drawing {
      xMin?: number;
  
      /**
-      * Horizontal distance from the rightmost edge of any glyph bounding box to the origin. The value is a positive number, indicating the maximum horizontal coordinate across all glyph bounding boxes.
+      * Horizontal distance from the rightmost edge of any glyph bounding box to the origin.
+      * The value is a positive number, indicating the maximum horizontal coordinate across all glyph bounding boxes.
       * @type { ?number }
       * @syscap SystemCapability.Graphics.Drawing
       * @since 12
@@ -2973,7 +2980,7 @@ declare namespace drawing {
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
-     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
+     * The radial gradient transitions colors from the center to the ending shape in a radial manner.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { number } radius - Radius of the gradient. A negative number is invalid. The value is a floating point number.
      * @param { Array<number> } colors - Array of colors to distribute between the center and ending shape of the circle.
@@ -2995,8 +3002,8 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
-     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
-     * either in a clockwise or counterclockwise direction.
+     * Creates a ShaderEffect object that generates a sweep gradient based on the center.
+     * A sweep gradient paints a gradient of colors in a clockwise or counterclockwise direction based on a given circle center.
      * @param { common2D.Point } centerPt - Center of the circle.
      * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      * The values in the array are 32-bit (ARGB) unsigned integers.
@@ -3326,6 +3333,7 @@ declare namespace drawing {
      * @param { ImageFilter } foreground - Indicates the input foreground filter.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -3582,7 +3590,6 @@ declare namespace drawing {
 
     /**
     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
-    * If this API is not called, anti-aliasing is disabled by default.
     *
     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3701,7 +3708,7 @@ declare namespace drawing {
     setDither(dither: boolean): void;
 
     /**
-     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
+     * Sets the join style for this pen.
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3721,7 +3728,7 @@ declare namespace drawing {
     getJoinStyle(): JoinStyle;
 
     /**
-     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
+     * Sets the cap style for this pen.
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3838,7 +3845,6 @@ declare namespace drawing {
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
-     * If this API is not called, anti-aliasing is disabled by default.
      * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3931,7 +3937,7 @@ declare namespace drawing {
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
     /**
-     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * Sets a blend mode for this brush.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4165,7 +4171,8 @@ declare namespace drawing {
      */
     postRotate(degree: number, px: number, py: number): void;
     /**
-     * Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been scaled with the coefficient (sx, sy) at the scale point (px, py).
+     * Post multiplies this matrix by a matrix that is derived from an identity matrix after it has been
+     * scaled with the coefficient (sx, sy) at the scale point (px, py).
      * @param { number } sx - Scale coefficient along the X axis. If a negative number is passed in,
      * the matrix is mirrored around y = px before being scaled. The value is a floating point number.
      * @param { number } sy - Scale coefficient along the Y axis. If a negative number is passed in,
@@ -4190,19 +4197,6 @@ declare namespace drawing {
      * @since 12
      */
     postTranslate(dx: number, dy: number): void;
-
-    /**
-     * Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
-     * This can be thought of as scaling relative to a pivot point before applying matrix.
-     * @param { number } kx - Indicates the horizontal skew factor.
-     * @param { number } ky - Indicates the vertical skew factor.
-     * @param { number } px - Indicates the pivot on x-axis.
-     * @param { number } py - Indicates the pivot on y-axis.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20
-     */
-    preSkew(kx: number, ky: number, px: number, py: number): void;
   
     /**
      * Premultiplies this matrix by a matrix that is derived from an identity matrix after it has been rotated by a
@@ -4258,6 +4252,20 @@ declare namespace drawing {
      * @since 12
      */
     preTranslate(dx: number, dy: number): void;
+
+    /**
+     * Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
+     * This can be thought of as scaling relative to a pivot point before applying matrix.
+     * @param { number } kx - Indicates the horizontal skew factor.
+     * @param { number } ky - Indicates the vertical skew factor.
+     * @param { number } px - Indicates the pivot on x-axis.
+     * @param { number } py - Indicates the pivot on y-axis.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    preSkew(kx: number, ky: number, px: number, py: number): void;
+
     /**
      * Resets this matrix to an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4601,7 +4609,7 @@ declare namespace drawing {
     UNION = 2,
 
     /**
-     * Xor operation.
+     * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -4660,8 +4668,7 @@ declare namespace drawing {
   }
 
   /**
-   * Enumerates the constraints on the source rectangle.
-   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
+   * Enumerates the constraint types of the source rectangle.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
