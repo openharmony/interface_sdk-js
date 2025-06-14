@@ -384,71 +384,6 @@ declare namespace connection {
    * @since 11
    */
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
-
-  /**
-   * Set the network extended attribute for a {@link NetHandle} object.
-   * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
-   * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
-   * @param { string } netExtAttribute - Indicates the extended attribute of the network.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
-   */
-  function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>;
- 
-  /**
-   * Set the network extended attribute for a {@link NetHandle} object.
-   * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
-   * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
-   * @param { string } netExtAttribute - Indicates the extended attribute of the network.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
-   */
-  function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void;
-     
-  /**
-   * Get the network extended attribute for a {@link NetHandle} object.
-   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
-   * @returns { Promise<string> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
-   */
-  function getNetExtAttribute(netHandle: NetHandle): Promise<string>;
-     
-  /**
-   * Get the network extended attribute for a {@link NetHandle} object.
-   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
-   * @returns { string } The netExtAttribute string returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
-   */
-  function getNetExtAttributeSync(netHandle: NetHandle): string;
     
   /**
    * Checks whether data traffic usage on the current network is metered.
@@ -1854,6 +1789,7 @@ declare namespace connection {
      * Indicates that the network is based on a bluetooth network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     BEARER_BLUETOOTH = 2,
