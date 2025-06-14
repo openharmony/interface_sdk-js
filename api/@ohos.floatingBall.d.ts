@@ -82,7 +82,7 @@ declare namespace floatingBall {
      * Start floating-ball
      * 
      * @permission ohos.permission.USE_FLOAT_BALL
-     * @param { FloatingBallParams } params - Params for floating-ball start. The config must be valid,
+     * @param { FloatingBallParams } params - Params for floating-ball start.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300019 - Failed to create the floating-Ball window.
@@ -98,7 +98,7 @@ declare namespace floatingBall {
     /**
      * Update floating-ball
      * 
-     * @param { FloatingBallParams } params - Params for floating-ball update. The config must be valid,
+     * @param { FloatingBallParams } params - Params for floating-ball update. 
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
@@ -134,7 +134,7 @@ declare namespace floatingBall {
      * Unregister floating-ball lifecycle event listener.
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
-     * @param { Callback<FloatingBallState> } callback - Indicates the callback function.
+     * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -154,7 +154,7 @@ declare namespace floatingBall {
      * Unregister floating-ball click event listener.
      * 
      * @param { 'clickEvent' } type - Used to unregister listener for {'clickEvent'} command.
-     * @param { Callback<void> } callback - Indicates the callback function.
+     * @param { Callback<void> } [callback] - Indicates the callback function.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -171,18 +171,18 @@ declare namespace floatingBall {
     getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>;
 
     /**
-     * Restore Ability for floating-ball creatorBundle.
+     * Restore main window for floating-ball creatorBundle.
      *
-     * @param { Want } want - Params for floating-ball restoration. The config must be valid,
+     * @param { Want } want - Params for floating-ball restoration.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
      * @throws { BusinessError } 1300022 - Floating-ball internal error.
      * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
-     * @throws { BusinessError } 1300025 - Failed to restore the ability.
+     * @throws { BusinessError } 1300025 - Failed to restore the main window.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    restoreAbility(want: Want): Promise<void>;
+    restoreMainWindow(want: Want): Promise<void>;
   }
 
   /**
