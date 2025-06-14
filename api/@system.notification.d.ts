@@ -23,7 +23,6 @@
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  * @deprecated since 7
- * @useinstead ohos.notification
  */
 export interface ActionResult {
   /**
@@ -100,10 +99,12 @@ export interface ShowNotificationOptions {
 }
 
 /**
+ * Manages notifications.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  * @deprecated since 7
- * @useinstead ohos.notification
+ * @useinstead ohos.notification/notification
  */
 declare class Notification {
   /**
