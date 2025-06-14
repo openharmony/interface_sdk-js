@@ -71,7 +71,8 @@ export interface CommonEventData {
   bundleName?: string;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the code field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
+   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
    * @type { ?number }
    * @default 0
@@ -79,7 +80,8 @@ export interface CommonEventData {
    * @since 7
    */
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the code field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
+   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
    * @type { ?number }
    * @default 0
@@ -90,14 +92,16 @@ export interface CommonEventData {
   code?: number;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -105,7 +109,8 @@ export interface CommonEventData {
    * @since 11
    */
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the data field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -116,14 +121,16 @@ export interface CommonEventData {
   data?: string;
 
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Additional information about the common event received by the subscriber. The value of this field is the same as
+   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
+   * Additional information about the common event received by the subscriber. The value of this field is the same as
+   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent

@@ -93,7 +93,8 @@ export interface NotificationBasicContent {
 
   /**
    * Picture of a notification displayed on the lock screen. Currently, only the live view notification is supported.
-   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber. The recommended icon size is 128 × 128 pixels.
+   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber.
+   * The recommended icon size is 128 × 128 pixels.
    * The display effect depends on the device capability and notification center UI style.
    *
    * @type { ?image.PixelMap }

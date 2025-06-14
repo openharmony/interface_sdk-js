@@ -1002,7 +1002,8 @@ declare namespace notificationManager {
    * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the
+   *                                              notification is enabled, and false means the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1017,7 +1018,8 @@ declare namespace notificationManager {
   /**
    * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the
+   *                                              notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -1031,7 +1033,8 @@ declare namespace notificationManager {
   /**
    * Checks whether notification is enabled for the specified application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the notification is enabled, and false means the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the
+   *                                              notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2132,7 +2135,8 @@ declare namespace notificationManager {
    * Checks whether a specified template is supported. This API uses an asynchronous callback to return the result.
    *
    * @param { string } templateName - Template name. Currently, only downloadTemplate is supported.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the specified template is supported, and false means the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that the
+   *                                              specified template is supported, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2147,7 +2151,8 @@ declare namespace notificationManager {
    * Checks whether a specified template is supported. This API uses a promise to return the URI of the file in the destination directory.
    *
    * @param { string } templateName - Template name. Currently, only downloadTemplate is supported.
-   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the specified template is supported, and false means the opposite.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that the specified template
+   *                               is supported, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2421,7 +2426,8 @@ declare namespace notificationManager {
   /**
    * Checks whether distributed notification is enabled on this device. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that distributed notification is enabled, and false means the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that
+   *                                              distributed notification is enabled, and false means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2436,7 +2442,8 @@ declare namespace notificationManager {
   /**
    * Checks whether distributed notification is enabled on this device. This API uses a promise to return the URI of the file in the destination directory.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value true means that distributed notification is enabled, and false means the opposite.
+   * @returns { Promise<boolean> } Promise used to return the result. The value true means that distributed notification
+   *                               is enabled, and false means the opposite.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -3861,23 +3868,6 @@ declare namespace notificationManager {
   function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
   /**
-   * Set target device status.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - The device.
-   * @param { number } status - The device status.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 18
-   */
-  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
-
-  /**
    * Disabling notifications based on the application list.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -3895,6 +3885,23 @@ declare namespace notificationManager {
    * @since 18
    */
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
+
+  /**
+   * Set target device status.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device.
+   * @param { number } status - The device status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
 
   /**
    * Set notification slot synchronization switch.
@@ -4196,14 +4203,16 @@ declare namespace notificationManager {
 
     /**
      * Live view. A third-party application cannot directly create a notification of this slot type. After the system proxy creates a system live view,
-     * the third-party application releases a notification with the same ID to update the specified content. This type corresponds to SlotLevel being LEVEL_DEFAULT.
+     * the third-party application releases a notification with the same ID to update the specified content.
+     * This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @since 11
      */
     /**
      * Live view. A third-party application cannot directly create a notification of this slot type. After the system proxy creates a system live view,
-     * the third-party application releases a notification with the same ID to update the specified content. This type corresponds to SlotLevel being LEVEL_DEFAULT.
+     * the third-party application releases a notification with the same ID to update the specified content.
+     * This type corresponds to SlotLevel being LEVEL_DEFAULT.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
