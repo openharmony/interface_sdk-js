@@ -43,9 +43,18 @@ export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode'
 export { BuildOptions } from './arkui/BuilderNode';
 
 /**
+ * Export InputEventType which refers to the event type used for posting.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export { InputEventType } from './arkui/BuilderNode';
+
+/**
  * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
  * and methods to control the child node of the NodeContainer.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
