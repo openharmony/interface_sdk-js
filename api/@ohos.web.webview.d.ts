@@ -6462,6 +6462,23 @@ declare namespace webview {
      * @since 20
      */
     getProgress() : number;
+
+    /**
+     * Sets the bottom avoidance height of the web visible viewport.
+     * When setting non-zero height, the position and size of the web component remain unchanged,
+     * <br>and the visible viewport upward avoids avoidHeight, as manifested by the web page content raising avoidHeight.
+     * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT when clicking the input box in the web page.
+     * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
+     *
+     * @param { number } avoidHeight - the height value of the visible viewport avoidance. Unit: px.
+     * <br>The valid interval of avoidHeight is [0, the height of web component].
+     * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    avoidVisibleViewportBottom(avoidHeight: number): void;
   }
 
   /**
