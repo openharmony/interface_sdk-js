@@ -550,6 +550,20 @@ declare namespace audio {
      */
     ULTRASONIC = 10,
     /**
+     * Audio volume type for notification.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    NOTIFICATION = 11,
+    /**
+     * Audio volume type for navigation.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    NAVIGATION = 12,
+    /**
      * Audio volume type for all common.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -4433,6 +4447,15 @@ declare namespace audio {
     isActiveSync(volumeType: AudioVolumeType): boolean;
 
     /**
+     * Checks whether a stream is active.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { boolean } The active status of the stream.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    isStreamActive(streamUsage: StreamUsage): boolean;
+    /**
      * Checks whether the specified audio source type supports echo cancellation
      * @param { SourceType } sourceType Type of audio source.
      * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
@@ -4623,6 +4646,15 @@ declare namespace audio {
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
   }
+
+  /**
+   * Array of StreamUsages.
+   * @typedef { Array<StreamUsage> } StreamUsageArray
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 20
+   */
+  type StreamUsageArray = Array<StreamUsage>;
 
   /**
    * Implements audio volume management.
@@ -4932,6 +4964,205 @@ declare namespace audio {
      * @since 20
      */
     off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
+
+   /**
+     * Obtains the volume of a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { number } Current system volume level.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getSystemVolume(volumeType: AudioVolumeType): number;
+
+    /**
+     * Obtains the minimum volume allowed for a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { number } Min volume level.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getMinSystemVolume(volumeType: AudioVolumeType): number;
+
+    /**
+     * Obtains the maximum volume allowed for a volume type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { number } Max volume level.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getMaxSystemVolume(volumeType: AudioVolumeType): number;
+
+    /**
+     * Checks whether a volume type is muted.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @returns { boolean } The mute status of the volume type. The value true
+     * means that the volume type is muted, and false means the opposite.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    isSystemMuted(volumeType: AudioVolumeType): boolean;
+
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { number } The system volume in dB.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getVolumeInUnitOfDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Listens for system volume change events. This method uses a callback to get volume change events.
+     * @param { 'systemVolumeChange' } type - Type of the event to listen for.
+     * Only the systemVolumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'systemVolumeChange', callback: Callback<VolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the system volume change events.
+     * @param { 'systemVolumeChange' } type - Type of the event to be unregistered.
+     * Only the systemVolumeChange event is supported.
+     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'systemVolumeChange', callback?: Callback<VolumeEvent>): void;
+
+    /**
+     * Obtains the volume of a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { number } Current system volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    getVolumeByStream(streamUsage: StreamUsage): number;
+
+    /**
+     * Obtains the minimum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { number } Min volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    getMinVolumeByStream(streamUsage: StreamUsage): number;
+
+    /**
+     * Obtains the maximum volume allowed for a stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { number } Max volume level.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    getMaxVolumeByStream(streamUsage: StreamUsage): number;
+
+    /**
+     * Checks whether the system is muted based on the stream.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { boolean } The mute status of the stream. The value true
+     * means that the stream is muted, and false means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    isSystemMutedForStream(streamUsage: StreamUsage): boolean;
+
+    /**
+     * Gets the volume db value that system calculate by volume stream, volume level and device type.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { number } The system volume in dB.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    getVolumeInUnitOfDbByStream(streamUsage: StreamUsage, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Obtains system supported volume types.
+     * @returns { Array<Readonly<AudioVolumeType>> } Return the system volume type array.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getSupportedAudioVolumeTypes(): Array<Readonly<AudioVolumeType>>;
+
+    /**
+     * Obtains volume type by stream type.
+     * @param { StreamUsage } streamUsage - Audio stream type.
+     * @returns { AudioVolumeType } Return the audio volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getAudioVolumeTypeByStreamUsage(streamUsage: StreamUsage): AudioVolumeType;
+
+    /**
+     * Obtains stream types by volume type.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @returns { StreamUsageArray } Return the audio stream types.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getStreamUsagesByVolumeType(volumeType: AudioVolumeType): StreamUsageArray;
+
+    /**
+     * Listens for stream volume change events. This method uses a callback to get volume change events.
+     * @param { 'streamVolumeChange' } type - Type of the event to listen for.
+     * Only the streamVolumeChange event is supported.
+     * @param { StreamUsage } streamUsage - StreamUsage to be listened.
+     * @param { Callback<StreamVolumeEvent> } callback - Callback used to get the stream volume change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
+
+    /**
+     * Unsubscribes to the stream volume change events.
+     * @param { 'streamVolumeChange' } type - Type of the event to be unregistered.
+     * Only the streamVolumeChange event is supported.
+     * @param { Callback<StreamVolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * If there is no callback parameter, all callbacks will be unregistered.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
   }
 
   /**
@@ -6838,6 +7069,36 @@ declare namespace audio {
      * @since 19
      */
     volumeMode?: AudioVolumeMode;
+  }
+
+  /**
+   * Describes the stream volume event when the volume is changed.
+   * @typedef StreamVolumeEvent
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @since 20
+   */
+  interface StreamVolumeEvent {
+    /**
+     * The type of streamUsage whose volume changes.
+     * @type { StreamUsage }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    streamUsage: StreamUsage;
+    /**
+     * Volume level.
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    volume: number;
+    /**
+     * Whether to show the volume change in UI.
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 20
+     */
+    updateUi: boolean;
   }
 
   /**
