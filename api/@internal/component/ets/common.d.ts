@@ -31186,6 +31186,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
+   * Called when the scrollable will end dragging.
+   *
+   * @param { OnWillStopDraggingCallback } handler - callback of end dragging.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onWillStopDragging(handler: OnWillStopDraggingCallback): T;
+
+  /**
    * Triggered when the scrollable component reaches the start position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
@@ -31335,6 +31348,19 @@ declare type OnWillScrollCallback =
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+
+/**
+  * On scroll callback using in scrollable onWillStopDragging.
+  *
+  * @typedef { function } OnWillStopDraggingCallback
+  * @param { number } velocity - The velocity of the scroll view at the moment the touch was released.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
  * Defines the onMove callback.
