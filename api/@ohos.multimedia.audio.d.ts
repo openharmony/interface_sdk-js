@@ -4452,6 +4452,18 @@ declare namespace audio {
      * @since 20
      */
     isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean;
+
+    /**
+     * Checks whether the audio recording for specific capturer info can start.
+     * Usually this function will be used before audio recording start, because
+     * other existing recording stream may deny it.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer infomation used in creation.
+     * @returns { boolean } Value <true> means audio recording can start.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
   }
 
   /**
