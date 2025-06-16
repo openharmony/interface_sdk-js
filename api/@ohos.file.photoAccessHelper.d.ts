@@ -5963,6 +5963,18 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Get the PhotoPickerComponent default album name.
+     *
+     * @returns { Promise<string> } - Returns the default album name.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. The IPC request timed out. 2. system running error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
   }
 
   /**
