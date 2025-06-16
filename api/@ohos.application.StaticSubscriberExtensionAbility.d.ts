@@ -21,6 +21,9 @@
 /*** if arkts 1.1 */
 import { CommonEventData } from './commonEvent/commonEventData';
 /*** endif */
+/*** if arkts 1.2 */
+import { CommonEventData } from './commonEvent/commonEventData';
+/*** endif */
 import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscriberExtensionContext';
 
 /**
@@ -52,7 +55,8 @@ declare class StaticSubscriberExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onReceiveEvent(event: CommonEventData): void;
 }
