@@ -108,15 +108,6 @@ declare enum FormDimension {
    * @since 18
    */
   DIMENSION_3_3 = 9,
-
-  /**
-   * 3 x 4 cards used for tv devices
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 18
-   */
-  DIMENSION_3_4 = 10,
 }
 
 /**
