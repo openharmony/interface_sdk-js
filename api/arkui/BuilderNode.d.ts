@@ -22,8 +22,8 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 /*** if arkts 1.2 */
-import { TouchEvent} from './component/common';
-import { WrappedBuilder } from './component/builder';
+import { TouchEvent } from './component/common';
+import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
 /*** endif */
 
 /**
@@ -205,16 +205,7 @@ export interface BuildOptions {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines BuilderNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class BuilderNode<Args extends Object[]> {
+export class BuilderNode<Args extends Object[]> {
   /**
    * Constructor.
    *
@@ -232,8 +223,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
 
@@ -254,8 +244,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
 
@@ -268,8 +257,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   build(builder: WrappedBuilder<Args>, arg: Object, options: BuildOptions): void;
 
@@ -288,8 +276,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   update(arg: Object): void;
 
@@ -308,8 +295,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFrameNode(): FrameNode | null;
 
@@ -330,8 +316,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -341,8 +326,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dispose(): void;
 
@@ -353,8 +337,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reuse(param?: Object): void;
 
@@ -364,8 +347,7 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   recycle(): void;
 
@@ -375,8 +357,152 @@ export declare class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-   updateConfiguration(): void;
+  updateConfiguration(): void;
+}
+
+/**
+ * Defines BuilderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class BuilderNode<T = undefined> {
+  /**
+   * Constructor.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the BuilderNode
+   * @param { RenderOptions } [options] - Render options of the Builder Node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(uiContext: UIContext, options?: RenderOptions);
+
+  /**
+   * Build the BuilderNode with the builder.
+   *
+   * @param {  WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build the node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  build(builder: WrappedBuilder<CustomBuilder>): void;
+
+  /**
+   * Build the BuilderNode with the builder.
+   *
+   * @param {  WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
+   * @param { T } arg - Defined the args will be used in the builder.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T): void;
+
+  /**
+   * Build the BuilderNode with the builder.Support the type that WrappedBuilder contains builder used different params.
+   *
+   * @param { WrappedBuilder<CustomBuilderT<T>> } builder - Defined the builder will be called to build the node.
+   * @param { T } arg - Defined the args will be used in the builder.
+   * @param { BuildOptions } options - Defined the options will be used when build.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  build(builder: WrappedBuilder<CustomBuilderT<T>>, arg: T, options: BuildOptions): void;
+
+  /**
+   * Update the BuilderNode based on the provided parameters.
+   *
+   * @param { T } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  update(arg: T): void;
+
+  /**
+   * Get the FrameNode in BuilderNode.
+   *
+   * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFrameNode(): FrameNode | null;
+
+  /**
+   * Dispatch touchEvent to targetNode.
+   *
+   * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  postTouchEvent(event: TouchEvent): boolean;
+
+  /**
+   * Dispose the BuilderNode immediately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dispose(): void;
+
+  /**
+   * Reuse the BuilderNode based on the provided parameters.
+   *
+   * @param {  Record<string,NullishType> } [param] - Parameters for reusing BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  reuse(param?: Record<string, NullishType>): void;
+
+  /**
+   * Recycle the BuilderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  recycle(): void;
+
+  /**
+   * Notify BuilderNode to update the configuration to trigger a reload of the BuilderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  updateConfiguration(): void;
 }

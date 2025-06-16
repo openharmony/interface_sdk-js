@@ -32,6 +32,17 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
  */
 export type CustomBuilder = @memo (() => void);
 
+/**
+ * Defines the CustomBuilder Type.
+ *
+ * @typedef { @memo ((t:T) => void) } CustomBuilderT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+ export type CustomBuilderT<T> = @memo ((t: T) => void);
 
 /**
  * Defines the PageMapBuilder Type.
