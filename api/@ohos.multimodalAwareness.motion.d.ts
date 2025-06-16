@@ -25,8 +25,7 @@ import type { Callback } from "./@ohos.base";
  *
  * @namespace motion
  * @syscap SystemCapability.MultimodalAwareness.Motion
- * @since arkts{ '1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 
 declare namespace motion {
@@ -35,32 +34,28 @@ declare namespace motion {
    *
    * @enum { number } OperatingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since arkts{ '1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export enum OperatingHandStatus {
     /**
      * indicates nothing has been detected.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since arkts{ '1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     UNKNOWN_STATUS = 0,
     /**
      * indicates the operating hand is left hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since arkts{ '1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     LEFT_HAND_OPERATED = 1,
     /**
      * indicates the operating hand is right hand.
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
-     * @since arkts{ '1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     RIGHT_HAND_OPERATED = 2
   }
@@ -71,7 +66,6 @@ declare namespace motion {
    * @enum { number } HoldingHandStatus
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20
-   * @arkts 1.1&1.2
    */
   export enum HoldingHandStatus {
     /**
@@ -79,7 +73,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOT_HELD = 0,
     /**
@@ -87,7 +80,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
-     * @arkts 1.1&1.2
      */
     LEFT_HAND_HELD = 1,
     /**
@@ -95,7 +87,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
-     * @arkts 1.1&1.2
      */
     RIGHT_HAND_HELD = 2,
     /**
@@ -103,7 +94,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
-     * @arkts 1.1&1.2
      */
     BOTH_HANDS_HELD = 3,
     /**
@@ -111,7 +101,6 @@ declare namespace motion {
      *
      * @syscap SystemCapability.MultimodalAwareness.Motion
      * @since 20
-     * @arkts 1.1&1.2
      */
     UNKNOWN_STATUS = 16
   }
