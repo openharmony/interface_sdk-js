@@ -2606,7 +2606,7 @@ declare namespace window {
   /**
    * Creates a child window or system window. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW (required when the window type is window.WindowType.TYPE_FLOAT)
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @param { Configuration } config - Parameters used for creating the window.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
