@@ -992,7 +992,7 @@ declare namespace relationalStore {
   }
 
   /**
-   * Defines an SQL statement.
+   * Defines a SQL statement.
    *
    * @interface SqlInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8993,12 +8993,12 @@ declare namespace relationalStore {
     function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 
   /**
-   * Obtains an SQL statement used for inserting data.
+   * Obtains a SQL statement used for inserting data.
    *
    * @param { string } table - Name of the target table.
    * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
-   * @returns { SqlInfo } - Returns an SQL insert statement including parameters.
+   * @returns { SqlInfo } - Returns a SQL insert statement including parameters.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
    * <br>2. Missing GROUP BY clause.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9008,14 +9008,14 @@ declare namespace relationalStore {
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
   
   /**
-   * Obtains an SQL statement used for updating data.
+   * Obtains a SQL statement used for updating data.
    *
    * @param { RdbPredicates } predicates - Conditions for updating data. For details, see {@link RdbPredicates}.
    * @param { ValuesBucket } values - Row of data to be updated in the database.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
-   * @returns { SqlInfo } - Returns an SQL update statement including parameters.
+   * @returns { SqlInfo } - Returns a SQL update statement including parameters.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause. 
+   * <br>2. Missing GROUP BY clause.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9023,12 +9023,12 @@ declare namespace relationalStore {
   function getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
 
   /**
-   * Obtains an SQL statement used for deleting data.
+   * Obtains a SQL statement used for deleting data.
    *
    * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
-   * @returns { SqlInfo } - Returns an SQL delete statement including parameters.
+   * @returns { SqlInfo } - Returns a SQL delete statement including parameters.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause. 
+   * <br>2. Missing GROUP BY clause.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9036,13 +9036,13 @@ declare namespace relationalStore {
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
   
   /**
-   * Obtains an SQL statement used for querying data.
+   * Obtains a SQL statement used for querying data.
    *
    * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
    * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
-   * @returns { SqlInfo } - Returns an SQL query statement including parameters.
+   * @returns { SqlInfo } - Returns a SQL query statement including parameters.
    * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause. 
+   * <br>2. Missing GROUP BY clause.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
