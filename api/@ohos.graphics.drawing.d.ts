@@ -27,7 +27,8 @@ import { Resource } from './global/resource';
  *
  * @namespace drawing
  * @syscap SystemCapability.Graphics.Drawing
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace drawing {
   /**
@@ -36,182 +37,212 @@ declare namespace drawing {
    * a new color from two colors(source, destination).
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum BlendMode {
     /**
      * Disable 4 regions(red, green, blue, alpha)
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CLEAR = 0,
     /**
      * Use components of the source
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SRC = 1,
     /**
      * Use components of the destination
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DST = 2,
     /**
      * The source is placed above the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SRC_OVER = 3,
     /**
      * The Destination is placed above the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DST_OVER = 4,
     /**
      * Use source replaces the destination, and will not exceed the boundaries of the destination
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SRC_IN = 5,
     /**
      * Use destination, and will not exceed the boundaries of the source
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DST_IN = 6,
     /**
      * Source is use in outside of the boundaries of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SRC_OUT = 7,
     /**
      * Destination is use in outside of the boundaries of the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DST_OUT = 8,
     /**
      * Source which overlaps the destination will replaces the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SRC_ATOP = 9,
     /**
      * Destination which overlaps the source will replaces the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DST_ATOP = 10,
     /**
      * Combine regions where source and destination do not overlap.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XOR = 11,
     /**
      * The sum of the source and destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PLUS = 12,
     /**
      * All components are multiplied.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODULATE = 13,
     /**
      * Multiply the complement values of the background and source color values,
      * and then complement the result.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREEN = 14,
     /**
      * Multiplies or screens the colors, depending on destination
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OVERLAY = 15,
     /**
      * Choose a darker background and source color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DARKEN = 16,
     /**
      * Choose a lighter background and source color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LIGHTEN = 17,
     /**
      * Brightens destination color to reflect the source color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR_DODGE = 18,
     /**
      * Darkens destination color to reflect the source color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR_BURN = 19,
     /**
      * Multiplies or screens the colors, depending on source
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HARD_LIGHT = 20,
     /**
      * Lightens or Darkens the colors, depending on the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOFT_LIGHT = 21,
     /**
      * Subtract the darker of the two colors from the brighter color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 22,
     /**
      * Produces an effect similar to difference mode, but with lower contrast.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXCLUSION = 23,
     /**
      * Multiply the source color by the destination color and replace the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MULTIPLY = 24,
     /**
      * Use the hue of the source and the saturation and brightness of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HUE = 25,
     /**
      * Use the saturation of the source and the hue and brightness of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SATURATION = 26,
     /**
      * Use the hue and saturation of the source and the brightness of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR = 27,
     /**
      * Use the brightness of the source and the hue and saturation of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LUMINOSITY = 28,
   }
@@ -305,7 +336,8 @@ declare namespace drawing {
    * Provides the definition of the roundRect.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class RoundRect {
     /**
@@ -316,7 +348,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(rect: common2D.Rect, xRadii: number, yRadii: number);
 
@@ -359,41 +392,47 @@ declare namespace drawing {
    * Enumerates of operations when two paths are combined.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PathOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
 
     /**
      * Intersect operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
 
     /**
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNION = 2,
 
     /**
      * Xor operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XOR = 3,
 
     /**
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REVERSE_DIFFERENCE = 4,
   }
@@ -459,14 +498,16 @@ declare namespace drawing {
    * Describes a pathIterator object.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class PathIterator {
     /**
      * Creates a pathIterator with path.
      * @param { Path } path - the path is used to create PathIterator.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(path: Path);
 
@@ -514,13 +555,15 @@ declare namespace drawing {
    * Describes a path object.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Path {
     /**
      * Creates a Path.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -528,7 +571,8 @@ declare namespace drawing {
      * Creates a Path from other path.
      * @param { Path } path - the path to copy content from.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(path: Path);
 
@@ -568,7 +612,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     arcTo(x1: number, y1: number, x2: number, y2: number, startDeg: number, sweepDeg: number): void;
 
@@ -834,7 +879,8 @@ declare namespace drawing {
     /**
      * Resets path data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): void;
 
@@ -956,20 +1002,23 @@ declare namespace drawing {
    * Enumerates storage filter mode.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FilterMode {
     /**
      * Single sample point (nearest neighbor).
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILTER_MODE_NEAREST = 0,
 
     /**
      * Interpolate between 2x2 sample points (bilinear interpolation).
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILTER_MODE_LINEAR = 1,
   }
@@ -1013,13 +1062,15 @@ declare namespace drawing {
   /**
    * Provides an interface to the drawing, and samplingOptions used when sampling from the image.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class SamplingOptions {
     /**
      * Constructor for the samplingOptions.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -1028,7 +1079,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(filterMode: FilterMode);
   }
@@ -1036,7 +1088,8 @@ declare namespace drawing {
   /**
    * Provides an interface to the drawing, and how to clip and transform the drawing.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Canvas {
     /**
@@ -1045,7 +1098,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(pixelmap: image.PixelMap);
 
@@ -1056,7 +1110,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawRect(rect: common2D.Rect): void;
 
@@ -1070,7 +1125,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawRect(left: number, top: number, right: number, bottom: number): void;
 
@@ -1215,7 +1271,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
@@ -1388,7 +1445,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number,
       vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void;
@@ -1419,7 +1477,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     attachBrush(brush: Brush): void;
 
@@ -1433,7 +1492,8 @@ declare namespace drawing {
     /**
      * Unset brush to a canvas.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     detachBrush(): void;
 
@@ -1453,7 +1513,8 @@ declare namespace drawing {
      * @returns { number } Return the number of saved states before this call.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
@@ -1480,7 +1541,8 @@ declare namespace drawing {
     /**
      * Restores the canvas status (canvas matrix) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     restore(): void;
 
@@ -1564,7 +1626,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rotate(degrees: number, sx: number, sy: number) : void;
 
@@ -1693,19 +1756,22 @@ declare namespace drawing {
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ClipOp {
     /**
      * Clips with difference.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
     /**
      * Clips with intersection.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
   }
@@ -1846,7 +1912,8 @@ declare namespace drawing {
    * The Typeface class specifies the typeface and intrinsic style of a font.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Typeface {
     /**
@@ -1864,7 +1931,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
      static makeFromFile(filePath: string): Typeface;
 
@@ -1951,7 +2019,8 @@ declare namespace drawing {
    * Font controls options applied when drawing and measuring text.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Font {
     /**
@@ -1990,7 +2059,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSize(textSize: number): void;
 
@@ -2008,7 +2078,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTypeface(typeface: Typeface): void;
 
@@ -2024,7 +2095,8 @@ declare namespace drawing {
      * Get fontMetrics associated with typeface.
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMetrics(): FontMetrics;
 
@@ -2333,7 +2405,8 @@ declare namespace drawing {
    * The metrics of an Font.
    * @typedef FontMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FontMetrics {
     /**
@@ -2348,35 +2421,40 @@ declare namespace drawing {
      * Maximum range above the glyph bounding box.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
      * Distance Retained Above Baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ascent: number;
     /**
      * The distance that remains below the baseline.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descent: number;
     /**
      * Maximum range below the glyph bounding box.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom: number;
     /**
      * Line Spacing.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     leading: number;
     /**
@@ -2463,7 +2541,8 @@ declare namespace drawing {
   /**
    * Lattice is the class for dividing an image into grids.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Lattice {
     /**
@@ -2483,7 +2562,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
@@ -2516,27 +2596,31 @@ declare namespace drawing {
    * or to fill the grid entry with a color. only used in Lattice.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RectType {
     /**
      * Draws image into lattice rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
 
     /**
      * Skips lattice rect by making it transparent.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSPARENT = 1,
 
     /**
      * Draws one of fColors into lattice rect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FIXEDCOLOR = 2
   }
@@ -2852,7 +2936,8 @@ declare namespace drawing {
    * ColorFilters are optional objects in the drawing pipeline.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class ColorFilter {
     /**
@@ -2864,7 +2949,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
@@ -2877,7 +2963,8 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMode): ColorFilter;
 
@@ -3072,13 +3159,15 @@ declare namespace drawing {
   /**
    * Provides settings for strokes during drawing.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Pen {
     /**
      * Constructor for the pen.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3088,7 +3177,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(pen: Pen);
 
@@ -3293,7 +3383,8 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 11
+    * @since arkts {'1.1':'11', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     setBlendMode(mode: BlendMode): void;
 
@@ -3351,7 +3442,8 @@ declare namespace drawing {
     /**
      * Resets all pen contents to their initial values.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): void;
     /**
@@ -3371,13 +3463,15 @@ declare namespace drawing {
   /**
    * Provides settings for brush fill when drawing.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Brush {
     /**
      * Constructor for the Brush.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3387,7 +3481,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(brush: Brush);
 
@@ -3540,14 +3635,16 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setBlendMode(mode: BlendMode): void;
 
     /**
      * Resets all brush contents to their initial values.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): void;
   }
@@ -3556,13 +3653,15 @@ declare namespace drawing {
    * Declares functions related to the matrix object in the drawing module.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Matrix {
     /**
      * Creates an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3746,7 +3845,8 @@ declare namespace drawing {
     /**
      * Reset matrix to identity.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): void;
     /**
@@ -3846,7 +3946,8 @@ declare namespace drawing {
   /**
    * Describes a region object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Region {
     /**
@@ -3930,48 +4031,55 @@ declare namespace drawing {
    * Enumerates of operations when two regions are combined.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RegionOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
 
     /**
      * Intersect operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
 
     /**
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNION = 2,
 
     /**
      * Xor operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     XOR = 3,
 
     /**
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REVERSE_DIFFERENCE = 4,
 
     /**
      * Replace operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE = 5
   }
