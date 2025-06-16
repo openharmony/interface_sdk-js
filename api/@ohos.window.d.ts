@@ -10514,9 +10514,8 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
-   * @deprecated since 20
-   * @useinstead ohos.window#WindowStageLifecycleEventType
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum WindowStageEventType {
     /**
@@ -10541,8 +10540,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageLifecycleEventType#SHOWN
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHOWN = 1,
     /**
@@ -10619,8 +10618,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageLifecycleEventType#HIDDEN
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIDDEN = 4,
     /**
@@ -10630,8 +10629,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageLifecycleEventType#RESUMED
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESUMED = 5,
     /**
@@ -10641,8 +10640,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @deprecated since 20
-     * @useinstead ohos.window.WindowStageLifecycleEventType#PAUSED
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PAUSED = 6
   }
@@ -10655,8 +10654,8 @@ declare namespace window {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since arkts {'1.1':'20'}
+   * @arkts 1.1
    */
   enum WindowStageLifecycleEventType {
     /**
@@ -10666,8 +10665,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     SHOWN = 1,
     /**
@@ -10677,8 +10676,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     RESUMED = 2,
     /**
@@ -10688,8 +10687,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     PAUSED = 3,
     /**
@@ -10699,8 +10698,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     HIDDEN = 4
   }
@@ -11488,17 +11487,14 @@ declare namespace window {
      *
      * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
 
@@ -11509,16 +11505,14 @@ declare namespace window {
      * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
      *                                                    If a value is passed in, the corresponding subscription is canceled.
      *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts {'1.1':'20'}
+     * @arkts 1.1
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
 
