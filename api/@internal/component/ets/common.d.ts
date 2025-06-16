@@ -1383,7 +1383,7 @@ declare const Reusable: ClassDecorator;
  * @since 18
  */
 declare const ReusableV2: ClassDecorator;
-
+ 
  /**
    * ReuseId callback type. It is used to compute reuseId.
    *
@@ -1395,7 +1395,7 @@ declare const ReusableV2: ClassDecorator;
    * @since 18
    */
  declare type ReuseIdCallback = () => string;
-
+ 
 /**
  * Defining the reusable configuration parameters.
  *
@@ -11074,17 +11074,17 @@ declare interface BorderImageOption {
  */
 declare class LayoutPolicy {
   /**
-   * The component fills its parent which means its size is as large as its parent.
-   *
-   * @type { LayoutPolicy }
-   * @readonly
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice 
-   * @since 15
-   */
+  * The component fills its parent which means its size is as large as its parent.
+  *
+  * @type { LayoutPolicy }
+  * @readonly
+  * @static
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice 
+  * @since 15
+  */
   static readonly matchParent: LayoutPolicy;
   /**
    * The component fills its content which means its size is as large as its children but it is constained by its parent.
@@ -14277,6 +14277,7 @@ declare interface FocusAxisEvent extends BaseEvent {
  * @since 18
  */
 declare interface CrownEvent {
+
   /**
    *The timestamp of the rotating crown event.
    *
@@ -16215,7 +16216,7 @@ declare interface PopupCommonOptions {
    * @since 18
    */
   followTransformOfTarget?: boolean;
-
+  
   /**
    * The width of popup's outline.
    *
@@ -25212,7 +25213,7 @@ declare class CommonMethod<T> {
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
-   /**
+    /**
    * Config toolbar for current component.
    *
    * @param { CustomBuilder } value
@@ -25230,7 +25231,7 @@ declare class CommonMethod<T> {
    * colors: Color description for gradients.
    * repeating: repeating. The default value is false
    *
-   * @param { object } value - Linear gradient.
+   * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -29348,7 +29349,7 @@ declare class CustomComponent extends BaseCustomComponent {
    * @since 11
    */
   aboutToReuse?(params: { [key: string]: unknown }): void;
-
+ 
   /**
    * Custom component override this method to layout each of its sub components.
    *
@@ -29361,7 +29362,7 @@ declare class CustomComponent extends BaseCustomComponent {
    * @useinstead CustomComponent#onPlaceChildren
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
-
+ 
   /**
    * Custom component override this method to measure each of its sub components.
    *
@@ -29375,7 +29376,7 @@ declare class CustomComponent extends BaseCustomComponent {
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 }
-
+ 
 /**
  * Custom ComponentV2
  *
@@ -29398,7 +29399,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
    */
   aboutToReuse?(): void;
 }
-
+ 
 /**
  * Custom Component base class and it is migrated from class CustomComponent.
  *
@@ -30921,10 +30922,7 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * Invoked when data is moved during drag and drop sorting.
-   * This callback is only applicable in a List component.
-   * where each ForEach iteration generates a ListItem component.
-   * It allows you to define custom drag actions and handle various drag events.
+   * Set the move action.
    *
    * @param { Optional<OnMoveHandler> } handler
    * @param { ItemDragEventHandler } eventHandler
@@ -32009,7 +32007,7 @@ declare enum KeyboardAvoidMode {
    */
   NONE = 1,
 }
-
+ 
 /**
  * Enumerates the type of area in hover mode.
  *
