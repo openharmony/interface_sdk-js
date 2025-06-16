@@ -70,6 +70,8 @@
     "SystemCapability.Security.CryptoFramework.MessageDigest",
     "SystemCapability.Security.CryptoFramework.Rand",
     "SystemCapability.Security.CryptoFramework.Signature",
+    "SystemCapability.Security.Huks.Core",
+    "SystemCapability.Security.Huks.Extension",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",
     "SystemCapability.DistributedDataManager.DataShare.Core",
