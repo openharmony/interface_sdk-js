@@ -769,27 +769,27 @@ declare namespace pointer {
   /**
    * Queries the pointer style.
    *
-   * @param { int } windowId - Window ID.
+   * @param { number } windowId - Window ID.
    * @returns { Promise<PointerStyle> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
-  function getPointerStyle(windowId: int): Promise<PointerStyle>;
+  function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
   /**
    * Queries the pointer style through sync mode.
    *
-   * @param { number } windowId - Window ID.
+   * @param { int } windowId - Window ID.
    * @returns { PointerStyle } Returns the pointerStyle.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPointerStyleSync(windowId: number): PointerStyle;
+  function getPointerStyleSync(windowId: int): PointerStyle;
 
   /**
    * Sets whether the pointer icon is visible.
@@ -837,8 +837,7 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
