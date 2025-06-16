@@ -2135,8 +2135,24 @@ declare namespace formInfo {
 
   /**
    * Get form rect info callback
+   *
+   * @typedef GetFormRectInfoCallback<T>
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
    */
   interface GetFormRectInfoCallback<T> {
+    /**
+     * Get form rect info
+     *
+     * @param { T } data
+     * @returns { Promise<formInfo.Rect> }
+     *
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
     (data: T): Promise<formInfo.Rect>;
   }
 }
