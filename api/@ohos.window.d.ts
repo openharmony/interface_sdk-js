@@ -1820,7 +1820,7 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
-     */ n
+     */
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
      *
