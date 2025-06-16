@@ -945,7 +945,7 @@ interface FingerInfo {
   id: number;
 
   /**
-   * X position of the Click point relative to the global display coordinate.
+   * X position of the click point relative to the global display coordinate.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -956,7 +956,7 @@ interface FingerInfo {
   globalDisplayX?: number;
 
   /**
-   * Y position of the Click point relative to the global display coordinate.
+   * Y position of the click point relative to the global display coordinate.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -11083,7 +11083,7 @@ declare class LayoutPolicy {
  */
 declare interface ClickEvent extends BaseEvent {
   /**
-   * X position of the point relative to the global display coordinate.
+   * X coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11094,7 +11094,7 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y position of the point relative to the global display coordinate.
+   * Y coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11377,22 +11377,20 @@ declare interface HoverEvent extends BaseEvent {
   displayY?: number;
 
   /**
-   * X position of the point relative to the global display coordinate.
+   * X coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
   globalDisplayX?: number;
 
   /**
-   * Y position of the point relative to the global display coordinate.
+   * Y coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
@@ -11469,22 +11467,20 @@ declare interface MouseEvent extends BaseEvent {
   action: MouseAction;
 
   /**
-   * X position of the point relative to the global display coordinate.
+   * X coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
   globalDisplayX?: number;
 
   /**
-   * Y position of the point relative to the global display coordinate.
+   * Y coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
@@ -11705,26 +11701,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   y: number;
 
   /**
-   * X position of the point relative to the global display coordinate.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  globalDisplayX?: number;
-
-  /**
-   * Y position of the point relative to the global display coordinate.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  globalDisplayY?: number;
-
-  /**
    * X coordinate of the accessibility hover point relative to the left edge of the device screen.
    *
    * @type { number }
@@ -11763,6 +11739,26 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @since 12
    */
   windowY: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 }
 
 /**
@@ -11817,28 +11813,6 @@ declare interface TouchObject {
   type: TouchType;
 
   /**
-   * X position of the point relative to the global display coordinate.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  globalDisplayX?: number;
-
-  /**
-   * Y position of the point relative to the global display coordinate.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  globalDisplayY?: number;
-
-  /**
    * Finger unique identifier.
    *
    * @type { number }
@@ -11863,6 +11837,28 @@ declare interface TouchObject {
    * @since 11
    */
   id: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -12349,22 +12345,20 @@ declare interface AxisEvent extends BaseEvent {
   action: AxisAction;
 
   /**
-   * X position of the point relative to the global display coordinate.
+   * X coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
   globalDisplayX?: number;
 
   /**
-   * Y position of the point relative to the global display coordinate.
+   * Y coordinate of the point relative to the global display.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
@@ -13502,22 +13496,20 @@ declare enum BlendApplyType {
  */
 declare interface DragEvent {
   /**
-   * X position of the point relative to the global display coordinate.
+   * X coordinate of the point relative to the global display.
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
   getGlobalDisplayX(): number;
 
   /**
-   * Y position of the point relative to the global display coordinate.
+   * Y coordinate of the point relative to the global display.
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
