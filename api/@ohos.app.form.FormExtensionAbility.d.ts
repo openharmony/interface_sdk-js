@@ -19,7 +19,9 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
+/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
+/*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
@@ -37,9 +39,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class FormExtensionAbility {
+declare class FormExtensionAbility {
   /**
    * Indicates form extension context.
    *
@@ -55,7 +58,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: FormExtensionContext;
 
@@ -82,7 +86,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -101,7 +106,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCastToNormalForm(formId: string): void;
 
@@ -130,7 +136,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -163,7 +170,8 @@ export default class FormExtensionAbility {
    *                                               becomes invisible.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChangeFormVisibility(newStatus: Record<string, number>): void;
 
@@ -190,7 +198,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -211,7 +220,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRemoveForm(formId: string): void;
 
@@ -329,3 +339,4 @@ export default class FormExtensionAbility {
    */
   onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
 }
+export default FormExtensionAbility;
