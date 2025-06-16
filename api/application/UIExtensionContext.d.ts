@@ -887,7 +887,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   terminateSelf(callback: AsyncCallback<void>): void;
@@ -898,7 +898,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
