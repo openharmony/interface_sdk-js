@@ -2132,5 +2132,12 @@ declare namespace formInfo {
      */
     disabledDesktopBehaviors?: string;
   }
+
+  /**
+   * Get form rect info callback
+   */
+  interface GetFormRectInfoCallback<T> {
+    (data: T): Promise<formInfo.Rect>;
+  }
 }
 export default formInfo;

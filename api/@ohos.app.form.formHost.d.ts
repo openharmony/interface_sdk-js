@@ -789,6 +789,36 @@ declare namespace formHost {
     callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
 
   /**
+   * Listens to the event of get form rect.
+   * <p>You can use this method to listen to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback<string> } callback - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function getFormRect can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback<string>): void;
+ 
+  /**
+   * Cancels listening to the event of get form rect.
+   * <p>You can use this method to cancel listening to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback<string> } callback - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function getFormRect can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback<string>): void;
+
+  /**
    * Notify form is Visible
    * <p>You can use this method to notify form visible state.</p>
    *
