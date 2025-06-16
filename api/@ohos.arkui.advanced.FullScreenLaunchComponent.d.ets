@@ -69,4 +69,12 @@ export declare struct FullScreenLaunchComponent {
     * @since 18
     */
     onTerminated?: Callback<TerminationInfo>;
+    /**
+    * Indicates the callback of onReceive.
+    * @type { ?Callback<Record<string, Object>> }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 20
+    */
+    onReceive?: Callback<Record<string, Object>>;
 }
