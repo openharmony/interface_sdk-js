@@ -122,6 +122,7 @@ export interface RaycastResult {
 export interface RaycastParameters {
   /**
    * If defined, search only the nodes in the hierarchy under this node.
+   * If undefined，search the all nodes in the scene
    *
    * @type { ?Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
