@@ -52,6 +52,30 @@ declare namespace fileShare {
      * @since 11
      */
     WRITE_MODE = 0b10,
+
+    /**
+     * Indicates creating permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    CREATE_MODE = 0b100,
+
+    /**
+     * Indicates deleting permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    DELETE_MODE = 0b1000,
+
+    /**
+     * Indicates renaming permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    RENAME_MODE = 0b10000,
   }
 
   /**
@@ -252,6 +276,25 @@ declare namespace fileShare {
    * @since 9
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
+
+  /**
+   * Grant URI permissions for an application.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @param { Array<PolicyInfo> } policies - Policy information for the user to grant permissions on URIs.
+   * @param { string } targetBundleName - Name of the target bundle to authorize.
+   * @param { number } appCloneIndex - Clone index of the target application.
+   * @returns { Promise<void> } Returns void.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @since 20
+   */
+  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
   /**
    * Set persistence permissions for the URI
