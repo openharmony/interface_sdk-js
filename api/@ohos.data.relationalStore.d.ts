@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -425,6 +425,7 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -528,6 +529,7 @@ declare namespace relationalStore {
    *
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -538,6 +540,7 @@ declare namespace relationalStore {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -550,6 +553,7 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -561,6 +565,7 @@ declare namespace relationalStore {
      *
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -572,6 +577,7 @@ declare namespace relationalStore {
      *
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -583,6 +589,7 @@ declare namespace relationalStore {
      *
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -594,6 +601,7 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -633,6 +641,7 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -641,6 +650,7 @@ declare namespace relationalStore {
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -650,6 +660,7 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -659,6 +670,7 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -670,6 +682,7 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -678,6 +691,7 @@ declare namespace relationalStore {
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -687,6 +701,7 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -696,6 +711,7 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -1552,6 +1568,7 @@ declare namespace relationalStore {
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @crossplatform
    * @since 11
    */
   enum Field {
@@ -1559,6 +1576,7 @@ declare namespace relationalStore {
      * Cursor field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     CURSOR_FIELD = '#_cursor',
@@ -1567,6 +1585,7 @@ declare namespace relationalStore {
      * Origin field. For details, see {@link Origin}.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     ORIGIN_FIELD = '#_origin',
@@ -1576,6 +1595,7 @@ declare namespace relationalStore {
      * Indicates whether data has deleted in cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
@@ -1585,6 +1605,7 @@ declare namespace relationalStore {
      * Indicates data status.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 12
      */
     DATA_STATUS_FIELD = '#_data_status',
@@ -1593,6 +1614,7 @@ declare namespace relationalStore {
      * Owner field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     OWNER_FIELD = '#_cloud_owner',
@@ -1601,6 +1623,7 @@ declare namespace relationalStore {
      * Privilege field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     PRIVILEGE_FIELD = '#_cloud_privilege',
@@ -1609,6 +1632,7 @@ declare namespace relationalStore {
      * Sharing resource field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
      * @since 11
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
@@ -2564,6 +2588,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 12
      */
     notContains(field: string, value: string): RdbPredicates;
@@ -2579,6 +2604,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 12
      */
     notLike(field: string, value: string): RdbPredicates;
@@ -3691,6 +3717,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 14
      */
     getValue(columnIndex: number): ValueType;
@@ -4357,6 +4384,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 12
      */
     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
@@ -7734,6 +7762,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 12
      */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
@@ -7965,6 +7994,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 12
      */
     close(): Promise<void>;
@@ -8741,6 +8771,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
      * @since 14
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;

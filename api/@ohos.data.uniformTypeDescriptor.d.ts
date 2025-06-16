@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1834,6 +1834,7 @@ declare namespace uniformTypeDescriptor {
    * <br>methods describing the uniform data type and its relationships to other uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since 11
    */
   class TypeDescriptor {
@@ -1843,6 +1844,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     readonly typeId: string;
@@ -1853,6 +1855,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     readonly belongingToTypes: Array<string>;
@@ -1863,6 +1866,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     readonly description: string;
@@ -1873,6 +1877,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     readonly referenceURL: string;
@@ -1883,6 +1888,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     readonly iconFile: string;
@@ -1893,6 +1899,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 12
      */
      readonly filenameExtensions: Array<string>;
@@ -1903,6 +1910,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 12
      */
     readonly mimeTypes: Array<string>;
@@ -1915,6 +1923,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     belongsTo(type: string): boolean;
@@ -1927,6 +1936,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     isLowerLevelType(type: string): boolean;
@@ -1939,6 +1949,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     isHigherLevelType(type: string): boolean;
@@ -1951,6 +1962,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
      * @since 11
      */
     equals(typeDescriptor: TypeDescriptor): boolean;
@@ -1965,6 +1977,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since 11
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor;
@@ -1981,6 +1994,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -1996,6 +2010,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since 11
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
@@ -2012,6 +2027,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since 13
    */
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
@@ -2028,6 +2044,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
    * @since 13
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
