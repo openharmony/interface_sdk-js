@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
-import { WantAgentInfo as _WantAgentInfo, LocalWantAgentInfo as _LocalWantAgentInfo, LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+import { WantAgentInfo as _WantAgentInfo, LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
 
