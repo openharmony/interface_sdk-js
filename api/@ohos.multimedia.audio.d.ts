@@ -3353,7 +3353,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13
    */
-  enum DeviceBlockStatus{
+  enum DeviceBlockStatus {
     /**
      * Device is unblocked.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -9955,7 +9955,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    TTS_MUTE  = 2,
+    TTS_MUTE = 2,
     /**
      * Mute the voice call stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
