@@ -731,10 +731,21 @@ declare interface PasteEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preventDefault?: Callback<void>;
+
+  /**
+   * Override system paste event.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  preventDefault?: VoidCallback;
 }
 
 /**
@@ -3726,10 +3737,22 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onReady(callback: Callback<void>): RichEditorAttribute;
+
+  /**
+   * Called when on ready.
+   *
+   * @param { VoidCallback } callback - The triggered function when rich editor is ready.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onReady(callback: VoidCallback): RichEditorAttribute;
 
   /**
    * Called when the content is selected.
@@ -3907,10 +3930,22 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDeleteComplete(callback: Callback<void>): RichEditorAttribute;
+
+    /**
+   * Notify that the deletion has been completed
+   *
+   * @param { VoidCallback } callback - The triggered function when text content has been deleted.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDeleteComplete(callback: VoidCallback): RichEditorAttribute;
 
   /**
    * Allow replication.
@@ -4325,10 +4360,21 @@ declare interface CutEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preventDefault?: Callback<void>;
+
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  preventDefault?: VoidCallback;
 }
 
 /**
@@ -4348,10 +4394,21 @@ declare interface CopyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   preventDefault?: Callback<void>;
+
+  /**
+   * Prevent system cut event.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  preventDefault?: VoidCallback;
 }
 
 /**
