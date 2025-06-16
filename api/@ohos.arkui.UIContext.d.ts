@@ -3302,6 +3302,17 @@ export class ComponentSnapshot {
  */
 export class UIContext {
   /**
+   * Checks whether the UiContext object ia available.
+   *
+   * @returns { boolean } Returns true if the UIConetxt object is available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isAvailable(): boolean;
+
+  /**
    * get object font.
    *
    * @returns { Font } object Font.
