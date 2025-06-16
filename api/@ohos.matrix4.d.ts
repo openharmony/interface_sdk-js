@@ -69,7 +69,7 @@ declare namespace matrix4 {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface TranslateOption {
+  export interface TranslateOption {
     /**
      * Indicates the translation distance of the x-axis, in px.
      *
@@ -177,7 +177,7 @@ declare namespace matrix4 {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface ScaleOption {
+  export interface ScaleOption {
     /**
      * Zoom factor of the x-axis.
      *
@@ -339,7 +339,7 @@ declare namespace matrix4 {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface RotateOption {
+  export interface RotateOption {
     /**
      * Axis of rotation vector x coordinate.
      *
@@ -643,7 +643,7 @@ declare namespace matrix4 {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  interface Matrix4Transit {
+  export interface Matrix4Transit {
     /**
      * Copy function of Matrix, which can copy a copy of the current matrix object.
      *
