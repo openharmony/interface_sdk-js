@@ -1820,7 +1820,7 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
-     */
+     */ n
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
      *
@@ -11547,17 +11547,16 @@ declare namespace window {
      * Sets the custom density of ability.
      *
      * @param { number } density - the specified custom density value.
-     * @param { boolean } [isNeedSync] - whether to sync the custom density to already created subwindows and system windows.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types.
+     * @param { boolean } [applyToSubWindow] - whether to sync the custom density to already created subwindows and system windows.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
+     * @atomicservice
      * @since 20
      */
-    setCustomDensity(density: number, isNeedSync?: boolean): void;
+    setCustomDensity(density: number, applyToSubWindow?: boolean): void;
 
     /**
      * Allows the application to control the time when the launch page disappears.
