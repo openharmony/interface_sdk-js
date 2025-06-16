@@ -11755,7 +11755,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 20
+     * @since 19
      */
     setImageForRecent(imgResourceId: number, value: ImageFit): Promise<void>;
   }
