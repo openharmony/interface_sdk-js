@@ -42,7 +42,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class FormExtensionAbility {
+declare class FormExtensionAbility {
   /**
    * Indicates form extension context.
    *
@@ -339,3 +339,4 @@ export default class FormExtensionAbility {
    */
   onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
 }
+export default FormExtensionAbility;
