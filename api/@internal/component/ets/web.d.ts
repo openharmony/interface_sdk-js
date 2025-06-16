@@ -10124,6 +10124,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
+
+  /**
+   * Set the gesture focus acquisition mode.
+   * When users interact with the web using different gestures,
+   * this determines whether and when focus is acquired based on the configured mode.
+   * Default value: DEFAULT, where all gestures acquire focus on touch down.
+   *
+   * @param { GestureFocusMode } mode - The gesture focus mode, which can be {@link GestureFocusMode}.
+   *    The default value is FocusMode.DEFAULT.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  gestureFocusMode(mode: GestureFocusMode): WebAttribute;
 }
 
 /**
@@ -10376,4 +10390,31 @@ declare interface EmbedOptions {
    * @since 20
    */
   supportCssDisplayChange?: boolean;
+}
+
+/**
+ * Enum type supplied to {@link gestureFocusMode} for setting the web gesture focus mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum GestureFocusMode {
+  /**
+   * Any action on a web component, such as tapping, long-pressing, scrolling, zooming, etc.,
+   * will cause the web component to acquire focus on touch down.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  DEFAULT = 0,
+
+  /**
+   * Tap and long-press gestures will cause the web component to acquire focus after touch up,
+   * while gestures such as scrolling, zooming, etc., do not request focus.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  GESTURE_TAP_AND_LONG_PRESS = 1
 }
