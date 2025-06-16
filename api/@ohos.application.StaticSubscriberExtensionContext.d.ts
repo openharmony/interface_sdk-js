@@ -22,6 +22,10 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 /*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
+/*** endif */
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -63,7 +67,8 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -95,7 +100,8 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want): Promise<void>;
 }
