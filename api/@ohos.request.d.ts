@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -283,7 +283,7 @@ declare namespace request {
 
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
-   *
+   * @crossplatform
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    */
@@ -1984,6 +1984,7 @@ declare namespace request {
      *
      * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 11
      */
     index?: number;
@@ -1995,6 +1996,7 @@ declare namespace request {
      *
      * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 11
      */
     begins?: number;
@@ -2006,6 +2008,7 @@ declare namespace request {
      *
      * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
+     * @crossplatform
      * @since 11
      */
     ends?: number;
@@ -2662,6 +2665,7 @@ declare namespace request {
      *
      * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @since 11
      */
     enum BroadcastEvent {
@@ -2671,6 +2675,7 @@ declare namespace request {
        * The data in the commonEventData contains the id of the task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
@@ -3339,6 +3344,7 @@ declare namespace request {
        *
        * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 12
        */
       proxy?: string;
@@ -4494,6 +4500,7 @@ declare namespace request {
      *
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
@@ -4505,6 +4512,7 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since arkts {'1.1':'12', '1.2':'20'}
        * @arkts 1.1&1.2
@@ -4516,6 +4524,7 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since arkts {'1.1':'12', '1.2':'20'}
        * @arkts 1.1&1.2 
@@ -4527,6 +4536,7 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since arkts {'1.1':'12', '1.2':'20'}
        * @arkts 1.1&1.2 
@@ -4538,6 +4548,7 @@ declare namespace request {
        * @type { Map<string, Array<string>> }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -4814,6 +4825,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       on(event: 'pause', callback: (progress: Progress) => void): void;
@@ -4826,6 +4838,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       off(event: 'pause', callback?: (progress: Progress) => void): void;
@@ -4838,6 +4851,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       on(event: 'resume', callback: (progress: Progress) => void): void;
@@ -4850,6 +4864,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       off(event: 'resume', callback?: (progress: Progress) => void): void;
@@ -4862,6 +4877,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       on(event: 'remove', callback: (progress: Progress) => void): void;
@@ -4874,6 +4890,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
@@ -4886,6 +4903,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since arkts {'1.1':'12', '1.2':'20'}
        * @arkts 1.1&1.2 
@@ -4900,6 +4918,7 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @atomicservice
        * @since 12
        */
@@ -5051,6 +5070,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       pause(callback: AsyncCallback<void>): void;
@@ -5071,6 +5091,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       pause(): Promise<void>;
@@ -5095,6 +5116,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       resume(callback: AsyncCallback<void>): void;
@@ -5119,6 +5141,7 @@ declare namespace request {
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
        * @since 11
        */
       resume(): Promise<void>;
