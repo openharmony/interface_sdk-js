@@ -1339,6 +1339,16 @@ declare namespace userAuth {
      * @since 18
      */
     userId?: number;
+
+    /**
+     * Indicates whether to skip biometric authentication which has been locked by continuous failures.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    skipLockedBiometricAuth?: boolean;
   }
 
   /**
@@ -1534,6 +1544,111 @@ declare namespace userAuth {
   }
 
   /**
+   * Authentication tip code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum UserAuthTipCode {
+    /**
+     * Authentication tip for authentication failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    COMPARE_FAILURE = 1,
+  
+    /**
+     * Authentication tip for authentication timeout.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TIMEOUT = 2,
+  
+    /**
+     * Authentication tip for authentication temporarily frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TEMPORARILY_LOCKED = 3,
+  
+    /**
+     * Authentication tip for authentication permanent frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    PERMANENTLY_LOCKED = 4,
+  
+    /**
+     * Authentication tip for widget load success.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_LOADED = 5,
+  
+    /**
+     * Authentication tip for widget released.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_RELEASED = 6
+  }
+  
+  /**
+   * Authentication tip information.
+   *
+   * @typedef AuthTipInfo
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface AuthTipInfo {
+    /**
+     * Authentication tip type.
+     *
+     * @type { UserAuthType }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipType: UserAuthType;
+  
+    /**
+     * Authentication tip code.
+     *
+     * @type { UserAuthTipCode }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipCode: UserAuthTipCode;
+  }
+  
+  /**
+   * The authentication tip information is returned through the callback.
+   *
+   * @typedef { function } AuthTipCallback
+   * @param { AuthTipInfo } authTipInfo - Tips returned during authentication process.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  type AuthTipCallback = (authTipInfo: AuthTipInfo) => void;
+
+  /**
    * User authentication instance, used to initiate a complete authentication.
    *
    * @interface UserAuthInstance
@@ -1714,6 +1829,32 @@ declare namespace userAuth {
      * @since 12
      */
     cancel(): void;
+
+    /**
+     * Turn on authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'authTip', callback: AuthTipCallback): void;
+
+    /**
+     * Turn off authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } [callback] - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'authTip', callback?: AuthTipCallback): void;
   }
 
   /**
