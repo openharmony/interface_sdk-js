@@ -1417,6 +1417,7 @@ declare interface ReuseOptions {
    */
   reuseId? : ReuseIdCallback;
 }
+
 /**
  * Get context.
  *
@@ -6291,7 +6292,7 @@ declare interface RotateOptions {
 }
 
 /**
- * The param of rotate about angle.
+ * The rotation parameters containing multi-axis angle information.
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13844,7 +13845,7 @@ declare interface DragEvent {
    * @since 15
    */
   startDataLoading(options: DataSyncOptions): string;
-  
+
 
   /**
    * Get the id of display which the drag event is occuring on.
@@ -20024,56 +20025,6 @@ interface BackgroundImageOptions {
 }
 
 /**
- * Defines background options.
- *
- * @interface BackgroundOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare interface BackgroundOptions {
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * @type { ?Alignment} align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * @type { ?Alignment} align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?Alignment }
-   * @default Alignment.Center
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  align?: Alignment;
-  /**
-   * The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. To respect safe area insets on all edges, explicitly pass empty edge set.
-   * @type { ?Array<LayoutSafeAreaEdge> }
-   * @default LayoutSafeAreaEdge.ALL
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
-}
-
-/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20710,20 +20661,6 @@ declare class CommonMethod<T> {
    * @since 11
    */
   background(builder: CustomBuilder, options?: { align?: Alignment }): T;
-
-  /**
-   * Add a background for the component.
-   *
-   * Anonymous Object Rectification.
-   * @param { CustomBuilder | ResourceColor } content
-   * @param { BackgroundOptions } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
 
   /**
    * Background color
@@ -23909,7 +23846,7 @@ declare class CommonMethod<T> {
    */
   rotate(options: Optional<RotateOptions>): T;
 
-    /**
+  /**
    * Set component rotation.
    *
    * @param { Optional<RotateOptions | RotateAngleOptions> } options default:{x:0,y:0,z:0,centerX:'50%',centerY:'50%',centerZ:0,perspective:0,angle:0}
@@ -23920,7 +23857,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 20
    */
-    rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
+  rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
 
   /**
    * Sets the transformation matrix of the component.
@@ -24301,19 +24238,6 @@ declare class CommonMethod<T> {
    * @since 11
    */
   alignSelf(value: ItemAlign): T;
-
-  /**
-   * Defines the align rules of child component in Stack container.
-   *
-   * @param { LocalizedAlignment} alignment
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  layoutGravity(alignment: LocalizedAlignment): T;
 
   /**
    * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
@@ -27183,7 +27107,7 @@ declare class CommonMethod<T> {
    */
   reuseId(id: string): T;
 
-   /**
+  /**
    * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
    *
    * @param { ReuseOptions } options - The configuration parameter for reusable custom component.
@@ -29486,7 +29410,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
  * @since 18
  */
 declare class BaseCustomComponent extends CommonAttribute {
-    /**
+  /**
    * Customize the pop-up content constructor .
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30161,6 +30085,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onNewParam?(param: ESObject): void;
 }
+
 /**
  * View
  *
@@ -30649,7 +30574,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the effect used when the scroll boundary is reached.
    *
    * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
+   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>,
+   * and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
    * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
    * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
    * <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components,
