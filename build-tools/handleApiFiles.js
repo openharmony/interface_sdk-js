@@ -543,7 +543,7 @@ const transformer = (context) => {
       }
 
       // 判断是否为要删除的变量声明
-      if (apiNodeTypeArr.includes(node.kind) && judgeIsDeleteApi(node)) {
+      if ((apiNodeTypeArr.includes(node.kind) || validateExportDeclaration(node)) && judgeIsDeleteApi(node)) {
         collectDeletionApiName(node);
         // 删除该节点
         return undefined;
@@ -555,6 +555,10 @@ const transformer = (context) => {
     return ts.visitNode(rootNode, visit);
   };
 };
+
+function validateExportDeclaration(node) {
+  return ts.isExportDeclaration(node) && node.moduleSpecifier && node.jsDoc && node.jsDoc.length !== 0;
+}
 
 /**
  * 删除API
