@@ -10653,18 +10653,16 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @StageModelOnly
    * @crossplatform
-   * @atomicservice
    * @since arkts {'1.1':'20'}
    * @arkts 1.1
    */
-  enum WindowStageLifecycleEventType {
+  export enum WindowStageLifecycleEventType {
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
@@ -10675,7 +10673,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
@@ -10686,7 +10683,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
@@ -10697,7 +10693,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
@@ -11492,7 +11487,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
@@ -11510,7 +11504,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @atomicservice
      * @since arkts {'1.1':'20'}
      * @arkts 1.1
      */
