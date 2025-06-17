@@ -8019,7 +8019,7 @@ declare namespace media {
     /**
      * File output uri, support a kind of uri now.
      * format like: "fd://" + "context".
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
