@@ -1048,7 +1048,7 @@ declare namespace relationalStore {
   }
 
   /**
-   * Defines a SQL statement.
+   * Defines a SQL Information.
    *
    * @interface SqlInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9126,7 +9126,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 18
    */
-    function isTokenizerSupported(tokenizer: Tokenizer): boolean;
+  function isTokenizerSupported(tokenizer: Tokenizer): boolean;
 
   /**
    * Obtains a SQL statement used for inserting data.
