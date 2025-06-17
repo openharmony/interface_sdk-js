@@ -77,11 +77,6 @@ export declare @interface Watch {
 @Retention({policy: "SOURCE"})
 export declare @interface Require {};
 
-export declare class UIUtils {
-    static getTarget<T extends object>(source: T): T;
-    static makeObserved<T extends object>(source: T): T;
-}
-
 export declare interface IDecoratedVariable {
     readonly varName: string;
 }
