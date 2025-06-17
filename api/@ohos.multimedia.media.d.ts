@@ -8235,6 +8235,14 @@ declare namespace media {
      * @since 20
      */
     keepCaptureDuringCall?: boolean;
+
+    /**
+     * Indicates whether to enable B-frame encoding, whitch is used to reduce the size of the recorded file.
+     * @type { ?boolean } The default value is false, which means B frames encoding are disabled.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 20
+     */
+    enableBFrame?: boolean;
   }
 
   /**
