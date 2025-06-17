@@ -507,7 +507,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Allows all sources.
+   * Loose Mode: HTTP and HTTPS hybrid content can be loaded. This means that all insecure content can be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -530,7 +530,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Allows sources Compatibly.
+   * Compatibility Modes: HTTP and HTTPS hybrid content can be loaded in compatibility mode. This means that some insecure content may be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -553,7 +553,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Don't allow unsecure sources from a secure origin.
+   * Strict Mode: HTTP and HTTPS hybrid content cannot be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4426,7 +4426,7 @@ declare class WebCookie {
 
 /**
  * Represents the event consumption result sent to the Web component.
- * For details about the supported events, see TouchEvent/mouseEvent.
+ * For details about the supported events, see TouchEvent/MouseEvent.
  * If the application does not consume the event, set this parameter to false,
  * and the event will be consumed by the Web component. If the application has consumed the event,
  * set this parameter to true, and the event will not be consumed by the Web component.
@@ -4475,7 +4475,7 @@ declare class EventResult {
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 
-    /**
+  /**
    * Sets the mouse event consumption result.
    *
    * @param { boolean } result - True if the event is consumed.
@@ -7151,7 +7151,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to enable Access to the file system in the application.
+   * Sets whether to enable access to the file system in the application.
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
@@ -7290,6 +7290,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+  *    Default value: MixedMode.None, which means that secure origin is not allowed to load content from insecure origin.
   * @returns { WebAttribute }
   * @syscap SystemCapability.Web.Webview.Core
   * @crossplatform
@@ -7382,7 +7383,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7391,16 +7392,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
+   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7410,7 +7411,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
+   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7572,7 +7573,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } overviewModeAccess Whether to load web pages by using the overview mode.
    *    {@code true} means the Web access overview mode;
    *    {@code false} means the Web not access overview mode.
-   *    Default value: true
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8917,6 +8918,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Key events notify the application before the WebView consumes them.
+   *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
@@ -9669,7 +9671,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
    *   which can affect the user experience.
    * - Waterfall web pages are not supported (drop down to the bottom to load more).
-   * - Only height adaptation is supported. Width adaptation is not supported.
+   * - Only height adaptation is supported(VH units are not supported). Width adaptation is not supported.
    * - Because the height is adaptive to the web page height,
    *   the component height cannot be changed by modifying the component height attribute.
    * </p>
