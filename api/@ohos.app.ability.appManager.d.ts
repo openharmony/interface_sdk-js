@@ -35,7 +35,6 @@ import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameSta
 import _ApplicationStateObserver from './application/ApplicationStateObserver';
 import _AbilityStateData from './application/AbilityStateData';
 import _AppStateData from './application/AppStateData';
-import _ProcessData from './application/ProcessData';
 /*** endif */
 /**
  * This module provides the function of app manager service.
@@ -1362,17 +1361,6 @@ declare namespace appManager {
    * @since 10
    */
   export type ProcessData = _ProcessData.default;
-
-  /**
-   * The class of a process information.
-   *
-   * @typedef { _ProcessData.default }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type ProcessData = _ProcessData;
 
   /**
    * The ability first frame state observer.

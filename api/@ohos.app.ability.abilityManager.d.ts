@@ -434,7 +434,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
