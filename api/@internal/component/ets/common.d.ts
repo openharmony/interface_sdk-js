@@ -10333,26 +10333,6 @@ declare enum LayoutSafeAreaType {
    * @since 12
    */
   SYSTEM = 0,
-
-  /**
-   * Soft keyboard area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  KEYBOARD = 1,
-
-  /**
-   * All safe area regions.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  ALL = 2,
 }
 
 /**
