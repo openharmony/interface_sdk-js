@@ -8026,7 +8026,7 @@ declare namespace media {
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    url?: string;
+    url: string;
 
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
