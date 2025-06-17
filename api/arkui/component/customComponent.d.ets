@@ -18,70 +18,333 @@
  * @arkts 1.2
  */
 
-
-
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
-
-import { UIContext } from './../../../api/@ohos.arkui.UIContext'
 import { ExtendableComponent } from './extendableComponent';
+import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
+import { ConstraintSizeOptions } from './units'
+import { Builder } from './builder'
 
-
+/**
+ * Defines Entry Annotation.
+ *
+ * Entry is an Annotation and it supports parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @Retention({policy: "SOURCE"})
-export declare @interface Component {
-    freezeWhenInactive: boolean = false;
-}
-
-@Retention({policy: "SOURCE"})
-export declare @interface Builder {}
-
-@Retention({policy: "SOURCE"})
-export declare @interface BuilderParam {}
-
-@Retention({policy: "SOURCE"})
-export declare @interface Entry {
+export @interface Entry {
+    /**
+     * Named route name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     routeName: string = "";
+
+    /**
+     * Name of the function which returns LocalStorage instance.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     storage: string = "";
-    useSharedStorage: boolean = false;
+
+    /**
+     * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    shared: boolean = false;
 }
 
+/**
+ * Defining Component Annotation
+ *
+ * Component is an Annotation to define a custom component using state management V1.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @Retention({policy: "SOURCE"})
-export declare @interface Reusable {}
+export @interface Component {}
 
-export interface CustomBuild {
-    @memo
-    build(): void;
-}
+/**
+ * Defining ComponentV2 Annotation
+ *
+ * ComponentV2 is an Annotation to define a custom component using state management V2.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export @interface ComponentV2 {}
 
-export interface CustomLayout {
+/**
+ * Defining Reusable Annotation that is used to decorate @Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export @interface Reusable {}
 
-}
+/**
+ * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export @interface ReusableV2 {}
 
+/**
+ * Defining CustomLayout Annotation that is used to decorate @Component and @ComponentV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export @interface CustomLayout {}
+
+/**
+ * Defining CustomDialog Annotation
+ *
+ * CustomDialog is an Annotation to define a custom dialog.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export @interface CustomDialog {}
+
+/**
+ * Definition of base custom component, which is base class of custom component.
+ *
+ * @extends ExtendableComponent
+ * @implements CommonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare abstract class BaseCustomComponent extends ExtendableComponent {
+    /**
+     * aboutToRecycle Method.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    aboutToRecycle(): void;
 }
 
+/**
+ * Definition of custom component class.
+ *
+ * @extends BaseCustomComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
-    @memo
+    /**
+     * Define the constructor of custom component
+     *
+     * @param { () => T } factory - factory to create instance of custom component
+     * @param { T_Options } initializers - initial data for all the fields in custom component
+     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { @Builder () => void } content - tail closure for custom component
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
     @ComponentBuilder
-    static $_instantiate<S extends CustomComponent<S, S_Options>, S_Options>(
-        factory: () => S,
-        initializers?: S_Options,
-        @memo
-        content?: () => void
-    ): S;
+    static $_instantiate(
+        factory: () => T,
+        initializers?: T_Options,
+        reuseId?: string,
+        @Builder content?: () => void
+    ): T
 
-   // Life cycle for custom component
-    aboutToAppear(): void
-    aboutToDisappear(): void
-    onDidBuild(): void
+    /**
+     * aboutToReuse Method
+     *
+     * @param { Record<string, Object> } params - Custom component init params.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    aboutToReuse(params: Record<string, Object>): void;
+}
 
-    onPageShow(): void
-    onPageHide(): void
-    onBackPress(): boolean
-    getUIContext(): UIContext
+/**
+ * Definition of V2 custom component class.
+ *
+ * @extends BaseCustomComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent {
+    /**
+     * Define the constructor of custom component
+     *
+     * @param { () => T } factory - factory to create instance of custom component
+     * @param { T_Options } initializers - initial data for all the fields in custom component
+     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { @Builder () => void } content - tail closure for custom component
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @ComponentBuilder
+    static $_instantiate(
+        factory: () => T,
+        initializers?: T_Options,
+        reuseId?: string,
+        @Builder content?: () => void
+    ): T
 
-    @memo
-    build(): void;
-    
-    aboutToReuse(): void
-    aboutToRecycle(): void
+    /**
+     * aboutToReuse Method
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    aboutToReuse(): void;
+}
+
+/**
+ * Defining interface of PageLifeCycle for custom component, when decorate with @Entry.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface PageLifeCycle {
+    /**
+     * onPageShow Method.
+     *
+     * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPageShow(): void {}
+
+    /**
+     * onPageHide Method.
+     *
+     * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPageHide(): void {}
+
+    /**
+     * onBackPress Method.
+     *
+     * Triggered when the user clicks the back button
+     *
+     * @returns { boolean } true means that the page itself processes the return logic.
+     * false means that the default return logic is used.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onBackPress(): boolean { return false }
+
+    /**
+     * PageTransition Method.
+     * Implement Animation when enter this page or move to other pages.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    pageTransition(): void {}
+
+    /**
+     * Triggered when the Entry custom component has been pushed with singleton mode.
+     *
+     * @param { object | undefined | null } param - New parameters pushed with singleton mode.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onNewParam(param: object | undefined | null): void {}
+}
+
+/**
+ * Defining interface of LayoutCallback for custom component, when decorate with @Layoutable.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface LayoutCallback {
+    /**
+     * Custom component override this method to layout each of its sub components.
+     *
+     * @param { GeometryInfo } selfLayoutInfo
+     * @param { Array<Layoutable> } children
+     * @param { ConstraintSizeOptions } constraint
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void {}
+
+    /**
+     * Custom component override this method to measure each of its sub components.
+     * @param { GeometryInfo } selfLayoutInfo
+     * @param { Array<Measurable> } children - indicate the measure child
+     * @param { ConstraintSizeOptions } constraint - indicate child constraint size
+     * @returns { SizeResult }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult {
+        return {width: 0, height: 0} as SizeResult
+    }
 }
