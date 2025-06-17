@@ -37,7 +37,8 @@ declare namespace deviceStandby {
    * @param { AsyncCallback<Array<ExemptedAppInfo>> } callback - the callback of getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
@@ -57,7 +58,8 @@ declare namespace deviceStandby {
    * @returns { Promise<Array<ExemptedAppInfo>> } the promise returned by getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
@@ -76,7 +78,8 @@ declare namespace deviceStandby {
    * @param { ResourceRequest } request - requesting or releasing resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.
@@ -95,7 +98,8 @@ declare namespace deviceStandby {
    * @param { ResourceRequest } request - requesting or releasing resources.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters.
    * @throws { BusinessError } 9800003 - Failed to complete inner transaction.

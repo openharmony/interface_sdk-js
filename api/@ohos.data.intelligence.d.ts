@@ -118,7 +118,7 @@ declare namespace intelligence {
    */
   interface TextEmbedding {
     /**
-     * Loads the embedding model. If the loading fails, an error code is returned.
+     * Loads this text embedding model. If the loading fails, an error code is returned.
      *
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -129,7 +129,7 @@ declare namespace intelligence {
     loadModel(): Promise<void>;
 
     /**
-     * Releases the embedding model. If the releasing fails, an error code is returned.
+     * Releases this text embedding model. If the releasing fails, an error code is returned.
      *
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -140,8 +140,8 @@ declare namespace intelligence {
     releaseModel(): Promise<void>;
 
     /**
-     * Obtains the embedding vector for the given text.
-     * The text should be no longer than 512 tokens.
+     * Obtains the embedding vector of the given text.
+     * The model can process up to 512 characters of text per inference, supporting both Chinese and English.
      *
      * @param { string } text - The input text of the embedding model.
      * @returns { Promise<Array<number>> } The promise used to return the embedding result.
@@ -155,8 +155,8 @@ declare namespace intelligence {
     getEmbedding(text: string): Promise<Array<number>>;
 
     /**
-     * Obtains the embedding vector for the given batch of texts.
-     * Each text should be no longer than 512 tokens.
+     * Obtains the embedding vector of a given batch of text.
+     * The model can process up to 512 characters of text per inference, supporting both Chinese and English.
      *
      * @param { Array<string> } batchTexts - The input batch of texts of the embedding model.
      * @returns { Promise<Array<Array<number>>> } The promise used to return the embedding result.
@@ -179,7 +179,7 @@ declare namespace intelligence {
    */
   interface ImageEmbedding {
     /**
-     * Loads the embedding model. If the loading fails, an error code is returned.
+     * Loads this image embedding model. If the loading fails, an error code is returned.
      *
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -190,7 +190,7 @@ declare namespace intelligence {
     loadModel(): Promise<void>;
 
     /**
-     * Releases the embedding model. If the releasing fails, an error code is returned.
+     * Releases this image embedding model. If the releasing fails, an error code is returned.
      *
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -201,8 +201,8 @@ declare namespace intelligence {
     releaseModel(): Promise<void>;
 
     /**
-     * Obtains the embedding vector for the given image.
-     * The image should be no larger than 20 MB.
+     * Obtains the embedding vector of the given image.
+     * The model can handle images below 20 MB in size in a single inference.
      *
      * @param { Image } image - The input image of the embedding model.
      * @returns { Promise<Array<number>> } The promise used to return the embedding result.
@@ -226,7 +226,7 @@ declare namespace intelligence {
   type Image = string;
 
   /**
-   * Chunking process for text.
+   * Splits text.
    *
    * @param { string } text - Text for chunking. The length of the text is no longer then 100k tokens.
    * @param { SplitConfig } config - Configurations of text chunking.

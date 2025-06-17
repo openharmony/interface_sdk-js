@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,8 +18,16 @@
  * @kit DeviceCertificateKit
  */
 
+/*** if arkts 1.1 */
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
 import certificateManagerDialog from '@ohos.security.certManagerDialog';
 
 export { cert, certificateManager, certificateManagerDialog };
+/*** endif */
+
+/*** if arkts 1.2 */
+import cert from '@ohos.security.cert';
+
+export { cert };
+/*** endif */

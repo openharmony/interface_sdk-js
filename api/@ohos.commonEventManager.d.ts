@@ -25,27 +25,28 @@ import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonE
 import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * Common event definition
+ * The CommonEventManager module provides common event capabilities, including the capabilities to publish, subscribe to, and unsubscribe from common events.
  *
  * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 9
  */
 /**
- * Common event definition
+ * The CommonEventManager module provides common event capabilities, including the capabilities to publish, subscribe to, and unsubscribe from common events.
  *
  * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace commonEventManager {
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { AsyncCallback<void> } callback - Callback to execute after the event is published.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -55,10 +56,10 @@ declare namespace commonEventManager {
    * @since 9
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { AsyncCallback<void> } callback - Callback to execute after the event is published.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -69,10 +70,10 @@ declare namespace commonEventManager {
    * @since 11
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { AsyncCallback<void> } callback - Callback to execute after the event is published.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -84,10 +85,10 @@ declare namespace commonEventManager {
    * @since 12
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { AsyncCallback<void> } callback - Callback to execute after the event is published.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -95,17 +96,17 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
-   *                                             content and attributes.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { CommonEventPublishData } options - Attributes of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -115,12 +116,11 @@ declare namespace commonEventManager {
    * @since 9
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
-   *                                             content and attributes.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { CommonEventPublishData } options - Attributes of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -131,12 +131,11 @@ declare namespace commonEventManager {
    * @since 11
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
-   *                                             content and attributes.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { CommonEventPublishData } options - Attributes of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
@@ -148,12 +147,11 @@ declare namespace commonEventManager {
    * @since 12
    */
   /**
-   * Publishes an ordered, sticky, or standard common event.
+   * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - name of the common event.
-   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
-   *                                             content and attributes.
-   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @param { string } event - Name of the common event to publish. For details, see System Common Events.
+   * @param { CommonEventPublishData } options - Attributes of the common event to publish.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -161,7 +159,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -241,28 +240,27 @@ declare namespace commonEventManager {
   ): void;
 
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
-   *                                                            CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
-   *                                                            CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
@@ -270,57 +268,59 @@ declare namespace commonEventManager {
   ): void;
 
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses a promise to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { Promise<CommonEventSubscriber> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. This API uses a promise to return the result.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { Promise<CommonEventSubscriber> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. The API returns the result synchronously.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { CommonEventSubscriber } Promise used to return the subscriber object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
   /**
-   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   * Creates a subscriber. The API returns the result synchronously.
    *
-   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
-   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { CommonEventSubscriber } Promise used to return the subscriber object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
   /**
-   * Subscribe an ordered, sticky, or standard common event.
+   * Subscribes to a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
@@ -330,10 +330,10 @@ declare namespace commonEventManager {
    * @since 9
    */
   /**
-   * Subscribe an ordered, sticky, or standard common event.
+   * Subscribes to a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
@@ -345,10 +345,10 @@ declare namespace commonEventManager {
    * @since 11
    */
   /**
-   * Subscribe an ordered, sticky, or standard common event.
+   * Subscribes to a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -356,7 +356,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
@@ -379,10 +380,10 @@ declare namespace commonEventManager {
   function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
   /**
-   * Unsubscribe from an ordered, sticky, or standard common event.
+   * Unsubscribes from a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
@@ -392,10 +393,10 @@ declare namespace commonEventManager {
    * @since 9
    */
   /**
-   * Unsubscribe from an ordered, sticky, or standard common event.
+   * Unsubscribes from a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
-   * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
+   * @param { CommonEventSubscriber } subscriber - Subscriber object.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
@@ -404,7 +405,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -511,7 +513,8 @@ declare namespace commonEventManager {
    * @enum { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Support {
     /**
@@ -583,7 +586,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the screen is turned off.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_OFF = 'usual.event.SCREEN_OFF',
 
@@ -591,7 +595,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is awakened and interactive.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_ON = 'usual.event.SCREEN_ON',
 
@@ -656,7 +661,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the time is set.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_TIME_CHANGED = 'usual.event.TIME_CHANGED',
 
@@ -672,7 +678,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the time zone is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_TIMEZONE_CHANGED = 'usual.event.TIMEZONE_CHANGED',
 
@@ -946,6 +953,26 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
     /**
+     * Indicates the target user (i.e the OS account) is going to be locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
+
+    /**
+     * Indicates the target user (i.e the OS acount) is locked.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
+
+    /**
      * Remind new user of that the service has been stopping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -973,7 +1000,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN = 'common.event.DISTRIBUTED_ACCOUNT_LOGIN',
 
@@ -988,7 +1016,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT = 'common.event.DISTRIBUTED_ACCOUNT_LOGOUT',
 
@@ -1915,7 +1944,8 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_INFO_UPDATED = 'usual.event.USER_INFO_UPDATED',
 
@@ -1924,7 +1954,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_HTTP_PROXY_CHANGE = 'usual.event.HTTP_PROXY_CHANGE',
 
@@ -2270,7 +2301,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MINORSMODE_ON = 'usual.event.MINORSMODE_ON',
 
@@ -2280,7 +2312,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MINORSMODE_OFF = 'usual.event.MINORSMODE_OFF',
 
@@ -2348,6 +2381,57 @@ declare namespace commonEventManager {
      * @since 19
      */
     COMMON_EVENT_DEFAULT_APPLICATION_CHANGED = 'usual.event.DEFAULT_APPLICATION_CHANGED',
+
+    /**
+     * This common event means that shortcut has been changed.
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SHORTCUTS permission.
+     * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     */
+    COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
+
+    /**
+     * This common event means that kiosk mode is on.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_ON = 'usual.event.KIOSK_MODE_ON',
+
+    /**
+     * This common event means that kiosk mode is off.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_KIOSK_MODE_OFF = 'usual.event.KIOSK_MODE_OFF',
+
+    /**
+     * This common event means that the config policy of customazation subsystem has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_CUSTOM_CONFIG_POLICY_UPDATED = 'usual.event.CUSTOM_CONFIG_POLICY_UPDATED',
+
+    /**
+     * This common event means that the custom roaming region of device has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_CUSTOM_ROAMING_REGION_UPDATED = 'usual.event.CUSTOM_ROAMING_REGION_UPDATED',
   }
 
   /**
@@ -2362,7 +2446,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventData } CommonEventData
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventData = _CommonEventData;
 
@@ -2378,7 +2463,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventSubscriber } CommonEventSubscriber
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
@@ -2394,7 +2480,8 @@ declare namespace commonEventManager {
    * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
@@ -2409,7 +2496,8 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Describes the information of the subscriber
@@ -2418,7 +2506,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }

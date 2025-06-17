@@ -37,7 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LightWeightMap<K, V> {
   /**
@@ -62,7 +63,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -90,6 +92,17 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   length: number;
+    /**
+   * Gets the element number of the LightWeightMap.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
   /**
    * Returns whether this map has all the object in a specified map
    *
@@ -127,7 +140,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasAll(map: LightWeightMap<K, V>): boolean;
   /**
@@ -158,7 +172,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasKey(key: K): boolean;
   /**
@@ -189,7 +204,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasValue(value: V): boolean;
   /**
@@ -229,7 +245,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   increaseCapacityTo(minimumCapacity: number): void;
   /**
@@ -257,7 +274,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -291,6 +309,20 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   get(key: K): V;
+
+  /**
+   * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
+   *
+   * @param { K } key - key key the index in LightWeightMap
+   * @returns { V | undefined } value if associated with key presents, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(key: K): V | undefined;
+
   /**
    * Obtains the index of the key equal to a specified key in an LightWeightMap container
    *
@@ -319,7 +351,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOfKey(key: K): number;
   /**
@@ -350,7 +383,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOfValue(value: V): number;
   /**
@@ -378,7 +412,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -427,6 +462,27 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   getKeyAt(index: number): K;
+
+    /**
+     * Obtains the key at the location identified by index in an LightWeightMap container
+     *
+     * @param { number } index - index index Target subscript for search
+     * @returns { K | undefined } the key of key-value pairs
+     * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
+     * 3.Parameter verification failed.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getKeyAt(index: number): K | undefined;
+
+
   /**
    * Obtains a ES6 iterator that contains all the keys of an LightWeightMap container
    *
@@ -452,7 +508,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keys(): IterableIterator<K>;
   /**
@@ -489,7 +546,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAll(map: LightWeightMap<K, V>): void;
   /**
@@ -523,7 +581,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   set(key: K, value: V): Object;
   /**
@@ -557,6 +616,20 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   remove(key: K): V;
+
+  /**
+   * Remove the mapping for this key from this map if present
+   *
+   * @param { K } key - key key Target to be deleted
+   * @returns { V | undefined } the value associated with the key if it was removed, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: K): V | undefined;
+
   /**
    * Deletes a key-value pair at the location identified by index from an LightWeightMap container
    *
@@ -594,7 +667,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAt(index: number): boolean;
   /**
@@ -622,7 +696,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -671,7 +746,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setValueAt(index: number, newValue: V): boolean;
   /**
@@ -729,6 +805,19 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, thisArg?: Object): void;
+
+  /**
+   * Iterates over all key-value pairs in the LightWeightMap and executes a callback function for each entry.
+   * 
+   * @param { LightWeightMapCbFn<K, V> } callbackFn - A callback function that will be executed for each key-value pair.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: LightWeightMapCbFn<K, V>): void;
+
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    *
@@ -757,6 +846,19 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
+
+  /**
+   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<[K, V]> } an iterator for the LightWeightMap
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<[K, V]>;
+
   /**
    * Obtains a string that contains all the keys and values in an LightWeightMap container
    *
@@ -782,7 +884,8 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toString(): String;
   /**
@@ -831,6 +934,26 @@ declare class LightWeightMap<K, V> {
    * @since 12
    */
   getValueAt(index: number): V;
+
+    /**
+   * Obtains the value identified by index in an LightWeightMap container
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { V | undefined } the value of key-value pairs
+   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * 1.Mandatory parameters are left unspecified;
+   * 2.Incorrect parameter types;
+   * 3.Parameter verification failed.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    getValueAt(index: number): V | undefined;
+
   /**
    * Returns an iterator of the values contained in this map
    *
@@ -856,9 +979,25 @@ declare class LightWeightMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<V>;
 }
+
+  /**
+   * The type of LightWeightMap callback function.
+   *
+   * @typedef { function } LightWeightMapCbFn
+   * @param { V } value - The value of the current entry
+   * @param { K } key - The key of the current entry
+   * @param { LightWeightMap<K, V> } map - The LightWeightMap instance being traversed
+   * @returns { void } This callback does not return a value
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type LightWeightMapCbFn<K, V> = (value: V, key: K, map: LightWeightMap<K, V>) => void;
 
 export default LightWeightMap;

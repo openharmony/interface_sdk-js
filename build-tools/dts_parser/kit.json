@@ -251,6 +251,7 @@
     },
     { "filePath": "@ohos.application.appManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.BackupExtensionAbility.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
+    { "filePath": "@ohos.application.CompletionHandler.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.Configuration.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.ConfigurationConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     {
@@ -376,6 +377,7 @@
     { "filePath": "@ohos.data.unifiedDataChannel.d.ts", "kitName": "ArkData", "subSystem": "分布式数据管理" },
     { "filePath": "@ohos.data.uniformDataStruct.d.ts", "kitName": "ArkData", "subSystem": "分布式数据管理" },
     { "filePath": "@ohos.data.uniformTypeDescriptor.d.ts", "kitName": "ArkData", "subSystem": "分布式数据管理" },
+    { "filePath": "@ohos.data.UdmfComponents.d.ets", "kitName": "ArkData", "subSystem": "分布式数据管理" },
     { "filePath": "@ohos.data.ValuesBucket.d.ts", "kitName": "ArkData", "subSystem": "分布式数据管理" },
     { "filePath": "@ohos.deviceAttest.d.ts", "kitName": "BasicServicesKit", "subSystem": "XTS" },
     { "filePath": "@ohos.deviceInfo.d.ts", "kitName": "BasicServicesKit", "subSystem": "启动恢复" },
@@ -797,6 +799,7 @@
     { "filePath": "arkui/SpanModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/StackModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/StepperItemModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/StepperModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/SwiperModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/TabsModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/TextAreaModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },

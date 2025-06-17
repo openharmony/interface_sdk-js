@@ -19,12 +19,13 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import { Metadata as _Metadata } from './bundleManager/Metadata';
+import { ElementName as _ElementName } from './bundleManager/ElementName';
+/*** if arkts 1.1 */
 import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
-import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
-import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
 import Want from './@ohos.app.ability.Want';
@@ -34,6 +35,18 @@ import * as _BundleInfo from './bundleManager/BundleInfo';
 import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 import * as _Skill from './bundleManager/Skill';
+/*** endif */
+/*** if arkts 1.2 */
+import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
+import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
+import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
+import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
+  RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
+import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
+/*** endif */
 /**
  * This module is used to obtain package information of various applications installed on the current device.
  *
@@ -56,7 +69,8 @@ import * as _Skill from './bundleManager/Skill';
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace bundleManager {
   /**
@@ -68,6 +82,7 @@ declare namespace bundleManager {
    */
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -76,12 +91,14 @@ declare namespace bundleManager {
    */
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum BundleFlag {
     /**
@@ -107,6 +124,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_DEFAULT = 0x00000000,
     /**
@@ -132,6 +150,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_APPLICATION = 0x00000001,
     /**
@@ -157,12 +176,14 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_HAP_MODULE = 0x00000002,
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -170,7 +191,8 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -180,17 +202,20 @@ declare namespace bundleManager {
      * Used to obtain the bundleInfo containing ability. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, extensionAbility and permission.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * such as GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_ABILITY = 0x00000004,
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
@@ -198,11 +223,13 @@ declare namespace bundleManager {
     /**
      * Used to obtain the bundleInfo containing extensionAbility. The obtained bundleInfo does not
      * contain the information of signatureInfo, applicationInfo, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_HAP_MODULE.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY = 0x00000008,
     /**
@@ -228,20 +255,24 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
     /**
-     * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
+     * Used to obtain the metadata contained in applicationInfo, moduleInfo, abilityInfo and extensionAbility.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
@@ -250,12 +281,16 @@ declare namespace bundleManager {
     /**
      * Used to obtain the metadata contained in applicationInfo, moduleInfo and abilityInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_APPLICATION,
-     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_HAP_MODULE, GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_APPLICATION | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY | GET_BUNDLE_INFO_WITH_METADATA
+     * or GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY | GET_BUNDLE_INFO_WITH_METADATA.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_METADATA = 0x00000020,
     /**
@@ -284,6 +319,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_DISABLE = 0x00000040,
     /**
@@ -309,36 +345,44 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_SIGNATURE_INFO = 0x00000080,
     /**
      * Used to obtain the bundleInfo containing menu configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_MENU | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_MENU = 0x00000100,
     /**
      * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
      * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
-     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * such as GET_BUNDLE_INFO_WITH_ROUTER_MAP | GET_BUNDLE_INFO_WITH_HAP_MODULE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200,
     /**
      * Used to obtain the skillInfo contained in abilityInfo and extensionInfo.
      * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
-     * GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     * GET_BUNDLE_INFO_WITH_ABILITY, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY,
+     * such as GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_ABILITY
+     * or GET_BUNDLE_INFO_WITH_SKILL | GET_BUNDLE_INFO_WITH_HAP_MODULE | GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
     /**
@@ -347,15 +391,19 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
-     * Used to obtain the bundleInfo only if any user installed
+     * Used to obtain the bundle information of an application installed by any user.
+     * It must be used together with GET_BUNDLE_INFO_WITH_APPLICATION. 
+     * It is valid only in the {@link getBundleInfo} and {@link getAllBundleInfo} APIs.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
     /**
@@ -364,18 +412,21 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
   }
 
   /**
    * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
+   * Multiple value input, such as GET_APPLICATION_INFO_DEFAULT | GET_APPLICATION_INFO_WITH_PERMISSION.
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ApplicationFlag {
     /**
@@ -384,7 +435,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_APPLICATION_INFO_DEFAULT = 0x00000000,
     /**
@@ -392,7 +444,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -400,7 +453,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_APPLICATION_INFO_WITH_METADATA = 0x00000002,
     /**
@@ -408,7 +462,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000004
   }
@@ -421,6 +476,15 @@ declare namespace bundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   enum AbilityFlag {
     /**
      * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
@@ -430,6 +494,15 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the default abilityInfo. The obtained abilityInfo does not contain the information of
+     * permission, metadata and disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
      * Used to obtain the abilityInfo containing permission.
@@ -437,6 +510,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing permission.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -446,6 +527,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing applicationInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
      * Used to obtain the abilityInfo containing metadata.
@@ -454,6 +543,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Used to obtain the abilityInfo containing metadata.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
      * Used to obtain the abilityInfo containing disabled abilityInfo.
@@ -461,6 +558,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
+     */
+    /**
+     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000008,
     /**
@@ -477,6 +582,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 11
      */
+    /**
+     * Used to obtain the abilityInfo only for system app.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
     /**
      * Used to obtain the abilityInfo with domain verification.
@@ -485,6 +598,14 @@ declare namespace bundleManager {
      * @systemapi
      * @since 12
      */
+    /**
+     * Used to obtain the abilityInfo with domain verification.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
     /**
      * Used to obtain the abilityInfo with Skill
@@ -492,6 +613,14 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Used to obtain the abilityInfo with Skill
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
      */
     GET_ABILITY_INFO_WITH_SKILL = 0x00000080,
   }
@@ -502,7 +631,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ExtensionAbilityFlag {
     /**
@@ -511,7 +641,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_EXTENSION_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
@@ -519,7 +650,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_EXTENSION_ABILITY_INFO_WITH_PERMISSION = 0x00000001,
     /**
@@ -527,7 +659,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION = 0x00000002,
     /**
@@ -535,7 +668,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
     /**
@@ -543,7 +677,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GET_EXTENSION_ABILITY_INFO_WITH_SKILL = 0x00000010,
   }
@@ -561,21 +696,24 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ExtensionAbilityType {
     /**
      * Indicates extension info with type of form
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Indicates extension info with type of form
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FORM = 0,
 
@@ -583,7 +721,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of work schedule
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WORK_SCHEDULER = 1,
 
@@ -591,7 +730,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of input method
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INPUT_METHOD = 2,
 
@@ -599,7 +739,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of service
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SERVICE = 3,
 
@@ -607,7 +748,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of accessibility
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCESSIBILITY = 4,
 
@@ -615,7 +757,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of dataShare
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DATA_SHARE = 5,
 
@@ -623,7 +766,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of filesShare
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FILE_SHARE = 6,
 
@@ -631,7 +775,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of staticSubscriber
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATIC_SUBSCRIBER = 7,
 
@@ -639,7 +784,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of wallpaper
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WALLPAPER = 8,
 
@@ -647,7 +793,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of backup
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKUP = 9,
 
@@ -655,7 +802,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of window
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW = 10,
 
@@ -663,7 +811,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of enterprise admin
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTERPRISE_ADMIN = 11,
 
@@ -671,7 +820,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of thumbnail
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     THUMBNAIL = 13,
 
@@ -679,7 +829,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of preview
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PREVIEW = 14,
 
@@ -687,7 +838,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of print
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRINT = 15,
 
@@ -695,7 +847,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of share
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARE = 16,
 
@@ -703,7 +856,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of push
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PUSH = 17,
 
@@ -711,7 +865,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of driver
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DRIVER = 18,
 
@@ -719,7 +874,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of action
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTION = 19,
 
@@ -727,7 +883,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of ads service
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ADS_SERVICE = 20,
 
@@ -735,7 +892,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of embedded UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMBEDDED_UI = 21,
 
@@ -743,7 +901,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of insight intent UI
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INSIGHT_INTENT_UI = 22,
 
@@ -751,7 +910,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of FENCE
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FENCE = 24,
 
@@ -759,7 +919,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of CALLER_INFO_QUERY
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALLER_INFO_QUERY = 25,
 
@@ -767,7 +928,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of asset acceleration
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSET_ACCELERATION = 26,
 
@@ -775,7 +937,8 @@ declare namespace bundleManager {
      * Indicates extension info with type of form edit
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FORM_EDIT = 27,
 
@@ -783,15 +946,36 @@ declare namespace bundleManager {
      * Indicates extension info with type of distributed
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 18
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DISTRIBUTED = 28,
+
+    /**
+     * Indicates extension info with type of app service
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    APP_SERVICE = 29,
+
+    /**
+     * Indicates extension info with type of the live form
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    LIVE_FORM = 30,
 
     /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSPECIFIED = 255
   }
@@ -819,6 +1003,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum PermissionGrantState {
     /**
@@ -841,6 +1026,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     PERMISSION_DENIED = -1,
 
@@ -864,6 +1050,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     PERMISSION_GRANTED = 0
   }
@@ -891,6 +1078,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum SupportWindowMode {
     /**
@@ -913,6 +1101,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     FULL_SCREEN = 0,
     /**
@@ -935,6 +1124,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     SPLIT = 1,
     /**
@@ -957,6 +1147,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     FLOATING = 2
   }
@@ -983,7 +1174,8 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LaunchType {
     /**
@@ -1005,7 +1197,8 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLETON = 0,
 
@@ -1028,7 +1221,8 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MULTITON = 1,
 
@@ -1052,6 +1246,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     SPECIFIED = 2
   }
@@ -1116,6 +1311,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum DisplayOrientation {
     /**
@@ -1138,6 +1334,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     UNSPECIFIED,
 
@@ -1161,6 +1358,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     LANDSCAPE,
 
@@ -1184,6 +1382,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     PORTRAIT,
 
@@ -1207,6 +1406,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     FOLLOW_RECENT,
 
@@ -1230,6 +1430,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     LANDSCAPE_INVERTED,
 
@@ -1253,6 +1454,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     PORTRAIT_INVERTED,
 
@@ -1276,6 +1478,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION,
 
@@ -1299,6 +1502,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE,
 
@@ -1322,6 +1526,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT,
 
@@ -1345,6 +1550,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_RESTRICTED,
 
@@ -1368,6 +1574,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED,
 
@@ -1391,6 +1598,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED,
 
@@ -1414,6 +1622,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     LOCKED,
 
@@ -1422,7 +1631,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_ROTATION_UNSPECIFIED,
 
@@ -1431,7 +1641,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_DESKTOP
   }
@@ -1459,6 +1670,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum ModuleType {
     /**
@@ -1481,6 +1693,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     ENTRY = 1,
     /**
@@ -1503,6 +1716,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     FEATURE = 2,
     /**
@@ -1525,6 +1739,7 @@ declare namespace bundleManager {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     SHARED = 3
   }
@@ -1542,7 +1757,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum BundleType {
     /**
@@ -1556,7 +1772,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP = 0,
     /**
@@ -1568,7 +1785,8 @@ declare namespace bundleManager {
      * Indicates atomic service
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATOMIC_SERVICE = 1
   }
@@ -1586,7 +1804,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CompatiblePolicy {
     /**
@@ -1600,7 +1819,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKWARD_COMPATIBILITY = 1
   }
@@ -1611,7 +1831,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ProfileType {
     /**
@@ -1619,7 +1840,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTENT_PROFILE = 1
   }
@@ -1630,7 +1852,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AppDistributionType {
     /**
@@ -1638,7 +1861,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP_GALLERY = 1,
 
@@ -1647,7 +1871,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTERPRISE = 2,
 
@@ -1657,7 +1882,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTERPRISE_NORMAL = 3,
 
@@ -1667,7 +1893,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENTERPRISE_MDM = 4,
 
@@ -1676,7 +1903,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OS_INTEGRATION = 5,
 
@@ -1685,7 +1913,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CROWDTESTING = 6,
 
@@ -1694,7 +1923,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 7
   }
@@ -1704,28 +1934,32 @@ declare namespace bundleManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
   */
   export enum MultiAppModeType {
     /**
      * Indicates multi app mode with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSPECIFIED = 0,
     /**
      * Indicates multi app mode with type of multiInstance
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MULTI_INSTANCE = 1,
     /**
      * Indicates multi app mode with type of appClone
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
     */
     APP_CLONE = 2,
   }
@@ -1736,7 +1970,8 @@ declare namespace bundleManager {
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
   */
   export enum ApplicationInfoFlag {
     /**
@@ -1744,7 +1979,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_INSTALLED = 0x00000001,
     /**
@@ -1752,7 +1988,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_OTHER_INSTALLED = 0x00000010,
     /**
@@ -1760,7 +1997,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_PREINSTALLED_APP = 0x00000020,
     /**
@@ -1768,7 +2006,8 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_PREINSTALLED_APP_UPDATE = 0x00000040,
   }
@@ -1802,6 +2041,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
 
@@ -1834,6 +2074,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -1866,6 +2107,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
 
@@ -1881,7 +2123,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -1899,7 +2142,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInfo(bundleName: string,
     bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
@@ -1918,7 +2162,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
@@ -2193,6 +2438,21 @@ declare namespace bundleManager {
    * @since 10
    */
   function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
+  
+  /**
+   * Get AbilityInfo by the given uri.
+   *
+   * @permission ohos.permission.GET_ABILITY_INFO
+   * @param { string } uri - Indicates the uri used for matching ability.
+   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 17700003 - The ability is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getAbilityInfo(uri: string, abilityFlags: number): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
@@ -2710,7 +2970,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationEnabledSync(bundleName: string): boolean;
 
@@ -2882,7 +3143,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -2898,7 +3158,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2917,7 +3176,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -2933,7 +3191,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2952,7 +3209,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
@@ -2968,7 +3224,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -2987,7 +3242,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3002,7 +3256,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3020,7 +3273,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
@@ -3035,7 +3287,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3053,7 +3304,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10
    */
@@ -3068,7 +3318,6 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11
@@ -3208,7 +3457,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
 
@@ -3226,7 +3476,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
 
@@ -3244,7 +3495,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
 
@@ -3260,7 +3512,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
 
@@ -3490,7 +3743,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-   function getExtResource(bundleName: string): Promise<Array<string>>;
+  function getExtResource(bundleName: string): Promise<Array<string>>;
 
   /**
    * Enable dynamic icon.
@@ -3512,6 +3765,31 @@ declare namespace bundleManager {
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
   /**
+   * Enable dynamic icon.
+   * If you need to enable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to enable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Disable dynamic icon.
    *
    * @permission ohos.permission.ACCESS_DYNAMIC_ICON
@@ -3529,6 +3807,29 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
   /**
+   * Disable dynamic icon.
+   * If you need to disable dynamic icon under the current user, ohos.permission.ACCESS_DYNAMIC_ICON
+   * needs to be applied for.
+   * If you need to disable dynamic icon under other users, ohos.permission.ACCESS_DYNAMIC_ICON and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON or (ohos.permission.ACCESS_DYNAMIC_ICON and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { BundleOptions } [option] - Indicates the bundle option.
+   * @returns { Promise<void> } Returns disableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3544,6 +3845,42 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
+
+  /**
+   * Get dynamic icon info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { string } bundleName - Indicates the bundleName.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
+
+  /**
+   * Get all dynamic icon info.
+   * If you need to query dynamic icon information under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * needs to be applied for.
+   * If you need to query dynamic icon information under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } [userId] - Indicates the user id, default value is to query all users.
+   * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAllDynamicIconInfo(userId?: number): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
@@ -3862,6 +4199,34 @@ declare namespace bundleManager {
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
   /**
+   * Obtains sandbox data directory by bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { string } Returns the sandbox data directory.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getSandboxDataDir(bundleName: string, appIndex: number): string;
+
+  /**
+   * Obtains AppCloneIdentity contains bundleName and appIndex by the sandbox data directory.
+   *
+   * @param { string } sandboxDataDir - Indicates the sandbox data directory.
+   * @returns { AppCloneIdentity } Returns the clone Identity contains bundleName and appIndex.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
@@ -3884,6 +4249,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ApplicationInfo = _ApplicationInfo;
 
@@ -3910,6 +4276,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type ModuleMetadata = _ModuleMetadata;
 
@@ -3936,6 +4303,7 @@ declare namespace bundleManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   export type Metadata = _Metadata;
 
@@ -3966,6 +4334,17 @@ declare namespace bundleManager {
   export type BundleInfo = _BundleInfo.BundleInfo;
 
   /**
+   * Obtains configuration information about a bundle.
+   *
+   * @typedef { _BundleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  export type BundleInfo = _BundleInfo;
+
+  /**
    * The scene which is used.
    *
    * @typedef { _BundleInfo.UsedScene }
@@ -3990,6 +4369,17 @@ declare namespace bundleManager {
    * @since 20
    */
   export type UsedScene = _BundleInfo.UsedScene;
+
+  /**
+   * The scene which is used.
+   *
+   * @typedef { _UsedScene }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  export type UsedScene = _UsedScene;
 
   /**
    * Indicates the required permissions details defined in file config.json.
@@ -4018,6 +4408,17 @@ declare namespace bundleManager {
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
   /**
+   * Indicates the required permissions details defined in file config.json.
+   *
+   * @typedef { _ReqPermissionDetail }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ReqPermissionDetail = _ReqPermissionDetail;
+
+  /**
    * Indicates the SignatureInfo.
    *
    * @typedef { _BundleInfo.SignatureInfo }
@@ -4044,6 +4445,17 @@ declare namespace bundleManager {
   export type SignatureInfo = _BundleInfo.SignatureInfo;
 
   /**
+   * Indicates the SignatureInfo.
+   *
+   * @typedef { _SignatureInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  export type SignatureInfo = _SignatureInfo;
+
+  /**
    * AppCloneIdentity Contain BundleName and appIndex.
    *
    * @typedef { _BundleInfo.AppCloneIdentity }
@@ -4051,6 +4463,16 @@ declare namespace bundleManager {
    * @since 15
    */
   export type AppCloneIdentity = _BundleInfo.AppCloneIdentity;
+
+  /**
+   * AppCloneIdentity Contain BundleName and appIndex.
+   *
+   * @typedef { _AppCloneIdentity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppCloneIdentity = _AppCloneIdentity;
 
   /**
    * Obtains configuration information about a module.
@@ -4079,6 +4501,18 @@ declare namespace bundleManager {
   export type HapModuleInfo = _HapModuleInfo.HapModuleInfo;
 
   /**
+   * Obtains configuration information about a module.
+   *
+   * @typedef { _HapModuleInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type HapModuleInfo = _HapModuleInfo;
+
+  /**
    * Obtains preload information about a module.
    *
    * @typedef { _HapModuleInfo.PreloadItem }
@@ -4094,6 +4528,17 @@ declare namespace bundleManager {
    * @since 11
    */
   export type PreloadItem = _HapModuleInfo.PreloadItem;
+
+  /**
+   * Obtains preload information about a module.
+   *
+   * @typedef { _PreloadItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PreloadItem = _PreloadItem;
 
   /**
    * Obtains dependency information about a module.
@@ -4113,6 +4558,17 @@ declare namespace bundleManager {
   export type Dependency = _HapModuleInfo.Dependency;
 
   /**
+   * Obtains dependency information about a module.
+   *
+   * @typedef { _Dependency }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Dependency = _Dependency;
+
+  /**
    * Obtains the router item about a module.
    *
    * @typedef { _HapModuleInfo.RouterItem}
@@ -4123,6 +4579,16 @@ declare namespace bundleManager {
   export type RouterItem = _HapModuleInfo.RouterItem;
 
   /**
+   * Obtains the router item about a module.
+   *
+   * @typedef { _RouterItem}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  export type RouterItem = _RouterItem;
+
+  /**
    * Obtains the data item within router item.
    *
    * @typedef { _HapModuleInfo.DataItem }
@@ -4131,6 +4597,17 @@ declare namespace bundleManager {
    * @since 12
    */
   export type DataItem = _HapModuleInfo.DataItem;
+
+  /**
+   * Obtains the data item within router item.
+   *
+   * @typedef { _DataItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type DataItem = _DataItem;
 
   /**
    * Obtains configuration information about an ability.
@@ -4159,14 +4636,26 @@ declare namespace bundleManager {
   export type AbilityInfo = _AbilityInfo.AbilityInfo;
 
   /**
-   * Contains basic Ability information. Indicates the window size..
+   * Obtains configuration information about an ability.
+   *
+   * @typedef { _AbilityInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityInfo = _AbilityInfo;
+
+  /**
+   * Contains basic Ability information. Indicates the window size.
    *
    * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   /**
-   * Contains basic Ability information. Indicates the window size..
+   * Contains basic Ability information. Indicates the window size.
    *
    * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4174,7 +4663,7 @@ declare namespace bundleManager {
    * @since 11
    */
   /**
-   * Contains basic Ability information. Indicates the window size..
+   * Contains basic Ability information. Indicates the window size.
    *
    * @typedef { _AbilityInfo.WindowSize }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4183,6 +4672,18 @@ declare namespace bundleManager {
    * @since 20
    */
   export type WindowSize = _AbilityInfo.WindowSize;
+
+  /**
+   * Contains basic Ability information. Indicates the window size.
+   *
+   * @typedef { _WindowSize }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type WindowSize = _WindowSize;
 
   /**
    * Obtains extension information about a bundle.
@@ -4200,6 +4701,17 @@ declare namespace bundleManager {
    * @since 11
    */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo;
+
+  /**
+   * Obtains extension information about a bundle.
+   *
+   * @typedef { _ExtensionAbilityInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
 
   /**
    * Indicates the defined permission details in file config.json.
@@ -4224,7 +4736,8 @@ declare namespace bundleManager {
    * @typedef { _ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ElementName = _ElementName;
 
@@ -4279,6 +4792,17 @@ declare namespace bundleManager {
   export type Skill = _Skill.Skill;
 
   /**
+   * Obtains configuration information about an skill
+   *
+   * @typedef { _Skill }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Skill = _Skill;
+
+  /**
    * Obtains configuration information about an skillUri
    *
    * @typedef { _Skill.SkillUri }
@@ -4289,12 +4813,24 @@ declare namespace bundleManager {
   export type SkillUrl = _Skill.SkillUri;
 
   /**
+   * Obtains configuration information about an skillUri
+   *
+   * @typedef { _SkillUri }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export type SkillUrl = _SkillUri;
+
+  /**
    * Indicates the information of preinstalled application.
    *
    * @typedef { _PreinstalledApplicationInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PreinstalledApplicationInfo = _PreinstalledApplicationInfo;
 
@@ -4317,6 +4853,26 @@ declare namespace bundleManager {
    * @since 19
    */
   export type PluginModuleInfo = _PluginModuleInfo;
+
+  /**
+   * Contains dynamic icon.
+   *
+   * @typedef { _BundleInfo.DynamicIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type DynamicIconInfo = _BundleInfo.DynamicIconInfo;
+
+  /**
+   * Contains bundle options.
+   *
+   * @typedef { _BundleInfo.BundleOptions }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
+  export type BundleOptions = _BundleInfo.BundleOptions;
 }
 
 export default bundleManager;

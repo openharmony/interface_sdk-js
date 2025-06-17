@@ -37,7 +37,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LightWeightSet<T> {
   /**
@@ -62,7 +63,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -90,6 +92,19 @@ declare class LightWeightSet<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the LightWeightSet.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * If the set does not contain the element, the specified element is added
    *
@@ -118,7 +133,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(obj: T): boolean;
   /**
@@ -158,7 +174,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   addAll(set: LightWeightSet<T>): boolean;
   /**
@@ -198,7 +215,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasAll(set: LightWeightSet<T>): boolean;
   /**
@@ -229,7 +247,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(key: T): boolean;
   /**
@@ -296,7 +315,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   increaseCapacityTo(minimumCapacity: number): void;
   /**
@@ -327,7 +347,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOf(key: T): number;
   /**
@@ -361,6 +382,20 @@ declare class LightWeightSet<T> {
    * @since 12
    */
   remove(key: T): T;
+
+  /**
+   * Deletes an object of a specified Object type from an LightWeightSet container
+   *
+   * @param { T } key - key key Target to be deleted
+   * @returns { T | undefined } the removed value if it was present, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: T): T | undefined;
+
   /**
    * Deletes an object at the location identified by index from an LightWeightSet container
    *
@@ -398,7 +433,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeAt(index: number): boolean;
   /**
@@ -426,7 +462,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -484,6 +521,20 @@ declare class LightWeightSet<T> {
    * @since 12
    */
   forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes the given callback function once for each real key in the map.
+   * It does not perform functions on deleted keys.
+   *
+   * @param { LightWeightSetForEachCb<T> } callbackFn - A callback function to execute for each element.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: LightWeightSetForEachCb<T>): void;
+
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
    *
@@ -512,6 +563,19 @@ declare class LightWeightSet<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> } an iterator for the LightWeightSet
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
   /**
    * Obtains a string that contains all the keys and values in an LightWeightSet container
    *
@@ -534,7 +598,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toString(): String;
   /**
@@ -562,7 +627,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toArray(): Array<T>;
   /**
@@ -605,6 +671,20 @@ declare class LightWeightSet<T> {
    * @since 12
    */
   getValueAt(index: number): T;
+
+  /**
+   * Obtains the object at the location  identified by index in an LightWeightSet container
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { T | undefined } the value at the specified index, or undefined if the index out of range
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getValueAt(index: number): T | undefined;
+
   /**
    * Returns a ES6 iterator of the values contained in this Set
    *
@@ -630,7 +710,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<T>;
   /**
@@ -658,7 +739,8 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -686,9 +768,25 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
 }
+
+/**
+ * The type of LightWeightSet callback function.
+ *
+ * @typedef { function } LightWeightSetForEachCb
+ * @param { T } value - The value of current element
+ * @param { T } key - The key of current element(same as value)
+ * @param { LightWeightSet<T> } set - The LightWeightSet instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
 
 export default LightWeightSet;

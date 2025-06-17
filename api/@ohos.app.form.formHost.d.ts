@@ -725,6 +725,70 @@ declare namespace formHost {
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
   /**
+   * Listens to the event of form's overflow.
+   * <p>You can use this method to listen to the event of form's overflow.</p>
+   *
+   * @param { 'formOverflow' } type - Indicates event type.
+   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function formOverflow can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'formOverflow', callback: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Cancels listening to the event of form's overflow.
+   * <p>You can use this method to cancel listening to the event of form's overflow.</p>
+   *
+   * @param { 'formOverflow' } type - Indicates event type.
+   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function formOverflow can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'formOverflow', callback?: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Listens to the event of change scene animation state.
+   * <p>You can use this method to listen to the event of change scene animation state.</p>
+   *
+   * @param { 'changeSceneAnimationState' } type - Indicates event type.
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function changeSceneAnimationState can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'changeSceneAnimationState',
+    callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
+  /**
+   * Cancels listening to the event of change scene animation state.
+   * <p>You can use this method to cancel listening to the event of change scene animation state.</p>
+   *
+   * @param { 'changeSceneAnimationState' } type - Indicates event type.
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.function changeSceneAnimationState can not work correctly
+   *     due to limited device capabilities.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'changeSceneAnimationState',
+    callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
+  /**
    * Notify form is Visible
    * <p>You can use this method to notify form visible state.</p>
    *

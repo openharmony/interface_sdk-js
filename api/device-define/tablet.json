@@ -13,6 +13,7 @@
     "SystemCapability.Graphic.Graphic2D.EGL",
     "SystemCapability.Graphic.Graphic2D.GLES2",
     "SystemCapability.Graphic.Graphic2D.GLES3",
+    "SystemCapability.Graphic.Graphic2D.HyperGraphicManager",
     "SystemCapability.Graphic.Graphic2D.WebGL",
     "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
@@ -224,6 +225,7 @@
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
-    "SystemCapability.Resourceschedule.BackgroundProcessManager"
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.Test.PerfTest"
   ]
 }

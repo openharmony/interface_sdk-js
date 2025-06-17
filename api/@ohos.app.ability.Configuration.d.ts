@@ -42,7 +42,8 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
  * @syscap SystemCapability.Ability.AbilityBase
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Configuration {
   /**
@@ -67,7 +68,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   language?: string;
 
@@ -93,7 +95,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colorMode?: ConfigurationConstant.ColorMode;
 
@@ -208,7 +211,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSizeScale?: number;
 
@@ -241,4 +245,14 @@ export interface Configuration {
    * @since 12
    */
   mnc?: string;
+
+  /**
+   * Current locale.
+   *
+   * @type { ?Intl.Locale }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 20
+   */
+    locale?: Intl.Locale;
 }

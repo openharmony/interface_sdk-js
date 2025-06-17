@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PlainArray<T> {
   /**
@@ -65,7 +66,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -93,6 +95,19 @@ declare class PlainArray<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the PlainArray.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Appends a key-value pair to PlainArray
    *
@@ -130,7 +145,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(key: number, value: T): void;
   /**
@@ -155,7 +171,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -183,7 +200,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clone(): PlainArray<T>;
   /**
@@ -223,7 +241,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(key: number): boolean;
   /**
@@ -266,6 +285,21 @@ declare class PlainArray<T> {
    * @since 12
    */
   get(key: number): T;
+
+  /**
+   * Queries the value associated with the specified key
+   *
+   * @param { number } key - looking for goals
+   * @returns { T | undefined } the value of key-value pairs
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(key: number): T | undefined;
+
   /**
    * Queries the index for a specified key
    *
@@ -303,7 +337,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOfKey(key: number): number;
   /**
@@ -334,7 +369,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getIndexOfValue(value: T): number;
   /**
@@ -362,7 +398,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -402,7 +439,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getKeyAt(index: number): number;
   /**
@@ -445,6 +483,21 @@ declare class PlainArray<T> {
    * @since 12
    */
   remove(key: number): T;
+
+  /**
+   * Remove the key-value pair based on a specified key if it exists and return the value
+   *
+   * @param { number } key - target to be deleted
+   * @returns { T | undefined } target mapped value, or undefined if key is not exist
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: number): T | undefined;
+
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    *
@@ -485,6 +538,21 @@ declare class PlainArray<T> {
    * @since 12
    */
   removeAt(index: number): T;
+
+  /**
+   * Remove the key-value pair at a specified index if it exists and return the value
+   *
+   * @param { number } index - target subscript for search
+   * @returns { T | undefined } the T type, or undefined if container is empty
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  removeAt(index: number): T | undefined;
+
   /**
    * Remove a group of key-value pairs from a specified index
    *
@@ -528,7 +596,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   removeRangeFrom(index: number, size: number): number;
   /**
@@ -571,7 +640,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setValueAt(index: number, value: T): void;
   /**
@@ -599,7 +669,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toString(): String;
   /**
@@ -642,7 +713,8 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getValueAt(index: number): T;
   /**
@@ -697,6 +769,19 @@ declare class PlainArray<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes a provided function once for each value in the PlainArray object.
+   *
+   * @param { PlainArrayForEachCb<T> } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: PlainArrayForEachCb<T>): void;
+
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
@@ -725,6 +810,34 @@ declare class PlainArray<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<[number, T]>;
+
+  /**
+   * returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<[number, T]> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<[number, T]>;
+
 }
+
+/**
+ * The type of PlainArray callback function.
+ *
+ * @typedef { function } PlainArrayForEachCb
+ * @param { T } value - The value of current element
+ * @param { number } key - The key of current element
+ * @param { PlainArray<T> } PlainArray - The PlainArray instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type PlainArrayForEachCb<T> = (value: T, key: number, PlainArray: PlainArray<T>) => void
 
 export default PlainArray;

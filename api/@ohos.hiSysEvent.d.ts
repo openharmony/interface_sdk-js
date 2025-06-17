@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
+ * @arkts 1.1&1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -28,7 +29,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace hiSysEvent
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hiSysEvent {
   /**
@@ -37,7 +39,8 @@ declare namespace hiSysEvent {
    * @enum {number}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EventType {
     /**
@@ -45,7 +48,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAULT = 1,
 
@@ -54,7 +58,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATISTIC = 2,
 
@@ -63,7 +68,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECURITY = 3,
 
@@ -72,7 +78,8 @@ declare namespace hiSysEvent {
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BEHAVIOR = 4
   }
@@ -83,7 +90,8 @@ declare namespace hiSysEvent {
    * @interface SysEventInfo
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SysEventInfo {
     /**
@@ -92,7 +100,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domain: string;
 
@@ -102,7 +111,8 @@ declare namespace hiSysEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -112,7 +122,8 @@ declare namespace hiSysEvent {
      * @type { EventType }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventType: EventType;
 
@@ -130,7 +141,8 @@ declare namespace hiSysEvent {
      * @type { ?object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     params?: object;
   }
@@ -154,7 +166,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function write(info: SysEventInfo): Promise<void>;
 
@@ -177,7 +190,8 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200054 - The number of event parameters of the array type exceeds the limit.
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
 

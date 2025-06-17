@@ -97,6 +97,39 @@ declare namespace text {
   }
 
   /**
+   * Enumerates the vertical alignment modes.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextVerticalAlign {
+    /**
+     * Baseline alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    BASELINE = 0,
+    /**
+     * Bottom alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    BOTTOM = 1,
+    /**
+     * Center alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    CENTER = 2,
+    /**
+     * Top alignment in the vertical direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TOP = 3
+  }
+
+  /**
    * Enumerate text runs direction.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -697,7 +730,7 @@ declare namespace text {
 
   /**
    * Describes badge type of text.
-   * @typedef TextBadgeType
+   * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 20
    */
@@ -709,13 +742,13 @@ declare namespace text {
      */
     TEXT_BADGE_NONE,
     /**
-     * Super badge.
+     * Superscript.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
     TEXT_SUPERSCRIPT,
     /**
-     * Sub badge.
+     * Subscript.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
@@ -951,6 +984,37 @@ declare namespace text {
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
+     * Unloads a custom font synchronously. This API returns the result synchronously.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    unloadFontSync(name: string): void;
+
+    /**
+     * Unloads a custom font. This API uses a promise to return the result.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    unloadFont(name: string): Promise<void>;
+
+    /**
      * Clear font caches.
      * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
      * You are not advised to clear it unless otherwise required.
@@ -1144,6 +1208,30 @@ declare namespace text {
      * @since 18
      */
     tab?: TextTab;
+
+    /**
+     * Whether to optimize white spaces at the end of each line.
+     * @type { ?boolean } Boolean type data.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    trailingSpaceOptimized?: boolean;
+
+    /**
+     * Whether to enable automatic spacing between Chinese and English for paragraph.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    autoSpace?: boolean;
+
+    /**
+     * Vertical alignment mode of the paragraph.
+     * @type { ?TextVerticalAlign }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    verticalAlign?: TextVerticalAlign;
   }
 
   /**
@@ -1199,6 +1287,13 @@ declare namespace text {
      * @since 12
      */
     CENTER_OF_ROW_BOX,
+
+    /**
+     * Follow Paragraph setting,
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    FOLLOW_PARAGRAPH,
   }
 
   /**
@@ -1637,6 +1732,22 @@ declare namespace text {
      * @since 12
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
+
+    /**
+     * Synchronously updates the text color of the typography.
+     * @param { common2D.Color } color - Color of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    updateColor(color: common2D.Color): void;
+
+    /**
+     * Synchronously updates text decoration.
+     * @param { Decoration } decoration - Decoration of text.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    updateDecoration(decoration: Decoration): void;
   }
 
   /**
@@ -2216,6 +2327,25 @@ declare namespace text {
      * @since 18
      */
     getImageBounds(): common2D.Rect;
+
+    /**
+     * Obtains the text direction of the run.
+     * @returns { TextDirection } Returns the text direction.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    getTextDirection(): TextDirection;
+
+    /**
+     * Gets the glyph width array within the range.
+     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
+     * the run.
+     * @returns { Array<common2D.Point> } Array holding the advance width and height of each glyph.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    getAdvances(range: Range): Array<common2D.Point>;
   }
 
   /**
@@ -2407,6 +2537,78 @@ declare namespace text {
      */
     location: number;
   }
+
+  /**
+   * Defines text rendering high contrast mode to enhance readability.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextHighContrast {
+    /**
+     * Follow system's high contrast settings for text rendering.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_FOLLOW_SYSTEM_HIGH_CONTRAST,
+    /**
+     * Disables high contrast rendering regardless of system settings.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_APP_DISABLE_HIGH_CONTRAST,
+    /**
+     * Enable high contrast rendering regardless of system settings.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    TEXT_APP_ENABLE_HIGH_CONTRAST,
+  }
+
+  /**
+   * Sets high contrast mode of text rendering.
+   * @param { TextHighContrast } action - High contrast mode.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  function setTextHighContrast(action: TextHighContrast): void;
+
+  /**
+   * Visual representations for undefined (.notdef) glyphs.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  enum TextUndefinedGlyphDisplay {
+    /**
+     * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
+     * which might be an empty box, blank space, or custom symbol.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    USE_DEFAULT,
+    /**
+     * Always replace undefined glyphs with explicit tofu blocks,
+     * overriding the font's default behavior. Useful for debugging missing characters
+     * or enforcing consistent missing symbol display.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     */
+    USE_TOFU,
+  }
+
+  /**
+   * Sets the glyph type to use when a character maps to the .notdef (undefined) glyph.
+   * affects all text rendered after this call.
+   * This configuration affects how the renderer displays characters that are not defined in the font:
+   * - The default behavior follows font's internal .notdef glyph design
+   * - Tofu blocks explicitly show missing characters as visible squares
+   * @param { TextUndefinedGlyphDisplay } noGlyphShow - The strategy for handling undefined glyphs.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   */
+  function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
 }
 
 export default text;

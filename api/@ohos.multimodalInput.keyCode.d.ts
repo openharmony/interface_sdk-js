@@ -19,14 +19,14 @@
  */
 
 /**
- * KeyCode
+ * The keyCode module provides keycode values for key devices, such as the keyboard, power key, camera key, and the like.
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9
  */
 /**
- * KeyCode
+ * The keyCode module provides keycode values for key devices, such as the keyboard, power key, camera key, and the like.
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -65,6 +65,14 @@ export declare enum KeyCode {
    * @since 9
    */
   KEYCODE_BACK = 2,
+
+  /**
+   * KEYCODE_HEADSETHOOK
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   */
+  KEYCODE_HEADSETHOOK = 6,
 
   /**
    * KEYCODE_SEARCH
@@ -645,7 +653,7 @@ export declare enum KeyCode {
   KEYCODE_SYM = 2051,
 
   /**
-   * KEYCODE_EXPLORER
+   * Explorer key, which is used to start the explorer application
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -653,7 +661,7 @@ export declare enum KeyCode {
   KEYCODE_EXPLORER = 2052,
 
   /**
-   * KEYCODE_ENVELOPE
+   * Email key, which is used to start the email application
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -677,7 +685,7 @@ export declare enum KeyCode {
   KEYCODE_DEL = 2055,
 
   /**
-   * KEYCODE_GRAVE
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -685,7 +693,7 @@ export declare enum KeyCode {
   KEYCODE_GRAVE = 2056,
 
   /**
-   * KEYCODE_MINUS
+   * Key -
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -693,7 +701,7 @@ export declare enum KeyCode {
   KEYCODE_MINUS = 2057,
 
   /**
-   * KEYCODE_EQUALS
+   * Key =
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -701,7 +709,7 @@ export declare enum KeyCode {
   KEYCODE_EQUALS = 2058,
 
   /**
-   * KEYCODE_LEFT_BRACKET
+   * Key [
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -709,7 +717,7 @@ export declare enum KeyCode {
   KEYCODE_LEFT_BRACKET = 2059,
 
   /**
-   * KEYCODE_RIGHT_BRACKET
+   * Key ]
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -717,7 +725,7 @@ export declare enum KeyCode {
   KEYCODE_RIGHT_BRACKET = 2060,
 
   /**
-   * KEYCODE_BACKSLASH
+   * Key \
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -725,7 +733,7 @@ export declare enum KeyCode {
   KEYCODE_BACKSLASH = 2061,
 
   /**
-   * KEYCODE_SEMICOLON
+   * Key ;
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -733,7 +741,7 @@ export declare enum KeyCode {
   KEYCODE_SEMICOLON = 2062,
 
   /**
-   * KEYCODE_APOSTROPHE
+   * Key '
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -741,7 +749,7 @@ export declare enum KeyCode {
   KEYCODE_APOSTROPHE = 2063,
 
   /**
-   * KEYCODE_SLASH
+   * Key /
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -749,7 +757,7 @@ export declare enum KeyCode {
   KEYCODE_SLASH = 2064,
 
   /**
-   * KEYCODE_AT
+   * Key @
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -757,7 +765,7 @@ export declare enum KeyCode {
   KEYCODE_AT = 2065,
 
   /**
-   * KEYCODE_PLUS
+   * Key +
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1059,7 +1067,7 @@ export declare enum KeyCode {
   KEYCODE_F12 = 2101,
 
   /**
-   * KEYCODE_NUM_LOCK
+   * Number Lock key on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1067,7 +1075,7 @@ export declare enum KeyCode {
   KEYCODE_NUM_LOCK = 2102,
 
   /**
-   * KEYCODE_NUMPAD_0
+   * Key 0 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1075,7 +1083,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_0 = 2103,
 
   /**
-   * KEYCODE_NUMPAD_1
+   * Key 1 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1083,7 +1091,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_1 = 2104,
 
   /**
-   * KEYCODE_NUMPAD_2
+   * Key 2 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1091,7 +1099,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_2 = 2105,
 
   /**
-   * KEYCODE_NUMPAD_3
+   * Key 3 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1099,7 +1107,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_3 = 2106,
 
   /**
-   * KEYCODE_NUMPAD_4
+   * Key 4 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1107,7 +1115,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_4 = 2107,
 
   /**
-   * KEYCODE_NUMPAD_5
+   * Key 5 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1115,7 +1123,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_5 = 2108,
 
   /**
-   * KEYCODE_NUMPAD_6
+   * Key 6 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1123,7 +1131,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_6 = 2109,
 
   /**
-   * KEYCODE_NUMPAD_7
+   * Key 7 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1131,7 +1139,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_7 = 2110,
 
   /**
-   * KEYCODE_NUMPAD_8
+   * Key 8 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1139,7 +1147,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_8 = 2111,
 
   /**
-   * KEYCODE_NUMPAD_9
+   * Key 9 on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1147,7 +1155,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_9 = 2112,
 
   /**
-   * KEYCODE_NUMPAD_DIVIDE
+   * Key / on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1155,7 +1163,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_DIVIDE = 2113,
 
   /**
-   * KEYCODE_NUMPAD_MULTIPLY
+   * Key ) on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1163,7 +1171,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_MULTIPLY = 2114,
 
   /**
-   * KEYCODE_NUMPAD_SUBTRACT
+   * Key - on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1171,7 +1179,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_SUBTRACT = 2115,
 
   /**
-   * KEYCODE_NUMPAD_ADD
+   * Key + on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1179,7 +1187,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_ADD = 2116,
 
   /**
-   * KEYCODE_NUMPAD_DOT
+   * Key . on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1187,7 +1195,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_DOT = 2117,
 
   /**
-   * KEYCODE_NUMPAD_COMMA
+   * Key , on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1195,7 +1203,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_COMMA = 2118,
 
   /**
-   * KEYCODE_NUMPAD_ENTER
+   * Enter key on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1203,7 +1211,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_ENTER = 2119,
 
   /**
-   * KEYCODE_NUMPAD_EQUALS
+   * Key = on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1211,7 +1219,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_EQUALS = 2120,
 
   /**
-   * KEYCODE_NUMPAD_LEFT_PAREN
+   * Key ( on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1219,7 +1227,7 @@ export declare enum KeyCode {
   KEYCODE_NUMPAD_LEFT_PAREN = 2121,
 
   /**
-   * KEYCODE_NUMPAD_RIGHT_PAREN
+   * Key ) on numeric keypad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -1235,7 +1243,7 @@ export declare enum KeyCode {
   KEYCODE_VIRTUAL_MULTITASK = 2210,
 
   /**
-   * KEYCODE_BUTTON_A
+   * Joystick key A
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1243,7 +1251,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_A = 2301,
 
   /**
-   * KEYCODE_BUTTON_B
+   * Joystick key B
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1251,7 +1259,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_B = 2302,
 
   /**
-   * KEYCODE_BUTTON_X
+   * Joystick key X
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1259,7 +1267,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_X = 2304,
 
   /**
-   * KEYCODE_BUTTON_Y
+   * Joystick key Y
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1267,7 +1275,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_Y = 2305,
 
   /**
-   * KEYCODE_BUTTON_L1
+   * Joystick key L1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1275,7 +1283,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_L1 = 2307,
 
   /**
-   * KEYCODE_BUTTON_R1
+   * Joystick key R1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1283,7 +1291,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_R1 = 2308,
 
   /**
-   * KEYCODE_BUTTON_L2
+   * Joystick key L2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1291,7 +1299,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_L2 = 2309,
 
   /**
-   * KEYCODE_BUTTON_R2
+   * Joystick key R2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1299,7 +1307,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_R2 = 2310,
 
   /**
-   * KEYCODE_BUTTON_SELECT
+   * Joystick key Select
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1307,7 +1315,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_SELECT = 2311,
 
   /**
-   * KEYCODE_BUTTON_START
+   * Joystick key Start
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1315,7 +1323,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_START = 2312,
 
   /**
-   * KEYCODE_BUTTON_MODE
+   * Joystick key Mode
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1323,7 +1331,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_MODE = 2313,
 
   /**
-   * KEYCODE_BUTTON_THUMBL
+   *Joystick key THUMBL
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1331,7 +1339,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTON_THUMBL = 2314,
 
   /**
-   * KEYCODE_BUTTON_THUMBR
+   * Joystick key THUMBR
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 15
@@ -1547,7 +1555,7 @@ export declare enum KeyCode {
   KEYCODE_HELP = 2625,
 
   /**
-   * KEYCODE_CALC
+   * Calc key, which is used to start the calculator application
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -2339,7 +2347,7 @@ export declare enum KeyCode {
   KEYCODE_BRIGHTNESS_MAX = 2725,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_PREV
+   * Assist_Previous key, used to view historical inputs
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -2347,7 +2355,7 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_PREV = 2726,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_NEXT
+   * Assist_Next key, used to view predictive inputs
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -2355,7 +2363,7 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_NEXT = 2727,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_PREVGROUP
+   * Assist_Previous_Group key, used to switch to the previous input method in the input group
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -2363,7 +2371,7 @@ export declare enum KeyCode {
   KEYCODE_KBDINPUTASSIST_PREVGROUP = 2728,
 
   /**
-   * KEYCODE_KBDINPUTASSIST_NEXTGROUP
+   * Assist_Next_Group key, used to switch to the next input method in the input group
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
@@ -2864,5 +2872,13 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 18
    */
-  KEYCODE_DAGGER_LONG_PRESS = 3213
+  KEYCODE_DAGGER_LONG_PRESS = 3213,
+
+  /**
+   * KEYCODE_DIV
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   */
+  KEYCODE_DIV = 3220
 }

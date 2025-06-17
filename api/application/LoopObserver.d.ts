@@ -33,7 +33,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 export interface LoopObserver {
   /**
@@ -51,7 +51,7 @@ export interface LoopObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   onLoopTimeOut?(timeout: number): void;
 }

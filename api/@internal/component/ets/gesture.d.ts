@@ -817,6 +817,83 @@ declare interface GestureInfo {
 }
 
 /**
+ * The location info used in gesture event.
+ *
+ * @interface EventLocationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface EventLocationInfo {
+  /**
+   * X-axis coordinates relative to the upper left corner of the component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  x: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the component.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  y: number;
+
+  /**
+   * X-axis coordinates relative to the upper left corner of the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  windowX: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  windowY: number;
+
+  /**
+   * X-axis coordinates relative to the upper left corner of the screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  displayX: number;
+
+  /**
+   * Y-axis coordinates relative to the upper left corner of the screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  displayY: number;
+}
+
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -1076,6 +1153,18 @@ interface BaseGestureEvent extends BaseEvent {
    * @since 12
    */
   fingerList: FingerInfo[];
+
+  /**
+   * All finger information when the gesture event is triggered, the return value
+   * is one array, and the array length is just the total fingers count. 
+   * 
+   * @type { ?FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fingerInfos?: FingerInfo[];
 }
 
 /**
@@ -1098,6 +1187,16 @@ interface BaseGestureEvent extends BaseEvent {
  * @since 12
  */
 interface TapGestureEvent extends BaseGestureEvent {
+  /**
+   * The tap location info used in tap gesture.
+   * 
+   * @type {?EventLocationInfo}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  tapLocation?: EventLocationInfo;
 }
 
 /**
@@ -1528,6 +1627,18 @@ interface GestureEvent extends BaseEvent {
   fingerList: FingerInfo[];
 
   /**
+   * All finger information when the gesture event is triggered, the return value
+   * is one array, and the array length is just the total fingers count. 
+   * 
+   * @type { ?FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fingerInfos?: FingerInfo[];
+
+  /**
    * Gesture event offset X.
    * The unit is vp.
    * Used in PanGesture.
@@ -1798,6 +1909,17 @@ interface GestureEvent extends BaseEvent {
    * @since 11
    */
   velocity: number;
+
+  /**
+   * The tap location info used in tap gesture.
+   * 
+   * @type {?EventLocationInfo}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  tapLocation?: EventLocationInfo;
 }
 
 /**
@@ -4205,6 +4327,36 @@ declare class EventTargetInfo {
 }
 
 /**
+ * Defines the touch recognizer.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class TouchRecognizer {
+    /**
+     * Returns the event target information of the component.
+     *
+     * @returns { EventTargetInfo } - the event target information of the component.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getEventTargetInfo(): EventTargetInfo;
+    /**
+     * Dispatch touch cancel to the touch recognizer.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    cancelTouch(): void;
+}
+
+/**
  * Defines the gesture recognizer.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4312,6 +4464,21 @@ declare class GestureRecognizer {
    * @since 18
    */
   isFingerCountLimit(): boolean;
+  /**
+   * Prevent the gesture recognizer from participating in this gesture recognition until all fingers are lifted.
+   * If the system has already made out the result of this gesture recognizer (success and failure), calling this
+   * function will have no any effect.
+   *
+   * [Note]: This method is different from GestureRecognizer.setEnabled(isEnabled: boolean), setEnabled does not
+   * prevent a gesture recognizer object from participating in the gesture recognition process, but only affects
+   * whether the gesture's corresponding callback function is executed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  preventBegin(): void;
 }
 
 /**

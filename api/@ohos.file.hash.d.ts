@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,9 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.1 */
 import stream from './@ohos.util.stream';
+/*** endif */
 
 /**
  * Hash
@@ -35,6 +37,16 @@ import stream from './@ohos.util.stream';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
  * @since 11
+ */
+/**
+ * Hash
+ *
+ * @namespace hash
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @crossplatform
+ * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace hash {
   /**
@@ -59,6 +71,20 @@ declare namespace hash {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @returns { Promise<string> } return Promise
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
    */
   function hash(path: string, algorithm: string): Promise<string>;
 
@@ -85,14 +111,36 @@ declare namespace hash {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Hash file.
+   *
+   * @param { string } path - path.
+   * @param { string } algorithm - algorithm md5 sha1 sha256.
+   * @param { AsyncCallback<string> } [callback] - callback.
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
 
   /**
    * Hash Stream.
-   * 
+   *
    * @extends stream.Transform
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Hash Stream.
+   *
+   * @extends stream.Transform
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   class HashStream extends stream.Transform {
     /**
@@ -103,6 +151,16 @@ declare namespace hash {
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 12
+     */
+    /**
+     * Calculate the digest of all of the data passed to be hashed.
+     *
+     * @returns { string } Returns the hexadecimal data string of the hash result.
+     * @throws { BusinessError } 401 - Parameter error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @crossplatform
+     * @since 20
      */
     digest(): string;
 
@@ -115,10 +173,20 @@ declare namespace hash {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 12
      */
+    /**
+     * Update the hash content with the given data.
+     *
+     * @param { ArrayBuffer } data - updated data.
+     * @throws { BusinessError } 401 - Parameter error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @crossplatform
+     * @since 20
+     */
     update(data: ArrayBuffer): void;
   }
 
-/**
+ /**
   * Create file read stream.
   *
   * @param { string } algorithm - hash algorithm.
@@ -128,6 +196,18 @@ declare namespace hash {
   * @throws { BusinessError } 13900042 - Unknown error 
   * @syscap SystemCapability.FileManagement.File.FileIO
   * @since 12
+  */
+ /**
+  * Create file read stream.
+  *
+  * @param { string } algorithm - hash algorithm.
+  * @returns { HashStream } Returns the ReadStream object which has been created.
+  * @throws { BusinessError } 401 - Parameter error
+  * @throws { BusinessError } 13900020 - Invalid argument
+  * @throws { BusinessError } 13900042 - Unknown error 
+  * @syscap SystemCapability.FileManagement.File.FileIO
+  * @crossplatform
+  * @since 20
   */
   function createHash(algorithm: string): HashStream;
 }

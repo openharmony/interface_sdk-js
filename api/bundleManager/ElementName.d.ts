@@ -35,7 +35,8 @@
  * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ElementName {
   /**
@@ -51,7 +52,8 @@ export interface ElementName {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   deviceId?: string;
 
@@ -66,7 +68,8 @@ export interface ElementName {
    * @default Indicates bundle name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -81,7 +84,8 @@ export interface ElementName {
    * @default Indicates module name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName?: string;
 
@@ -98,7 +102,8 @@ export interface ElementName {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
@@ -115,7 +120,8 @@ export interface ElementName {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uri?: string;
 
@@ -132,7 +138,8 @@ export interface ElementName {
    * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shortName?: string;
 }

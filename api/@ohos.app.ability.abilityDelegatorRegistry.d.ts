@@ -21,8 +21,10 @@
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
+/*** if arkts 1.1 */
 import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
+/*** endif */
 
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
@@ -49,7 +51,8 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace abilityDelegatorRegistry {
   /**
@@ -74,7 +77,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -100,7 +104,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getArguments(): AbilityDelegatorArgs;
 
@@ -265,7 +270,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityDelegator = _AbilityDelegator;
 
@@ -289,7 +295,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
 
@@ -316,7 +323,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AbilityMonitor = _AbilityMonitor;
 

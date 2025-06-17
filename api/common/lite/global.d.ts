@@ -109,16 +109,24 @@ export declare const LITE: string;
 export declare function canIUse(syscap: string): boolean;
 
 /**
- * Defining apiversion function.
+ * determine whether the current operating system version is greater than or equal to the given value.
  *
- * @param { string } apiversion
- * @returns { boolean }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 19
+ * @param { string } apiVersion - Only major version can be passed in, such as "20";
+ *   major and minor version can be passed in, such as "20.1"; major minor and patch
+ *   version can be passed in, such as "20.1.2"
+ * @returns { boolean } true - operating system version is greater than or equal to the given value
+ *                      false - operating system version is less than the given value or invalid api version
+ * @syscap SystemCapability.Startup.SystemInfo.Lite
+ * @since 20
+ * @example
+ * if (isApiVersionGreaterOrEqual("20.1")) {
+ *    // Use 20.1 APIs.
+ * } else {
+ *    // Alternative code for earlier versions.
+ * }
+ *
  */
-export declare function isApiVersionGreaterOrEqual(apiversion: string): boolean;
+export declare function isApiVersionGreaterOrEqual(apiVersion: string): boolean;
 
 /**
  * Obtain the objects exposed in app.js

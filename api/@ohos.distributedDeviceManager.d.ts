@@ -1185,6 +1185,9 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600106 - Failed to get data from the cloud.
+     * @throws { BusinessError } 11600107 - A login account is required.
+     * @throws { BusinessError } 11600108 - The device name contains non-compliant content.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18
@@ -1205,7 +1208,9 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600106 - Failed to get data from the cloud.
      * @throws { BusinessError } 11600107 - A login account is required.
+     * @throws { BusinessError } 11600108 - The device name contains non-compliant content.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
      * @since 18

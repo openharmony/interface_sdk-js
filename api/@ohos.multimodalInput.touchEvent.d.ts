@@ -416,4 +416,13 @@ export declare interface TouchEvent extends InputEvent {
    * @since 19
    */
   fixedMode?: FixedMode;
+
+  /**
+   * Indicates whether the touch event is an inject event.
+   * @type { ?boolean }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  isInject?: boolean;
 }

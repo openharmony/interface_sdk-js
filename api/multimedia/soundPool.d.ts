@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,18 +18,89 @@
  * @kit MediaKit
  */
 
-import type { ErrorCallback, AsyncCallback, Callback } from '../@ohos.base';
+import type { ErrorCallback, AsyncCallback, Callback, BusinessError } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
+import media from '../@ohos.multimedia.media';
+import resourceManager from '../@ohos.resourceManager';
 
 /**
- * Interface for play parameters.
+ * Enumerates the error type.
+ * @enum { number }
+ * @syscap SystemCapability.Multimedia.Media.SoundPool
+ * @since 20
+ */
+export enum ErrorType {
+  /**
+   * Load error.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  LOAD_ERROR = 1,
+
+  /**
+   * Play error.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  PLAY_ERROR = 2
+}
+
+/**
+ * Interface for error info.
+ * @typedef { ErrorInfo<T extends Error = BusinessError> }
+ * @syscap SystemCapability.Multimedia.Media.SoundPool
+ * @since 20
+ */
+export interface ErrorInfo<T extends Error = BusinessError> {
+  /**
+   * Error code.
+   * @type { T }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  errorCode: T;
+  /**
+   * Error type.
+   * @type { ?ErrorType }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  errorType?: ErrorType;
+  /**
+   * Sound id, returned from SoundPool.load function.
+   * @type { ?number }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  soundId?: number;
+  /**
+   * Stream id, returned from SoundPool.play function.
+   * @type { ?number }
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  streamId?: number;
+}
+
+/**
+ * Describes the playback parameters of the sound pool.
+ *
+ * These parameters are used to control the playback volume, number of loops, and priority.
+ *
  * @typedef PlayParameters
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10
  */
 export interface PlayParameters {
   /**
-   * loop mode (0 = no loop, -1 = loop forever)
+   * Number of loops.
+   *
+   * If this parameter is set to a value greater than or equal to 0, the number of times the content
+   * is actually played is the value of **loop** plus 1.
+   *
+   * If this parameter is set to a value less than 0, the content is played repeatedly.
+   *
+   * The default value is **0**, indicating that the content is played only once.
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -37,7 +108,7 @@ export interface PlayParameters {
    */
   loop?: number;
   /**
-   * playback rate
+   * Playback rate. For details, see [AudioRendererRate]{@link #audio.AudioRendererRate}. Default value: **0**.
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -45,7 +116,7 @@ export interface PlayParameters {
    */
   rate?: number;
   /**
-   * left volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * Volume of the left channel. The value ranges from 0.0 to 1.0. Default value: **1.0**.
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -53,7 +124,8 @@ export interface PlayParameters {
    */
   leftVolume?: number;
   /**
-   * right volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+   * Volume of the right channel. The value ranges from 0.0 to 1.0. (Currently, the volume cannot be set separately
+   * for the left and right channels. The volume set for the left channel is used.) Default value: **1.0**.
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -61,7 +133,8 @@ export interface PlayParameters {
    */
   rightVolume?: number;
   /**
-   * stream priority (0 = lowest priority)
+   * Playback priority. The value **0** means the lowest priority. A larger value indicates a higher priority.
+   * The value is an integer greater than or equal to 0. Default value: **0**.
    *
    * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -69,7 +142,11 @@ export interface PlayParameters {
    */
   priority?: number;
   /**
-   * Flag indicating that the sound effect and audio can be played in parallel.
+   * Whether the sound can be played in parallel with other active audio streams. The value **true** means that the
+   * sound can be played in parallel with other active audio streams, without preempting the audio focus,
+   * and **false** means the opposite. The default value is **false**.
+   *
+   * This is a system API.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -80,18 +157,42 @@ export interface PlayParameters {
 }
 
 /**
- * Interface for soundPool instance. Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
- * to create an SoundPool instance.
+ * Implements a sound pool that provides APIs for loading, unloading, playing, and stopping playing system sounds,
+ * setting the volume, and setting the number of loops. Before using these APIs, you must call
+ * [createSoundPool]{@link #media.createSoundPool} to create a **SoundPool** instance.
+ *
+ * **NOTE**
+ *
+ * When using the **SoundPool** instance, you are advised to register the following callbacks to proactively obtain
+ * status changes:
+ * - on('loadComplete'): listens for the event indicating that the resource loading is finished.
+ * - on('playFinishedWithStreamId'): listens for the event indicating that the playback is finished and
+ * returns the stream ID of the audio that finishes playing.
+ * - on('playFinished'): listens for the event indicating that the playback is finished.
+ * - on('error'): listens for error events.
+ *
  * @typedef SoundPool
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10
  */
 export interface SoundPool {
   /**
-   * Load the sound from the specified path.
+   * Loads a sound. This API uses an asynchronous callback to obtain the sound ID.
+   * The input parameter **uri** is a string starting with fd://, which is generated based on the file descriptor (FD)
+   * obtained. This API cannot be used to load resources in the **rawfile** directory.
+   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
+   * load(fd: number, offset: number, length: number): Promise<number>.
    *
-   * @param {string} uri The path to the audio file
-   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * **NOTE**
+   *
+   * After the resource handle (in the form of an FD) or path description (in the form of a URI) is transferred to
+   * the AVPlayer, do not use the resource handle or path description in read or write operations,
+   * including but not limited to transferring it to multiple AVPlayers. Competition occurs when multiple AVPlayers use
+   * the same resource handle or path description to read and write files at the same time, resulting in playback errors.
+   *
+   * @param {string} uri - URI of the audio file to load. Generally, the URI starts with fd://.
+   * @param {AsyncCallback<number>} callback - Callback used to return the sound ID. A valid value must be
+   * greater than 0.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -100,10 +201,22 @@ export interface SoundPool {
    */
   load(uri: string, callback: AsyncCallback<number>): void;
   /**
-   * Load the sound from the specified path.
+   * Loads a sound. This API uses a promise to obtain the sound ID. The input parameter **uri** is a starting with
+   * fd://, which is generated based on the FD obtained. This API cannot be used to load resources in the **rawfile**
+   * directory.
+   * Instead, use load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void or
+   * load(fd: number, offset: number, length: number): Promise<number>.
    *
-   * @param {string} uri The path to the audio file
-   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
+   * **NOTE**
+   *
+   * After the resource handle (in the form of an FD) or path description (in the form of a URI)
+   * is transferred to the AVPlayer, do not use the resource handle or path description in read or write operations,
+   * including but not limited to transferring it to multiple AVPlayers. Competition occurs when multiple AVPlayers
+   * use the same resource handle or path description to read and write files at the same time,
+   * resulting in playback errors.
+   *
+   * @param {string} uri - URI of the audio file to load. Generally, the URI starts with fd://.
+   * @returns {Promise<number>} Promise used to return the sound ID. A valid value must be greater than 0.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -112,12 +225,24 @@ export interface SoundPool {
    */
   load(uri: string): Promise<number>;
   /**
-   * Load the sound from a FileDescriptor.
+   * Loads a sound. This API uses an asynchronous callback to obtain the sound ID. The input parameter **fd** can be
+   * manually input or automatically obtained by reading the embedded resource of the application.
    *
-   * @param {number} fd A FileDescriptor object
-   * @param {number} offset Offset to the start of the sound
-   * @param {number} length Length of the sound
-   * @param {AsyncCallback<number>} callback Callback a sound ID. This value can be used to play or unload the sound.
+   * **NOTE**
+   *
+   * After the resource handle (in the form of an FD) or path description (in the form of a URI) is transferred to
+   * the AVPlayer, do not use the resource handle or path description in read or write operations, including but not
+   * limited to transferring it to multiple AVPlayers. Competition occurs when multiple AVPlayers use the same resource
+   * handle or path description to read and write files at the same time, resulting in playback errors.
+   *
+   * @param {number} fd - Resource handle, which is obtained by calling
+   * [resourceManager.getRawFd]{@link resourceManager.resourceManager.getRawFile}.
+   * @param {number} offset - Resource offset, which needs to be entered based on the preset resource information.
+   * An invalid value causes a failure to parse audio and video resources.
+   * @param {number} length - Resource length, which needs to be entered based on the preset resource information.
+   * An invalid value causes a failure to parse audio and video resources.
+   * @param {AsyncCallback<number>} callback - Callback used to return the sound ID.
+   * A valid value must be greater than 0.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -126,12 +251,23 @@ export interface SoundPool {
    */
   load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void;
   /**
-   * Load the sound from a FileDescriptor.
+   * Loads a sound. This API uses a promise to obtain the sound ID. The input parameter **fd** can be manually input or
+   * automatically obtained by reading the embedded resource of the application.
    *
-   * @param {number} fd A FileDescriptor object
-   * @param {number} offset Offset to the start of the sound
-   * @param {number} length Length of the sound
-   * @returns {Promise<number>} Promise a sound ID. This value can be used to play or unload the sound.
+   * **NOTE**
+   *
+   * After the resource handle (in the form of an FD) or path description (in the form of a URI) is transferred to the
+   * AVPlayer, do not use the resource handle or path description in read or write operations, including but not
+   * limited to transferring it to multiple AVPlayers. Competition occurs when multiple AVPlayers use the same resource
+   * handle or path description to read and write files at the same time, resulting in playback errors.
+   *
+   * @param {number} fd - Resource handle, which is obtained by calling
+   * [resourceManager.getRawFd]{@link resourceManager.resourceManager.getRawFile}.
+   * @param {number} offset - Resource offset, which needs to be entered based on the preset resource information.
+   * An invalid value causes a failure to parse audio and video resources.
+   * @param {number} length - Resource length, which needs to be entered based on the preset resource information.
+   * An invalid value causes a failure to parse audio and video resources.
+   * @returns {Promise<number>} Promise used to return the sound ID. A valid value must be greater than 0.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -140,13 +276,14 @@ export interface SoundPool {
    */
   load(fd: number, offset: number, length: number): Promise<number>;
   /**
-   * Play a sound from a sound ID.
+   * Plays a sound. This API uses an asynchronous callback to obtain the audio stream ID.
    *
-   * @param {number} soundID Returned by the load()
-   * @param {PlayParameters} params Player parameters
-   * @param {AsyncCallback<number>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
+   * @param {number} soundID - Sound ID, which is obtained by calling **load()**.
+   * @param {PlayParameters} params - Playback parameters.
+   * @param {AsyncCallback<number>} callback - Callback used to return the audio stream ID.
+   * A valid value must be greater than 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -154,12 +291,13 @@ export interface SoundPool {
    */
   play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void;
   /**
-   * Play a sound from a sound ID.
+   * Plays a sound. This API uses an asynchronous callback to obtain the audio stream ID.
    *
-   * @param {number} soundID Returned by the load()
-   * @param {AsyncCallback<number>} callback Callback used to return a non-zero streamID if successful, zero if it fails.
+   * @param {number} soundID - Sound ID, which is obtained by calling **load()**.
+   * @param {AsyncCallback<number>} callback - Callback used to return the audio stream ID.
+   * A valid value must be greater than 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -167,13 +305,13 @@ export interface SoundPool {
    */
   play(soundID: number, callback: AsyncCallback<number>): void;
   /**
-   * Play a sound from a sound ID.
+   * Plays a sound. This API uses a promise to obtain the audio stream ID.
    *
-   * @param {number} soundID Returned by the load()
-   * @param {PlayParameters} [params] Player parameters
-   * @returns {Promise<number>} Promise used to return a non-zero streamID if successful, zero if it fails.
+   * @param {number} soundID - Sound ID, which is obtained by calling **load()**.
+   * @param {PlayParameters} params - Playback parameters.
+   * @returns {Promise<number>} Promise used to return the audio stream ID. A valid value must be greater than 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -181,12 +319,12 @@ export interface SoundPool {
    */
   play(soundID: number, params?: PlayParameters): Promise<number>;
   /**
-   * Stop a stream which is playing.
+   * Stops playing a sound. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -194,12 +332,12 @@ export interface SoundPool {
    */
   stop(streamID: number, callback: AsyncCallback<void>): void;
   /**
-   * Stop a stream which is playing.
+   * Stops playing a sound. This API uses a promise to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -207,13 +345,18 @@ export interface SoundPool {
    */
   stop(streamID: number): Promise<void>;
   /**
-   * Set loop mode.
+   * Sets the loop mode for an audio stream. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} loop Loop mode (0 = no loop, -1 = loop forever)
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} loop - Number of loops.
+   *
+   * If this parameter is set to a value greater than or equal to 0, the number of times the content is actually
+   * played is the value of **loop** plus 1.
+   *
+   * If this parameter is set to a value less than 0, the content is played repeatedly.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -221,13 +364,18 @@ export interface SoundPool {
    */
   setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void;
   /**
-   * Set loop mode.
+   * Sets the loop mode for an audio stream. This API uses a promise to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} loop Loop mode (0 = no loop, -1 = loop forever)
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} loop - Number of loops.
+   *
+   * If this parameter is set to a value greater than or equal to 0, the number of times the content is actually
+   * played is the value of **loop** plus 1.
+   *
+   * If this parameter is set to a value less than 0, the content is played repeatedly.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -235,13 +383,14 @@ export interface SoundPool {
    */
   setLoop(streamID: number, loop: number): Promise<void>;
   /**
-   * Set stream priority.
+   * Sets the priority for an audio stream. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} priority Stream priority (0 = lowest priority)
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} priority - Priority. The value **0** means the lowest priority. The value is an integer
+   * greater than or equal to 0.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -249,13 +398,14 @@ export interface SoundPool {
    */
   setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void;
   /**
-   * Set stream priority.
+   * Sets the priority for an audio stream. This API uses a promise to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} priority Stream priority (0 = lowest priority)
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} priority - Priority. The value **0** means the lowest priority. The value is an integer
+   * greater than or equal to 0.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -263,13 +413,13 @@ export interface SoundPool {
    */
   setPriority(streamID: number, priority: number): Promise<void>;
   /**
-   * Set playback rate.
+   * Sets the playback rate for an audio stream. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {audio.AudioRendererRate} rate Playback rate
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {audio.AudioRendererRate} rate - Playback rate.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -277,13 +427,13 @@ export interface SoundPool {
    */
   setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
   /**
-   * Set playback rate.
+   * Sets the playback rate for an audio stream. This API uses a promise to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {audio.AudioRendererRate} rate Playback rate
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {audio.AudioRendererRate} rate - Playback rate.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -291,14 +441,15 @@ export interface SoundPool {
    */
   setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>;
   /**
-   * Set stream volume.
+   * Sets the volume for an audio stream. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} leftVolume - Volume of the left channel. The value ranges from 0.0 to 1.0.
+   * @param {number} rightVolume - Volume of the right channel. The value ranges from 0.0 to 1.0. Currently,
+   * setting the volume for the right channel does not take effect. The volume set for the left channel is used.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -306,14 +457,15 @@ export interface SoundPool {
    */
   setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
   /**
-   * Set stream volume.
+   * Sets the volume for an audio stream. This API uses a promise to return the result.
    *
-   * @param {number} streamID Returned by the play()
-   * @param {number} leftVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @param {number} rightVolume Volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} streamID - Audio stream ID, which is obtained by calling **play()**.
+   * @param {number} leftVolume - Volume of the left channel. The value ranges from 0.0 to 1.0.
+   * @param {number} rightVolume - Volume of the right channel. The value ranges from 0.0 to 1.0. Currently,
+   * setting the volume for the right channel does not take effect. The volume set for the left channel is used.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
+   * 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -321,10 +473,10 @@ export interface SoundPool {
    */
   setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>;
   /**
-   * Unload a sound from a sound ID.
+   * Unloads a sound. This API uses an asynchronous callback to return the result.
    *
-   * @param {number} soundID Returned by the load()
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {number} soundID - Sound ID, which is obtained by calling **load()**.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400103 - I/O error. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -333,10 +485,10 @@ export interface SoundPool {
    */
   unload(soundID: number, callback: AsyncCallback<void>): void;
   /**
-   * Unload a sound from a sound ID.
+   * Unloads a sound. This API uses a promise to return the result.
    *
-   * @param {number} soundID Returned by the load()
-   * @returns {Promise<void>} Promise used to return the result.
+   * @param {number} soundID - Sound ID, which is obtained by calling **load()**.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400103 - I/O error. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -345,93 +497,122 @@ export interface SoundPool {
    */
   unload(soundID: number): Promise<void>;
   /**
-   * Releases the soundPool. This method uses an asynchronous callback to return the result.
+   * Releases this **SoundPool** instance. This API uses an asynchronous callback to return the result.
    *
-   * @param {AsyncCallback<void>} callback Callback used to return the result.
+   * @param {AsyncCallback<void>} callback - Callback used to return the result.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   release(callback: AsyncCallback<void>): void;
   /**
-   * Releases the soundPool. This method uses a promise to return the result.
+   * Releases this **SoundPool** instance. This API uses a promise to return the result.
    *
-   * @returns {Promise<void>} Promise used to return the result.
+   * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   release(): Promise<void>;
   /**
-   * Register listens for load result event.
+   * Subscribes to events indicating that a sound finishes loading.
    *
-   * @param {'loadComplete'} type Type of the play finish event to listen for.
-   * @param {Callback<number>} callback Callback used to listen for load result event
+   * @param {'loadComplete'} type - Event type, which is **'loadComplete'** in this case.
+   * This event is triggered when a sound is loaded.
+   * @param {Callback<number>} callback - ID of the sound that has been loaded.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   on(type: 'loadComplete', callback: Callback<number>): void;
   /**
-   * Cancel Listens for load result event.
+   * Unsubscribes from events indicating that a sound finishes loading.
    *
-   * @param {'loadComplete'} type Type of the play finish event to listen for.
+   * @param {'loadComplete'} type - Event type. The value is fixed at **'loadComplete'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   off(type: 'loadComplete'): void;
   /**
-   * Register the listener for playing finished event. The conditions which this event is called
-   * are the same as {@link #playFinished}, additionally, this event can callback the streamId of finishing playing.
-   * If this event and the {@link #playFinished} event are registered at the same time,
-   * only this event will be called, and the {@link #playFinished} event will not be called.
+   * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
+   * that finishes playing.
    *
-   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
-   * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
+   * When only on('playFinished') or on('playFinishedWithStreamId') is subscribed to, the registered
+   * callback is triggered when the audio playback is complete.
+   *
+   * When both on('playFinished') and on('playFinishedWithStreamId') are subscribed to,
+   * the 'playFinishedWithStreamId' callback is triggered, but the 'playFinished' callback is not triggered,
+   * when the audio playback is complete.
+   *
+   * @param {'playFinishedWithStreamId'} type - Event type, which is **'playFinishedWithStreamId'** in this case.
+   * This event is triggered when an audio stream finishes playing, and the stream ID is returned.
+   * @param {Callback<number>} callback - Callback used to return the result. Stream ID of the audio that
+   * finishes playing.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 18
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
    /**
-    * Cancel listening for playing finished event.
+    * Unsubscribes from events indicating that a sound finishes playing.
     *
-    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
+    * @param {'playFinishedWithStreamId'} type - Event type. The value is fixed at **'playFinishedWithStreamId'**.
     * @syscap SystemCapability.Multimedia.Media.SoundPool
     * @since 18
     */
   off(type: 'playFinishedWithStreamId'): void;
   /**
-   * Register listens for play finish event.
+   * Subscribes to events indicating that a sound finishes playing.
    *
-   * @param {'playFinished'} type Type of the play finish event to listen for.
-   * @param {Callback<void>} callback Callback used to listen for the play finish
+   * @param {'playFinished'} type - Event type, which is **'playFinished'** in this case.
+   * This event is triggered when a sound finishes playing.
+   * @param {Callback<void>} callback - Callback used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   on(type: 'playFinished', callback: Callback<void>): void;
   /**
-   * Cancel Listens for play finish event.
+   * Unsubscribes from events indicating that a sound finishes playing.
    *
-   * @param {'playFinished'} type of the play finish event to listen for.
+   * @param {'playFinished'} type - Event type. The value is fixed at **'playFinished'**.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   off(type: 'playFinished'): void;
   /**
-   * Register listens for sound play error events.
+   * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
    *
-   * @param {'error'} type Type of the sound play error event to listen for.
-   * @param {ErrorCallback} callback Callback used to listen for sound play error events.
+   * @param {'error'} type - Event type, which is **'error'** in this case.
+   * This event can be triggered by both user operations and the system.
+   * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   on(type: 'error', callback: ErrorCallback): void;
   /**
-   * Cancel Listens for sound play error events.
+   * Unsubscribes from error events of this **SoundPool** instance.
    *
-   * @param {'error'} type Type of the sound play error event to listen for.
+   * @param {'error'} type - Event type, which is **'error'** in this case.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
   off(type: 'error'): void;
+  /**
+   * Subscribes to errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
+
+  /**
+   * Unsubscribes from errorOccurred events of this **SoundPool** instance.
+   *
+   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
+   * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   */
+  off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
 }
 
