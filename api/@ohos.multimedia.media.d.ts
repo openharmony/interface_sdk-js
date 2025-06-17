@@ -8019,14 +8019,14 @@ declare namespace media {
     /**
      * File output uri, support a kind of uri now.
      * format like: "fd://" + "context".
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    url?: string;
+    url: string;
 
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
