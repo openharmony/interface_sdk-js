@@ -40,6 +40,7 @@ import * as _Skill from './bundleManager/Skill';
 import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
+import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
@@ -3210,7 +3211,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3229,7 +3231,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, userId: number, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3248,7 +3251,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
 
@@ -3267,7 +3271,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfoSync(bundleName: string, userId?: number): AppProvisionInfo;
 
@@ -3561,7 +3566,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700056 - The scheme of the specified link is not in the querySchemes.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function canOpenLink(link: string): boolean;
 
@@ -3574,7 +3580,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
 
@@ -3591,7 +3598,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700059 - The specified developerId is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
 
@@ -3623,7 +3631,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
 
@@ -3636,7 +3645,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSignatureInfo(uid: number): SignatureInfo;
 
@@ -3679,7 +3689,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle and clone apps are all disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
@@ -4182,6 +4193,17 @@ declare namespace bundleManager {
   export type AppProvisionInfo = _AppProvisionInfo.AppProvisionInfo;
 
   /**
+   * Obtains profile file information about a bundle.
+   *
+   * @typedef { _AppProvisionInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppProvisionInfo = _AppProvisionInfo;
+
+  /**
    * Obtains profile file validity about a bundle.
    *
    * @typedef { _AppProvisionInfo.Validity }
@@ -4190,6 +4212,17 @@ declare namespace bundleManager {
    * @since 10
    */
   export type Validity = _AppProvisionInfo.Validity;
+
+  /**
+   * Obtains profile file validity about a bundle.
+   *
+   * @typedef { _Validity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Validity = _Validity;
 
   /**
    * Obtains information about a recoverable preinstalled application.
