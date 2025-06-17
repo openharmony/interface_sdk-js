@@ -7441,6 +7441,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 13
      */
     FRAGMENT_METADATA = 2,
+
+    /**
+     * Metadata of a GIF image.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 20
+     */
+    GIF_METADATA = 5
   }
 
   /**
@@ -7542,6 +7549,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 13
      */
     HEIGHT = 'FragmentImageHeight'
+  }
+
+  /**
+   * Enumerates the properties available for the metadata of a GIF image.
+   * @enum { string }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  enum GifPropertyKey {
+    /**
+     * Delay of each frame in the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 20
+     */
+    GIF_DELAY_TIME = 'GifDelayTime',
+
+    /**
+     * Disposal type of each frame in the image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 20
+     */
+    GIF_DISPOSAL_TYPE = 'GifDisposalType'
   }
 
   /**
@@ -8758,6 +8789,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 13
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
+
+    /**
+     * Decodes an image at the specified index into a Picture object.
+     *
+     * @param { number } index Image index.
+     * @returns { Promise<Picture> } Promise that returns the Picture object.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700103 - Image too large.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, index is invalid.
+     * @throws { BusinessError } 7700301 - Decoding failed.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 20
+     */
+    createPictureAtIndex(index: number): Promise<Picture>;
 
     /**
      * Decodes to a SDR PixelMap, using a as wide gamut as possible.
