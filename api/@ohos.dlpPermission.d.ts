@@ -1481,12 +1481,14 @@ declare namespace dlpPermission {
    * Enumerates the action types when exceed expiry time.
    * @enum { number } Valuable
    * @syscap SystemCapability.Security.DataLossPrevention
+   * @systemapi Hide this for inner system use.
    * @since 20
    */
   export enum ActionType {
     /**
      * NOT_OPEN, which not allows DLP files to be opened exceed expire time.
      * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     NOT_OPEN = 0,
@@ -1494,6 +1496,7 @@ declare namespace dlpPermission {
     /**
      * OPEN, which allows DLP files to be opened exceed expire time.
      * @syscap SystemCapability.Security.DataLossPrevention
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     OPEN = 1
