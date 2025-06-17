@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle } from './common';
+import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode } from './enums';
 import { Dimension, Length, ResourceColor } from './units';
 import { CommonModifier } from "../CommonModifier";
@@ -537,10 +537,20 @@ declare interface TabsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   index?: number;
+  /**
+   * Set the index of the currently displayed tab.
+   *
+   * @type { ?(number | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  index?: number | Bindable<number>;
 
   /**
    * Set the Tabs controller.

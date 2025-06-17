@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { Callback, Optional, CommonMethod } from './common'
+import { Callback, Optional, CommonMethod, Bindable } from './common'
 import { CustomBuilder } from './builder'
 import { ResourceStr } from './units'
 import { ComponentContent } from '../ComponentContent'
@@ -223,10 +223,21 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   refreshing: boolean;
+  /**
+   * Whether the current component is being refreshed.
+   * This parameter supports $$ for two-way binding of variables.
+   *
+   * @type { boolean | Bindable<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  refreshing: boolean | Bindable<boolean>;
 
   /**
    * Distance to the top of the parent component from the component that
