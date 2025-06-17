@@ -10656,7 +10656,7 @@ declare namespace window {
    * @since arkts {'1.1':'20'}
    * @arkts 1.1
    */
-  export enum WindowStageLifecycleEventType {
+  enum WindowStageLifecycleEventType {
     /**
      * The window stage is running in the foreground.
      *
