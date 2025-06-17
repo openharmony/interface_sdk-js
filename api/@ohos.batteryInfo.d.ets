@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit BasicServicesKit
+ * @arkts 1.2
  */
 
 /**
@@ -79,8 +80,8 @@ declare namespace batteryInfo {
   /**
    * Battery state of charge (SoC) of the current device, in percent.
    *
+   * @returns { int } Returns the battery state of charge (SoC) of the current device, in percent.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @atomicservice
    * @since 20
    */
   function batterySOC(): int;
@@ -88,8 +89,8 @@ declare namespace batteryInfo {
   /**
    * Battery charging status of the current device.
    *
+   * @returns { BatteryChargeState } Returns the battery charging status of the current device.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
-   * @atomicservice
    * @since 20
    */
   function chargingStatus(): BatteryChargeState;
@@ -97,6 +98,7 @@ declare namespace batteryInfo {
   /**
    * Battery health state of the current device.
    *
+   * @returns { BatteryHealthState } Returns the battery health state of the current device.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -105,6 +107,7 @@ declare namespace batteryInfo {
   /**
    * Charger type of the current device.
    *
+   * @returns { BatteryPluggedType } Returns the charger type of the current device.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -113,6 +116,7 @@ declare namespace batteryInfo {
   /**
    * Battery voltage of the current device, in µV.
    *
+   * @returns { int } Returns the battery voltage of the current device, in µV.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -121,6 +125,7 @@ declare namespace batteryInfo {
   /**
    * Battery technology of the current device.
    *
+   * @returns { string } Returns the battery technology of the current device.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -129,6 +134,7 @@ declare namespace batteryInfo {
   /**
    * Battery temperature of the current device, in 0.1℃.
    *
+   * @returns { int } Returns the battery temperature of the current device, in 0.1℃.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -137,6 +143,7 @@ declare namespace batteryInfo {
   /**
    * Battery present state of the current device.
    *
+   * @returns { boolean } Returns true if the battery is present; returns false if the battery is absent.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -145,6 +152,7 @@ declare namespace batteryInfo {
   /**
    * Battery capacity level of the current device.
    *
+   * @returns { BatteryCapacityLevel } Returns the battery capacity level of the current device.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -153,6 +161,7 @@ declare namespace batteryInfo {
   /**
    * Estimated remaining time for the current device to be fully charged, in ms.
    *
+   * @returns { long } Returns the estimated remaining time for the current device to be fully charged, in ms.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 20
@@ -162,6 +171,7 @@ declare namespace batteryInfo {
   /**
    * Battery total energy of the current device, in mAh.
    *
+   * @returns { int } Returns the battery total energy of the current device, in mAh.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 20
@@ -171,6 +181,7 @@ declare namespace batteryInfo {
   /**
    * Battery immediate current of the current device, in mA.
    *
+   * @returns { int } Returns the battery immediate current of the current device, in mA.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 20
    */
@@ -179,6 +190,7 @@ declare namespace batteryInfo {
   /**
    * Battery remaining energy of the current device, in mAh.
    *
+   * @returns { int } Returns the battery remaining energy of the current device, in mAh.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 20
