@@ -32678,3 +32678,15 @@ export declare interface Bindable<T> {
  * @arkts 1.2
  */
 export declare function $$<T>(value: T): Bindable<T>;
+
+/**
+ * Apply style function on this CommonMethod.
+ *
+ * @param { T } this
+ * @param { CustomStyles } customStyles
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;
