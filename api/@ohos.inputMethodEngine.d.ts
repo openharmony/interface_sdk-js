@@ -2302,7 +2302,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
   }
