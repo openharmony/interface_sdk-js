@@ -7799,7 +7799,7 @@ declare namespace media {
      * @atomicservice
      * @since 18
      */
-    url?: string;
+    url: string;
 
     /**
      * Mode of creating recorder file, details see @FileGenerationMode.
