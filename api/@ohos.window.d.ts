@@ -1588,6 +1588,16 @@ declare namespace window {
     rect: Rect;
 
     /**
+     * Global display rect.
+     *
+     * @type { ?Rect } 
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     * @arkts 1.2
+     */
+    globalDisplayRect?: Rect;
+
+    /**
      * bundleName of window
      *
      * @type { string }
@@ -1795,6 +1805,16 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     drawableRect: Rect;
+
+    /**
+     * Global display rect.
+     *
+     * @type { ?Rect } 
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     * @arkts 1.2
+     */
+    globalDisplayRect?: Rect;
     
     /**
      * Window type
