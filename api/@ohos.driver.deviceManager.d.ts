@@ -26,7 +26,8 @@ import type rpc from './@ohos.rpc';
  *
  * @namespace deviceManager
  * @syscap SystemCapability.Driver.ExternalDevice
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace deviceManager {
   /**
@@ -38,7 +39,8 @@ declare namespace deviceManager {
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryDevices(busType?: number): Array<Readonly<Device>>;
 
@@ -169,7 +171,8 @@ declare namespace deviceManager {
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryDeviceInfo(deviceId?: number): Array<Readonly<DeviceInfo>>;
 
@@ -185,7 +188,8 @@ declare namespace deviceManager {
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
 
@@ -201,7 +205,8 @@ declare namespace deviceManager {
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300002 - Service not allowed.
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function bindDriverWithDeviceId(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
 
@@ -215,7 +220,8 @@ declare namespace deviceManager {
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300003 - There is no binding relationship.
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unbindDriverWithDeviceId(deviceId: number): Promise<number>;
 
@@ -224,14 +230,16 @@ declare namespace deviceManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum BusType {
     /**
      * USB device type
      *
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB = 1,
   }
@@ -241,7 +249,8 @@ declare namespace deviceManager {
    *
    * @typedef Device
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Device {
     /**
@@ -249,7 +258,8 @@ declare namespace deviceManager {
      *
      * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     busType: BusType;
 
@@ -258,7 +268,8 @@ declare namespace deviceManager {
      *
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: number;
 
@@ -267,7 +278,8 @@ declare namespace deviceManager {
      *
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description: string;
   }
@@ -278,7 +290,8 @@ declare namespace deviceManager {
    * @typedef USBDevice
    * @extends Device
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDevice extends Device {
     /**
@@ -286,7 +299,8 @@ declare namespace deviceManager {
      *
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorId: number;
 
@@ -295,7 +309,8 @@ declare namespace deviceManager {
      *
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productId: number;
   }
@@ -305,7 +320,8 @@ declare namespace deviceManager {
    *
    * @typedef RemoteDeviceDriver
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RemoteDeviceDriver {
     /**
@@ -313,7 +329,8 @@ declare namespace deviceManager {
      *
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: number;
 
@@ -322,7 +339,8 @@ declare namespace deviceManager {
      *
      * @type { rpc.IRemoteObject }
      * @syscap SystemCapability.Driver.ExternalDevice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     remote: rpc.IRemoteObject;
   }
@@ -333,7 +351,8 @@ declare namespace deviceManager {
    * @typedef USBInterfaceDesc
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBInterfaceDesc {
     /**
@@ -342,7 +361,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bInterfaceNumber: number;
 
@@ -352,7 +372,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bClass: number;
 
@@ -362,7 +383,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bSubClass: number;
 
@@ -372,7 +394,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bProtocol: number;
   }
@@ -384,7 +407,8 @@ declare namespace deviceManager {
    * @typedef DeviceInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceInfo {
     /**
@@ -393,7 +417,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: number;
 
@@ -403,7 +428,8 @@ declare namespace deviceManager {
      * @type { boolean }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isDriverMatched: boolean;
 
@@ -413,7 +439,8 @@ declare namespace deviceManager {
      * @type { ?string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     driverUid?: string;
   }
@@ -425,7 +452,8 @@ declare namespace deviceManager {
    * @extends DeviceInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDeviceInfo extends DeviceInfo {
     /**
@@ -434,7 +462,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorId: number;
 
@@ -444,7 +473,8 @@ declare namespace deviceManager {
      * @type { number }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productId: number;
 
@@ -454,7 +484,8 @@ declare namespace deviceManager {
      * @type { Array<Readonly<USBInterfaceDesc>> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interfaceDescList: Array<Readonly<USBInterfaceDesc>>;
   }
@@ -465,7 +496,8 @@ declare namespace deviceManager {
    * @typedef DriverInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DriverInfo {
     /**
@@ -474,7 +506,8 @@ declare namespace deviceManager {
      * @type { BusType }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     busType: BusType;
 
@@ -484,7 +517,8 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     driverUid: string;
 
@@ -494,7 +528,8 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     driverName: string;
 
@@ -504,7 +539,8 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     driverVersion: string;
 
@@ -514,7 +550,8 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     driverSize: string;
 
@@ -524,7 +561,8 @@ declare namespace deviceManager {
      * @type { string }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description: string;
   }
@@ -536,7 +574,8 @@ declare namespace deviceManager {
    * @extends DriverInfo
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDriverInfo extends DriverInfo {
     /**
@@ -545,7 +584,8 @@ declare namespace deviceManager {
      * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productIdList: Array<number>;
 
@@ -555,7 +595,8 @@ declare namespace deviceManager {
      * @type { Array<number> }
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vendorIdList: Array<number>;
   }
