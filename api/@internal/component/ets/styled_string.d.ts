@@ -1050,6 +1050,7 @@ declare class ParagraphStyle {
 
     /**
      * Get the paragraph spacing of the StyledString.
+     * The unit is vp.
      *
      * @type { ?number }
      * @readonly
