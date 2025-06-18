@@ -72,6 +72,16 @@ export interface Configuration {
   language?: string;
 
   /**
+   * Indicates the current locale.
+   *
+   * @type { ?Intl.Locale }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 20
+   */
+  locale?: Intl.Locale;
+
+  /**
    * Indicates the current colorMode of the application.
    *
    * @type { ?ConfigurationConstant.ColorMode }
@@ -231,16 +241,6 @@ export interface Configuration {
    * @since 12
    */
   mcc?: string;
-
-  /**
-   * Current locale.
-   *
-   * @type { ?Intl.Locale }
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @atomicservice
-   * @since 20
-   */
-    locale?: Intl.Locale;
 
   /**
    * Indicates the mobile network code.
