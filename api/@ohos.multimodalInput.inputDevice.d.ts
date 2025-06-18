@@ -74,14 +74,16 @@ declare namespace inputDevice {
   /**
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum KeyboardType {
     /**
      * None
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -89,7 +91,8 @@ declare namespace inputDevice {
      * Unknown key
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = 1,
 
@@ -97,7 +100,8 @@ declare namespace inputDevice {
      * Alphabetical keyboard
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALPHABETIC_KEYBOARD = 2,
 
@@ -105,7 +109,8 @@ declare namespace inputDevice {
      * Digital keyboard
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIGITAL_KEYBOARD = 3,
 
@@ -113,7 +118,8 @@ declare namespace inputDevice {
      * Stylus
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HANDWRITING_PEN = 4,
 
@@ -121,7 +127,8 @@ declare namespace inputDevice {
      * Remote control
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REMOTE_CONTROL = 5
   }
@@ -131,14 +138,16 @@ declare namespace inputDevice {
    * 
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FunctionKey {
     /**
      * CapsLock key. Enabling or disabling the CapsLock key is allowed only for input keyboard extensions.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAPS_LOCK = 1
   }
@@ -165,12 +174,12 @@ declare namespace inputDevice {
     /**
      * ID of the input device for the reported input device event.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deviceId: number;
+    deviceId: int;
   }
 
   /**
@@ -233,52 +242,52 @@ declare namespace inputDevice {
     /**
      * Maximum value of the data reported on this axis.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    max: number;
+    max: int;
 
     /**
      * Minimum value of the data reported on this axis.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    min: number;
+    min: int;
 
     /**
      * Fuzz value of the data reported on this axis.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fuzz: number;
+    fuzz: int;
 
     /**
      * Flat value of the data reported on this axis.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    flat: number;
+    flat: int;
 
     /**
      * Resolution value of the data reported on this axis.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resolution: number;
+    resolution: int;
   }
 
   /**
@@ -293,12 +302,12 @@ declare namespace inputDevice {
     /**
      * Id of the input device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * Name of the input device.
@@ -334,42 +343,42 @@ declare namespace inputDevice {
     /**
      * Bus of the input device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    bus: number;
+    bus: int;
 
     /**
      * Product of the input device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    product: number;
+    product: int;
 
     /**
      * Vendor of the input device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    vendor: number;
+    vendor: int;
 
     /**
      * Version of the input device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    version: number;
+    version: int;
 
     /**
      * Physical path of the input device.

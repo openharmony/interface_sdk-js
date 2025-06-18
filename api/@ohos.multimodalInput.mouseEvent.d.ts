@@ -256,12 +256,12 @@ export declare interface AxisValue {
 
   /**
    * Axis value
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  value: number;
+  value: int;
 }
 
 /**
@@ -331,58 +331,58 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * X coordinate of the mouse pointer on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  screenX: number;
+  screenX: int;
 
   /**
    * Y coordinate of the mouse pointer on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  screenY: number;
+  screenY: int;
 
   /**
    * X coordinate of the mouse pointer in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowX: number;
+  windowX: int;
 
   /**
    * Y coordinate of the mouse pointer in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowY: number;
+  windowY: int;
 
   /**
    * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
    * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  rawDeltaX: number;
+  rawDeltaX: int;
 
   /**
    * Y axis offset relative to the previous reported mouse pointer position
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  rawDeltaY: number;
+  rawDeltaY: int;
 
   /**
    * Button that is currently pressed or released
