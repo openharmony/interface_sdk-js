@@ -4500,9 +4500,17 @@ declare namespace request {
      *
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 12
+     */
+    /**
+     * The HTTP response.
+     * Describes the data structure of the task response header.
+     *
+     * @interface HttpResponse
+     * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     interface HttpResponse {
@@ -4512,9 +4520,17 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      /**
+       * The version of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2
        */
       readonly version: string,
@@ -4524,9 +4540,17 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      /**
+       * The status code of the HTTP response.
+       *
+       * @type { number }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       readonly statusCode: number,
@@ -4536,9 +4560,17 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
+       */
+      /**
+       * The reason of the HTTP response.
+       *
+       * @type { string }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       readonly reason: string,
@@ -4903,9 +4935,10 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;

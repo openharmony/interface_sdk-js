@@ -425,8 +425,16 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    /**
+     * Specifies whether the database opened is read-only.
+     * If isReadOnly is true, other configuration items will become invalid.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     isReadOnly?: boolean;
@@ -529,8 +537,15 @@ declare namespace relationalStore {
    *
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  /**
+   * Specifies the cryptographic parameters used when opening an encrypted database.
+   *
+   * @typedef CryptoParam
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   interface CryptoParam {
@@ -540,8 +555,16 @@ declare namespace relationalStore {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the key used when opening an encrypted database.
+     * When finished passing the key to the database, its content should be set to all-zero.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionKey: Uint8Array;
@@ -553,8 +576,17 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the number of KDF iterations used when opening an encrypted database.
+     * Default number is 10000.
+     * When the number is set to 0, use default iteration number and encryption algorithm.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     iterationCount?: number;
@@ -565,8 +597,16 @@ declare namespace relationalStore {
      *
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the encryption algorithm when opening an encrypted database.
+     * Default encryption algorithm is AES_256_GCM.
+     *
+     * @type { ?EncryptionAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionAlgo?: EncryptionAlgo;
@@ -577,8 +617,16 @@ declare namespace relationalStore {
      *
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the HMAC algorithm when opening an encrypted database.
+     * Default HMAC algorithm is SHA256.
+     *
+     * @type { ?HmacAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     hmacAlgo?: HmacAlgo;
@@ -589,8 +637,16 @@ declare namespace relationalStore {
      *
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the KDF algorithm when opening an encrypted database.
+     * Default KDF SHA algorithm is the same as HMAC algorithm.
+     *
+     * @type { ?KdfAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     kdfAlgo?: KdfAlgo;
@@ -601,8 +657,16 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * Specifies the page size used when opening an encrypted database.
+     * Default crypto page size is 1024.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     cryptoPageSize?: number;
@@ -641,8 +705,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  /**
+   * Enumerates the supported HMAC algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum HmacAlgo {
@@ -650,8 +721,14 @@ declare namespace relationalStore {
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * SHA1: HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA1 = 0,
@@ -660,8 +737,14 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * SHA256: HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA256,
@@ -670,8 +753,14 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * SHA512: HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA512
@@ -682,8 +771,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
+   */
+  /**
+   * Enumerates the supported KDF algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum KdfAlgo {
@@ -691,8 +787,14 @@ declare namespace relationalStore {
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA1 = 0,
@@ -701,8 +803,14 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA256,
@@ -711,8 +819,14 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
+     */
+    /**
+     * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA512

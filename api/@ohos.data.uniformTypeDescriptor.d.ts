@@ -1994,8 +1994,22 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
+   */
+  /**
+   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it
+   * belongs to.
+   *
+   * @param { string } filenameExtension - Filename extension.
+   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
+   * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
+   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
+   * does not exist.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+   * <br>2.Incorrect parameters types.
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
