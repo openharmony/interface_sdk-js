@@ -4936,6 +4936,16 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 12
+       */
+      /**
+       * Enables the response callback.
+       * Subscribes to task response headers.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 20
