@@ -20,9 +20,12 @@
 
 
 import AppStateData from './AppStateData';
-/*** if arkts 1.1 */
 import AbilityStateData from './AbilityStateData';
+/*** if arkts 1.1 */
 import * as _ProcessData from './ProcessData';
+/*** endif */
+/*** if arkts 1.2 */
+import processData from './ProcessData';
 /*** endif */
 
 /**
@@ -104,5 +107,14 @@ declare class ApplicationStateObserver {
  * @since 14
  */
 export type ProcessData = _ProcessData.default;
+
+/**
+ * The process data.
+ * @typedef { processData }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
+ * @arkts 1.2
+ */
+export type ProcessData = processData;
 
 export default ApplicationStateObserver;
