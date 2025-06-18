@@ -3326,30 +3326,6 @@ declare class WebContextMenuResult {
    * @since 11
    */
   selectAll(): void;
-
-  /**
-   * Executes the redo operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  redo(): void;
-
-  /**
-   * Executes the undo operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  undo(): void;
-
-  /**
-   * Executes the paste and match style operation related to this context menu.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  pasteAndMatchStyle(): void;
 }
 
 /**
@@ -5431,42 +5407,6 @@ declare interface OnPageBeginEvent {
 }
 
 /**
- * Defines the triggered function at the begin of web page loading.
- *
- * @typedef OnLoadStartedEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @since 20
- */
-declare interface OnLoadStartedEvent {
-  /**
-   * The url to be loaded.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  url: string;
-}
-
-/**
- * Defines the triggered function at the end of web page loading.
- *
- * @typedef OnLoadFinishedEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @since 20
- */
-declare interface OnLoadFinishedEvent {
-  /**
-   * The url to be loaded.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  url: string;
-}
-
-/**
  * Defines the triggered function when the page loading progress changes.
  *
  * @typedef OnProgressChangeEvent
@@ -5661,16 +5601,6 @@ declare interface OnBeforeUnloadEvent {
    * @since 18
    */
   result: JsResult;
-
-  /**
-   * The isReload parameter is set to true when the page is refreshed;
-   * otherwise, it remains false. Default is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  isReload?: boolean;
 }
 
 /**
@@ -6799,24 +6729,6 @@ declare enum WebResponseType {
 }
 
 /**
- * Defines the options of preview menu
- *
- * @interface PreviewMenuOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @since 20
- */
-declare interface PreviewMenuOptions {
-  /**
-   * Defines the haptic feedback mode of preview menu.
-   *
-   * @type { ?HapticFeedbackMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  hapticFeedbackMode?: HapticFeedbackMode;
-}
-
-/**
  * Defines the selection menu options.
  *
  * @typedef SelectionMenuOptionsExt
@@ -6859,15 +6771,6 @@ declare interface SelectionMenuOptionsExt {
    * @since 13
    */
   menuType?: MenuType;
-
-  /**
-   * Defines the options of preview menu.
-   *
-   * @type { ?PreviewMenuOptions }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  previewMenuOptions?: PreviewMenuOptions;
 }
 
 /**
@@ -7574,37 +7477,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
-
-  /**
-   * Triggered at the begin of web page loading. This method is called once for each main frame load.  Embedded frame
-   * changes, i.e. clicking a link whose target is an iframe and fragment navigations (navigations to #fragment_id)
-   * will not trigger this callback.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * Different from onPageBegin, onLoadStarted is triggered only once if the mainframe is automatically redirected
-   * before the page is completely loaded. OnPageBegin is triggered every navigation.
-   * </p>
-   *
-   * @param { Callback<OnLoadStartedEvent> } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
-
-  /**
-   * Notify the host application that a page has finished loading. This method is called only for main frame.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * Different from onPageEnd, fragment navigation also triggers onLoadFinished.
-   * </p>
-   *
-   * @param { Callback<OnLoadFinishedEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 
   /**
    * Triggered when the page loading progress changes.
@@ -9816,37 +9688,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 16
    */
   nativeEmbedOptions(options?: EmbedOptions): WebAttribute;
-
-  /**
-   * Triggered when the web page is activated for window.open called by other web component.
-   *
-   * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  onActivateContent(callback: Callback<void>): WebAttribute;
-
-  /**
-   * Enable data detector.
-   *
-   * @param { boolean } enable - {@code true} means enable data detector in Web;{@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute } The attribute of the web.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  enableDataDetector(enable: boolean): WebAttribute;
-
-  /**
-   * Data detector with config.
-   *
-   * @param { TextDataDetectorConfig } config - The config of text data detector.
-   * @returns { WebAttribute } The attribute of the web.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 }
 
 /**
@@ -10086,17 +9927,4 @@ declare interface EmbedOptions {
    * @since 16
    */
   supportDefaultIntrinsicSize?: boolean;
-
-  /**
-   * Whether the {@link onNativeEmbedVisibilityChange} event supports display-related attributes
-   * of the embed element.
-   * <br>Default value is false. If true, the changes of the display-related attributes of the
-   * embed element will be reported through the {@link onNativeEmbedVisibilityChange} event.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  supportCssDisplayChange?: boolean;
 }

@@ -3522,31 +3522,6 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link getAttachState} for indicating the attach state of controller.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  enum ControllerAttachState {
-    /**
-     * Indicates webviewController is not attached a web component.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    UNATTACHED = 0,
-
-    /**
-     * Indicates webviewController is attached a web component.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    ATTACHED = 1
-  }
-
-  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -6283,85 +6258,6 @@ declare namespace webview {
      * @since 18
      */
     getLastHitTest(): HitTestValue;
-
-    /**
-     * Set the default User-Agent for the application.
-     *
-     * <p><strong>API Note</strong>:<br>
-     * Unlike setCustomUserAgent, which only takes effect in the current web context, the
-     * priority for pages loaded in the web is as follows:
-     * 1. The User-Agent set by setCustomUserAgent is used first.
-     * 2. If not set, it will check whether a specific User-Agent has been
-     *    assigned to the current page via setUserAgentForHosts.
-     * 3. If no specific User-Agent is assigned, the application will fall back
-     *    to using the User-Agent set by setAppCustomUserAgent.
-     * 4. If the app's default User-Agent is also not specified, the web's default
-     *    User-Agent will be used as the final fallback.
-     * </p>
-     *
-     * @param { string } userAgent - The User-Agent string.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    static setAppCustomUserAgent(userAgent: string) : void;
-
-    /**
-     * Set the User-Agent to be used for specified hosts, with a maximum of 20,000 hosts.
-     * <p><strong>API Note</strong>:<br>
-     * Setting the same host list multiple times for the same User-Agent will override
-     * the previous settings. That is, if you want to cancel certain hosts from using
-     * the specified User-Agent, you need to reset the host list for that User-Agent.
-     * </p>
-     *
-     * @param { string } userAgent - The User-Agent string.
-     * @param { Array<string> } hosts - The hosts to which the User-Agent apply.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
-
-    /**
-     * Get whether webviewController is attached to a web component.
-     * @returns { ControllerAttachState } the attach state of controller
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    getAttachState(): ControllerAttachState;
-
-    /**
-     * Register the callback for controller attach state change.
-     *
-     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
-     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    on(type: 'controllerAttachStateChange', callback: Callback<ControllerAttachState>): void;
-
-    /**
-     * Unregister the callback for controller attach state change.
-     *
-     * @param { 'controllerAttachStateChange' } type the event of controller attach state change.
-     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
-
-
-    /**
-     * Wait for the controller to attach a web component until timeout.
-     *
-     * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
-     * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     */
-    waitForAttached(timeout: number): Promise<ControllerAttachState>;
   }
 
   /**
