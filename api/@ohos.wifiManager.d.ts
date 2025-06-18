@@ -61,7 +61,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 16
+   * @since 20
    */
   function disableWifi(): void;
 
