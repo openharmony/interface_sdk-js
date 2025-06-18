@@ -1593,7 +1593,7 @@ declare namespace window {
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
-     * @arkts 1.2
+     * @arkts 1.1&1.2
      */
     globalDisplayRect?: Rect;
 
@@ -1812,7 +1812,7 @@ declare namespace window {
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
-     * @arkts 1.2
+     * @arkts 1.1&1.2
      */
     globalDisplayRect?: Rect;
     
