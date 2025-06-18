@@ -4427,9 +4427,9 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Registers the supplied ArkTs object into this Web component.
+     * Registers the supplied ArkTS object into this Web component.
      * The object is registered into all frames of the web page, including all iframes, using the specified name.
-     * This allows the methods of the ArkTs object to be accessed from JavaScript.
+     * This allows the methods of the ArkTS object to be accessed from JavaScript.
      * <p><strong>API Note</strong>:<br>
      * Registed objects will not appear in JavaScript until the page is next (re)load.
      * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
@@ -4457,7 +4457,7 @@ declare namespace webview {
      * @since 12
      */
     /**
-     * Registers the supplied ArkTs object into this Web component.
+     * Registers the supplied ArkTS object into this Web component.
      * The object is registered into all frames of the web page, including all iframes, using the specified name.
      * This allows the methods of the ArkTS object to be accessed from JavaScript.
      * <p><strong>API Note</strong>:<br>
@@ -4658,8 +4658,10 @@ declare namespace webview {
      * This method must be used on the UI thread, and the callback will also be invoked on the UI thread.
      * <p><strong>API Note</strong>:<br>
      * The state of JavaScript is no longer persisted across navigations like loadUrl.
-     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.
-     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.
+     * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.<br>
+     * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.<br>
+     * If you cannot obtain the return value by executing the asynchronous method, 
+     * you need to determine whether to use synchronous or asynchronous mode based on the specific situation.
      * <p>
      *
      * @param { string } script - JavaScript Script.
@@ -5995,6 +5997,12 @@ declare namespace webview {
 
     /**
      * Web page snapshot.
+     *
+     * <p><strong>API Note</strong>:<br>
+     * Only screenshots of assets on the rendering process are supported: still images and text.
+     * If there is a video on the page, the placeholder image of the video will be displayed when you take a screenshot,
+     * and blank if there is no placeholder.
+     * </p>
      *
      * @param { SnapshotInfo } info - The snapshot info.
      * @param { AsyncCallback<SnapshotResult> } callback - the callback of snapshot.
