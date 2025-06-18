@@ -29842,7 +29842,7 @@ declare class CustomComponent extends BaseCustomComponent {
    * Invoked when a reusable custom component is re-added to the node tree
    * from the reuse cache to receive construction parameters of the component.
    *
-   * @param { object } params - Custom component init params.
+   * @param { Object } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -29851,7 +29851,7 @@ declare class CustomComponent extends BaseCustomComponent {
    * Invoked when a reusable custom component is re-added to the node tree
    * from the reuse cache to receive construction parameters of the component.
    *
-   * @param { object } params - Custom component init params.
+   * @param { Object } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
