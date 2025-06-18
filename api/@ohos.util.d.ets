@@ -966,7 +966,8 @@ declare namespace util {
      * Compares two objects for equality.
      *
      * @param { Object } obj - An object
-     * @returns { boolean } Returns true if the given object is the same as the current object; Otherwise, false is returned.
+     * @returns { boolean } Returns true if the given object is the same as the current object;
+     * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1048,7 +1049,8 @@ declare namespace util {
     /**
      * Checks whether the current RationalNumber object represents the value 0.
      *
-     * @returns { boolean } If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
+     * @returns { boolean } If the value represented by the current object is 0, true is returned.
+     * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1179,7 +1181,8 @@ declare namespace util {
      * Check whether the entered value is of arraybuffer type.
      *
      * @param { Object } value - A arraybuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance. This does not include SharedArrayBuffer instances.
+     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance.
+     * This does not include SharedArrayBuffer instances.
      * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

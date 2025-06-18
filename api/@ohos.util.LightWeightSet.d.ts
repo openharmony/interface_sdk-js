@@ -787,6 +787,6 @@ declare class LightWeightSet<T> {
  * @since 20
  * @arkts 1.2
  */
-type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
+export type LightWeightSetForEachCb<T> = (value: T, key: T, set: LightWeightSet<T>) => void
 
 export default LightWeightSet;

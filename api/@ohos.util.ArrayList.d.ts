@@ -484,14 +484,14 @@ declare class ArrayList<T> {
   /**
    * Replaces each element of this arrayList with the result of applying the operator to that element.
    *
-   * @param { ArrayListCbFn1<T> } callbackFn - A callback function to execute for each element.
+   * @param { ArrayListReplaceCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  replaceAllElements(callbackFn: ArrayListCbFn1<T>): void;
+  replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
 
   /**
    * Executes a provided function once for each value in the arraylist object.
@@ -549,14 +549,14 @@ declare class ArrayList<T> {
   /**
    * Iterates over elements in a generic ArrayList and executes a callback function for each element.
    *
-   * @param { ArrayListCbFn<T> } callbackFn - A callback function to execute for each element.
+   * @param { ArrayListForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  forEach(callbackFn: ArrayListCbFn<T>): void;
+  forEach(callbackFn: ArrayListForEachCb<T>): void;
 
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter,
@@ -958,7 +958,7 @@ declare class ArrayList<T> {
   /**
    * The type of ArrayList callback function.
    *
-   * @typedef { function } ArrayListCbFn
+   * @typedef { function } ArrayListForEachCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
    * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
@@ -968,12 +968,12 @@ declare class ArrayList<T> {
    * @since 20
    * @arkts 1.2
    */
-  type ArrayListCbFn<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
+  export type ArrayListForEachCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
 
   /**
    * The type of ArrayList callback function.
    *
-   * @typedef { function } ArrayListCbFn
+   * @typedef { function } ArrayListReplaceCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
    * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
@@ -983,6 +983,6 @@ declare class ArrayList<T> {
    * @since 20
    * @arkts 1.2
    */
-  type ArrayListCbFn1<T> =  (value: T, index?: number, arrlist?: ArrayList<T>) => T;  
+  export type ArrayListReplaceCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => T;
 
 export default ArrayList;

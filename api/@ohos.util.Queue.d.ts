@@ -349,6 +349,6 @@ declare class Queue<T> {
  * @since 20
  * @arkts 1.2
  */
-type QueueForEachCb<T> = (value: T, index: number, queue: Queue<T>) => void
+export type QueueForEachCb<T> = (value: T, index: number, queue: Queue<T>) => void
 
 export default Queue;
