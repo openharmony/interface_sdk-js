@@ -425,8 +425,9 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     isReadOnly?: boolean;
@@ -529,8 +530,9 @@ declare namespace relationalStore {
    *
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   interface CryptoParam {
@@ -540,8 +542,9 @@ declare namespace relationalStore {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionKey: Uint8Array;
@@ -553,8 +556,9 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     iterationCount?: number;
@@ -565,8 +569,9 @@ declare namespace relationalStore {
      *
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionAlgo?: EncryptionAlgo;
@@ -577,8 +582,9 @@ declare namespace relationalStore {
      *
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     hmacAlgo?: HmacAlgo;
@@ -589,8 +595,9 @@ declare namespace relationalStore {
      *
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     kdfAlgo?: KdfAlgo;
@@ -601,8 +608,9 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     cryptoPageSize?: number;
@@ -641,8 +649,9 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum HmacAlgo {
@@ -650,8 +659,9 @@ declare namespace relationalStore {
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA1 = 0,
@@ -660,8 +670,9 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA256,
@@ -670,8 +681,9 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA512
@@ -682,8 +694,9 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 14
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum KdfAlgo {
@@ -691,8 +704,9 @@ declare namespace relationalStore {
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA1 = 0,
@@ -701,8 +715,9 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA256,
@@ -711,8 +726,9 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 14
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA512

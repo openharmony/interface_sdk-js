@@ -4500,9 +4500,10 @@ declare namespace request {
      *
      * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 12
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     interface HttpResponse {
@@ -4512,9 +4513,10 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2
        */
       readonly version: string,
@@ -4524,9 +4526,10 @@ declare namespace request {
        * @type { number }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       readonly statusCode: number,
@@ -4536,9 +4539,10 @@ declare namespace request {
        * @type { string }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       readonly reason: string,
@@ -4903,9 +4907,10 @@ declare namespace request {
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 12
        * @crossplatform
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
+       * @since 20
        * @arkts 1.1&1.2 
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;

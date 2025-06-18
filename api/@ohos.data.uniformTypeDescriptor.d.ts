@@ -1994,8 +1994,9 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @since 11
    * @crossplatform
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
