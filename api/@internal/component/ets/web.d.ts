@@ -5605,6 +5605,16 @@ declare interface OnTitleReceiveEvent {
    * @since 12
    */
   title: string;
+
+  /**
+   * Mark the source of the title. If it is true, the title is derived from the H5 title element;
+   * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  isRealTitle?: boolean;
 }
 
 /**
