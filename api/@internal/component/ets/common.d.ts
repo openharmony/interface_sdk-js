@@ -29857,7 +29857,7 @@ declare class CustomComponent extends BaseCustomComponent {
    * @atomicservice
    * @since 11
    */
-  aboutToReuse?(params: { [key: string]: unknown }): void;
+  aboutToReuse?(params: Object): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
