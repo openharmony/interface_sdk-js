@@ -20,5 +20,6 @@
 
 import image from '@ohos.multimedia.image';
 import sendableImage from '@ohos.multimedia.sendableImage';
+import videoProcessingEngine from '@ohos.multimedia.videoProcessingEngine';
 
-export { image, sendableImage };
+export { image, sendableImage, videoProcessingEngine };
