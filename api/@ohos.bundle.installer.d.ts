@@ -1982,12 +1982,12 @@ declare namespace installer {
     /**
      * Indicates the shared bundle dir paths.
      *
-     * @type { ?Array<String> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
      */
-    sharedBundleDirPaths?: Array<String>;
+    sharedBundleDirPaths?: Array<string>;
 
     /**
      * Indicates the distribution type specified during bundle installation.
