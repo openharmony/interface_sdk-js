@@ -151,17 +151,6 @@ declare interface IntentDecoratorInfo {
    * @since 20
    */
   result?: Record<string, Object>;
-
-  /**
-   * The example of the intent.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   */
-  example?: string;
 }
 
 /**
