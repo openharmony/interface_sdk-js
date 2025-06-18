@@ -4063,7 +4063,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
-   * @returns { Array<String> } Returns a list of developerId.
+   * @returns { Array<string> } Returns a list of developerId.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -4071,7 +4071,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  function getDeveloperIds(appDistributionType?: number): Array<String>;
+  function getDeveloperIds(appDistributionType?: number): Array<string>;
 
   /**
    * Switch uninstall state of a specified application.
