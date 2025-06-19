@@ -69,6 +69,9 @@ import Request, {
 } from '@system.request';
 import systemLoad from '@ohos.resourceschedule.systemload';
 import intelligentVoice from '@ohos.ai.intelligentVoice';
+import SelectionExtensionAbility from '@ohos.selectionInput.SelectionExtensionAbility';
+import { PanelInfo, PanelType } from '@ohos.selectionInput.SelectionPanel';
+import selectionManager from '@ohos.selectionInput.selectionManager';
 
 export {
   AsyncCallback, Battery, BatteryResponse, Brightness, BrightnessModeResponse,
@@ -81,5 +84,6 @@ export {
   customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext, systemLoad, intelligentVoice
+  StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
+  PanelInfo, PanelType
 };

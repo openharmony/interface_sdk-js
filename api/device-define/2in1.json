@@ -12,6 +12,7 @@
     "SystemCapability.Security.CryptoFramework.Key.AsymKey",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",
     "SystemCapability.Security.CryptoFramework.Key",
+    "SystemCapability.SelectionInput.Selection",
     "SystemCapability.Notification.NotificationSettings",
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Security.CertificateManagerDialog",
