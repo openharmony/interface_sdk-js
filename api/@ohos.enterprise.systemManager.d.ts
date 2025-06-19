@@ -667,7 +667,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 20
    */
-  function setInstallLocalEnterpriseAppEnabled(admin: Want, isEnable: bool): void;
+  function setInstallLocalEnterpriseAppEnabled(admin: Want, isEnable: boolean): void;
 
   /**
    * Gets install localEnterpriseApp enable.
@@ -685,7 +685,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 20
    */
-  function isInstallLocalEnterpriseAppEnabled(admin: Want): bool;
+  function isInstallLocalEnterpriseAppEnabled(admin: Want): boolean;
 }
 
 export default systemManager;
