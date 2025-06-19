@@ -180,7 +180,7 @@ declare namespace floatingBall {
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
      * @throws { BusinessError } 1300023 - Floating-ball internal error.
-     * @throws { BusinessError } 1300025 - The floating ball state does not support the current operatio.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support the current operation.
      * @throws { BusinessError } 1300026 - Failed to restore the main window.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
