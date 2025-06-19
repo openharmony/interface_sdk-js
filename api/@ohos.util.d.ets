@@ -143,7 +143,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeSync(src: Uint8Array, options: Type = Type.BASIC): Uint8Array;
+    encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -159,7 +159,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeToStringSync(src: Uint8Array, options: Type = Type.BASIC): string;
+    encodeToStringSync(src: Uint8Array, options?: Type): string;
 
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
@@ -175,7 +175,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decodeSync(src: string, options: Type = Type.BASIC): Uint8Array;
+    decodeSync(src: string, options?: Type): Uint8Array;
 
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
@@ -191,7 +191,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decodeSync(src: Uint8Array, options: Type = Type.BASIC): Uint8Array;
+    decodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
      * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
@@ -207,7 +207,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
+    encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
      * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -223,7 +223,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeToString(src: Uint8Array, options: Type = Type.BASIC): Promise<string>;
+    encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
     /**
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
@@ -240,7 +240,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
+    decode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
@@ -257,7 +257,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decode(src: string, options: Type = Type.BASIC): Promise<Uint8Array>;
+    decode(src: string, options?: Type): Promise<Uint8Array>;
   }
 
   /**
