@@ -459,6 +459,7 @@ declare namespace uiEffect {
    * The Color of Light.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
    * @since 20
    */
   interface Color {
@@ -466,6 +467,7 @@ declare namespace uiEffect {
      * Red component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     red: number;
@@ -473,6 +475,7 @@ declare namespace uiEffect {
      * Green component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     green: number;
@@ -480,6 +483,7 @@ declare namespace uiEffect {
      * Blue component of color
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     blue: number;
@@ -487,6 +491,7 @@ declare namespace uiEffect {
      * Alpha component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     alpha: number;
