@@ -438,6 +438,18 @@ declare namespace data {
   function queryAllApns(): Promise<Array<ApnInfo>>;
 
   /**
+   * Get Active APN's Name.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<string> } Returns the name of the active APN or null if cellular network is not active.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getActiveApnName(): Promise<string>;
+
+  /**
    * Query APN IDs.
    *
    * @permission ohos.permission.MANAGE_APN_SETTING
