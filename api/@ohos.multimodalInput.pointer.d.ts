@@ -489,7 +489,7 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
      */
-    SCREENRECORDER_CURSOR
+    SCREENRECORDER_CURSOR = 48
   }
 
   /**
