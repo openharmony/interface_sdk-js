@@ -22,7 +22,7 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * Declare component FullScreenLaunchComponent, a component provided by ArkUI that allows
+ * Declares the FullScreenLaunchComponent, a component provided by ArkUI that allows
  * you to define and use it in your application through the ArkTS-based declarative
  * development paradigm.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
