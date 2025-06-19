@@ -18,69 +18,10 @@
  * @kit MediaKit
  */
 
-import type { ErrorCallback, AsyncCallback, Callback, BusinessError } from '../@ohos.base';
+import type { ErrorCallback, AsyncCallback, Callback } from '../@ohos.base';
 import type audio from '../@ohos.multimedia.audio';
 import media from '../@ohos.multimedia.media';
 import resourceManager from '../@ohos.resourceManager';
-
-/**
- * Enumerates the error type.
- * @enum { number }
- * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20
- */
-export enum ErrorType {
-  /**
-   * Load error.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  LOAD_ERROR = 1,
-
-  /**
-   * Play error.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  PLAY_ERROR = 2
-}
-
-/**
- * Interface for error info.
- * @typedef { ErrorInfo<T extends Error = BusinessError> }
- * @syscap SystemCapability.Multimedia.Media.SoundPool
- * @since 20
- */
-export interface ErrorInfo<T extends Error = BusinessError> {
-  /**
-   * Error code.
-   * @type { T }
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  errorCode: T;
-  /**
-   * Error type.
-   * @type { ?ErrorType }
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  errorType?: ErrorType;
-  /**
-   * Sound id, returned from SoundPool.load function.
-   * @type { ?number }
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  soundId?: number;
-  /**
-   * Stream id, returned from SoundPool.play function.
-   * @type { ?number }
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  streamId?: number;
-}
 
 /**
  * Describes the playback parameters of the sound pool.
@@ -595,24 +536,5 @@ export interface SoundPool {
    * @since 10
    */
   off(type: 'error'): void;
-  /**
-   * Register listeners for soundpool errorOccurred events.
-   *
-   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
-   * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
-
-  /**
-   * Cancel Listens for soundpool errorOccurred events.
-   *
-   * @param { 'errorOccurred' } type - Type of the soundpool event to listen for.
-   * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 20
-   */
-  off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
 }
 
