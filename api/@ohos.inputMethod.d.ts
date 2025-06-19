@@ -17,7 +17,7 @@
  * @file
  * @kit IMEKit
  */
-import type { Callback, AsyncCallback, /*** if arkts 1.1 */int /*** endif */} from './@ohos.base';
+import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 /*** if arkts 1.1 */
 import type { ElementName } from './bundleManager/ElementName';
@@ -1478,13 +1478,13 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
-     * @type { ?number }
+     * @type { ?double }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly labelId?: number;
+    readonly labelId?: double;
 
     /**
      * The icon of input method
@@ -1500,13 +1500,13 @@ declare namespace inputMethod {
     /**
      * The icon id of input method
      *
-     * @type { ?number }
+     * @type { ?double }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly iconId?: number;
+    readonly iconId?: double;
 
     /**
      * The extra info of input method
@@ -1911,42 +1911,42 @@ declare namespace inputMethod {
     /**
      * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
 
     /**
      * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top: number;
+    top: double;
 
     /**
      * Indicates the width point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Indicates the height point of the cursor info.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
@@ -2087,22 +2087,22 @@ declare namespace inputMethod {
     /**
      * Indicates the width of the input window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Indicates the height of the input window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
