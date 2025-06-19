@@ -365,6 +365,36 @@ declare namespace audioHaptic {
      * @since 20
      */
     setHapticsIntensity(intensity: number): Promise<void>;
+
+    /**
+     * Check whether the device supports haptics intensity ramp effect.
+     * @returns { boolean } - {@code true} means supported.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    isHapticsRampSupported(): boolean;
+
+    /**
+     * Set haptics intensity ramp effect for this player. Should be called before playback starting.
+     * This method uses a promise to return the result.
+     * @param { number } duration - ramp duration to set, unit is milliseconds.
+     *     The value should be an integer, and not less than 100.
+     * @param { number } startIntensity - Starting intensity for Haptics ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @param { number } endIntensity - End intensity for haptics ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 801 - Function is not supported in current device.
+     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400108 - Parameter out of range.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    setHapticsRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
   }
 }
 export default audioHaptic;
