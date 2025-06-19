@@ -3685,25 +3685,6 @@ declare namespace camera {
     setMeteringPoint(point: Point): void;
 
     /**
-     * Query the exposure compensation range.
-     *
-     * @returns { Array<number> } The array of compensation range.
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    /**
-     * Query the exposure compensation range.
-     *
-     * @returns { Array<number> } The array of compensation range.
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @atomicservice
-     * @since 19
-     */
-    getExposureBiasRange(): Array<number>;
-
-    /**
      * Set exposure compensation.
      *
      * @param { number } exposureBias - Exposure compensation
@@ -4384,6 +4365,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Cloudy white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     CLOUDY = 1,
 
     /**
@@ -4392,6 +4380,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Incandescent white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     INCANDESCENT = 2,
 
@@ -4402,6 +4397,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Fluorescent white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     FLUORESCENT = 3,
 
     /**
@@ -4410,6 +4412,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Daylight white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     DAYLIGHT = 4,
 
@@ -4420,6 +4429,13 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
+    /**
+     * Manual white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     MANUAL = 5,
 
     /**
@@ -4428,6 +4444,13 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+     */
+    /**
+     * Lock white balance mode.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     LOCKED = 6
   }
@@ -4441,7 +4464,7 @@ declare namespace camera {
    * @since 12
    */
   /**
-   * Implements white balance query.
+   * White Balance Query object.
    * @interface WhiteBalanceQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
@@ -4481,6 +4504,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
+    /**
+     *
+     * Query the white balance mode range.
+     *
+     * @returns { Array<number> } The array of white balance mode range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     getWhiteBalanceRange(): Array<number>;
   }
@@ -4495,7 +4527,7 @@ declare namespace camera {
    * @since 12
    */
   /**
-   * Implements white balance.
+   * WhiteBalance object.
    * @extends WhiteBalanceQuery
    * @interface WhiteBalance
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -7323,16 +7355,7 @@ declare namespace camera {
    * @atomicservice
    * @since 19
    */
-  /**
-   * Implements a photo capture session.
-   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch,
-   * Macro
-   * @interface PhotoSession
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 20
-   */
-  interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro {
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch, Macro {
     /**
      * Gets whether the choosed preconfig type can be used to configure photo session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -7760,16 +7783,7 @@ declare namespace camera {
    * @atomicservice
    * @since 19
    */
-  /**
-   * Video session object.
-   *
-   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro
-   * @interface VideoSession
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 20
-   */
-  interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro {
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro {
     /**
      * Gets whether the choosed preconfig type can be used to configure video session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -9829,16 +9843,7 @@ declare namespace camera {
    * @atomicservice
    * @since 19
    */
-  /**
-   * Secure camera session object.
-   *
-   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom
-   * @interface SecureSession
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   * @atomicservice
-   * @since 20
-   */
-  interface SecureSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom {
+  interface SecureSession extends Session, Flash, AutoExposure, Focus, Zoom {
     /**
      * Add Secure output for camera.
      *
@@ -12241,28 +12246,8 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
-    /**
-     * Subscribes to camera thumbnail events.
-     * This method is valid only after enableQuickThumbnail(true) is called.
-     *
-     * @param { 'quickThumbnail' } type - Event type.
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 19
-     */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
 
-    /**
-     * Unsubscribes from camera thumbnail events.
-     * This method is valid only after enableQuickThumbnail(true) is called.
-     *
-     * @param { 'quickThumbnail' } type - Event type.
-     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 10
-     */
     /**
      * Unsubscribes from camera thumbnail events.
      * This method is valid only after enableQuickThumbnail(true) is called.
