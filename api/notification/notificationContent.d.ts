@@ -376,14 +376,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Long title of the multi-line text notification.
+   * Brief text of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Long title of the multi-line text notification.
+   * Brief text of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -423,7 +423,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Brief text of the multi-line text notification.
+   * Multi-line content of the multi-line text notification.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -723,7 +723,7 @@ export interface NotificationTime {
   initialTime?: number;
 
   /**
-   *
+   * 
    * Count down the time.
    *
    * @type { ?boolean }
