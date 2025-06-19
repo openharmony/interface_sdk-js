@@ -3381,7 +3381,6 @@ declare namespace drawing {
      * @param { ImageFilter } foreground - Indicates the input foreground filter.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
-     * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
