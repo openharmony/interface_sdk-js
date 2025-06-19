@@ -316,7 +316,7 @@ declare namespace bluetoothManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * @param { Array<Protocol> } protocol - protocol of the bluetooth to be added to the list.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be added to the list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -324,7 +324,7 @@ declare namespace bluetoothManager {
    * @stagemodelonly
    * @since 20
    */
-  function addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocol: Array<Protocol>): void;
+  function addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>): void;
 
   /**
    * Remove protocol from the list of bluetooth server that are disallowed to use.
@@ -334,7 +334,7 @@ declare namespace bluetoothManager {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * @param { Array<Protocol> } protocol - protocol of the bluetooth to be removed from the list.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be removed from the list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -342,7 +342,7 @@ declare namespace bluetoothManager {
    * @stagemodelonly
    * @since 20
    */
-  function removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocol: Array<Protocol>): void;
+  function removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>): void;
 
   /**
    * Gets protocols to the list of bluetooth server that are disallowed to use.
