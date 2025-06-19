@@ -1571,7 +1571,7 @@ declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: Fra
  * @atomicservice
  * @since 20
  */
-declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
+export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
  * Defines the PageInfo type.
