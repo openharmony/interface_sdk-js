@@ -12028,7 +12028,7 @@ declare namespace camera {
      * 
      * Prior to invoking this interface, it is necessary to determine whether the moving
      * photo function is supported through the isMovingPhotoSupported API and whether the
-     * moving photo mirroring function is supported through the isMirrorSupported API.
+     * photo mirroring function is supported through the isMirrorSupported API.
      *
      * @param { boolean } enabled - enable moving photo mirror if TRUE.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
