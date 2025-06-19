@@ -1936,6 +1936,15 @@ declare namespace formInfo {
      * @since 20
      */
     duration: number;
+
+    /**
+     * Whether use default animate
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
+     */
+    useDefaultAnimate?: boolean;
   }
 
   /**
