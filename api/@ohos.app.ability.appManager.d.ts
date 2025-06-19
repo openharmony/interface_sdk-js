@@ -1229,7 +1229,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @throws { BusinessError } 16000202 - Invalid main element type.
-   * @throws { BusinessError } 16000203 - Can not change keep alive status.
+   * @throws { BusinessError } 16000203 - Cannot change the keep-alive status.
    * @throws { BusinessError } 16000204 - The target bundle is not in u1.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
