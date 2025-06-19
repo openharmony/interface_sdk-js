@@ -22,6 +22,7 @@
  * @interface DeviceResponse
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3
+ * @deprecated since 6
  */
 export interface DeviceResponse {
   /**
@@ -30,6 +31,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   brand: string;
 
@@ -39,6 +41,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   manufacturer: string;
 
@@ -48,6 +51,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   model: string;
 
@@ -57,6 +61,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   product: string;
 
@@ -66,6 +71,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   language: string;
 
@@ -75,6 +81,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   region: string;
 
@@ -84,6 +91,7 @@ export interface DeviceResponse {
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   windowWidth: number;
 
@@ -93,6 +101,7 @@ export interface DeviceResponse {
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   windowHeight: number;
 
@@ -102,6 +111,7 @@ export interface DeviceResponse {
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   screenDensity: number;
 
@@ -113,6 +123,7 @@ export interface DeviceResponse {
    * @type { 'rect' | 'circle' }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   screenShape: 'rect' | 'circle';
 
@@ -122,6 +133,7 @@ export interface DeviceResponse {
    * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   apiVersion: number;
 
@@ -143,6 +155,7 @@ export interface DeviceResponse {
    * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4
+   * @deprecated since 6
    */
   deviceType: string;
 }
@@ -151,6 +164,7 @@ export interface DeviceResponse {
  * @interface GetDeviceOptions
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3
+ * @deprecated since 6
  */
 export interface GetDeviceOptions {
   /**
@@ -159,6 +173,7 @@ export interface GetDeviceOptions {
    * @type  { ?function } 
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   success?: (data: DeviceResponse) => void;
 
@@ -168,6 +183,7 @@ export interface GetDeviceOptions {
    * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   fail?: (data: any, code: number) => void;
 
@@ -177,6 +193,7 @@ export interface GetDeviceOptions {
    * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3
+   * @deprecated since 6
    */
   complete?: () => void;
 }
@@ -186,6 +203,7 @@ export interface GetDeviceOptions {
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3
+ * @deprecated since 6
  */
 export default class Device {
   /**
