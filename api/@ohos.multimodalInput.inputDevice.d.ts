@@ -733,7 +733,7 @@ declare namespace inputDevice {
    * @param { boolean } enabled - Switch status of the input device. The value true indicates that the input device is enabled,
    * and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission denied.
    *     The application does not have the permission required to call the API
    * @throws { BusinessError } 202 - Permission verification failed. 
    *     A non-system application calls a system API.
@@ -757,7 +757,7 @@ declare namespace inputDevice {
    * @param { boolean } enabled - Status of the function key. The value true indicates that the function key is enabled, 
    * and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
