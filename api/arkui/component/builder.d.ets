@@ -33,6 +33,18 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
 export declare @interface Builder {}
 
 /**
+ * Defines BuilderParam Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface BuilderParam {}
+
+/**
  * Defines the CustomBuilder Type.
  *
  * @typedef { @Builder (() => void) } CustomBuilder
