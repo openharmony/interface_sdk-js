@@ -971,6 +971,16 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
+     * Indicates extension info with type of selection.
+     * This type of extension can access data such as text selected by the user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SELECTION = 31,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
