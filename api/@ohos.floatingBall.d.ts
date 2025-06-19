@@ -47,6 +47,7 @@ declare namespace floatingBall {
    * The config must be valid, the context in config should not be null. 
    * @returns { Promise<FloatingBallController> } - The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
@@ -85,11 +86,12 @@ declare namespace floatingBall {
      * @param { FloatingBallParams } params - Params for floating-ball start.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300019 - Failed to create the floating-Ball window.
-     * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
-     * @throws { BusinessError } 1300021 - Repeated floating-Ball operation.
-     * @throws { BusinessError } 1300022 - Floating-ball internal error.
-     * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300020 - Failed to create the floating-Ball window.
+     * @throws { BusinessError } 1300021 - Cannot start multiple floating-Ball window.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300023 - Floating-ball internal error.
+     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -100,9 +102,10 @@ declare namespace floatingBall {
      * 
      * @param { FloatingBallParams } params - Params for floating-ball update. 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300022 - Floating-ball internal error.
-     * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
-     * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300023 - Floating-ball internal error.
+     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support the current operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -112,9 +115,9 @@ declare namespace floatingBall {
      * Stop floating-ball.
      * 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
-     * @throws { BusinessError } 1300022 - Floating-ball internal error.
-     * @throws { BusinessError } 1300023 - The floating-ball window state is abnormal.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300023 - Floating-ball internal error.
+     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -164,7 +167,7 @@ declare namespace floatingBall {
      * Get the info of floating-ball window.
      * 
      * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating-ball window info.
-     * @throws { BusinessError } 1300022 - Floating-ball internal error.
+     * @throws { BusinessError } 1300023 - Floating-ball internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -175,10 +178,10 @@ declare namespace floatingBall {
      *
      * @param { Want } want - Params for floating-ball restoration.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300020 - Cannot start multiple floating-Ball window.
-     * @throws { BusinessError } 1300022 - Floating-ball internal error.
-     * @throws { BusinessError } 1300024 - The floating-ball state is invalid.
-     * @throws { BusinessError } 1300025 - Failed to restore the main window.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300023 - Floating-ball internal error.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support the current operatio.
+     * @throws { BusinessError } 1300026 - Failed to restore the main window.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -196,20 +199,20 @@ declare namespace floatingBall {
     /**
      * The template of floating-ball.
      *
-     * @type { ?FloatingBallTemplate }
+     * @type { FloatingBallTemplate }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    template?: FloatingBallTemplate;
+    template: FloatingBallTemplate;
     
     /**
      * The title of floating-ball.
      *
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    title?: string;
+    title: string;
     
     /**
      * The content of floating-ball.
@@ -219,6 +222,15 @@ declare namespace floatingBall {
      * @since 20
      */
     content?: string;
+    
+    /**
+     * The backgroundColor of floating-ball.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    backgroundColor?: string;
     
     /**
      * The icon of floating-ball.
