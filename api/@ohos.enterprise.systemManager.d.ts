@@ -676,7 +676,7 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @returns { bool } whether can install localEnterpriseApp.
+   * @returns { boolean } whether can install localEnterpriseApp.
 				true: enable, false: disable
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
