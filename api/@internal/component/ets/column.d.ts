@@ -45,7 +45,7 @@ declare type SpaceType = string | number | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 interface ColumnOptions {
@@ -204,7 +204,7 @@ interface ColumnInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   (options?: ColumnOptions): ColumnAttribute;
