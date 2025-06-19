@@ -8678,6 +8678,14 @@ declare namespace media {
      * @since 18
      */
     enableStableQualityMode?: boolean
+
+    /**
+     * Indicates whether enable B Frame. Default is disabled.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     */
+    enableBFrame?: boolean
   }
 
   /**
