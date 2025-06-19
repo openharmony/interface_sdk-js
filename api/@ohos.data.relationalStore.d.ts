@@ -2199,7 +2199,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contains(field: string, value: string): RdbPredicates;
 
@@ -2797,6 +2798,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     notLike(field: string, value: string): RdbPredicates;
 
@@ -3944,6 +3946,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getValue(columnIndex: number): ValueType;
 
@@ -4644,6 +4647,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
 
@@ -8035,6 +8039,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
@@ -9081,6 +9086,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 

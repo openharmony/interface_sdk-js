@@ -1843,6 +1843,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class TypeDescriptor {
     /**
@@ -1861,6 +1862,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly typeId: string;
 
@@ -1880,6 +1882,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly belongingToTypes: Array<string>;
 
@@ -1899,6 +1902,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly description: string;
 
@@ -1918,6 +1922,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly referenceURL: string;
 
@@ -1937,6 +1942,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly iconFile: string;
 
@@ -1956,6 +1962,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
      readonly filenameExtensions: Array<string>;
 
@@ -1975,6 +1982,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly mimeTypes: Array<string>;
 
@@ -1998,6 +2006,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     belongsTo(type: string): boolean;
 
@@ -2021,6 +2030,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     isLowerLevelType(type: string): boolean;
 
@@ -2044,6 +2054,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     isHigherLevelType(type: string): boolean;
 
@@ -2067,6 +2078,7 @@ declare namespace uniformTypeDescriptor {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     equals(typeDescriptor: TypeDescriptor): boolean;
   }
@@ -2093,6 +2105,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor;
 
@@ -2152,6 +2165,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 
@@ -2183,6 +2197,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
@@ -2214,6 +2229,7 @@ declare namespace uniformTypeDescriptor {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
 }

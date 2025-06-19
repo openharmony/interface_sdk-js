@@ -1995,6 +1995,7 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     index?: number;
     /**
@@ -2017,6 +2018,7 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     begins?: number;
     /**
@@ -3399,6 +3401,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       proxy?: string;
       /**
@@ -3469,7 +3472,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts{ '1.1':'11','1.2':'20'}
+       * @arkts 1.1&1.2
        */
       ends?: number;
       /**
@@ -4649,6 +4653,7 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 20
+       * @arkts 1.1&1.2
        */
       readonly headers: Map<string, Array<string>>,
     }
@@ -4936,6 +4941,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       on(event: 'pause', callback: (progress: Progress) => void): void;
       /**
@@ -4984,6 +4990,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       on(event: 'resume', callback: (progress: Progress) => void): void;
       /**
@@ -5032,6 +5039,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       on(event: 'remove', callback: (progress: Progress) => void): void;
       /**
@@ -5299,6 +5307,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       pause(): Promise<void>;
       /**
@@ -5371,6 +5380,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 20
+       * @arkts 1.1&1.2
        */
       resume(): Promise<void>;
       /**
