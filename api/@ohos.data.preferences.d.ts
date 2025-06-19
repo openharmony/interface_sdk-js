@@ -1907,9 +1907,23 @@ declare namespace preferences {
      * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Registers an observer to listen for changes to the {@ link Preferences} object.
+     *
+     * @param { 'dataChange' } type - Indicates the type of the event to observe.
+     * @param { Array<string> } keys - Indicates one or more keys to listen for.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
@@ -1989,9 +2003,23 @@ declare namespace preferences {
      * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * @crossplatform
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Unregisters an observer for changes to the {@ link Preferences} object.
+     *
+     * @param { 'dataChange' } type - Indicates the event type.
+     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }

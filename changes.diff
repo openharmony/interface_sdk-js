@@ -1,0 +1,1163 @@
+diff --git a/api/@ohos.data.preferences.d.ts b/api/@ohos.data.preferences.d.ts
+index ee25e4398..4f3aafd79 100644
+--- a/api/@ohos.data.preferences.d.ts
++++ b/api/@ohos.data.preferences.d.ts
+@@ -1907,10 +1907,24 @@ declare namespace preferences {
+      * <br>3. Parameter verification failed.
+      * @throws { BusinessError } 15500000 - Inner error.
+      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+-     * @crossplatform
+      * @atomicservice
+      * @since 12
+      */
++    /**
++     * Registers an observer to listen for changes to the {@ link Preferences} object.
++     *
++     * @param { 'dataChange' } type - Indicates the type of the event to observe.
++     * @param { Array<string> } keys - Indicates one or more keys to listen for.
++     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:
++     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
++     * <br>3. Parameter verification failed.
++     * @throws { BusinessError } 15500000 - Inner error.
++     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
++     * @crossplatform
++     * @atomicservice
++     * @since 20
++     */
+     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
+ 
+     /**
+@@ -1989,10 +2003,24 @@ declare namespace preferences {
+      * <br>3. Parameter verification failed.
+      * @throws { BusinessError } 15500000 - Inner error.
+      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+-     * @crossplatform
+      * @atomicservice
+      * @since 12
+      */
++    /**
++     * Unregisters an observer for changes to the {@ link Preferences} object.
++     *
++     * @param { 'dataChange' } type - Indicates the event type.
++     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
++     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:
++     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
++     * <br>3. Parameter verification failed.
++     * @throws { BusinessError } 15500000 - Inner error.
++     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
++     * @crossplatform
++     * @atomicservice
++     * @since 20
++     */
+     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
+   }
+ }
+diff --git a/api/@ohos.data.relationalStore.d.ts b/api/@ohos.data.relationalStore.d.ts
+index 11c99b5ad..173995f6e 100644
+--- a/api/@ohos.data.relationalStore.d.ts
++++ b/api/@ohos.data.relationalStore.d.ts
+@@ -1682,26 +1682,45 @@ declare namespace relationalStore {
+    *
+    * @enum { string }
+    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-   * @crossplatform
+    * @since 11
+    */
++  /**
++   * Enumerates the field.
++   *
++   * @enum { string }
++   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++   * @crossplatform
++   * @since 20
++   */
+   enum Field {
+     /**
+      * Cursor field.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Cursor field.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     CURSOR_FIELD = '#_cursor',
+ 
+     /**
+      * Origin field. For details, see {@link Origin}.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Origin field. For details, see {@link Origin}.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     ORIGIN_FIELD = '#_origin',
+ 
+     /**
+@@ -1709,9 +1728,16 @@ declare namespace relationalStore {
+      * Indicates whether data has deleted in cloud.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Deleted flag field.
++     * Indicates whether data has deleted in cloud.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     DELETED_FLAG_FIELD = '#_deleted_flag',
+ 
+     /**
+@@ -1719,29 +1745,54 @@ declare namespace relationalStore {
+      * Indicates data status.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * Data status field.
++     * Indicates data status.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     DATA_STATUS_FIELD = '#_data_status',
+ 
+     /**
+      * Owner field.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Owner field.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     OWNER_FIELD = '#_cloud_owner',
+ 
+     /**
+      * Privilege field.
+      *
+      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Privilege field.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @crossplatform
++     * @since 20
++     */
+     PRIVILEGE_FIELD = '#_cloud_privilege',
+ 
++    /**
++     * Sharing resource field.
++     *
++     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
++     * @since 11
++     */
+     /**
+      * Sharing resource field.
+      *
+@@ -2702,11 +2753,37 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * Sets the RdbPredicates to match the field whose data type is string and value
++     * does not contain the specified value.
++     * This method is similar to "Not like %value%" of the SQL statement.
++     *
++     * @param { string } field - Indicates the column name in the database table.
++     * @param { string } value - Indicates the value that is not contained.
++     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     * <br>2. Incorrect parameter types.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     notContains(field: string, value: string): RdbPredicates;
+ 
++    /**
++     * Sets the RdbPredicates to match the field whose data type is string and value
++     * is not like the specified value.
++     * This method is similar to "Not like" of the SQL statement.
++     *
++     * @param { string } field - Indicates the column name in the database table.
++     * @param { string } value - Indicates the value to compare against.
++     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     * <br>2. Incorrect parameter types.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @since 12
++     */
+     /**
+      * Sets the RdbPredicates to match the field whose data type is string and value
+      * is not like the specified value.
+@@ -3831,9 +3908,43 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 14
+      */
++    /**
++     * Obtains the value of the specified column in the current row.
++     * The implementation class determines whether to throw an exception if the value of the specified column
++     * in the current row is null or the specified column is not of the Assets type.
++     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
++     * the obtained value was null.
++     *
++     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
++     * @returns { ValueType } The value of the specified column.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     * <br>2. Incorrect parameter types.
++     * @throws { BusinessError } 14800000 - Inner error.
++     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
++     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
++     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
++     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
++     * @throws { BusinessError } 14800021 - SQLite: Generic error.
++     * Possible causes: Insert failed or the updated data does not exist.
++     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
++     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
++     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
++     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
++     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
++     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
++     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
++     * @throws { BusinessError } 14800029 - SQLite: The database is full.
++     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
++     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
++     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
++     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
++     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     getValue(columnIndex: number): ValueType;
+ 
+     /**
+@@ -4498,9 +4609,42 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * Inserts a row of data into the target table with sync interface.
++     *
++     * @param { string } table - Indicates the target table.
++     * @param { sendableRelationalStore.ValuesBucket } values - Indicates the row of data
++     *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
++     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
++     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     * <br>2. Incorrect parameter types.
++     * @throws { BusinessError } 14800000 - Inner error.
++     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
++     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
++     * @throws { BusinessError } 14800015 - The database does not respond.
++     * @throws { BusinessError } 14800021 - SQLite: Generic error.
++     * Possible causes: Insert failed or the updated data does not exist.
++     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
++     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
++     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
++     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
++     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
++     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
++     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
++     * @throws { BusinessError } 14800029 - SQLite: The database is full.
++     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
++     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
++     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
++     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
++     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
++     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
+ 
+     /**
+@@ -7876,9 +8020,22 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800000 - Inner error.
+      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * Subscribes to the SQL statistics.
++     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
++     * @param { Callback<SqlExecutionInfo> } observer -
++     * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:
++     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
++     * @throws { BusinessError } 801 - Capability not supported.
++     * @throws { BusinessError } 14800000 - Inner error.
++     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
+ 
+     /**
+@@ -8108,9 +8265,18 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+      * @throws { BusinessError } 14800000 - Inner error.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * Close the RdbStore and all resultSets.
++     *
++     * @returns { Promise<void> } The promise returned by the function.
++     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
++     * @throws { BusinessError } 14800000 - Inner error.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     close(): Promise<void>;
+ 
+     /**
+@@ -8885,9 +9051,37 @@ declare namespace relationalStore {
+      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+-     * @crossplatform
+      * @since 14
+      */
++    /**
++     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
++     *
++     * @param { string } sql - Indicates the SQL statement to execute.
++     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
++     * The values are strings.
++     * @returns { Promise<ValueType> } The promise returned by the function.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
++     * <br>2. Incorrect parameter types.
++     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
++     * @throws { BusinessError } 14800000 - Inner error.
++     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
++     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
++     * @throws { BusinessError } 14800021 - SQLite: Generic error.
++     * Possible causes: Insert failed or the updated data does not exist.
++     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
++     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
++     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
++     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
++     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
++     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
++     * @throws { BusinessError } 14800029 - SQLite: The database is full.
++     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
++     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
++     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
++     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
++     * @crossplatform
++     * @since 20
++     */
+     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
+ 
+     /**
+diff --git a/api/@ohos.data.uniformTypeDescriptor.d.ts b/api/@ohos.data.uniformTypeDescriptor.d.ts
+index 4feebfa17..6d5bc0f67 100644
+--- a/api/@ohos.data.uniformTypeDescriptor.d.ts
++++ b/api/@ohos.data.uniformTypeDescriptor.d.ts
+@@ -1834,9 +1834,16 @@ declare namespace uniformTypeDescriptor {
+    * <br>methods describing the uniform data type and its relationships to other uniform data types.
+    *
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-   * @crossplatform
+    * @since 11
+    */
++  /**
++   * Class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
++   * <br>methods describing the uniform data type and its relationships to other uniform data types.
++   *
++   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++   * @crossplatform
++   * @since 20
++   */
+   class TypeDescriptor {
+     /**
+      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
+@@ -1844,9 +1851,17 @@ declare namespace uniformTypeDescriptor {
+      * @type { string }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
++     *
++     * @type { string }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     readonly typeId: string;
+ 
+     /**
+@@ -1855,9 +1870,17 @@ declare namespace uniformTypeDescriptor {
+      * @type { Array<string> }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Uniform data type IDs that the uniform data type belongs to.
++     *
++     * @type { Array<string> }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     readonly belongingToTypes: Array<string>;
+ 
+     /**
+@@ -1866,9 +1889,17 @@ declare namespace uniformTypeDescriptor {
+      * @type { string }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * A textual description for the uniform data type.
++     *
++     * @type { string }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     readonly description: string;
+ 
+     /**
+@@ -1877,9 +1908,17 @@ declare namespace uniformTypeDescriptor {
+      * @type { string }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Reference URL for the uniform data type, which describes the detail information of the type.
++     *
++     * @type { string }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     readonly referenceURL: string;
+ 
+     /**
+@@ -1888,9 +1927,17 @@ declare namespace uniformTypeDescriptor {
+      * @type { string }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Default icon file path for the uniform data type.
++     *
++     * @type { string }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     readonly iconFile: string;
+ 
+     /**
+@@ -1899,11 +1946,27 @@ declare namespace uniformTypeDescriptor {
+      * @type { Array<string> }
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 12
+      */
++    /**
++     * File name extensions for the uniform data type.
++     *
++     * @type { Array<string> }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+      readonly filenameExtensions: Array<string>;
+ 
++     /**
++     * MIMETypes of the uniform data type.
++     *
++     * @type { Array<string> }
++     * @readonly
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @since 12
++     */
+     /**
+      * MIMETypes of the uniform data type.
+      *
+@@ -1911,7 +1974,7 @@ declare namespace uniformTypeDescriptor {
+      * @readonly
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+      * @crossplatform
+-     * @since 12
++     * @since 20
+      */
+     readonly mimeTypes: Array<string>;
+ 
+@@ -1923,9 +1986,19 @@ declare namespace uniformTypeDescriptor {
+      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+      * <br>2.Incorrect parameters types.
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Checks whether the uniform data type belongs to the given uniform data type.
++     *
++     * @param { string } type - A uniform data type to be compared.
++     * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++     * <br>2.Incorrect parameters types.
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     belongsTo(type: string): boolean;
+ 
+     /**
+@@ -1936,9 +2009,19 @@ declare namespace uniformTypeDescriptor {
+      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+      * <br>2.Incorrect parameters types.
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Checks whether the uniform data type is the lower level type of the given uniform data type.
++     *
++     * @param { string } type - A uniform data type to be compared.
++     * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++     * <br>2.Incorrect parameters types.
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     isLowerLevelType(type: string): boolean;
+ 
+     /**
+@@ -1949,9 +2032,19 @@ declare namespace uniformTypeDescriptor {
+      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+      * <br>2.Incorrect parameters types.
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Checks whether the uniform data type is the higher level type of the given uniform data type.
++     *
++     * @param { string } type - A uniform data type to be compared.
++     * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++     * <br>2.Incorrect parameters types.
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     isHigherLevelType(type: string): boolean;
+ 
+     /**
+@@ -1962,9 +2055,19 @@ declare namespace uniformTypeDescriptor {
+      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+      * <br>2.Incorrect parameters types.
+      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Checks whether the uniform type descriptor is equal to the given uniform type descriptor.
++     *
++     * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
++     * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
++     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++     * <br>2.Incorrect parameters types.
++     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++     * @crossplatform
++     * @since 20
++     */
+     equals(typeDescriptor: TypeDescriptor): boolean;
+   }
+ 
+@@ -1977,9 +2080,20 @@ declare namespace uniformTypeDescriptor {
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+    * <br>2.Incorrect parameters types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-   * @crossplatform
+    * @since 11
+    */
++  /**
++   * Queries and returns the uniform type descriptor by the given uniform data type ID.
++   *
++   * @param { string } typeId - Uniform data type ID.
++   * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
++   * <br>if the uniform data type does not exist.
++   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++   * <br>2.Incorrect parameters types.
++   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++   * @crossplatform
++   * @since 20
++   */
+   function getTypeDescriptor(typeId: string): TypeDescriptor;
+ 
+   /**
+@@ -2024,9 +2138,21 @@ declare namespace uniformTypeDescriptor {
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+    * <br>2.Incorrect parameters types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-   * @crossplatform
+    * @since 11
+    */
++  /**
++   * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
++   *
++   * @param { string } mimeType - MIME type.
++   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
++   * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
++   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
++   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++   * <br>2.Incorrect parameters types.
++   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++   * @crossplatform
++   * @since 20
++   */
+   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
+ 
+   /**
+@@ -2041,9 +2167,23 @@ declare namespace uniformTypeDescriptor {
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+    * <br>2.Incorrect parameters types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-   * @crossplatform
+    * @since 13
+    */
++  /**
++   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it
++   * belongs to.
++   *
++   * @param { string } filenameExtension - Filename extension.
++   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
++   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and
++   * the uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
++   * does not exist.
++   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++   * <br>2.Incorrect parameters types.
++   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++   * @crossplatform
++   * @since 20
++   */
+   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
+ 
+   /**
+@@ -2058,9 +2198,23 @@ declare namespace uniformTypeDescriptor {
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
+    * <br>2.Incorrect parameters types.
+    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+-   * @crossplatform
+    * @since 13
+    */
++  /**
++   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs
++   * to.
++   *
++   * @param { string } mimeType - MIME type.
++   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
++   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the
++   * uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does
++   * not exist.
++   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
++   * <br>2.Incorrect parameters types.
++   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
++   * @crossplatform
++   * @since 20
++   */
+   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
+ }
+ 
+diff --git a/api/@ohos.request.d.ts b/api/@ohos.request.d.ts
+index 34a0ed1d6..689c7e794 100644
+--- a/api/@ohos.request.d.ts
++++ b/api/@ohos.request.d.ts
+@@ -283,7 +283,7 @@ declare namespace request {
+ 
+   /**
+    * Error code 7 - Indicates an HTTP code that cannot be identified.
+-   * @crossplatform
++   *
+    * @syscap SystemCapability.MiscServices.Download
+    * @since 7
+    */
+@@ -1984,9 +1984,18 @@ declare namespace request {
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.MiscServices.Upload
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * The index of paths for a task.
++     * Usually used for a continuous job.
++     * The default is 0.
++     *
++     * @type { ?number }
++     * @syscap SystemCapability.MiscServices.Upload
++     * @crossplatform
++     * @since 20
++     */
+     index?: number;
+     /**
+      * The start point of a file.
+@@ -1996,9 +2005,19 @@ declare namespace request {
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.MiscServices.Upload
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * The start point of a file.
++     * Usually used for a continuous job.
++     * It will start read at the point in upload.
++     * The default is 0.
++     *
++     * @type { ?number }
++     * @syscap SystemCapability.MiscServices.Upload
++     * @crossplatform
++     * @since 20
++     */
+     begins?: number;
+     /**
+      * The end point of a file.
+@@ -2008,9 +2027,19 @@ declare namespace request {
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.MiscServices.Upload
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * The end point of a file.
++     * Usually used for a continuous job.
++     * It will end read at the point in upload.
++     * The default is -1 indicating the end of the data for upload.
++     *
++     * @type { ?number }
++     * @syscap SystemCapability.MiscServices.Upload
++     * @crossplatform
++     * @since 20
++     */
+     ends?: number;
+     /**
+      * A list of files to be uploaded. Please use multipart/form-data to submit.
+@@ -2665,9 +2694,16 @@ declare namespace request {
+      *
+      * @enum { string } BroadcastEvent
+      * @syscap SystemCapability.Request.FileTransferAgent
+-     * @crossplatform
+      * @since 11
+      */
++    /**
++     * Broadcast events for the request.
++     *
++     * @enum { string } BroadcastEvent
++     * @syscap SystemCapability.Request.FileTransferAgent
++     * @crossplatform
++     * @since 20
++     */
+     enum BroadcastEvent {
+       /**
+        * Completion event for the task.
+@@ -2675,9 +2711,17 @@ declare namespace request {
+        * The data in the commonEventData contains the id of the task.
+        *
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Completion event for the task.
++       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
++       * The data in the commonEventData contains the id of the task.
++       *
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       COMPLETE = 'ohos.request.event.COMPLETE'
+     }
+ 
+@@ -3344,9 +3388,18 @@ declare namespace request {
+        *
+        * @type { ?string }
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 12
+        */
++      /**
++       * The proxy url for the task.
++       * Only this format is supported: http://<domain or IP-address>:<port>
++       * Username and password are not supported.
++       *
++       * @type { ?string }
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       proxy?: string;
+       /**
+        * The index of paths for a task.
+@@ -4500,6 +4553,7 @@ declare namespace request {
+      *
+      * @interface HttpResponse
+      * @syscap SystemCapability.Request.FileTransferAgent
++     * @atomicservice
+      * @since 12
+      */
+     /**
+@@ -4520,6 +4574,7 @@ declare namespace request {
+        * @type { string }
+        * @readonly
+        * @syscap SystemCapability.Request.FileTransferAgent
++       * @atomicservice
+        * @since 12
+        */
+       /**
+@@ -4540,6 +4595,7 @@ declare namespace request {
+        * @type { number }
+        * @readonly
+        * @syscap SystemCapability.Request.FileTransferAgent
++       * @atomicservice
+        * @since 12
+        */
+       /**
+@@ -4560,6 +4616,7 @@ declare namespace request {
+        * @type { string }
+        * @readonly
+        * @syscap SystemCapability.Request.FileTransferAgent
++       * @atomicservice
+        * @since 12
+        */
+       /**
+@@ -4580,10 +4637,19 @@ declare namespace request {
+        * @type { Map<string, Array<string>> }
+        * @readonly
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @atomicservice
+        * @since 12
+        */
++      /**
++       * The headers of the HTTP response.
++       *
++       * @type { Map<string, Array<string>> }
++       * @readonly
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @atomicservice
++       * @since 20
++       */
+       readonly headers: Map<string, Array<string>>,
+     }
+ 
+@@ -4857,9 +4923,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Enables the specified callback.
++       * Subscribes to task pause events.
++       *
++       * @param { 'pause' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       on(event: 'pause', callback: (progress: Progress) => void): void;
+       /**
+        * Disables the specified callback.
+@@ -4870,9 +4947,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Disables the specified callback.
++       * Unsubscribes from the foreground task pause event.
++       *
++       * @param { 'pause' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       off(event: 'pause', callback?: (progress: Progress) => void): void;
+       /**
+        * Enables the specified callback.
+@@ -4883,9 +4971,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Enables the specified callback.
++       * Subscribes to task resume events.
++       *
++       * @param { 'resume' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       on(event: 'resume', callback: (progress: Progress) => void): void;
+       /**
+        * Disables the specified callback.
+@@ -4896,9 +4995,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Disables the specified callback.
++       * Unsubscribes from the foreground task resume event.
++       *
++       * @param { 'resume' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       off(event: 'resume', callback?: (progress: Progress) => void): void;
+       /**
+        * Enables the specified callback.
+@@ -4909,9 +5019,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Enables the specified callback.
++       * Subscribes to task removal events.
++       *
++       * @param { 'remove' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       on(event: 'remove', callback: (progress: Progress) => void): void;
+       /**
+        * Disables the specified callback.
+@@ -4922,9 +5043,20 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Disables the specified callback.
++       * Unsubscribes from the task removal event.
++       *
++       * @param { 'remove' } event - event types.
++       * @param { function } callback - callback function with a `Progress` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       off(event: 'remove', callback?: (progress: Progress) => void): void;
+       /**
+        * Enables the response callback.
+@@ -4935,6 +5067,7 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
++       * @atomicservice
+        * @since 12
+        */
+       /**
+@@ -4961,10 +5094,22 @@ declare namespace request {
+        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @atomicservice
+        * @since 12
+        */
++      /**
++       * Disables the response callback.
++       * Unsubscribes from task response headers.
++       *
++       * @param { 'response' } event - event types.
++       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
++       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
++       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @atomicservice
++       * @since 20
++       */
+       off(event: 'response', callback?: Callback<HttpResponse>): void;
+       /**
+        * Enables the 'faultOccur' callback.
+@@ -5113,9 +5258,18 @@ declare namespace request {
+        * @throws { BusinessError } 13400003 - Task service ability error.
+        * @throws { BusinessError } 21900007 - Operation with wrong task state.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Pauses a task that is waiting, running, or retrying.
++       *
++       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
++       * @throws { BusinessError } 13400003 - Task service ability error.
++       * @throws { BusinessError } 21900007 - Operation with wrong task state.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       pause(callback: AsyncCallback<void>): void;
+       /**
+        * Pauses the background task.
+@@ -5134,9 +5288,18 @@ declare namespace request {
+        * @throws { BusinessError } 13400003 - Task service ability error.
+        * @throws { BusinessError } 21900007 - Operation with wrong task state.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Pauses a task that is waiting, running, or retrying.
++       *
++       * @returns { Promise<void> } the promise returned by the function.
++       * @throws { BusinessError } 13400003 - Task service ability error.
++       * @throws { BusinessError } 21900007 - Operation with wrong task state.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       pause(): Promise<void>;
+       /**
+        * Resumes the background task.
+@@ -5159,9 +5322,20 @@ declare namespace request {
+        * @throws { BusinessError } 13400003 - Task service ability error.
+        * @throws { BusinessError } 21900007 - Operation with wrong task state.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Resumes a paused task.
++       *
++       * @permission ohos.permission.INTERNET
++       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
++       * @throws { BusinessError } 201 - Permission denied.
++       * @throws { BusinessError } 13400003 - Task service ability error.
++       * @throws { BusinessError } 21900007 - Operation with wrong task state.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       resume(callback: AsyncCallback<void>): void;
+       /**
+        * Resumes the background task.
+@@ -5184,9 +5358,20 @@ declare namespace request {
+        * @throws { BusinessError } 13400003 - Task service ability error.
+        * @throws { BusinessError } 21900007 - Operation with wrong task state.
+        * @syscap SystemCapability.Request.FileTransferAgent
+-       * @crossplatform
+        * @since 11
+        */
++      /**
++       * Resumes a paused task.
++       *
++       * @permission ohos.permission.INTERNET
++       * @returns { Promise<void> } the promise returned by the function.
++       * @throws { BusinessError } 201 - Permission denied.
++       * @throws { BusinessError } 13400003 - Task service ability error.
++       * @throws { BusinessError } 21900007 - Operation with wrong task state.
++       * @syscap SystemCapability.Request.FileTransferAgent
++       * @crossplatform
++       * @since 20
++       */
+       resume(): Promise<void>;
+       /**
+        * Stop a running, waiting, or retrying task.

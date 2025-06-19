@@ -1682,16 +1682,29 @@ declare namespace relationalStore {
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @crossplatform
    * @since 11
+   */
+  /**
+   * Enumerates the field.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @crossplatform
+   * @since 20
    */
   enum Field {
     /**
      * Cursor field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Cursor field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     CURSOR_FIELD = '#_cursor',
 
@@ -1699,8 +1712,14 @@ declare namespace relationalStore {
      * Origin field. For details, see {@link Origin}.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Origin field. For details, see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     ORIGIN_FIELD = '#_origin',
 
@@ -1709,8 +1728,15 @@ declare namespace relationalStore {
      * Indicates whether data has deleted in cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Deleted flag field.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     DELETED_FLAG_FIELD = '#_deleted_flag',
 
@@ -1719,8 +1745,15 @@ declare namespace relationalStore {
      * Indicates data status.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Data status field.
+     * Indicates data status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     DATA_STATUS_FIELD = '#_data_status',
 
@@ -1728,8 +1761,14 @@ declare namespace relationalStore {
      * Owner field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Owner field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     OWNER_FIELD = '#_cloud_owner',
 
@@ -1737,8 +1776,14 @@ declare namespace relationalStore {
      * Privilege field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Privilege field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     PRIVILEGE_FIELD = '#_cloud_privilege',
 
@@ -1746,8 +1791,14 @@ declare namespace relationalStore {
      * Sharing resource field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @crossplatform
      * @since 11
+     */
+    /**
+     * Sharing resource field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
@@ -2702,8 +2753,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * does not contain the specified value.
+     * This method is similar to "Not like %value%" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value that is not contained.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     notContains(field: string, value: string): RdbPredicates;
 
@@ -2718,8 +2782,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * is not like the specified value.
+     * This method is similar to "Not like" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to compare against.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     notLike(field: string, value: string): RdbPredicates;
 
@@ -3831,8 +3908,42 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 14
+     */
+    /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     getValue(columnIndex: number): ValueType;
 
@@ -4498,8 +4609,41 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Inserts a row of data into the target table with sync interface.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { sendableRelationalStore.ValuesBucket } values - Indicates the row of data
+     *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
 
@@ -7876,8 +8020,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Subscribes to the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExecutionInfo> } observer -
+     * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
@@ -8108,8 +8265,17 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
+     */
+    /**
+     * Close the RdbStore and all resultSets.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     close(): Promise<void>;
 
@@ -8885,8 +9051,36 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 14
+     */
+    /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
+     * The values are strings.
+     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
