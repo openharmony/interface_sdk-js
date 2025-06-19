@@ -222,6 +222,7 @@
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.Global.I18n"
+    "SystemCapability.Global.I18n",
+    "SystemCapability.Test.PerfTest"
   ]
 }
