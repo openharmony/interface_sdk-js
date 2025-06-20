@@ -1214,6 +1214,32 @@ declare namespace drawing {
   }
 
   /**
+   * Describes font feature for drawing and measuring single character.
+   * @typedef FontFeature
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20
+   */
+  interface FontFeature {
+    /**
+     * The name of font feature.
+     * @type { string } feature name
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    name: string;
+    /**
+     * The value of font feature.
+     * @type { number } feature value
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    value: number;
+  }
+
+  /**
    * A carrier that carries the drawn content and drawing status.
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -1566,6 +1592,19 @@ declare namespace drawing {
      * @since 12
      */
     drawSingleCharacter(text: string, font: Font, x: number, y: number): void;
+
+    /**
+     * Draws a single character with font feature.
+     * @param { string } text - A string containing only a single character.
+     * @param { Font } font - Font object.
+     * @param { number } x - X coordinate of the single character start point.
+     * @param { number } y - Y coordinate of the single character start point.
+     * @param { Array<FontFeature> } features - Font Feature Array.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, features: Array<FontFeature>): void;
 
     /**
      * Draws a text blob. If the typeface used to construct blob does not support a character, that character will not be drawn.
@@ -2322,6 +2361,17 @@ declare namespace drawing {
      * @since 12
      */
     measureSingleCharacter(text: string): number;
+
+    /**
+     * Measure a single character with font feature.
+     * @param { string } text - A string containing only a single character.
+     * @param { Array<FontFeature> } features - Font Feature Array.
+     * @returns { number } The width of the single character.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number;
 
     /**
      * Measures the text width.
