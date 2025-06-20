@@ -3285,6 +3285,16 @@ declare namespace audio {
     getEffectManager(): AudioEffectManager;
 
     /**
+     * Obtains a collaborative playback management instance.
+     * @returns { AudioCollaborativeManager } Returns a collaborative playback management instance.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 20
+     */
+    getCollaborativeManager(): AudioCollaborativeManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -6428,6 +6438,56 @@ declare namespace audio {
      * @since 18
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
+  }
+
+  /**
+   * Implements audio collaborative management.
+   * @typedef AudioCollaborativeManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 20
+   */
+  interface AudioCollaborativeManager {
+    /**
+     * Checks whether the collaborative playback is supported by system.
+     * @returns { boolean } Whether the collaborative playback is supported by system.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackSupported(): boolean;
+
+    /**
+     * Enables or disables collaborative playback for the specified device.
+     * Currently, only A2DP audio devices support collaborative playback.
+     * If the system is using the specified device for audio output, 
+     * the audio will be played from both the local speaker and the specified device after this API is called.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @param { boolean } enabled - Whether to enable or disable collaborative playback. The value true means to enable it, and false means to disable it.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                              1. The specified device is not an A2DP device.
+     *                              2. The specified device is not connected.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    setCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether collaborative playback is enabled for the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @returns { boolean } Returns the check result. The value true means that collaborative playback is enabled for the specified device,
+     * and false means the opposite.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
 
   /**
