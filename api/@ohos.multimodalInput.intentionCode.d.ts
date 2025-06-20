@@ -23,8 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 /**
  * IntentionCode
@@ -40,8 +39,7 @@ export declare enum IntentionCode {
    * INTENTION_UNKNOWN
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_UNKNOWN
@@ -57,8 +55,7 @@ export declare enum IntentionCode {
    * INTENTION_UP
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_UP
@@ -74,8 +71,7 @@ export declare enum IntentionCode {
    * INTENTION_DOWN
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_DOWN
@@ -91,8 +87,7 @@ export declare enum IntentionCode {
    * INTENTION_LEFT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_LEFT
@@ -108,8 +103,7 @@ export declare enum IntentionCode {
    * INTENTION_RIGHT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_RIGHT
@@ -125,8 +119,7 @@ export declare enum IntentionCode {
    * INTENTION_SELECT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_SELECT
@@ -142,8 +135,7 @@ export declare enum IntentionCode {
    * INTENTION_ESCAPE
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_ESCAPE
@@ -159,8 +151,7 @@ export declare enum IntentionCode {
    * INTENTION_BACK
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_BACK
@@ -176,8 +167,7 @@ export declare enum IntentionCode {
    * INTENTION_FORWARD
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_FORWARD
@@ -193,8 +183,7 @@ export declare enum IntentionCode {
    * INTENTION_MENU
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_MENU
@@ -210,8 +199,7 @@ export declare enum IntentionCode {
    * INTENTION_PAGE_UP
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_PAGE_UP
@@ -227,8 +215,7 @@ export declare enum IntentionCode {
    * INTENTION_PAGE_DOWN
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_PAGE_DOWN
@@ -244,8 +231,7 @@ export declare enum IntentionCode {
    * INTENTION_ZOOM_OUT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_ZOOM_OUT
@@ -261,8 +247,7 @@ export declare enum IntentionCode {
    * INTENTION_ZOOM_IN
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * INTENTION_ZOOM_IN
