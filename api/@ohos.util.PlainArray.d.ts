@@ -448,9 +448,6 @@ declare class PlainArray<T> {
    * @param { number } index - index index Target subscript for search
    * @returns { number | undefined } the key of key-value pairs, or undefined if the index is out of range.
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * 1.Mandatory parameters are left unspecified;
-   * 2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
