@@ -9288,6 +9288,22 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     getUri(): string;
+
+    /**
+     * Check if the video of the moving photo is ready.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<boolean> } Returns whether the video is ready
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    isVideoReady(): Promise<boolean>;
   }
 
   /**
