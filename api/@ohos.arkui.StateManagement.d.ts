@@ -349,8 +349,8 @@ export declare class UIUtils {
    * function where arguments are of type MutableBinding.
    *
    * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
-   * @param { SetterCallback<T> } [setter] - (Optional) A function to
-   * set a new value of type T. If provided, a MutableBinding is created.
+   * @param { SetterCallback<T> } setter - A function to set a new value of type T. 
+   * If provided, a MutableBinding is created.
    * @returns { MutableBinding<T> } mutable data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
