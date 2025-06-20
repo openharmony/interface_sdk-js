@@ -365,6 +365,16 @@ declare namespace inputMethod {
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
 
   /**
+   * Set simple keyboard mode.
+   *
+   * @param { boolean } enable - indicates enable simple keyboard or not.
+   * @returns { void } the promise returned by the function.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  function setSimpleKeyboardEnabled(enable: boolean): void;
+
+  /**
    * @interface InputMethodSetting
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
