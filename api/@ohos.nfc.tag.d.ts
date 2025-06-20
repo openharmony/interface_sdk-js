@@ -29,7 +29,9 @@ import {
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
+/*** if arkts 1.1 */
 import type { PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -1370,8 +1372,7 @@ declare namespace tag {
      * @type { PacMap[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     extrasData: PacMap[];
 
