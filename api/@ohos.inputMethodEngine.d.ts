@@ -2912,6 +2912,7 @@ declare namespace inputMethodEngine {
      * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
+
     /**
      * Is simple keyboard enabled.
      *
