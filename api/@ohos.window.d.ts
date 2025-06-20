@@ -10653,8 +10653,7 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @StageModelOnly
    * @crossplatform
-   * @since arkts {'1.1':'20'}
-   * @arkts 1.1
+   * @since 20
    */
   enum WindowStageLifecycleEventType {
     /**
@@ -10663,8 +10662,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     SHOWN = 1,
     /**
@@ -10673,8 +10671,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     RESUMED = 2,
     /**
@@ -10683,8 +10680,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     PAUSED = 3,
     /**
@@ -10693,8 +10689,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     HIDDEN = 4
   }
@@ -11487,8 +11482,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
 
@@ -11504,8 +11498,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
      * @crossplatform
-     * @since arkts {'1.1':'20'}
-     * @arkts 1.1
+     * @since 20
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
 
