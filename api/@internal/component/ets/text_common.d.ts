@@ -2131,3 +2131,21 @@ declare interface IMEClient {
    */
   nodeId: number;
 }
+
+/**
+ * Defines text layout options. Use this to set constraints for measure text.
+ *
+ * @interface TextLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare interface TextLayoutOptions {
+  /**
+   * Text display area of width.
+   *
+   * @type { ?LengthMetrics } constraintWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  constraintWidth?: LengthMetrics;
+}
