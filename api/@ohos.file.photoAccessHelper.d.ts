@@ -2876,6 +2876,15 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     DATE_MODIFIED = 'date_modified',
+    /**
+     * album cover uri source
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COVER_URI_SOURCE = 'cover_uri_source'
   }
 
   /**
@@ -4042,6 +4051,37 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates source types of cover uri.
+   *
+   * @enum { number } CoverUriSource
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum CoverUriSource {
+    /**
+     * Default album cover.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    DEFAULT_COVER = 0,
+
+    /**
+     * Manually set cover uri.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MANUAL_COVER = 1
+  }
+
+  /**
    * Defines the abstract interface of albums.
    *
    * @interface AbsAlbum
@@ -4171,6 +4211,17 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     readonly lpath?: string;
+    /**
+     * Album cover uri source
+     *
+     * @type { ?CoverUriSource }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    readonly coverUriSource?: CoverUriSource;
     /**
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
@@ -8767,6 +8818,19 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     dismiss(): void;
+
+    /**
+     * reset the album cover.
+     *
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * <br>Possible causes:1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    resetCoverUri(): void;
   }
 
   /**
