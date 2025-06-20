@@ -1570,7 +1570,6 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19
-     * @arkts 1.1&1.2
      */
     /**
      * Subscribe 'attachOptionsDidChange' event.
@@ -1579,6 +1578,7 @@ declare namespace inputMethodEngine {
      * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
+     * @arkts 1.1&1.2
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
