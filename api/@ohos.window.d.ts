@@ -11490,7 +11490,7 @@ declare namespace window {
      * Unsubscribes from the window stage lifecycle change event.
      *
      * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to return the window stage lifecycle state.
      *                                                    If a value is passed in, the corresponding subscription is canceled.
      *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
