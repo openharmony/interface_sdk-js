@@ -42,12 +42,12 @@ export declare interface Pinch {
 
   /**
    * scale
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  scale: number;
+  scale: double;
 }
 
 /**
@@ -72,12 +72,12 @@ export declare interface Rotate {
   /**
    * Rotate angle
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  angle: number;
+  angle: double;
 }
 
 /**
@@ -100,21 +100,21 @@ export declare interface ThreeFingersSwipe {
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
@@ -137,21 +137,21 @@ export declare interface FourFingersSwipe {
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
@@ -176,23 +176,23 @@ export declare interface SwipeInward {
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
