@@ -2938,6 +2938,7 @@ declare namespace inputMethodEngine {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
+     * @arkts 1.1&1.2
      */
     isSimpleKeyboardEnabled?: boolean;
   }
