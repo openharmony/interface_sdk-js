@@ -445,7 +445,6 @@ declare namespace data {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getActiveApnName(): Promise<string>;
 
