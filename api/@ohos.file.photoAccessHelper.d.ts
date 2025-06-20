@@ -1484,7 +1484,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<void> } callback - Callback that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000001 - Invalid display name
      * @throws { BusinessError } 14000011 - System inner fail
@@ -1515,7 +1515,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000001 - Invalid display name
      * @throws { BusinessError } 14000011 - System inner fail
@@ -1568,7 +1568,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<number> } callback - Callback used to return the file descriptor (FD) of the file opened.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1583,7 +1583,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<number> } Returns the read only fd
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4193,7 +4193,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback used to return the image and video assets obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4238,7 +4238,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4381,7 +4381,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<void> } callback - Returns void
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4396,7 +4396,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4413,7 +4413,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<void> } callback - Callback that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4431,7 +4431,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4449,7 +4449,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<void> } callback - Callback that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4467,7 +4467,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4659,7 +4659,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback used to return the image and video assets obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4849,7 +4849,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<string> } callback - Callback used to return the URI of the created image or video asset.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4884,7 +4884,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<string> } callback - Callback used to return the URI of the created image or video asset.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -4921,7 +4921,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<string> } Returns the uri of the newly created asset
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -5038,7 +5038,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<FetchResult<Album>> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -5078,7 +5078,7 @@ declare namespace photoAccessHelper {
      * @param { AsyncCallback<FetchResult<Album>> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -5115,7 +5115,7 @@ declare namespace photoAccessHelper {
      * @returns { Promise<FetchResult<Album>> } - Returns the fetch result
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
