@@ -2885,69 +2885,6 @@ declare namespace request {
     }
 
     /**
-     * Options of the minimum speed of the task.
-     *
-     * @typedef MinSpeed
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     */
-    interface MinSpeed {
-      /**
-       * The minimum speed of the task, in bytes per second.
-       * If the speed of the task is lower than this value for a period of time, the task fails.
-       * If the value is set to 0, no minimum speed limit will be activated.
-       *
-       * @type { number }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      speed: number;
-      /**
-       * Duration of the speed which is allowed to be below the minimum speed, in seconds.
-       * If the speed of the task is lower than this value for a period of time, the task fails.
-       * If the value is set to 0, no minimum speed limit will be activated.
-       *
-       * @type { number }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      duration: number;
-    }
-
-    /**
-     * Options of the custom task timeout.
-     *
-     * @typedef Timeout
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     */
-    interface Timeout {
-      /**
-       * The connection timeout of the task, in seconds.
-       * Connection timeout is the maximum time required for a client and a server to establish a connection.
-       * If this value is not specified, use default value instead. The default value is 60 seconds.
-       * The minimum value allowed is 1 second.
-       *
-       * @type { ?number }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      connectionTimeout?: number;
-      /**
-       * Total timeout of the task, in seconds.
-       * Total timeout includes the time to establish a connection, send a request and receive a response.
-       * If this value is not specified, use default value instead. The default value is 604,800 seconds(1 week).
-       * The minimum value allowed is 1 second.
-       * The maximum value allowed is 604,800 seconds(1 week).
-       *
-       * @type { ?number }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      totalTimeout?: number;
-    }
-
-    /**
      * The configurations for a task.
      * Provides the configuration information of an upload or download task.
      * Using a flexible configuration for clear upload and download functions.
@@ -3085,6 +3022,7 @@ declare namespace request {
        * @atomicservice
        * @since 11
        */
+ 
       mode?: Mode;
       /**
        * The solution choice when path already exists during download.
@@ -3515,22 +3453,6 @@ declare namespace request {
        * @since 15
        */
       notification?: Notification;
-      /**
-       * Customizes the minimum speed of the task.
-       *
-       * @type { ?MinSpeed }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      minSpeed?: MinSpeed;
-      /**
-       * Customizes the timeout of the task.
-       *
-       * @type { ?Timeout }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      timeout?: Timeout;
     }
 
     /**
@@ -3960,14 +3882,7 @@ declare namespace request {
        * @atomicservice
        * @since 12
        */
-      REDIRECT = 0x80,
-      /**
-       * Indicates the speed of the task is too slow.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 20
-       */
-      LOW_SPEED = 0x90
+      REDIRECT = 0x80
     }
 
     /**
