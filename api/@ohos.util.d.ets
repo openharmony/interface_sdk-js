@@ -1443,6 +1443,19 @@ declare namespace util {
   }
 
   /**
+   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
+   * callback as the last argument, and return a function that returns promises.
+   *
+   * @param { Function } original - Asynchronous Function
+   * @returns { Function } Return a function that returns promises
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function promisify(original: Function): (...args: FixedArray<Any>) => Promise<Any>;
+
+  /**
    * Get the hash code of an object.
    *
    * @param { object } [object] - The object that need to get hash code.
