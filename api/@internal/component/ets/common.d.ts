@@ -18354,6 +18354,68 @@ declare interface MenuMaskType {
 }
 
 /**
+ * Defines the scaling mode for custom preview of contextMenu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum PreviewScaleMode {
+  /**
+   * Automatically resize preview based on the layout area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  AUTO = 0,
+
+  /**
+   * Maintain original size of preview content without scaling.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  CONSTANT = 1,
+
+  /**
+   * Maintain aspect ratio to scale preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  MAINTAIN = 2,
+}
+
+/**
+ * Defines the available layout area.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum AvailableLayoutArea {
+  /**
+   * Size of safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  SAFE_AREA = 0,
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -18863,6 +18925,29 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   onWillDisappear?: Callback<void>;
+
+  /**
+   * Defines the scaling mode for custom preview of contextMenu.
+   *
+   * @type { ?PreviewScaleMode }
+   * @default PreviewScaleMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  previewScaleMode?: PreviewScaleMode;
+
+  /**
+   * Defines the available layout area of preview.
+   *
+   * @type { ?AvailableLayoutArea }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  availableLayoutArea?: AvailableLayoutArea;
 }
 
 /**
