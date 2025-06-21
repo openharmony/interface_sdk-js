@@ -2073,6 +2073,29 @@ declare namespace osAccount {
      * @since 9
      */
     getOsAccountConstraintSourceTypes(localId: number, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
+
+    /**
+     * Binds the specified domain account to the target OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local Id of the OS account.
+     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid domain account information.
+     * @throws { BusinessError } 12300003 - The OS account not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account. Possible causes: The OS account cannot be bound.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target OS account or domain account is being operated.
+     * @throws { BusinessError } 12300021 - The OS account is already bound.
+     * @throws { BusinessError } 12300022 - The domain account is already bound.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
+    bindDomainAccount(localId: number, domainAccountInfo: DomainAccountInfo): Promise<void>;
   }
 
   /**
