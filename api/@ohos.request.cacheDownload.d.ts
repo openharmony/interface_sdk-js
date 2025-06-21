@@ -47,6 +47,181 @@ declare namespace cacheDownload {
     }
 
     /**
+     * Resource information of historical cache downloads.
+     *
+     * @typedef ResourceInfo
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    interface ResourceInfo {
+        /**
+         * The decompressed size of the downloaded resource.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly size: number;
+    }
+
+    /**
+     * Network information of historical cache downloads.
+     *
+     * @typedef NetworkInfo
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    interface NetworkInfo {
+        /**
+         * The IP address of a specific URL is used when downloading resources.
+         * If the value is empty, it means that the DNS resolution fails and the IP address cannot be obtained.
+         *
+         * @type { string }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly ip: string;
+        /**
+         * The DNS server list is used when downloading resources.
+         *
+         * @type { string[] }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly dnsServers: string[];
+    }
+
+    /**
+     * Performance information of historical cache downloads.
+     *
+     * @typedef PerformanceInfo
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    interface PerformanceInfo {
+        /**
+         * Time taken from startup to DNS resolution completion, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly dnsTime: number;
+        /**
+         * Time taken from startup to TCP connection completion, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly connectTime: number;
+        /**
+         * Time taken from startup to TLS connection completion, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly tlsTime: number;
+        /**
+         * Time taken from startup to start sending the first byte, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly firstSendTime: number;
+        /**
+         * Time taken from startup to start receiving the first byte, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly firstReceiveTime: number;
+        /**
+         * Time taken from startup to the completion of the request, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly totalTime: number;
+        /**
+         * Time taken from startup to completion of all redirection steps, in milliseconds.
+         *
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly redirectTime: number;
+    }
+
+    /**
+     * Download information of historical cache downloads.
+     *
+     * @typedef DownloadInfo
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    interface DownloadInfo {
+        /**
+         * Resource information of historical cache downloads.
+         *
+         * @type { ResourceInfo }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly resource: ResourceInfo;
+        /**
+         * Network information of historical cache downloads.
+         *
+         * @type { NetworkInfo }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly network: NetworkInfo;
+        /**
+         * Performance information of historical cache downloads.
+         *
+         * @type { PerformanceInfo }
+         * @readonly
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 20
+         * @arkts 1.1&1.2
+         */
+        readonly performance: PerformanceInfo;
+    }
+
+    /**
      * Downloads resources at the specified URL. Resources will be stored in memory cache or files cache.
      * The maximum size of the specified URL is 8192 bytes.
      * The maximum size of a single resource after decompression is 20,971,520 bytes(20 MB).
@@ -100,6 +275,40 @@ declare namespace cacheDownload {
      * @since 18
      */
     function setFileCacheSize(bytes: number);
+
+    /**
+     * Gets download information of cache downloads based on URL.
+     * These information are stored in memory and cleared when the application exits.
+     * The maximum size of the specified URL is 8192 bytes.
+     * If the specified URL can be found in the download information list,
+     * return { @link DownloadInfo } of the most recent download.
+     * If the specified URL can not be found in the download information list, return `undefined`.
+     *
+     * @permission ohos.permission.GET_NETWORK_INFO
+     * @param { string } url - URL to be queried.
+     * @returns { DownloadInfo | undefined } the information of the specified cache download or none.
+     * @throws { BusinessError } 201 - permission denied.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    function getDownloadInfo(url: string): DownloadInfo | undefined;
+
+    /**
+     * Sets the maximum size of the download information list.
+     * The download information list is used to store download infarmation.
+     * URLs and download information correspond one to one.
+     * Each download will generate a download information.
+     * Under the same URL, only the latest download information will be saved.
+     * The default value of the specified size is 0. It means no download information can be stored.
+     * The maximum value of the specified size is 8192.
+     *
+     * @param { number } size - the size of the download information list.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    function setDownloadInfoListSize(size: number): void;
 }
 
 export default cacheDownload;
