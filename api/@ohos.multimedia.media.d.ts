@@ -5331,7 +5331,8 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the surface required for recording. This API uses a promise to return the result. The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     * Obtains the surface required for recording. This API uses a promise to return the result.
+     * The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
      *
      * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp must be based on the system startup time.
      *
@@ -6138,7 +6139,8 @@ declare namespace media {
      * stop recording control. If the AVRecorderState is also switched to error, call reset() or release()
      * to exit the recording.
      *
-     * An application can subscribe to only one AVRecorder error event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * An application can subscribe to only one AVRecorder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'error' } type - Event type, which is **'error'** in this case.
      * This event is triggered when an error occurs during recording.
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
@@ -8678,6 +8680,14 @@ declare namespace media {
      * @since 18
      */
     enableStableQualityMode?: boolean
+
+    /**
+     * Indicates whether enable B Frame. Default is disabled.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     */
+    enableBFrame?: boolean
   }
 
   /**

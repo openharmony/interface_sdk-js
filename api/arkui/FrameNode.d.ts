@@ -934,6 +934,18 @@ export class FrameNode {
   getPositionToScreen(): Position;
 
   /**
+   * Get the position of the node relative to unified display, in vp.
+   *
+   * @returns { Position } - Returns position of the node relative to unified display, in vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  getGlobalPositionOnDisplay(): Position;
+
+  /**
    * Get the position of the node relative to window with transform, in vp.
    *
    * @returns { Position } - Returns position of the node relative to window with transform, in vp.

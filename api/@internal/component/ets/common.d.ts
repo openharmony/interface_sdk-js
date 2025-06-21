@@ -11175,6 +11175,28 @@ declare class LayoutPolicy {
  */
 declare interface ClickEvent extends BaseEvent {
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * X coordinate of the click point relative to the left edge of the device screen.
    *
    * @type { number }
@@ -11447,6 +11469,26 @@ declare interface HoverEvent extends BaseEvent {
   displayY?: number;
 
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * The blocking hover event pops up.
    *
    * @type { function }
@@ -11515,6 +11557,26 @@ declare interface MouseEvent extends BaseEvent {
    * @since 11
    */
   action: MouseAction;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the mouse point relative to the left edge of the device screen.
@@ -11769,6 +11831,26 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @since 12
    */
   windowY: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 }
 
 /**
@@ -11847,6 +11929,28 @@ declare interface TouchObject {
    * @since 11
    */
   id: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -12331,6 +12435,26 @@ declare interface AxisEvent extends BaseEvent {
    * @since 17
    */
   action: AxisAction;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the mouse cursor relative to the left edge of the device screen.
@@ -13510,6 +13634,26 @@ declare enum BlendApplyType {
  * @since 14
  */
 declare interface DragEvent {
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  getGlobalDisplayX(): number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  getGlobalDisplayY(): number;
+
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
    *
@@ -14930,6 +15074,16 @@ declare enum SheetKeyboardAvoidMode {
    * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
+
+  /**
+   * Popup sheet will avoid keyboard by default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  POPUP_SHEET = 4,
 }
 
 /**
@@ -18200,6 +18354,68 @@ declare interface MenuMaskType {
 }
 
 /**
+ * Defines the scaling mode for custom preview of contextMenu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum PreviewScaleMode {
+  /**
+   * Automatically resize preview based on the layout area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  AUTO = 0,
+
+  /**
+   * Maintain original size of preview content without scaling.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  CONSTANT = 1,
+
+  /**
+   * Maintain aspect ratio to scale preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  MAINTAIN = 2,
+}
+
+/**
+ * Defines the available layout area.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum AvailableLayoutArea {
+  /**
+   * Size of safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  SAFE_AREA = 0,
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -18709,6 +18925,29 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   onWillDisappear?: Callback<void>;
+
+  /**
+   * Defines the scaling mode for custom preview of contextMenu.
+   *
+   * @type { ?PreviewScaleMode }
+   * @default PreviewScaleMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  previewScaleMode?: PreviewScaleMode;
+
+  /**
+   * Defines the available layout area of preview.
+   *
+   * @type { ?AvailableLayoutArea }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  availableLayoutArea?: AvailableLayoutArea;
 }
 
 /**

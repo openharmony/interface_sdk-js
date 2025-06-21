@@ -22,7 +22,9 @@ import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
 
 /**
- * Declare component FullScreenLaunchComponent
+ * Declares the FullScreenLaunchComponent, a component provided by ArkUI that allows
+ * you to define and use it in your application through the ArkTS-based declarative
+ * development paradigm.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -54,7 +56,9 @@ export declare struct FullScreenLaunchComponent {
    */
   options?: AtomicServiceOptions;
     /**
-    * Indicates the callback of onError.
+    * Callback triggered when an error occurs during running of the started ExtensionAbility.
+    * It is supported only when the atomic service runs in embedded mode,
+    * with the parameter being of type BusinessError.
     * @type { ?ErrorCallback }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
@@ -62,7 +66,9 @@ export declare struct FullScreenLaunchComponent {
     */
     onError?: ErrorCallback;
     /**
-    * Indicates the callback of onTerminated.
+    * Callback triggered when the EmbeddableUIAbility is terminated to receive the information
+    * about the termination. It is supported only when the atomic service runs in embedded mode,
+    * with the parameter being of type TerminationInfo.
     * @type { ?Callback<TerminationInfo> }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice

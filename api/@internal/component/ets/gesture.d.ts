@@ -945,6 +945,28 @@ interface FingerInfo {
   id: number;
 
   /**
+   * X position of the click point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y position of the click point relative to the global display coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * X coordinate of the touch point relative to the left edge of the device screen.
    *
    * @type { number }

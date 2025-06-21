@@ -12026,12 +12026,11 @@ declare namespace camera {
     /**
      * Whether to enable moving photo mirroring.
      * 
-     * Prior to invoking this interface, it is necessary to determine whether the video mirroring function
-     * is supported by querying the status through isMirrorSupported.
-     * After enabling or disabling the video mirroring function, it is required to update the rotation
-     * by invoking getVideoRotation and subsequently applying the updated rotation through updateRotation.
+     * Prior to invoking this interface, it is necessary to determine whether the moving
+     * photo function is supported through the isMovingPhotoSupported API and whether the
+     * photo mirroring function is supported through the isMirrorSupported API.
      *
-     * @param { boolean } enabled - enable photo mirror if TRUE.
+     * @param { boolean } enabled - enable moving photo mirror if TRUE.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.

@@ -1571,7 +1571,7 @@ declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: Fra
  * @atomicservice
  * @since 20
  */
-declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
+export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
  * Defines the PageInfo type.
@@ -3049,6 +3049,17 @@ export class MeasureUtils {
    * @since 12
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
+
+  /**
+   * Get layout info of the styled string.
+   *
+   * @param { StyledString } styledString - The styled string value.
+   * @param { TextLayoutOptions } [options] - The layout options.
+   * @returns { Array<Paragraph> } paragraph result
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
 
 /**

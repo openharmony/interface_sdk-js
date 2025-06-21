@@ -2294,6 +2294,17 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     setImmersiveEffect(effect: ImmersiveEffect): void;
+    /**
+     * Set keep screen on.
+     * This setting takes effect when the panel is showing and becomes invalid when the panel is hidden.
+     * 
+     * @param { boolean } isKeepScreenOn - is keep screen on.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
   }
 
   /**

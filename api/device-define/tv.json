@@ -195,6 +195,8 @@
     "SystemCapability.Communication.Bluetooth.Core",
     "SystemCapability.Security.Cert",
     "SystemCapability.Update.UpdateService",
-    "SystemCapability.Window.SessionManager"
+    "SystemCapability.Window.SessionManager",
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.Test.PerfTest"
   ]
 }

@@ -1699,6 +1699,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20
    */
   enableAutoSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Set text transition.
+   *
+   * @param { Optional<ContentTransition> } transition - The transition of text.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  contentTransition(transition: Optional<ContentTransition>): TextAttribute;
 }
 
 /**

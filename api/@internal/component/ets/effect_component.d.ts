@@ -51,6 +51,43 @@ interface EffectComponentInterface {
 }
 
 /**
+ * Effect layer enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum EffectLayer {
+  /**
+   * No layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Charge motion layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  CHARGE_MOTION = 1,
+
+  /**
+   * Charge text layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  CHARGE_TEXT = 2
+}
+
+/**
  * Defines the Effect Component constructor options.
  *
  * @interface EffectComponentOptions
@@ -60,16 +97,14 @@ interface EffectComponentInterface {
  */
 declare interface EffectComponentOptions {
 
-  /**
-   * Use this to determine the component layer level. Set true to put the component to the independent layer. Set false
-   * to put the component to the unified render layer. Default value is false.
+  /** Use this to determine the component layer 1evel. Default value is none.
    *
-   * @type { ?boolean }
+   * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
    */
-  independentLayer?: boolean;
+  effectLayer?: EffectLayer;
 }
 
 /**

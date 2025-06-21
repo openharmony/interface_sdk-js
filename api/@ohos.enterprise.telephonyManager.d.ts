@@ -84,6 +84,114 @@ declare namespace telephonyManager {
    * @since 20
    */
   function isSimDisabled(admin: Want, slotId: number): boolean;
+
+  /**
+   * Add phone number to outgoing call number list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { adminManager.Policy } policy - policy flag.
+   * @param { Array<string> } numbers - phone numbers will add to the trust/block list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
+
+  /**
+  * Remove phone number from outgoing call number list.
+  * This function can be called by a super administrator.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { adminManager.Policy } policy - policy flag.
+  * @param { Array<string> } numbers - phone numbers will remove from the trust/block list.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 20
+  */
+  function removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
+  
+  /**
+  * Get outgoing call number list.
+  * This function can be called by a super administrator.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { adminManager.Policy } policy - policy flag.
+  * @returns { Array<string> } phone numbers in the trust/block list.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 20
+  */
+  function getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>;
+  
+  /**
+  * Add phone number to incoming call policy number list.
+  * This function can be called by a super administrator.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { adminManager.Policy } policy - policy flag.
+  * @param { Array<string> } numbers - phone numbers will add to the trust/block list.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 20
+  */
+  function addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
+  
+  /**
+  * Remove phone number from incoming call pplicy number list.
+  * This function can be called by a super administrator.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { adminManager.Policy } policy - policy flag.
+  * @param { Array<string> } numbers - phone numbers will remove from the trust/block list.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 20
+  */
+  function removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void;
+  
+  /**
+  * Get incoming call policy number list.
+  * This function can be called by a super administrator.
+  *
+  * @permission ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
+  * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+  *                         The admin must have the corresponding permission.
+  * @param { adminManager.Policy } policy - policy flag.
+  * @returns { Array<string> } phone numbers in the trust/block list.
+  * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+  * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+  * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+  * @stagemodelonly
+  * @since 20
+  */
+  function getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>; 
 }
 
 export default telephonyManager;
