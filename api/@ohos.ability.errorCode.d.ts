@@ -23,14 +23,16 @@
  *
  * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 6
+ * @since arkts {'1.1':'6', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum ErrorCode {
   /**
    * Permission denied.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PERMISSION_DENY = -3,
 
@@ -38,7 +40,8 @@ export enum ErrorCode {
    * Ability not found.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ABILITY_NOT_FOUND = -2,
 
@@ -46,7 +49,8 @@ export enum ErrorCode {
    * Invalid parameter.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   INVALID_PARAMETER = -1,
 
@@ -54,7 +58,8 @@ export enum ErrorCode {
    * No error.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 6
+   * @since arkts {'1.1':'6', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NO_ERROR = 0
 }
