@@ -155,3 +155,4 @@ export * from './arkui/component/windowScene';
 export * from './arkui/component/withTheme';
 export * from './arkui/component/xcomponent';
 export * from './arkui/component/resources';
+export * from './arkui/component/lazyGridLayout';
