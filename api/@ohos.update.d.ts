@@ -945,7 +945,7 @@ declare namespace update {
      * @systemapi hide for inner use.
      * @since 20
      */
-    otaMode?: OtaMode
+    otaMode?: OtaMode;
   }
 
   /**
