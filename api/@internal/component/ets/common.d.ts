@@ -30,8 +30,8 @@ import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '../../@ohos.arkui.observer';
-import { UIContext } from '../../@ohos.arkui.UIContext';
-import { DrawContext, LengthMetrics } from '../../arkui/Graphics';
+import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
+import { DrawContext as _DrawContext, LengthMetrics } from '../../arkui/Graphics';
 import uiEffect from '../../@ohos.graphics.uiEffect';
 import { FocusBoxStyle, FocusPriority } from './focus';
 import { ComponentContent } from '../../arkui/ComponentContent';
@@ -29646,6 +29646,19 @@ declare type RouterPageInfo = uiObserver.RouterPageInfo;
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
+ * UIContext.
+ *
+ * @typedef { _UIContext } UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type UIContext = _UIContext;
+
+/**
  * DrawContext
  *
  * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
@@ -29655,6 +29668,19 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
  * @since 12
  */
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
+ * DrawContext.
+ *
+ * @typedef { _DrawContext } DrawContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type DrawContext = _DrawContext;
 
 /**
  * VisualEffect
