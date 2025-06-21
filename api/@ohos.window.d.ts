@@ -10651,8 +10651,7 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @StageModelOnly
-   * @crossplatform
+   * @stagemodelonly
    * @since 20
    */
   enum WindowStageLifecycleEventType {
@@ -10660,8 +10659,7 @@ declare namespace window {
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     SHOWN = 1,
@@ -10669,8 +10667,7 @@ declare namespace window {
      * The window stage is interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     RESUMED = 2,
@@ -10678,8 +10675,7 @@ declare namespace window {
      * The window stage is not interactive in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     PAUSED = 3,
@@ -10687,8 +10683,7 @@ declare namespace window {
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     HIDDEN = 4
@@ -11480,8 +11475,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
@@ -11496,8 +11490,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
-     * @crossplatform
+     * @stagemodelonly
      * @since 20
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
