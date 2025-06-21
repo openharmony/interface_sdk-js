@@ -968,15 +968,14 @@ export declare abstract class TypedFrameNode<T> extends FrameNode {
   /**
    * Get attribute instance of FrameNode to set attributes.
    *
-   * @type { T }
-   * @readonly
+   * @returns { T } - Returns the attribute instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  readonly attribute: T;
+  get attribute(): T;
 }
 
 /**
