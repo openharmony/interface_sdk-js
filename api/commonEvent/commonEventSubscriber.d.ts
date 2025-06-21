@@ -358,7 +358,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether the current common event is an ordered common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the common event is an ordered one; returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the common event is an ordered one;
+   *                                              returns false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -414,7 +415,8 @@ export interface CommonEventSubscriber {
   isStickyCommonEventSync(): boolean;
 
   /**
-   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the next subscriber. This API uses an asynchronous callback to return the result.
+   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the
+   * next subscriber. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -425,7 +427,8 @@ export interface CommonEventSubscriber {
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the next subscriber. This API uses a promise to return the result.
+   * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the
+   * next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -442,7 +445,8 @@ export interface CommonEventSubscriber {
   abortCommonEventSync(): void;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent. After the clearance, the common event is sent to the next subscriber. This API uses an asynchronous callback to return the result.
+   * Clears the aborted state of an ordered common event when used with finishCommonEvent.
+   * After the clearance, the common event is sent to the next subscriber. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -453,7 +457,8 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent. After the clearance, the common event is sent to the next subscriber. This API uses a promise to return the result.
+   * Clears the aborted state of an ordered common event when used with finishCommonEvent.
+   * After the clearance, the common event is sent to the next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -462,7 +467,7 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(): Promise<void>;
 
   /**
-   * Clears the aborted state of an ordered common event when used with finishCommonEvent. After the clearance, the common event is sent to the next subscriber.
+   * Clears the aborted state of an ordered common event when used with finishCommonEvent.After the clearance, the common event is sent to the next subscriber.
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
@@ -472,7 +477,8 @@ export interface CommonEventSubscriber {
   /**
    * Checks whether this ordered common event should be aborted. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the ordered common event is in the aborted state; returns false otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns true if the ordered common event
+   *                                              is in the aborted state; returns false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
