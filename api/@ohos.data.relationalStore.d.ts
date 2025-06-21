@@ -4091,8 +4091,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     insert(table: string, values: ValuesBucket, callback: AsyncCallback<long>): void;
 
@@ -4141,8 +4140,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<long>): void;
 
@@ -4380,8 +4378,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<long>): void;
 
@@ -4607,8 +4604,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
@@ -4659,8 +4655,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     update(
       values: ValuesBucket,
@@ -4945,7 +4940,7 @@ declare namespace relationalStore {
      *                         The key-value pairs are associated with column names of the database table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates the specified update condition by
      *                                                    the instance object of {@link dataSharePredicates.DataSharePredicates}.
-     * @returns { Promise<number> } The number of affected rows.
+     * @returns { Promise<long> } The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -4971,9 +4966,10 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+    update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<long>;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -5027,8 +5023,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     delete(predicates: RdbPredicates, callback: AsyncCallback<long>): void;
 
@@ -5160,7 +5155,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { dataSharePredicates.DataSharePredicates } predicates - The specified delete condition by the instance object
      *                                                    of {@link dataSharePredicates.DataSharePredicates}.
-     * @param { AsyncCallback<number> } callback - The number of affected rows.
+     * @param { AsyncCallback<long> } callback - The number of affected rows.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -5186,10 +5181,9 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+    delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<long>): void;
 
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -5285,8 +5279,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -5328,8 +5321,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -5489,7 +5481,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     query(
       table: string,
@@ -5539,8 +5532,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     querySql(sql: string, callback: AsyncCallback<ResultSet>): void;
 
@@ -5582,8 +5574,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -6081,8 +6072,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
 
@@ -6142,8 +6132,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -6203,8 +6192,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
@@ -6354,8 +6342,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     beginTransaction(): void;
 
@@ -6428,8 +6415,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     commit(): void;
 
@@ -6459,8 +6445,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     commit(txId : long): Promise<void>;
 
@@ -6503,8 +6488,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     rollBack(): void;
 
@@ -6697,8 +6681,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     restore(srcName: string, callback: AsyncCallback<void>): void;
 
@@ -7940,8 +7923,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     commit(): Promise<void>;
 
@@ -7960,8 +7942,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800029 - SQLite: The database is full.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     rollback(): Promise<void>;
 
@@ -8511,8 +8492,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -8634,8 +8614,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -8654,8 +8633,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
@@ -8701,8 +8679,7 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 
