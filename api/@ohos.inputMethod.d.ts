@@ -372,7 +372,7 @@ declare namespace inputMethod {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function SetSimpleKeyboardEnabledSync(enable: boolean): void;
+  function SetSimpleKeyboardEnabled(enable: boolean): void;
 
   /**
    * @interface InputMethodSetting
