@@ -1161,6 +1161,19 @@ declare class TextMenuItemId {
    * @since 20
    */
   static readonly dateTime: TextMenuItemId;
+
+
+  /**
+   * Indicates the TextMenuItemId to open ask celia function.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly askCelia: TextMenuItemId;
 }
 
 /**
