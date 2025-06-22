@@ -30095,7 +30095,17 @@ declare class CustomComponent extends BaseCustomComponent {
    * @atomicservice
    * @since 11
    */
-  aboutToReuse?(params: { [key: string]: unknown }): void;
+  /**
+   * Invoked when a reusable custom component is re-added to the node tree
+   * from the reuse cache to receive construction parameters of the component.
+   *
+   * @param { Record<string, Object | undefined | null> } params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  aboutToReuse?(params: Record<string, Object | undefined | null>): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
