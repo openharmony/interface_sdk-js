@@ -79,8 +79,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    EQUALS = 0,
    /**
@@ -105,8 +105,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    CONTAINS = 1,
    /**
@@ -131,8 +131,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    STARTS_WITH = 2,
    /**
@@ -157,8 +157,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    ENDS_WITH = 3,
    /**
@@ -167,8 +167,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    REG_EXP = 4,
    /**
@@ -177,8 +177,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    REG_EXP_ICASE = 5,
  }
@@ -723,8 +723,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    FULLSCREEN = 0,
    /**
@@ -740,8 +740,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    PRIMARY = 1,
    /**
@@ -757,8 +757,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    SECONDARY = 2,
    /**
@@ -774,8 +774,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    FLOATING = 3,
  }
@@ -810,8 +810,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    LEFT = 0,
    /**
@@ -827,8 +827,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    RIGHT = 1,
    /**
@@ -844,8 +844,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    UP = 2,
    /**
@@ -861,8 +861,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    DOWN = 3,
    /**
@@ -878,8 +878,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    LEFT_UP = 4,
    /**
@@ -895,8 +895,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    LEFT_DOWN = 5,
    /**
@@ -912,8 +912,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    RIGHT_UP = 6,
    /**
@@ -929,8 +929,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    RIGHT_DOWN = 7,
  }
@@ -965,8 +965,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    ROTATION_0 = 0,
    /**
@@ -982,8 +982,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    ROTATION_90 = 1,
    /**
@@ -999,8 +999,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    ROTATION_180 = 2,
    /**
@@ -1016,8 +1016,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    ROTATION_270 = 3,
  }
@@ -1389,6 +1389,7 @@
     *
     * @type { ?boolean }
     * @syscap SystemCapability.Test.UiTest
+    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.WindowFilter#active
     */
@@ -1421,8 +1422,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface UIElementInfo {
    /**
@@ -1440,8 +1441,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    readonly bundleName: string;
    /**
@@ -1459,8 +1460,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    readonly type: string;
    /**
@@ -1478,8 +1479,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    readonly text: string;
  }
@@ -1499,8 +1500,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface UIEventObserver {
 /**
@@ -1522,8 +1523,8 @@
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @test
+   * @arkts 1.1&1.2
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
 
@@ -1546,8 +1547,8 @@
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice  
    * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
    * @test
+   * @arkts 1.1&1.2
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
  }
@@ -1600,8 +1601,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    LEFT = 0,
    /**
@@ -1626,8 +1627,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    RIGHT = 1,
    /**
@@ -1652,8 +1653,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    UP = 2,
    /**
@@ -1678,8 +1679,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    DOWN = 3,
  }
@@ -1714,8 +1715,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    MOUSE_BUTTON_LEFT = 0,
    /**
@@ -1731,8 +1732,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    MOUSE_BUTTON_RIGHT = 1,
    /**
@@ -1748,8 +1749,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    MOUSE_BUTTON_MIDDLE = 2,
  }
@@ -1760,8 +1761,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare interface TouchPadSwipeOptions {
    /**
@@ -1770,8 +1771,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    stay?: boolean;
  
@@ -1781,8 +1782,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    speed?: number;
  }
@@ -1844,8 +1845,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    text(txt: string, pattern?: MatchPattern): On;
  
@@ -1880,8 +1881,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    id(id: string): On;
  
@@ -1916,8 +1917,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    type(tp: string): On;
  
@@ -1952,8 +1953,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    clickable(b?: boolean): On;
  
@@ -1988,8 +1989,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    longClickable(b?: boolean): On;
  
@@ -2024,8 +2025,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    scrollable(b?: boolean): On;
  
@@ -2060,8 +2061,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    enabled(b?: boolean): On;
  
@@ -2096,8 +2097,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    focused(b?: boolean): On;
  
@@ -2132,8 +2133,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    selected(b?: boolean): On;
  
@@ -2168,8 +2169,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    checked(b?: boolean): On;
  
@@ -2204,8 +2205,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    checkable(b?: boolean): On;
  
@@ -2231,8 +2232,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isBefore(on: On): On;
  
@@ -2258,8 +2259,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isAfter(on: On): On;
  
@@ -2285,8 +2286,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    within(on: On): On;
  
@@ -2309,8 +2310,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    inWindow(bundleName: string): On;
  
@@ -2324,8 +2325,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    description(val: string, pattern?: MatchPattern): On;
    /**
@@ -2338,8 +2339,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    id(id: string, pattern: MatchPattern): On;
    /**
@@ -2352,8 +2353,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    type(tp: string, pattern: MatchPattern): On;
    /**
@@ -2366,8 +2367,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    hint(val: string, pattern?: MatchPattern): On;
  }
@@ -2394,8 +2395,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class Component {
    /**
@@ -2429,8 +2430,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    click(): Promise<void>;
  
@@ -2465,8 +2466,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    doubleClick(): Promise<void>;
  
@@ -2501,8 +2502,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    longClick(): Promise<void>;
  
@@ -2537,8 +2538,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getId(): Promise<string>;
  
@@ -2573,8 +2574,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getText(): Promise<string>;
  
@@ -2609,8 +2610,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getType(): Promise<string>;
  
@@ -2645,8 +2646,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isClickable(): Promise<boolean>;
  
@@ -2681,8 +2682,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isLongClickable(): Promise<boolean>;
  
@@ -2717,8 +2718,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isScrollable(): Promise<boolean>;
  
@@ -2753,8 +2754,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isEnabled(): Promise<boolean>;
  
@@ -2789,8 +2790,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isFocused(): Promise<boolean>;
  
@@ -2825,8 +2826,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isSelected(): Promise<boolean>;
  
@@ -2861,8 +2862,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isChecked(): Promise<boolean>;
  
@@ -2897,8 +2898,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isCheckable(): Promise<boolean>;
  
@@ -2939,8 +2940,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    inputText(text: string): Promise<void>;
  
@@ -2975,8 +2976,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    clearText(): Promise<void>;
  
@@ -3017,8 +3018,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    scrollToTop(speed?: number): Promise<void>;
  
@@ -3059,8 +3060,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    scrollToBottom(speed?: number): Promise<void>;
  
@@ -3095,8 +3096,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getBounds(): Promise<Rect>;
  
@@ -3131,8 +3132,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getBoundsCenter(): Promise<Point>;
  
@@ -3159,8 +3160,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    dragTo(target: Component): Promise<void>;
  
@@ -3188,8 +3189,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    pinchOut(scale: number): Promise<void>;
  
@@ -3217,8 +3218,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    pinchIn(scale: number): Promise<void>;
  
@@ -3231,8 +3232,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getDescription(): Promise<string>;
    /**
@@ -3244,8 +3245,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getHint(): Promise<string>;
  
@@ -3302,8 +3303,8 @@
     * @crossplatform
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
    scrollSearch(on: On): Promise<Component | null>;
    
@@ -3331,13 +3332,14 @@
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
     * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
     * @returns { Promise<Component | null> } the found result,or null if not found.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
    scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component | null>;
  }
@@ -3367,8 +3369,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class Driver {
    /**
@@ -3399,8 +3401,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    static create(): Driver;
  
@@ -3438,8 +3440,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    delayMs(duration: number): Promise<void>;
  
@@ -3485,12 +3487,13 @@
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
    findComponent(on: On): Promise<Component | null>;
  
@@ -3523,12 +3526,13 @@
     *
     * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
     * @returns { Promise<UiWindow | null> } the first matched {@link UiWindow} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
    findWindow(filter: WindowFilter): Promise<UiWindow | null>;
  
@@ -3564,12 +3568,13 @@
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { number } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
    waitForComponent(on: On, time: number): Promise<Component | null>;
  
@@ -3616,12 +3621,13 @@
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Array<Component> | null> } the matched {@link Component}s list.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since 20
-    * @arkts 1.2
     * @test
+    * @arkts 1.2
     */
   findComponents(on: On): Promise<Array<Component> | null>;
  
@@ -3662,8 +3668,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    assertComponentExist(on: On): Promise<void>;
  
@@ -3695,8 +3701,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    pressBack(): Promise<void>;
  
@@ -3722,8 +3728,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    triggerKey(keyCode: number): Promise<void>;
  
@@ -3753,8 +3759,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
  
@@ -3795,8 +3801,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    click(x: number, y: number): Promise<void>;
  
@@ -3837,8 +3843,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    doubleClick(x: number, y: number): Promise<void>;
  
@@ -3879,8 +3885,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    longClick(x: number, y: number): Promise<void>;
  
@@ -3930,8 +3936,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
  
@@ -3964,8 +3970,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
  
@@ -3990,8 +3996,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    screenCap(savePath: string): Promise<boolean>;
  
@@ -4016,8 +4022,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    setDisplayRotation(rotation: DisplayRotation): Promise<void>;
  
@@ -4038,8 +4044,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getDisplayRotation(): Promise<DisplayRotation>;
  
@@ -4064,8 +4070,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    setDisplayRotationEnabled(enabled: boolean): Promise<void>;
  
@@ -4086,8 +4092,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getDisplaySize(): Promise<Point>;
  
@@ -4108,8 +4114,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getDisplayDensity(): Promise<Point>;
  
@@ -4130,8 +4136,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    wakeUpDisplay(): Promise<void>;
  
@@ -4152,8 +4158,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    pressHome(): Promise<void>;
  
@@ -4180,8 +4186,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    waitForIdle(idleTime: number, timeout: number): Promise<boolean>;
  
@@ -4228,8 +4234,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>;
  
@@ -4257,8 +4263,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
  
@@ -4299,8 +4305,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    fling(direction: UiDirection, speed: number): Promise<void>;
  
@@ -4331,8 +4337,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
  
@@ -4357,8 +4363,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseMoveTo(p: Point): Promise<void>;
  
@@ -4391,9 +4397,11 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
+   mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+
    /**
     * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
     *
@@ -4409,8 +4417,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
+    * @test    
     * @arkts 1.1&1.2
-    * @test
     */
    mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
  
@@ -4437,8 +4445,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    screenCapture(savePath: string, rect?: Rect): Promise<boolean>;
  
@@ -4459,8 +4467,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    createUIEventObserver(): UIEventObserver;
  
@@ -4477,8 +4485,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
  
@@ -4495,8 +4503,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
  
@@ -4512,8 +4520,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>;
  
@@ -4529,8 +4537,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
  
@@ -4545,8 +4553,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    inputText(p: Point, text: string): Promise<void>;
  
@@ -4562,8 +4570,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
  
@@ -4576,8 +4584,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    penClick(point: Point): Promise<void>;
  
@@ -4591,8 +4599,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    penLongClick(point: Point, pressure?: number): Promise<void>;
  
@@ -4605,8 +4613,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    penDoubleClick(point: Point): Promise<void>;
  
@@ -4622,8 +4630,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
  
@@ -4638,8 +4646,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
  }
@@ -4655,8 +4663,8 @@
   * @syscap SystemCapability.Test.UiTest
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class UiWindow {
    /**
@@ -4678,8 +4686,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getBundleName(): Promise<string>;
  
@@ -4703,8 +4711,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getBounds(): Promise<Rect>;
  
@@ -4727,8 +4735,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getTitle(): Promise<string>;
  
@@ -4751,8 +4759,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    getWindowMode(): Promise<WindowMode>;
  
@@ -4775,8 +4783,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isFocused(): Promise<boolean>;
  
@@ -4797,6 +4805,7 @@
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
+    * @since 11
     * @deprecated since 11
     * @useinstead ohos.UiTest.UiWindow#isActive
     * @test
@@ -4822,8 +4831,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    focus(): Promise<void>;
  
@@ -4854,8 +4863,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    moveTo(x: number, y: number): Promise<void>;
  
@@ -4888,8 +4897,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    resize(wide: number, height: number, direction: ResizeDirection): Promise<void>;
  
@@ -4914,8 +4923,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    split(): Promise<void>;
  
@@ -4940,8 +4949,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    maximize(): Promise<void>;
  
@@ -4966,8 +4975,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    minimize(): Promise<void>;
  
@@ -4992,8 +5001,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    resume(): Promise<void>;
  
@@ -5018,8 +5027,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    close(): Promise<void>;
  
@@ -5032,8 +5041,8 @@
     * @syscap SystemCapability.Test.UiTest
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    isActive(): Promise<boolean>;
  }
@@ -5054,8 +5063,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare class PointerMatrix {
    /**
@@ -5080,8 +5089,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    static create(fingers: number, steps: number): PointerMatrix;
  
@@ -5107,8 +5116,8 @@
     * @crossplatform
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
-    * @arkts 1.1&1.2
     * @test
+    * @arkts 1.1&1.2
     */
    setPoint(finger: number, step: number, point: Point): void;
  }
@@ -5138,8 +5147,8 @@
   * @crossplatform
   * @atomicservice
   * @since arkts {'1.1':'11','1.2':'20'}
-  * @arkts 1.1&1.2
   * @test
+  * @arkts 1.1&1.2
   */
  declare const ON: On;
  
