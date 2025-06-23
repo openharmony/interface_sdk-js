@@ -795,7 +795,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    IDENTITY_KEY = "ohos.extra.param.key.form_identity",
+    IDENTITY_KEY = 'ohos.extra.param.key.form_identity',
 
     /**
      * Indicates the key specifying the grid style of the form to be obtained, which is represented as
@@ -821,7 +821,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_KEY = "ohos.extra.param.key.form_dimension",
+    DIMENSION_KEY = 'ohos.extra.param.key.form_dimension',
 
     /**
      * Indicates the key specifying the name of the form to be obtained, which is represented as
@@ -847,7 +847,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    NAME_KEY = "ohos.extra.param.key.form_name",
+    NAME_KEY = 'ohos.extra.param.key.form_name',
 
     /**
      * Indicates the key specifying the name of the module to which the form to be obtained belongs, which is
@@ -877,7 +877,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    MODULE_NAME_KEY = "ohos.extra.param.key.module_name",
+    MODULE_NAME_KEY = 'ohos.extra.param.key.module_name',
 
     /**
      * Indicates the key specifying the width of the form to be obtained, which is represented as
@@ -903,7 +903,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    WIDTH_KEY = "ohos.extra.param.key.form_width",
+    WIDTH_KEY = 'ohos.extra.param.key.form_width',
 
     /**
      * Indicates the key specifying the height of the form to be obtained, which is represented as
@@ -929,7 +929,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    HEIGHT_KEY = "ohos.extra.param.key.form_height",
+    HEIGHT_KEY = 'ohos.extra.param.key.form_height',
 
     /**
      * Indicates the key specifying whether a form is temporary, which is represented as
@@ -955,7 +955,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    TEMPORARY_KEY = "ohos.extra.param.key.form_temporary",
+    TEMPORARY_KEY = 'ohos.extra.param.key.form_temporary',
 
     /**
      * Indicates the key specifying the name of the bundle to be obtained, which is represented as
@@ -981,7 +981,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    BUNDLE_NAME_KEY = "ohos.extra.param.key.bundle_name",
+    BUNDLE_NAME_KEY = 'ohos.extra.param.key.bundle_name',
 
     /**
      * Indicates the key specifying the name of the ability to be obtained, which is represented as
@@ -1007,7 +1007,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
+    ABILITY_NAME_KEY = 'ohos.extra.param.key.ability_name',
 
     /**
      * Indicates the key specifying whether a form type is theme, which is represented as
@@ -1037,7 +1037,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DEVICE_ID_KEY = "ohos.extra.param.key.device_id",
+    DEVICE_ID_KEY = 'ohos.extra.param.key.device_id',
 
     /**
      * Indicates the key specifying the launch reason of the form to be obtained, which is represented as
@@ -1063,7 +1063,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    LAUNCH_REASON_KEY = "ohos.extra.param.key.form_launch_reason",
+    LAUNCH_REASON_KEY = 'ohos.extra.param.key.form_launch_reason',
 
     /**
      * Indicates the key specifying the custom data of the form to be obtained, which is represented as
@@ -1093,7 +1093,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    PARAM_FORM_CUSTOMIZE_KEY = "ohos.extra.param.key.form_customize",
+    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
 
     /**
      * Indicates the key specifying the form location, which is represented as
@@ -1686,7 +1686,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    formName ?: string;
+    formName?: string;
 
     /**
      * Obtains the module name of the provider application module.
@@ -1698,7 +1698,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    moduleName ?: string;
+    moduleName?: string;
 
     /**
      * Obtains the ability name of the provider application module.
@@ -1710,7 +1710,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    abilityName ?: string;
+    abilityName?: string;
 
     /**
      * Indicates whether to include unused form.
