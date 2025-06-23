@@ -236,7 +236,7 @@ export enum CullMode {
  */
 export interface Blend {
   /**
-   * Enable/disable blending.
+   * Control whether blending is enabled
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -321,8 +321,8 @@ export interface Material extends SceneResource {
    * Control if the blend is enable
    * 
    * @type { ?Blend }
-   * @default undefined, which means disable blend.
    * @syscap SystemCapability.ArkUi.Graphics3D
+   * @default undefined, which means that blending is disabled.
    * @since 20
    */
   blend?: Blend;
