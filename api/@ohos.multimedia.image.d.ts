@@ -5633,7 +5633,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly isEditable: boolean;
 
@@ -5722,7 +5723,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
@@ -5778,7 +5780,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixels(area: PositionArea): Promise<void>;
 
@@ -5818,7 +5821,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
@@ -6245,14 +6249,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Obtains the density of the image pixel map.
      *
-     * @returns { number } The number of density.
+     * @returns { int } The number of density.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getDensity(): number;
+    getDensity(): int;
 
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
@@ -7031,7 +7036,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
@@ -7098,7 +7104,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform 
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
@@ -7162,7 +7169,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980276 - The type to be converted is an unsupported target pixel format.
      * @throws { BusinessError } 62980178 - Failed to create the pixelmap.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
      convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
      
