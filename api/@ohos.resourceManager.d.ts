@@ -4019,8 +4019,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor;
 
@@ -4068,8 +4067,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor;
 
@@ -4120,8 +4118,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 
