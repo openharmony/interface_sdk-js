@@ -801,7 +801,7 @@ declare namespace formHost {
    * @systemapi
    * @since 20
    */
-  function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback<string>): void;
+  function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
  
   /**
    * Cancels listening to the event of get form rect.
@@ -816,7 +816,7 @@ declare namespace formHost {
    * @systemapi
    * @since 20
    */
-  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback<string>): void;
+  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
 
   /**
    * Notify form is Visible

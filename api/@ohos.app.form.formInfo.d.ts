@@ -2145,16 +2145,16 @@ declare namespace formInfo {
   /**
    * Get form rect info callback
    *
-   * @typedef GetFormRectInfoCallback<T>
+   * @typedef GetFormRectInfoCallback
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
    */
-  interface GetFormRectInfoCallback<T> {
+  interface GetFormRectInfoCallback {
     /**
      * Get form rect info
      *
-     * @param { T } data
+     * @param { string } formId
      * @returns { Promise<formInfo.Rect> }
      *
      * @throws { BusinessError } 202 - The application is not a system application.
@@ -2162,7 +2162,7 @@ declare namespace formInfo {
      * @systemapi
      * @since 20
      */
-    (data: T): Promise<formInfo.Rect>;
+    (formId: string): Promise<formInfo.Rect>;
   }
 }
 export default formInfo;
