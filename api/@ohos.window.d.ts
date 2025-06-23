@@ -59,6 +59,18 @@ declare interface Callback<T, V = void> {
 }
 /*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * Defines the window callback.
+ *
+ * @typedef { Callback<T, V = void> }
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 20
+ */
+type Callback<T, V = void> = (data: T) => V; 
+/*** endif */
+
 /**
  * Window manager.
  *
