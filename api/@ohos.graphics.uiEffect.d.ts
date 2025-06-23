@@ -104,7 +104,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'13', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     distort(distortionK: number): Filter;
@@ -206,7 +206,7 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'17', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     MINI_RECV = 3,
