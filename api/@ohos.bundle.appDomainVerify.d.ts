@@ -13,7 +13,8 @@
  * @syscap SystemCapability.BundleManager.AppDomainVerify
  * @systemapi
  * @stagemodelonly
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appDomainVerify {
 
@@ -30,7 +31,8 @@ declare namespace appDomainVerify {
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAssociatedDomains(bundleName: string): string[];
 
@@ -46,7 +48,8 @@ declare namespace appDomainVerify {
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAssociatedBundleNames(domain: string): string[];
 }
