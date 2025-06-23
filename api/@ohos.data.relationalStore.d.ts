@@ -465,7 +465,15 @@ declare namespace relationalStore {
      *
      * @type { ?CryptoParam }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the cryptographic parameters used when opening an encrypted database.
+     *
+     * @type { ?CryptoParam }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     cryptoParam?: CryptoParam;
@@ -486,6 +494,15 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18
+     */
+    /**
+     * Specifies whether the database need persistence.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
 
     persist?: boolean;
@@ -1106,6 +1123,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     sql: Array<string>;
 
     /**
@@ -1114,6 +1140,15 @@ declare namespace relationalStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Total time used for executing the SQL statements, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
     totalTime: number;
 
@@ -1124,6 +1159,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Maximum time allowed to obtain the SQL file handle, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     waitTime: number;
 
     /**
@@ -1133,6 +1177,15 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Time used to prepare SQL and args, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     prepareTime: number;
 
     /**
@@ -1141,6 +1194,15 @@ declare namespace relationalStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Time used to execute the SQL statements, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
     executeTime: number;
   }
@@ -1858,6 +1920,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum TransactionType {
     /**
@@ -1865,6 +1928,14 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The DEFERRED transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
     DEFERRED,
 
@@ -1874,6 +1945,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
      */
+    /**
+     * The IMMEDIATE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     IMMEDIATE,
 
     /**
@@ -1881,6 +1960,14 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The EXCLUSIVE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
     EXCLUSIVE
   }
@@ -1899,6 +1986,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -1907,6 +1995,15 @@ declare namespace relationalStore {
      * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The type of transaction.
+     *
+     * @type { TransactionType }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
