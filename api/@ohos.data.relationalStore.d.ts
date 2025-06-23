@@ -1090,6 +1090,14 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
+  /**
+   * Defines information about the SQL statements executed.
+   *
+   * @interface SqlExecutionInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
   interface SqlExecutionInfo {
     /**
      * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
@@ -1843,6 +1851,14 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
+  /**
+   * Enumerates the type of transaction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
   enum TransactionType {
     /**
      * The DEFERRED transaction.
@@ -1875,6 +1891,14 @@ declare namespace relationalStore {
    * @interface TransactionOptions
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
+   */
+  /**
+   * Create transaction options.
+   *
+   * @interface TransactionOptions
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    */
   interface TransactionOptions {
     /**
