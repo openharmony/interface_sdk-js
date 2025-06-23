@@ -654,7 +654,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }
