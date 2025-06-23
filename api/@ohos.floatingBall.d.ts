@@ -176,8 +176,10 @@ declare namespace floatingBall {
     /**
      * Restore main window for floating-ball creatorBundle.
      *
+     * @permission ohos.permission.USE_FLOAT_BALL
      * @param { Want } want - Params for floating-ball restoration.
      * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
      * @throws { BusinessError } 1300023 - Floating-ball internal error.
      * @throws { BusinessError } 1300025 - The floating-ball state does not support this operation.
