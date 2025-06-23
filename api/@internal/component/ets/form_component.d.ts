@@ -21,6 +21,7 @@
 import { CommonMethod,Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums'
+import { VoidCallback } from './units';
 /*** endif */
 /**
  * Defines the FormDimension enum.
@@ -495,14 +496,14 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Sets the display area size of the card.
    *
-   * @param { FormSize } value
+   * @param { FormSize } formSize - The size of Form
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  size(value: FormSize): FormComponentAttribute;
+  size(formSize: FormSize): FormComponentAttribute;
 
   /**
    * Card module name.
@@ -615,7 +616,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onRouter(callback: Callback<Object | undefined | null>): FormComponentAttribute;
+  onRouter(callback: Callback<Object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
@@ -650,14 +651,14 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   /**
    * Card to be loaded.
    *
-   * @param { function } callback
+   * @param { VoidCallback } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onLoad(callback: () => void): FormComponentAttribute;
+  onLoad(callback: VoidCallback): FormComponentAttribute;
 }
 
 /**
