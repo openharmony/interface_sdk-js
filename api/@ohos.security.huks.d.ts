@@ -17,31 +17,6 @@
  * @kit UniversalKeystoreKit
  */
 /*** if arkts 1.1 */
-
-/**
- * In ArkTS 1.1, using int is equivalent to using number
- *
- * @typedef { number }
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-export type int = number;
-
-/**
- * In ArkTS 1.1, using long is equivalent to using number
- * 
- * @typedef { number }
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-export type long = number;
-
 import type { AsyncCallback } from './@ohos.base';
 /*** endif */
 
