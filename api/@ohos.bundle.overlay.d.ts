@@ -48,7 +48,7 @@ declare namespace overlay {
    *
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
@@ -86,7 +86,7 @@ declare namespace overlay {
    * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be set.
    * @param { string } moduleName - Indicates the module name of the overlay module to be set.
    * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -118,7 +118,7 @@ declare namespace overlay {
    * Obtain the OverlayModuleInfo of current application based on moduleName.
    *
    * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @returns { Promise<OverlayModuleInfo> }
+   * @returns { Promise<OverlayModuleInfo> } The result of getting OverlayModuleInfo object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
@@ -146,7 +146,7 @@ declare namespace overlay {
    * Obtain the OverlayModuleInfo of current application based on moduleName.
    *
    * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
-   * @returns { Promise<Array<OverlayModuleInfo>> }
+   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
