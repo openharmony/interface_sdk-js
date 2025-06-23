@@ -1944,6 +1944,17 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
+    /**
+    * The index of paths for a task.
+    * Usually used for a continuous job.
+    * The default is 0.
+    *
+    * @type { ?number }
+    * @syscap SystemCapability.MiscServices.Upload
+    * @crossplatform
+    * @since 20
+    * @arkts 1.1&1.2
+    */
     index?: number;
     /**
      * The start point of a file.
@@ -1955,6 +1966,18 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
+    /**
+    * The start point of a file.
+    * Usually used for a continuous job.
+    * It will start read at the point in upload.
+    * The default is 0.
+    *
+    * @type { ?number }
+    * @syscap SystemCapability.MiscServices.Upload
+    * @crossplatform
+    * @since 20
+    * @arkts 1.1&1.2
+    */
     begins?: number;
     /**
      * The end point of a file.
@@ -1966,6 +1989,18 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @since 11
      */
+    /**
+    * The end point of a file.
+    * Usually used for a continuous job.
+    * It will end read at the point in upload.
+    * The default is -1 indicating the end of the data for upload.
+    *
+    * @type { ?number }
+    * @syscap SystemCapability.MiscServices.Upload
+    * @crossplatform
+    * @since 20
+    * @arkts 1.1&1.2
+    */
     ends?: number;
     /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
@@ -3378,6 +3413,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15
        */
+      /**
+       * Use a single request to upload multiple files.
+       * If true, use the form format to merge multiple files into one request.
+       * If false, use independent requests to send each file.
+       * The default is false.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       multipart?: boolean;
       /**
        * Customizes the notification of the backend task.
@@ -4596,6 +4643,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       on(event: 'pause', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
@@ -4606,6 +4665,18 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'pause' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
        */
       off(event: 'pause', callback?: (progress: Progress) => void): void;
       /**
@@ -4618,6 +4689,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       on(event: 'resume', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
@@ -4628,6 +4711,18 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'resume' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
        */
       off(event: 'resume', callback?: (progress: Progress) => void): void;
       /**
@@ -4640,6 +4735,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
+      /**
+       * Enables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       on(event: 'remove', callback: (progress: Progress) => void): void;
       /**
        * Disables the specified callback.
@@ -4650,6 +4757,18 @@ declare namespace request {
        * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
+       */
+      /**
+       * Disables the specified callback.
+       *
+       * @param { 'remove' } event - event types.
+       * @param { function } callback - callback function with a `Progress` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
@@ -4675,6 +4794,19 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice
        * @since 12
+       */
+      /**
+       * Disables the response callback.
+       *
+       * @param { 'response' } event - event types.
+       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
+       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @atomicservice
+       * @since 20
+       * @arkts 1.1&1.2
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
@@ -4778,6 +4910,17 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
+      /**
+       * Pauses the task.
+       *
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       pause(callback: AsyncCallback<void>): void;
       /**
        * Pauses the background task.
@@ -4797,6 +4940,17 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
+       */
+      /**
+       * Pauses the task.
+       *
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
        */
       pause(): Promise<void>;
       /**
@@ -4822,6 +4976,19 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
+       */
       resume(callback: AsyncCallback<void>): void;
       /**
        * Resumes the background task.
@@ -4845,6 +5012,19 @@ declare namespace request {
        * @throws { BusinessError } 21900007 - task state error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
+       */
+      /**
+       * Resumes the task.
+       *
+       * @permission ohos.permission.INTERNET
+       * @returns { Promise<void> } the promise returned by the function.
+       * @throws { BusinessError } 201 - Permission denied.
+       * @throws { BusinessError } 13400003 - task service ability error.
+       * @throws { BusinessError } 21900007 - task state error.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform
+       * @since 20
+       * @arkts 1.1&1.2
        */
       resume(): Promise<void>;
       /**
