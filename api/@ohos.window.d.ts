@@ -10724,6 +10724,49 @@ declare namespace window {
   }
 
   /**
+   * Window stage lifecycle callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  enum WindowStageLifecycleEventType {
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    SHOWN = 1,
+    /**
+     * The window stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    RESUMED = 2,
+    /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    PAUSED = 3,
+    /**
+     * The window stage is running in the background.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    HIDDEN = 4
+  }
+
+  /**
    * Enum for window modality Type
    *
    * @enum { number }
@@ -11500,6 +11543,34 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to return the window stage lifecycle state.
+     *                                                    If a value is passed in, the corresponding subscription is canceled.
+     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
