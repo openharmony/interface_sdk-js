@@ -18,13 +18,10 @@
  * @kit ArkGraphics2D
  */
 
-/*** if arkts 1.1 */
+
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
-/*** endif */
-/*** if arkts 1.2 */
-import image from './@ohos.multimedia.image';
-/*** endif */
+
 
 /**
  * @namespace effectKit
@@ -209,11 +206,10 @@ declare namespace effectKit {
     /**
     * Gets the PixelMap where all filter effects have been added to the image.
     * @returns { image.PixelMap } image.PixelMap.
-    * @syscap SystemCapability.Multimedia.Image.Core    
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @since 9
     * @deprecated since 11
     * @useinstead effectKit.Filter#getEffectPixelMap
-    * @since arkts {'1.1':'11', '1.2':'20'}
-    * @arkts 1.1&1.2 
     */
     getPixelMap(): image.PixelMap;
   
