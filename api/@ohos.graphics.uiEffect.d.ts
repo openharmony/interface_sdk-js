@@ -135,6 +135,22 @@ declare namespace uiEffect {
     bezierWarp(controlPoints: Array<common2D.Point>): Filter;
 
     /**
+     * Sets the content light filter.
+     *
+     * @param { common2D.Point3d } lightPosition
+     * @param { common2D.Color } lightColor
+     * @param { number } lightIntensity
+     * @param { Mask } [displacementMap]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    contentLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
+      displacementMap?: Mask): Filter;
+
+    /**
      * Sets the color gradient filter, may blend with alpha mask.
      *
      * @param { Array<Color> } colors
@@ -345,6 +361,22 @@ declare namespace uiEffect {
     * @arkts 1.1&1.2
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
+
+    /**
+     * Sets the border light effect.
+     *
+     * @param { common2D.Point3d } lightPosition
+     * @param { common2D.Color } lightColor
+     * @param { number } lightIntensity
+     * @param { number } borderWidth
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
+      borderWidth: number): VisualEffect;
   }
 
   /**
