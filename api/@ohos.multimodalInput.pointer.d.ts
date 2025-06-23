@@ -484,10 +484,11 @@ declare namespace pointer {
     MIDDLE_BTN_EAST_WEST,
 
     /**
-     * Screenrecorder
+     * Screen recorder cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
+     * @arkts 1.1&1.2
      */
     SCREENRECORDER_CURSOR = 48
   }
