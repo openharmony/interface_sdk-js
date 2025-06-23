@@ -449,8 +449,7 @@ export interface SoundPool {
    * @param {'error'} type Type of the sound play error event to listen for.
    * @param {ErrorCallback} callback Callback used to listen for sound play error events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
    on(type: 'error', callback: ErrorCallback): void;
   /**
