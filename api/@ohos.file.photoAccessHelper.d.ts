@@ -108,6 +108,27 @@ declare namespace photoAccessHelper {
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
 
   /**
+   * Enumerates the types of av file format.
+   * 
+   * @enum { string } SupportedImageFormat
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum SupportedImageFormat {
+    /**
+     * jpg format
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVFILE_FORMAT_JPG = 'jpg',
+  }
+
+  /**
    * Enumerates media file types.
    *
    * @enum { number } PhotoType
@@ -1966,6 +1987,34 @@ declare namespace photoAccessHelper {
      * @since 14
      */
     clone(title: string): Promise<PhotoAsset>;
+    /**
+     * Copy a picture in the same album and convert it to a specified format.
+     * The album here refers to the album created by user or application album.
+     * The API supports media types include normal picture, moving(only picture part), and burst photo, but video is not include.
+     * The API supports image format include heif and heic.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } title - The new image title.
+     * @param { SupportedImageFormat } imageFormat - The target image format.
+     * @returns { Promise<PhotoAsset> } Returns the new PhotoAsset.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     * 1. The original file does not exist locally in PhotoAsset;
+     * 2. The original file format is not within the supported range;
+     * 3. The original file is a temporary file or is being edited;
+     * 4. The title is the same with an image in the same album;
+     * 5. PhotoAsset is a photo in the trash or a hidden photo;
+     * 6. The title does not meet the parameter specifications.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the
+     * kogs. Possible causes:
+     * 1. Database corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    convertImageFormat(title: string, imageFormat: SupportedImageFormat): Promise<PhotoAsset>;
     /**
      * Opens the source file to obtain the FD. This API uses an asynchronous callback to return the result.
      *
