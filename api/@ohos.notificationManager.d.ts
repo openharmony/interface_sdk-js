@@ -3956,6 +3956,48 @@ declare namespace notificationManager {
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
   /**
+   * Obtains whether the device supports distributed notification.
+   * 
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  function isDistributedEnabled(deviceType: string): Promise<boolean>;
+
+  /**
+   * Sets whether the device supports distributed notification.
+   * 
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } enable - Set enable or not.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
+
+  /**
+   * Get distributed device list.
+   * 
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<Array<string>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  function getDistributedDeviceList(): Promise<Array<string>>;
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
