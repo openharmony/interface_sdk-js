@@ -47,6 +47,7 @@ declare namespace transfer {
      * @param { Any } input The 1.0 object that needs to be converted
      * @param { string } inputName name registered by the subsystem.
      * @returns { Object } Object
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -60,6 +61,7 @@ declare namespace transfer {
      * @param { Object } input The 1.2 object that needs to be converted
      * @param { string } inputName name registered by the subsystem.
      * @returns { Any } Object
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
