@@ -694,7 +694,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 14
+   */
+  /**
+   * Enumerates the supported encryption algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum EncryptionAlgo {
@@ -702,7 +710,14 @@ declare namespace relationalStore {
      * AES_256_GCM: Database is encrypted using AES_256_GCM.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * AES_256_GCM: Database is encrypted using AES_256_GCM.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     AES_256_GCM = 0,
@@ -711,7 +726,14 @@ declare namespace relationalStore {
      * AES_256_CBC: Database is encrypted using AES_256_CBC.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * AES_256_CBC: Database is encrypted using AES_256_CBC.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     AES_256_CBC
