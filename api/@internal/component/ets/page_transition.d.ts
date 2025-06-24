@@ -19,8 +19,8 @@
  */
 
 /*** if arkts 1.2 */
-import { ICurve, TranslateOptions, ScaleOptions } from './common'
-import { Curve } from './enums'
+import { ICurve, TranslateOptions, ScaleOptions } from './common';
+import { Curve } from './enums';
 /*** endif */
 
 /**
@@ -756,7 +756,6 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
  * Provides an interface to set transition style when a page enters.
  *
  * @extends CommonTransition
- * @interface PageTransitionEnter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -898,7 +897,6 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
  * Provide an interface to set transition style when a page exits.
  *
  * @extends CommonTransition
- * @interface PageTransitionExit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
