@@ -30,7 +30,11 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
+
+/*** if arkts 1.1&1.2 */
+export { Vec3, Quaternion} from './graphics3d/SceneTypes';
+/*** endif */
+export { Vec2, Vec4, Color, Rect, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
   PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry } from './graphics3d/SceneTypes';
 
 /**
