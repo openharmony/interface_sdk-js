@@ -615,7 +615,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillForeground(): void;
 
@@ -625,7 +626,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidForeground(): void;
 
@@ -662,7 +664,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillBackground(): void;
 
@@ -672,7 +675,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidBackground(): void;
 
