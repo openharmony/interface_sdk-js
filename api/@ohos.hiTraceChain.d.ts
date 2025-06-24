@@ -26,7 +26,8 @@
  *
  * @namespace hiTraceChain
  * @syscap SystemCapability.HiviewDFX.HiTrace
- * @since 8
+ * @since arkts {'1.1':'8','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hiTraceChain {
   /**
@@ -34,14 +35,16 @@ declare namespace hiTraceChain {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HiTraceFlag {
     /**
      * Default value
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
 
@@ -49,7 +52,8 @@ declare namespace hiTraceChain {
      * Trace sync and async call. default: trace sync call only.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INCLUDE_ASYNC = 1,
 
@@ -57,7 +61,8 @@ declare namespace hiTraceChain {
      * Do not create child span. default: create child span.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DONOT_CREATE_SPAN = 1 << 1,
 
@@ -65,7 +70,8 @@ declare namespace hiTraceChain {
      * Output tracepoint info in span. default: do not output tracepoint info.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TP_INFO = 1 << 2,
 
@@ -73,7 +79,8 @@ declare namespace hiTraceChain {
      * Do not output begin and end info. default: output begin and end info.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_BE_INFO = 1 << 3,
 
@@ -81,7 +88,8 @@ declare namespace hiTraceChain {
      * Do not add id to log. default: add id to log.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISABLE_LOG = 1 << 4,
 
@@ -89,7 +97,8 @@ declare namespace hiTraceChain {
      * The trace is triggered by fault.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAILURE_TRIGGER = 1 << 5,
 
@@ -97,7 +106,8 @@ declare namespace hiTraceChain {
      * Output device-to-device tracepoint info in span only. default: do not output device-to-device tracepoint info.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     D2D_TP_INFO = 1 << 6
   }
@@ -107,14 +117,16 @@ declare namespace hiTraceChain {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HiTraceTracepointType {
     /**
      * Client send
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CS = 0,
 
@@ -122,7 +134,8 @@ declare namespace hiTraceChain {
      * Client receive
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CR = 1,
 
@@ -130,7 +143,8 @@ declare namespace hiTraceChain {
      * Server send
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SS = 2,
 
@@ -138,7 +152,8 @@ declare namespace hiTraceChain {
      * Server receive
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SR = 3,
 
@@ -146,7 +161,8 @@ declare namespace hiTraceChain {
      * General info
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GENERAL = 4
   }
@@ -156,14 +172,16 @@ declare namespace hiTraceChain {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HiTraceCommunicationMode {
     /**
      * Unspecified
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
 
@@ -171,7 +189,8 @@ declare namespace hiTraceChain {
      * Thread-to-thread
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     THREAD = 1,
 
@@ -179,7 +198,8 @@ declare namespace hiTraceChain {
      * Process-to-process
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PROCESS = 2,
 
@@ -187,7 +207,8 @@ declare namespace hiTraceChain {
      * Device-to-device
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE = 3
   }
@@ -197,7 +218,8 @@ declare namespace hiTraceChain {
    *
    * @interface HiTraceId
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HiTraceId {
     /**
@@ -205,7 +227,8 @@ declare namespace hiTraceChain {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     chainId: bigint;
 
@@ -214,7 +237,8 @@ declare namespace hiTraceChain {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     spanId?: number;
 
@@ -223,7 +247,8 @@ declare namespace hiTraceChain {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parentSpanId?: number;
 
@@ -232,7 +257,8 @@ declare namespace hiTraceChain {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flags?: number;
   }
@@ -244,7 +270,8 @@ declare namespace hiTraceChain {
    * @param { number } flags Trace function flag.
    * @returns { HiTraceId } Valid if first call, otherwise invalid.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function begin(name: string, flags?: number): HiTraceId;
 
@@ -254,7 +281,8 @@ declare namespace hiTraceChain {
    *
    * @param { HiTraceId } id The trace id that need to stop.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function end(id: HiTraceId): void;
 
@@ -264,7 +292,8 @@ declare namespace hiTraceChain {
    *
    * @returns { HiTraceId } Valid if current thread have a trace id, otherwise invalid.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getId(): HiTraceId;
 
@@ -273,7 +302,8 @@ declare namespace hiTraceChain {
    *
    * @param { HiTraceId } id Set id as trace id of current thread.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setId(id: HiTraceId): void;
 
@@ -281,7 +311,8 @@ declare namespace hiTraceChain {
    * Clear trace id of current thread and set it invalid.
    *
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearId(): void;
 
@@ -290,7 +321,8 @@ declare namespace hiTraceChain {
    *
    * @returns { HiTraceId } A valid span trace id. Otherwise trace id of current thread if do not allow create span.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSpan(): HiTraceId;
 
@@ -302,7 +334,8 @@ declare namespace hiTraceChain {
    * @param { HiTraceId } id Trace id that need to print.
    * @param { string } msg Customized info that need to print.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracepointType, id: HiTraceId, msg?: string): void;
 
@@ -312,7 +345,8 @@ declare namespace hiTraceChain {
    * @param { HiTraceId } id Trace id that need to judge.
    * @returns { boolean } True for a valid trace id, otherwise false.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isValid(id: HiTraceId): boolean;
 
@@ -323,7 +357,8 @@ declare namespace hiTraceChain {
    * @param { HiTraceFlag } flag Trace flag that need to judge.
    * @returns { boolean } true if the trace id has enabled the flag.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean;
 
@@ -333,7 +368,8 @@ declare namespace hiTraceChain {
    * @param { HiTraceId } id Trace id that need to enable a flag.
    * @param { HiTraceFlag } flag the designative trace flag that need to be enabled in the trace id.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }
