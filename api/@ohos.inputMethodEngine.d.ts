@@ -1559,7 +1559,6 @@ declare namespace inputMethodEngine {
      * @returns { AttachOptions } return attach options.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
-     * @arkts 1.1&1.2
      */
     getAttachOptions(): AttachOptions;
     /**
@@ -1578,7 +1577,6 @@ declare namespace inputMethodEngine {
      * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
@@ -2949,7 +2947,6 @@ declare namespace inputMethodEngine {
      * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 20
-     * @arkts 1.1&1.2
      */
     isSimpleKeyboardEnabled?: boolean;
   }
