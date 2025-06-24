@@ -42,7 +42,7 @@
  * @atomicservice
  * @since 11
  */
-export default class PermissionRequestResult {
+declare class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
@@ -135,3 +135,5 @@ export default class PermissionRequestResult {
    */
   errorReasons?: Array<number>;
 }
+
+export default PermissionRequestResult;
