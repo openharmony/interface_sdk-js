@@ -123,7 +123,8 @@ declare class ServiceExtensionAbility {
   onDisconnect(want: Want): void;
 
   /**
-   * Called back when all abilities connected to a service extension are disconnected.
+   * Asynchronous callback when all abilities connected to a service extension are disconnected.
+   * The subsequent life cycle will continue when the returned Promise object resolves.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
    * @returns { Promise<void> } the promise returned by the function.
