@@ -328,15 +328,15 @@ declare class FormExtensionAbility {
   onStop?(): void;
 
   /**
-   * Called to notify the form provider that the form location of the form has been changed. Override this method if
-   * you want to know the form location be Changed
+   * Called to notify the form provider that the form location of the form has been changed.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @param { formInfo.FormLocation } newLocation - Indicates the new form location of the form.
+   * @param { formInfo.FormLocation } newFormLocation - Indicates the new form location of the form.
+   *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 20
    */
-  onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
+  onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 }
 export default FormExtensionAbility;
