@@ -64,7 +64,6 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
