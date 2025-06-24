@@ -1940,7 +1940,7 @@ declare namespace formInfo {
     /**
      * Whether use default animate, default is true
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 20
      */
