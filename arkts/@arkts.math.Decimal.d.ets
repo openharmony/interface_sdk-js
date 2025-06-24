@@ -38,6 +38,7 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 /**
  * The type uesd to set rounding
  *
+ * @typedef { number }
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -66,6 +67,7 @@ type Modulo = Rounding | 9;
 /**
  * The type uesd to set modulo
  *
+ * @typedef { number }
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
@@ -84,13 +86,14 @@ type Modulo = number;
 /**
  * The type uesd to denote decimal value
  *
+ * @typedef { string | number | Decimal }
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'18', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-type DecimalValue = string | number | Decimal;
+type Value = string | number | Decimal;
 
 /**
  * Provides configuration for decimal.
@@ -107,7 +110,7 @@ type DecimalValue = string | number | Decimal;
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'18', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 interface DecimalConfig {
@@ -128,7 +131,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   precision?: number;
@@ -153,7 +156,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   rounding?: Rounding;
@@ -174,7 +177,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toExpNeg?: number;
@@ -195,7 +198,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toExpPos?: number;
@@ -216,7 +219,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   minE?: number;
@@ -237,7 +240,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   maxE?: number;
@@ -258,7 +261,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   crypto?: boolean;
@@ -279,7 +282,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   modulo?: Modulo;
@@ -300,7 +303,7 @@ interface DecimalConfig {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   defaults?: boolean;
@@ -319,7 +322,7 @@ interface DecimalConfig {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'18', '1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare class Decimal {
@@ -355,7 +358,7 @@ declare class Decimal {
    * @since 20
    * @arkts 1.2
    */
-  readonly d: Array<number> | null;
+  get d(): Array<number> | null;
 
   /**
    * The number of decimal exponent.
@@ -374,12 +377,24 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   readonly e: number;
 
   /**
+   * The number of decimal exponent.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get e(): number;
+
+  /**
    * The number of decimal sign.
    *
    * @type { number }
@@ -396,15 +411,27 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   readonly s: number;
 
   /**
+   * The number of decimal sign.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get s(): number;
+
+  /**
    * Return a new Decimal whose value is the absolute value of this Decimal.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
@@ -415,17 +442,17 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the absolute value of this Decimal.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  constructor(n: DecimalValue);
+  constructor(n: Value);
 
   /**
    * Return a new Decimal whose value is the absolute value of this Decimal.
@@ -442,7 +469,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   abs(): Decimal;
@@ -464,7 +491,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   floor(): Decimal;
@@ -486,7 +513,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   ceil(): Decimal;
@@ -506,7 +533,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   trunc(): Decimal;
@@ -515,8 +542,8 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal clamped to the range
    * delineated by `min` and `max`.
    *
-   * @param { DecimalValue } min {number | string | Decimal}
-   * @param { DecimalValue } max {number | string | Decimal}
+   * @param { Value } min {number | string | Decimal}
+   * @param { Value } max {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -530,8 +557,8 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal clamped to the range
    * delineated by `min` and `max`.
    *
-   * @param { DecimalValue } min {number | string | Decimal}
-   * @param { DecimalValue } max {number | string | Decimal}
+   * @param { Value } min {number | string | Decimal}
+   * @param { Value } max {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -540,16 +567,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  clamp(min: DecimalValue, max: DecimalValue): Decimal;
+  clamp(min: Value, max: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the value of this Decimal plus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -562,7 +589,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal plus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -570,16 +597,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  add(n: DecimalValue): Decimal;
+  add(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the value of this Decimal minus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -592,7 +619,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal minus `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -600,16 +627,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  sub(n: DecimalValue): Decimal;
+  sub(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is this Decimal times `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -622,7 +649,7 @@ declare class Decimal {
    * Return a new Decimal whose value is this Decimal times `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -630,16 +657,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  mul(n: DecimalValue): Decimal;
+  mul(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the value of this Decimal divided by `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -652,7 +679,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal divided by `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -660,16 +687,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  div(n: DecimalValue): Decimal;
+  div(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the value of this Decimal modulo `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal }the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -682,7 +709,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal modulo `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal }the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -690,10 +717,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  mod(n: DecimalValue): Decimal;
+  mod(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the square root of this Decimal, rounded to `precision`
@@ -712,7 +739,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   sqrt(): Decimal;
@@ -734,7 +761,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   cbrt(): Decimal;
@@ -743,7 +770,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal raised to the power `n`, rounded
    * to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -757,7 +784,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the value of this Decimal raised to the power `n`, rounded
    * to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -766,10 +793,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pow(n: DecimalValue): Decimal;
+  pow(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the natural exponential of the value of this Decimal,
@@ -792,7 +819,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   exp(): Decimal;
@@ -801,7 +828,7 @@ declare class Decimal {
    * Return the logarithm of the value of this Decimal to the specified base, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -815,7 +842,7 @@ declare class Decimal {
    * Return the logarithm of the value of this Decimal to the specified base, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -824,10 +851,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  log(n: DecimalValue): Decimal;
+  log(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the natural logarithm of the value of this Decimal,
@@ -848,7 +875,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   ln(): Decimal;
@@ -868,7 +895,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   cos(): Decimal;
@@ -888,7 +915,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   sin(): Decimal;
@@ -908,7 +935,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   tan(): Decimal;
@@ -930,7 +957,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   cosh(): Decimal;
@@ -950,7 +977,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   sinh(): Decimal;
@@ -970,7 +997,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   tanh(): Decimal;
@@ -992,7 +1019,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   acos(): Decimal;
@@ -1016,7 +1043,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   asin(): Decimal;
@@ -1038,7 +1065,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   atan(): Decimal;
@@ -1062,7 +1089,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   acosh(): Decimal;
@@ -1086,7 +1113,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   asinh(): Decimal;
@@ -1110,7 +1137,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   atanh(): Decimal;
@@ -1122,7 +1149,7 @@ declare class Decimal {
    *   0    if they have the same value,
    *   NaN  if the value of either Decimal is NaN.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { number } the number type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1138,7 +1165,7 @@ declare class Decimal {
    *   0    if they have the same value,
    *   NaN  if the value of either Decimal is NaN.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { number } the number type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1146,15 +1173,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  comparedTo(n: DecimalValue): number;
+  comparedTo(n: Value): number;
 
   /**
    * Return true if the value of this Decimal is equal to the value of `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1166,7 +1193,7 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is equal to the value of `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1174,15 +1201,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  equals(n: DecimalValue): boolean;
+  equals(n: Value): boolean;
 
   /**
    * Return true if the value of this Decimal is greater than the value of `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1194,7 +1221,7 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is greater than the value of `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1202,16 +1229,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  greaterThan(n: DecimalValue): boolean;
+  greaterThan(n: Value): boolean;
 
   /**
    * Return true if the value of this Decimal is greater than or equal to the value of `n`,
    * otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1224,7 +1251,7 @@ declare class Decimal {
    * Return true if the value of this Decimal is greater than or equal to the value of `n`,
    * otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1232,15 +1259,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  greaterThanOrEqualTo(n: DecimalValue): boolean;
+  greaterThanOrEqualTo(n: Value): boolean;
 
   /**
    * Return true if the value of this Decimal is less than `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1252,7 +1279,7 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is less than `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1260,15 +1287,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  lessThan(n: DecimalValue): boolean;
+  lessThan(n: Value): boolean;
 
   /**
    * Return true if the value of this Decimal is less than or equal to `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1280,7 +1307,7 @@ declare class Decimal {
   /**
    * Return true if the value of this Decimal is less than or equal to `n`, otherwise return false.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1288,10 +1315,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  lessThanOrEqualTo(n: DecimalValue): boolean;
+  lessThanOrEqualTo(n: Value): boolean;
 
   /**
    * Return true if the value of this Decimal is a finite number, otherwise return false.
@@ -1308,7 +1335,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isFinite(): boolean;
@@ -1328,7 +1355,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isInteger(): boolean;
@@ -1348,7 +1375,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isNaN(): boolean;
@@ -1368,7 +1395,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isNegative(): boolean;
@@ -1388,7 +1415,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isPositive(): boolean;
@@ -1408,7 +1435,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   isZero(): boolean;
@@ -1417,7 +1444,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the integer part of dividing the value of this Decimal
    * by the value of `n`, rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1430,7 +1457,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the integer part of dividing the value of this Decimal
    * by the value of `n`, rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1438,10 +1465,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  dividedToIntegerBy(n: DecimalValue): Decimal;
+  dividedToIntegerBy(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the value of this Decimal negated, i.e. as if multiplied by -1.
@@ -1458,7 +1485,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   negate(): Decimal;
@@ -1478,7 +1505,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toBinary(): string;
@@ -1504,7 +1531,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toBinary(significantDigits: number): string;
@@ -1532,7 +1559,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toBinary(significantDigits: number, rounding: Rounding): string;
@@ -1552,7 +1579,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toOctal(): string;
@@ -1576,7 +1603,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toOctal(significantDigits: number): string;
@@ -1604,7 +1631,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toOctal(significantDigits: number, rounding: Rounding): string;
@@ -1624,7 +1651,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toHexadecimal(): string;
@@ -1648,7 +1675,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toHexadecimal(significantDigits: number): string;
@@ -1676,7 +1703,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toHexadecimal(significantDigits: number, rounding: Rounding): string;
@@ -1696,7 +1723,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toDecimalPlaces(): Decimal;
@@ -1722,7 +1749,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toDecimalPlaces(decimalPlaces: number): Decimal;
@@ -1750,7 +1777,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toDecimalPlaces(decimalPlaces: number, rounding: Rounding): Decimal;
@@ -1770,7 +1797,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toExponential(): string;
@@ -1796,7 +1823,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toExponential(decimalPlaces: number): string;
@@ -1824,7 +1851,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toExponential(decimalPlaces: number, rounding: Rounding): string;
@@ -1844,7 +1871,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toFixed(): string;
@@ -1868,7 +1895,7 @@ declare class Decimal {
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toFixed(decimalPlaces: number): string;
@@ -1896,7 +1923,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toFixed(decimalPlaces: number, rounding: Rounding): string;
@@ -1918,7 +1945,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toFraction(): Decimal[];
@@ -1928,7 +1955,7 @@ declare class Decimal {
    * numerator and an integer denominator. The denominator will be a positive non-zero value
    * less than or equal to `max_denominator`.
    *
-   * @param { DecimalValue } maxDenominator {number | string | Decimal}
+   * @param { Value } maxDenominator {number | string | Decimal}
    * @returns { Decimal[] } the Decimal[] type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1942,7 +1969,7 @@ declare class Decimal {
    * numerator and an integer denominator. The denominator will be a positive non-zero value
    * less than or equal to `max_denominator`.
    *
-   * @param { DecimalValue } maxDenominator {number | string | Decimal}
+   * @param { Value } maxDenominator {number | string | Decimal}
    * @returns { Decimal[] } the Decimal[] type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1950,15 +1977,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  toFraction(maxDenominator: DecimalValue): Decimal[];
+  toFraction(maxDenominator: Value): Decimal[];
 
   /**
    * Returns a new Decimal whose value is the nearest multiple of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1970,7 +1997,7 @@ declare class Decimal {
   /**
    * Returns a new Decimal whose value is the nearest multiple of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -1978,16 +2005,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  toNearest(n: DecimalValue): Decimal;
+  toNearest(n: Value): Decimal;
 
   /**
    * Returns a new Decimal whose value is the nearest multiple of `n` in the direction of rounding
    * mode `rounding`, to the value of this Decimal.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2002,7 +2029,7 @@ declare class Decimal {
    * Returns a new Decimal whose value is the nearest multiple of `n` in the direction of rounding
    * mode `rounding`, to the value of this Decimal.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2012,10 +2039,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  toNearest(n: DecimalValue, rounding: Rounding): Decimal;
+  toNearest(n: Value, rounding: Rounding): Decimal;
 
   /**
    * Return a string representing the value of this Decimal.
@@ -2032,7 +2059,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toPrecision(): string;
@@ -2056,7 +2083,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toPrecision(significantDigits: number): string;
@@ -2084,7 +2111,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toPrecision(significantDigits: number, rounding: Rounding): string;
@@ -2104,7 +2131,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toSignificantDigits(): Decimal;
@@ -2130,7 +2157,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toSignificantDigits(significantDigits: number): Decimal;
@@ -2158,7 +2185,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal;
@@ -2178,7 +2205,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toNumber(): number;
@@ -2202,7 +2229,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   toString(): string;
@@ -2224,7 +2251,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   valueOf(): string;
@@ -2244,7 +2271,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   decimalPlaces(): number;
@@ -2264,7 +2291,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   precision(): number;
@@ -2292,7 +2319,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   precision(includeZeros: boolean | number): number;
@@ -2300,7 +2327,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the absolute value of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2313,7 +2340,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the absolute value of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2322,15 +2349,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static abs(n: DecimalValue): Decimal;
+  static abs(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `n` round to an integer using `ROUND_FLOOR`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2343,7 +2370,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` round to an integer using `ROUND_FLOOR`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2352,15 +2379,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static floor(n: DecimalValue): Decimal;
+  static floor(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using `ROUND_CEIL`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2373,7 +2400,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using `ROUND_CEIL`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2382,15 +2409,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static ceil(n: DecimalValue): Decimal;
+  static ceil(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `n` truncated to an integer.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2403,7 +2430,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` truncated to an integer.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2412,17 +2439,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static trunc(n: DecimalValue): Decimal;
+  static trunc(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `n` clamped to the range delineated by `min` and `max`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
-   * @param { DecimalValue } min {number | string | Decimal}
-   * @param { DecimalValue } max {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
+   * @param { Value } min {number | string | Decimal}
+   * @param { Value } max {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2436,9 +2463,9 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` clamped to the range delineated by `min` and `max`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
-   * @param { DecimalValue } min {number | string | Decimal}
-   * @param { DecimalValue } max {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
+   * @param { Value } min {number | string | Decimal}
+   * @param { Value } max {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2448,17 +2475,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static clamp(n: DecimalValue, min: DecimalValue, max: DecimalValue): Decimal;
+  static clamp(n: Value, min: Value, max: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the sum of `x` and `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2472,8 +2499,8 @@ declare class Decimal {
    * Return a new Decimal whose value is the sum of `x` and `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2482,10 +2509,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static add(x: DecimalValue, y: DecimalValue): Decimal;
+  static add(x: Value, y: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the sum of the arguments, rounded to `precision`
@@ -2493,7 +2520,7 @@ declare class Decimal {
    *
    * Only the result is rounded, not the intermediate calculations.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2509,7 +2536,7 @@ declare class Decimal {
    *
    * Only the result is rounded, not the intermediate calculations.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2518,17 +2545,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sum(...n: DecimalValue[]): Decimal;
+  static sum(...n: Value[]): Decimal;
 
   /**
    * Return a new Decimal whose value is `x` minus `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2542,8 +2569,8 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` minus `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2552,17 +2579,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sub(x: DecimalValue, y: DecimalValue): Decimal;
+  static sub(x: Value, y: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `x` multiplied by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2576,8 +2603,8 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` multiplied by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2586,17 +2613,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static mul(x: DecimalValue, y: DecimalValue): Decimal;
+  static mul(x: Value, y: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `x` divided by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2610,8 +2637,8 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` divided by `y`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2620,17 +2647,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static div(x: DecimalValue, y: DecimalValue): Decimal;
+  static div(x: Value, y: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `x` modulo `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2644,8 +2671,8 @@ declare class Decimal {
    * Return a new Decimal whose value is `x` modulo `y`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } x {number | string | Decimal}
-   * @param { DecimalValue } y {number | string | Decimal}
+   * @param { Value } x {number | string | Decimal}
+   * @param { Value } y {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2654,16 +2681,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static mod(x: DecimalValue, y: DecimalValue): Decimal;
+  static mod(x: Value, y: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the square root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2677,7 +2704,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the square root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2686,16 +2713,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sqrt(n: DecimalValue): Decimal;
+  static sqrt(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the cube root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2709,7 +2736,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the cube root of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2718,17 +2745,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static cbrt(n: DecimalValue): Decimal;
+  static cbrt(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is `base` raised to the power `exponent`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } base {number | string | Decimal} The base.
-   * @param { DecimalValue } exponent {number | string | Decimal} The exponent.
+   * @param { Value } base {number | string | Decimal} The base.
+   * @param { Value } exponent {number | string | Decimal} The exponent.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2743,8 +2770,8 @@ declare class Decimal {
    * Return a new Decimal whose value is `base` raised to the power `exponent`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } base {number | string | Decimal} The base.
-   * @param { DecimalValue } exponent {number | string | Decimal} The exponent.
+   * @param { Value } base {number | string | Decimal} The base.
+   * @param { Value } exponent {number | string | Decimal} The exponent.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2754,16 +2781,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static pow(base: DecimalValue, exponent: DecimalValue): Decimal;
+  static pow(base: Value, exponent: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the natural exponential of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2778,7 +2805,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the natural exponential of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2788,17 +2815,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static exp(n: DecimalValue): Decimal;
+  static exp(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the log of `n` to the base `base`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
-   * @param { DecimalValue } base {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
+   * @param { Value } base {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2813,8 +2840,8 @@ declare class Decimal {
    * Return a new Decimal whose value is the log of `n` to the base `base`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
-   * @param { DecimalValue } base {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
+   * @param { Value } base {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2824,16 +2851,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static log(n: DecimalValue, base: DecimalValue): Decimal;
+  static log(n: Value, base: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the natural logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2848,7 +2875,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the natural logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2858,16 +2885,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static ln(n: DecimalValue): Decimal;
+  static ln(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the base 2 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2882,7 +2909,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the base 2 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2892,16 +2919,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static log2(n: DecimalValue): Decimal;
+  static log2(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the base 10 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2916,7 +2943,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the base 10 logarithm of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2926,16 +2953,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static log10(n: DecimalValue): Decimal;
+  static log10(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the cosine of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2949,7 +2976,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the cosine of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2958,16 +2985,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static cos(n: DecimalValue): Decimal;
+  static cos(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the sine of `n`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2981,7 +3008,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the sine of `n`, rounded to `precision` significant digits
    * using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -2990,16 +3017,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sin(n: DecimalValue): Decimal;
+  static sin(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the tangent of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3013,7 +3040,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the tangent of `n`, rounded to `precision` significant
    * digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3022,16 +3049,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static tan(n: DecimalValue): Decimal;
+  static tan(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the hyperbolic cosine of `n`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3045,7 +3072,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic cosine of `n`, rounded to precision
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3054,16 +3081,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static cosh(n: DecimalValue): Decimal;
+  static cosh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the hyperbolic sine of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3077,7 +3104,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic sine of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3086,16 +3113,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sinh(n: DecimalValue): Decimal;
+  static sinh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the hyperbolic tangent of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3109,7 +3136,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the hyperbolic tangent of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3118,15 +3145,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static tanh(n: DecimalValue): Decimal;
+  static tanh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the arccosine in radians of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3140,7 +3167,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the arccosine in radians of `n`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3150,16 +3177,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static acos(n: DecimalValue): Decimal;
+  static acos(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the arcsine in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3174,7 +3201,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the arcsine in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3184,16 +3211,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static asin(n: DecimalValue): Decimal;
+  static asin(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the arctangent in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3208,7 +3235,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the arctangent in radians of `n`, rounded to `precision`
    * significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3218,16 +3245,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static atan(n: DecimalValue): Decimal;
+  static atan(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the inverse of the hyperbolic cosine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3242,7 +3269,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic cosine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3252,16 +3279,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static acosh(n: DecimalValue): Decimal;
+  static acosh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the inverse of the hyperbolic sine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3276,7 +3303,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic sine of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3286,16 +3313,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static asinh(n: DecimalValue): Decimal;
+  static asinh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the inverse of the hyperbolic tangent of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3310,7 +3337,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the inverse of the hyperbolic tangent of `n`, rounded to
    * `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal} A value in radians.
+   * @param { Value } n {number | string | Decimal} A value in radians.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3320,17 +3347,17 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static atanh(n: DecimalValue): Decimal;
+  static atanh(n: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the arctangent in radians of `y/x` in the range -pi to pi
    * (inclusive), rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } y {number | string | Decimal} The y-coordinate.
-   * @param { DecimalValue } x {number | string | Decimal} The x-coordinate.
+   * @param { Value } y {number | string | Decimal} The y-coordinate.
+   * @param { Value } x {number | string | Decimal} The x-coordinate.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3345,8 +3372,8 @@ declare class Decimal {
    * Return a new Decimal whose value is the arctangent in radians of `y/x` in the range -pi to pi
    * (inclusive), rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue } y {number | string | Decimal} The y-coordinate.
-   * @param { DecimalValue } x {number | string | Decimal} The x-coordinate.
+   * @param { Value } y {number | string | Decimal} The y-coordinate.
+   * @param { Value } x {number | string | Decimal} The x-coordinate.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3356,16 +3383,16 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static atan2(y: DecimalValue, x: DecimalValue): Decimal;
+  static atan2(y: Value, x: Value): Decimal;
 
   /**
    * Return a new Decimal whose value is the square root of the sum of the squares of the arguments,
    * rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal} Decimal
+   * @param { Value[] } n {number | string | Decimal} Decimal
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3379,7 +3406,7 @@ declare class Decimal {
    * Return a new Decimal whose value is the square root of the sum of the squares of the arguments,
    * rounded to `precision` significant digits using rounding mode `rounding`.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal} Decimal
+   * @param { Value[] } n {number | string | Decimal} Decimal
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3388,15 +3415,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static hypot(...n: DecimalValue[]): Decimal;
+  static hypot(...n: Value[]): Decimal;
 
   /**
    * Return a new Decimal whose value is the maximum of the arguments.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3409,7 +3436,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the maximum of the arguments.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3418,15 +3445,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static max(...n: DecimalValue[]): Decimal;
+  static max(...n: Value[]): Decimal;
 
   /**
    * Return a new Decimal whose value is the minimum of the arguments.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3439,7 +3466,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is the minimum of the arguments.
    *
-   * @param { DecimalValue[] } n {number | string | Decimal}
+   * @param { Value[] } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3448,10 +3475,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static min(...n: DecimalValue[]): Decimal;
+  static min(...n: Value[]): Decimal;
 
   /**
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1.
@@ -3472,7 +3499,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   static random(): Decimal;
@@ -3481,7 +3508,7 @@ declare class Decimal {
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
    * `significantDigits` significant digits (or less if trailing zeros are produced).
    *
-   * @param { DecimalValue } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { Value } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3496,7 +3523,7 @@ declare class Decimal {
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
    * `significantDigits` significant digits (or less if trailing zeros are produced).
    *
-   * @param { DecimalValue } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { Value } significantDigits {number} Significant digits. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3506,7 +3533,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   static random(significantDigits: number): Decimal;
@@ -3519,7 +3546,7 @@ declare class Decimal {
    *  -0    if x is -0,
    *   NaN  otherwise
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3537,8 +3564,8 @@ declare class Decimal {
    *  -0    if x is -0,
    *   NaN  otherwise
    *
-   * @param { DecimalValue } n {number | string | Decimal}
-   * @returns { Decimal } the Decimal type
+   * @param { Value } n {number | string | Decimal}
+   * @returns { number } the number type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
    *                                    2. Parameter verification failed.
@@ -3546,15 +3573,15 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static sign(n: DecimalValue): number;
+  static sign(n: Value): number;
 
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3567,7 +3594,7 @@ declare class Decimal {
   /**
    * Return a new Decimal whose value is `n` rounded to an integer using rounding mode `rounding`.
    *
-   * @param { DecimalValue } n {number | string | Decimal}
+   * @param { Value } n {number | string | Decimal}
    * @returns { Decimal } the Decimal type
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                    1. Incorrect parameter types;
@@ -3576,10 +3603,10 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  static round(n: DecimalValue): Decimal;
+  static round(n: Value): Decimal;
 
   /**
    * Configures the 'global' settings for this particular Decimal constructor.
@@ -3628,7 +3655,8 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static set(config: DecimalConfig): void;
 
@@ -3656,6 +3684,7 @@ declare class Decimal {
   /**
    * Rounds away from zero
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3690,6 +3719,7 @@ declare class Decimal {
   /**
    * Rounds towards zero
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3724,6 +3754,7 @@ declare class Decimal {
   /**
    * Rounds towards Infinity
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3758,6 +3789,7 @@ declare class Decimal {
   /**
    * Rounds towards -Infinity
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3792,6 +3824,7 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds away from zero
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3826,6 +3859,7 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards zero
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3860,6 +3894,7 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards even neighbour
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3894,6 +3929,7 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards Infinity
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3928,6 +3964,7 @@ declare class Decimal {
   /**
    * Rounds towards nearest neighbour. If equidistant, rounds towards -Infinity
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -3962,6 +3999,7 @@ declare class Decimal {
   /**
    * Not a rounding mode, see modulo
    *
+   * @type { number }
    * @readonly
    * @static
    * @syscap SystemCapability.Utils.Lang
