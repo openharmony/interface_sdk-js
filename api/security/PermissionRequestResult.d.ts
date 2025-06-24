@@ -18,9 +18,6 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
-import { int } from '@ohos.base';
-/*** endif */
 /**
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
@@ -46,7 +43,7 @@ import { int } from '@ohos.base';
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class PermissionRequestResult {
+declare class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
@@ -72,28 +69,16 @@ export default class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   permissions: Array<string>;
 
   /**
-   * The permissions passed in by the user.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.Security.AccessToken
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  permissions: Array<string> = new Array<string>();
-
-  /**
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -102,25 +87,12 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @since 10
    */
-  /**
-   * The results for the corresponding request permissions. The value 0 indicates that a
-   * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
-   *
-   * @type { Array<number> }
-   * @syscap SystemCapability.Security.AccessToken
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  authResults: Array<number>;
-
   /**
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
@@ -130,10 +102,10 @@ export default class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  authResults: Array<int> = new Array<int>();
+  authResults: Array<int>;
 
   /**
    * Specifies whether a dialog box is shown for each requested permission.
@@ -168,3 +140,5 @@ export default class PermissionRequestResult {
    */
   errorReasons?: Array<int>;
 }
+
+export default PermissionRequestResult;

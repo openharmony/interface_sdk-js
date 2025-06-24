@@ -28,67 +28,33 @@ import { Resource } from '../../global/resource';
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
-declare enum SecurityComponentLayoutDirection {
-  /**
-   * Horizontal layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Horizontal layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  HORIZONTAL = 0,
-
-  /**
-   * Vertical layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Vertical layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  VERTICAL = 1
-}
-
-/**
- * Enumerates the layout direction of the icon and text.
- *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SecurityComponentLayoutDirection {
   /**
    * Horizontal layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Horizontal layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   HORIZONTAL = 0,
 
@@ -96,9 +62,15 @@ declare enum SecurityComponentLayoutDirection {
    * Vertical layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Vertical layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   VERTICAL = 1
 }
@@ -278,7 +250,7 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font weight of the inner text.
    *
-   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
+   * @param { int | FontWeight | string } value - Indicates the font weight of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -286,23 +258,12 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font weight of the inner text.
    *
-   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
-   * @returns { T } Returns the attribute of the security component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  fontWeight(value: number | FontWeight | string): T;
-
-  /**
-   * Font weight of the inner text.
-   *
    * @param { int | FontWeight | string } value - Indicates the font weight of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: int | FontWeight | string): T;
 
@@ -473,7 +434,8 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderRadius(radius: Dimension | BorderRadiuses): T;
 
@@ -676,62 +638,62 @@ declare class SecurityComponentMethod<T> {
   /**
    * Sets the minimum font scale factor for text.
    *
-   * @param { number | Resource } scale Minimum font scale factor to set.
+   * @param { double | Resource } scale Minimum font scale factor to set.
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minFontScale(scale: number | Resource): T;
+  minFontScale(scale: double | Resource): T;
 
   /**
    * Sets the maximum font scale factor for text.
    *
-   * @param { number | Resource  } scale Maximum font scale factor to set.
+   * @param { double | Resource  } scale Maximum font scale factor to set.
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxFontScale(scale: number | Resource): T;
+  maxFontScale(scale: double | Resource): T;
 
   /**
    * Called when the maximum number of lines of text is set.
    *
-   * @param { number } line
+   * @param { int } line
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxLines(line: number): T;
+  maxLines(line: int): T;
 
   /**
    * Called when the minimum font size of the font is set.
    *
-   * @param { number | string | Resource } minSize
+   * @param { double | string | Resource } minSize
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minFontSize(minSize: number | string | Resource): T;
+  minFontSize(minSize: double | string | Resource): T;
 
   /**
    * Called when the maximum font size of the font is set.
    *
-   * @param { number | string | Resource } maxSize
+   * @param { double | string | Resource } maxSize
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxFontSize(maxSize: number | string | Resource): T;
+  maxFontSize(maxSize: double | string | Resource): T;
 
   /**
    * Called when the height adaptive policy is set.
