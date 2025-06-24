@@ -686,7 +686,7 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<NearLinkProtocol> } NearLinkProtocol - protocol of the near link to be added to the list.
+   * @param { Array<NearLinkProtocol> } protocol - protocol of the near link to be added to the list.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -704,7 +704,7 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<NearLinkProtocol> } NearLinkProtocol - protocol of the near link to be added to the list.
+   * @param { Array<NearLinkProtocol> } protocol - protocol of the near link to be added to the list.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
