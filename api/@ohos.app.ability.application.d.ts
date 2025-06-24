@@ -122,7 +122,7 @@ declare namespace application {
    * @stagemodelonly
    * @since 20
    */
-  export function promoteCurrentToCandidateMasterProcess(insertToHead : boolean): Promise<void>;
+  export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
 
   /**
    * Revoke current process as a candidate master process.
