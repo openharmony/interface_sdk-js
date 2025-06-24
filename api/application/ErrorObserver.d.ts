@@ -31,6 +31,15 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * The observer will be called by system when an error occurs.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since arkts {'1.1':'19', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
 export default class ErrorObserver {
   /**
    * Will be called when the js runtime throws an exception which doesn't caught by user.
@@ -46,6 +55,16 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { string } errMsg - the message and error stacktrace about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onUnhandledException(errMsg: string): void;
 
@@ -63,6 +82,16 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Will be called when the js runtime throws an exception which doesn't caught by user.
+   *
+   * @param { Error } errObject - the error object about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onException?(errObject: Error): void;
 }
