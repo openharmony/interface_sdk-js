@@ -1201,7 +1201,7 @@ declare namespace cloudSync {
    * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum OptimizeState {
+  enum OptimizeState {
 
     /**
      * Indicates that the optimize space task in process now.
