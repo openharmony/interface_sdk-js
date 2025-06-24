@@ -424,7 +424,8 @@ declare namespace hidebug {
    *
    * @interface MemoryLimit
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MemoryLimit {
     /**
@@ -432,7 +433,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssLimit: bigint;
     /**
@@ -440,7 +442,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vssLimit: bigint;
     /**
@@ -448,7 +451,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmHeapLimit: bigint;
     /**
@@ -456,7 +460,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmTotalHeapSize: bigint;
   }
@@ -466,7 +471,8 @@ declare namespace hidebug {
    *
    * @returns { MemoryLimit } Returns the memory limit of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppMemoryLimit(): MemoryLimit;
 
@@ -475,7 +481,8 @@ declare namespace hidebug {
    *
    * @interface VMMemoryInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VMMemoryInfo {
     /**
@@ -483,7 +490,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalHeap: bigint;
     /**
@@ -491,7 +499,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     heapUsed: bigint;
     /**
@@ -499,7 +508,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allArraySize: bigint;
   }
@@ -509,7 +519,8 @@ declare namespace hidebug {
    *
    * @returns { VMMemoryInfo } Returns the VM memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
@@ -848,7 +859,8 @@ declare namespace hidebug {
    *
    * @typedef { Record<string, long> } GcStats
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type GcStats = Record<string, long>;
 
@@ -857,7 +869,8 @@ declare namespace hidebug {
    *
    * @returns { GcStats } Returns the system GC statistics.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStats(): GcStats;
 
@@ -870,7 +883,8 @@ declare namespace hidebug {
    *                           1. Invalid parameter, a string parameter required.
    *                           2. Invalid parameter, unknown property.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStat(item: string): long;
 
@@ -904,7 +918,8 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDebugState(): boolean;
 
@@ -1038,7 +1053,7 @@ declare namespace hidebug {
      * On top of level 1 trimming, object address size has been additionally trimmed.
      * Please use latest version of rawheap-translator tool for parsing and converting
      * .rawheap into .heapsnapshot file. Conversion process may fail when legacy tool is utilized.
-     * 
+     *
      * A higher trimming level means a longer time needed to generate the .rawheap file.
      * Ensure that this duration falls below the app freeze threshold.
      *
