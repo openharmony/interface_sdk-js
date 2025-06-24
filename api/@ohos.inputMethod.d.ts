@@ -370,7 +370,6 @@ declare namespace inputMethod {
    * @param { boolean } enable - indicates enable simple keyboard or not.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
-   * @arkts 1.1&1.2
    */
   function setSimpleKeyboardEnabled(enable: boolean): void;
 
