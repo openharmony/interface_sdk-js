@@ -6993,7 +6993,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of createing empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during
+     * the process of createing empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is to large.This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18
@@ -7007,7 +7008,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 501 - Resource unavailable.
      * @throws { BusinessError } 62980102 - Image malloc abnormal. This status code is thrown when an error occurs during the process of copying data.
      * @throws { BusinessError } 62980103 - Image YUV And ASTC types are not supported.
-     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during the process of createing empty pixelmap.
+     * @throws { BusinessError } 62980104 - Image initialization abnormal. This status code is thrown when an error occurs during
+     * the process of createing empty pixelmap.
      * @throws { BusinessError } 62980106 - The image data is to large.This status code is thrown when an error occurs during the process of checking size.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18
