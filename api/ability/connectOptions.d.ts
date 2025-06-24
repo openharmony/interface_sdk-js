@@ -45,7 +45,8 @@ export interface ConnectOptions {
    * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
    * @param { rpc.IRemoteObject } remote - The remote object instance
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
@@ -61,7 +62,8 @@ export interface ConnectOptions {
    *
    * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDisconnect(elementName: ElementName): void;
 
@@ -70,7 +72,8 @@ export interface ConnectOptions {
    *
    * @param { number } code - The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFailed(code: number): void;
 }
