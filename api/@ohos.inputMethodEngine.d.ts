@@ -1553,6 +1553,14 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19
      */
+    /**
+     * Get input attachOptions.
+     *
+     * @returns { AttachOptions } return attach options.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     getAttachOptions(): AttachOptions;
     /**
      * Subscribe 'attachOptionsDidChange' event.
@@ -1562,6 +1570,15 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19
+     */
+    /**
+     * Subscribe 'attachOptionsDidChange' event.
+     *
+     * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
+     * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     * @arkts 1.1&1.2
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
@@ -2925,6 +2942,16 @@ declare namespace inputMethodEngine {
      * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
+
+    /**
+     * Is simple keyboard enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    isSimpleKeyboardEnabled?: boolean;
   }
 
   /**
