@@ -266,7 +266,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Limit the max speed when fling.
    *
-   * @param { Optional<number> } speed - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   * @param { Optional<number> } speed - Max fling speed, the value needs to be a positive number, the maximum value is not limited.
    *                             The unit is vp/s.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
