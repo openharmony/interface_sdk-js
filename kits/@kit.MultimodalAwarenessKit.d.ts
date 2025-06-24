@@ -22,5 +22,6 @@ import stationary from '@ohos.stationary';
 import motion from '@ohos.multimodalAwareness.motion';
 import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
 import metadataBinding from '@ohos.multimodalAwareness.metadataBinding';
+import userStatus from '@ohos.multimodalAwareness.userStatus';
 
-export { stationary, motion, deviceStatus, metadataBinding };
+export { stationary, motion, deviceStatus, metadataBinding, userStatus };
