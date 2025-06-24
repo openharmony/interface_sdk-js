@@ -100,23 +100,23 @@ declare namespace mechanicManager {
 
     /**
      * Subscribes to tracking events.
-     * @param { 'trackingEvent' } type Event type.
+     * @param { 'trackingStateChange' } type Event type.
      * @param { Callback<TrackingEventInfo> } callback Callback used to return the tracking event information.
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
-    function on(type: 'trackingEvent', callback: Callback<TrackingEventInfo>): void;
+    function on(type: 'trackingStateChange', callback: Callback<TrackingEventInfo>): void;
 
     /**
      * Unsubscribes from tracking events.
-     * @param { 'trackingEvent' } type Event type.
+     * @param { 'trackingStateChange' } type Event type.
      * @param { Callback<TrackingEventInfo> } [callback] Callback used to return the tracking event information.
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
-    function off(type: 'trackingEvent', callback?: Callback<TrackingEventInfo>): void;
+    function off(type: 'trackingStateChange', callback?: Callback<TrackingEventInfo>): void;
 
     /**
      * Sets the camera tracking layout for this mechanical device.
