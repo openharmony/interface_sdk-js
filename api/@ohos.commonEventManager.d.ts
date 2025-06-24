@@ -387,8 +387,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
@@ -407,8 +406,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function removeStickyCommonEvent(event: string): Promise<void>;
 
@@ -425,8 +423,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -443,8 +440,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
@@ -462,8 +458,7 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 

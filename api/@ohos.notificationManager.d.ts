@@ -783,7 +783,7 @@ declare namespace notificationManager {
   function addSlot(type: SlotType): Promise<void>;
 
   /**
-   * Creates a notification slot.
+   * Creates notification slots.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
@@ -803,7 +803,7 @@ declare namespace notificationManager {
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
   /**
-   * Creates a notification slot.
+   * Creates notification slots.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
@@ -1508,7 +1508,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1678,7 +1679,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
 
@@ -3531,8 +3533,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { function } [callback] - callback - The callback
-   *                                                                                     of check notifications.
+   * @param { function } [callback] - callback - The callback of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -3911,6 +3912,23 @@ declare namespace notificationManager {
   function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
 
   /**
+   * Set target device status.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device.
+   * @param { number } status - The device status.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 18
+   */
+  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
+
+  /**
    * Disabling notifications based on the application list.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -3928,23 +3946,6 @@ declare namespace notificationManager {
    * @since 18
    */
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
-
-  /**
-   * Set target device status.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } deviceType - The device.
-   * @param { number } status - The device status.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 18
-   */
-  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
 
   /**
    * Set notification slot synchronization switch.
@@ -4020,7 +4021,8 @@ declare namespace notificationManager {
      * @type { ?function }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
   }

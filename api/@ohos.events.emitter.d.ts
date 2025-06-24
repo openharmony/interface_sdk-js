@@ -93,8 +93,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(eventId: string, callback: Callback<EventData>): void;
 
@@ -106,8 +105,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
@@ -152,8 +150,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
@@ -176,8 +173,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function once(eventId: string, callback: Callback<EventData>): void;
 
@@ -190,8 +186,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
@@ -298,8 +293,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(eventId: string, callback: Callback<EventData>): void;
 
@@ -311,8 +305,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
@@ -376,8 +369,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit(eventId: string, data?: EventData): void;
 
@@ -389,8 +381,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit<T>(eventId: string, data?: GenericEventData<T>): void;
 
