@@ -44,7 +44,7 @@ import { Resource } from './global/resource';
  *
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
- * @since arkts {'1.1':'12','1.2':'20'}
+ * @since arkts{ '1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace text {
@@ -53,14 +53,14 @@ declare namespace text {
    * Refers to how to align the horizontal position of text when displaying text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextAlign {
     /**
      * Use the left side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LEFT = 0,
@@ -68,7 +68,7 @@ declare namespace text {
     /**
      * Use the right side of the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     RIGHT = 1,
@@ -76,7 +76,7 @@ declare namespace text {
     /**
      * Use the midpoint line the text as a reference line for alignment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     CENTER = 2,
@@ -85,7 +85,7 @@ declare namespace text {
      * Justified, which means that each line (except the last line) is stretched so that every line has equal width,
      * and the left and right margins are straight.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     JUSTIFY = 3,
@@ -93,7 +93,7 @@ declare namespace text {
     /**
      * Align text from start, based on the TextDirection, such as left-to-right or right-to-left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     START = 4,
@@ -101,7 +101,7 @@ declare namespace text {
     /**
      * Align text from end, based on the TextDirection, such as left-to-right or right-to-left, opposite to START.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     END = 5,
@@ -144,14 +144,14 @@ declare namespace text {
    * Enumerate text runs direction.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextDirection {
     /**
      * The text is oriented from right to left.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     RTL,
@@ -159,7 +159,7 @@ declare namespace text {
     /**
      * The text is oriented from left to right.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LTR,
@@ -169,14 +169,14 @@ declare namespace text {
    * Enumerate text segmentation strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum BreakStrategy {
     /**
      * Fills the current line as much as possible without adding hyphens.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     GREEDY,
@@ -184,7 +184,7 @@ declare namespace text {
     /**
      * Optimizes layout and may add hyphens when necessary.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     HIGH_QUALITY,
@@ -192,7 +192,7 @@ declare namespace text {
     /**
      * Ensures consistent line width in a paragraph, adding hyphens if needed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BALANCED,
@@ -202,14 +202,14 @@ declare namespace text {
    * Enumerate word break strategy.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum WordBreak {
     /**
      * Default mode that break words based on language-specific conventions.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NORMAL,
@@ -219,7 +219,7 @@ declare namespace text {
      * This value is suitable for Asian text that contains some non-Asian text. For example, 
      * it can be used to break consecutive English characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BREAK_ALL,
@@ -229,7 +229,7 @@ declare namespace text {
      * or other natural breakpoints to keep words intact. If no breakpoints are found, it breaks between
      * any two characters. For CJK text, this behaves like NORMAL.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BREAK_WORD,
@@ -238,7 +238,7 @@ declare namespace text {
      * Attempts to break words at the end of a line using a hyphen. If a hyphen cannot be added,
      * it behaves like BREAK_WORD.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BREAK_HYPHEN,
@@ -248,7 +248,7 @@ declare namespace text {
    * Describes a text decoration.
    * @typedef Decoration
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface Decoration {
@@ -256,7 +256,7 @@ declare namespace text {
      * Type of the decoration. The default value is NONE.
      * @type { ?TextDecorationType }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textDecoration?: TextDecorationType;
@@ -265,7 +265,7 @@ declare namespace text {
      * Color of the decoration. The default value is transparent.
      * @type { ?common2D.Color }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     color?: common2D.Color;
@@ -274,7 +274,7 @@ declare namespace text {
      * Style of the decoration. The default value is SOLID.
      * @type { ?TextDecorationStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     decorationStyle?: TextDecorationStyle;
@@ -284,7 +284,7 @@ declare namespace text {
      * The default value is 1.0.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     decorationThicknessScale?: number;
@@ -294,14 +294,14 @@ declare namespace text {
    * Enumerates the text decoration types.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextDecorationType {
     /**
      * There are no text decoration.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NONE,
@@ -309,7 +309,7 @@ declare namespace text {
     /**
      * There is a decoration line below the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     UNDERLINE,
@@ -317,7 +317,7 @@ declare namespace text {
     /**
      * There is a decoration line above the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     OVERLINE,
@@ -325,7 +325,7 @@ declare namespace text {
     /**
      * There is a decoration line through the middle of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LINE_THROUGH,
@@ -335,14 +335,14 @@ declare namespace text {
    * Enumerates the text decoration styles.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextDecorationStyle {
     /**
      * Decoration line is solid line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SOLID,
@@ -350,7 +350,7 @@ declare namespace text {
     /**
      * Decoration line is double line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DOUBLE,
@@ -358,7 +358,7 @@ declare namespace text {
     /**
      * Decoration line is dotted line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DOTTED,
@@ -366,7 +366,7 @@ declare namespace text {
     /**
      * Decoration line is dashed line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DASHED,
@@ -374,7 +374,7 @@ declare namespace text {
     /**
      * Decoration line is wavy line.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     WAVY,
@@ -384,14 +384,14 @@ declare namespace text {
    * Enumeration of font weight of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum FontWeight {
     /**
      * Thin
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W100,
@@ -399,7 +399,7 @@ declare namespace text {
     /**
      * Extra-light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W200,
@@ -407,7 +407,7 @@ declare namespace text {
     /**
      * Light
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W300,
@@ -415,7 +415,7 @@ declare namespace text {
     /**
      * Normal/Regular
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W400,
@@ -423,7 +423,7 @@ declare namespace text {
     /**
      * Medium
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W500,
@@ -431,7 +431,7 @@ declare namespace text {
     /**
      * Semi-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W600,
@@ -439,7 +439,7 @@ declare namespace text {
     /**
      * Bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W700,
@@ -447,7 +447,7 @@ declare namespace text {
     /**
      * Extra-bold
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W800,
@@ -455,7 +455,7 @@ declare namespace text {
     /**
      * Black
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     W900,
@@ -465,14 +465,14 @@ declare namespace text {
    * Enumeration of font style of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum FontStyle {
     /**
      * Upright font type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NORMAL,
@@ -480,7 +480,7 @@ declare namespace text {
     /**
      * Slant font. If no italic version is available for the current font, the oblique version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ITALIC,
@@ -488,7 +488,7 @@ declare namespace text {
     /**
      * Oblique font. If no oblique version is available for the current font, the italic version will be used instead.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     OBLIQUE,
@@ -498,14 +498,14 @@ declare namespace text {
    * Enumeration of font width of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum FontWidth {
     /**
      * Ultra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ULTRA_CONDENSED = 1,
@@ -513,7 +513,7 @@ declare namespace text {
     /**
      * Extra condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     EXTRA_CONDENSED = 2,
@@ -521,7 +521,7 @@ declare namespace text {
     /**
      * Condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     CONDENSED = 3,
@@ -529,7 +529,7 @@ declare namespace text {
     /**
      * Semi condensed font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SEMI_CONDENSED = 4,
@@ -537,7 +537,7 @@ declare namespace text {
     /**
      * Normal font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NORMAL = 5,
@@ -545,7 +545,7 @@ declare namespace text {
     /**
      * Semi expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SEMI_EXPANDED = 6,
@@ -553,7 +553,7 @@ declare namespace text {
     /**
      * Expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     EXPANDED = 7,
@@ -561,7 +561,7 @@ declare namespace text {
     /**
      * Extra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     EXTRA_EXPANDED = 8,
@@ -569,7 +569,7 @@ declare namespace text {
     /**
      * Ultra expanded font width.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ULTRA_EXPANDED = 9,
@@ -579,14 +579,14 @@ declare namespace text {
    * Enumerates the text height modifier patterns.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextHeightBehavior {
     /**
      * Allows the first line of the paragraph to rise and the last line to drop.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ALL = 0x0,
@@ -594,7 +594,7 @@ declare namespace text {
     /**
      * Prevents the first line of a paragraph from rising.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DISABLE_FIRST_ASCENT = 0x1,
@@ -602,7 +602,7 @@ declare namespace text {
     /**
      * Prevents the last line of a paragraph from dropping.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DISABLE_LAST_ASCENT = 0x2,
@@ -610,7 +610,7 @@ declare namespace text {
     /**
      * Combines the effects of disabling the first line from rising and the last line from dropping.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DISABLE_ALL = 0x1 | 0x2,
@@ -620,7 +620,7 @@ declare namespace text {
    * Enumeration the type of text baseline.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum TextBaseline {
@@ -628,7 +628,7 @@ declare namespace text {
      * The alphabetic baseline, typically used for Latin-based scripts where the baseline aligns
      * with the base of lowercase letters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ALPHABETIC,
@@ -637,7 +637,7 @@ declare namespace text {
      * The ideographic baseline, commonly used for ideographic scripts such as Chinese, Japanese, and Korean,
      * where the baseline aligns with the center of characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     IDEOGRAPHIC,
@@ -648,14 +648,14 @@ declare namespace text {
    * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum EllipsisMode {
     /**
      * Places the ellipsis in the text header. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     START,
@@ -663,7 +663,7 @@ declare namespace text {
     /**
      * Places the ellipsis in the middle of the text. It is valid only when maxLines is set to 1 in ParagraphStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     MIDDLE,
@@ -671,7 +671,7 @@ declare namespace text {
     /**
      * Places the ellipsis at the end of the text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     END,
@@ -681,7 +681,7 @@ declare namespace text {
    * Describes shadow of text.
    * @typedef TextShadow
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface TextShadow {
@@ -689,7 +689,7 @@ declare namespace text {
      * Color of the text shadow. The default value is black (255, 0, 0, 0).
      * @type { ?common2D.Color } The color of text shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     color?: common2D.Color;
@@ -698,7 +698,7 @@ declare namespace text {
      * The horizontal and vertical coordinates must be greater than or equal to 0.
      * @type { ?common2D.Point } The point of shadow
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     point?: common2D.Point;
@@ -707,7 +707,7 @@ declare namespace text {
      * The value is a floating point number. The default value is 0.0px.
      * @type { ?number } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     blurRadius?: number;
@@ -717,7 +717,7 @@ declare namespace text {
    * Describes the style of a rectangle.
    * @typedef RectStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface RectStyle {
@@ -725,7 +725,7 @@ declare namespace text {
      * Color of the rectangle.
      * @type { common2D.Color } The color of rect style
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     color: common2D.Color;
@@ -734,7 +734,7 @@ declare namespace text {
      * Left top radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     leftTopRadius: number;
@@ -743,7 +743,7 @@ declare namespace text {
      * Right top radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     rightTopRadius: number;
@@ -752,7 +752,7 @@ declare namespace text {
      * Right bottom radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     rightBottomRadius: number;
@@ -761,7 +761,7 @@ declare namespace text {
      * Left bottom radius of the rectangle.
      * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     leftBottomRadius: number;
@@ -771,7 +771,7 @@ declare namespace text {
    * Describes font feature of text.
    * @typedef FontFeature
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface FontFeature {
@@ -779,7 +779,7 @@ declare namespace text {
      * String identified by the keyword in the font feature key-value pair.
      * @type { string } feature name
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     name: string;
@@ -787,7 +787,7 @@ declare namespace text {
      * 	Value in the font feature key-value pair.
      * @type { number } feature value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     value: number;
@@ -797,7 +797,7 @@ declare namespace text {
    * Describes font variation of text.
    * @typedef FontVariation
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface FontVariation {
@@ -805,7 +805,7 @@ declare namespace text {
      * String identified by the keyword in the font variation key-value pair.
      * @type { string } variation axis
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     axis: string;
@@ -813,7 +813,7 @@ declare namespace text {
      * Value in the font variation key-value pair.
      * @type { number } variation value
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     value: number;
@@ -850,7 +850,7 @@ declare namespace text {
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface TextStyle {
@@ -859,7 +859,7 @@ declare namespace text {
      * Text decoration. By default, no decoration is used.
      * @type { ?Decoration } decoration for text
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     decoration?: Decoration;
@@ -868,7 +868,7 @@ declare namespace text {
      * Text color. The default color is white.
      * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     color?: common2D.Color;
@@ -879,7 +879,7 @@ declare namespace text {
      * If the weight is greater than or equal to semi-bold, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontWeight?: FontWeight;
@@ -888,7 +888,7 @@ declare namespace text {
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontStyle?: FontStyle;
@@ -897,7 +897,7 @@ declare namespace text {
      * Text baseline type. The default value is ALPHABETIC.
      * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     baseline?: TextBaseline;
@@ -906,7 +906,7 @@ declare namespace text {
      * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontFamilies?: Array<string>;
@@ -915,7 +915,7 @@ declare namespace text {
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontSize?: number;
@@ -926,7 +926,7 @@ declare namespace text {
      * and a negative value bring characters closer together.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     letterSpacing?: number;
@@ -935,7 +935,7 @@ declare namespace text {
      * Word spacing, in units of px. The value is a floating point number. The default value is 0.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     wordSpacing?: number;
@@ -945,7 +945,7 @@ declare namespace text {
      * The default value is 1.0. This parameter is valid only when heightOnly is set to true.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     heightScale?: number;
@@ -956,7 +956,7 @@ declare namespace text {
      * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     halfLeading?: boolean;
@@ -967,7 +967,7 @@ declare namespace text {
      * and false means that the height is set based on the line height and line spacing. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     heightOnly?: boolean;
@@ -976,7 +976,7 @@ declare namespace text {
      * Ellipsis content, which will be used to replace the extra content.
      * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ellipsis?: string;
@@ -985,7 +985,7 @@ declare namespace text {
      * Ellipsis type. The default value is END, indicating that the ellipsis is at the end of a line.
      * @type { ?EllipsisMode } Ellipsis mode.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ellipsisMode?: EllipsisMode;
@@ -995,7 +995,7 @@ declare namespace text {
      * and 'zh-Hant' indicates Traditional Chinese. For details, see ISO 639-1. The default value is an empty string.
      * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     locale?: string;
@@ -1004,7 +1004,7 @@ declare namespace text {
      * Shift of the baseline. The value is a floating point number. The default value is 0.0px.
      * @type { ?number } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     baselineShift?: number;
@@ -1013,7 +1013,7 @@ declare namespace text {
      * Text Style available font features.
      * @type { ?Array<FontFeature> } A collection of font features.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontFeatures?: Array<FontFeature>;
@@ -1022,7 +1022,7 @@ declare namespace text {
      * Text shadows of text.
      * @type { ?Array<TextShadow> } textShadow gather.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textShadows?: Array<TextShadow>;
@@ -1031,7 +1031,7 @@ declare namespace text {
      * Rectangle style of text.
      * @type { ?RectStyle } rect style for text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     backgroundRect?: RectStyle;
@@ -1040,7 +1040,7 @@ declare namespace text {
      * Text Style available font variations.
      * @type { ?Array<FontVariation> } A collection of font variations.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontVariations?: Array<FontVariation>;
@@ -1057,7 +1057,7 @@ declare namespace text {
   /**
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   class FontCollection {
@@ -1065,7 +1065,7 @@ declare namespace text {
      * Get global FontCollection instance of the application.
      * @returns { FontCollection } The FontCollection object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     static getGlobalInstance(): FontCollection;
@@ -1078,7 +1078,7 @@ declare namespace text {
      * @param { string | Resource } path - Path of the font file to import. The value must be
      * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     loadFontSync(name: string, path: string | Resource): void;
@@ -1094,7 +1094,7 @@ declare namespace text {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
@@ -1135,7 +1135,7 @@ declare namespace text {
      * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
      * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
      clearCaches(): void;
@@ -1146,7 +1146,7 @@ declare namespace text {
    * and other properties related to the line height when drawing texts. The strut style is disabled by default.
    * @typedef StrutStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface StrutStyle {
@@ -1154,7 +1154,7 @@ declare namespace text {
      * List of font families. By default, the list corresponds to the system's default fonts.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontFamilies?: Array<string>;
@@ -1163,7 +1163,7 @@ declare namespace text {
      * Font style. The default value is NORMAL.
      * @type { ?FontStyle } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontStyle?: FontStyle;
@@ -1172,7 +1172,7 @@ declare namespace text {
      * Font width. The default value is NORMAL.
      * @type { ?FontWidth } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontWidth?: FontWidth;
@@ -1183,7 +1183,7 @@ declare namespace text {
      * If the weight is greater than or equal to W600, it might result in a fake bold effect.
      * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontWeight?: FontWeight;
@@ -1192,7 +1192,7 @@ declare namespace text {
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontSize?: number;
@@ -1201,7 +1201,7 @@ declare namespace text {
      * Scale factor of the line height. The value is a floating point number. The default value is 1.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     height?: number;
@@ -1210,7 +1210,7 @@ declare namespace text {
      * Custom leading to be applied to the strut. The value is a floating point number. The default value is -1.0.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     leading?: number;
@@ -1220,7 +1220,7 @@ declare namespace text {
      * for all lines, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     forceHeight?: boolean;
@@ -1230,7 +1230,7 @@ declare namespace text {
      * The value true means to enable the strut style, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     enabled?: boolean;
@@ -1240,7 +1240,7 @@ declare namespace text {
      * The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     heightOverride?: boolean;
@@ -1251,7 +1251,7 @@ declare namespace text {
      * The value true means that half leading is enabled, and false means the opposite. The default value is false.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     halfLeading?: boolean;
@@ -1261,7 +1261,7 @@ declare namespace text {
    * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
    * @typedef ParagraphStyle
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface ParagraphStyle {
@@ -1269,7 +1269,7 @@ declare namespace text {
      * Text style applied to the paragraph. The default value is the initial text style.
      * @type { ?TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textStyle?: TextStyle;
@@ -1278,7 +1278,7 @@ declare namespace text {
      * Text direction. The default value is LTR.
      * @type { ?TextDirection }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textDirection?: TextDirection;
@@ -1287,7 +1287,7 @@ declare namespace text {
      * Text alignment mode. The default value is START. This parameter is invalid when the tab parameter is configured.
      * @type { ?TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     align?: TextAlign;
@@ -1296,7 +1296,7 @@ declare namespace text {
      * Word break type. The default value is BREAK_WORD.
      * @type { ?WordBreak }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     wordBreak?: WordBreak;
@@ -1305,7 +1305,7 @@ declare namespace text {
      * Maximum number of lines. The value is an integer. The default value is 1e9.
      * @type { ?number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     maxLines?: number;
@@ -1314,7 +1314,7 @@ declare namespace text {
      * Text break strategy. The default value is GREEDY.
      * @type { ?BreakStrategy }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     breakStrategy?: BreakStrategy;
@@ -1323,7 +1323,7 @@ declare namespace text {
      * Strut style. The default value is the initial StrutStyle object.
      * @type { ?StrutStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     strutStyle?: StrutStyle;
@@ -1332,7 +1332,7 @@ declare namespace text {
      * Text height modifier pattern. The default value is ALL.
      * @type { ?TextHeightBehavior }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textHeightBehavior?: TextHeightBehavior;
@@ -1343,7 +1343,7 @@ declare namespace text {
      * the ellipsis parameter in TextStyle.
      * @type { ?TextTab }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     tab?: TextTab;
@@ -1646,7 +1646,7 @@ declare namespace text {
    * Before calling any of the following APIs, you must use build() of the ParagraphBuilder class to
    * create a Paragraph object.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   class Paragraph {
@@ -1654,7 +1654,7 @@ declare namespace text {
      * Performs layout and calculates the positions of all glyphs.
      * @param { number } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     layoutSync(width: number): void;
@@ -1676,7 +1676,7 @@ declare namespace text {
      * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
      * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
@@ -1691,7 +1691,7 @@ declare namespace text {
      * @param { number } vOffset - Vertical offset along the path direction. A positive number indicates a position
      * on the left side of the path, and a negative number indicates a position on the right side of the path.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
@@ -1716,7 +1716,7 @@ declare namespace text {
      * Obtains the longest line in the text.
      * @returns { number } Longest line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getLongestLine(): number;
@@ -1862,7 +1862,7 @@ declare namespace text {
      * Obtains an array of line measurement information.
      * @returns { Array<LineMetrics> } Array of line measurement information.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getLineMetrics(): Array<LineMetrics>;
@@ -1874,7 +1874,7 @@ declare namespace text {
      * line number is valid and the measurement information exists. If the line number is invalid or
      * the measurement information cannot be obtained, undefined is returned.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getLineMetrics(lineNumber: number): LineMetrics | undefined;
@@ -2082,7 +2082,7 @@ declare namespace text {
   /**
    * Builds a Paragraph containing text with the given styling information.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   class ParagraphBuilder {
@@ -2091,7 +2091,7 @@ declare namespace text {
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
      * @param { FontCollection } fontCollection - Font collection {@link FontCollection}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection);
@@ -2104,7 +2104,7 @@ declare namespace text {
      * font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
      * and text shadow. {@link TextStyle}
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     pushStyle(textStyle: TextStyle): void;
@@ -2112,7 +2112,7 @@ declare namespace text {
     /**
      * Restores the previous text style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     popStyle(): void;
@@ -2122,7 +2122,7 @@ declare namespace text {
      * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
      * provided, it is displayed as �.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     addText(text: string): void;
@@ -2140,7 +2140,7 @@ declare namespace text {
      * Creates a paragraph object that can be used for subsequent layout and rendering.
      * @returns { Paragraph } Paragraph object that can be used for subsequent rendering.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     build(): Paragraph;
@@ -2504,7 +2504,7 @@ declare namespace text {
    * Describes the layout information and metrics for a continuous piece of text (a run) in a line of text.
    * @typedef RunMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface RunMetrics {
@@ -2512,7 +2512,7 @@ declare namespace text {
      * The metrics of an Font.
      * @type { TextStyle }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     textStyle: TextStyle;
@@ -2521,7 +2521,7 @@ declare namespace text {
      * Describes text style.
      * @type { drawing.FontMetrics }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     fontMetrics: drawing.FontMetrics;
@@ -2531,7 +2531,7 @@ declare namespace text {
    * Describes the measurement information of a single line of text in the text layout.
    * @typedef LineMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface LineMetrics {
@@ -2539,7 +2539,7 @@ declare namespace text {
      * Start index of the line in the text buffer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     startIndex: number;
@@ -2548,7 +2548,7 @@ declare namespace text {
      * End index of the line in the text buffer.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     endIndex: number;
@@ -2557,7 +2557,7 @@ declare namespace text {
      * Ascent, that is, the distance from the baseline to the top of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ascent: number;
@@ -2566,7 +2566,7 @@ declare namespace text {
      * Descent, that is, the distance from the baseline to the bottom of the character.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     descent: number;
@@ -2575,7 +2575,7 @@ declare namespace text {
      * Height of the line, which is Math.round(ascent + descent).
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     height: number;
@@ -2584,7 +2584,7 @@ declare namespace text {
      * Width of the line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     width: number;
@@ -2593,7 +2593,7 @@ declare namespace text {
      * Left edge of the line. The right edge is the value of left plus the value of width.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     left: number;
@@ -2602,7 +2602,7 @@ declare namespace text {
      * Y coordinate of the baseline in the line relative to the top of the paragraph.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     baseline: number;
@@ -2611,7 +2611,7 @@ declare namespace text {
      * Line number, starting from 0.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     lineNumber: number;
@@ -2620,7 +2620,7 @@ declare namespace text {
      * Height from the top to the current line.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     topHeight: number;
@@ -2631,7 +2631,7 @@ declare namespace text {
      * are before layout and are the base values we calculate from.
      * @type { Map<number, RunMetrics> }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     runMetrics: Map<number, RunMetrics>;
@@ -2682,7 +2682,7 @@ declare namespace text {
    * Implements a paragraph-style text tab, which stores the alignment mode and position.
    * @typedef TextTab
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface TextTab {
@@ -2692,7 +2692,7 @@ declare namespace text {
      * alignment.
      * @type { TextAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     alignment: TextAlign;
@@ -2702,7 +2702,7 @@ declare namespace text {
      * The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     location: number;
