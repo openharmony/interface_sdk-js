@@ -16,6 +16,7 @@
 /**
  * @file Defines 3D basic types
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
 /**
