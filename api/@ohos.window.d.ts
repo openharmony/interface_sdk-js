@@ -4217,6 +4217,14 @@ declare namespace window {
      * @since 20
      */
     FADE_IN_OUT = 0,
+    /**
+     * window animation type fade in
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    FADE_IN = 1,
   }
 
   /**
@@ -4321,7 +4329,7 @@ declare namespace window {
    *
    * @interface StartAnimationSystemOptions
    * @syscap SystemCapability.Window.SessionManager
-   * @systemapi
+   * @systemapi Hide this for inner system use.
    * @since 20
    */
   interface StartAnimationSystemOptions {
@@ -4330,7 +4338,7 @@ declare namespace window {
      *
      * @type { AnimationType }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     type: AnimationType;
@@ -4339,7 +4347,7 @@ declare namespace window {
      *
      * @type { ?WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     animationConfig?: WindowAnimationConfig;
