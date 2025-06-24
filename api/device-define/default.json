@@ -111,6 +111,7 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
+    "SystemCapability.Resourceschedule.QoS.Core",
     "SystemCapability.Utils.Lang",
     "SystemCapability.HiviewDFX.HiLog",
     "SystemCapability.HiviewDFX.HiTrace",
