@@ -337,6 +337,6 @@ declare class FormExtensionAbility {
    * @stagemodelonly
    * @since 20
    */
-  onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
+  onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 }
 export default FormExtensionAbility;

@@ -1832,7 +1832,15 @@ declare namespace formInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
+   * @systemapi
    * @since 12
+   */
+  /**
+   * Defines the FormLocation enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @since 20
    */
   enum FormLocation {
     /**
@@ -1848,7 +1856,14 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the desktop
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     DESKTOP = 0,
 
@@ -1856,7 +1871,14 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the form center.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     FORM_CENTER = 1,
 
@@ -1864,7 +1886,14 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the form manager.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     FORM_MANAGER = 2,
 
@@ -1872,7 +1901,15 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
      */
     NEGATIVE_SCREEN = 3,
 
@@ -1898,7 +1935,14 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the screen lock.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     SCREEN_LOCK = 6,
 
@@ -1906,7 +1950,14 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the ai suggestion.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     AI_SUGGESTION = 7,
   }
