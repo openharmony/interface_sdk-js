@@ -8550,7 +8550,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800104 - Operation is not supported on this renderer, e.g. the stream usage of this
      * renderer is not one of {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
-     * {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}, higi-resolution playback.
+     * {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}, or this renderer is routed through the high-resolution playback path.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 20
      */
