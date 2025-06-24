@@ -1908,7 +1908,6 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
-     * @systemapi
      * @since 20
      */
     NEGATIVE_SCREEN = 3,
