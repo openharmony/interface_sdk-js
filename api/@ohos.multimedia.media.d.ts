@@ -2753,8 +2753,7 @@ declare namespace media {
      * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -2771,8 +2770,7 @@ declare namespace media {
      * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback for event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 

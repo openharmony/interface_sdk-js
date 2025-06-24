@@ -389,19 +389,17 @@ export interface SoundPool {
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @param {Callback<number>} callback Callback used to listen for load result event
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-   on(type: 'loadComplete', callback: Callback<number>): void;
+  on(type: 'loadComplete', callback: Callback<number>): void;
   /**
    * Cancel Listens for load result event.
    *
    * @param {'loadComplete'} type Type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-   off(type: 'loadComplete'): void;
+  off(type: 'loadComplete'): void;
   /**
    * Register the listener for playing finished event. The conditions which this event is called
    * are the same as {@link #playFinished}, additionally, this event can callback the streamId of finishing playing.
@@ -411,18 +409,16 @@ export interface SoundPool {
    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for. 
    * @param {Callback<number>} callback Callback used to listen which stream id has finished playback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<number>): void;
-  /**
-   * Cancel listening for playing finished event.
-   *
-   * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
-   * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
+   /**
+    * Cancel listening for playing finished event.
+    *
+    * @param {'playFinishedWithStreamId'} type name of the play finished event to listen for.
+    * @syscap SystemCapability.Multimedia.Media.SoundPool
+    * @since 18
+    */
   off(type: 'playFinishedWithStreamId'): void;
   /**
    * Register listens for play finish event.
@@ -430,19 +426,17 @@ export interface SoundPool {
    * @param {'playFinished'} type Type of the play finish event to listen for.
    * @param {Callback<void>} callback Callback used to listen for the play finish
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-   on(type: 'playFinished', callback: Callback<void>): void;
+  on(type: 'playFinished', callback: Callback<void>): void;
   /**
    * Cancel Listens for play finish event.
    *
    * @param {'playFinished'} type of the play finish event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-   off(type: 'playFinished'): void;
+  off(type: 'playFinished'): void;
   /**
    * Register listens for sound play error events.
    *
@@ -451,15 +445,14 @@ export interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-   on(type: 'error', callback: ErrorCallback): void;
+  on(type: 'error', callback: ErrorCallback): void;
   /**
    * Cancel Listens for sound play error events.
    *
    * @param {'error'} type Type of the sound play error event to listen for.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-   off(type: 'error'): void;
+  off(type: 'error'): void;
 }
 
