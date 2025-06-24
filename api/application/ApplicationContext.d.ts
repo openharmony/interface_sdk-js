@@ -20,9 +20,9 @@
 
 /*** if arkts 1.1 */
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+/*** endif */
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
-/*** endif */
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import { AsyncCallback } from '../@ohos.base';
@@ -193,7 +193,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'environment', callback: EnvironmentCallback): number;
 
@@ -218,7 +219,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -243,7 +245,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'environment', callbackId: number): Promise<void>;
 
@@ -278,7 +281,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
 
@@ -313,7 +317,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
 
