@@ -26,6 +26,7 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
+import contextConstant from '../@ohos.app.ability.contextConstant';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
@@ -4911,6 +4912,20 @@ declare class UIAbilityContext extends Context {
    * @since 20
    */
   disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
+
+  /**
+   * The onNewWant callback is not triggered when a UIAbility's lifecycle is driven by scenarios.
+   * For scenarios, refer to {@link contextConstant.Scenarios}.
+   *
+   * @param { number } scenarios - The number code of the scenarios.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Connection to service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  setOnNewWantSkipScenarios(scenarios: number): Promise<void>;
 }
 
 export default UIAbilityContext;

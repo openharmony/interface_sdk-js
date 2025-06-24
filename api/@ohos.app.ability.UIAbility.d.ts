@@ -766,7 +766,12 @@ declare class UIAbility extends Ability {
   /**
    * Called when a UIAbility instance that has undergone the following states is started again:
    * started in the foreground, running in the foreground, and switched to the background.
-   * In other words, a UIAbility instance enters this lifecycle callback from a hot start.
+   *
+   * The triggering of the onNewWant lifecycle of a UIAbility instance indicates that this launch is a hot launch.
+   * Note that a hot launch does not necessarily trigger the onNewWant lifecycle.
+   *
+   * If you need to prevent the onNewWant lifecycle from being triggered in specific scenarios,
+   * you must call the {@link UIAbilityContext.setOnNewWantSkipScenarios} interface to suppress its callback.
    *
    * @param { Want } want - Want information, such as the ability name and bundle name.
    * @param { AbilityConstant.LaunchParam } launchParam - Reason for the UIAbility startup and the last abnormal exit.
