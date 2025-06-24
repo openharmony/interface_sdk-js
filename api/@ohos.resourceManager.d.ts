@@ -2448,7 +2448,6 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2548,7 +2547,6 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2643,7 +2641,6 @@ declare namespace resourceManager {
      * @param { string } resName - Indicates the resource name.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3219,7 +3216,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3240,7 +3236,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3262,7 +3257,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3284,7 +3278,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3307,7 +3300,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3328,7 +3320,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3350,7 +3341,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3371,7 +3361,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3393,7 +3382,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3415,7 +3403,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3438,7 +3425,6 @@ declare namespace resourceManager {
      * @param { Array<string | number> } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3459,7 +3445,6 @@ declare namespace resourceManager {
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
