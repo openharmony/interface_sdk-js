@@ -2651,7 +2651,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
@@ -2747,7 +2746,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -2825,7 +2823,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -2932,7 +2929,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     authUser(
       userId: number,
