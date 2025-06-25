@@ -1938,13 +1938,13 @@ declare namespace formInfo {
     duration: number;
 
     /**
-     * Whether use default animate, default is true
+     * Whether use default animation, default is true
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Ability.Form
      * @since 20
      */
-    useDefaultAnimate?: boolean;
+    useDefaultAnimation?: boolean;
   }
 
   /**
