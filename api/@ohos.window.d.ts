@@ -1238,6 +1238,34 @@ declare namespace window {
   }
 
   /**
+   * Position
+   *
+   * @interface Position
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  export interface Position {
+
+    /**
+     * The X-coordinate
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    x: number;
+
+    /**
+     * The Y-coordinate
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    y: number;
+  }
+
+  /**
    * Enum for window anchor
    *
    * @enum { number }
@@ -5190,6 +5218,22 @@ declare namespace window {
      * @since 15
      */
     moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
+
+    /**
+     * Move window to the position relative to the main screen.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window relative to the main screen.
+     * @param { number } y - Indicate the Y-coordinate of the window relative to the main screen.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    moveWindowToGlobalDisplay(x: number, y: number): Promise<void>;
 
     /**
      * Set the size of a window .
@@ -10251,6 +10295,64 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Register the callback of rectChangeInGlobalDisplay
+     *
+     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window gloabl rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    on(type: 'rectChangeInGlobalDisplay', callback: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of rectChangeInGlobalDisplay
+     *
+     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window global rect change event.
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    off(type: 'rectChangeInGlobalDisplay', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Convert the window coordinates to the global coordinates.
+     *
+     * @param { number } winX - Indicate the X-coordinate of the component relative to the current window.
+     * @param { number } winY - Indicate the Y-coordinate of the component relative to the current window.
+     * @returns { Promise<Position> } Promise used to return the Position. The pair {x, y} represents respectively the X-coordinate
+     *                                and Y-coordinate of the window relative to the main screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    clientToGlobalDisplay(winX: number, winY: number): Promise<Position>;
+
+    /**
+     * Convert the global coordinates to the window coordinates.
+     *
+     * @param { number } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
+     * @param { number } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
+     * @returns { Promise<Position> } Promise used to return the Position. The pair {x, y} represents respectively the X-coordinate
+     * and Y-coordinate of the window relative to the current screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Promise<Position>;
 
     /**
      * Register the callback of rotation change
