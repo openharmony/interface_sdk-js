@@ -84,7 +84,7 @@ export interface Callback<T> {
 
 /**
  * Defines the basic error callback.
- * @typedef ErrorCallback 
+ * @typedef ErrorCallback
  * @syscap SystemCapability.Base
  * @since 6
  */
