@@ -51,7 +51,7 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T)=> void;
  * @atomicservice
  * @since 20
  */
-export type AsyncCallback<T, E = void> = (err: BusinessError<E>, data: T)=> void;
+export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined)=> void;
 
 /**
  * Defines the error interface.
