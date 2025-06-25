@@ -22,42 +22,48 @@
  *
  * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace common2D {
   /**
    * Provide a description in the form of color ARGB.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Color {
     /**
      * Alpha component of color, from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alpha: number;
     /**
      * Red component of color, from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     red: number;
     /**
      * Green component of color, from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     green: number;
     /**
      * Blue component of color, from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     blue: number;
   }
@@ -66,35 +72,40 @@ declare namespace common2D {
    * Provides the definition of the rectangle.
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
      * Left Position of Rectangle.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
     /**
      * Top side position of the rectangle
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
      * Right Position of Rectangle.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     right: number;
     /**
      * Position of the bottom side of the rectangle.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom: number;
   }
@@ -103,14 +114,16 @@ declare namespace common2D {
    * Coordinates in the font layout.
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Point {
     /**
      * X-axis coordinate.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x: number;
 
@@ -118,7 +131,8 @@ declare namespace common2D {
      * Y-axis coordinate.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y: number;
   }
