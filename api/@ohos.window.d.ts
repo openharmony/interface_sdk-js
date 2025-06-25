@@ -4327,12 +4327,12 @@ declare namespace window {
   /**
    * The animation configuration of start system scene animation
    *
-   * @interface StartAnimationSystemOptions
+   * @interface StartAnimationSystemParams
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  interface StartAnimationSystemOptions {
+  interface StartAnimationSystemParams {
     /**
      * The type of window animation
      *
@@ -4356,11 +4356,11 @@ declare namespace window {
   /**
    * The animation configuration of start scene animation
    *
-   * @interface StartAnimationOptions
+   * @interface StartAnimationParams
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
-  interface StartAnimationOptions {
+  interface StartAnimationParams {
     /**
      * The type of window animation
      *
