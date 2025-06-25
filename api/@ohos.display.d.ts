@@ -2303,6 +2303,17 @@ declare namespace display {
     getAvailableArea(): Promise<Rect>;
 
     /**
+     * Get the live crease region in the current display mode.
+     *
+     * @returns { FoldCreaseRegion } Fold crease region in the current display mode.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    getLiveCreaseRegion(): FoldCreaseRegion;
+
+    /**
     * Register the callback for available area changes.
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
