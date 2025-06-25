@@ -190,28 +190,13 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  off(event: string, callback: Function): void;
- 
-  /**
-   * Unsubscribe from an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  off(event: string): void;
+  off(event: string, callback?: Function): void;
  
   /**
    * Trigger the event callbacks.
    *
    * @param { string } event - Indicates the event.
-   * @param { FixedArray<(Object|null|undefined)>[] } args - Indicates the callback arguments.
+   * @param { (Object|null|undefined)[] } args - Indicates the callback arguments.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -221,7 +206,7 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit(event:string, ...args: FixedArray<(Object|null|undefined)>[]): void;
+  emit(event:string, ...args: (Object|null|undefined)[]): void;
 }
 
 export default EventHub;
