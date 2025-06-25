@@ -7980,7 +7980,7 @@ declare namespace window {
     setWindowShadowEnabled(enable: boolean): Promise<void>;
 
     /**
-     * Set window container background color in active and inactive state.
+     * Set window container background color in the active and inactive states.
      *
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
