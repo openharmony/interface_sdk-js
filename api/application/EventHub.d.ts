@@ -19,7 +19,6 @@
  */
 
 import { BusinessError } from '../@ohos.base';
-1
 
 /**
  * The event center of a context, support the subscription and publication of events.
@@ -212,7 +211,7 @@ declare class EventHub {
    * Trigger the event callbacks.
    *
    * @param { string } event - Indicates the event.
-   * @param { Object[] } args - Indicates the callback arguments.
+   * @param { FixedArray<(Object|null|undefined)>[] } args - Indicates the callback arguments.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
