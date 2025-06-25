@@ -41,7 +41,7 @@ declare namespace userStatus {
      * ageGroup
      *
      * @type  { UserAgeGroup }
-     * @sysCap SystemCapability.MultimodalAwareness.UserStatus
+     * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20
      */
     ageGroup?: UserAgeGroup;
@@ -50,7 +50,7 @@ declare namespace userStatus {
      * confidence for the detected ageGroup
      *
      * @type  { float }
-     * @sysCap SystemCapability.MultimodalAwareness.UserStatus
+     * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20
      */
     confidence?: float;
@@ -92,7 +92,7 @@ declare namespace userStatus {
    * <br>2. Node-API invocation exception, such as invalid Node-API status.
    * @throws { BusinessError } 33900002 - Subscription failed. Possible causes:
    * <br>1. Callback registration failed.
-   * <br>2. Failed to bind the native object to the JS wrapper
+   * <br>2. Failed to bind the native object to the JS wrapper.
    * <br>3. Node-API invocation exception, such as invalid Node-API status.
    * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
@@ -119,6 +119,5 @@ declare namespace userStatus {
    * @arkts 1.1&1.2
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
-
 }
 export default userStatus;
