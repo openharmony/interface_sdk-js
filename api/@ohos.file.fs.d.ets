@@ -967,62 +967,6 @@ function createRandomAccessFileSync(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): RandomAccessFile;
 
 /**
- * Create file read stream.
- *
- * @param { string } path - file path.
- * @param { ReadStreamOptions } [options] - Optional parameters for ReadStream.
- * @returns { ReadStream } Returns the ReadStream object which has been created.
- * @throws { BusinessError } 401 - Parameter error
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900017 - No such device
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900044 - Network is unreachable
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
-
-/**
- * Create file write stream.
- *
- * @param { string } path - file path.
- * @param { WriteStreamOptions } [options] - Optional parameters for ReadStream.
- * @returns { WriteStream } Returns the WriteStream object which has been created.
- * @throws { BusinessError } 401 - Parameter error
- * @throws { BusinessError } 13900001 - Operation not permitted
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900017 - No such device
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900022 - Too many open files
- * @throws { BusinessError } 13900024 - File too large
- * @throws { BusinessError } 13900025 - No space left on device
- * @throws { BusinessError } 13900027 - Read-only file system
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900041 - Quota exceeded
- * @throws { BusinessError } 13900042 - Unknown error
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
-
-/**
  * Create watcher to listen for file changes.
  *
  * @param { string } path - path.
@@ -3661,36 +3605,6 @@ interface RandomAccessFile {
     buffer: ArrayBuffer,
     options?: ReadOptions
   ): number;
-
-  /**
-   * Generate read stream from RandomAccessFile object.
-   *
-   * @returns { ReadStream } Return ReadStream object.
-   * @throws { BusinessError } 401 - Parameter error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  getReadStream(): ReadStream;
-
-  /**
-   * Generate write stream from RandomAccessFile object.
-   *
-   * @returns { WriteStream } Return WriteStream object.
-   * @throws { BusinessError } 401 - Parameter error
-   * @throws { BusinessError } 13900008 - Bad file descriptor
-   * @throws { BusinessError } 13900011 - Out of memory
-   * @throws { BusinessError } 13900012 - Permission denied
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  getWriteStream(): WriteStream;
 }
 
 /**
@@ -3857,18 +3771,6 @@ export class AtomicFile {
   getBaseFile(): File;
 
   /**
-   * Create the file read stream.
-   * @returns { ReadStream } Returns the file read stream.
-   * @throws { BusinessError } 13900001 Operation not permitted
-   * @throws { BusinessError } 13900002 No such file or directory
-   * @throws { BusinessError } 13900012 Permission denied
-   * @throws { BusinessError } 13900042 Internal error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  openRead(): ReadStream;
-
-  /**
    * Read the entire contents of the file.
    * @returns { ArrayBuffer } Returns the ArrayBuffer of the file contents.
    * @throws { BusinessError } 13900005 I/O error
@@ -3877,19 +3779,6 @@ export class AtomicFile {
    * @since 20
    */
   readFully(): ArrayBuffer;
-
-  /**
-   * Create the file write stream.
-   * @returns { WriteStream } Returns the file write stream.
-   * @throws { BusinessError } 13900001 Operation not permitted
-   * @throws { BusinessError } 13900002 No such file or directory
-   * @throws { BusinessError } 13900012 Permission denied
-   * @throws { BusinessError } 13900027 Read-only file system
-   * @throws { BusinessError } 13900042 Internal error
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  startWrite(): WriteStream;
 
   /**
    * If the file is written successfully, the file is closed.
