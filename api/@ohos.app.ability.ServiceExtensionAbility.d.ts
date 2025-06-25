@@ -124,7 +124,7 @@ declare class ServiceExtensionAbility {
 
   /**
    * Asynchronous callback when all abilities connected to a service extension are disconnected.
-   * The subsequent life cycle will continue when the returned Promise object resolves.
+   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
    * @returns { Promise<void> } the promise returned by the function.
