@@ -77,58 +77,238 @@ export declare @interface Watch {
 @Retention({policy: "SOURCE"})
 export declare @interface Require {};
 
+/**
+ * Define decorated variable interface.
+ *
+ * @interface IDecoratedVariable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IDecoratedVariable {
-    readonly varName: string;
+  /**
+   * Decorated variable name.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  readonly varName: string;
 }
 
+/**
+ * Define V1 decorated variable interface.
+ *
+ * @extends IDecoratedVariable
+ * @interface IDecoratedVariable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
-    registerWatchToSource(me: IDecoratedV1Variable<T>): void;
+  /**
+   * Registers the watch callback function with the data source.
+   *
+   * @param { IDecoratedV1Variable<T> } decoratedVar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  registerWatchToSource(decoratedVar: IDecoratedV1Variable<T>): void;
 }
 
+/**
+ * Define decorated immutable variable interface.
+ *
+ * @interface IDecoratedImmutableVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IDecoratedImmutableVariable<T> {
-    get(): T;
+  /**
+   * Get the state variable.
+   *
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  get(): T;
 }
 
+/**
+ * Define decorated mutable variable interface.
+ *
+ * @interface IDecoratedMutableVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IDecoratedMutableVariable<T> {
-    get(): T;
-    set(newValue: T): void;
+  /**
+   * Get the state variable.
+   *
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  get(): T;
+  /**
+   * Set the state variable with a new Value.
+   *
+   * @param { T } newValue
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  set(newValue: T): void;
 }
 
+/**
+ * Define decorated updatable variable interface.
+ *
+ * @interface IDecoratedUpdatableVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IDecoratedUpdatableVariable<T> {
-    update(newValue: T): void;
+  /**
+   * Update the state variable with a new Value.
+   *
+   * @param { T } newValue
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  update(newValue: T): void;
 }
 
-export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
+/**
+ * Define state decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IStateDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
 export declare interface IPropDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
     IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
 }
 
-export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
+/**
+ * Define Link decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface ILinkDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
-export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
+/**
+ * Define Provide decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IProvideDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
-export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
+/**
+ * Define Consume decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IConsumeDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
+/**
+ * Define ObjectLink decoration variable interface.
+ *
+ * @extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IObjectLinkDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
-}
+    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
 
-export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
+/**
+ * Define StorageLink decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IStorageLinkDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
+/**
+ * Define StorageProp decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IStoragePropDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 }
 
-export type LinkSourceType<T> = IDecoratedV1Variable<T>;
+/**
+ * Define StoragePropRef decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface IStoragePropRefDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
+/**
+ * Define LocalStorageLink decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
+ * @interface ILocalStorageLinkDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+
+/**
+ * Define Link source type.
+ *
+ * @typedef { IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
+    IPropDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | IStoragePropRefDecoratedVariable<T> |
+    IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T> } LinkSourceType<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type LinkSourceType<T> = IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
+    IPropDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | IStoragePropRefDecoratedVariable<T> |
+    IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T>;
+
+
+/**
+ * Define mutable state meta interface.
+ *
+ * @interface IMutableStateMeta
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IMutableStateMeta {
-    addRef(): void;
-    fireChange(): void;
+  /**
+   * Collect the dependancy for UI component with state variable
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  addRef(): void;
+  /**
+   * Notify UI component to update when state variable is changed
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  fireChange(): void;
 }
 
 export declare interface IMutableKeyedStateMeta {
@@ -169,10 +349,53 @@ export declare interface IStateMgmtFactory {
         provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
     makeObjectLink<T>(owningView: ExtendableComponent, varName: string,
         initValue: T, wathcFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
+
+  /**
+   * Create a StorageLink variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } propName - property name.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - init value.
+   * @param { Type } ttype - value type.
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { IStorageLinkDecoratedVariable<T> } StorageLink instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
     makeStorageLink<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
-    makeStorageProp<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, watchFunc?: WatchFuncType): IStoragePropDecoratedVariable<T>;
+        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
+   /**
+    * Create a StoragePropRef variable instance.
+    *
+    * @param { ExtendableComponent } owningView - custom component.
+    * @param { string } propName - property name.
+    * @param { string } varName - state variable name.
+    * @param { T } initValue - init value.
+    * @param { Type } ttype - value type.
+    * @param { WatchFuncType } [watchFunc] - watch type
+    * @returns { IStoragePropRefDecoratedVariable<T> } StoragePropRef instance
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    makeStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
+        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
+
+  /**
+   * Create a LocalStorageLink variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } propName - property name.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - init value.
+   * @param { Type } ttype - value type
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { ILocalStorageLinkDecoratedVariable<T> } LocalStorageLink instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+    makeLocalStorageLink<T>(owningView: ExtendableComponent, propName: string,
+        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
 }
 
 export type WatchFuncType = ((propertyName: string) => void);

@@ -19,21 +19,5 @@
  */
 
 import { LocalStorage } from './localStorage';
-import { AbstractProperty, SubscribedAbstractProperty } from '../decorator';
 
-export declare class AppStorage extends LocalStorage {
-    public static ref<T>(propName: string): AbstractProperty<T> | undefined;
-    public static setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
-    public static link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
-    public static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
-    public static prop<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
-    public static setAndProp<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
-    public static has(propName: string): boolean;
-    public static get<T>(propName: string): T | undefined;
-    public static set<T>(propName: string, newValue: T): boolean;
-    public static setOrCreate<T>(propName: string, newValue: T): void;
-    public static keys(): IterableIterator<string>;
-    public static size(): number;
-    public static delete(propName: string): boolean;
-    public static clear(): boolean;
-}
+export const AppStorage: LocalStorage = new LocalStorage();
