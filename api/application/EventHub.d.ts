@@ -160,6 +160,69 @@ declare class EventHub {
    * @since 12
    */
   emit(event: string, ...args: Object[]): void;
+
+  /**
+   * Subscribe to an event.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Function } callback - Indicates the callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  on(event: string, callback: Function): void;
+ 
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Function } callback - Indicates the callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  off(event: string, callback: Function): void;
+ 
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { string } event - Indicates the event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  off(event: string): void;
+ 
+  /**
+   * Trigger the event callbacks.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { Object[] } args - Indicates the callback arguments.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  emit(event:string, ...args: FixedArray<(Object|null|undefined)>[]): void;
 }
 
 export default EventHub;
