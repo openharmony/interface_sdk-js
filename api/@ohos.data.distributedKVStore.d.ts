@@ -28,7 +28,8 @@ import BaseContext from './application/BaseContext';
  *
  * @namespace distributedKVStore
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace distributedKVStore {
   /**
@@ -3022,7 +3023,7 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist 
+     * for the same application, and different applications can share the same value. The storeId can consist
      * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
@@ -3042,7 +3043,7 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist 
+     * for the same application, and different applications can share the same value. The storeId can consist
      * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
