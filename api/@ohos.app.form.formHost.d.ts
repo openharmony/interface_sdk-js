@@ -785,7 +785,7 @@ declare namespace formHost {
    * <p>You can use this method to listen to the event of get form rect.</p>
    *
    * @param { 'getFormRect' } type - Indicates event type.
-   * @param { formInfo.GetFormRectInfoCallback<string> } callback - The callback of get form rect.
+   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -798,7 +798,7 @@ declare namespace formHost {
    * <p>You can use this method to cancel listening to the event of get form rect.</p>
    *
    * @param { 'getFormRect' } type - Indicates event type.
-   * @param { formInfo.GetFormRectInfoCallback<string> } callback - The callback of get form rect.
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
