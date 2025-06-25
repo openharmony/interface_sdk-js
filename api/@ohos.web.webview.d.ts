@@ -8016,6 +8016,20 @@ declare namespace webview {
      * @since 12
      */
     didFail(code: WebNetErrorList): void;
+    /**
+     * Notify that this request should be failed.
+     *
+     * @param { WebNetErrorList } code - Set response error code to intercept.
+     * @param { boolean } completeIfNoResponse - If completeIfNoResponse is true, when DidFailWithError is called, if
+     *                                           DidReceiveResponse has not been called, a response is automatically
+     *                                           constructed and the current request is terminated.
+     * @throws { BusinessError } 17100101 - The errorCode is either ARKWEB_NET_OK or outside the range of error codes
+     *                                      in WebNetErrorList.
+     * @throws { BusinessError } 17100021 - The resource handler is invalid.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
   }
 
   /**
