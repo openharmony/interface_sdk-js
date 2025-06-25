@@ -383,19 +383,11 @@ export interface BadgeEnabledChangedCallback {
 }
 
 /**
- * Defines the callback of BadgeEnabledChanged.
- * @typedef BadgeEnabledChangedCallback
+ * Defines the BadgeEnabledChanged callback.
+ * @param { EnabledNotificationCallbackData } data
  * @syscap SystemCapability.Notification.Notification
+ * @systemapi
  * @since 20
  * @arkts 1.2
  */
-
-  /**
-   * Defines the BadgeEnabledChanged callback.
-   * @param { EnabledNotificationCallbackData } data
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
 export type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void;

@@ -140,9 +140,8 @@ export interface CommonEventData {
   /**
    * The description of the parameters in a common event.
    *
-   * @type { ?object }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
