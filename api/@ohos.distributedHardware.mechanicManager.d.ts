@@ -203,6 +203,21 @@ declare namespace mechanicManager {
     function getMaxRotationSpeed(mechId: int): RotationSpeed;
 
     /**
+     * Rotates a mechanical device at the specified speed.
+     * @param { int } mechId ID of the mechanical device.
+     * @param { RotationSpeed } speed Rotation speed.
+     * @param { int } duration Rotation duration. Unit: millisecond.
+     * @returns { Promise<Result> } Promise that return the execution result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 33300001 - Service exception.
+     * @throws { BusinessError } 33300002 - Device not connected.
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 20
+     */
+    function rotateBySpeed(mechId: int, speed: RotationSpeed, duration: int): Promise<Result>;
+
+    /**
      * Stops a mechanical device from moving.
      * @param { int } mechId ID of the mechanical device.
      * @returns { Promise<void> } Promise that returns no value.
