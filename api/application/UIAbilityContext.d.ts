@@ -39,7 +39,9 @@ import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
-
+/*** if arkts 1.2 */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+/*** endif */
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
@@ -3875,7 +3877,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
