@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -18,7 +18,7 @@
  * @kit MultimodalAwarenessKit
  */
 
-import type { Callback } from "./@ohos.base";
+import type { Callback } from './@ohos.base';
 
 /**
  * This module provides the capability to subscribe to report the user status.
@@ -38,22 +38,22 @@ declare namespace userStatus {
    */
   export interface UserClassification {
     /**
-	 * ageGroup
-	 *
-	 * @type  { UserAgeGroup }
-	 * @sysCap SystemCapability.MultimodalAwareness.UserStatus
-	 * @since 20
-	 */
-	ageGroup?:UserAgeGroup;
-	
+     * ageGroup
+     *
+     * @type  { UserAgeGroup }
+     * @sysCap SystemCapability.MultimodalAwareness.UserStatus
+     * @since 20
+     */
+    ageGroup?: UserAgeGroup;
+
     /**
-	 * confidence for the detected ageGroup
-	 *
-	 * @type  { number }
-	 * @sysCap SystemCapability.MultimodalAwareness.UserStatus
-	 * @since 20
-	 */
-	confidence?:number;
+     * confidence for the detected ageGroup
+     *
+     * @type  { float }
+     * @sysCap SystemCapability.MultimodalAwareness.UserStatus
+     * @since 20
+     */
+    confidence?: float;
   }
 
   /**
@@ -78,20 +78,23 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20
      */
-	CHILD = 1
+    CHILD = 1
   }
 
   /**
    * Subscribe to age group detection feature.
    * @param { 'userAgeGroupDetected' } type - Indicates the event type.
    * @param { Callback<UserClassification> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 33900001 - Service exception. Possible causes: 1. System error, such as null pointer and container-related exception;
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   * <br>1. System error, such as a null pointer and container-related exception.
    * <br>2. Node-API invocation exception, such as invalid Node-API status.
-   * @throws { BusinessError } 33900002 - Subscription failed. Possible causes: 1. Callback registration failed;
-   * <br>2. Failed to bind the native object to JS wrapper; 3. Node-API invocation exception, such as invalid Node-API status; 4. IPC request exception.
+   * @throws { BusinessError } 33900002 - Subscription failed. Possible causes:
+   * <br>1. Callback registration failed.
+   * <br>2. Failed to bind the native object to the JS wrapper
+   * <br>3. Node-API invocation exception, such as invalid Node-API status.
+   * <br>4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20
    * @arkts 1.1&1.2
@@ -102,17 +105,20 @@ declare namespace userStatus {
    * Unsubscribe to age group detection feature.
    * @param { 'userAgeGroupDetected' } type - Indicates the event type.
    * @param { Callback<UserClassification> } [callback] - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 33900001 - Service exception. Possible causes: 1. System error, such as null pointer and container-related exception;
+   * @throws { BusinessError } 33900001 - Service exception. Possible causes:
+   * <br>1. System error, such as a null pointer and container-related exception.
    * <br>2. Node-API invocation exception, such as invalid Node-API status.
-   * @throws { BusinessError } 33900003 - Unsubscription failed. Possible causes: 1. Callback failure;
-   * <br>2. Node-API invocation exception, such as invalid Node-API status; 3. IPC request exception.
+   * @throws { BusinessError } 33900003 - Unsubscription failed. Possible causes:
+   * <br>1. Callback failure.
+   * <br>2. Node-API invocation exception, such as invalid Node-API status.
+   * <br>3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.UserStatus
    * @since 20
    * @arkts 1.1&1.2
    */
   function off(type: 'userAgeGroupDetected', callback?: Callback<UserClassification>): void;
+
 }
 export default userStatus;
