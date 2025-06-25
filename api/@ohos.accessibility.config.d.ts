@@ -58,12 +58,13 @@ declare namespace config {
   /**
    * Indicates the configuration of high-contrast text.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  var highContrastText: Config<boolean>;
+  let highContrastText: Config<boolean>;
   /**
    * Indicates the configuration of invert color.
    *
