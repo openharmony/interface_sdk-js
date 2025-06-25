@@ -840,7 +840,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
@@ -854,7 +855,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
@@ -868,7 +870,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
