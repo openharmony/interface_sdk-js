@@ -128,6 +128,8 @@ declare namespace floatingBall {
      * 
      * @param { 'stateChange' } type - Registration type, floating-ball lifecycle state change, 'stateChange'.
      * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -138,6 +140,8 @@ declare namespace floatingBall {
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
      * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -148,6 +152,8 @@ declare namespace floatingBall {
      * 
      * @param { 'clickEvent' } type - Registration type, user click event, 'clickEvent'.
      * @param { Callback<void> } callback - Used to handle {'clickEvent'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -158,6 +164,8 @@ declare namespace floatingBall {
      * 
      * @param { 'clickEvent' } type - Used to unregister listener for {'clickEvent'} command.
      * @param { Callback<void> } [callback] - Indicates the callback function.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
