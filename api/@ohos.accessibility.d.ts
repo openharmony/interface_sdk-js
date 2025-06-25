@@ -115,7 +115,7 @@ declare namespace accessibility {
    *
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
@@ -204,7 +204,7 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   function isOpenAccessibilitySync(): boolean;
@@ -244,7 +244,7 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   function isOpenTouchGuideSync(): boolean;
