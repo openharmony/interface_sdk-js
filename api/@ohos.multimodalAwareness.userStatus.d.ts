@@ -44,7 +44,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20
      */
-    ageGroup?: UserAgeGroup;
+    ageGroup: UserAgeGroup;
 
     /**
      * confidence for the detected ageGroup
@@ -53,7 +53,7 @@ declare namespace userStatus {
      * @syscap SystemCapability.MultimodalAwareness.UserStatus
      * @since 20
      */
-    confidence?: float;
+    confidence: float;
   }
 
   /**
