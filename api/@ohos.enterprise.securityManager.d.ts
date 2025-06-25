@@ -414,13 +414,13 @@ declare namespace securityManager {
     /**
      * Period of validity
      * 
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    validityPeriod?: number;
+    validityPeriod?: long;
 
     /**
      * Other supplementary description
