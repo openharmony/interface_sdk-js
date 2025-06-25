@@ -949,5 +949,42 @@ declare namespace hidebug {
    * @since 20
    */
   function getGwpAsanGrayscaleState(): number;
+
+  /**
+   * Trimming level of raw heap snapshot.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  enum JsRawHeapTrimLevel {
+    /**
+     * Basic heap snapshot trimming(e.g. reducing content of string object).
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    TRIM_LEVEL_1 = 0,
+    /**
+     * On top of level 1 trimming, object address size has been additionally trimmed.
+     * Please use latest version of rawheap-translator tool for parsing and converting
+     * .rawheap into .heapsnapshot file. Conversion process may fail when legacy tool is utilized.
+     * 
+     * A higher trimming level means a longer time needed to generate the .rawheap file.
+     * Ensure that this duration falls below the app freeze threshold.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    TRIM_LEVEL_2 = 1,
+  }
+
+  /**
+   * Sets the raw heap snapshot trimming level for the current process.
+   * @param { JsRawHeapTrimLevel } level - The trimming level of raw heap snapshot.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 }
 export default hidebug;
