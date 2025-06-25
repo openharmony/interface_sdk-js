@@ -155,7 +155,8 @@ declare namespace hidebug {
    * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -164,7 +165,8 @@ declare namespace hidebug {
    * It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopJsCpuProfiling(): void;
 
