@@ -30,15 +30,14 @@ import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
 
 /**
-* Provides methods for controlling the web controller.
-*
-* @typedef { webview.WebviewController }
-* @syscap SystemCapability.Web.Webview.Core
-* @crossplatform
-* @atomicservice
-* @since 20
-* @arkts 1.2
-*/
+ * Provides methods for controlling the web controller.
+ *
+ * @typedef { webview.WebviewController }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 20
+ * @arkts 1.2
+ */
 type WebviewController = webview.WebviewController;
 
 /**
@@ -2309,7 +2308,7 @@ declare enum ProtectedResourceType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   SENSOR = 'TYPE_SENSOR'
@@ -4966,7 +4965,6 @@ declare interface WebOptions {
    * @type { WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
   */
@@ -5046,7 +5044,7 @@ declare interface ScriptItem {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   script: string;
@@ -5057,7 +5055,7 @@ declare interface ScriptItem {
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   scriptRules: Array<string>;
@@ -6299,7 +6297,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   result: FileSelectorResult;
@@ -6311,7 +6309,7 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   fileSelector: FileSelectorParam;
@@ -6643,7 +6641,7 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   certChainData?: Array<Uint8Array>;
@@ -6828,7 +6826,6 @@ declare interface OnFaviconReceivedEvent {
    *
    * @type { image.PixelMap }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -6999,7 +6996,16 @@ declare interface OnOverScrollEvent {
  * @typedef JavaScriptProxy
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 12
+ */
+/**
+ * Defines the JavaScript object to be injected.
+ *
+ * @typedef JavaScriptProxy
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface JavaScriptProxy {
@@ -7009,7 +7015,16 @@ declare interface JavaScriptProxy {
    * @type { object }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Objects participating in registration.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   object: object;
@@ -7021,7 +7036,17 @@ declare interface JavaScriptProxy {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * The name of the registered object, which is consistent with the
+   *                          object name called in the window.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   name: string;
@@ -7033,7 +7058,17 @@ declare interface JavaScriptProxy {
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * The method of the application side JavaScript object participating
+   *                                       in the registration.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   methodList: Array<string>;
@@ -7046,24 +7081,44 @@ declare interface JavaScriptProxy {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Controller.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   controller: WebController | WebviewController;
+
   /**
    * Controller.
    *
    * @type { WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
+   * @crossplatform
    * @since 20
    * @arkts 1.2
    */
     controller: WebviewController;
+
   /**
    * The async method of the application side JavaScript object participating in the registration.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * The async method of the application side JavaScript object participating in the registration.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   asyncMethodList?: Array<string>;
@@ -7518,7 +7573,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * @param { JavaScriptProxy } javaScriptProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
@@ -9812,11 +9877,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Set the custom text menu.
+   * The Web component custom menu extension item interface allows users to set the extension item's text content, icon, and callback method.
+   *
+   * <p><strong>API Note</strong>:<br>
+   * This interface only supports selecting plain text. When the selected content contains images and other non-text content,
+   * garbled characters will be displayed in the action information.
+   * </p>
    *
    * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   *                                                                 The number of menu items, the content size of the menu, and the startIcon
+   *                                                                 icon size are consistent with the ArkUI Menu component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
+   * @deprecated since 20
+   * @useinstead ohos.web.WebAttribute#editMenuOptions
    */
   selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): WebAttribute;
 
@@ -10131,6 +10206,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   content: ResourceStr;
 
@@ -10141,6 +10217,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   startIcon?: ResourceStr;
 
@@ -10151,6 +10228,7 @@ declare interface ExpandedMenuItemOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
+   * @deprecated since 20
    */
   action: (selectedText: {plainText: string}) => void;
 }
