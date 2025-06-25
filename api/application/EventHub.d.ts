@@ -80,7 +80,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts{ '1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(event: string, callback: Function): void;
 
@@ -118,7 +119,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts{ '1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(event: string, callback?: Function): void;
 
@@ -159,38 +161,6 @@ declare class EventHub {
    * @since 12
    */
   emit(event: string, ...args: Object[]): void;
-
-  /**
-   * Subscribe to an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  on(event: string, callback: Function): void;
- 
-  /**
-   * Unsubscribe from an event.
-   *
-   * @param { string } event - Indicates the event.
-   * @param { Function } callback - Indicates the callback.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  off(event: string, callback?: Function): void;
  
   /**
    * Trigger the event callbacks.
