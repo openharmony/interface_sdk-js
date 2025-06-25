@@ -23,6 +23,26 @@ import type { Callback } from './@ohos.base';
 import { Resource } from './global/resource';
 
 /**
+ * Accessibility action that the ability can execute.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export { AccessibilityAction } from './application/AccessibilityExtensionContext';
+
+/**
+ * Accessibility event type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export { AccessibilityEventType } from '@ohos.application.AccessibilityExtensionAbility';
+
+/**
  * Accessibility
  *
  * @namespace accessibility
