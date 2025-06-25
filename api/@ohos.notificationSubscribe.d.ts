@@ -138,7 +138,7 @@ declare namespace notificationSubscribe {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-  * @since 11
+   * @since 11
    */
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
