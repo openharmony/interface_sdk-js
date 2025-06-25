@@ -167,8 +167,6 @@ declare class EventHub {
    *
    * @param { string } event - Indicates the event.
    * @param { (Object|null|undefined)[] } args - Indicates the callback arguments.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -176,7 +174,7 @@ declare class EventHub {
    * @since 20
    * @arkts 1.2
    */
-  emit(event:string, ...args: (Object|null|undefined)[]): void;
+  emit(event: string, ...args: (Object|null|undefined)[]): void;
 }
 
 export default EventHub;
