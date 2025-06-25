@@ -4766,6 +4766,44 @@ declare namespace image {
   function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
 
   /**
+   * Create pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } param Initialization options for pixelmap.
+   * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+   * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @throws { BusinessError } 7600302 - Memory copy failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocator(colors: ArrayBuffer, param: InitializationOptions,
+    allocatorType?: AllocatorType): Promise<PixelMap>;
+
+  /**
+   * Create pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } param Initialization options for pixelmap.
+   * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @throws { BusinessError } 7600302 - Memory copy failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, param: InitializationOptions,
+    allocatorType?: AllocatorType): PixelMap;
+
+  /**
    * Create an empty pixelmap.
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -4777,6 +4815,22 @@ declare namespace image {
    * @since 12
    */
 function createPixelMapSync(options: InitializationOptions): PixelMap;
+
+  /**
+   * Create an empty pixelmap by data buffer based on opts, the memory type used by the PixelMap can be specified
+   * by allocatorType. By default, the system selects the memory type based on the image type, image size,
+   * platform capability, etc. When processing the PixelMap returned by this interface, please always
+   * consider the impact of stride.
+   *
+   * @param { InitializationOptions } param Initialization options for pixelmap.
+   * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+   * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
+   * @throws { BusinessError } 7600201 - Unsupported operation.
+   * @throws { BusinessError } 7600301 - Memory alloc failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 20
+   */
+  function createPixelMapUsingAllocatorSync(param: InitializationOptions, allocatorType?: AllocatorType): PixelMap;
 
   /**
    * Transforms pixelmap from unpremultiplied alpha format to premultiplied alpha format.
