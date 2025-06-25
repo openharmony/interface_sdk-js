@@ -384,7 +384,17 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * The device types that this hap module can run on
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly deviceTypes: Array<string>;
@@ -404,7 +414,17 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates whether free installation of the hap module is supported
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly installationFree: boolean;
@@ -424,7 +444,17 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates the hash value of the hap module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly hashValue: string;
@@ -444,7 +474,17 @@ export interface HapModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates the type of the module
+   *
+   * @type { bundleManager.ModuleType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly type: bundleManager.ModuleType;
@@ -524,7 +564,7 @@ export interface HapModuleInfo {
    */
   readonly nativeLibraryPath: string;
 
-   /**
+  /**
    * Indicates the code path
    *
    * @type { string }
@@ -534,7 +574,7 @@ export interface HapModuleInfo {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-   readonly codePath: string;
+  readonly codePath: string;
 }
 
 /**

@@ -80,7 +80,7 @@ export interface AbilityInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
@@ -88,7 +88,7 @@ export interface AbilityInfo {
    * @since 9
    */
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
@@ -97,7 +97,7 @@ export interface AbilityInfo {
    * @since 10
    */
   /**
-   * Indicates the name of the .hap package to which the capability belongs
+   * Indicates the module name of the package to which the capability belongs
    *
    * @type { string }
    * @readonly
@@ -334,7 +334,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Process of ability, if user do not set it, the value equal application process
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly process: string;
@@ -354,7 +364,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates whether this ability can be called by other abilities
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly exported: boolean;
@@ -385,7 +405,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Enumerates ability display orientations
+   *
+   * @type { bundleManager.DisplayOrientation }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly orientation: bundleManager.DisplayOrientation;
@@ -435,7 +465,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * The permissions that others need to launch this ability
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly permissions: Array<string>;
@@ -488,7 +528,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * The device types that this ability can run on
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly deviceTypes: Array<string>;
@@ -568,7 +618,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates whether the ability is enabled
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly enabled: boolean;
@@ -588,7 +648,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates which window mode is supported
+   *
+   * @type { Array<bundleManager.SupportWindowMode> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
@@ -608,7 +678,17 @@ export interface AbilityInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates window size
+   *
+   * @type { WindowSize }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly windowSize: WindowSize;
@@ -674,7 +754,16 @@ export interface AbilityInfo {
  * @typedef WindowSize
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
+ * @since 11
+ */
+/**
+ * Indicates the window size.
+ *
+ * @typedef WindowSize
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 export interface WindowSize {
@@ -693,7 +782,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates maximum ratio of width over height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly maxWindowRatio: number;
@@ -713,7 +812,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates minimum ratio of width over height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly minWindowRatio: number;
@@ -733,7 +842,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates maximum width of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly maxWindowWidth: number;
@@ -753,7 +872,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates minimum width of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly minWindowWidth: number;
@@ -773,7 +902,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates maximum height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly maxWindowHeight: number;
@@ -793,7 +932,17 @@ export interface WindowSize {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Indicates minimum height of window under free window status.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly minWindowHeight: number;
