@@ -55,6 +55,7 @@ type TemplateTypedFunc<T> = (item: T, index: number) => string;
  * @atomicservice
  * @since 20
  */
+@memo
 type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
 
 /**
