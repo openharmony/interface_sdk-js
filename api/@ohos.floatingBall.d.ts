@@ -24,7 +24,7 @@ import type Want from './@ohos.app.ability.Want';
 import type { Callback } from './@ohos.base';
 
 /**
- * Floating-ball
+ * Floating ball
  *
  * @namespace floatingBall
  * @syscap SystemCapability.Window.SessionManager
@@ -32,22 +32,22 @@ import type { Callback } from './@ohos.base';
  */
 declare namespace floatingBall {
   /**
-   * If floating-ball enabled in current OS.
+   * If floating ball enabled in current device.
    *
-   * @returns { boolean } true if floating-ball enabled, otherwise false.
+   * @returns { boolean } true if floating ball enabled, otherwise false.
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
   function isFloatingBallEnabled(): boolean;
 
   /**
-   * Create floating-ball controller
+   * Create floating ball controller
    *
-   * @param { FloatingBallConfiguration } config - Params for floating-ball controller creation. 
+   * @param { FloatingBallConfiguration } config - Params for floating ball controller creation. 
    * The config must be valid, the context in config should not be null. 
    * @returns { Promise<FloatingBallController> } - The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
+   * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
@@ -80,117 +80,137 @@ declare namespace floatingBall {
    */
   interface FloatingBallController {
     /**
-     * Start floating-ball
+     * Start floating ball
      * 
      * @permission ohos.permission.USE_FLOAT_BALL
-     * @param { FloatingBallParams } params - Params for floating-ball start.
+     * @param { FloatingBallParams } params - Params for floating ball start.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300020 - Failed to create the floating-Ball window.
-     * @throws { BusinessError } 1300021 - Failed to start multiple floating-Ball window.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
-     * @throws { BusinessError } 1300023 - Floating-ball internal error.
-     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300020 - Failed to create the floating Ball window.
+     * @throws { BusinessError } 1300021 - Failed to start multiple floating Ball window.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     startFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
-     * Update floating-ball
+     * Update floating ball
      * 
-     * @param { FloatingBallParams } params - Params for floating-ball update. 
+     * @param { FloatingBallParams } params - Params for floating ball update. 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300023 - Floating-ball internal error.
-     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
-     * @throws { BusinessError } 1300025 - The floating-ball state does not support this operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     updateFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
-     * Stop floating-ball.
+     * Stop floating ball.
      * 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
-     * @throws { BusinessError } 1300023 - Floating-ball internal error.
-     * @throws { BusinessError } 1300024 - The floating-ball window state is abnormal.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     stopFloatingBall(): Promise<void>;
 
     /**
-     * Register floating-ball lifecycle event listener.
+     * Register floating ball lifecycle event listener.
      * 
-     * @param { 'stateChange' } type - Registration type, floating-ball lifecycle state change, 'stateChange'.
+     * @param { 'stateChange' } type - Registration type, floating ball lifecycle state change, 'stateChange'.
      * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     on(type: 'stateChange', callback: Callback<FloatingBallState>): void;
 
     /**
-     * Unregister floating-ball lifecycle event listener.
+     * Unregister floating ball lifecycle event listener.
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
      * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     off(type: 'stateChange', callback?: Callback<FloatingBallState>): void;
 
     /**
-     * Register floating-ball click event listener.
+     * Register floating ball click event listener.
      * 
      * @param { 'clickEvent' } type - Registration type, user click event, 'clickEvent'.
      * @param { Callback<void> } callback - Used to handle {'clickEvent'} command.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     on(type: 'clickEvent', callback: Callback<void>): void;
 
     /**
-     * Unregister floating-ball click event listener.
+     * Unregister floating ball click event listener.
      * 
      * @param { 'clickEvent' } type - Used to unregister listener for {'clickEvent'} command.
      * @param { Callback<void> } [callback] - Indicates the callback function.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300022 - Repeated floating-Ball operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     off(type: 'clickEvent', callback?: Callback<void>): void;
 
     /**
-     * Get the info of floating-ball window.
+     * Get the info of floating ball window.
      * 
-     * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating-ball window info.
-     * @throws { BusinessError } 1300023 - Floating-ball internal error.
+     * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating ball window info.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>;
 
     /**
-     * Restore main window for floating-ball creatorBundle.
+     * Restore main window for floating ball creatorBundle.
      *
      * @permission ohos.permission.USE_FLOAT_BALL
-     * @param { Want } want - Params for floating-ball restoration.
+     * @param { Want } want - Params for floating ball restoration.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating-ball.
-     * @throws { BusinessError } 1300023 - Floating-ball internal error.
-     * @throws { BusinessError } 1300025 - The floating-ball state does not support this operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
+     * @throws { BusinessError } 1300023 - Floating ball internal error.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @throws { BusinessError } 1300026 - Failed to restore the main window.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -199,7 +219,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * The option of floating-ball
+   * The option of floating ball
    *
    * @interface FloatingBallParams
    * @syscap SystemCapability.Window.SessionManager
@@ -207,7 +227,7 @@ declare namespace floatingBall {
    */
   interface FloatingBallParams {
     /**
-     * The template of floating-ball.
+     * The template of floating ball.
      *
      * @type { FloatingBallTemplate }
      * @syscap SystemCapability.Window.SessionManager
@@ -216,7 +236,7 @@ declare namespace floatingBall {
     template: FloatingBallTemplate;
     
     /**
-     * The title of floating-ball.
+     * The title of floating ball.
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
@@ -225,7 +245,7 @@ declare namespace floatingBall {
     title: string;
     
     /**
-     * The content of floating-ball.
+     * The content of floating ball.
      *
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
@@ -234,7 +254,7 @@ declare namespace floatingBall {
     content?: string;
     
     /**
-     * The backgroundColor of floating-ball.
+     * The backgroundColor of floating ball.
      *
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
@@ -243,7 +263,7 @@ declare namespace floatingBall {
     backgroundColor?: string;
     
     /**
-     * The icon of floating-ball.
+     * The icon of floating ball.
      *
      * @type { ?image.PixelMap }
      * @syscap SystemCapability.Window.SessionManager
@@ -319,7 +339,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * The info of floating-ball window.
+   * The info of floating ball window.
    *
    * @interface FloatingBallWindowInfo
    * @syscap SystemCapability.Window.SessionManager
