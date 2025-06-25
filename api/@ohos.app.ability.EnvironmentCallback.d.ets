@@ -25,24 +25,11 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The environment callback.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * The environment callback.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since 20
+ * @arkts 1.2
  */
-export default class EnvironmentCallback {
-  /**
-   * Called when the system configuration is updated.
-   *
-   * @param { Configuration } config - Indicates the updated configuration.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
+declare class EnvironmentCallback {
   /**
    * Called when the system configuration is updated.
    *
@@ -50,7 +37,8 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 20
+   * @arkts 1.2
    */
   onConfigurationUpdated(config: Configuration): void;
 
@@ -61,17 +49,10 @@ export default class EnvironmentCallback {
    * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called when the system has determined to trim the memory, for example, when the ability is running in the
-   * background and there is no enough memory for running as many background processes as possible.
-   *
-   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 20
+   * @arkts 1.2
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
+export default EnvironmentCallback;
