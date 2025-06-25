@@ -7980,21 +7980,6 @@ declare namespace window {
     setWindowShadowEnabled(enable: boolean): Promise<void>;
 
     /**
-     * Set window container background color in the active and inactive states.
-     *
-     * @param { string } activeColor - window container color in active.
-     * @param { string } inactiveColor - window container color in inactive.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @since 20
-     */
-    setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
-
-    /**
      * Sets the brightness of window.
      *
      * @param { number } brightness the specified brightness value.
@@ -10506,8 +10491,10 @@ declare namespace window {
     /**
      * Set window container active and inactive color.
      *
+     * @permission ohos.permission.WINDOW_TRANSPARENT
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
