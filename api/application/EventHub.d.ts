@@ -19,6 +19,7 @@
  */
 
 import { BusinessError } from '../@ohos.base';
+1
 
 /**
  * The event center of a context, support the subscription and publication of events.
