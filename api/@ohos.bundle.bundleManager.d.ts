@@ -416,6 +416,16 @@ declare namespace bundleManager {
      * @arkts 1.1&1.2
      */
     GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
+    /**
+     * Used to return applications that enable cloud file sync or cloud structured data sync.
+     * Only effective on {@link getAllBundleInfo}
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    GET_BUNDLE_INFO_WITH_CLOUD_KIT = 0x00008000,
   }
 
   /**
