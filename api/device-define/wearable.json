@@ -90,7 +90,6 @@
     "SystemCapability.Utils.Lang",
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Resourceschedule.Ffrt.Core",
-    "SystemCapability.Resourceschedule.QoS.Core",
     "SystemCapability.Ability.Form",
     "SystemCapability.Graphic.Graphic2D.EGL",
     "SystemCapability.Graphic.Graphic2D.GLES2",
