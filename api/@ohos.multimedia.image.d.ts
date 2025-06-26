@@ -9691,22 +9691,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Queue buffer to dirty queue and uses a callback to return the result.
      *
-     * @param { Image } interface
+     * @param { Image } image
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    queueImage(interface: Image, callback: AsyncCallback<void>): void;
+    queueImage(image: Image, callback: AsyncCallback<void>): void;
 
     /**
      * Queue buffer to dirty queue and uses a promise to return the result.
      *
-     * @param { Image } interface
+     * @param { Image } image
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    queueImage(interface: Image): Promise<void>;
+    queueImage(image: Image): Promise<void>;
 
     /**
      * Subscribe callback when releasing buffer
