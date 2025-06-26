@@ -19,9 +19,6 @@
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
 
 /**
  * Provides interfaces to manage power.
@@ -142,7 +139,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   function wakeup(detail: string): void;
@@ -179,7 +176,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   function suspend(isImmediate?: boolean): void;
@@ -264,7 +261,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   function hibernate(clearMemory: boolean): void;
@@ -284,21 +281,6 @@ declare namespace power {
    * Sets the timeout duration(ms) for turning off the screen with permission.
    *
    * @permission ohos.permission.POWER_MANAGER
-   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
-   * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @systemapi
-   * @since 19
-   */
-  function setScreenOffTime(timeout: number): void;
-
-  /**
-   * Sets the timeout duration(ms) for turning off the screen with permission.
-   *
-   * @permission ohos.permission.POWER_MANAGER
    * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -306,8 +288,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenOffTime(timeout: long): void;
 
