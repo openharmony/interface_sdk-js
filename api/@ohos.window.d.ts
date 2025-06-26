@@ -29,7 +29,7 @@ import { ColorMetrics } from './@ohos.arkui.node';
 /*** endif */
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
-import { uiEffect } from './@ohos.graphics.uiEffect'
+import uiEffect from './@ohos.graphics.uiEffect';
 /*** if arkts 1.2 */
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
@@ -2998,9 +2998,9 @@ declare namespace window {
    */
   interface UIEffectController {
       /**
-       * Set ui effect params
+       * Set UI effect params
        *
-       * @param { UIEffectParams } params - Params for ui effect.
+       * @param { UIEffectParams } params - Params for UI effect.
 
        * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -3014,17 +3014,17 @@ declare namespace window {
       setParams(params: UIEffectParams): Promise<void>;
 
       /**
-       * do animate with ui effect param transition
+       * do animate with UI effect param transition
        *
        * @param { WindowAnimationConfig } config - Animation param, when window changed.
-       * @param { UIEffectParams } params - Animation param for ui effect.
+       * @param { UIEffectParams } params - Animation param for UI effect.
        * @param { WindowAnimationConfig } [interruptConfig] - Animation config for interruption.
        * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
        * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
        * @throws { BusinessError } 1300003 - This window manager service works abnormally.
        * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Incorrect parameter format.
-       * @throws { BusinessError } 1300017 - Incorrect ui effect controller calling, the timing of the call is incorrect.
+       * @throws { BusinessError } 1300017 - Incorrect UI effect controller calling, the timing of the call is incorrect.
        * @syscap SystemCapability.Window.SessionManager
        * @systemapi Hide this for inner system use.
        * @since 20
@@ -3034,7 +3034,7 @@ declare namespace window {
   /**
    * create ui effect controller system
    *
-   * @returns { Promise<UIEffectController> } Promise used to return the ui effect controller.
+   * @returns { Promise<UIEffectController> } Promise used to return the UI effect controller.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -4558,7 +4558,6 @@ declare namespace window {
      * animation curve type cubic bezier 
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     CUBIC_BEZIER = 2,
