@@ -273,8 +273,6 @@ interface PasteButtonInterface {
   (options: PasteButtonOptions): PasteButtonAttribute;
 }
 
-
-
 /**
  * Callback function when the paste button is clicked.
  *
