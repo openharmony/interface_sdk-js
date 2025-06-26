@@ -13208,6 +13208,17 @@ declare type Summary = unifiedDataChannel.Summary;
  */
 declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType;
 
+/** 
+ * Import the UniformDataType type object for ui component.
+ *
+ * @typedef { uniformTypeDescriptor.UniformDataType } UniformDataType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
+
 /**
  * Import the GetDataParams type object for ui component.
  *
@@ -13220,15 +13231,16 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
 
 /**
- * Import the UniformDataType type object for ui component.
+ * Import the GetDataParams type object for ui component.
  *
- * @typedef { uniformTypeDescriptor.UniformDataType } UniformDataType
+ * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
+declare type DataSyncOptions = unifiedDataChannel.GetDataParams;
 
 /**
  * Enum for Drag Result.
@@ -14494,7 +14506,8 @@ declare interface DragEvent {
    * @throws { BusinessError } 190003 - Operation no allowed for current pharse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startDataLoading(options: DataSyncOptions): string;
 }
