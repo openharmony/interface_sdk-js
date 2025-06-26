@@ -502,7 +502,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
 
     persist?: boolean;
@@ -1152,7 +1151,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     sql: Array<string>;
 
@@ -1170,7 +1168,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     totalTime: number;
 
@@ -1188,7 +1185,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     waitTime: number;
 
@@ -1206,7 +1202,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     prepareTime: number;
 
@@ -1224,7 +1219,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     executeTime: number;
   }
@@ -1942,7 +1936,6 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum TransactionType {
     /**
@@ -1957,7 +1950,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     DEFERRED,
 
@@ -1973,7 +1965,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     IMMEDIATE,
 
@@ -1989,7 +1980,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     EXCLUSIVE
   }
@@ -2008,7 +1998,6 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -2025,7 +2014,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
@@ -2343,7 +2331,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
      */
     contains(field: string, value: string): RdbPredicates;
 
@@ -2941,7 +2928,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     notLike(field: string, value: string): RdbPredicates;
 
@@ -4089,7 +4075,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     getValue(columnIndex: number): ValueType;
 
@@ -8147,7 +8132,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
@@ -9194,7 +9178,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 

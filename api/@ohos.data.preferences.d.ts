@@ -1924,7 +1924,6 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
@@ -2021,7 +2020,6 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }
