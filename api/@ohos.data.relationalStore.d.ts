@@ -2944,7 +2944,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColumnType(columnIdentifier: number | string): Promise<ColumnType>;
 
@@ -2977,7 +2978,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getColumnTypeSync(columnIdentifier: number | string): ColumnType;
 
@@ -3424,12 +3426,12 @@ declare namespace relationalStore {
     getString(columnIndex: number): string;
 
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as long.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3437,12 +3439,12 @@ declare namespace relationalStore {
      * @since 9
      */
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as long.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3451,12 +3453,12 @@ declare namespace relationalStore {
      * @since 10
      */
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as long.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null, the specified column is not of the integer type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3486,12 +3488,12 @@ declare namespace relationalStore {
     getLong(columnIndex: number): number;
 
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as double.
      * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the number type.
+     * in the current row is null, the specified column is not of the double type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3499,12 +3501,12 @@ declare namespace relationalStore {
      * @since 9
      */
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as double.
      * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the number type.
+     * in the current row is null, the specified column is not of the double type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -3513,12 +3515,12 @@ declare namespace relationalStore {
      * @since 10
      */
     /**
-     * Obtains the value of the specified column in the current row as number.
+     * Obtains the value of the specified column in the current row as double.
      * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null, the specified column is not of the number type.
+     * in the current row is null, the specified column is not of the double type.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { number } The value of the specified column as a number.
+     * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3719,7 +3721,6 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Float32Array } The value of the specified column as a float array.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
