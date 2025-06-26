@@ -4104,7 +4104,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
@@ -4301,7 +4301,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     * @deprecated since 16
+     * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTestValue(): HitTestValue;
@@ -4580,7 +4580,28 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Registers the JavaScript object and method list.
+     *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
+     *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
@@ -4608,7 +4629,21 @@ declare namespace webview {
      * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Deletes a registered JavaScript object with given name.
+     *
+     * @param { string } name - The name of a registered JavaScript object to be deleted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100008 - Failed to delete JavaScriptProxy because it does not exist.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     deleteJavaScriptRegister(name: string): void;
@@ -5515,7 +5550,8 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *                           length exceeds 2048.
      * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -5525,7 +5561,8 @@ declare namespace webview {
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
      * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
-     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *                           length exceeds 2048.
      * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5958,7 +5995,19 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Enable the ability to use Intelligent Tracking Prevention; default is disabled.
+     *
+     * @param { boolean } enable {@code true} enable Intelligent Tracking Prevention; {@code false} otherwise.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     enableIntelligentTrackingPrevention(enable: boolean): void;
@@ -5971,7 +6020,17 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Get whether Intelligent Tracking Prevention is enabled.
+     *
+     * @returns { boolean } True if enable the Intelligent Tracking Prevention; else false.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     isIntelligentTrackingPreventionEnabled(): boolean;
@@ -5984,7 +6043,17 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Add bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
@@ -5997,7 +6066,17 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Remove bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
@@ -6007,7 +6086,14 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Clear bypassing hosts for Intelligent Tracking Prevention.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
@@ -6211,7 +6297,19 @@ declare namespace webview {
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Enable the ability to block Ads, disabled by default.
+     *
+     * @param { boolean } enable {@code true} Enable Ads block; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     enableAdsBlock(enable: boolean): void;
@@ -6222,7 +6320,15 @@ declare namespace webview {
      * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Get whether Ads block is enabled.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     isAdsBlockEnabled(): boolean;
@@ -6233,7 +6339,15 @@ declare namespace webview {
      * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Get whether Ads block is enabled for current Webpage.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     isAdsBlockEnabledForCurPage(): boolean;
@@ -8790,7 +8904,17 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * set Ads Block ruleset file, containing easylist rules.
+     * @param {string} rulesFile - absolute file path contains app customized ads block rules.
+     * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static setAdsBlockRules(rulesFile: string, replace: boolean): void;
@@ -8803,7 +8927,17 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Add items to Ads Block Disallow list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be disallowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
@@ -8819,7 +8953,20 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Add items to Ads Block Allow list.
+     * By default, ads block is allowed for all pages unless they are added to the
+     * disallow list. The priority of allowlist is higher than the disallowlist. It is
+     * used to re-enable ads block on the page that matches disallow list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be allowed for the web page.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
@@ -8831,7 +8978,16 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * remove items from Ads Block Disallowed list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
@@ -8843,7 +8999,16 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
@@ -8852,7 +9017,13 @@ declare namespace webview {
      * clear Ads Block Disallowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * clear Ads Block Disallowed list.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static clearAdsBlockDisallowedList(): void;
@@ -8861,7 +9032,13 @@ declare namespace webview {
      * clear Ads Block Allowed list.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * clear Ads Block Allowed list.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static clearAdsBlockAllowedList(): void;
@@ -8947,37 +9124,69 @@ declare namespace webview {
    * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @since 15
+   */
+  /**
+   * Enum type supplied to {@link insertProxyRule} for indicating the scheme filter for proxy.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   enum ProxySchemeFilter {
     /**
      * This indicates all the schemes will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * This indicates all the schemes will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     MATCH_ALL_SCHEMES = 0,
     /**
      * This indicates only the HTTP requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * This indicates only the HTTP requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     MATCH_HTTP = 1,
     /**
      * This indicates only the HTTPS requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * This indicates only the HTTPS requests will use the proxy.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     MATCH_HTTPS = 2,
   }
   /**
    * The ProxyConfig used by applyProxyOverride.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @since 15
+   */
+  /**
+   * The ProxyConfig used by applyProxyOverride.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   class ProxyConfig {
@@ -8985,23 +9194,45 @@ declare namespace webview {
      * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
      * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
      * "https://www.example.com" and "http://test.example.com" will connect the server directly.
-     * 
+     *
      * @param { string } bypassRule - The bypass rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
+     * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
+     * "https://www.example.com" and "http://test.example.com" will connect the server directly.
+     *
+     * @param { string } bypassRule - The bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     insertBypassRule(bypassRule: string): void;
     /**
      * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
-     * 
+     *
      * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
+     *
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
@@ -9026,7 +9257,31 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
+     * use the proxy rule if schemeFilter is null.
+     * 
+     * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
+     * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
+     * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
+     * 
+     * e.g. example.com host: example.com
+     *      https://example.com  scheme: https  host: example.com
+     *      example.com:8888     host: example.com  port: 8888
+     *      https://example.com:8888  scheme:https  host: example.com  port:8888
+     *      192.168.1.1  host: 192.168.1.1
+     *      192.168.1.1:8888  host:192.168.1.1 port: 8888
+     *      [10:20:30:40:50:60:70:80]
+     * 
+     * @param { string } proxyRule - The proxy rule.
+     * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
@@ -9035,7 +9290,15 @@ declare namespace webview {
      * Examples: "abc", "local", "some-domain".
      * 
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
+     * Examples: "abc", "local", "some-domain".
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     bypassHostnamesWithoutPeriod(): void;
@@ -9045,7 +9308,16 @@ declare namespace webview {
      * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
      * 
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
+     * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
+     * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     clearImplicitRules(): void;
@@ -9059,7 +9331,20 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Reverse the bypass rules.
+     * 
+     * If false all URLs will use proxy settings except URLs match the bypass rules.
+     * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
+     * 
+     * @param { boolean } reverse - If reverse the bypass rule.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     enableReverseBypass(reverse: boolean): void;
@@ -9068,7 +9353,15 @@ declare namespace webview {
      * 
      * @returns { Array<string> } The bypass rules.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Returns the bypass rules.
+     * 
+     * @returns { Array<string> } The bypass rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     getBypassRules(): Array<string>;
@@ -9077,7 +9370,15 @@ declare namespace webview {
      * 
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Returns the proxy rules.
+     * 
+     * @returns { Array<ProxyRule> } The proxy rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     getProxyRules(): Array<ProxyRule>;
@@ -9086,7 +9387,15 @@ declare namespace webview {
      * 
      * @returns { boolean } If reverse bypass enabled.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Returns if reverse bypass rules.
+     * 
+     * @returns { boolean } If reverse bypass enabled.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     isReverseBypassEnabled(): boolean;
@@ -9096,7 +9405,14 @@ declare namespace webview {
    * The ProxyRule used by insertProxyRule.
    * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @since 15
+   */
+  /**
+   * The ProxyRule used by insertProxyRule.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   class ProxyRule {
@@ -9105,7 +9421,15 @@ declare namespace webview {
      * 
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Returns the scheme filter used for this rule.
+     * 
+     * @returns { ProxySchemeFilter } The scheme filter used for this rule.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     getSchemeFilter(): ProxySchemeFilter;
@@ -9114,7 +9438,15 @@ declare namespace webview {
      * 
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Returns the proxy URL.
+     * 
+     * @returns { string } The proxy URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     getUrl(): string;
@@ -9125,7 +9457,15 @@ declare namespace webview {
    * 
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since 15
+   */
+  /**
+   * The callback for proxy changed.
+   * 
+   * @typedef { function }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   type OnProxyConfigChangeCallback = () => void;
@@ -9134,7 +9474,14 @@ declare namespace webview {
    * This class is used for set proxy for ArkWeb.
    * 
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @since 15
+   */
+  /**
+   * This class is used for set proxy for ArkWeb.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   class ProxyController {
@@ -9149,7 +9496,21 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Sets ProxyConfig which will be used by all Webs in the app. URLs that match patterns in the bypass list will connect the server directly.
+     * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
+     * the listener before loading a page. This listener will be called on the UI thread.
+     * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
+     * 
+     * @param { ProxyConfig } proxyConfig - The proxy config.
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
@@ -9161,7 +9522,18 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since 15
+     */
+    /**
+     * Remove the proxy config. Requests are not guaranteed to not use the proxy; wait for the listener before loading a page. This listener
+     * will be called on the UI thread.
+     * 
+     * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
