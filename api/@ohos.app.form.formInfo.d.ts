@@ -1916,6 +1916,7 @@ declare namespace formInfo {
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   interface OverflowInfo {
@@ -1924,6 +1925,7 @@ declare namespace formInfo {
      *
      * @type { Rect }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     area: Rect;
@@ -1933,6 +1935,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     duration: number;
@@ -1942,6 +1945,7 @@ declare namespace formInfo {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     useDefaultAnimation?: boolean;
@@ -2022,6 +2026,7 @@ declare namespace formInfo {
    *
    * @typedef { Rect }
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   interface Rect {
@@ -2030,6 +2035,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     left: number;
@@ -2039,6 +2045,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     top: number;
@@ -2048,6 +2055,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     width: number;
@@ -2057,6 +2065,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     height: number;
