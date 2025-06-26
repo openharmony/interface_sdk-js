@@ -126,7 +126,7 @@ import matrix4 from '@ohos.matrix4';
 import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
-import floatingBall from '@ohos.floatingBall';
+import floatingBall from '@ohos.window.floatingBall';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
