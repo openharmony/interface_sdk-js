@@ -170,7 +170,6 @@ declare class EventHub {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
