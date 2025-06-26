@@ -2523,8 +2523,7 @@ declare namespace media {
     /**
      * Mute specified media stream. This API can be called only when the AVPlayer is in the prepared, playing,
      * paused, or completed state.
-     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}. 
-     * The parameter can be set only to the audio and video format.
+     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}.
      * @param { boolean } muted - true for mute, false for unmute.
      * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
