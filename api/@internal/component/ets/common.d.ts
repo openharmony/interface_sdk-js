@@ -16697,10 +16697,20 @@ declare interface DismissPopupAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
+
+  /**
+   * Defines popup dismiss function
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dismiss(): void;
 
   /**
    * Defines popup dismiss reason
@@ -17206,14 +17216,14 @@ declare interface PopupButton {
   /**
    * action
    *
-   * @type { Callback<void> }
+   * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  action: Callback<void>;
+  action: VoidCallback;
 }
 
 /**

@@ -27,6 +27,7 @@ import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
 import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason,
   BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
+import { DismissDialogAction } from './actionSheet';
 /*** endif */
 
 /**
@@ -1307,8 +1308,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DismissDialogAction {
   /**
@@ -1318,8 +1318,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
   
@@ -1330,8 +1329,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reason: DismissReason;
 }
