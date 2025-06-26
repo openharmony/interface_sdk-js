@@ -6005,6 +6005,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6028,6 +6029,7 @@ declare namespace webview {
      * @returns { boolean } True if enable the Intelligent Tracking Prevention; else false.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6051,6 +6053,7 @@ declare namespace webview {
      * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6074,6 +6077,7 @@ declare namespace webview {
      * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6091,6 +6095,7 @@ declare namespace webview {
     /**
      * Clear bypassing hosts for Intelligent Tracking Prevention.
      *
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6307,6 +6312,7 @@ declare namespace webview {
      * <br>2. Parameter string is too long. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6326,6 +6332,7 @@ declare namespace webview {
      * Get whether Ads block is enabled.
      *
      * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -6345,6 +6352,7 @@ declare namespace webview {
      * Get whether Ads block is enabled for current Webpage.
      *
      * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -8912,6 +8920,7 @@ declare namespace webview {
      * @param {boolean} replace - (@code true)replace internal rules;(@code false) add to internal rules.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -8935,6 +8944,7 @@ declare namespace webview {
      * Ads Block will be disallowed for the web page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -8964,6 +8974,7 @@ declare namespace webview {
      * Ads Block will be allowed for the web page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -8985,6 +8996,7 @@ declare namespace webview {
      * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from disallow list
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -9006,6 +9018,7 @@ declare namespace webview {
      * @param { Array<string> } domainSuffixes - list of domain suffix needed be removed from allow list
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -9021,6 +9034,7 @@ declare namespace webview {
      */
     /**
      * clear Ads Block Disallowed list.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
@@ -9036,6 +9050,7 @@ declare namespace webview {
      */
     /**
      * clear Ads Block Allowed list.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
