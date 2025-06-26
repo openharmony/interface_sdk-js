@@ -236,7 +236,6 @@
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
-    "SystemCapability.Test.PerfTest",
-    "SystemCapability.Mechanic.Core"
+    "SystemCapability.Test.PerfTest"
   ]
 }
