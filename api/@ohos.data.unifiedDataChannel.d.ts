@@ -666,7 +666,7 @@ declare namespace unifiedDataChannel {
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, string> | undefined);
+    set details(value: Record<string, string>);
   }
 
   /**
