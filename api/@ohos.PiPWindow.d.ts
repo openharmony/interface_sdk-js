@@ -1084,6 +1084,17 @@ declare namespace PiPWindow {
      */
      getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
+     /**
+     * Get the PiP switch status of system setting.
+     * @returns { Promise<boolean> } - The promise used to return the PIP switch status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+     getPiPSettingSwitch(): Promise<boolean>;
+
     /**
      * Register picture-in-picture control event listener.
      * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
