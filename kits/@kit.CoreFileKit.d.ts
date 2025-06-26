@@ -61,7 +61,7 @@ import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
 import Environment from '@ohos.file.environment';
 import fileUri from '@ohos.file.fileuri';
-import fileIo from '@ohos.file.fs'
+import fileIo from '@ohos.file.fs';
 import {
   ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
   Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, DfsListeners, TaskSignal
