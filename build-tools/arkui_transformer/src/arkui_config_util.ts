@@ -132,6 +132,9 @@ export class ArkUIConfigUtil {
         return this.componentFiles.has(this.getPureName(name))
     }
     public shouldHaveAttributeModifier(name: string): boolean {
+        if (this.isHdsComponent) {
+            return false;
+        }
         return !this.shouldNotHaveAttributeModifier.has(name) && this.isComponent(name, 'Attribute')
     }
 }

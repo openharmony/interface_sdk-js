@@ -80,7 +80,12 @@ function main() {
     return (context: ts.TransformationContext) => {
       return (sourceFile: ts.SourceFile) => {
         const componentFile = componentFileMap.get(f)!;
-        const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+        let result;
+        if (uiconfig.isHdsComponent) {
+          result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer()]);
+        } else {
+          result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+        }
         const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
         const transformedSource = ts.createPrinter().printFile(transformedFile);
         printResult(transformedSource, componentFile);
