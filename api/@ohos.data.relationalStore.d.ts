@@ -4757,41 +4757,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    /**
-     * Inserts a row of data into the target table with sync interface.
-     *
-     * @param { string } table - Indicates the target table.
-     * @param { sendableRelationalStore.ValuesBucket } values - Indicates the row of data
-     *   {@link sendableRelationalStore.ValuesBucket} to be inserted into the table.
-     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
-     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800029 - SQLite: The database is full.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
-     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
-     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
-     */
     insertSync(table: string, values: sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
 
     /**
