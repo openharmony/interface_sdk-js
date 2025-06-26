@@ -87,7 +87,6 @@ declare namespace floatingBall {
      * @param { FloatingBallParams } params - Params for floating ball start.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300020 - Failed to create the floating Ball window.
@@ -105,7 +104,6 @@ declare namespace floatingBall {
      * 
      * @param { FloatingBallParams } params - Params for floating ball update. 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -122,7 +120,6 @@ declare namespace floatingBall {
      * Stop floating ball.
      * 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -136,7 +133,6 @@ declare namespace floatingBall {
      * 
      * @param { 'stateChange' } type - Registration type, floating ball lifecycle state change, 'stateChange'.
      * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -151,7 +147,6 @@ declare namespace floatingBall {
      * 
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
      * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -166,7 +161,6 @@ declare namespace floatingBall {
      * 
      * @param { 'click' } type - Registration type, user click event, 'click'.
      * @param { Callback<void> } callback - Used to handle {'click'} command.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -181,7 +175,6 @@ declare namespace floatingBall {
      * 
      * @param { 'click' } type - Used to unregister listener for {'click'} command.
      * @param { Callback<void> } [callback] - Indicates the callback function.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -195,7 +188,6 @@ declare namespace floatingBall {
      * Get the info of floating ball window.
      * 
      * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating ball window info.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -213,7 +205,6 @@ declare namespace floatingBall {
      * @param { Want } want - Params for floating ball restoration.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
