@@ -21,7 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 /*** if arkts 1.1 */
-import { int } from '@ohos.base';
+import { int, long } from '@ohos.base';
 /*** endif */
 
 /**
@@ -336,7 +336,7 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { 'activeStateChange' } type - Event type. This parameter cannot change.
    * @param { Array<Permissions> } permissionList - Indicates the permission list, which are specified. This parameter cannot be null or empty.
-   * @param { Callback<ActiveChangeResponse> } callback - Callback for listening permission change.
+   * @param { Callback<ActiveChangeResponse> } [callback] - Callback for listening permission change.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -622,26 +622,26 @@ declare namespace privacyManager {
     /**
      * The begin time, in milliseconds
      *
-     * @type { ?int }
+     * @type { ?long }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    beginTime?: int;
+    beginTime?: long;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { ?int }
+     * @type { ?long }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endTime?: int;
+    endTime?: long;
 
     /**
      * The permission usage flag
@@ -668,24 +668,24 @@ declare namespace privacyManager {
     /**
      * The begin time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    beginTime: int;
+    beginTime: long;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endTime: int;
+    endTime: long;
 
     /**
      * The list of permission used records of bundle
@@ -811,35 +811,35 @@ declare namespace privacyManager {
     /**
      * The last access time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastAccessTime: int;
+    lastAccessTime: long;
 
     /**
      * The last reject time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastRejectTime: int;
+    lastRejectTime: long;
 
     /**
      * The last access duration, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastAccessDuration: int;
+    lastAccessDuration: long;
 
     /**
      * The list of access records of details
@@ -899,13 +899,13 @@ declare namespace privacyManager {
     /**
      * Timestamp, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timestamp: int;
+    timestamp: long;
 
     /**
      * The value of successCount or failCount passed in to addPermissionUsedRecord.
@@ -921,13 +921,13 @@ declare namespace privacyManager {
     /**
      * Access duration, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    accessDuration: int;
+    accessDuration: long;
 
     /**
      * Used type of the permission accessed.
