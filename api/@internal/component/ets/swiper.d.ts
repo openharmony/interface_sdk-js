@@ -2179,6 +2179,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onUnselected(event: Callback<number>): SwiperAttribute;
 
   /**
+   * Called when the scroll state of the swiper changed.
+   *
+   * @param { Callback<ScrollState> } event - callback to notify the change of the scroll state.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onScrollStateChanged(event: Callback<ScrollState>): SwiperAttribute
+
+  /**
    * Called when the swiper animation start.
    *
    * @param { function } event - the index value of the swiper page that when animation start.
