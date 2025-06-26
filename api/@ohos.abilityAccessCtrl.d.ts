@@ -838,8 +838,8 @@ declare namespace abilityAccessCtrl {
    *
    * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
-   * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   export enum PermissionStatus {
@@ -847,8 +847,8 @@ declare namespace abilityAccessCtrl {
      * permission has been denied, only can change it in settings
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     DENIED = -1,
@@ -856,8 +856,8 @@ declare namespace abilityAccessCtrl {
      * permission has been granted
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     GRANTED = 0,
@@ -865,8 +865,8 @@ declare namespace abilityAccessCtrl {
      * permission is not determined
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     NOT_DETERMINED = 1,
@@ -874,8 +874,8 @@ declare namespace abilityAccessCtrl {
      * permission is invalid
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     INVALID = 2,
@@ -883,8 +883,8 @@ declare namespace abilityAccessCtrl {
      * permission has been restricted
      *
      * @syscap SystemCapability.Security.AccessToken
-     * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     RESTRICTED = 3
