@@ -198,6 +198,7 @@
     "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
-    "SystemCapability.Test.UiTest"
+    "SystemCapability.Test.UiTest",
+    "SystemCapability.MultimodalAwareness.RoomLocation"
   ]
 }
