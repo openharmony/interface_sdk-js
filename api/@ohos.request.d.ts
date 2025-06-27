@@ -3469,7 +3469,7 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since arkts{ '1.1':'11','1.2':'20'}
+       * @since 11
        */
       ends?: number;
       /**

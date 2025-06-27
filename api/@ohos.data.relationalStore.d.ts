@@ -2330,7 +2330,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @since 10
      */
     contains(field: string, value: string): RdbPredicates;
 
