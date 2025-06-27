@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -425,7 +425,16 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Specifies whether the database opened is read-only.
+     * If isReadOnly is true, other configuration items will become invalid.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     isReadOnly?: boolean;
@@ -456,7 +465,15 @@ declare namespace relationalStore {
      *
      * @type { ?CryptoParam }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the cryptographic parameters used when opening an encrypted database.
+     *
+     * @type { ?CryptoParam }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     cryptoParam?: CryptoParam;
@@ -477,6 +494,14 @@ declare namespace relationalStore {
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 18
+     */
+    /**
+     * Specifies whether the database need persistence.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
 
     persist?: boolean;
@@ -528,7 +553,15 @@ declare namespace relationalStore {
    *
    * @typedef CryptoParam
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 14
+   */
+  /**
+   * Specifies the cryptographic parameters used when opening an encrypted database.
+   *
+   * @typedef CryptoParam
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   interface CryptoParam {
@@ -538,7 +571,16 @@ declare namespace relationalStore {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the key used when opening an encrypted database.
+     * When finished passing the key to the database, its content should be set to all-zero.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionKey: Uint8Array;
@@ -550,7 +592,17 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the number of KDF iterations used when opening an encrypted database.
+     * Default number is 10000.
+     * When the number is set to 0, use default iteration number and encryption algorithm.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     iterationCount?: number;
@@ -561,7 +613,16 @@ declare namespace relationalStore {
      *
      * @type { ?EncryptionAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the encryption algorithm when opening an encrypted database.
+     * Default encryption algorithm is AES_256_GCM.
+     *
+     * @type { ?EncryptionAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     encryptionAlgo?: EncryptionAlgo;
@@ -572,7 +633,16 @@ declare namespace relationalStore {
      *
      * @type { ?HmacAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the HMAC algorithm when opening an encrypted database.
+     * Default HMAC algorithm is SHA256.
+     *
+     * @type { ?HmacAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     hmacAlgo?: HmacAlgo;
@@ -583,7 +653,16 @@ declare namespace relationalStore {
      *
      * @type { ?KdfAlgo }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the KDF algorithm when opening an encrypted database.
+     * Default KDF SHA algorithm is the same as HMAC algorithm.
+     *
+     * @type { ?KdfAlgo }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     kdfAlgo?: KdfAlgo;
@@ -594,7 +673,16 @@ declare namespace relationalStore {
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * Specifies the page size used when opening an encrypted database.
+     * Default crypto page size is 1024.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     cryptoPageSize?: number;
@@ -605,7 +693,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 14
+   */
+  /**
+   * Enumerates the supported encryption algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum EncryptionAlgo {
@@ -613,7 +709,14 @@ declare namespace relationalStore {
      * AES_256_GCM: Database is encrypted using AES_256_GCM.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * AES_256_GCM: Database is encrypted using AES_256_GCM.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     AES_256_GCM = 0,
@@ -622,7 +725,14 @@ declare namespace relationalStore {
      * AES_256_CBC: Database is encrypted using AES_256_CBC.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * AES_256_CBC: Database is encrypted using AES_256_CBC.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     AES_256_CBC
@@ -633,7 +743,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 14
+   */
+  /**
+   * Enumerates the supported HMAC algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum HmacAlgo {
@@ -641,7 +759,14 @@ declare namespace relationalStore {
      * SHA1: HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * SHA1: HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA1 = 0,
@@ -650,7 +775,14 @@ declare namespace relationalStore {
      * SHA256: HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * SHA256: HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA256,
@@ -659,7 +791,14 @@ declare namespace relationalStore {
      * SHA512: HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * SHA512: HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     SHA512
@@ -670,7 +809,15 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @since 14
+   */
+  /**
+   * Enumerates the supported KDF algorithm when opening a database.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum KdfAlgo {
@@ -678,7 +825,14 @@ declare namespace relationalStore {
      * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * KDF_SHA1: PBKDF2_HMAC_SHA1 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA1 = 0,
@@ -687,7 +841,14 @@ declare namespace relationalStore {
      * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * KDF_SHA256: PBKDF2_HMAC_SHA256 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA256,
@@ -696,7 +857,14 @@ declare namespace relationalStore {
      * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @since 14
+     */
+    /**
+     * KDF_SHA512: PBKDF2_HMAC_SHA512 algorithm.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
     KDF_SHA512
@@ -960,6 +1128,14 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
+  /**
+   * Defines information about the SQL statements executed.
+   *
+   * @interface SqlExecutionInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
   interface SqlExecutionInfo {
     /**
      * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
@@ -967,6 +1143,14 @@ declare namespace relationalStore {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     sql: Array<string>;
 
@@ -977,6 +1161,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Total time used for executing the SQL statements, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
     totalTime: number;
 
     /**
@@ -985,6 +1177,14 @@ declare namespace relationalStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Maximum time allowed to obtain the SQL file handle, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     waitTime: number;
 
@@ -995,6 +1195,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Time used to prepare SQL and args, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
     prepareTime: number;
 
     /**
@@ -1003,6 +1211,14 @@ declare namespace relationalStore {
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Time used to execute the SQL statements, in μs.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     executeTime: number;
   }
@@ -1554,12 +1770,27 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
+  /**
+   * Enumerates the field.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @crossplatform
+   * @since 20
+   */
   enum Field {
     /**
      * Cursor field.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Cursor field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     CURSOR_FIELD = '#_cursor',
 
@@ -1568,6 +1799,13 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Origin field. For details, see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     ORIGIN_FIELD = '#_origin',
 
@@ -1578,6 +1816,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
+    /**
+     * Deleted flag field.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
+     */
     DELETED_FLAG_FIELD = '#_deleted_flag',
 
     /**
@@ -1587,6 +1833,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
+    /**
+     * Data status field.
+     * Indicates data status.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
+     */
     DATA_STATUS_FIELD = '#_data_status',
 
     /**
@@ -1594,6 +1848,13 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Owner field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     OWNER_FIELD = '#_cloud_owner',
 
@@ -1603,6 +1864,13 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
+    /**
+     * Privilege field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
+     */
     PRIVILEGE_FIELD = '#_cloud_privilege',
 
     /**
@@ -1610,6 +1878,13 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
+     */
+    /**
+     * Sharing resource field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @crossplatform
+     * @since 20
      */
     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
@@ -1654,12 +1929,27 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
+  /**
+   * Enumerates the type of transaction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
   enum TransactionType {
     /**
      * The DEFERRED transaction.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The DEFERRED transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     DEFERRED,
 
@@ -1669,6 +1959,13 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
      */
+    /**
+     * The IMMEDIATE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
     IMMEDIATE,
 
     /**
@@ -1676,6 +1973,13 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The EXCLUSIVE transaction.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     EXCLUSIVE
   }
@@ -1687,6 +1991,14 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 14
    */
+  /**
+   * Create transaction options.
+   *
+   * @interface TransactionOptions
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 20
+   */
   interface TransactionOptions {
     /**
      * The type of transaction.
@@ -1694,6 +2006,14 @@ declare namespace relationalStore {
      * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * The type of transaction.
+     *
+     * @type { TransactionType }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     transactionType?: TransactionType;
   }
@@ -2566,6 +2886,20 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * does not contain the specified value.
+     * This method is similar to "Not like %value%" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value that is not contained.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
     notContains(field: string, value: string): RdbPredicates;
 
     /**
@@ -2580,6 +2914,20 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Sets the RdbPredicates to match the field whose data type is string and value
+     * is not like the specified value.
+     * This method is similar to "Not like" of the SQL statement.
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { string } value - Indicates the value to compare against.
+     * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     notLike(field: string, value: string): RdbPredicates;
 
@@ -3692,6 +4040,41 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     * Inserting an empty blob, after API14 and API14, the obtained value is an empty blob; Before API 14,
+     * the obtained value was null.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
+     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800032 - SQLite: Abort due to constraint violation.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     getValue(columnIndex: number): ValueType;
 
@@ -7736,6 +8119,20 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
+    /**
+     * Subscribes to the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExecutionInfo> } observer -
+     * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
+     */
     on(event: 'statistics', observer: Callback<SqlExecutionInfo> ): void;
 
     /**
@@ -7966,6 +8363,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
+     */
+    /**
+     * Close the RdbStore and all resultSets.
+     *
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     close(): Promise<void>;
 
@@ -8742,6 +9149,35 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 14
+     */
+    /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement.
+     * The values are strings.
+     * @returns { Promise<ValueType> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800021 - SQLite: Generic error.
+     * Possible causes: Insert failed or the updated data does not exist.
+     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800027 - SQLite: Attempt to write a readonly database.
+     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800029 - SQLite: The database is full.
+     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 20
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
