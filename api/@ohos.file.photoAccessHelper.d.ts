@@ -10646,15 +10646,15 @@ declare namespace photoAccessHelper {
      */
     getCustomRecords(optionCheck: FetchOptions): Promise<FetchResult<PhotoAssetCustomRecord>>;
     /**
-     * Set custom record.
+     * Set custom records.
      * A maximum of 200 custom records can be set at once.
      * 
-     * @param { Array<PhotoAssetCustomRecord> } customRecords - Custom records
-     * @returns { Promise<Array<number>> } Returns list of fileIds in photoAssetCustomRecord which set failed
+     * @param { Array<PhotoAssetCustomRecord> } customRecords - Custom records.
+     * @returns { Promise<Array<number>> } Returns list of fileId in photoAssetCustomRecord which set failed
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification. Possible causes:
+     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification.Possible causes:
      * <br>1. The value range of mandatory parameters in photoAssetCustomRecord does not meet the requirements.
-     * <br>2. The transferred record already exists. 3. The number of transferred records exceeds 200.
+     * <br>2. The number of transferred records exceeds 200.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
