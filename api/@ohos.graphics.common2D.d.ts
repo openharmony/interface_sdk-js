@@ -215,6 +215,7 @@ declare namespace common2D {
     /**
      * Vertical coordinate. The value is a floating point number.
      * @type { number }
+     * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */

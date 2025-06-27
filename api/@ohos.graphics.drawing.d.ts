@@ -67,15 +67,15 @@ declare namespace drawing {
    * This is commonly used in graphics operations like overlaying, filtering, and masking.
    * The blending process applies the same logic to the red, green, and blue color channels separately.
    * The alpha channel, however, is handled according to the specific definitions of each blend mode.
-   * 
+   *
    * For brevity, the following abbreviations are used:
-   * 
+   *
    * s: source.
    * d: destination.
    * sa: source alpha.
    * da: destination alpha.
    * The following abbreviations are used in the calculation result:
-   * 
+   *
    * r: used when the calculation method is the same for the four channels (alpha, red, green, and blue channels).
    * ra: used when only the alpha channel is manipulated.
    * rc: used when the other three color channels are manipulated.
@@ -537,7 +537,7 @@ declare namespace drawing {
      * @since 12
      */
     /**
-     * Same as winding, but draws outside of the path, rather than inside.
+     * Same as WINDING, but draws outside of the path, rather than inside.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -695,7 +695,7 @@ declare namespace drawing {
      * @since 12
      */
     /**
-     *  Obtains the radii of the specified rounded corner in this rounded rectangle.
+     * Obtains the radii of the specified rounded corner in this rounded rectangle.
      * @param { CornerPos } pos - Position of the rounded corner.
      * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of the rounded corner on the X axis,
      * and the vertical coordinate indicates the radius on the Y axis.
@@ -718,7 +718,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-     /**
+    /**
      * Translates this rounded rectangle by an offset along the X axis and Y axis.
      * @param { number } dx - Horizontal distance to translate. A positive number indicates a translation towards the positive direction of the X axis,
      * and a negative number indicates a translation towards the negative direction of the X axis. The value is a floating point number.
@@ -792,7 +792,7 @@ declare namespace drawing {
      * @since 12
      */
     /**
-     * Xor operation.
+     * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -941,7 +941,7 @@ declare namespace drawing {
      */
     /**
      * Creates an iterator and binds it with a path.
-     * @param { Path } path - the path is used to create PathIterator.
+     * @param { Path } path - Path object bound to the iterator.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -959,7 +959,7 @@ declare namespace drawing {
      * @since 18
      */
     /**
-     Retrieves the next operation in this path and moves the iterator to that operation.
+     * Retrieves the next operation in this path and moves the iterator to that operation.
      * @param { Array<common2D.Point> } points - Indicates the point array.
      * @param { number } offset - Indicates the offset into the array where entries should be placed. The default value is 0.
      * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
@@ -1037,7 +1037,7 @@ declare namespace drawing {
      */
     /**
      * Constructs a copy of an existing path.
-     * @param { Path } path - the path to copy content from.
+     * @param { Path } path - Path to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -1451,12 +1451,12 @@ declare namespace drawing {
      */
     /**
      * Adds an arc to this path.
-     * 
+     *
      * When startAngle and sweepAngle meet the following conditions, an oval instead of an arc is added:
-     * 
+     *
      * The result of startAngle modulo 90 is close to 0.
      * The value of sweepAngle is not in the range of (-360, 360).
-     * 
+     *
      * In other cases, this API adds an arc by applying the result of sweepAngle modulo 360 to the path.
      * @param { common2D.Rect } rect - Rectangular boundary that encapsulates the oval including the arc.
      * @param { number } startAngle - Start angle of the arc, in degrees. The value 0 indicates the positive direction of the X axis.
@@ -1686,7 +1686,6 @@ declare namespace drawing {
      * Obtains the minimum bounding rectangle that encloses this path.
      * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
      * @crossplatform
      * @since 20
      */
@@ -1748,6 +1747,7 @@ declare namespace drawing {
     /**
      * Clears any lines and curves from the path but keeps the internal storage for faster reuse.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     rewind(): void;
@@ -1757,6 +1757,7 @@ declare namespace drawing {
      *
      * @returns { boolean } Returns true if the path is empty; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     isEmpty(): boolean;
@@ -1767,6 +1768,7 @@ declare namespace drawing {
      * @param { common2D.Rect | null } rect - Indicates the Rect object.
      * @returns { boolean } Returns true if the path represents a rectangle; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     isRect(rect: common2D.Rect | null): boolean;
@@ -1786,6 +1788,7 @@ declare namespace drawing {
      * The value true means that the path is considered closed during measurement,
      * and false means that the path is measured based on the actual closed status.
      * @returns { number } Return path length.
+     * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
@@ -1811,7 +1814,7 @@ declare namespace drawing {
      */
     /**
      * Obtains the coordinates and tangent at a distance from the start point of this path.
-     * 
+     *
      * @param { boolean } forceClosed - Whether the path is measured as a closed path.
      * The value true means that the path is considered closed during measurement,
      * and false means that the path is measured based on the actual closed status.
@@ -1912,7 +1915,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
-    */
+     */
     getMatrix(forceClosed: boolean, distance: number, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
 
     /**
@@ -2101,7 +2104,8 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  /**Enumerates the shadow drawing behaviors.
+  /**
+   * Enumerates the shadow drawing behaviors.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
@@ -3657,7 +3661,7 @@ declare namespace drawing {
    * @since 11
    */
   /**
-   * EEnumerates the text encoding types.
+   * Enumerates the text encoding types.
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
@@ -3948,18 +3952,6 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
-    /**
-     * Constructs a typeface from a file, which must be stored in the resources/rawfile directory of the application project.
-     * @param { Resource } rawfile - Resource object corresponding to the file.
-     * Currently, only resource objects referenced in rawfile format are supported.
-     * The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project.
-     * If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
-     * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
-     * @returns { Typeface } Typeface.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20
-     */
     static makeFromRawFile(rawfile: Resource): Typeface;
 
     /**
@@ -3981,7 +3973,6 @@ declare namespace drawing {
      * @returns { Typeface } Typeface.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
      * @since 20
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
@@ -4093,8 +4084,8 @@ declare namespace drawing {
     /**
      * Normal font hinting is used to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
      * @crossplatform
+     * @since 20
      */
     NORMAL = 2,
 
@@ -5145,7 +5136,7 @@ declare namespace drawing {
    * @since 12
    */
   /**
-   * Lattice is the class for dividing an image into grids.
+   * Implements a lattice object, which is used to divide an image by lattice.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
@@ -5339,7 +5330,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
-     * @syscap SystemCapability.Graphics.Drawin
+     * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
@@ -8658,13 +8649,6 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 15
    */
-  /**
-   * A utility class that provides only static methods to convert data structs defined in other modules and common2D.
-   *
-   * @syscap SystemCapability.Graphics.Drawing
-   * @crossplatform
-   * @since 20
-   */
   class Tool {
     /**
      * Converts a color value of the ResourceColor type to a common2D.Color object.
@@ -8677,19 +8661,6 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 15
-     */
-    /**
-     * Converts a color value of the ResourceColor type to a common2D.Color object.
-     * @param { ResourceColor } resourceColor - Color value of the ResourceColor type. (All four types of inputs are supported.
-     * The following provides 13 example inputs.) The fourth type of Resource supports only the construction method $r('belonging.type.name').
-     * Ensure that the resource has been defined in the main/resources/base/element directory. (The types color, string,
-     * and integer are available for the belonging app, whereas only the type color is available for the belonging sys.)
-     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
   }
