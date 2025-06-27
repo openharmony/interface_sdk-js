@@ -16,8 +16,6 @@
 import { Callback } from './@ohos.base';
 /**
  * Provides interfaces to manage ethernet.
- * @file
- * @kit NetworkKit
  * @namespace eap
  * @syscap SystemCapability.Communication.NetManager.Eap
  * @since 20
