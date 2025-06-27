@@ -21,6 +21,7 @@
 import { CommonMethod,Callback } from './common';
 import Want from '../../@ohos.app.ability.Want';
 import { Visibility } from './enums'
+import { VoidCallback } from './units';
 /*** endif */
 /**
  * Defines the FormDimension enum.
@@ -295,17 +296,6 @@ declare interface FormInfo {
   want?: import('../api/@ohos.app.ability.Want').default;
 
   /**
-   * The want of the form.
-   *
-   * @type { ?import('../api/@ohos.app.ability.Want').default }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  want?: Want;
-
-  /**
    * The renderingMode of the form.
    *
    * @type { ?FormRenderingMode }
@@ -452,35 +442,38 @@ interface FormSize {
 }
 
 /**
- * Defines the FormCallbackInfo.
+ * Defines error information for card loading.
  *
- * @interface FormError
+ * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
- * @arkts 1.2
+ * @since arkts{ '1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface FormError {
+interface ErrorInformation {
   /**
-   * The string id of the form.
+   * Error code.
+   * Anonymous Object Rectification
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-   errcode: number;
+  errcode: number;
+
   /**
-   * The string id of the form.
+   * Error information.
+   * Anonymous Object Rectification
    *
-   * @type { number }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-   msg: string 
+  msg: string;
 }
 
 /**
@@ -500,19 +493,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  size(value: { width: number; height: number }): FormComponentAttribute;
-
   /**
    * Sets the display area size of the card.
    *
-   * @param { FormSize } value
+   * @param { FormSize } formSize - The size of Form
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  size(value: FormSize): FormComponentAttribute;
+  size(formSize: FormSize): FormComponentAttribute;
 
   /**
    * Card module name.
@@ -594,19 +585,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
-
   /**
    * Card loading error.
    *
-   * @param { Callback<FormError> } callback
+   * @param { Callback<ErrorInformation> } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  onError(callback: Callback<FormError>): FormComponentAttribute;
+  onError(callback: Callback<ErrorInformation>): FormComponentAttribute;
 
   /**
    * Card to be redirected.
@@ -617,19 +606,18 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onRouter(callback: (info: any) => void): FormComponentAttribute;
-
   /**
    * Card to be redirected.
+   * Anonymous Object Rectification
    *
-   * @param { function } callback
+   * @param { Callback<Object> } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  onRouter(callback: Callback<Object | undefined | null>): FormComponentAttribute;
+  onRouter(callback: Callback<Object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
@@ -659,10 +647,19 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Card to be loaded.
+   *
+   * @param { VoidCallback } callback
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onLoad(callback: () => void): FormComponentAttribute;
+  onLoad(callback: VoidCallback): FormComponentAttribute;
 }
 
 /**
