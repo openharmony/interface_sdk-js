@@ -1083,7 +1083,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
+   * @since arkts { '1.1':'18','1.2':'20' }
    * @arkts 1.1&1.2
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
@@ -1100,7 +1100,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
+   * @since arkts { '1.1':'18','1.2':'20' }
    * @arkts 1.1&1.2
    */
   closeToast(toastId: number): void;
@@ -1660,7 +1660,7 @@ export interface OverlayManagerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
+   * @since arkts { '1.1':'18','1.2':'20' }
    * @arkts 1.1&1.2
    */
   enableBackPressedEvent?: boolean;
@@ -2665,7 +2665,7 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'13','1.2':'20' }
+ * @since arkts { '1.1':'14','1.2':'20' }
  * @arkts 1.1&1.2
  */
 export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
@@ -2675,7 +2675,7 @@ export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
   * @readonly
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts { '1.1':'13','1.2':'20' }
+  * @since arkts { '1.1':'14','1.2':'20' }
   * @arkts 1.1&1.2
   */
   readonly type: MarqueeDynamicSyncSceneType;
@@ -4502,7 +4502,7 @@ export const enum SwiperDynamicSyncSceneType {
  * @enum { number } MarqueeDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'13','1.2':'20' }
+ * @since arkts { '1.1':'14','1.2':'20' }
  * @arkts 1.1&1.2
  */
 export const enum MarqueeDynamicSyncSceneType {
@@ -4511,7 +4511,7 @@ export const enum MarqueeDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
+   * @since arkts { '1.1':'14','1.2':'20' }
    * @arkts 1.1&1.2
    */
   ANIMATION = 1
