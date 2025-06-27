@@ -21,7 +21,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 /*** if arkts 1.1 */
-import { int } from '@ohos.base';
+import { int, long } from '@ohos.base';
 /*** endif */
 
 /**
@@ -342,7 +342,7 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { 'activeStateChange' } type - Event type. This parameter cannot change.
    * @param { Array<Permissions> } permissionList - Indicates the permission list, which are specified. This parameter cannot be null or empty.
-   * @param { Callback<ActiveChangeResponse> } callback - Callback for listening permission change.
+   * @param { Callback<ActiveChangeResponse> } [callback] - Callback for listening permission change.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
