@@ -1097,6 +1097,7 @@ export declare class PromptAction {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1653,14 +1654,24 @@ export interface OverlayManagerOptions {
    */
   renderRootOverlay?: boolean;
 
+/**
+   * Set whether support backPressed event or not.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 19
+   */
   /**
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
+   * @since 20
    * @arkts 1.1&1.2
    */
   enableBackPressedEvent?: boolean;
