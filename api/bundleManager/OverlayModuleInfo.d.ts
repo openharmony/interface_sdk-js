@@ -63,22 +63,22 @@ export interface OverlayModuleInfo {
   /**
    * Indicates the priority of the overlay module
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly priority: number;
+  readonly priority: int;
 
   /**
    * Indicates the state of the overlay module
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly state: number;
+  readonly state: int;
 }

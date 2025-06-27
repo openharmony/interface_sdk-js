@@ -190,12 +190,12 @@ export interface ShortcutInfo {
   /**
    * Indicates the icon id of the shortcut
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    * @arkts 1.1&1.2
    */
-  iconId?: number;
+  iconId?: long;
 
   /**
    * Indicates the label of the shortcut
@@ -244,12 +244,12 @@ export interface ShortcutInfo {
   /**
    * Indicates the label id of the shortcut
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    * @arkts 1.1&1.2
    */
-  labelId?: number;
+  labelId?: long;
 
   /**
    * Indicates the wants of the shortcut
@@ -289,12 +289,12 @@ export interface ShortcutInfo {
   /**
    * Indicates the index of application clone.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    * @arkts 1.1&1.2
    */
-  appIndex: number;
+  appIndex: int;
 
   /**
    * Indicates the source type of shortcut.
@@ -307,12 +307,12 @@ export interface ShortcutInfo {
   /**
    * Indicates the source type of shortcut.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
    * @arkts 1.1&1.2
    */
-  sourceType: number;
+  sourceType: int;
 }
 
 /**
