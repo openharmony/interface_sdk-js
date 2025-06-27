@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2025-2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,12 +13,18 @@
  * limitations under the License.
  */
  
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import { Callback } from './@ohos.base';
 /**
  * Provides interfaces to manage ethernet.
  * @namespace eap
  * @syscap SystemCapability.Communication.NetManager.Eap
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace eap {
   /**
@@ -36,6 +42,7 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void;
  
@@ -54,6 +61,7 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   function unregCustomEapHandler(netType:number, eapCode: number, eapType: number, callback: Callback<EapData>): void;
  
@@ -69,9 +77,9 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   function replyCustomEapData(result: CustomResult, data: EapData): void;
- 
  
   /**
    * Set the specified network interface parameters.
@@ -86,6 +94,7 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   function startEthEap(netId: number, profile: EthEapProfile): void;
  
@@ -101,6 +110,7 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   function logOffEthEap(netId: number): void;
  
@@ -110,6 +120,7 @@ declare namespace eap {
    * @typedef EapData
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface EapData {  
     /**
@@ -118,6 +129,7 @@ declare namespace eap {
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     msgId: number;
     /**
@@ -126,6 +138,7 @@ declare namespace eap {
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     eapBuffer: Uint8Array;
     /**
@@ -134,6 +147,7 @@ declare namespace eap {
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     bufferLen: number;
   }
@@ -143,7 +157,8 @@ declare namespace eap {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.NetManager.Eap
-     * @since 20
+   * @since 20
+   * @arkts 1.1&1.2
    */
   enum CustomResult {
     /**
@@ -151,6 +166,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     RESULT_FAIL,
  
@@ -159,6 +175,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     RESULT_NEXT,
  
@@ -167,6 +184,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     RESULT_FINISH,
   }
@@ -177,6 +195,7 @@ declare namespace eap {
    * @enum { number }
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum EapMethod {
     /**
@@ -184,6 +203,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_NONE,
  
@@ -192,6 +212,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_PEAP,
  
@@ -200,6 +221,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_TLS,
  
@@ -208,6 +230,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_TTLS,
  
@@ -216,6 +239,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_PWD,
  
@@ -224,6 +248,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_SIM,
  
@@ -232,6 +257,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_AKA,
  
@@ -240,6 +266,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_AKA_PRIME,
  
@@ -248,6 +275,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     EAP_UNAUTH_TLS
   }
@@ -257,7 +285,8 @@ declare namespace eap {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.NetManager.Eap
-     * @since 20
+   * @since 20
+   * @arkts 1.1&1.2
    */
   enum Phase2Method {
     /**
@@ -265,6 +294,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_NONE,
  
@@ -273,6 +303,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_PAP,
  
@@ -281,6 +312,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_MSCHAP,
  
@@ -289,6 +321,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_MSCHAPV2,
  
@@ -297,6 +330,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_GTC,
  
@@ -305,6 +339,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_SIM,
  
@@ -313,6 +348,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_AKA,
  
@@ -321,6 +357,7 @@ declare namespace eap {
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     PHASE2_AKA_PRIME
   }
@@ -331,6 +368,7 @@ declare namespace eap {
    * @typedef EthEapProfile
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface EthEapProfile {
     /**
@@ -339,6 +377,7 @@ declare namespace eap {
      * @type { EapMethod }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     eapMethod: EapMethod;
  
@@ -348,6 +387,7 @@ declare namespace eap {
      * @type { Phase2Method }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     phase2Method: Phase2Method;
  
@@ -357,6 +397,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     identity: string;
  
@@ -366,6 +407,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     anonymousIdentity: string;
  
@@ -375,6 +417,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     password: string;
  
@@ -384,6 +427,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     caCertAliases: string;
  
@@ -393,6 +437,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     caPath: string;
  
@@ -402,6 +447,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     clientCertAliases: string;
  
@@ -411,6 +457,7 @@ declare namespace eap {
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     certEntry: Uint8Array;
  
@@ -420,6 +467,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     certPassword: string;
  
@@ -429,6 +477,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     altSubjectMatch: string;
  
@@ -438,6 +487,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     domainSuffixMatch: string;
  
@@ -447,6 +497,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     realm: string;
  
@@ -456,6 +507,7 @@ declare namespace eap {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     plmn: string;
  
@@ -465,6 +517,7 @@ declare namespace eap {
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20
+     * @arkts 1.1&1.2
      */
     eapSubId: number;
   }
