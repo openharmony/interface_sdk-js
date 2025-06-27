@@ -610,14 +610,14 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * Card to be redirected.
    * Anonymous Object Rectification
    *
-   * @param { Callback<Object> } callback
+   * @param { Callback<object> } callback
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onRouter(callback: Callback<Object>): FormComponentAttribute;
+  onRouter(callback: Callback<object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
