@@ -164,7 +164,7 @@ declare namespace util {
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
-     * @param { string } src - A string value
+     * @param { string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -175,23 +175,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decodeSync(src: string, options?: Type): Uint8Array;
-
-    /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } [options] - one of the Type enumeration
-     * @returns { Uint8Array } Return the decoded Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    decodeSync(src: Uint8Array, options?: Type): Uint8Array;
+    decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
      * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
@@ -229,7 +213,7 @@ declare namespace util {
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
      * input u8 array into a newly allocated u8 array.
      *
-     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -240,24 +224,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
-
-    /**
-     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
-     * input u8 array into a newly allocated u8 array.
-     *
-     * @param { string } src - A string value
-     * @param { Type } [options] - one of the Type enumeration
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    decode(src: string, options?: Type): Promise<Uint8Array>;
+    decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
 
   /**
