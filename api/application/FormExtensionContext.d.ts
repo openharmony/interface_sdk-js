@@ -128,7 +128,7 @@ declare class FormExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the service extension to connect.
    * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @returns { long } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -147,12 +147,12 @@ declare class FormExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 10
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
+   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectServiceExtensionAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -163,12 +163,12 @@ declare class FormExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 10
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
+   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -179,7 +179,7 @@ declare class FormExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 10
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 }
 
 export default FormExtensionContext;
