@@ -567,6 +567,22 @@ declare namespace uiEffect {
      */
     static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       fillColor?: Color): Mask;
+
+    /**
+     * Create a Mask of radial gradient.
+     * @param { common2D.Point } center
+     * @param { number } radiusX
+     * @param { number } radiusY
+     * @param { Array<[number, number]> } values
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createRadialGradientMask(center: common2D.Point, radiusX: number, radiusY: number,
+      values: Array<[number, number]>): Mask;
   }
 
   /**
