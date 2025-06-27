@@ -6060,7 +6060,7 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { number } orderStyle - Order style for albums.
      * @param { FetchOptions } [options] - Options for fetching the albums.
-     * @returns { Promise<FetchResult<AlbumOrder>> } - Return the fetch result
+     * @returns { Promise<FetchResult<AlbumOrder>> } - Return FetchResult of AlbumOrder.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
@@ -6072,7 +6072,7 @@ declare namespace photoAccessHelper {
      * @since 20
      * @arkts 1.1&1.2
      */
-    getPhotoAlbumOrder(orderStyle: number, options?: FetchOptions): Promise<FetchResult<Album>>;
+    getPhotoAlbumOrder(orderStyle: number, options?: FetchOptions): Promise<FetchResult<AlbumOrder>>;
 
     /**
      * Set Order of Photo Albums
