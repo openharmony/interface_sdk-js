@@ -31,7 +31,7 @@
     "SystemCapability.Multimedia.Media.AudioDecoder",
     "SystemCapability.Multimedia.Media.AudioEncoder",
     "SystemCapability.Multimedia.Media.CodecBase",
-	"SystemCapability.Multimedia.Media.Core"
+	"SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Multimedia.Media.Muxer",
     "SystemCapability.Multimedia.Media.Spliter",
     "SystemCapability.Multimedia.Media.VideoDecoder",
