@@ -39,7 +39,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
    * @param { Want } want - The element name of the service ability
-   * @param { ConnectOptions } options - The remote object instance
+   * @param { ConnectOptions } callback - The callback for obtaining the connection result
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -53,7 +53,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 20
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
