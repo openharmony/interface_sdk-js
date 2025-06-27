@@ -387,6 +387,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @type { ?Array<WantAgent> }
    * @syscap SystemCapability.Notification.Notification
+   * @crossplatform
    * @systemapi
    * @since 20
    */
