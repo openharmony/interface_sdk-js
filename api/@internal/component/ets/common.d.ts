@@ -10598,7 +10598,7 @@ declare interface MultiShadowOptions {
 
   /**
    * Current shadow offsetY
-   *
+   * 
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10607,7 +10607,7 @@ declare interface MultiShadowOptions {
    */
   /**
    * Current shadow offsetY
-   *
+   * 
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15640,6 +15640,43 @@ declare interface SpringBackAction {
   springBack: VoidCallback;
 }
 
+
+/**
+ * Defines the detent array of a single length.
+ *
+ * @typedef { [SheetSize | Length] } SingleLengthDetent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SingleLengthDetent = [SheetSize | Length];
+
+/**
+ * Defines the detent array of a two-length.
+ *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined] } DoubleLengthDetents
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DoubleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined];
+
+/**
+ * Defines the detent array of a three-length.
+ *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined] } TripleLengthDetents
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type TripleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined];
+
 /**
  * Component sheet options
  *
@@ -15747,14 +15784,14 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Defines sheet detents
    *
-   * @type { ?[(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?] }
+   * @type { ?(SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  detents?: [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined];
+  detents?: SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents;
 
   /**
    * Defines sheet background blur Style
