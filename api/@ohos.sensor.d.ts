@@ -3306,6 +3306,7 @@ declare namespace sensor {
      * Parameters of sensor on the device.
      * @type { ?SensorInfoParam }
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 19
      */
     sensorInfoParam?: SensorInfoParam;
@@ -4400,6 +4401,7 @@ declare namespace sensor {
   * Parameters of sensor on the device.
   * @typedef SensorInfoParam
   * @syscap SystemCapability.Sensors.Sensor
+  * @atomicservice
   * @since 19
   */
   interface SensorInfoParam {
@@ -4409,6 +4411,7 @@ declare namespace sensor {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 19
      */
     deviceId?: number;
@@ -4417,6 +4420,7 @@ declare namespace sensor {
      * Index of sensors of the same type. By default, it controls default sensors of the sensor type.
      * @type { ?number }
      * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
      * @since 19
      */
     sensorIndex?: number;
