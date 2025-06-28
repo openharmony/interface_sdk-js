@@ -981,6 +981,13 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
