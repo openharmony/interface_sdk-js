@@ -188,6 +188,7 @@ declare namespace floatingBall {
      * @returns { Promise<FloatingBallWindowInfo> } - The promise used to return the floating ball window info.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
