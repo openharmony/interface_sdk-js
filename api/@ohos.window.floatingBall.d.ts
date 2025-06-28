@@ -44,9 +44,10 @@ declare namespace floatingBall {
    * Create floating ball controller
    *
    * @param { FloatingBallConfiguration } config - Params for floating ball controller creation. 
-   * The config must be valid, the context in config should not be null. 
+   *     The config must be valid, the context in config should not be null. 
    * @returns { Promise<FloatingBallController> } - The promise returned by the function.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. 
+   *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
    * @throws { BusinessError } 1300023 - Floating ball internal error.
    * @syscap SystemCapability.Window.SessionManager
