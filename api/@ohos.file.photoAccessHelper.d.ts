@@ -4612,7 +4612,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Defines the album Order.
+   * Defines the album order.
    *
    * @interface AlbumOrder
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -6079,7 +6079,7 @@ declare namespace photoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { number } orderStyle - Order style for albums.
-     * @param { Array<AlbumOrder> } albumOrders - array AlbumOrder of the content.
+     * @param { Array<AlbumOrder> } albumOrders - Array AlbumOrder of the content.
      * @returns { Promise<void> } - Return void
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Called by non-system application.
