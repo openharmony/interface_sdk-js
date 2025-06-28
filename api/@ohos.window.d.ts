@@ -10326,32 +10326,30 @@ declare namespace window {
      *
      * @param { number } winX - Indicate the X-coordinate of the component relative to the current window.
      * @param { number } winY - Indicate the Y-coordinate of the component relative to the current window.
-     * @returns { Promise<Position> } Promise used to return the Position. The pair {x, y} represents respectively the X-coordinate
-     *                                and Y-coordinate of the window relative to the main screen.
+     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the main screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    clientToGlobalDisplay(winX: number, winY: number): Promise<Position>;
+    clientToGlobalDisplay(winX: number, winY: number): Position;
 
     /**
      * Convert the global coordinates to the window coordinates.
      *
      * @param { number } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
      * @param { number } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
-     * @returns { Promise<Position> } Promise used to return the Position. The pair {x, y} represents respectively the X-coordinate
-     * and Y-coordinate of the window relative to the current screen.
+     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the current screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Promise<Position>;
+    globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Position;
 
     /**
      * Register the callback of rotation change
