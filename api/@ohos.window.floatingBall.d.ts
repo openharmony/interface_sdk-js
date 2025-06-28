@@ -148,7 +148,6 @@ declare namespace floatingBall {
      * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command.
      * @param { Callback<FloatingBallState> } [callback] - Indicates the callback function.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -176,7 +175,6 @@ declare namespace floatingBall {
      * @param { 'click' } type - Used to unregister listener for {'click'} command.
      * @param { Callback<void> } [callback] - Indicates the callback function.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
