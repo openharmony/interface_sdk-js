@@ -410,7 +410,7 @@ interface FormCallbackInfo {
   idString: string;
 }
 /**
- * Defines the FormCallbackInfo.
+ * Defines the size of Form.
  *
  * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -420,7 +420,8 @@ interface FormCallbackInfo {
  */
 interface FormSize {
   /**
-   * The string id of the form.
+   * The width of the form.
+   * Anonymous Object Rectification
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -430,7 +431,8 @@ interface FormSize {
    */
   width: double;
   /**
-   * The string id of the form.
+   * The height of the form.
+   * Anonymous Object Rectification
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
