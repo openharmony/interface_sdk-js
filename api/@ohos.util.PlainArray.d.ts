@@ -850,6 +850,6 @@ declare class PlainArray<T> {
  * @since 20
  * @arkts 1.2
  */
-type PlainArrayForEachCb<T> = (value: T, key: number, PlainArray: PlainArray<T>) => void
+export type PlainArrayForEachCb<T> = (value: T, key: number, PlainArray: PlainArray<T>) => void
 
 export default PlainArray;

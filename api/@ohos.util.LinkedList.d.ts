@@ -1036,6 +1036,6 @@ declare class LinkedList<T> {
  * @since 20
  * @arkts 1.2
  */
-type LinkedListForEachCb<T> = (value: T, index: number, linkedList: LinkedList<T>) => void
+export type LinkedListForEachCb<T> = (value: T, index: number, linkedList: LinkedList<T>) => void
 
 export default LinkedList;
