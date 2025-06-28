@@ -19,11 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder } from './arkui/component/builder'
+import { CustomBuilder } from './arkui/component/builder';
 /*** endif */
 
 import { AsyncCallback } from './@ohos.base';
-import image from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image';
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.
@@ -254,9 +254,9 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
+   * @arkts 1.1&1.2
    */
   function get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void;
 
@@ -289,9 +289,9 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
+   * @arkts 1.1&1.2
    */
   function get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>;
 
@@ -328,9 +328,9 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
+   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): void;
@@ -368,9 +368,9 @@ declare namespace componentSnapshot {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
+   * @arkts 1.1&1.2
    */
   function createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>;
