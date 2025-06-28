@@ -296,6 +296,17 @@ declare interface FormInfo {
   want?: import('../api/@ohos.app.ability.Want').default;
 
   /**
+   * The want of the form.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  want?: Want;
+
+  /**
    * The renderingMode of the form.
    *
    * @type { ?FormRenderingMode }
@@ -410,33 +421,35 @@ interface FormCallbackInfo {
   idString: string;
 }
 /**
- * Defines the FormCallbackInfo.
+ * Defines the size of Form.
  *
  * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
- * @arkts 1.2
+ * @since arkts{ '1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface FormSize {
   /**
-   * The string id of the form.
+   * The width of the form.
+   * Anonymous Object Rectification
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: double;
   /**
-   * The string id of the form.
+   * The height of the form.
+   * Anonymous Object Rectification
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: double;
 }
