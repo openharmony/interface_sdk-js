@@ -1085,14 +1085,14 @@ declare interface TextInputOptions {
   /**
    * Sets the current value of TextInput.
    *
-   * @type { ?(ResourceStr | Bindable<ResourceStr>) }
+   * @type { ?(ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  text?: ResourceStr | Bindable<ResourceStr>;
+   text?: ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
 
   /**
    * Called when the position of the insertion cursor is set.
