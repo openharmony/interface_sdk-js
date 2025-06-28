@@ -39,7 +39,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @since arkts {'1.1':'9', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class WindowExtensionContext extends ExtensionContext {
+declare class WindowExtensionContext extends ExtensionContext {
   /**
    * Window extension uses this method to start a specific ability.
    *
@@ -100,3 +100,4 @@ export default class WindowExtensionContext extends ExtensionContext {
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 }
+export default WindowExtensionContext;
