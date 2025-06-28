@@ -6661,6 +6661,28 @@ declare namespace webview {
      * @since 20
      */
     static setBlanklessLoadingCacheCapacity(capacity: number) : number;
+
+    /**
+      * Get whether default error page feature is enabled.
+      *
+      * @returns  { boolean } -  True if enable the default error page feature; else false.
+      * @throws { BusinessError } 17100001 - Init error.
+      *                           The WebviewController must be associated with a Web component.
+      * @syscap SystemCapability.Web.Webview.Core
+      * @since 20
+      */
+    getErrorPageEnabled(): boolean;
+
+    /**
+      * Set whether enable the error page. onOverrideErrorPage will be triggered when the page error.
+      *
+      * @param { boolean } enable - Whether to enable the default error page feature.
+      * @throws { BusinessError } 17100001 - Init error.
+      *                           The WebviewController must be associated with a Web component.
+      * @syscap SystemCapability.Web.Webview.Core
+      * @since 20
+      */
+    setErrorPageEnabled(enable: boolean): void;
   }
 
   /**

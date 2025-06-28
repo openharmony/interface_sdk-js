@@ -65,6 +65,18 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
+ * The callback of onOverrideErrorPage.
+ *
+ * @typedef { function } OnOverrideErrorpageCallback
+ * @param { WebResourceRequest } webResourceRequest - Information about the failed request.
+ * @param { error } WebResourceError - The information of error.
+ * @returns { string } - Return an HTML text content encoded in Base64.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+type OnOverrideErrorPageCallback= (webResourceRequest: WebResourceRequest, error: WebResourceError) => string;
+
+/**
  * The callback of largestContentfulPaint.
  *
  * @typedef { function } OnLargestContentfulPaintCallback
@@ -8218,6 +8230,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
+
+  /**
+   * Triggered when the web page's document resource error.
+   * <p><strong>API Note</strong>:<br>
+   * This only triggered for main frame.
+   * </p>
+   *
+   * @param { OnOverrideErrorPageCallback } callback The triggered function when the
+   * web page's document resource error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onOverrideErrorPage(callback: OnOverrideErrorPageCallback): WebAttribute;
 
   /**
    * Triggered when starting to download.
