@@ -4705,6 +4705,62 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Defines the album order.
+   *
+   * @interface AlbumOrder
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 20
+   */
+  interface AlbumOrder {
+    /**
+     * The album id of album asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    albumId: number;
+    /**
+     * The album order of album asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    albumOrder: number;
+    /**
+     * The order section of album asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    orderSection: number;
+    /**
+     * The order type of album asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    orderType: number;
+    /**
+     * The order status of album asset
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    orderStatus: number;
+  }
+
+  /**
    * Helper functions to access photos and albums.
    *
    * @interface PhotoAccessHelper
@@ -6108,6 +6164,64 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
+
+    /**
+     * Obtains photo albums based on the specified options. This API uses a promise to return the result.
+     * Before the operation, ensure that the albums to obtain exist.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { FetchOptions } [options] - Options for fetching the albums.
+     * @returns { Promise<FetchResult<Album>> } - Return the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getPhotoAlbums(options?: FetchOptions): Promise<FetchResult<Album>>;
+
+    /**
+     * Get Order of Photo Albums
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { number } orderStyle - Order style for albums.
+     * @param { FetchOptions } [options] - Options for fetching the albums.
+     * @returns { Promise<FetchResult<AlbumOrder>> } - Return FetchResult of AlbumOrder.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     * <br>Possible causes: 1. The input parameter is not within the valid range. 
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getPhotoAlbumOrder(orderStyle: number, options?: FetchOptions): Promise<FetchResult<AlbumOrder>>;
+
+    /**
+     * Set Order of Photo Albums
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { number } orderStyle - Order style for albums.
+     * @param { Array<AlbumOrder> } albumOrders - Array AlbumOrder of the content.
+     * @returns { Promise<void> } - Return void
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     * <br>Possible causes: 1. The input parameter is not within the valid range. 
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    setPhotoAlbumOrder(orderStyle: number, albumOrders: Array<AlbumOrder>): Promise<void>;
   }
 
   /**
