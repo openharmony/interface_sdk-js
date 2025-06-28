@@ -2970,7 +2970,7 @@ declare namespace window {
    */
   interface UIEffectParams {
       /**
-       * system background filter configuration 
+       * System background filter configuration 
        *
        * @type { ?uiEffect.Filter }
        * @syscap SystemCapability.Window.SessionManager
@@ -2979,7 +2979,7 @@ declare namespace window {
        */
       backgroundFilter?: uiEffect.Filter,
       /**
-       * system visual effect configuration
+       * System visual effect configuration
        *
        * @type { ?uiEffect.VisualEffect }
        * @syscap SystemCapability.Window.SessionManager
@@ -3014,7 +3014,7 @@ declare namespace window {
       setParams(params: UIEffectParams): Promise<void>;
 
       /**
-       * do animate with UI effect param transition
+       * Do animate with UI effect param transition
        *
        * @param { WindowAnimationConfig } config - Animation param, when window changed.
        * @param { UIEffectParams } params - Animation param for UI effect.
@@ -3032,7 +3032,7 @@ declare namespace window {
       animateToUIEffect(config: WindowAnimationConfig, params: UIEffectParams, interruptConfig?: WindowAnimationConfig): Promise<void>;
   }
   /**
-   * create ui effect controller system
+   * Create ui effect controller system
    *
    * @returns { Promise<UIEffectController> } Promise used to return the UI effect controller.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
