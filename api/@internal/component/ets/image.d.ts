@@ -28,7 +28,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics } from './units';
 import { ImageFit, ImageRepeat, CopyOptions } from './enums';
 import { Resource } from '../../global/resource';
-import { CommonMethod, PointLightStyle, PixelMap } from './common'
+import { CommonMethod, PointLightStyle, PixelMap } from './common';
 /*** endif */
 
 /**

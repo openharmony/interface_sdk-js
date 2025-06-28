@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor,Length, PX , VP , LPX, Font, ResourceStr } from './units'
+import { ResourceColor,Length, PX , VP , LPX, Font } from './units'
 import { Resource } from '../../global/resource';
 import { CommonMethod, Optional,ContentModifier,CommonConfiguration } from './common'
 import { LinearGradient } from './dataPanel'

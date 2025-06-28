@@ -353,7 +353,6 @@ interface TextClockInterface {
    * Specifies the current time zone.
    * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
-   * Anonymous Object Rectification.
    *
    * @param { TextClockOptions } [options] - TextClock options.
    * @returns { TextClockAttribute }
@@ -361,7 +360,7 @@ interface TextClockInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
    */
   (options?: TextClockOptions): TextClockAttribute;
@@ -432,27 +431,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
-   * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
-   * The default value is "hh:mm:ss" when TextClock is not in a form.
-   * The default value is "hh:mm" when TextClock is in a form.
-   * If the value has second or millisecond, the value will be set to the default value.
-   *
-   * @param { ResourceStr } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  format(value: ResourceStr): TextClockAttribute;
+  format(value: string): TextClockAttribute;
 
   /**
    * Provides a date change callback.
