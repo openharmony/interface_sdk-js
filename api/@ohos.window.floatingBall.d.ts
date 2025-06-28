@@ -294,7 +294,7 @@ declare namespace floatingBall {
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    STOPPED = 2,
+    STOPPED = 2
   }
 
   /**
@@ -335,7 +335,7 @@ declare namespace floatingBall {
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    SIMPLE = 4,
+    SIMPLE = 4
   }
 
   /**
