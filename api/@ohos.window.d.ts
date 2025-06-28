@@ -4460,13 +4460,38 @@ declare namespace window {
    */
   enum WindowTransitionType {
     /**
-     * window transition type destroy
+     * Destroy transition
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
     DESTROY = 0,
+  }
+
+  /**
+   * Describes the window animation type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  enum AnimationType {
+    /**
+     * Window animation type fade in out
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    FADE_IN_OUT = 0,
+    /**
+     * Window animation type fade in
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    FADE_IN = 1,
   }
 
   /**
@@ -4479,7 +4504,7 @@ declare namespace window {
    */
   enum WindowAnimationCurve {
     /**
-     * animation curve type linear
+     * Animation curve type linear
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4488,7 +4513,7 @@ declare namespace window {
     LINEAR = 0,
 
     /**
-     * animation curve type interpolation spring
+     * Animation curve type interpolation spring
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4498,7 +4523,7 @@ declare namespace window {
   }
 
   /**
-   * window animation config
+   * Window animation config
    *
    * @interface WindowAnimationConfig
    * @syscap SystemCapability.Window.SessionManager
@@ -4507,7 +4532,7 @@ declare namespace window {
    */
   interface WindowAnimationConfig {
     /**
-     * curve of the animation
+     * Curve of the animation
      *
      * @type { WindowAnimationCurve }
      * @syscap SystemCapability.Window.SessionManager
@@ -4517,7 +4542,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * duration of the animation
+     * Duration of the animation
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -4527,7 +4552,7 @@ declare namespace window {
     duration?: number;
 
     /**
-     * param of animation curve
+     * Param of animation curve
      *
      * @type { ?WindowAnimationCurveParam }
      * @syscap SystemCapability.Window.SessionManager
@@ -4564,6 +4589,53 @@ declare namespace window {
      * @since 20
      */
     opacity?: number;
+  }
+
+  /**
+   * The animation configuration of start system scene animation
+   *
+   * @interface StartAnimationSystemParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface StartAnimationSystemParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    type: AnimationType;
+    /**
+     * The config of start system scene animation
+     *
+     * @type { ?WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    animationConfig?: WindowAnimationConfig;
+  }
+
+  /**
+   * The animation configuration of start scene animation
+   *
+   * @interface StartAnimationParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface StartAnimationParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    type: AnimationType;
   }
 
   /**
