@@ -1796,7 +1796,7 @@ declare namespace installer {
      * @param { string } hostBundleName - Indicates the bundle name of host application.
      * @param { Array<string> } pluginFilePaths - Indicates the file paths of plugin.
      * @param { PluginParam } [pluginParam] - Indicates parameters required for install plugin.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
@@ -1805,6 +1805,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700011 - Failed to install the plugin because the plugin signature fails to be verified.
      * @throws { BusinessError } 17700012 - Failed to install the plugin because the HSP path is invalid or the HSP is too large.
      * @throws { BusinessError } 17700015 - Failed to install the plugin because they have different configuration information.
+     * @throws { BusinessError } 17700016 - Failed to install the plugin because of insufficient system disk space.
      * @throws { BusinessError } 17700017 - Failed to install the plugin since the version of the plugin to install is too early.
      * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification is failed.
      * @throws { BusinessError } 17700052 - Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
