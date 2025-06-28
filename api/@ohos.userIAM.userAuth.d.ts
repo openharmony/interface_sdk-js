@@ -2093,6 +2093,23 @@ declare namespace userAuth {
      */
     sendCommand(cmdData: string): void;
   }
+
+  /**
+   * Obtains the reusable authentication result.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { AuthParam } authParam - Auth parameter.
+   * @returns { Uint8Array } The reuse authentication token.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500008 - Parameter verification failed.
+   * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
 }
 
 export default userAuth;
