@@ -2563,6 +2563,7 @@ declare namespace usbManager {
    * <br>2.The call chain used to obtain the input parameters is not resonable.
    * @syscap SystemCapability.USB.USBManager
    * @since 20
+   * @arkts 1.1&1.2
    */
   function resetUsbDevice(pipe: USBDevicePipe): boolean;
 }

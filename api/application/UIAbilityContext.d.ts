@@ -30,16 +30,18 @@ import { ConnectOptions } from '../ability/connectOptions';
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 /*** if arkts 1.1 */
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
-import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
-
+/*** if arkts 1.2 */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+/*** endif */
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
@@ -3560,7 +3562,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise<void>;
 
@@ -3711,7 +3714,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setMissionLabel(label: string, callback: AsyncCallback<void>): void;
 
@@ -3738,7 +3742,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setMissionLabel(label: string): Promise<void>;
 
@@ -3875,7 +3880,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -4499,8 +4505,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -4541,8 +4546,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -4817,7 +4821,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

@@ -544,10 +544,9 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?object }
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */

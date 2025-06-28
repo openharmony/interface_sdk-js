@@ -2573,7 +2573,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface X509CRLEntry {
     /**
@@ -2601,7 +2602,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
@@ -2630,7 +2632,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(): Promise<EncodingBlob>;
 
@@ -2655,7 +2658,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSerialNumber(): bigint;
 
@@ -2682,7 +2686,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertIssuer(): DataBlob;
 
@@ -2707,7 +2712,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRevocationDate(): string;
 
@@ -2732,7 +2738,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtensions(): DataBlob;
 
@@ -2757,7 +2764,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasExtensions(): boolean;
 
@@ -2771,7 +2779,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertIssuerX500DistinguishedName(): X500DistinguishedName;
 
@@ -2785,7 +2794,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
 
@@ -2799,7 +2809,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hashCode(): Uint8Array;
 
@@ -2813,7 +2824,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtensionsObject(): CertExtension;
   }
@@ -3151,7 +3163,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface X509CRL {
     /**
@@ -3175,7 +3188,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRevoked(cert: X509Cert): boolean;
 
@@ -3194,7 +3208,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getType(): string;
 
@@ -3223,7 +3238,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
@@ -3252,7 +3268,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEncoded(): Promise<EncodingBlob>;
 
@@ -3279,7 +3296,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
@@ -3306,7 +3324,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
@@ -3325,7 +3344,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVersion(): int;
 
@@ -3350,7 +3370,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getIssuerName(): DataBlob;
 
@@ -3375,7 +3396,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLastUpdate(): string;
 
@@ -3400,7 +3422,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getNextUpdate(): string;
 
@@ -3429,7 +3452,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRevokedCert(serialNumber: bigint): X509CRLEntry;
 
@@ -3458,7 +3482,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRevokedCertWithCert(cert: X509Cert): X509CRLEntry;
 
@@ -3485,7 +3510,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>): void;
 
@@ -3512,7 +3538,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRevokedCerts(): Promise<Array<X509CRLEntry>>;
 
@@ -3537,7 +3564,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTBSInfo(): DataBlob;
 
@@ -3562,7 +3590,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSignature(): DataBlob;
 
@@ -3587,7 +3616,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSignatureAlgName(): string;
 
@@ -3612,7 +3642,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSignatureAlgOid(): string;
 
@@ -3639,7 +3670,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSignatureAlgParams(): DataBlob;
 
@@ -3664,7 +3696,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtensions(): DataBlob;
 
@@ -3693,7 +3726,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     match(param: X509CRLMatchParameters): boolean;
 
@@ -3707,7 +3741,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getIssuerX500DistinguishedName(): X500DistinguishedName;
 
@@ -3721,7 +3756,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     toString(): string;
 
@@ -3735,7 +3771,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hashCode(): Uint8Array;
 
@@ -3749,7 +3786,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtensionsObject(): CertExtension;
   }
@@ -3781,7 +3819,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>): void;
 
@@ -3812,7 +3851,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createX509CRL(inStream: EncodingBlob): Promise<X509CRL>;
 
@@ -4725,7 +4765,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectCerts(param: X509CertMatchParameters): Promise<Array<X509Cert>>;
 
@@ -4754,7 +4795,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectCerts(param: X509CertMatchParameters, callback: AsyncCallback<Array<X509Cert>>): void;
 
@@ -4783,7 +4825,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectCRLs(param: X509CRLMatchParameters): Promise<Array<X509CRL>>;
 
@@ -4812,7 +4855,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectCRLs(param: X509CRLMatchParameters, callback: AsyncCallback<Array<X509CRL>>): void;
   }
@@ -4842,7 +4886,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createCertCRLCollection(certs: Array<X509Cert>, crls?: Array<X509CRL>): CertCRLCollection;
 
@@ -4932,7 +4977,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     validate(param: CertChainValidationParameters): Promise<CertChainValidationResult>;
 
@@ -4975,7 +5021,8 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     validate(param: CertChainValidationParameters, callback: AsyncCallback<CertChainValidationResult>): void;
 
@@ -5123,7 +5170,8 @@ declare namespace cert {
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
 

@@ -1443,6 +1443,19 @@ declare namespace util {
   }
 
   /**
+   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
+   * callback as the last argument, and return a function that returns promises.
+   *
+   * @param { Function } original - Asynchronous Function
+   * @returns { Function } Return a function that returns promises
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function promisify(original: Function): (...args: FixedArray<Any>) => Promise<Any>;
+
+  /**
    * Get the hash code of an object.
    *
    * @param { object } [object] - The object that need to get hash code.
@@ -1453,5 +1466,30 @@ declare namespace util {
    * @since 20
    */
   function getHash(object: object): number;
+
+  /**
+   * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
+   *
+   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
+   * @returns { Uint8Array | undefined } Return a Uint8Array representing this UUID, or undefined on failure.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array | undefined;
+
+  /**
+   * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
+   *
+   * @param { string } uuid - String that specifies a UUID
+   * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
+   * @throws { BusinessError } 10200002 - Invalid uuid string.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function parseUUID(uuid: string): Uint8Array;
 }
 export default util;

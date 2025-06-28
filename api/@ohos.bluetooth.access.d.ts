@@ -288,8 +288,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
@@ -336,8 +335,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 

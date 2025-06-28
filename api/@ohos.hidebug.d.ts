@@ -362,96 +362,107 @@ declare namespace hidebug {
   function getAppNativeMemInfo(): NativeMemInfo;
 
   /**
-   * Application process memory limit
+   * Defines the memory limit of the application process.
    *
    * @interface MemoryLimit
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MemoryLimit {
     /**
-     * The limit of the application process's resident set, in kilobyte
+     * Limit on the resident set size, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssLimit: bigint;
     /**
-     * The limit of the application process's virtual memory, in kilobyte
+     * Limit on the virtual memory size, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vssLimit: bigint;
     /**
-     * The limit of the js vm heap size of current virtual machine, in kilobyte
+     * Limit on the JS VM heap size of the calling thread, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmHeapLimit: bigint;
     /**
-     * The limit of the total js vm heap size of process, in kilobyte
+     * Size limit of the JS heap memory of the process, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmTotalHeapSize: bigint;
   }
 
   /**
-   * Obtains the memory limit of application process.
+   * Obtains the memory limit of an application process.
    *
-   * @returns { MemoryLimit } Returns memory limit of application.
+   * @returns { MemoryLimit } Returns the memory limit of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppMemoryLimit(): MemoryLimit;
 
   /**
-   * The memory information of application virtual machine.
+   * Describes the VM memory information.
    *
    * @interface VMMemoryInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VMMemoryInfo {
     /**
-     * Total size of current virtual machine Heap, in kilobyte
+     * Total heap size of the current VM, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalHeap: bigint;
     /**
-     * Used size of current virtual machine Heap, in kilobyte
+     * Heap size used by the current VM, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     heapUsed: bigint;
     /**
-     * All array object size of current virtual machine, in kilobyte
+     * Size of all array objects of the current VM, in KB.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allArraySize: bigint;
   }
 
   /**
-   * Obtains the memory information of application virtual machine.
+   * Obtains VM memory information.
    *
-   * @returns { VMMemoryInfo } Returns memory information of application virtual machine.
+   * @returns { VMMemoryInfo } Returns the VM memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
@@ -743,33 +754,37 @@ declare namespace hidebug {
   function stopAppTraceCapture(): void;
 
   /**
-   * Collection statistics.
+   * Describes the key-value pair used to store GC statistics. This type does not support multi-thread operations.
+   * If this type is operated by multiple threads at the same time in an application, use a lock for it.
    *
    * @typedef { Record<string, number> } GcStats
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type GcStats = Record<string, number>;
 
   /**
-   * Get the garbage collection statistics.
+   * Obtains all system GC statistics.
    *
-   * @returns { GcStats } Returns garbage collection statistics.
+   * @returns { GcStats } Returns the system GC statistics.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStats(): GcStats;
 
   /**
-   * Get the garbage collection statistics by statistical item.
+   * Obtains the specified system GC statistics based on parameters.
    *
    * @param { string } item - statistical item.
-   * @returns { number } Returns garbage collection statistics.
+   * @returns { number } Returns the item of the GC statistics to be obtained.
    * @throws { BusinessError } 401 - Possible causes:
    *                           1. Invalid parameter, a string parameter required.
    *                           2. Invalid parameter, unknown property.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStat(item: string): number;
 
@@ -799,11 +814,13 @@ declare namespace hidebug {
   function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
 
   /**
-   * Judge if the application is in debugged state, including either in arkui layer or native layer debugged state.
+   * Obtains the debugging state of an application process. If the Ark or native layer of the application process is in
+   * debugging state, true is returned. Otherwise, false is returned.
    *
-   * @returns { boolean } true if the application is debugged.
+   * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDebugState(): boolean;
 
@@ -840,7 +857,6 @@ declare namespace hidebug {
    *
    * @param { boolean } needGC - Whether do GC before dump, default is true.
    * @returns { Promise<string> } Returns the full path of raw heap snapshot file.
-   * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.

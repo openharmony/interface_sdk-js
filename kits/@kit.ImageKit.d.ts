@@ -18,7 +18,15 @@
  * @kit ImageKit
  */
 
+/*** if arkts 1.1 */
 import image from '@ohos.multimedia.image';
 import sendableImage from '@ohos.multimedia.sendableImage';
 
 export { image, sendableImage };
+/*** endif */
+
+/*** if arkts 1.2 */
+import image from '@ohos.multimedia.image';
+
+export { image };
+/*** endif */

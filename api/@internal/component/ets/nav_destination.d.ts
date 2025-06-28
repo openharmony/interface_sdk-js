@@ -947,7 +947,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 15
    */
-  onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
+  /**
+   * Invoked when pop to the navDestination with result.
+   * 
+   * @param {Optional<Callback<Object | null | undefined>>} callback - Indicates callback when pop to the navDestination with result.
+   * @returns {NavDestinationAttribute}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  onResult(callback: Optional<Callback<Object | null | undefined>>): NavDestinationAttribute;
 
   /**
    * Sets the different mode of NavDestination.

@@ -37,8 +37,7 @@ import { ListOptions, ListAttribute } from './component/list'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -969,15 +968,14 @@ export declare abstract class TypedFrameNode<T> extends FrameNode {
   /**
    * Get attribute instance of FrameNode to set attributes.
    *
-   * @type { T }
-   * @readonly
+   * @returns { T } - Returns the attribute instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  readonly attribute: T;
+  get attribute(): T;
 }
 
 /**
@@ -2029,8 +2027,7 @@ export declare namespace typeNode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 /**
  * Used for lazy loading of typeNode.

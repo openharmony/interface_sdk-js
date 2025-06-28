@@ -23,6 +23,7 @@ import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
 import { Builder } from './builder'
+import { LocalStorage } from './../stateManagement/storage/localStorage';
 
 /**
  * Defines Entry Annotation.
@@ -56,7 +57,7 @@ export @interface Entry {
     storage: string = "";
 
     /**
-     * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+     * Determines whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -64,7 +65,7 @@ export @interface Entry {
      * @atomicservice
      * @since 20
      */
-    shared: boolean = false;
+    useSharedStorage: boolean = false;
 }
 
 /**
@@ -168,6 +169,15 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
  * @since 20
  */
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
+   /**
+    * Constructor to use to create a customComponent instance.
+    * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
+    * @param {LocalStorage} [storage] - localStorage instance.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+   constructor(useSharedStorage?: boolean, storage?: LocalStorage);
+    
     /**
      * Define the constructor of custom component
      *

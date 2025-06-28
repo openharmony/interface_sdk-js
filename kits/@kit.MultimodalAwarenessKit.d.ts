@@ -18,7 +18,8 @@
  * @kit MultimodalAwarenessKit
  */
 
-import stationary from '@ohos.stationary';
 import motion from '@ohos.multimodalAwareness.motion';
+import roomLocation from '@ohos.multimodalAwareness.roomLocation';
+import stationary from '@ohos.stationary';
 
-export { stationary, motion };
+export { motion, roomLocation, stationary };

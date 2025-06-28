@@ -20,9 +20,6 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
-/*** if arkts 1.1 */
-import { int } from '@ohos.base';
-/*** endif */
 
 /**
  * @namespace privacyManager
@@ -45,7 +42,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -68,7 +65,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, the count value is invalid,
    *  or usedType in AddPermissionUsedRecordOptions is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -98,7 +95,7 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -125,12 +122,13 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag in request is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionUsedRecord(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
 
@@ -145,12 +143,13 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag in request is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionUsedRecord(
     request: PermissionUsedRequest,
@@ -161,7 +160,7 @@ declare namespace privacyManager {
    * Start using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -169,44 +168,46 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+  function startUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
 
   /**
    * Start using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
-   * @param { number } pid - Pid of the application, default -1.
-   * @param { PermissionUsedType } usedType - Used type of the permission accessed, default NORMAL_TYPE.
+   * @param { int } [pid] - Pid of the application, default -1.
+   * @param { PermissionUsedType } [usedType] - Used type of the permission accessed, default NORMAL_TYPE.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startUsingPermission(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    pid?: number,
+    pid?: int,
     usedType?: PermissionUsedType
   ): Promise<void>;
 
@@ -214,7 +215,7 @@ declare namespace privacyManager {
    * Start using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
    * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -222,22 +223,23 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+  function startUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
   /**
    * Stop using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be stopped.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -245,48 +247,50 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+  function stopUsingPermission(tokenID: int, permissionName: Permissions): Promise<void>;
 
   /**
    * Stop using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be stopped.
-   * @param { number } pid - Pid of the application, default -1.
+   * @param { int } [pid] - Pid of the application, default -1.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopUsingPermission(
-    tokenID: number,
+    tokenID: int,
     permissionName: Permissions,
-    pid?: number
+    pid?: int
   ): Promise<void>;
 
   /**
    * Stop using sensitive permission.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be stopped.
    * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -294,15 +298,16 @@ declare namespace privacyManager {
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+  function stopUsingPermission(tokenID: int, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
   /**
    * Subscribes to the change of active state of the specified permission.
@@ -336,7 +341,7 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { 'activeStateChange' } type - Event type. This parameter cannot change.
    * @param { Array<Permissions> } permissionList - Indicates the permission list, which are specified. This parameter cannot be null or empty.
-   * @param { Callback<ActiveChangeResponse> } callback - Callback for listening permission change.
+   * @param { Callback<ActiveChangeResponse> } [callback] - Callback for listening permission change.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
@@ -359,7 +364,7 @@ declare namespace privacyManager {
    * Obtains the used type of the permission accessed.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenId - Token ID of the application. By default, all token IDs of the device are returned.
+   * @param { int } tokenId - Token ID of the application. By default, all token IDs of the device are returned.
    * @param { Permissions } permissionName - Name of the permission to query. By default, all permissions of the device are returned.
    * @returns { Promise<Array<PermissionUsedTypeInfo>> } Promise used to return the information obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -370,9 +375,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPermissionUsedTypeInfos(tokenId?: number, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
+  function getPermissionUsedTypeInfos(tokenId?: int, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
   /**
    * Sets the toggle state of permission access records for the current user.
@@ -387,7 +393,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100009 - Common inner error.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPermissionUsedRecordToggleStatus(status: boolean): Promise<void>;
 
@@ -401,7 +408,8 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionUsedRecordToggleStatus(): Promise<boolean>;
 
@@ -622,26 +630,26 @@ declare namespace privacyManager {
     /**
      * The begin time, in milliseconds
      *
-     * @type { ?int }
+     * @type { ?long }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    beginTime?: int;
+    beginTime?: long;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { ?int }
+     * @type { ?long }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endTime?: int;
+    endTime?: long;
 
     /**
      * The permission usage flag
@@ -668,24 +676,24 @@ declare namespace privacyManager {
     /**
      * The begin time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    beginTime: int;
+    beginTime: long;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endTime: int;
+    endTime: long;
 
     /**
      * The list of permission used records of bundle
@@ -811,35 +819,35 @@ declare namespace privacyManager {
     /**
      * The last access time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastAccessTime: int;
+    lastAccessTime: long;
 
     /**
      * The last reject time, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastRejectTime: int;
+    lastRejectTime: long;
 
     /**
      * The last access duration, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastAccessDuration: int;
+    lastAccessDuration: long;
 
     /**
      * The list of access records of details
@@ -899,13 +907,13 @@ declare namespace privacyManager {
     /**
      * Timestamp, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timestamp: int;
+    timestamp: long;
 
     /**
      * The value of successCount or failCount passed in to addPermissionUsedRecord.
@@ -921,13 +929,13 @@ declare namespace privacyManager {
     /**
      * Access duration, in milliseconds
      *
-     * @type { int }
+     * @type { long }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    accessDuration: int;
+    accessDuration: long;
 
     /**
      * Used type of the permission accessed.

@@ -2391,6 +2391,18 @@ declare namespace buffer {
     toJSON(): Object;
 
     /**
+     * Converts this Buffer instance into a JsonElement.
+     *
+     * @returns { jsonx.JsonElement } A new JsonElement containing the Buffer
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    toJSON(): jsonx.JsonElement;
+
+    /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
      * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use

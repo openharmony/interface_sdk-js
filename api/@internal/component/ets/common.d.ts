@@ -26,12 +26,13 @@ import image from '../../@ohos.multimedia.image';
 import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
 import promptAction from '../../@ohos.promptAction';
 import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
+import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '../../@ohos.arkui.observer';
-import { UIContext } from '../../@ohos.arkui.UIContext';
-import { DrawContext, LengthMetrics } from '../../arkui/Graphics';
+import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
+import { DrawContext as _DrawContext, LengthMetrics } from '../../arkui/Graphics';
 import uiEffect from '../../@ohos.graphics.uiEffect';
 import { FocusBoxStyle, FocusPriority } from './focus';
 import { ComponentContent } from '../../arkui/ComponentContent';
@@ -28736,8 +28737,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface LinearGradient {
   /**
@@ -28762,8 +28762,7 @@ declare interface LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   angle?: number | string;
   /**
@@ -28788,8 +28787,7 @@ declare interface LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   direction?: GradientDirection;
   /**
@@ -28823,8 +28821,7 @@ declare interface LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   colors: Array<[ResourceColor, number]>;
   /**
@@ -28849,8 +28846,7 @@ declare interface LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   repeating?: boolean;
 }
@@ -29646,6 +29642,19 @@ declare type RouterPageInfo = uiObserver.RouterPageInfo;
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
+ * UIContext.
+ *
+ * @typedef { _UIContext } UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type UIContext = _UIContext;
+
+/**
  * DrawContext
  *
  * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
@@ -29655,6 +29664,19 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
  * @since 12
  */
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
+ * DrawContext.
+ *
+ * @typedef { _DrawContext } DrawContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type DrawContext = _DrawContext;
 
 /**
  * VisualEffect
@@ -32658,6 +32680,36 @@ declare interface DateRange {
    * @arkts 1.1&1.2
    */
   end?: Date;
+}
+
+/**
+ * Indicates the information when the provider of the embedded UI is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface TerminationInfo {
+  /**
+   * Defines the termination code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  code: number;
+
+  /**
+   * Defines the additional termination information.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  want?: Want;
 }
 
 /**

@@ -604,7 +604,8 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
@@ -648,7 +649,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
@@ -662,7 +664,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    function getLinkedInfoSync(): WifiLinkedInfo;
 
@@ -1579,8 +1582,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
@@ -1646,8 +1648,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
@@ -1710,8 +1711,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
 
@@ -1758,8 +1758,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'wifiRssiChange', callback: Callback<number>): void;
 
@@ -1792,8 +1791,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'streamChange', callback: Callback<number>): void;
 
@@ -1828,8 +1826,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'deviceConfigChange', callback: Callback<number>): void;
 
@@ -1862,8 +1859,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'hotspotStateChange', callback: Callback<number>): void;
 
@@ -1897,8 +1893,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
@@ -1934,8 +1929,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
 
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
@@ -1967,8 +1961,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'p2pStateChange', callback: Callback<number>): void;
 
@@ -1998,8 +1991,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
@@ -2042,8 +2034,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
@@ -2098,8 +2089,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
@@ -2141,8 +2131,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
@@ -2172,8 +2161,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
 

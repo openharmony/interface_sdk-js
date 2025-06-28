@@ -26,7 +26,14 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
  * @namespace shortcutManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 12
+ */
+/**
+ * Desktop shortcut bundle manager.
+ *
+ * @namespace shortcutManager
+ * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare namespace shortcutManager {
@@ -93,7 +100,14 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Provides information about a shortcut, including the shortcut ID and label.
+   *
+   * @typedef { _ShortcutInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
    * @arkts 1.1&1.2
    */
   export type ShortcutInfo = _ShortcutInfo;
@@ -103,7 +117,14 @@ declare namespace shortcutManager {
    * @typedef { _ShortcutWant }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Obtains information about the ability that a shortcut will start.
+   *
+   * @typedef { _ShortcutWant }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
    * @arkts 1.1&1.2
    */
   export type ShortcutWant = _ShortcutWant;
@@ -113,7 +134,14 @@ declare namespace shortcutManager {
    * @typedef { _ParameterItem }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+    /**
+   * Indicates the custom parameters in shortcut want.
+   *
+   * @typedef { _ParameterItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
    * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;

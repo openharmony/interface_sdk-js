@@ -224,6 +224,8 @@
     "SystemCapability.Graphic.Graphic2D.WebGL2",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
+    "SystemCapability.MultimodalAwareness.RoomLocation",
     "SystemCapability.Mechanic.Core"
+    
   ]
 }

@@ -19,7 +19,7 @@
  */
 
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+import { memo, ComponentBuilder } from './../stateManagement/runtime'
 
 /**
  * Indicates the type of Repeat's Data Source.
@@ -176,44 +176,42 @@ export interface TemplateOptions {
  * @atomicservice
  * @since 20
  */
-export interface UIRepeatAttribute<T> {
+export interface RepeatAttribute<T> {
     /**
      * Executes itemGenerator of each item.
      *
      * @param { RepeatItemBuilder<T> } itemGenerator
-     * @returns { UIRepeatAttribute<T> }
+     * @returns { RepeatAttribute<T> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    @memo
     each(itemGenerator: RepeatItemBuilder<T>): this;
     /**
      * Obtains key of each item.
      *
      * @param { function } keyGenerator
-     * @returns { UIRepeatAttribute<T> }
+     * @returns { RepeatAttribute<T> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    @memo
     key(keyGenerator: (item: T, index: number) => string): this;
     /**
      * Enable UI lazy loading when scroll up or down.
      *
-     * @param { VirtualScrollOptions } virtualScrollOptions that defines the options of repeat virtual scroll to implement reuse and lazy loading.
-     * @returns { UIRepeatAttribute<T> }
+     * @param { VirtualScrollOptions } virtualScrollOptions that defines the options of repeat virtual scroll to
+     * implement reuse and lazy loading.
+     * @returns { RepeatAttribute<T> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    @memo
     virtualScroll(virtualScrollOptions?: VirtualScrollOptions): this;
     /**
      * Type builder function to render specific type of data item.
@@ -221,25 +219,23 @@ export interface UIRepeatAttribute<T> {
      * @param { string } type that defines the template id.
      * @param { RepeatItemBuilder<T> } itemBuilder that defines UI builder function.
      * @param { TemplateOptions } templateOptions that defines a builder template option parameter.
-     * @returns { UIRepeatAttribute<T> }
+     * @returns { RepeatAttribute<T> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    @memo
     template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): this;
     /**
      * Typed function to render specific type of data item.
      *
      * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
-     * @returns { UIRepeatAttribute<T> }
+     * @returns { RepeatAttribute<T> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    @memo
     templateId(typedFunc: TemplateTypedFunc<T>): this;
 }
 
@@ -248,7 +244,7 @@ export interface UIRepeatAttribute<T> {
  *
  * @typedef { function } RepeatInterface
  * @param { RepeatArray<T> } arr - The Data Source
- * @returns { UIRepeatAttribute<T> }
+ * @returns { RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -257,4 +253,4 @@ export interface UIRepeatAttribute<T> {
  */
 @memo
 @ComponentBuilder
-export declare function Repeat<T>(arr: RepeatArray<T>): UIRepeatAttribute<T>
+export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>

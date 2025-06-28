@@ -24,7 +24,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace logLibrary
  * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace logLibrary {
   /**
@@ -33,7 +34,8 @@ declare namespace logLibrary {
    * @typedef LogEntry
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface LogEntry {
     /**
@@ -42,7 +44,8 @@ declare namespace logLibrary {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -52,7 +55,8 @@ declare namespace logLibrary {
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mtime: number;
 
@@ -62,7 +66,8 @@ declare namespace logLibrary {
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: number;
   }
@@ -81,7 +86,8 @@ declare namespace logLibrary {
    * <br>3. Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function list(logType: string): LogEntry[];
 
@@ -102,7 +108,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function copy(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -123,7 +130,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function copy(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -144,7 +152,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function move(logType: string, logName: string, dest: string): Promise<void>;
 
@@ -165,7 +174,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function move(logType: string, logName: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -184,7 +194,8 @@ declare namespace logLibrary {
    * @throws { BusinessError } 21300001 - Source file does not exists
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function remove(logType: string, logName: string): void;
 }

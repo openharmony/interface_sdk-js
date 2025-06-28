@@ -1130,8 +1130,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fillColor(value: ResourceColor): ImageAttribute;
 
@@ -1143,8 +1142,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 

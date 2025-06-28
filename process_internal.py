@@ -65,7 +65,7 @@ def copy_files(options):
 
 
 def format_path(filepath, base_dir):
-    return os.path.relpath(filepath, base_dir)
+    return os.path.abspath(filepath)
 
 
 def parse_args(args):

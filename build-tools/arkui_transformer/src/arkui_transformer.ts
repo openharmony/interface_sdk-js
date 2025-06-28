@@ -53,6 +53,13 @@ function convertFiles(files: string[]): string[] {
   return result
 }
 
+function getTransformationResult(sourceFile: ts.SourceFile, program: ts.Program, componentFile: ComponentFile): ts.TransformationResult<ts.SourceFile> {
+  if (uiconfig.isHdsComponent) {
+    return ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer()]);
+  }
+  return ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+}
+
 function printResult(source: string, file: ComponentFile) {
   const outPath = path.join(options.targetDir, file.outFileName)
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
@@ -80,7 +87,7 @@ function main() {
     return (context: ts.TransformationContext) => {
       return (sourceFile: ts.SourceFile) => {
         const componentFile = componentFileMap.get(f)!;
-        const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+        const result = getTransformationResult(sourceFile, program, componentFile);
         const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
         const transformedSource = ts.createPrinter().printFile(transformedFile);
         printResult(transformedSource, componentFile);

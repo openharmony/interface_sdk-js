@@ -293,7 +293,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleCodeDir: string;
 
@@ -312,7 +313,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   distributedFilesDir: string;
 
@@ -324,7 +326,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceDir: string;
 
@@ -335,7 +338,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cloudFileDir: string;
 
@@ -384,10 +388,33 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   area: contextConstant.AreaMode;
+
+  /**
+   * Get file area.
+   *
+   * @return { contextConstant.AreaMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get area(): contextConstant.AreaMode;
+
+  /**
+   * Set file area.
+   *
+   * @param { contextConstant.AreaMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set area(mode: contextConstant.AreaMode);
 
   /**
    * Indicates process name.

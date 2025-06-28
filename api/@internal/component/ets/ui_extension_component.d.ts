@@ -20,8 +20,8 @@
 
 /*** if arkts 1.2 */
 import Want from '../../@ohos.app.ability.Want'
-import { Callback, ErrorCallback,BusinessError } from '../../@ohos.base'
-import { CommonMethod } from './common'
+import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base'
+import { CommonMethod, TerminationInfo } from './common'
 import { ComponentContent } from '../ComponentContent'
 /*** endif */
 
@@ -61,14 +61,16 @@ declare enum DpiFollowStrategy {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum WindowModeFollowStrategy {
     /**
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
 
@@ -76,7 +78,8 @@ declare enum WindowModeFollowStrategy {
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
 }
@@ -147,7 +150,8 @@ declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
@@ -180,39 +184,6 @@ declare interface TerminationInfo {
    * @since 12
    */
    want?: import('../api/@ohos.app.ability.Want').default;
-}
-
-/**
- * Indicates the information when the provider of the embedded UI is terminated.
- *
- * @interface TerminationInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 20
- * @arkts 1.2
- */
-declare interface TerminationInfo {
-  /**
-   * Defines the termination code.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-   code: number;
-   
-   /**
-   * Defines the additional termination information.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-   want?: Want;
 }
 
 /**
@@ -254,8 +225,7 @@ declare interface UIExtensionProxy {
    * @param { object } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * This function is for sending data to the UIExtensionAbility.
@@ -273,7 +243,7 @@ declare interface UIExtensionProxy {
    *
    * @param { object } data - data send to the UIExtensionAbility
    * @returns { object } data - data transferred from the UIExtensionAbility
-   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -284,7 +254,7 @@ declare interface UIExtensionProxy {
    *
    * @param { Record<string, Object> } data - Data send to the UIExtensionAbility.
    * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility.
-   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -419,9 +389,10 @@ interface UIExtensionComponentInterface {
    * Construct the UIExtensionComponent.<br/>
    * Called when the UIExtensionComponent is used.
    *
-   * @param { import('../api/@ohos.app.ability.Want').default } want - indicates the want of UIExtensionAbility
+   * @param { Want } want - indicates the want of UIExtensionAbility
    * @param { UIExtensionOptions } [options] - Construction configuration of UIExtensionComponentAttribute
    * @returns { UIExtensionComponentAttribute }
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
@@ -457,10 +428,11 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
   
   /**
-   * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback
-   * - callback called when remote UIExtensionAbility object is
-   * <br/>ready for receive data
+   * callback called when remote UIExtensionAbility object is ready for receive data
+   * 
+   * @param { Callback<UIExtensionProxy> } callback
    * @returns { UIExtensionComponentAttribute }
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
@@ -533,9 +505,11 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
   
   /**
-   * @param { import('../api/@ohos.base').ErrorCallback } callback
-   * - called when some error occurred except disconnected from UIExtensionAbility.
+   * called when some error occurred except disconnected from UIExtensionAbility.
+   * 
+   * @param { ErrorCallback<BusinessError> } callback
    * @returns { UIExtensionComponentAttribute }
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
@@ -563,7 +537,8 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onDrawReady(callback: Callback<void>): UIExtensionComponentAttribute;
 }
