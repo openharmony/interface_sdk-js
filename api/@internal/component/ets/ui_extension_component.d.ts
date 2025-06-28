@@ -188,7 +188,7 @@ declare interface TerminationInfo {
 
 /**
  * Get Callback from @ohos.base.
- * AnonyMous Object Rectification.
+ * AnonyMous Object Rectification
  *
  * @typedef { import('../api/@ohos.base').Callback<Record<string, Object>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -230,7 +230,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * This function is for sending data to the UIExtensionAbility.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { Record<string, Object> } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -253,7 +253,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * This function is for sending data to the UIExtensionAbility and waiting the result in blocking mode.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { Record<string, Object> } data - Data send to the UIExtensionAbility.
    * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility.
@@ -277,7 +277,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { 'asyncReceiverRegister' } type - Indicates the type of event.
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
@@ -299,7 +299,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { 'syncReceiverRegister' } type - Indicates the type of event.
    * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
@@ -321,7 +321,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { 'asyncReceiverRegister' } type - Type of the listened event.
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
@@ -343,7 +343,7 @@ declare interface UIExtensionProxy {
    */
   /**
    * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { 'syncReceiverRegister' } type - Type of the listened event.
    * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
@@ -458,7 +458,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @since 10
    */
   /**
-   * AnonyMous Object Rectification.
+   * AnonyMous Object Rectification
    *
    * @param { ReceiveCallback } callback - Called when data received from UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
