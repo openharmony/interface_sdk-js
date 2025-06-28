@@ -27,7 +27,6 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * @namespace selectionManager
  * @syscap SystemCapability.SelectionInput.Selection
  * @since 20
- * @arkts 1.1&1.2
  */
 
 declare namespace selectionManager {
@@ -39,7 +38,6 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void;
 
@@ -50,7 +48,6 @@ declare namespace selectionManager {
    * completion event.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void;
 
@@ -63,7 +60,6 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>;
 
@@ -74,7 +70,6 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600001 Selection service exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   function destroyPanel(panel: Panel): Promise<void>;
 
@@ -83,7 +78,6 @@ declare namespace selectionManager {
    * @typedef SelectionInfo
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface SelectionInfo {
     /**
@@ -91,7 +85,6 @@ declare namespace selectionManager {
      * @type { string }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     text: string;
 
@@ -101,106 +94,94 @@ declare namespace selectionManager {
      * @default MOUSE_MOVE
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     selectionType: SelectionType;
 
     /**
      * X-coordinate of the screen where the word selection starts.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    startDisplayX: int;
+    startDisplayX: number;
 
     /**
      * Y-coordinate of the screen where the word selection starts.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    startDisplayY: int;
+    startDisplayY: number;
 
     /**
      * X-coordinate of the screen where the word selection ends.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    endDisplayX: int;
+    endDisplayX: number;
 
     /**
      * Y-coordinate of the screen where the word selection ends.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    endDisplayY: int;
+    endDisplayY: number;
 
     /**
      * X-coordinate of the window where the word selection starts.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    startWindowX: int;
+    startWindowX: number;
 
     /**
      * Y-coordinate of the window where the word selection starts.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    startWindowY: int;
+    startWindowY: number;
 
     /**
      * X-coordinate of the window where the word selection ends.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    endWindowX: int;
+    endWindowX: number;
 
     /**
      * Y-coordinate of the window where the word selection ends.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    endWindowY: int;
+    endWindowY: number;
 
     /**
      * ID of the screen where the window with selected words is located.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    displayID: int;
+    displayID: number;
 
     /**
      * ID of the window where words are selected.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    windowID: int;
+    windowID: number;
 
     /**
      * Bundle name of the application where words are selected.
      * @type { string }
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     bundleName: string;
   }
@@ -210,7 +191,6 @@ declare namespace selectionManager {
    * @typedef Panel
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface Panel {
     /**
@@ -221,7 +201,6 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     setUiContent(path: string): Promise<void>;
 
@@ -232,7 +211,6 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     show(): Promise<void>;
 
@@ -243,7 +221,6 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     hide(): Promise<void>;
 
@@ -254,22 +231,20 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     startMoving(): Promise<void>;
 
     /**
      * Moves the word selection panel to the specified coordinates on the screen.
-     * @param { int } x X-coordinate on the screen.
-     * @param { int } y Y-coordinate on the screen.
+     * @param { number } x X-coordinate on the screen.
+     * @param { number } y Y-coordinate on the screen.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
-    moveTo(x: int, y: int): Promise<void>;
+    moveTo(x: number, y: number): Promise<void>;
 
     /**
      * Registers a callback to listen for the destroy event of the word selection panel.
@@ -278,7 +253,6 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'destroyed', callback: Callback<void>): void;
 
@@ -289,7 +263,6 @@ declare namespace selectionManager {
      * selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'destroyed', callback?: Callback<void>): void;
 
@@ -300,7 +273,6 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'hidden', callback: Callback<void>): void;
 
@@ -311,24 +283,21 @@ declare namespace selectionManager {
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'hidden', callback?: Callback<void>): void;
   }
 
   /**
    * Enumerates the operations for selecting words.
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum SelectionType {
     /**
      * Move the cursor to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     MOUSE_MOVE = 1,
 
@@ -336,7 +305,6 @@ declare namespace selectionManager {
      * Double-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     DOUBLE_CLICK = 2,
 
@@ -344,7 +312,6 @@ declare namespace selectionManager {
      * Triple-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
      * @since 20
-     * @arkts 1.1&1.2
      */
     TRIPLE_CLICK = 3
   }
