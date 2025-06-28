@@ -1550,53 +1550,6 @@ declare interface CalendarRequestedData {
 }
 
 /**
- * Defines the struct of DateOptions.
- *
- * @interface DateOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @form
- * @since 20
- * @arkts 1.2
- */
-interface DateOptions {
-  /**
-   * Gregorian calendar year.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @form
-   * @since 20
-   * @arkts 1.2
-   */
-  year: number;
-
-  /**
-   * Gregorian calendar month.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @form
-   * @since 20
-   * @arkts 1.2
-   */
-  month: number;
-
-  /**
-   * Gregorian calendar day.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @form
-   * @since 20
-   * @arkts 1.2
-   */
-  day: number
-}
-/**
  * Calendar controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
