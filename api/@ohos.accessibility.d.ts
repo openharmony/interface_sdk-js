@@ -896,7 +896,7 @@ declare namespace accessibility {
      * The id of element.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since 12
      */
     elementId?: number;
 
