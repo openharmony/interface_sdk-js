@@ -89,9 +89,9 @@ declare namespace floatingBall {
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300020 - Failed to create the floating Ball window.
-     * @throws { BusinessError } 1300021 - Failed to start multiple floating Ball window.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300020 - Failed to create the floating ball window.
+     * @throws { BusinessError } 1300021 - Failed to start multiple floating ball window.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -120,7 +120,7 @@ declare namespace floatingBall {
      * Stop floating ball.
      * 
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -134,7 +134,7 @@ declare namespace floatingBall {
      * @param { 'stateChange' } type - Registration type, floating ball lifecycle state change, 'stateChange'.
      * @param { Callback<FloatingBallState> } callback - Used to handle {'stateChange'} command.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -161,7 +161,7 @@ declare namespace floatingBall {
      * @param { 'click' } type - Registration type, user click event, 'click'.
      * @param { Callback<void> } callback - Used to handle {'click'} command.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
-     * @throws { BusinessError } 1300022 - Repeated floating Ball operation.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
