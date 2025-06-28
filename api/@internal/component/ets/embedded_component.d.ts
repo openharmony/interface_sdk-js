@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import Want from '../../@ohos.app.ability.Want'
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
-import { CommonMethod } from './common'
+import { CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
 /*** endif */
 
@@ -51,7 +51,7 @@ interface EmbeddedComponentInterface {
     loader: import('../api/@ohos.app.ability.Want').default,
     type: EmbeddedType
   ): EmbeddedComponentAttribute;
-  
+
   /**
    * Construct the EmbeddedComponent.<br/>
    * Called when the EmbeddedComponent is used.
@@ -101,36 +101,6 @@ declare interface TerminationInfo {
 }
 
 /**
- * Indicates the information when the provider of the embedded UI is terminated.
- *
- * @interface TerminationInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- * @arkts 1.2
- */
-declare interface TerminationInfo {
-  /**
-   * Defines the termination code.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-   code: number;
-   
-   /**
-   * Defines the additional termination information.
-   *
-   * @type { ?Want }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   * @arkts 1.2
-   */
-   want?: Want;
-}
-
-/**
  * Define the attribute functions of EmbeddedComponent.
  *
  * @extends CommonMethod<EmbeddedComponentAttribute>
@@ -150,7 +120,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12
    */
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
-  
+
   /**
    * Called when the provider of the embedded UI is terminated.
    *
@@ -177,7 +147,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
   /**
    * Called when some error occurred.
    *
-   * @param { ErrorCallback } callback
+   * @param { ErrorCallback<BusinessError> } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
