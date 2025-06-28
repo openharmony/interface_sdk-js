@@ -3773,7 +3773,25 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Enable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @throws { BusinessError } 17700307 - Dynamic icons cannot take effect due to existing custom themes.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
    * @arkts 1.1&1.2
    */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
