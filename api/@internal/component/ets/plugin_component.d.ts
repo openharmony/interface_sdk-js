@@ -57,11 +57,12 @@ interface PluginComponentTemplate {
 
 /**
  * Define options used to construct a plugin component.
+ * AnonyMous Object Rectification.
  *
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare interface PluginComponentOptions {
@@ -70,29 +71,55 @@ declare interface PluginComponentOptions {
    * @type { PluginComponentTemplate }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since 9
+   */
+  /**
+   * Plugin component template.
+   * AnonyMous Object Rectification.
+   * @type { PluginComponentTemplate }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   template: PluginComponentTemplate;
 
   /**
    * Plugin component data.
+   * @type { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  /**
+   * Plugin component data.
+   * AnonyMous Object Rectification.
+   * @type { any }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  data: any;
+  /**
+   * Plugin component data.
+   * AnonyMous Object Rectification.
    * @type { Object|undefined|null }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
   data: Object|undefined|null;
 }
 
 /**
  * Data provided when an error occurs.
+ * AnonyMous Object Rectification.
  *
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'14','1.2':'20'}
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare interface PluginErrorData {
@@ -101,7 +128,15 @@ declare interface PluginErrorData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since 9
+   */
+  /**
+   * Error code.
+   * AnonyMous Object Rectification.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   errcode: number;
@@ -111,7 +146,15 @@ declare interface PluginErrorData {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since 9
+   */
+  /**
+   * Error message.
+   * AnonyMous Object Rectification.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   msg: string;
@@ -119,26 +162,16 @@ declare interface PluginErrorData {
 
 /**
  * Callback invoked when an error occurs.
+ * AnonyMous Object Rectification.
  *
  * @typedef { function } PluginErrorCallback
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 14
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type PluginErrorCallback = (info: PluginErrorData) => void;
-
-/**
- * Callback invoked when an error occurs.
- *
- * @typedef { function } PluginErrorCallback
- * @param { PluginErrorData } info - Plugin error data
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 20
- * @arkts 1.2
- */
-type PluginErrorCallback = (info: PluginErrorData) => void
 
 /**
  * Provides plugin component.
@@ -161,12 +194,13 @@ interface PluginComponentInterface {
    */
   /**
    * Called when setting the plugin.
+   * AnonyMous Object Rectification.
    *
    * @param { PluginComponentOptions } options - Plugin component options
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   (options: PluginComponentOptions): PluginComponentAttribute;
@@ -193,12 +227,13 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    */
   /**
    * PluginComponent onComplete callback
+   * AnonyMous Object Rectification.
    *
    * @param { VoidCallback } callback
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   onComplete(callback: VoidCallback): PluginComponentAttribute;
@@ -214,12 +249,13 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    */
   /**
    * PluginComponent onError callback
+   * AnonyMous Object Rectification.
    *
    * @param { PluginErrorCallback } callback
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   onError(callback: PluginErrorCallback): PluginComponentAttribute;
