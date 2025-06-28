@@ -184,7 +184,7 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
   if (kitFileNeedDeleteMap === undefined || !kitFileNeedDeleteMap.has(importPath)) {
-    const hasFilePath = hasFileByImportPath(importPath, inputDir);
+    const hasFilePath = hasFileByImportPath(inputDir, importPath);
     if (hasFilePath) {
       return statement;
     }
@@ -233,20 +233,35 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
 
 /**
  * 判断文件路径对应的文件是否存在
- * @param {string} importPath kit文件import
  * @param {string} apiDir 引用接口所在目录
+ * @param {string} importPath kit文件import
  * @returns {boolean} importPath是否存在
  */
-function hasFileByImportPath(importPath, apiDir) {
+function hasFileByImportPath(apiDir, importPath) {
   let fileDir = path.resolve(apiDir);
   if (importPath.startsWith('@arkts')) {
     fileDir = path.resolve(inputDir, '../arkts');
   }
-  return isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath) ||
-    isExistImportFile(fileDir, importPath);
+  return isExistImportFile(fileDir, importPath) ||
+    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath);
 }
 
+
+/**
+ * Arkui import路径特殊处理
+ * @param {string} resolvedPath 引用接口所在目录
+ * @param {string} importPath kit文件import
+ * @returns {boolean} importPath是否存在
+ */
 function isExistArkUIFile(resolvedPath, importPath) {
+  // TODO arkui 特殊处理import
+  if (importPath.startsWith('@ohos.arkui.')) {
+    resolvedPath = path.resolve(inputDir);
+  }
+  if (importPath.startsWith('arkui.component.') || importPath.startsWith('arkui.stateManagement.')) {
+    resolvedPath = path.resolve(inputDir);
+    importPath = importPath.replace(/\./g, '/');
+  }
   const filePath = path.resolve(resolvedPath, importPath);
   if (
     filePath.includes(path.resolve(inputDir, '@internal', 'component', 'ets')) ||
@@ -612,7 +627,7 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
   }
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
   const fileDir = path.dirname(url);
-  let hasImportSpecifierFile = hasFileByImportPath(importSpecifier, fileDir);
+  let hasImportSpecifierFile = hasFileByImportPath(fileDir, importSpecifier);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
   if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
     let currModule = [];
