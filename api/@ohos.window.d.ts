@@ -4193,7 +4193,7 @@ declare namespace window {
    */
   enum WindowTransitionType {
     /**
-     * window transition type destroy
+     * Destroy transition
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4211,14 +4211,14 @@ declare namespace window {
    */
   enum AnimationType {
     /**
-     * window animation type fade in out
+     * Window animation type fade in out
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     FADE_IN_OUT = 0,
     /**
-     * window animation type fade in
+     * Window animation type fade in
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -4237,7 +4237,7 @@ declare namespace window {
    */
   enum WindowAnimationCurve {
     /**
-     * animation curve type linear
+     * Animation curve type linear
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4246,7 +4246,7 @@ declare namespace window {
     LINEAR = 0,
 
     /**
-     * animation curve type interpolation spring
+     * Animation curve type interpolation spring
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4256,7 +4256,7 @@ declare namespace window {
   }
 
   /**
-   * window animation config
+   * Window animation config
    *
    * @interface WindowAnimationConfig
    * @syscap SystemCapability.Window.SessionManager
@@ -4265,7 +4265,7 @@ declare namespace window {
    */
   interface WindowAnimationConfig {
     /**
-     * curve of the animation
+     * Curve of the animation
      *
      * @type { WindowAnimationCurve }
      * @syscap SystemCapability.Window.SessionManager
@@ -4275,7 +4275,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * duration of the animation
+     * Duration of the animation
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -4285,7 +4285,7 @@ declare namespace window {
     duration?: number;
 
     /**
-     * param of animation curve
+     * Param of animation curve
      *
      * @type { ?WindowAnimationCurveParam }
      * @syscap SystemCapability.Window.SessionManager
