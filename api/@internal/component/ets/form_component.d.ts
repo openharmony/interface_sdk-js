@@ -426,8 +426,8 @@ interface FormCallbackInfo {
  * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
- * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
  */
 interface FormSize {
   /**
@@ -437,8 +437,8 @@ interface FormSize {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: double;
   /**
@@ -448,8 +448,8 @@ interface FormSize {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: double;
 }
