@@ -185,7 +185,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllDisplays(): Promise<Array<Display>>;
 
@@ -2060,7 +2061,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCutoutInfo(): Promise<CutoutInfo>;
 
@@ -2074,7 +2076,8 @@ declare namespace display {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasImmersiveWindow(callback: AsyncCallback<boolean>): void;
 
@@ -2088,7 +2091,8 @@ declare namespace display {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasImmersiveWindow(): Promise<boolean>;
 
@@ -2100,7 +2104,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
      */
     getAvailableArea(): Promise<Rect>;
 
@@ -2115,7 +2120,8 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     on(type: 'availableAreaChange', callback: Callback<Rect>): void;
 
@@ -2130,7 +2136,8 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
 
