@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const commander = require('commander');
 
-const typeArray = ['float', 'double', 'int'];
+const typeArray = ['long', 'double', 'int'];
 
 let inputDir = '';
 let outputDir = '';
@@ -242,7 +242,7 @@ function parseJSDocVisitEachChild1(context, node, content) {
       if (!doc.tags) {
         return;
       }
-      if (/(float|double|int)/g.test(doc.getText())) {
+      if (/(long|double|int)/g.test(doc.getText())) {
         jsDocNodeForeach(doc.tags);
       }
     });
