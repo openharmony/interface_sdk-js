@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import {  ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent, PixelMap } from './common';
+import { ShadowOptions, ClickEvent, SelectionOptions, CommonMethod, Callback, HapticFeedbackMode, RectResult, HoverEvent, PixelMap } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, Length, ResourceStr, Dimension, Margin, BorderRadiuses, Font } from './units';
 import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSpanAlignment, ImageFit, ResponseType, CopyOptions, BarState } from './enums';
@@ -29,8 +29,8 @@ import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
-import { LengthMetrics , ColorMetrics } from '../Graphics';
-import { TextBackgroundStyle } from "./span";
+import { LengthMetrics, ColorMetrics } from '../Graphics';
+import { TextBackgroundStyle } from './span';
 /*** endif */
 
 /**
