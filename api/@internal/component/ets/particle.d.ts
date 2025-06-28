@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics'
+import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics';
 import { VP, ResourceStr,Dimension,ResourceColor } from './units'
 import { ImageFit, Curve } from './enums'
 import { ICurve, CommonMethod } from './common'
@@ -1303,7 +1303,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
  * @since 20
  * @arkts 1.2
  */
-declare type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<number, number> |  Array<ParticlePropertyAnimation<number>>;
+declare type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<number, number> | Array<ParticlePropertyAnimation<number>>;
 
 /**
  * Defines the particle updater options.
@@ -2234,11 +2234,11 @@ interface ParticleInterface {
  * @since 20
  * @arkts 1.2
  */
-@memo
-@ComponentBuilder
+//@memo
+//@ComponentBuilder
 export declare function Particle(
   particles: Particles
-): ParticleAttribute
+): ParticleAttribute;
 
 /**
  * Enumerates the particle types.
