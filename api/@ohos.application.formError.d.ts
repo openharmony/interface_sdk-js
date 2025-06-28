@@ -30,7 +30,7 @@ declare namespace formError {
   /**
    * Error of form.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
