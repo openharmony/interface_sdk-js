@@ -19,9 +19,9 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common'
-import { ResourceColor, Length, ResourceStr } from './units'
-import { FontStyle, FontWeight } from './enums'
+import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
+import { ResourceColor, Length, ResourceStr } from './units';
+import { FontStyle, FontWeight } from './enums';
 /*** endif */
 
 /**
