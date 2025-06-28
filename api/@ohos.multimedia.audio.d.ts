@@ -8540,6 +8540,31 @@ declare namespace audio {
     setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
+     * Sets the loudness gain of this stream. The default loudness gain is 0.0dB.
+     * The stream usage of the audio renderer must be {@link StreamUsage#STREAM_USAGE_MUSIC},
+     * {@link StreamUsage#STREAM_USAGE_MOVIE} or {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * After calling this interface, the adjustment of loundness gain will take effect immediately.
+     * @param { number } loudnessGain - Loudness gain to set, expressed in dB. The value type is float.
+     *                                  The loudness gain changes from -90.0dB to 24.0dB.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Operation is not supported on this renderer, e.g. the stream usage of this
+     * renderer is not one of {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
+     * {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}, or this renderer is routed through the high-resolution playback path.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    setLoudnessGain(loudnessGain: number): Promise<void>;
+
+    /**
+     * Gets loudness gain of this stream.
+     * @returns { number } Returns one float value.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    getLoudnessGain(): number;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
