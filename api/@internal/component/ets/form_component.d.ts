@@ -296,6 +296,17 @@ declare interface FormInfo {
   want?: import('../api/@ohos.app.ability.Want').default;
 
   /**
+   * The want of the form.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  want?: Want;
+
+  /**
    * The renderingMode of the form.
    *
    * @type { ?FormRenderingMode }

@@ -386,8 +386,6 @@ declare namespace formProvider {
    *
    * @param { string } formId - Indicates the form ID.
    * @returns { Promise<formInfo.FormInfo> } Returns the formInfo.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -434,8 +432,6 @@ declare namespace formProvider {
    * Client to communication with FormManagerService.
    *
    * @param { Want } want - The want of the form to open.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.

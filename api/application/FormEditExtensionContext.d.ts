@@ -38,8 +38,6 @@ export default class FormEditExtensionContext extends UIExtensionContext {
      * @param { Want } want - Including second extension ability name.
      * @returns { Promise<AbilityResult> } Returns the result of start second form editor extension ability.
      * @throws { BusinessError } 202 - The application is not a system application.
-     * @throws { BusinessError } 401 - Params error. Possible causes: 
-     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 16500050 - An IPC connection error happened.
      * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
      * @throws { BusinessError } 16501000 - An internal functional error occurred.
