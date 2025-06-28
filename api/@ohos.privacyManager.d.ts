@@ -123,9 +123,9 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag in request is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag, begin, or end in request is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -143,9 +143,9 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag in request is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The value of flag, begin, or end in request is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
    * @syscap SystemCapability.Security.AccessToken
@@ -167,9 +167,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  or the type of the specified tokenID is not of the application type.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -192,9 +193,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  the type of the specified tokenID is not of the application type, or usedType is invalid.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -220,9 +222,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  or the type of the specified tokenID is not of the application type.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is used repeatedly with the same input.
    *  It means the application specified by the tokenID has been using the specified permission.
    * @throws { BusinessError } 12100007 - The service is abnormal.
@@ -243,9 +246,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  or the type of the specified tokenID is not of the application type.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
@@ -266,9 +270,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  or the type of the specified tokenID is not of the application type.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
@@ -292,9 +297,10 @@ declare namespace privacyManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
-   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters, or the count value is invalid.
+   * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName exceeds 256 characters,
+   *  or the type of the specified tokenID is not of the application type.
    * @throws { BusinessError } 12100002 - The specified tokenID does not exist or refer to an application process.
-   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not an user_grant permission.
+   * @throws { BusinessError } 12100003 - The specified permission does not exist or is not a user_grant permission.
    * @throws { BusinessError } 12100004 - The API is not used in pair with 'startUsingPermission'.
    * @throws { BusinessError } 12100007 - The service is abnormal.
    * @throws { BusinessError } 12100008 - Out of memory.
@@ -526,11 +532,10 @@ declare namespace privacyManager {
   /**
    * PermissionUsageFlag.
    *
-   * @enum { int } PermissionUsageFlag
+   * @enum { number } PermissionUsageFlag
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   enum PermissionUsageFlag {
     /**
@@ -538,8 +543,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     FLAG_PERMISSION_USAGE_SUMMARY = 0,
     /**
@@ -547,8 +551,7 @@ declare namespace privacyManager {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     FLAG_PERMISSION_USAGE_DETAIL = 1
   }
@@ -559,20 +562,18 @@ declare namespace privacyManager {
    * @interface PermissionUsedRequest
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface PermissionUsedRequest {
     /**
      * AccessTokenID
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    tokenId?: int;
+    tokenId?: number;
 
     /**
      * Distribute flag
@@ -581,8 +582,7 @@ declare namespace privacyManager {
      * @default false
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isRemote?: boolean;
 
@@ -592,8 +592,7 @@ declare namespace privacyManager {
      * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     deviceId?: string;
 
@@ -603,8 +602,7 @@ declare namespace privacyManager {
      * @type { ?string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleName?: string;
 
@@ -614,34 +612,31 @@ declare namespace privacyManager {
      * @type { ?Array<Permissions> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     permissionNames?: Array<Permissions>;
 
     /**
      * The begin time, in milliseconds
      *
-     * @type { ?long }
+     * @type { ?number }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    beginTime?: long;
+    beginTime?: number;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { ?long }
+     * @type { ?number }
      * @default 0
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    endTime?: long;
+    endTime?: number;
 
     /**
      * The permission usage flag
@@ -649,8 +644,7 @@ declare namespace privacyManager {
      * @type { PermissionUsageFlag }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     flag: PermissionUsageFlag;
   }
@@ -661,31 +655,28 @@ declare namespace privacyManager {
    * @interface PermissionUsedResponse
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface PermissionUsedResponse {
     /**
      * The begin time, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    beginTime: long;
+    beginTime: number;
 
     /**
      * The end time, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    endTime: long;
+    endTime: number;
 
     /**
      * The list of permission used records of bundle
@@ -693,8 +684,7 @@ declare namespace privacyManager {
      * @type { Array<BundleUsedRecord> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleRecords: Array<BundleUsedRecord>;
   }
@@ -705,20 +695,18 @@ declare namespace privacyManager {
    * @interface BundleUsedRecord
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface BundleUsedRecord {
     /**
      * AccessTokenID
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    tokenId: int;
+    tokenId: number;
 
     /**
      * Distribute flag
@@ -726,8 +714,7 @@ declare namespace privacyManager {
      * @type { boolean }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isRemote: boolean;
 
@@ -737,8 +724,7 @@ declare namespace privacyManager {
      * @type { string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     deviceId: string;
 
@@ -748,8 +734,7 @@ declare namespace privacyManager {
      * @type { string }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleName: string;
 
@@ -759,8 +744,7 @@ declare namespace privacyManager {
      * @type { Array<PermissionUsedRecord> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     permissionRecords: Array<PermissionUsedRecord>;
   }
@@ -771,8 +755,7 @@ declare namespace privacyManager {
    * @interface PermissionUsedRecord
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface PermissionUsedRecord {
     /**
@@ -781,65 +764,59 @@ declare namespace privacyManager {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     permissionName: Permissions;
 
     /**
      * The access counts
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    accessCount: int;
+    accessCount: number;
 
     /**
      * The reject counts
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    rejectCount: int;
+    rejectCount: number;
 
     /**
      * The last access time, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    lastAccessTime: long;
+    lastAccessTime: number;
 
     /**
      * The last reject time, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    lastRejectTime: long;
+    lastRejectTime: number;
 
     /**
      * The last access duration, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    lastAccessDuration: long;
+    lastAccessDuration: number;
 
     /**
      * The list of access records of details
@@ -847,8 +824,7 @@ declare namespace privacyManager {
      * @type { Array<UsedRecordDetail> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     accessRecords: Array<UsedRecordDetail>;
 
@@ -858,8 +834,7 @@ declare namespace privacyManager {
      * @type { Array<UsedRecordDetail> }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     rejectRecords: Array<UsedRecordDetail>;
   }
@@ -870,64 +845,58 @@ declare namespace privacyManager {
    * @interface UsedRecordDetail
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface UsedRecordDetail {
     /**
      * The status
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    status: int;
+    status: number;
 
     /**
      * Indicates the status of lockscreen.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    lockScreenStatus?: int;
+    lockScreenStatus?: number;
 
     /**
      * Timestamp, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    timestamp: long;
+    timestamp: number;
 
     /**
      * The value of successCount or failCount passed in to addPermissionUsedRecord.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    count?: int;
+    count?: number;
 
     /**
      * Access duration, in milliseconds
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    accessDuration: long;
+    accessDuration: number;
 
     /**
      * Used type of the permission accessed.
@@ -935,8 +904,7 @@ declare namespace privacyManager {
      * @type { ?PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     usedType?: PermissionUsedType;
   }
@@ -944,11 +912,10 @@ declare namespace privacyManager {
   /**
    * Enumerates the means by which sensitive resources are accessed.
    *
-   * @enum { int } PermissionUsedType
+   * @enum { number } PermissionUsedType
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum PermissionUsedType {
     /**
@@ -988,20 +955,18 @@ declare namespace privacyManager {
    * @interface PermissionUsedTypeInfo
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface PermissionUsedTypeInfo {
     /**
      * Token ID of the application.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    tokenId: int;
+    tokenId: number;
 
     /**
      * Name of the permission accessed.
@@ -1009,8 +974,7 @@ declare namespace privacyManager {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     permissionName: Permissions;
 
@@ -1020,8 +984,7 @@ declare namespace privacyManager {
      * @type { PermissionUsedType }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     usedType: PermissionUsedType;
   }
@@ -1032,8 +995,7 @@ declare namespace privacyManager {
    * @interface AddPermissionUsedRecordOptions
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface AddPermissionUsedRecordOptions {
     /**
