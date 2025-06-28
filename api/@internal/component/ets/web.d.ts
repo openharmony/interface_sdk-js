@@ -10197,6 +10197,7 @@ declare interface SslErrorEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12
+ * @deprecated since 20
  */
 declare interface ExpandedMenuItemOptions {
   /**
