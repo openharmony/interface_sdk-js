@@ -87,6 +87,8 @@ declare namespace intl {
    * @form
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.LocaleOptions
    * @arkts 1.1&1.2
    */
   export interface LocaleOptions {
@@ -122,7 +124,9 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the calendar.
+     * Calendar parameter. The value can be: "buddhist", "chinese", "coptic", "dangi", "ethioaa", "ethiopic",
+     * "gregory", "hebrew", "indian", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil",
+     * "islamic-rgsa", "iso8601", "japanese", "persian", "roc", or "islamicc".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -130,6 +134,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.calendar
      * @arkts 1.1&1.2
      */
     calendar?: string;
@@ -166,7 +172,8 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the collation.
+     * Collation parameter. The value can be: "big5han", "compat", "dict", "direct", "ducet", "emoji", "eor", "gb2312",
+     * "phonebk", "phonetic", "pinyin", "reformed, "search", "searchjl", "standard", "stroke", "trad", "unihan", "zhuyin"
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -174,6 +181,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.collation
      * @arkts 1.1&1.2
      */
     collation?: string;
@@ -210,7 +219,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the hourCycle.
+     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -218,6 +227,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.hourCycle
      * @arkts 1.1&1.2
      */
     hourCycle?: string;
@@ -254,7 +265,12 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks", "brah", "cakm",
+     * "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp", "java", "kali",
+     * "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl", "mathmono",
+     * "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng", "newa", "nkoo",
+     * "olck", "orya*", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund", "takr", "talu",
+     * "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -262,6 +278,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.numberingSystem
      * @arkts 1.1&1.2
      */
     numberingSystem?: string;
@@ -298,7 +316,8 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the numeric.
+     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
+     * and the value "false" means the opposite. The default value is "false".
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
@@ -306,6 +325,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.numeric
      * @arkts 1.1&1.2
      */
     numeric?: boolean;
@@ -342,7 +363,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the caseFirst.
+     * Whether upper case or lower case is sorted first. The value can be "upper", "lower", or "false".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -350,6 +371,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.LocaleOptions.caseFirst
      * @arkts 1.1&1.2
      */
     caseFirst?: string;
@@ -409,13 +432,15 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * A constructor used to create a Locale object.
+     * Creates a Locale object.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead i18n.System.getSystemLocaleObject
      * @arkts 1.1&1.2
      */
     constructor();
@@ -451,16 +476,17 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * A constructor used to create a Locale object.
+     * Creates a Locale object.
      *
-     * @param { string } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region.
-     * @param { LocaleOptions } options - Indicates Locale option object use to initialize the Locale object.
+     * @param { string } locale - Locale information, which consists of the language, script, and country/region.
+     * @param { LocaleOptions } [options] -  Options for creating the Locale object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Locale.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string, options?: LocaleOptions);
@@ -487,7 +513,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the language of the locale.
+     * Language associated with the locale, for example, "zh". The value complies with the ISO 639 standard.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -495,6 +521,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.language
      */
     language: string;
 
@@ -520,7 +548,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the script of the locale.
+     * Script type of the language, for example, "Hans". The value complies with the Unicode ISO 15924 standard.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -528,6 +556,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.script
      */
     script: string;
 
@@ -553,7 +583,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the region of the locale.
+     * Country/region associated with the locale, for example, "CN". The value complies with the ISO 3166 standard.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -561,6 +591,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.region
      */
     region: string;
 
@@ -589,8 +621,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the basic locale information, which is returned as a substring of
-     * a complete locale string.
+     * Locale information, which consists of the language, script, and country/region, for example, "zh-Hans-CN".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -598,6 +629,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.baseName
      */
     baseName: string;
 
@@ -623,7 +656,8 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the case first style of the locale.
+     * Whether case is taken into account for the locale's collation rules. The value can be: "upper", "lower", or
+     * "false".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -631,6 +665,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.caseFirst
      */
     caseFirst: string;
 
@@ -656,7 +692,9 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the calendar.
+     * Calendar for the locale. The value can be: "buddhist", "chinese", "coptic", "dangi", "ethioaa", "ethiopic",
+     * "gregory", "hebrew", "indian", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil", "islamic-rgsa",
+     * "iso8601", "japanese", "persian", "roc", or "islamicc".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -664,6 +702,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.calendar
      */
     calendar: string;
 
@@ -689,7 +729,8 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the collation.
+     * Collation rules for the locale. The value can be: "big5han", "compat", "dict", "direct", "ducet", "eor",
+     * "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan", or "zhuyin".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -697,6 +738,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.collation
      */
     collation: string;
 
@@ -722,7 +765,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the hour cycle.
+     * Time system for the locale. The value can be: "h11", "h12", "h23", or "h24".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -730,6 +773,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.hourCycle
      */
     hourCycle: string;
 
@@ -755,7 +800,12 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the numbering system.
+     * Numbering system for the locale. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
+     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
+     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
+     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
+     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
+     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
@@ -763,6 +813,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.numberingSystem
      */
     numberingSystem: string;
 
@@ -788,7 +840,8 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates whether it is numeric.
+     * Wether to use special sorting rules for digits. The value "true" means to use special sorting rules for digits,
+     * and the value "false" means the opposite. The default value is "false".
      *
      * @type { boolean }
      * @syscap SystemCapability.Global.I18n
@@ -796,150 +849,250 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead Intl.Locale.numeric
      */
     numeric: boolean;
 
-    /*** if arkts 1.2 */
     /**
-     * Indicates the language of the locale.
+     * Get the language of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */
     get language(): string;
-    set language(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the language of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set language(value: string);
+
+    /**
+     * Get the script of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get script(): string;
-    set script(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the script of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set script(value: string);
+
+    /**
+     * Get the region of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get region(): string;
-    set region(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the region of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set region(value: string);
+
+    /**
+     * Get the baseName of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get baseName(): string;
-    set baseName(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the baseName of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set baseName(value: string);
+
+    /**
+     * Get the caseFirst of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get caseFirst(): string;
-    set caseFirst(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the caseFirst of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set caseFirst(value: string);
+
+    /**
+     * Get the calendar of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get calendar(): string;
-    set calendar(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the calendar of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set calendar(value: string);
+
+    /**
+     * Get the collation of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get collation(): string;
-    set collation(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the collation of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set collation(value: string);
+
+    /**
+     * Get the hourCycle of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get hourCycle(): string;
-    set hourCycle(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the hourCycle of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set hourCycle(value: string);
+
+    /**
+     * Get the numberingSystem of the locale.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get numberingSystem(): string;
-    set numberingSystem(value: string);
 
     /**
-     * Indicates the language of the locale.
+     * Set the numberingSystem of the locale.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
-     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    set numberingSystem(value: string);
+
+    /**
+     * Get the numeric of the locale.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
      * @since 20
      * @arkts 1.2
      */
     get numeric(): boolean;
+
+    /**
+     * Set the numeric of the locale.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @form
+     * @since 20
+     * @arkts 1.2
+     */
     set numeric(value: boolean);
-    /*** endif */
 
     /**
      * Convert the locale information to string.
@@ -966,14 +1119,16 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Convert the locale information to string.
+     * Obtains the string that represents a Locale object.
      *
-     * @returns { string } locale information in string form.
+     * @returns { string } String that represents the Locale object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Locale.toString
      * @arkts 1.1&1.2
      */
     toString(): string;
@@ -1003,14 +1158,16 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Maximize the locale's base information.
+     * Maximizes locale information by supplementing the missing script and country/region information.
      *
-     * @returns { Locale } maximized locale.
+     * @returns { Locale } Locale object with the script and country/region information.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Locale.maximize
      * @arkts 1.1&1.2
      */
     maximize(): Locale;
@@ -1040,14 +1197,16 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Minimize the locale's base information.
+     * Minimizes locale information by removing the script and country/region information.
      *
-     * @returns { Locale } minimized locale.
+     * @returns { Locale } Locale object without the script and country/region information.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Locale.minimize
      * @arkts 1.1&1.2
      */
     minimize(): Locale;
@@ -1078,7 +1237,8 @@ declare namespace intl {
    * @since 11
    */
   /**
-   * Provides the options of date time format.
+   * Defines the options for a DateTimeOptions object. Since API version 9, the DateTimeOptions attribute is changed
+   * from mandatory to optional.
    *
    * @interface DateTimeOptions
    * @syscap SystemCapability.Global.I18n
@@ -1086,6 +1246,8 @@ declare namespace intl {
    * @form
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.DateTimeOptions
    * @arkts 1.1&1.2
    */
   export interface DateTimeOptions {
@@ -1121,7 +1283,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the locale.
+     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1129,6 +1291,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.locale
      * @arkts 1.1&1.2
      */
     locale?: string;
@@ -1165,7 +1329,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the dateStyle.
+     * Date display format. The value can be: "long", "short", "medium", "full", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1173,6 +1337,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.dateStyle
      * @arkts 1.1&1.2
      */
     dateStyle?: string;
@@ -1209,7 +1375,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the timeStyle.
+     * Time display format. The value can be: "long", "short", "medium", "full", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1217,6 +1383,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeStyle
      * @arkts 1.1&1.2
      */
     timeStyle?: string;
@@ -1253,7 +1421,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the hourCycle.
+     * Hour cycle. The value can be: "h11", "h12", "h23", or "h24". 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1261,6 +1429,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hourCycle
      * @arkts 1.1&1.2
      */
     hourCycle?: string;
@@ -1297,7 +1467,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the timeZone.
+     * Time zone in use. The value is a valid IANA time zone ID. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1305,6 +1475,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeZone
      * @arkts 1.1&1.2
      */
     timeZone?: string;
@@ -1341,7 +1513,12 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
+     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
+     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
+     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
+     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
+     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1349,6 +1526,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.numberingSystem
      * @arkts 1.1&1.2
      */
     numberingSystem?: string;
@@ -1385,7 +1564,9 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the hour12.
+     * Whether to use the 12-hour clock. The value true means to use the 12-hour clock, and the value false means the
+     * opposite. If both hour12 and hourCycle are set, hourCycle does not take effect. If hour12 and hourCycle are not
+     * set and the 24-hour clock is turned on, the default value of hour12 is false.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
@@ -1393,6 +1574,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hour12
      * @arkts 1.1&1.2
      */
     hour12?: boolean;
@@ -1429,7 +1612,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the weekday.
+     * Week display format. The value can be: "long", "short", "narrow", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1437,6 +1620,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.weekday
      * @arkts 1.1&1.2
      */
     weekday?: string;
@@ -1473,7 +1658,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the era.
+     * Epoch display format. The value can be: "long", "short", "narrow", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1481,6 +1666,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.era
      * @arkts 1.1&1.2
      */
     era?: string;
@@ -1517,7 +1704,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the year.
+     * Year display format. The value can be: "numeric" or "2-digit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1525,6 +1712,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.year
      * @arkts 1.1&1.2
      */
     year?: string;
@@ -1561,7 +1750,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the month.
+     * Month display format. The value can be: "numeric", "2-digit", "long", "short", "narrow", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1569,6 +1758,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.month
      * @arkts 1.1&1.2
      */
     month?: string;
@@ -1605,7 +1796,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the day.
+     * Day display format. The value can be: "numeric" or "2-digit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1613,6 +1804,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.day
      * @arkts 1.1&1.2
      */
     day?: string;
@@ -1649,7 +1842,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the hour.
+     * Hour display format. The value can be: "numeric" or "2-digit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1657,6 +1850,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.hour
      * @arkts 1.1&1.2
      */
     hour?: string;
@@ -1693,7 +1888,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the minute.
+     * Minute display format. The value can be: "numeric" or "2-digit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1701,6 +1896,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.minute
      * @arkts 1.1&1.2
      */
     minute?: string;
@@ -1737,7 +1934,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the second.
+     * Second display format. The value can be: "numeric" or "2-digit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1745,6 +1942,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.second
      * @arkts 1.1&1.2
      */
     second?: string;
@@ -1781,7 +1980,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the timeZoneName.
+     * Localized representation of a time zone name. The value can be: "long", "short", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1789,6 +1988,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.timeZoneName
      * @arkts 1.1&1.2
      */
     timeZoneName?: string;
@@ -1825,7 +2026,7 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the dayPeriod.
+     * Time period display format. The value can be: "long", "short", "narrow", or "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1833,6 +2034,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.dayPeriod
      * @arkts 1.1&1.2
      */
     dayPeriod?: string;
@@ -1869,7 +2072,9 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the localeMatcher.
+     * Locale matching algorithm. The value can be:
+     * "lookup": exact match.
+     * "best fit": best match.
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1877,6 +2082,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.localeMatcher
      * @arkts 1.1&1.2
      */
     localeMatcher?: string;
@@ -1913,7 +2120,9 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Indicates the formatMatcher.
+     * Format matching algorithm. The value can be:
+     * "basic": exact match.
+     * "best fit": best match.
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
@@ -1921,6 +2130,8 @@ declare namespace intl {
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeOptions.formatMatcher
      * @arkts 1.1&1.2
      */
     formatMatcher?: string;
@@ -1955,6 +2166,8 @@ declare namespace intl {
    * @form
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.DateTimeFormat
    * @arkts 1.1&1.2
    */
   export class DateTimeFormat {
@@ -1980,13 +2193,15 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * A constructor used to create a DateTimeFormat object.
+     * Creates a DateTimeOptions object for the specified locale.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor();
@@ -2022,16 +2237,19 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * A constructor used to create a DateTimeFormat object.
+     * Creates a DateTimeOptions object for the specified locale.
      *
-     * @param { string | Array<string> } locale - Indicates character string containing the locale information, including
-     *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param { DateTimeOptions } [options] - Indicates the options used to format the date.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array, the
+     *                                            first valid locale ID is used.
+     * @param { DateTimeOptions } [options] - Options for creating the DateTimeOptions object.<br>If no options are
+     *                                        set, the default values of year, month, and day are numeric.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
@@ -2064,15 +2282,17 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Obtains the formatted date strings.
+     * Formats the date and time.
      *
-     * @param { Date } date - Indicates the Date object to be formatted.
-     * @returns { string } a date string formatted based on the specified locale.
+     * @param { Date } date - Date and time. Note: The month starts from 0. For example, 0 indicates January.
+     * @returns { string } A string containing the formatted date and time.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.format
      * @arkts 1.1&1.2
      */
     format(date: Date): string;
@@ -2108,16 +2328,19 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Obtains the formatted date strings of a date range.
+     * Formats date and time ranges.
      *
-     * @param { Date } startDate - Indicates the start date of the date range.
-     * @param { Date } endDate - Indicates the end date of the date range.
+     * @param { Date } startDate - Start date and time. Note: The month starts from 0. For example, 0 indicates
+     *                             January.
+     * @param { Date } endDate - End date and time. Note: The month starts from 0. For example, 0 indicates January.
      * @returns { string } a date string formatted based on the specified locale.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.formatRange
      * @arkts 1.1&1.2
      */
     formatRange(startDate: Date, endDate: Date): string;
@@ -2147,14 +2370,16 @@ declare namespace intl {
      * @since 11
      */
     /**
-     * Obtains the options of the DateTimeFormat object.
+     * Obtains the options for creating a DateTimeOptions object.
      *
-     * @returns { DateTimeOptions } the options of the DateTimeFormat object.
+     * @returns { DateTimeOptions } Options for the DateTimeOptions object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.DateTimeFormat.resolvedOptions
      * @arkts 1.1&1.2
      */
     resolvedOptions(): DateTimeOptions;
@@ -2176,13 +2401,16 @@ declare namespace intl {
    * @since 10
    */
   /**
-   * Provides the options of number format.
+   * Options for creating the NumberFormat object. Since API version 9, the NumberOptions attribute is changed from
+   * mandatory to optional.
    *
    * @interface NumberOptions
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.NumberOptions
    * @arkts 1.1&1.2
    */
   export interface NumberOptions {
@@ -2209,13 +2437,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the locale.
+     * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.locale
      * @arkts 1.1&1.2
      */
     locale?: string;
@@ -2243,13 +2473,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the currency.
+     * Currency unit. The value must comply with the [ISO-4217 standard](https://www.iso.org/iso-4217-currency-codes.html),
+     * for example, "EUR", "CNY", and "USD". From API version 12, a three-digit number is supported, for example, "978",
+     * "156", or "840".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currency
      * @arkts 1.1&1.2
      */
     currency?: string;
@@ -2277,13 +2511,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the currencySign.
+     * urrency unit symbol. The value can be "standard" or "accounting". The default value is "standard".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currencySign
      * @arkts 1.1&1.2
      */
     currencySign?: string;
@@ -2311,13 +2547,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the currencyDisplay.
+     * Currency display mode. The value can be "symbol", "narrowSymbol", "code", or "name".
+     * The default value is "symbol".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.currencyDisplay
      * @arkts 1.1&1.2
      */
     currencyDisplay?: string;
@@ -2345,13 +2584,18 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the unit.
+     * Unit name, for example, "meter", "inch", or "hectare". The combination units supported since API version 18 are
+     * as follows: "beat-per-minute", "body-weight-per-second", "breath-per-minute", "foot-per-hour",
+     * "jump-rope-per-minute", "meter-per-hour", "milliliter-per-minute-per-kilogram", "rotation-per-minute",
+     * "step-per-minute", and "stroke-per-minute".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.unit
      * @arkts 1.1&1.2
      */
     unit?: string;
@@ -2379,13 +2623,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the unitDisplay.
+     * Display format of units. The value can be "long", "short", or "narrow". The default value is "short".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.unitDisplay
      * @arkts 1.1&1.2
      */
     unitDisplay?: string;
@@ -2413,13 +2659,19 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the unitUsage.
+     * Application scenario of units. The value can be any of the following: "default", "area-land-agricult",
+     * "area-land-commercl", "area-land-residntl", "length-person", "length-person-small", "length-rainfall",
+     * "length-road", "length-road-small", "length-snowfall", "length-vehicle", "length-visiblty",
+     * "length-visiblty-small", "length-person-informal", "length-person-small-informal", "length-road-informal",
+     * "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather", "volume-vehicle-fuel",
+     * "elapsed-time-second", "size-file-byte", or "size-shortfile-byte". The default value is "default".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
      * @arkts 1.1&1.2
      */
     unitUsage?: string;
@@ -2447,13 +2699,20 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the signDisplay.
+     * Number sign display format. The value can be:
+     * "auto": automatically determines whether to display the plus or minus sign.
+     * "never": do not display the plus or minus sign.
+     * "always": always displays the plus or minus sign.
+     * "exceptZero": displays the plus or minus sign for all values except 0.
+     * Default value: "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.signDisplay
      * @arkts 1.1&1.2
      */
     signDisplay?: string;
@@ -2481,13 +2740,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the compactDisplay.
+     * Compact display format. The value can be "long" or "short". The default value is "short".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.compactDisplay
      * @arkts 1.1&1.2
      */
     compactDisplay?: string;
@@ -2515,13 +2776,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the notation.
+     * Number notation. The value can be: "standard", "scientific", "engineering", or "compact".
+     * The default value is "standard".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.notation
      * @arkts 1.1&1.2
      */
     notation?: string;
@@ -2549,13 +2813,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the localeMatcher.
+     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.localeMatcher
      * @arkts 1.1&1.2
      */
     localeMatcher?: string;
@@ -2583,13 +2849,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the style.
+     * Number display format. The value can be "decimal", "currency", "percent", or "unit".
+     * The default value is "decimal".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.style
      * @arkts 1.1&1.2
      */
     style?: string;
@@ -2617,13 +2886,20 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the numberingSystem.
+     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
+     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
+     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
+     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
+     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
+     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.numberingSystem
      * @arkts 1.1&1.2
      */
     numberingSystem?: string;
@@ -2651,13 +2927,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the useGrouping.
+     * Whether to enable grouping for display. The value "true" means to enable grouping for display, and the value
+     * "false" means the opposite. The default value is "true".
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.useGrouping
      * @arkts 1.1&1.2
      */
     useGrouping?: boolean;
@@ -2685,13 +2964,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the minimumIntegerDigits.
+     * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
+     * The default value is 1.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumIntegerDigits
      * @arkts 1.1&1.2
      */
     minimumIntegerDigits?: number;
@@ -2719,13 +3001,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the minimumFractionDigits.
+     * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
+     * The default value is 0.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumFractionDigits
      * @arkts 1.1&1.2
      */
     minimumFractionDigits?: number;
@@ -2753,13 +3038,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the maximumFractionDigits.
+     * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
+     * The default value is 3.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.maximumFractionDigits
      * @arkts 1.1&1.2
      */
     maximumFractionDigits?: number;
@@ -2787,13 +3075,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the minimumSignificantDigits.
+     * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.minimumSignificantDigits
      * @arkts 1.1&1.2
      */
     minimumSignificantDigits?: number;
@@ -2821,47 +3111,75 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Indicates the maximumSignificantDigits.
+     * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.maximumSignificantDigits
      * @arkts 1.1&1.2
      */
     maximumSignificantDigits?: number;
 
     /**
-     * Indicates the priority of rounding when FractionDigits options conflicts with SignificantDigits options.
+     * Rounding priority used when both the maximum number of fraction digits and the maximum number of valid digits
+     * are set. The value can be: "auto", "morePrecision", or "lessPrecision". The value "morePrecision" indicates that
+     * the maximum number of fraction digits is used. The value "lessPrecision" indicates that the maximum number of
+     * valid digits is used. The default value is "auto".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingPriority
      * @arkts 1.1&1.2
      */
     roundingPriority?: string;
 
     /**
-     * Indicates the increment at which rounding should take place relative to the calculated rounding magnitude.
-     * Possible value are 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, and 5000. Default value is 1.
+     * Rounding increment. The value can be: 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, or 5000.
+     * The default value is 1.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingIncrement
      * @arkts 1.1&1.2
      */
     roundingIncrement?: number;
 
     /**
-     * Indicates the rounding mode.
+     * Rounding mode. The value can be:
+     * "ceil": rounding up.
+     * "floor": rounding down.
+     * "expand": rounding away from 0.
+     * "trunc": rounding toward 0.
+     * "halfCeil": half-rounding up; that is, rounding up when the decimal number is greater than or equal to half of
+     *             the increment, and rounding down otherwise.
+     * "halfFloor": half-rounding down; that is, rounding up when the decimal number is greater than half of the
+     *              increment, and rounding down otherwise.
+     * "halfExpand": half-rounding away from 0; that is, rounding away from 0 when the decimal number is greater than
+     *               or equal to half of the increment, and rounding toward 0 otherwise.
+     * "halfTrunc": half-rounding toward 0; that is, rounding away from 0 when the decimal number is greater than half
+     *              of the increment, and rounding toward 0 otherwise.
+     * "halfEven": half-rounding to the nearest even number; that is, rounding away from 0 when the decimal number is
+     *             greater than half of the increment, rounding toward 0 when the decimal number is less than half of
+     *             the increment, and rounding to the nearest even number when the decimal number is exactly half of
+     *             the increment.
+     * The default value is "halfExpand".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberOptions.roundingMode
      * @arkts 1.1&1.2
      */
     roundingMode?: string;
@@ -2887,6 +3205,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.NumberFormat
    * @arkts 1.1&1.2
    */
   export class NumberFormat {
@@ -2904,12 +3224,14 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create a NumberFormat object.
+     * Creates a NumberFormat object for the specified locale.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor();
@@ -2934,15 +3256,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create a NumberFormat object.
+     * Creates a NumberFormat object for the specified locale.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @param { NumberOptions } [options] - Indicates the options used to format the number.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
+     *                                            the first valid locale ID is used.
+     * @param { NumberOptions } [options] - Options for creating the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: NumberOptions);
@@ -2965,27 +3289,31 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Obtains the formatted number string.
+     * Formats a number.
      *
-     * @param { number } number Indicates the number to be formatted.
-     * @returns { string } a number string formatted based on the specified locale.
+     * @param { number } number - Number to be formatted.
+     * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.format
      * @arkts 1.1&1.2
      */
     format(number: number): string;
 
     /**
-     * Obtains the formatted number range string.
+     * Formats a number range.
      *
-     * @param { number } startRange Indicates the starting number of range.
-     * @param { number } endRange Indicates the ending number of range.
-     * @returns { string } a number range string formatted based on the specified locale.
+     * @param { number } startRange - Start number.
+     * @param { number } endRange - End number.
+     * @returns { string } Formatted number range.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.formatRange
      * @arkts 1.1&1.2
      */
     formatRange(startRange: number, endRange: number): string;
@@ -3006,13 +3334,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Obtains the options of the NumberFormat object.
+     * Obtains the options for creating a NumberFormat object.
      *
-     * @returns { NumberOptions } the options of the NumberFormat object.
+     * @returns { NumberOptions } Options for creating the NumberFormat object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.NumberFormat.resolvedOptions
      * @arkts 1.1&1.2
      */
     resolvedOptions(): NumberOptions;
@@ -3034,13 +3364,15 @@ declare namespace intl {
    * @since 10
    */
   /**
-   * Provides the options of Collator
+   * Defines the options for creating a Collator object.
    *
    * @interface CollatorOptions
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.CollatorOptions
    * @arkts 1.1&1.2
    */
   export interface CollatorOptions {
@@ -3070,14 +3402,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.localeMatcher
      * @arkts 1.1&1.2
      */
     localeMatcher?: string;
@@ -3108,14 +3441,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Whether the comparison is for sorting or for searching for matching strings.
-     * Possible values are "sort" and "search"; the default is "sort".
+     * Whether the comparison is for sorting or for searching. The value can be "sort" or "search".
+     * The default value is "sort".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.usage
      * @arkts 1.1&1.2
      */
     usage?: string;
@@ -3164,20 +3499,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Which differences in the strings should lead to non-zero result values.
-     * Possible values are "base", "accent", "case", "variant".
-     * "base" are used when only strings that differ in base letters compare as unequal.
-     * "accent" are used when only strings that differ in base letters or accents and
-     *  other diacritic marks compare as unequal.
-     * "case" are used when only strings that differ in base letters or case compare as unequal.
-     * "variant" are used when Strings that differ in base letters, accents and other diacritic marks,
-     *  or case compare as unequal.
+     * Differences in the strings that lead to non-zero return values. The value can be "base", "accent", "case", or
+     * "letiant". The default value is "variant".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.sensitivity
      * @arkts 1.1&1.2
      */
     sensitivity?: string;
@@ -3205,17 +3536,19 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Whether punctuation should be ignored. Default value is false.
+     * Whether to ignore punctuation. The value "true" means to ignore punctuation, and the value "false" means the
+     * opposite. The default value is "false".
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.ignorePunctuation
      * @arkts 1.1&1.2
      */
     ignorePunctuation?: boolean;
-
     /**
      * Variant collations for certain locales.
      *
@@ -3239,13 +3572,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Variant collations for certain locales.
+     * Collation rule. The value can be any of the following: "big5han", "compat", "dict", "direct", "ducet", "eor",
+     * "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan", or "zhuyin".
+     * The default value is "default".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.collation
      * @arkts 1.1&1.2
      */
     collation?: string;
@@ -3273,13 +3610,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Whether numeric collation should be used. Default value is false.
+     * Whether to use numeric collation. The value "true" means to use numeric collation, and the value "false" means
+     * the opposite. The default value is "false".
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.numeric
      * @arkts 1.1&1.2
      */
     numeric?: boolean;
@@ -3310,14 +3650,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Whether upper case or lower case should sort first.
-     * Possible values are "upper", "lower", or "false" (use the locale's default).
+     * Whether upper case or lower case is sorted first. The value can be "upper", "lower", or "false".
+     * The default value is "false".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.CollatorOptions.caseFirst
      * @arkts 1.1&1.2
      */
     caseFirst?: string;
@@ -3343,6 +3685,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.Collator
    * @arkts 1.1&1.2
    */
   export class Collator {
@@ -3360,12 +3704,14 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create Collator object.
+     * Creates a Collator object.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Collator.constructor
      * @arkts 1.1&1.2
      */
     constructor();
@@ -3389,15 +3735,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create Collator Object;
+     * Creates a Collator object.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the Collator object.
-     * @param { CollatorOptions } [options] - Indicates the options used to initialize Collator object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
+     *                                            the first valid locale ID is used.
+     * @param { CollatorOptions } [options] - Options for creating a Collator object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Collator.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: CollatorOptions);
@@ -3428,18 +3776,19 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * compares two strings according to the sort order of this Collator object
+     * Compares two strings based on the specified collation rules.
      *
-     * @param { string } first - The first string to compare.
-     * @param { string } second - The second string to compare.
-     * @returns { number } a number indicating how first compare to second:
-     *         a negative value if string1 comes before string2;
-     *         a positive value if string1 comes after string2;
-     *         0 if they are considered equal.
+     * @param { string } first - First string to compare.
+     * @param { string } second - Second string to compare.
+     * @returns { number } Comparison result. If the value is a negative number, the first string comes before the
+     *                     second string. If the value is 0, the first and second strings are in the same sequence.
+     *                     If the value is a positive number, the first string is comes after the second string.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Collator.compare
      * @arkts 1.1&1.2
      */
     compare(first: string, second: string): number;
@@ -3462,14 +3811,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Returns a new object with properties that reflect the locale and collation options computed
-     * during initialization of the object.
+     * Obtains the options for creating a Collator object.
      *
-     * @returns { CollatorOptions } a CollatorOptions object with properties that reflect the properties of this object.
+     * @returns { CollatorOptions } Options for creating a Collator object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.Collator.resolvedOptions
      * @arkts 1.1&1.2
      */
     resolvedOptions(): CollatorOptions;
@@ -3498,6 +3848,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.PluralRulesOptions
    * @arkts 1.1&1.2
    */
   export interface PluralRulesOptions {
@@ -3527,14 +3879,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The locale matching algorithm to use.
-     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.localeMatcher
      * @arkts 1.1&1.2
      */
     localeMatcher?: string;
@@ -3562,13 +3915,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The type to use. Possible values are: "cardinal", "ordinal"
+     * Collation type. The value can be "cardinal" or "ordinal". The default value is "cardinal". The value "cardinal"
+     * indicates a cardinal number and the value "ordinal" indicates an ordinal number. 
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.type
      * @arkts 1.1&1.2
      */
     type?: string;
@@ -3599,14 +3955,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The minimum number of integer digits to use.
-     * Possible values are from 1 to 21; the default is 1.
+     * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
+     * The default value is 1.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumIntegerDigits
      * @arkts 1.1&1.2
      */
     minimumIntegerDigits?: number;
@@ -3637,14 +3995,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The minimum number of fraction digits to use.
-     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
+     * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
+     * The default value is 0.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumFractionDigits
      * @arkts 1.1&1.2
      */
     minimumFractionDigits?: number;
@@ -3678,15 +4038,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The maximum number of fraction digits to use.
-     * Possible values are from 0 to 20;
-     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
+     * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
+     * The default value is 3.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.maximumFractionDigits
      * @arkts 1.1&1.2
      */
     maximumFractionDigits?: number;
@@ -3717,14 +4078,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The minimum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 1.
+     * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.minimumSignificantDigits
      * @arkts 1.1&1.2
      */
     minimumSignificantDigits?: number;
@@ -3755,14 +4117,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The maximum number of significant digits to use.
-     * Possible values are from 1 to 21; the default is 21.
+     * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
      *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRulesOptions.maximumSignificantDigits
      * @arkts 1.1&1.2
      */
     maximumSignificantDigits?: number;
@@ -3788,6 +4151,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.PluralRules
    * @arkts 1.1&1.2
    */
   export class PluralRules {
@@ -3805,12 +4170,14 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create PluralRules object.
+     * Creates a PluralRules object to obtain the singular-plural type of numbers.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.constructor
      * @arkts 1.1&1.2
      */
     constructor();
@@ -3835,15 +4202,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create PluralRules object.
+     * Creates a PluralRules object to obtain the singular-plural type of numbers.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the PluralRules object.
-     * @param { PluralRulesOptions } [options] - Indicates the options used to initialize PluralRules object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
+     *                                            the first valid locale ID is used.
+     * @param { PluralRulesOptions } [options] - Options for creating a PluralRules object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
@@ -3868,15 +4237,18 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Returns a string indicating which plural rule to use for locale-aware formatting.
+     * Obtains the singular-plural type of the specified number.
      *
-     * @param { number } n - The number to get a plural rule for.
-     * @returns { string } A string representing the pluralization category of the number,
-     *         can be one of zero, one, two, few, many or other.
+     * @param { number } n - Number for which the singular-plural type is to be obtained.
+     * @returns { string } Singular-plural type. The value can be any of the following: "zero", "one", "two", "few",
+     *                     "many", "others". For details about the meanings of different values, see
+     *                     [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.PluralRules.select
      * @arkts 1.1&1.2
      */
     select(n: number): string;
@@ -3905,6 +4277,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.RelativeTimeFormatInputOptions
    * @arkts 1.1&1.2
    */
   export interface RelativeTimeFormatInputOptions {
@@ -3934,14 +4308,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The locale matching algorithm to use.
-     * Possible values are: lookup, best fit
+     * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.localeMatcher
      * @arkts 1.1&1.2
      */
     localeMatcher?: string;
@@ -3972,14 +4347,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The format of output message.
-     * Possible values are: always, auto
+     * Format of the output message. The value can be "always" or "auto". The default value is "always".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.numeric
      * @arkts 1.1&1.2
      */
     numeric?: string;
@@ -4010,14 +4386,16 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
+     * Length of an internationalized message. The value can be "long", "short", or "narrow".
+     * The default value is "long".
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatInputOptions.style
      * @arkts 1.1&1.2
      */
     style?: string;
@@ -4046,6 +4424,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.RelativeTimeFormatResolvedOptions
    * @arkts 1.1&1.2
    */
   export interface RelativeTimeFormatResolvedOptions {
@@ -4063,13 +4443,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The BCP 47 language tag for the locale actually used.
+     * Locale ID, including the language, script, and region.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.locale
      * @arkts 1.1&1.2
      */
     locale: string;
@@ -4090,14 +4472,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The length of the internationalized message.
-     * Possible values are: long, short, narrow
+     * Length of an internationalized message. The value can be "long", "short", or "narrow".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.style
      * @arkts 1.1&1.2
      */
     style: string;
@@ -4118,14 +4501,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The format of output message.
-     * Possible values are: always, auto
+     * Format of the output message. The value can be "always" or "auto".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.numeric
      * @arkts 1.1&1.2
      */
     numeric: string;
@@ -4144,56 +4528,23 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * The value requested using the Unicode extension key "nu" or filled in as a default.
+     * Numbering system. The value can be: "adlm", "ahom", "arab", "arabext", "bali", "beng", "bhks",
+     * "brah", "cakm", "cham", "deva", "diak", "fullwide", "gong", "gonm", "gujr", "guru", "hanidec", "hmng", "hmnp",
+     * "java", "kali", "khmr", "knda", "lana", "lanatham", "laoo", "latn", "lepc", "limb", "mathbold", "mathdbl",
+     * "mathmono", "mathsanb", "mathsans", "mlym", "modi", "mong", "mroo", "mtei", "mymr", "mymrshan", "mymrtlng",
+     * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
+     * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormatResolvedOptions.numberingSystem
      * @arkts 1.1&1.2
      */
     numberingSystem: string;
-  }
-
-  /**
-   * Provides the part of RelativeTimeFormat.
-   *
-   * @interface RelativeTimeFormatPart
-   * @syscap SystemCapability.Global.I18n
-   * @since 20
-   * @arkts 1.2
-   */
-  export interface RelativeTimeFormatPart {
-    /**
-     * The type of the part.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 20
-     * @arkts 1.2
-     */
-    type: string;
-
-    /**
-     * The value of the part.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Global.I18n
-     * @since 20
-     * @arkts 1.2
-     */
-    value: number;
-
-    /**
-     * The unit of the part.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Global.I18n
-     * @since 20
-     * @arkts 1.2
-     */
-    unit?: string;
   }
 
   /**
@@ -4219,6 +4570,8 @@ declare namespace intl {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @deprecated since 20
+   * @useinstead Intl.RelativeTimeFormat
    * @arkts 1.1&1.2
    */
   export class RelativeTimeFormat {
@@ -4236,12 +4589,14 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create RelativeTimeFormat object.
+     * Creates a RelativeTimeFormat object.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor();
@@ -4266,15 +4621,17 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * A constructor used to create RelativeTimeFormat object.
+     * Creates a RelativeTimeFormat object.
      *
-     * @param { string | Array<string> } locale - Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the RelativeTimeFormat object.
-     * @param { RelativeTimeFormatInputOptions } [options] - Indicates the options used to initialize RelativeTimeFormat object.
+     * @param { string | Array<string> } locale - Locale ID or locale ID array. If the input is a locale ID array,
+     *                                            the first valid locale ID is used.
+     * @param { RelativeTimeFormatInputOptions } [options] - Options for creating a RelativeTimeFormat object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.constructor
      * @arkts 1.1&1.2
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
@@ -4301,16 +4658,18 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * formats a value and unit according to the locale and formatting options of this object.
+     * Formats a relative time.
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - Unit to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { string } formatted language-sensitive relative time.
+     * @param { number } value - Value to format.
+     * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
+     * "month", "week", "day", "hour", "minute", or "second".
+     * @returns { string } Relative time after formatting.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.format
      * @arkts 1.1&1.2
      */
     format(value: number, unit: string): string;
@@ -4339,35 +4698,21 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * returns an Array of objects representing the relative time format in parts that can be used for
-     * custom locale-aware formatting
+     * Formats the relative time.
      *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { Array<object> } an Array of objects representing the relative time format in parts
+     * @param { number } value - Value to format.
+     * @param { string } unit - Unit of the relative time.<br>The value can be any of the following: "year", "quarter",
+     * "month", "week", "day", "hour", "minute", or "second".
+     * @returns { Array<object> } to parts.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.formatToParts
+     * @arkts 1.1&1.2
      */
     formatToParts(value: number, unit: string): Array<object>;
-
-    /**
-     * returns an Array of objects representing the relative time format in parts that can be used for
-     * custom locale-aware formatting
-     *
-     * @param { number } value - Numeric value to use in the internationalized relative time message.
-     * @param { string } unit - to use in the relative time internationalized message.
-     *             Possible values are: year, quarter, month, week, day, hour, minute, second.
-     * @returns { Array<RelativeTimeFormatPart> } an Array of RelativeTimeFormatPart representing the relative time format in parts
-     * @syscap SystemCapability.Global.I18n
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    formatToParts(value: number, unit: string): Array<RelativeTimeFormatPart>;
 
     /**
      * Returns a new object with properties that reflect the locale and formatting options computed during
@@ -4387,14 +4732,15 @@ declare namespace intl {
      * @since 10
      */
     /**
-     * Returns a new object with properties that reflect the locale and formatting options computed during
-     * initialization of the object.
+     * Defines the formatting options for a RelativeTimeFormat object.
      *
-     * @returns { RelativeTimeFormatResolvedOptions } RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
+     * @returns { RelativeTimeFormatResolvedOptions } Options for the RelativeTimeFormat object.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
+     * @deprecated since 20
+     * @useinstead Intl.RelativeTimeFormat.resolvedOptions
      * @arkts 1.1&1.2
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
