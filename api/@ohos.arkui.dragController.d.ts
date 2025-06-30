@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve } from './arkui/component/common';
-import { CustomBuilder } from './arkui/component/builder'
+import { CustomBuilder } from './arkui/component/builder';
 import { TouchPoint, ResourceColor } from './arkui/component/units';
 import { Curve } from './arkui/component/enums';
 /*** endif */
@@ -703,11 +703,12 @@ declare namespace dragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag
+   *     event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -717,30 +718,45 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @deprecated since 18
+   * @since 12
+   */ 
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @deprecated since 18 
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    * @arkts 1.1&1.2
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
-    callback: AsyncCallback<DragEventParam>): void;
+      callback: AsyncCallback<DragEventParam>): void;
 
   /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -750,14 +766,29 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<DragEventParam> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
    * @arkts 1.1&1.2
@@ -768,13 +799,13 @@ declare namespace dragController {
    * Create one drag action object, which can be used for starting drag later or monitoring
    * the drag status after drag started.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   * displayed when the objects are dragged.
+   *     displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -783,17 +814,34 @@ declare namespace dragController {
    * Create one drag action object, which can be used for starting drag later or monitoring
    * the drag status after drag started.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   * displayed when the objects are dragged.
+   *     displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Create one drag action object, which can be used for starting drag later or monitoring
+   * the drag status after drag started.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
+   *     displayed when the objects are dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @returns { DragAction } one drag action object
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#createDragAction
    * @arkts 1.1&1.2
@@ -811,7 +859,15 @@ declare namespace dragController {
    * @returns { DragPreview } An drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Get drag preview object.
+   * @returns { DragPreview } An drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#getDragPreview
    * @arkts 1.1&1.2

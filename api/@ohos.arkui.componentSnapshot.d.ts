@@ -19,11 +19,11 @@
  */
 
 /*** if arkts 1.2 */
-import { CustomBuilder } from './arkui/component/builder'
+import { CustomBuilder } from './arkui/component/builder';
 /*** endif */
 
 import { AsyncCallback } from './@ohos.base';
-import image from './@ohos.multimedia.image'
+import image from './@ohos.multimedia.image';
 
 /**
  * This module allows developers to export snapshot image from a component or a custom builder.
