@@ -536,7 +536,6 @@ export class BuilderNode<Args extends Object[]> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   inheritFreezeOptions(enabled: boolean): void;
 

@@ -133,7 +133,6 @@ export class ComponentContent<T extends Object> extends Content{
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   inheritFreezeOptions(enabled: boolean): void;
 
