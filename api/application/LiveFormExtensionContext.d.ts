@@ -31,17 +31,4 @@ import ExtensionContext from './ExtensionContext';
  * @since 20
  */
 export default class LiveFormExtensionContext extends ExtensionContext {
-  /**
-   * Set the background image of the live form.
-   *
-   * @param { Resource } res - Resource of the background image.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 16501010 - Failed to set live form background image.
-   * @syscap SystemCapability.Ability.Form
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   */
-  setBackgroundImage(res: Resource): Promise<void>;
 }
