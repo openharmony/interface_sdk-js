@@ -19,31 +19,42 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod } from './common'
+import { Bindable, CommonMethod } from './common'
 /*** endif */
 
 /**
- * Declare the StepperOptionalIndex.
+ * Declare the StepperOptions.
  *
- * @interface StepperOptionalIndex
+ * @interface StepperOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.2
+ * @arkts 1.1&1.2
  */
-interface StepperOptionalIndex {
+interface StepperOptions {
   /**
-   * Get stepper index.
+   * Set the stepper index.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
+   */
+  index?: number;
+
+  /**
+   * Set the stepper index.
+   *
+   * @type { ?(number | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.2
    */
-  index?: number
+  index?: number | Bindable<number>;
 }
 
 /**
@@ -104,15 +115,16 @@ interface StepperInterface {
   /**
    * Called when the stepper component is used.
    *
-   * @param { StepperOptionalIndex } value
+   * Anonymous Object Rectification.
+   * @param { StepperOptions } value
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
+   * @arkts 1.1&1.2
    */
-  (value?: StepperOptionalIndex): StepperAttribute;
+  (value?: StepperOptions): StepperAttribute;
 }
 
 /**
