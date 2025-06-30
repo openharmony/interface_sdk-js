@@ -2455,7 +2455,7 @@ declare namespace notificationManager {
   function setDistributedEnable(enable: boolean): Promise<void>;
 
   /**
-   * Checks whether distributed notification is enabled on this device. This API uses an asynchronous callback to return the result.
+   * Checks whether the device supports cross-device notifications. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value true means that
    *                                              distributed notification is enabled, and false means the opposite.
