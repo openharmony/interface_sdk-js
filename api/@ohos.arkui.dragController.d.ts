@@ -891,7 +891,7 @@ declare namespace dragController {
    * @atomicservice
    * @since 20
    */
-  enum DragSpringLoadingState {
+  const enum DragSpringLoadingState {
     /**
      * The user has remained stationary for a period, initiating the spring loading process.
      * This state allows for some preparatory operations during spring loading.
