@@ -431,7 +431,6 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemLocaleInstance(): Intl.Locale;
 
@@ -1359,7 +1358,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
   }
@@ -4284,7 +4282,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
@@ -4318,7 +4315,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
@@ -4373,7 +4369,6 @@ declare namespace i18n {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleNumberFormat;
 
@@ -4430,7 +4425,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
