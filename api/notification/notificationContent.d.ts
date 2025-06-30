@@ -22,6 +22,7 @@ import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
+import type { WantAgent } from '../@ohos.wantAgent';
 
 /**
  * Describes icon type.
@@ -381,6 +382,16 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @since 12
    */
   lines: Array<string>;
+  
+  /**
+   * Multi-line wantAgent of the multi-line text notification.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @type { ?Array<WantAgent> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  lineWantAgents?: Array<WantAgent>;
 }
 
 /**
