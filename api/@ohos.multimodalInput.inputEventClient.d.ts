@@ -96,6 +96,16 @@ declare namespace inputEventClient {
      */
     mouseEvent: MouseEvent;
 
+    /**
+     * Whether to use global coordinate to calculate injected mouse event.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    useGlobalCoordinate? : boolean;
   }
 
   /**
@@ -116,7 +126,17 @@ declare namespace inputEventClient {
      * @since 11
      */
     touchEvent: TouchEvent;
-    
+
+    /**
+     * Whether to use global coordinate to calculate injected touch event.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    useGlobalCoordinate?: boolean;
   }
 
   /**
