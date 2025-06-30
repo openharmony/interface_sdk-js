@@ -114,7 +114,7 @@ function tsTransform(utFiles, callback) {
           target: ts.ScriptTarget.ES2017,
         },
         fileName: fileName,
-        transformers: { before: [callback(url, content)] }
+        transformers: { before: [callback(url)] }
       });
     } else {
       const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
@@ -168,9 +168,7 @@ function recursionAstCallback2(url) {
       node = processVisitEachChild2(context, sourceFile);
       const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
       const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-      const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
-      ensureDirectoryExists(outputPath);
-      fs.writeFileSync(outputPath, result);
+      fs.writeFileSync(url, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -182,13 +180,12 @@ function recursionAstCallback2(url) {
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function parseJSDocCallback(url, content) {
+function parseJSDocCallback(url) {
   return (context) => {
     return (sourceFile) => {
-      node = parseJSDocVisitEachChild1(context, sourceFile, content);
-      const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
-      ensureDirectoryExists(outputPath);
-      fs.writeFileSync(outputPath, jsDocContent);
+      node = parseJSDocVisitEachChild1(context, sourceFile);
+      changeContent(tagDataList);
+      fs.writeFileSync(url, jsDocContent);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -200,14 +197,13 @@ function parseJSDocCallback(url, content) {
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function parseJSDocCallback2(url, content) {
+function parseJSDocCallback2(url) {
   return (context) => {
     return (sourceFile) => {
       const contents = fs.readFileSync(url, 'utf-8');
       node = parseJSDocVisitEachChild2(context, sourceFile, contents);
-      const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
-      ensureDirectoryExists(outputPath);
-      fs.writeFileSync(outputPath, jsDocContent);
+      changeContent(tagDataList);
+      fs.writeFileSync(url, jsDocContent);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -219,7 +215,7 @@ function parseJSDocCallback2(url, content) {
  * @param {node} 解下过后的节点
  * @returns ts.node
  */
-function parseJSDocVisitEachChild1(context, node, content) {
+function parseJSDocVisitEachChild1(context, node) {
   return ts.visitEachChild(node, processAllNodes, context);
   function processAllNodes(node) {
     if (node.jsDoc) {
@@ -234,7 +230,7 @@ function parseJSDocVisitEachChild1(context, node, content) {
       }
       const typeExpr = tag.typeExpression;
       const newTypeExpr = parseTypeExpr(typeExpr);
-      applJSDocTransformations(typeExpr.type, newTypeExpr, content, tagDataList);
+      applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList);
     });
   }
   function processAllNodesJSDoc(jsDocNode) {
@@ -277,7 +273,7 @@ function parseJSDocVisitEachChild1(context, node, content) {
  * @param {newTypeExpr} 新typeExpr 
  * @param {content} 文本内容 
  */
-function applJSDocTransformations(typeExpr, newTypeExpr, content, tagDataList) {
+function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList) {
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
   const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr);
   if (finalContent.includes('number')) {
@@ -287,7 +283,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, content, tagDataList) {
       convertedText: finalContent
     };
     tagDataList.push(data);
-    changeContent(content, tagDataList);
   }
 }
 
@@ -297,15 +292,13 @@ function applJSDocTransformations(typeExpr, newTypeExpr, content, tagDataList) {
  * @param {newTypeExpr} 新typeExpr 
  * @param {content} 文本内容 
  */
-function changeContent(content, tagDataList) {
+function changeContent(tagDataList) {
   tagDataList.sort((a, b) => b.pos - a.pos);
-  let result = content;
   for (const data of tagDataList) {
-    const before = result.substring(0, data.pos);
-    const after = result.substring(data.end);
-    result = before + ` ${data.convertedText}` + after;
+    const before = jsDocContent.substring(0, data.pos);
+    const after = jsDocContent.substring(data.end);
+    jsDocContent = before + ` ${data.convertedText}` + after;
   }
-  jsDocContent = result;
 }
 
 /**
@@ -314,8 +307,7 @@ function changeContent(content, tagDataList) {
  * @param {node} 解下过后的节点
  * @returns ts.node
  */
-function parseJSDocVisitEachChild2(context, node, content) {
-  const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+function parseJSDocVisitEachChild2(context, node) {
   return ts.visitEachChild(node, processAllNodes, context);
   function processAllNodes(node) {
     if (node.jsDoc) {
@@ -342,10 +334,7 @@ function parseJSDocVisitEachChild2(context, node, content) {
   function writeDataToFile(tag) {
     const typeExpr = tag.typeExpression;
     const newTypeExpr = parseTypeExpression(typeExpr.type);
-    const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr);
-    const before = content.substring(0, typeExpr.type.pos);
-    const after = content.substring(typeExpr.type.end);
-    jsDocContent = before + ` ${finalContent}` + after;
+    applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList);
   }
   function parseTypeExpression(node) {
     if (ts.isUnionTypeNode(node)) {
