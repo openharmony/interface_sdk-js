@@ -2031,7 +2031,8 @@ declare namespace inputMethodEngine {
      * <p>It's only used for STATUS_BAR panel or SOFT_KEYBOARD panel with FLG_FLOATING or FLAG_CANDIDATE.</p>
      *
      * @throws { BusinessError } 801 - capability not supported.
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
