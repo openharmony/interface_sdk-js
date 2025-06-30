@@ -20,7 +20,7 @@
 
 import type rpc from './@ohos.rpc';
 import type Want from './@ohos.app.ability.Want';
-import type ExtensionContext from './application/ExtensionContext';
+import type SelectionExtensionContext from './@ohos.selectionInput.SelectionExtensionContext';
 
 /**
  * Defines the class of the ExtensionAbility for word selection.
@@ -31,11 +31,11 @@ import type ExtensionContext from './application/ExtensionContext';
 export default class SelectionExtensionAbility {
   /**
    * Context of the ExtensionAbility.
-   * @type { ExtensionContext }
+   * @type { SelectionExtensionContext }
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
    */
-  context: ExtensionContext;
+  context: SelectionExtensionContext;
 
   /**
    * Callback invoked when the ExtensionAbility is initialized.
