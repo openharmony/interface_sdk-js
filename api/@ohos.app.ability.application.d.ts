@@ -77,6 +77,24 @@ declare namespace application {
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
   /**
+   *  Create a context for a specified plugin module under the host application.
+   * 
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Context } context - Indicates current context.
+   * @param { string } pluginBundleName - Indicates the bundle name of plugin.
+   * @param { string } pluginModuleName - Indicates the module name of plugin.
+   * @param { string } hostBundleName - Indicates the bundle name of host application.
+   * @returns { Promise<Context> } Returns the module context of plugin.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  export function createPluginModuleContextForHostBundle(context: Context, pluginBundleName: string, pluginModuleName: string, hostBundleName: string): Promise<Context>;
+
+  /**
    * Create a bundle context
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
