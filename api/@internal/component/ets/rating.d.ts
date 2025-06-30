@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration,Callback,CommonMethod,Optional,ContentModifier } from './common'
+import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier } from './common';
 import { ResourceStr } from './units';
 /*** endif */
 

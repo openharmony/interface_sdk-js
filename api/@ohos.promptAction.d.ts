@@ -1979,15 +1979,16 @@ declare namespace promptAction {
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
      *
-     * @type { PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons }
+     * @type { PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons
+     * | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    buttons: PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons;
-
+    buttons: PromptActionSingleButton | PromptActionDoubleButtons | PromptActionTripleButtons
+    | PromptActionQuadrupleButtons | PromptActionQuintupleButtons | PromptActionSextupleButtons;
     /**
      * Whether to display in the sub window.
      * 
