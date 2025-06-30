@@ -28,93 +28,114 @@
  */
 
 /**
- * Provide interfaces related to debugger access and obtaining CPU,
- * memory and other virtual machine information during runtime for JS programs
+ * This module provides multiple methods for debugging and profiling applications. With these methods, you can obtain
+ * memory, CPU, GPU, and GC data, collect process trace and profiler data, and dump VM heap snapshots. Since most APIs
+ * of this module are both performance-consuming and time-consuming, and are defined based on the HiDebug module,
+ * you are advised to use these APIs only during the application debugging and profiling phases. If the APIs are
+ * required in other scenarios, evaluate the impact of the APIs on application performance.
  *
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-
 declare namespace hidebug {
   /**
-   * Get total native heap memory size
+   * Obtains the total number of bytes occupied by the total space (the sum of uordblks and fordblks obtained from
+   * mallinfo) held by a process, which is measured by the memory allocator.
    *
-   * @returns { bigint } Returns total native heap memory size.
+   * @returns { bigint } Returns the total number of bytes occupied by the total space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapSize(): bigint;
 
   /**
-   * Get Native heap memory allocation size.
-   * @returns { bigint } Returns native heap memory allocation size.
+   * Obtains the total number of bytes occupied by the total allocated space (uordblks obtained from mallinfo) held by
+   * a process, which is measured by the memory allocator.
+   * @returns { bigint } Returns the total number of bytes occupied by the total allocated space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapAllocatedSize(): bigint;
 
   /**
-   * Get Native heap memory free size
+   * Obtains the total number of bytes occupied by the total free space (fordblks obtained from mallinfo)
+   * held by a process, which is measured by the memory allocator.
    *
-   * @returns { bigint } Returns native heap memory free size.
+   * @returns { bigint } Returns the size of the memory occupied by the free normal blocks held by the process, in bytes.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapFreeSize(): bigint;
 
   /**
-   * Get the virtual set size memory of the application process
+   * Obtains the virtual set size used by the application process. This API is implemented by multiplying the value of
+   * size (number of memory pages) in the /proc/{pid}/statm node by the page size (4 KB per page).
    *
-   * @returns { bigint } Returns application process virtual set size memory information.
+   * @returns { bigint } Returns the virtual set size used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVss(): bigint;
 
   /**
-   * Get application process proportional set size memory information
+   * Obtains the size of the physical memory actually used by the application process. This API is implemented by
+   * summing up the values of **Pss** and **SwapPss** in the /proc/{pid}/smaps_rollup** node.
    *
-   * @returns { bigint } Returns application process proportional set size memory information.
+   * @returns { bigint } Returns the size of the physical memory actually used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPss(): bigint;
 
   /**
-   * Obtains the size of the shared dirty memory of a process.
+   * Obtains the size of the shared dirty memory of a process. This API is implemented by reading the value of
+   * Shared_Dirty in the /proc/{pid}/smaps_rollup node.
    *
-   * @returns { bigint } Returns the size of the shared dirty memory.
+   * @returns { bigint } Returns the size of the shared dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharedDirty(): bigint;
 
   /**
-   * Obtains the size of the private dirty memory of a process.
-   * @returns { bigint } Returns the size of the private dirty memory.
+   * Obtains the size of the private dirty memory of a process. This API is implemented by reading the value of
+   * Private_Dirty in the /proc/{pid}/smaps_rollup node.
+   *
+   * @returns { bigint } Returns the size of the private dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrivateDirty(): bigint;
 
   /**
-   * Obtains the cpu usage percent of a process.
+   * Obtains the CPU usage of a process.
    *
-   * @returns { number } Returns the cpu usage of a process.
+   * @returns { number } Returns the CPU usage of the process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCpuUsage(): number;
 
   /**
-   * Start CPU Profiling.
-   * The input parameter is a user-defined file name, excluding the file suffix.
-   * The generated file is in the files folder under the application directory.
-   * Such as "/data/accounts/account_0/appdata/[package name]/files/cpuprofiler-xxx.json"
    *
-   * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
+   * Starts the VM profiling method. startProfiling(filename: string) and stopProfiling() are called in pairs.
+   * startProfiling(filename: string) always occurs before stopProfiling(). You are advised not to call either of these
+   * methods repeatedly. Otherwise, an exception may occur. The generated file is in the files folder under the
+   * application directory. Such as "/data/accounts/account_0/appdata/[package name]/files/cpuprofiler-xxx.json"
+   *
+   * @param { string } filename - User-defined file name of the sampling data. The .json file is generated
+   * in the files directory of the application based on the specified file name.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
    * @deprecated since 9
@@ -123,8 +144,9 @@ declare namespace hidebug {
   function startProfiling(filename: string): void;
 
   /**
-   * Stop CPU Profiling.
-   * It takes effect only when the CPU profiler is turned on
+   * Stops the VM profiling method. stopProfiling() and startProfiling(filename: string) are called in pairs.
+   * startProfiling(filename: string) always occurs before stopProfiling(). You are advised not to call either of these
+   * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on.
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
@@ -134,10 +156,10 @@ declare namespace hidebug {
   function stopProfiling(): void;
 
   /**
-   * Dump JS Virtual Machine Heap Snapshot.
+   * Exports the VM heap data and generates a filename.heapsnapshot file.
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
-   * Such as "/data/accounts/account_0/appdata/[package name]/files/xxx.heapsnapshot"
+   * Such as "/data/accounts/account_0/appdata/[package name]/files/xxx.heapsnapshot".
    *
    * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -148,11 +170,12 @@ declare namespace hidebug {
   function dumpHeapData(filename: string): void;
 
   /**
-   * Start CPU Profiling.
-   * The input parameter is a user-defined file name, excluding the file suffix.
-   * The generated file is in the files folder under the application directory.
+   * Starts the VM profiling method. startJsCpuProfiling(filename: string) and stopJsCpuProfiling() are called in pairs.
+   * startJsCpuProfiling(filename: string) always occurs before stopJsCpuProfiling(). You are advised not to call either
+   * of these methods repeatedly. Otherwise, an exception may occur.
    *
-   * @param { string } filename - Indicates the user-defined file name,  excluding the file suffix.
+   * @param { string } filename - User-defined heap file name. The .heapsnapshot file is generated in the files
+   * directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -161,8 +184,9 @@ declare namespace hidebug {
   function startJsCpuProfiling(filename: string): void;
 
   /**
-   * Stop CPU Profiling.
-   * It takes effect only when the CPU profiler is turned on
+   * Stops the VM profiling method. stopJsCpuProfiling() and startJsCpuProfiling(filename: string) are called in pairs.
+   * startJsCpuProfiling() always occurs before stopJsCpuProfiling(). You are advised not to call either of these
+   * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -171,51 +195,55 @@ declare namespace hidebug {
   function stopJsCpuProfiling(): void;
 
   /**
-   * Dump JS Virtual Machine Heap Snapshot.
+   * Exports the heap data.
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
    *
-   * @param { string } filename - Indicates the user-defined file name, excluding the file suffix.
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @param { string } filename - User-defined file name of the sampling data. The .heapsnapshot file is generated
+   * in the files directory of the application based on the specified file name.
+   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
    */
   function dumpJsHeapData(filename: string): void;
 
   /**
-   * Get a debugging dump of a system service by service id.
+   * Obtains system service information.
    * It need dump permission.
    * This API can be called only by system application.
    *
    * @permission ohos.permission.DUMP
-   * @param { number } serviceid - Indicates the id of the service ability.
-   * @param { number } fd - The file descriptor.
-   * @param { Array<string> } args - The args list of the system ability dump interface.
-   * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
+   * @param { number } serviceid - Obtains the system service information based on the specified service ID.
+   * @param { number } fd - File descriptor to which data is written by the API.
+   * @param { Array<string> } args - Parameter list of the Dump API of the system service.
+   * @throws {BusinessError} 401 - the parameter check failed,Possible causes:
    *                               1.the parameter type error
-   *                               2.the args parameter is not string array
+   *                               2.the args parameter is not string array.
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
 
   /**
-   * Obtains the cpu usage of system.
+   * Obtains the CPU usage of the system.
    *
-   * @returns { number } Returns the cpu usage of system.
+   * @returns { number } Returns the CPU usage of the system.
    * @throws { BusinessError } 11400104 - The status of the system CPU usage is abnormal.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemCpuUsage(): number;
 
   /**
-   * Application CPU usage of thread.
+   * Describes the CPU usage of a thread.
    *
    * @interface ThreadCpuUsage
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ThreadCpuUsage {
     /**
@@ -223,143 +251,173 @@ declare namespace hidebug {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     threadId: number;
     /**
-     * Cpu usage of thread
+     * CPU usage of the thread.
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cpuUsage: number;
   }
 
   /**
-   * Get the CPU usage of all threads in the application.
+   * Obtains the CPU usage of application threads.
    *
-   * @returns { ThreadCpuUsage[] } Returns the CPU usage of all threads in the application.
+   * @returns { ThreadCpuUsage[] } Returns the CPU usage of all threads of the current application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppThreadCpuUsage(): ThreadCpuUsage[];
 
   /**
-   * System memory information
+   * Describes the system memory information, including the total memory, free memory, and available memory.
    *
    * @interface SystemMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SystemMemInfo {
     /**
-     * Total system memory size, in kilobyte
+     * Total memory of the system, in KB. The value of this parameter is obtained by reading the value of
+     * MemTotal in the /proc/meminfo node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalMem: bigint;
     /**
-     * System free memory size, in kilobyte
+     * Free memory of the system, in KB. The value of this parameter is obtained by reading the value of
+     * MemFree in the /proc/meminfo node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     freeMem: bigint;
     /**
-     * System available memory size, in kilobyte
+     * Available memory of the system, in KB. The value of this parameter is obtained by reading the value of
+     * MemAvailable in the /proc/meminfo node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     availableMem: bigint;
   }
 
   /**
-   * Obtains the system memory size.
+   * Obtains system memory information. This API is implemented by reading data from the /proc/meminfo node.
    *
-   * @returns { SystemMemInfo } Returns system memory size.
+   * @returns { SystemMemInfo } Returns the system memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemMemInfo(): SystemMemInfo;
 
   /**
-   * Application process native memory information.
+   * Describes memory information of the application process.
    *
    * @interface NativeMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface NativeMemInfo {
     /**
-     * Process proportional set size memory, in kilobyte
+     * Size of the occupied physical memory (including the proportionally allocated memory occupied by the shared
+     * library), in KB. The value of this parameter is obtained by summing up the values of Pss and SwapPss in the
+     * /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pss: bigint;
     /**
-     * Virtual set size memory, in kilobyte
+     * Size of the occupied virtual memory (including the memory occupied by the shared library), in KB. The value of
+     * this parameter is obtained by multiplying the value of size (number of memory pages) in the /proc/{pid}/statm
+     * node by the page size (4 KB per page).
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vss: bigint;
     /**
-     * Resident set size, in kilobyte
+     * Size of the occupied physical memory (including the memory occupied by the shared library), in KB.
+     * The value of this parameter is obtained by reading the value of Rss in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rss: bigint;
     /**
-     * The size of the shared dirty memory, in kilobyte
+     * Size of the shared dirty memory, in KB. The value of this parameter is obtained by reading the value of
+     * Shared_Dirty in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sharedDirty: bigint;
     /**
-     * The size of the private dirty memory, in kilobyte
+     * Size of the private dirty memory, in KB. The value of this parameter is obtained by reading the value of
+     * Private_Dirty in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     privateDirty: bigint;
     /**
-     * The size of the shared clean memory, in kilobyte
+     * Size of the shared clean memory, in KB. The value of this parameter is obtained by reading the value of
+     * Shared_Clean in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sharedClean: bigint;
     /**
-     * The size of the private clean memory, in kilobyte
+     * Size of the private clean memory, in KB. The value of this parameter is obtained by reading the value of
+     * Private_Clean in the /proc/{pid}/smaps_rollup node.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     privateClean: bigint;
   }
 
   /**
-   * Obtains the memory information of application process.
+   * Obtains the memory information of the application process. This API is implemented by reading data from the
+   * /proc/{pid}/smaps_rollup and /proc/{pid}/statm node.
    *
-   * @returns { NativeMemInfo } Returns the native memory of a process.
+   * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppNativeMemInfo(): NativeMemInfo;
 
@@ -469,270 +527,309 @@ declare namespace hidebug {
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
   /**
-   * Enum for trace flag
+   * Describes types of trace collection threads, including the main thread and all threads.
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TraceFlag {
     /**
-     * Only capture main thread trace
+     * The main thread of the application.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAIN_THREAD = 1,
     /**
-     * Capture all thread trace
+     * All threads of the application.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_THREADS = 2
   }
 
   /**
-   * Provide trace tags
+   * Enumerates the tags used in trace collection.
    *
    * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace tags {
     /**
-     * Ability Manager tag.
+     * Ability Manager tag. The corresponding HiTrace command is tagName:ability.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ABILITY_MANAGER: number;
     /**
-     * ARKUI development framework tag.
+     * ArkUI development framework. The corresponding HiTrace command is tagName:ace.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ARKUI: number;
     /**
-     * ARK tag.
+     * JSVM VM. The corresponding HiTrace command is tagName:ark.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ARK: number;
     /**
-     * Bluetooth tag.
+     * Bluetooth. The corresponding HiTrace command is tagName:bluetooth.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const BLUETOOTH: number;
     /**
-     * Common library subsystem tag.
+     * Common library subsystem. The corresponding HiTrace command is tagName:commonlibrary.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const COMMON_LIBRARY: number;
     /**
-     * Distributed hardware device manager tag.
+     * Distributed hardware device management. The corresponding HiTrace command is tagName:devicemanager.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_HARDWARE_DEVICE_MANAGER: number;
     /**
-     * Distributed audio tag.
+     * Distributed audio. The corresponding HiTrace command is tagName:daudio.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_AUDIO: number;
     /**
-     * Distributed camera tag.
+     * Distributed camera. The corresponding HiTrace command is tagName:dcamera.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_CAMERA: number;
     /**
-     * Distributed data manager module tag.
+     * Distributed data management. The corresponding HiTrace command is tagName:distributeddatamgr.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_DATA: number;
     /**
-     * Distributed hardware framework tag.
+     * Distributed hardware framework. The corresponding HiTrace command is tagName:dhfwk.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_HARDWARE_FRAMEWORK: number;
     /**
-     * Distributed input tag.
+     * Distributed input. The corresponding HiTrace command is tagName:dinput.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_INPUT: number;
     /**
-     * Distributed screen tag.
+     * Distributed screen. The corresponding HiTrace command is tagName:dscreen.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_SCREEN: number;
     /**
-     * Distributed scheduler tag.
+     * Distributed scheduler. The corresponding HiTrace command is tagName:dsched.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_SCHEDULER: number;
     /**
-     * FFRT tasks.
+     * FFRT task. The corresponding HiTrace command is tagName:ffrt.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const FFRT: number;
     /**
-     * File management tag.
+     * File management system. The corresponding HiTrace command is tagName:filemanagement.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const FILE_MANAGEMENT: number;
     /**
-     * Global resource manager tag.
+     * Global resource management. The corresponding HiTrace command is tagName:gresource.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const GLOBAL_RESOURCE_MANAGER: number;
     /**
-     * Graphics module tag.
+     * Graphics module. The corresponding HiTrace command is tagName:graphic.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const GRAPHICS: number;
     /**
-     * HDF subsystem tag.
+     * HDF subsystem. The corresponding HiTrace command is tagName:hdf.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const HDF: number;
     /**
-     * MISC module tag.
+     * MISC module. The corresponding HiTrace command is tagName:misc.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MISC: number;
     /**
-     * Multimodal input module tag.
+     * Multi-modal input module. The corresponding HiTrace command is tagName:multimodalinput.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MULTIMODAL_INPUT: number;
     /**
-     * Net tag.
+     * Network. The corresponding HiTrace command is tagName:net.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NET: number;
     /**
-     * Notification module tag.
+     * Notification module. The corresponding HiTrace command is tagName:notification.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NOTIFICATION: number;
     /**
-     * NWeb tag.
+     * Nweb. The corresponding HiTrace command is tagName:nweb.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NWEB: number;
     /**
-     * OHOS generic tag.
+     * OHOS. The corresponding HiTrace command is tagName:ohos.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const OHOS: number;
     /**
-     * Power manager tag.
+     * Power management. The corresponding HiTrace command is tagName:power.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const POWER_MANAGER: number;
     /**
-     * RPC tag.
+     * RPC. The corresponding HiTrace command is tagName:rpc.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const RPC: number;
     /**
-     * SA tag.
+     * System capability management. The corresponding HiTrace command is tagName:samgr.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const SAMGR: number;
     /**
-     * Window manager tag.
+     * Window management. The corresponding HiTrace command is tagName:window.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const WINDOW_MANAGER: number;
     /**
-     * Audio module tag.
+     * Audio module. The corresponding HiTrace command is tagName:zaudio.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const AUDIO: number;
     /**
-     * Camera module tag.
+     * Camera module. The corresponding HiTrace command is tagName:zcamera.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const CAMERA: number;
     /**
-     * Image module tag.
+     * Image module. The corresponding HiTrace command is tagName:zimage.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const IMAGE: number;
     /**
-     * Media module tag.
+     * Media module. The corresponding HiTrace command is tagName:zmedia.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MEDIA: number;
   }
 
   /**
-   * Start capture application trace.
+   * Starts automatic trace collection in a specified scope. This API is a supplement to the HiTrace module.
+   * The performance consumption during trace collection increases with the collection scope. Therefore, before
+   * using this API, you are advised to run the hitrace command to capture trace logs and select the key scope
+   * of trace collection to improve the API performance.
    *
-   * @param { number[] } tags - Tag of trace.
-   * @param { TraceFlag } flag - Trace flag.
-   * @param { number } limitSize - Max size of trace file, in bytes, the max is 500MB.
-   * @returns { string } Returns absolute path of the trace file.
+   * @param { number[] } tags - Scope for trace collection. For details, see tags.
+   * @param { TraceFlag } flag - For details, see TraceFlag.
+   * @param { number } limitSize - Limit on the trace file size, in bytes. The maximum size of a single file is 500 MB.
+   * @returns { string } Returns the path of the trace file.
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *                           1.The limit parameter is too small
    *                           2.The parameter is not within the enumeration type
@@ -741,17 +838,20 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400103 - No write permission on the file.
    * @throws { BusinessError } 11400104 - Abnormal trace status.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startAppTraceCapture(tags: number[], flag: TraceFlag, limitSize: number): string;
 
   /**
-   * Stop capture application trace.
+   * Stops application trace collection. Use startAppTraceCapture() to start collection before calling this API.
+   * If this API is called before trace collection or it is repeatedly called, an exception will occur.
    *
-   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
-   * @throws { BusinessError } 11400105 - No capture trace running
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal.
+   * @throws { BusinessError } 11400105 - No capture trace running.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopAppTraceCapture(): void;
 
@@ -791,8 +891,7 @@ declare namespace hidebug {
   function getVMRuntimeStat(item: string): number;
 
   /**
-   * Set the resource limitation of application.Please note that this function is only valid
-   * when the developer options switch of setting is turned on.
+   * Sets the number of FDs, number of threads, JS memory, or native memory limit of the application.
    * 
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
    * @param { number } value - For different resource type, values could have different meaning:
@@ -827,38 +926,41 @@ declare namespace hidebug {
   function isDebugState(): boolean;
 
   /**
-   * Get the graphics memory of application
+   * Obtains the size of the GPU memory. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the graphics memory of application, in kilobyte.
+   * @returns { Promise<number> } Returns the size of the GPU memory, in KB.
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getGraphicsMemory(): Promise<number>;
 
   /**
-   * Get the graphics memory of application
+   * Obtains the size of the GPU memory synchronously.
    *
-   * @returns { number } Returns the graphics memory of application, in kilobyte.
+   * @returns { number } Returns the size of the GPU memory, in KB.
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getGraphicsMemorySync(): number;
 
   /**
-   * Dump the raw heap snapshot of the JavaScript Virtual Machine for the current thread.
-   *
+   * Dumps the original heap snapshot of the VM for the current thread. The API uses a promise to return the path of the
+   * .rawheap file. You can use rawheap-translator to convert the generated file into a .heapsnapshot file for parsing.
    * The generated file will be stored in a folder within the application directory. However, since this file is usually
    * large, the system imposes restrictions on the frequency and number of calls to this function. Consequently, you
    * might fail to obtain the dump file due to quota limitations. These failures will persist until the quota is
    * regularly refreshed by the system. Therefore, it is advisable to delete the file immediately after you have
    * finished processing it. Moreover, it is recommended that you use this function in the gray - release version.
    *
-   * @param { boolean } needGC - Whether do GC before dump, default is true.
-   * @returns { Promise<string> } Returns the full path of raw heap snapshot file.
+   * @param { boolean } needGC - Whether GC is required when a heap snapshot is dumped. The default value is true.
+   * If this parameter is not specified, GC is triggered before dumping.
+   * @returns { Promise<string> } Returns the path of the generated snapshot file.
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
