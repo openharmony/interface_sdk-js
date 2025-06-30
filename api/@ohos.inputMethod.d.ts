@@ -699,8 +699,9 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - permissions check fails.
      * @throws { BusinessError } 202 - not system application.
-     * @throws { BusinessError } 12800008 - input method manager service error.
-	 * @throws { BusinessError } 12800018 - the input method is not found.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800018 - the input method is not found.
      * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
@@ -769,7 +770,8 @@ declare namespace inputMethod {
      * Discard the typing text
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
