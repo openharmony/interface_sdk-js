@@ -351,10 +351,11 @@ declare namespace floatingBall {
      * Indicates target window id.
      *
      * @type { number }
+     * @readonly
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    windowId: number;
+    readonly windowId: number;
   }
 }
 
