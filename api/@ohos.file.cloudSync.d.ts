@@ -486,6 +486,158 @@ declare namespace cloudSync {
   }
 
   /**
+   * Describes the download file type.
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum DownloadFileType {
+    /**
+     * Content file type.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    CONTENT = 0,
+    /**
+     * Thumbnail file type.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    THUMBNAIL = 1,
+    /**
+     * LCD file type.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    LCD = 2
+  }
+
+  /**
+   * FailedFileInfo struct.
+   * @interface FailedFileInfo
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface FailedFileInfo {
+    /**
+     * The uri of the file that failes to be downloaded.
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    uri: string;
+    /**
+     * Error code of the file that failes to be downloaded.
+     * @type { DownloadErrorType }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    error: DownloadErrorType;
+  }
+
+  /**
+   * MultiDownloadProgress object.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  class MultiDownloadProgress {
+    /**
+     * The current download state.
+     * @type { State }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    state: State;
+    /**
+     * The download ID of the batch files.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    taskId: number;
+    /**
+     * The number of files that downloaded successfully
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    successfulCount: number;
+    /**
+     * The number of files that fail to be downloaded.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    failedCount: number;
+    /**
+     * Total number of the batch files.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    totalCount: number;
+    /**
+     * Total size of downloaded files.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    downloadedSize: number;
+    /**
+     * Total size of the batch files.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    totalSize: number;
+    /**
+     * The error type of download.
+     * @type { DownloadErrorType }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    errType: DownloadErrorType;
+    /**
+     * Get the list of files that fail to be downloaded.
+     * @returns { Array<FailedFileInfo> } - Return list of files that fail to be downloaded.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getFailedFiles(): Array<FailedFileInfo>;
+    /**
+     * Get the list of files that are successfully downloaded.
+     * @returns { Array<string> } - Return list of files that are successfully downloaded.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getSuccessfulFiles(): Array<string>;
+  }
+
+  /**
    * Download object.
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -784,6 +936,21 @@ declare namespace cloudSync {
      */
     on(event: 'progress', callback: Callback<DownloadProgress>): void;
     /**
+     * Subscribes to a batch of cloud file cache download progress change event. This method uses a callback to get download progress changes.
+     *
+     * @param { 'batchDownload' } event - event type.
+     * @param { Callback<MultiDownloadProgress> } callback - callback function with a `MultiDownloadProgress` argument.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    on(event: 'batchDownload', callback: Callback<MultiDownloadProgress>): void;
+    /**
      * Unsubscribes from cloud file cache download progress event.
      *
      * @param { 'progress' } event - event type.
@@ -796,7 +963,21 @@ declare namespace cloudSync {
      * @arkts 1.1&1.2
      */
     off(event: 'progress', callback?: Callback<DownloadProgress>): void;
-
+    /**
+     * Unsubscribes from cloud file cache download progress event.
+     *
+     * @param { 'batchDownload' } event - event type.
+     * @param { Callback<MultiDownloadProgress> } [callback] - callback function with a `MultiDownloadProgress` argument.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    off(event: 'batchDownload', callback?: Callback<MultiDownloadProgress>): void;
     /**
      * Start the cloud file cache download task.
      *
@@ -829,6 +1010,25 @@ declare namespace cloudSync {
      * @arkts 1.1&1.2
      */
     start(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Batch start the cloud file cache download task.
+     *
+     * @param { Array<string> } uris - The list of uri of file.
+     * @param { DownloadFileType } [fileType] - download file type.
+     * @returns { Promise<number> } - Return the downloadId in Promise mode.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400004 - Exceed the maximum limit.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    startBatch(uris: Array<string>, fileType?: DownloadFileType): Promise<number>;
     /**
      * Stop the cloud file cache download task.
      *
@@ -873,6 +1073,24 @@ declare namespace cloudSync {
      * @arkts 1.1&1.2
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
+    /**
+     * Batch stop the cloud file caches download task.
+     *
+     * @param { number } downloadId - The download ID of a batch of file cache.
+     * @param { boolean } [needClean] - whether to delete the file that already downloaded.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    stopBatch(downloadId: number, needClean?: boolean): Promise<void>;
     /**
      * Clean the local file cache.
      *
