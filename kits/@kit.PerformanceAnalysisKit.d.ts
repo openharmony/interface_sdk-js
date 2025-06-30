@@ -18,6 +18,7 @@
  * @kit PerformanceAnalysisKit
  */
 
+/*** if arkts 1.1&1.2 */
 import FaultLogger from '@ohos.faultLogger';
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';
 import hichecker from '@ohos.hichecker';
@@ -33,3 +34,4 @@ export {
   FaultLogger, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
   logLibrary, jsLeakWatcher
 };
+/*** endif */
