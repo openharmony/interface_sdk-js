@@ -88,10 +88,9 @@ declare namespace floatingBall {
      * @param { FloatingBallParams } params - Params for floating ball start.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300020 - Failed to create the floating ball window.
-     * @throws { BusinessError } 1300021 - Failed to start multiple floating ball window.
+     * @throws { BusinessError } 1300021 - Failed to start multiple floating ball windows.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
