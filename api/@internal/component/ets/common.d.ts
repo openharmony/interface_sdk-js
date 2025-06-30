@@ -26,6 +26,7 @@ import image from '../../@ohos.multimedia.image';
 import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
 import promptAction from '../../@ohos.promptAction';
 import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
+import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
@@ -32644,6 +32645,36 @@ declare interface DateRange {
    * @arkts 1.1&1.2
    */
   end?: Date;
+}
+
+/**
+ * Indicates the information when the provider of the embedded or uiextension Ability is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface TerminationInfo {
+  /**
+   * Defines the termination code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  code: number;
+   
+  /**
+   * Defines the additional termination information.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  want?: Want;
 }
 
 /**

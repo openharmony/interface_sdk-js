@@ -109,7 +109,7 @@ declare namespace pluginComponentManager {
    * @atomicservice
    * @since 12
    */
-  type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject };
   
   /**
    * Defines KVObject
@@ -120,7 +120,7 @@ declare namespace pluginComponentManager {
    * @since 20
    * @arkts 1.2
    */
-  type KVObject = Record<string, Object>
+  type KVObject = Record<string, Object>;
 
   /**
    * Plugin component push parameters.
