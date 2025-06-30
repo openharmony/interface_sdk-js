@@ -80,7 +80,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts{ '1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(event: string, callback: Function): void;
 
@@ -118,7 +119,8 @@ declare class EventHub {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts{ '1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(event: string, callback?: Function): void;
 
@@ -159,6 +161,19 @@ declare class EventHub {
    * @since 12
    */
   emit(event: string, ...args: Object[]): void;
+ 
+  /**
+   * Trigger the event callbacks.
+   *
+   * @param { string } event - Indicates the event.
+   * @param { (Object|null|undefined)[] } args - Indicates the callback arguments.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  emit(event: string, ...args: (Object|null|undefined)[]): void;
 }
 
 export default EventHub;
