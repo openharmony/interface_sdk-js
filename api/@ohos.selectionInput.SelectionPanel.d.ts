@@ -29,7 +29,7 @@ export interface PanelInfo {
   /**
    * Type of the word selection panel.
    * @type { PanelType }
-   * @default MENU
+   * @default MENU_PANEL
    * @syscap SystemCapability.SelectionInput.Selection
    * @since 20
    */
