@@ -32662,8 +32662,6 @@ declare type DateTimeOptions = intl.DateTimeOptions;
  * Defines a bindable property
  * @interface Bindable<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  * @arkts 1.2
  */
@@ -32673,8 +32671,6 @@ export declare interface Bindable<T> {
    * @type { T }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
