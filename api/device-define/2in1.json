@@ -19,6 +19,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Communication.NetManager.NetFirewall",
+    "SystemCapability.Communication.NetManager.Eap",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.MultimodalInput.Input.Cooperator",

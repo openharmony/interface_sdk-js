@@ -232,6 +232,8 @@ declare namespace emitter {
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { number } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister.
@@ -240,6 +242,8 @@ declare namespace emitter {
    */
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { number } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister.
@@ -249,6 +253,8 @@ declare namespace emitter {
    */
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { number } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister.
@@ -262,6 +268,8 @@ declare namespace emitter {
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Callback<EventData> } callback - Callback to unregister.
@@ -271,6 +279,8 @@ declare namespace emitter {
    */
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Callback<EventData> } callback - Callback to unregister.
@@ -283,6 +293,8 @@ declare namespace emitter {
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
    * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.

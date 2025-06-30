@@ -742,12 +742,19 @@ declare namespace media {
 
     /**
      * Sets the network media source URL and configures request headers.
+     * @permission ohos.permission.INTERNET
      * @param { string } url - The URL of the media resource.
-     * @param { Record<string, string> } headers - Optional request headers.
+     * @param { Record<string, string> } [headers] - Optional request headers.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 201 - Permission denied, requires internet access permission. Returned by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed,
+     * the URL source has already been set and cannot be modified. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20
+     * @arkts 1.1&1.2
      */
-    setUrlSource(url: string, headers?: Record<string, string>): void;
+    setUrlSource(url: string, headers?: Record<string, string>): Promise<void>;
 
     /**
      * It will decode the given video resource. Then fetch a picture

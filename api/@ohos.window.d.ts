@@ -29,6 +29,7 @@ import { ColorMetrics } from './@ohos.arkui.node';
 /*** endif */
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
+import uiEffect from './@ohos.graphics.uiEffect';
 /*** if arkts 1.2 */
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
@@ -2988,6 +2989,90 @@ declare namespace window {
   }
 
   /**
+   * UI effect Controller Parameters
+   *
+   * @interface UIEffectParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface UIEffectParams {
+      /**
+       * System background filter configuration 
+       *
+       * @type { ?uiEffect.Filter }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      backgroundFilter?: uiEffect.Filter,
+      /**
+       * System visual effect configuration
+       *
+       * @type { ?uiEffect.VisualEffect }
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      visualEffect?: uiEffect.VisualEffect
+  }
+  /**
+   * UI effect controller
+   *
+   * @interface UIEffectController
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface UIEffectController {
+      /**
+       * Set UI effect params
+       *
+       * @param { UIEffectParams } params - Params for UI effect.
+
+       * @returns { Promise<void> } Promise that returns no value.
+       * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+       * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+       * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+       * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Incorrect parameter format.
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      setParams(params: UIEffectParams): Promise<void>;
+
+      /**
+       * Do animate with UI effect param transition
+       *
+       * @param { WindowAnimationConfig } config - Animation param, when window changed.
+       * @param { UIEffectParams } params - Animation param for UI effect.
+       * @param { WindowAnimationConfig } [interruptConfig] - Animation config for interruption.
+       * @returns { Promise<void> } Promise that returns no value.
+       * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+       * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+       * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+       * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Incorrect parameter format.
+       * @throws { BusinessError } 1300017 - Incorrect UI effect controller calling, the timing of the call is incorrect.
+       * @syscap SystemCapability.Window.SessionManager
+       * @systemapi Hide this for inner system use.
+       * @since 20
+       */
+      animateToUIEffect(config: WindowAnimationConfig, params: UIEffectParams, interruptConfig?: WindowAnimationConfig): Promise<void>;
+  }
+  /**
+   * Create ui effect controller system
+   *
+   * @returns { Promise<UIEffectController> } Promise used to return the UI effect controller.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function createUIEffectController(): Promise<UIEffectController>;
+
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -4460,13 +4545,38 @@ declare namespace window {
    */
   enum WindowTransitionType {
     /**
-     * window transition type destroy
+     * Destroy transition
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
     DESTROY = 0,
+  }
+
+  /**
+   * Describes the window animation type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  enum AnimationType {
+    /**
+     * Window animation type fade in out
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    FADE_IN_OUT = 0,
+    /**
+     * Window animation type fade in
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    FADE_IN = 1,
   }
 
   /**
@@ -4479,7 +4589,7 @@ declare namespace window {
    */
   enum WindowAnimationCurve {
     /**
-     * animation curve type linear
+     * Animation curve type linear
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4488,17 +4598,25 @@ declare namespace window {
     LINEAR = 0,
 
     /**
-     * animation curve type interpolation spring
+     * Animation curve type interpolation spring
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
     INTERPOLATION_SPRING = 1,
+
+    /**
+     * animation curve type cubic bezier 
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    CUBIC_BEZIER = 2,
   }
 
   /**
-   * window animation config
+   * Window animation config
    *
    * @interface WindowAnimationConfig
    * @syscap SystemCapability.Window.SessionManager
@@ -4507,7 +4625,7 @@ declare namespace window {
    */
   interface WindowAnimationConfig {
     /**
-     * curve of the animation
+     * Curve of the animation
      *
      * @type { WindowAnimationCurve }
      * @syscap SystemCapability.Window.SessionManager
@@ -4517,7 +4635,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * duration of the animation
+     * Duration of the animation
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -4527,7 +4645,7 @@ declare namespace window {
     duration?: number;
 
     /**
-     * param of animation curve
+     * Param of animation curve
      *
      * @type { ?WindowAnimationCurveParam }
      * @syscap SystemCapability.Window.SessionManager
@@ -4564,6 +4682,53 @@ declare namespace window {
      * @since 20
      */
     opacity?: number;
+  }
+
+  /**
+   * The animation configuration of start system scene animation
+   *
+   * @interface StartAnimationSystemParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface StartAnimationSystemParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    type: AnimationType;
+    /**
+     * The config of start system scene animation
+     *
+     * @type { ?WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    animationConfig?: WindowAnimationConfig;
+  }
+
+  /**
+   * The animation configuration of start scene animation
+   *
+   * @interface StartAnimationParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface StartAnimationParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    type: AnimationType;
   }
 
   /**

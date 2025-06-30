@@ -10304,6 +10304,15 @@ declare interface SslErrorEvent {
    * @since 12
    */
   isMainFrame: boolean;
+
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  certChainData?: Array<Uint8Array>;
 }
 
 /**

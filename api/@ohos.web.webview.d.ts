@@ -6672,7 +6672,7 @@ declare namespace webview {
       * @since 20
       */
     getErrorPageEnabled(): boolean;
-
+  
     /**
       * Set whether enable the error page. onOverrideErrorPage will be triggered when the page error.
       *
@@ -6683,6 +6683,29 @@ declare namespace webview {
       * @since 20
       */
     setErrorPageEnabled(enable: boolean): void;
+
+    /**
+     * After enable PrivateNetworkAccess feature, ArkWeb will send a CORS preflight request before issuing any
+     * sub-resource private network requests to request explicit permission from the target server.
+     * After disable PrivateNetworkAccess, ArkWeb will no longer check whether the private network request
+     * is legitimate.
+     * 
+     * @param {boolean} enable - {@code true} enable the private network access check; {@code false} otherwise.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static enablePrivateNetworkAccess(enable: boolean): void;
+
+    /**
+     * Get whether PrivateNetworkAccess is enabled.
+     * 
+     * @returns {boolean} True is enable the ability to check private network access else false.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static isPrivateNetworkAccessEnabled(): boolean;
   }
 
   /**
