@@ -3810,7 +3810,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for watermark flag change.
@@ -3827,7 +3827,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
