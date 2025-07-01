@@ -3933,13 +3933,14 @@ declare namespace window {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for watermark flag change.
@@ -3949,13 +3950,14 @@ declare namespace window {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
    * <br>2. Parameter verification failed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
