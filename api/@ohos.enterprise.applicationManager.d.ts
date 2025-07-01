@@ -524,7 +524,7 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *              The admin must have the corresponding permission.
-   * @param { Array<string> } appIdentifers - appIdentifers indicates the identifer of applications.
+   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the identifier of applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -533,7 +533,7 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 20
    */
-  function setAllowedKioskApps(admin: Want, appIdentifers: Array<string>): void;
+  function setAllowedKioskApps(admin: Want, appIdentifiers: Array<string>): void;
 
   /**
    * Get applications allowed running in kiosk mode.
@@ -542,7 +542,7 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *              The admin must have the corresponding permission.
-   * @returns { Array<string> } the application identifer of allowed running in kiosk mode.
+   * @returns { Array<string> } the application identifier of allowed running in kiosk mode.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -556,13 +556,13 @@ declare namespace applicationManager {
   /**
    * Check target application allowed running in kiosk mode.
    *
-   * @param { string } appIdentifer - appIdentifer indicates the identifer of applications.
+   * @param { string } appIdentifier - appIdentifier indicates the identifier of the specific application.
    * @returns { boolean } true means the bundle name allowed running in kiosk mode, otherwise false.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-  function isAppKioskAllowed(appIdentifer: string): boolean;
+  function isAppKioskAllowed(appIdentifier: string): boolean;
 
   /**
    * Sets kiosk feature in kiosk mode.
