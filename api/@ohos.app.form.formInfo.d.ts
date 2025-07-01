@@ -2214,5 +2214,28 @@ declare namespace formInfo {
      */
     (formId: string): Promise<formInfo.Rect>;
   }
+
+  /**
+   * Get live form status info callback
+   *
+   * @typedef GetLiveFormStatusCallback
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface GetLiveFormStatusCallback {
+    /**
+     * Get all live form status Record
+     *
+     * @returns { Record<string, string> }
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    (): Record<string, string>;
+  }
 }
 export default formInfo;

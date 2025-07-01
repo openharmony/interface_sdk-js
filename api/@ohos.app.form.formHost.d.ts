@@ -1292,5 +1292,33 @@ declare namespace formHost {
    * @since 12
    */
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
+
+  /**
+   * Listens to the event of get live form status.
+   *
+   * @param { 'getLiveFormStatus' } type - Indicates event type.
+   * @param { formInfo.GetLiveFormStatusCallback } callback  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function on(type: 'getLiveFormStatus', 
+    callback: formInfo.GetLiveFormStatusCallback): void;
+  
+  /**
+   * Cancels Listening to the event of get live form status.
+   *
+   * @param { 'getLiveFormStatus' } type - Indicates event type.
+   * @param { formInfo.GetLiveFormStatusCallback } [callback]  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function off(type: 'getLiveFormStatus', 
+    callback?: formInfo.GetLiveFormStatusCallback): void;
 }
 export default formHost;
