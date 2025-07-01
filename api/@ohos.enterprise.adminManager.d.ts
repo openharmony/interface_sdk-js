@@ -341,9 +341,9 @@ declare namespace adminManager {
 
   /**
    * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission，ohos.permission.START_PROVISIONING_MESSAGE or the shell uid can call this method.
    *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN || ohos.permission.START_PROVISIONING_MESSAGE
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
