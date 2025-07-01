@@ -1164,7 +1164,7 @@ declare class TextMenuItemId {
 
 
   /**
-   * Indicates the TextMenuItemId to open ask celia function.
+   * Indicates the TextMenuItemId for asking AI.
    *
    * @type { TextMenuItemId }
    * @readonly
@@ -1172,8 +1172,9 @@ declare class TextMenuItemId {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
-  static readonly askCelia: TextMenuItemId;
+  static readonly askAI: TextMenuItemId;
 }
 
 /**
