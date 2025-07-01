@@ -49,7 +49,7 @@ import {
 } from './arkui/component/common';
 import { CustomBuilder } from './arkui/component/builder';
 import { GestureEvent, GestureRecognizer } from './arkui/component/gesture';
-import { ResourceStr, SizeOptions } from './arkui/component/units';
+import { ResourceStr, SizeOptions, VoidCallback } from './arkui/component/units';
 import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from './arkui/component/enums';
 import { TimePickerDialogOptions } from './arkui/component/timePicker';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
@@ -4411,6 +4411,18 @@ export declare class UIContext {
    * @arkts 1.1&1.2
    */
   static destroyUIContextWithoutWindow(): void;
+
+  /**
+   * Thread-safe UI state variables updates interface.
+   *
+   * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  setUIStates(callback: VoidCallback): void;
 }
 
 /**
