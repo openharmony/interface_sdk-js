@@ -358,6 +358,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
+   * @arkts 1.2
    */
   gridStartOffset?: int;
 
@@ -368,6 +369,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
+   * @arkts 1.2
    */
   gridEndOffset?: int;
 
