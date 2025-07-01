@@ -318,7 +318,7 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * Control if the blend is enable
+   * Control whether the blend is enabled
    * 
    * @type { ?Blend }
    * @syscap SystemCapability.ArkUi.Graphics3D
