@@ -82,14 +82,14 @@ declare namespace securityManager {
     alias: string;
   }
 
-  /**
-   * Application instance data.
-   *
-   * @typedef ApplicationInstance
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 12
-   */
+    /**
+     * Application instance data.
+     *
+     * @typedef ApplicationInstance
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
     export interface ApplicationInstance {
       /**
        * Globally unique identifier of an application, which is allocated by the cloud.
@@ -392,18 +392,16 @@ declare namespace securityManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { ApplicationInstance } applicationInstance - Application instance data.
    * @param { string[] } permissionNames - ACL permission name List.
-   * @param { ManagedState } managedState - Managed State.
+   * @param { PermissionManagedState } permissionManagedState - Permission managed State.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - The permissionList has conflict permission with current permissions.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionNames: string[], managedState: ManagedState): void;
+    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionNames: string[], permissionManagedState: PermissionManagedState): void;
 
   /**
    * Gets the application's permission managed state of the device by applicationInstance and permissionName.
@@ -412,16 +410,15 @@ declare namespace securityManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { ApplicationInstance } applicationInstance - Application instance data.
    * @param { string } permissionName - ACL permission name.
+   * @returns { PermissionManagedState } the managed State. policy for the permission of the device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-      function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionName: string): ManagedState;
+    function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionName: string): PermissionManagedState;
 
   /**
    * Sets the watermark image displayed during the application running.
@@ -549,14 +546,14 @@ declare namespace securityManager {
   /**
    * Managed State.
    * 
-   * @enum { number } ManagedState
+   * @enum { number } PermissionManagedState
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    export enum ManagedState {
+    export enum PermissionManagedState {
       /**
-       * ManagedState default
+       * PermissionManagedState default
        * 
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -565,7 +562,7 @@ declare namespace securityManager {
       DEFAULT = 1,
   
       /**
-       * ManagedState granted, Users do not need to authorize a second time.
+       * PermissionManagedState granted, Users do not need to authorize a second time.
        * 
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -574,7 +571,7 @@ declare namespace securityManager {
       GRANTED = 0,
   
       /**
-       * ManagedState DENIED, Users need to authorize a second time.
+       * PermissionManagedState DENIED, Users need to authorize a second time.
        * 
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
