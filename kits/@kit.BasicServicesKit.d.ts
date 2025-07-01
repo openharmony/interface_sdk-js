@@ -83,3 +83,11 @@ export {
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice
 };
+
+/*** if arkts 1.2 */
+import zlib from '@ohos.zlib';
+
+export {
+  zlib
+};
+/*** endif */
