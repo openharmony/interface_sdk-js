@@ -194,6 +194,18 @@ export interface BuildOptions {
    * @since 20
    */
   localStorage?: LocalStorage;
+
+  /**
+   * Whether support the inner Consume connect to the outside Provide.
+   * @type { ?boolean }
+   *     enableProvideConsumeCrossing - Indicates whether support the inner Consume
+   *     connect to the outside Provide.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableProvideConsumeCrossing?: boolean;
 }
 
 /**
