@@ -122,7 +122,7 @@ declare enum FormDimension {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  DIMENSION_3_3 = 9,
+  DIMENSION_3_3 = 9
 }
 
 /**
