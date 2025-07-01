@@ -298,7 +298,8 @@ declare namespace photoAccessHelper {
    * @enum { number } ThumbnailVisibility
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ThumbnailVisibility {
     /**
@@ -306,7 +307,8 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVISIBLE = 0,
     /**
@@ -314,7 +316,8 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VISIBLE = 1
   }
@@ -3075,7 +3078,8 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userId?: number;
   }
@@ -4365,6 +4369,7 @@ declare namespace photoAccessHelper {
    * @enum { number } NotifyChangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum NotifyChangeType {
     /**
@@ -4372,6 +4377,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_ADD = 0,
     /**
@@ -4379,6 +4385,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_UPDATE = 1,
     /**
@@ -4386,6 +4393,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_REMOVE = 2,
   }
