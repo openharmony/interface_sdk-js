@@ -127,7 +127,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -144,7 +144,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -161,7 +161,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -180,7 +180,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on bundleName and userId.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
