@@ -29,6 +29,15 @@ const DirType = {
   'typeThree': 'noTagInEts2',
 };
 
+const NotNullFilePath = [
+  'api',
+  'api/@internal/ets',
+  'api/@internal/component/ets',
+  'api/arkui/component',
+  'arkts',
+  'kits',
+];
+
 const NOT_COPY_DIR = ['build-tools', '.git', '.gitee'];
 
 function isEtsFile(path) {
@@ -101,6 +110,20 @@ function handleApiFiles(rootPath, type, output) {
     } catch (error) {
       console.log('error===>', error);
     }
+  }
+  if (type === DirType.typeTwo) {
+    NotNullFilePath.forEach((dir) => {
+      const outDir = path.join(output, dir);
+      if (!fs.existsSync(outDir)) {
+        fs.mkdirSync(outDir, { recursive: true });
+        writeFile(path.join(outDir, '.keep'), ' ');
+        return;
+      }
+      const fileNames = fs.readdirSync(outDir);
+      if (fileNames.length === 0) {
+        writeFile(path.join(outDir, '.keep'), ' ');
+      }
+    });
   }
 }
 
