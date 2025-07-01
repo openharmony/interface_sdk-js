@@ -11966,6 +11966,20 @@ declare namespace window {
     setCustomDensity(density: number): void;
 
     /**
+     * Sets the custom density of ability.
+     *
+     * @param { number } density - the specified custom density value.
+     * @param { boolean } [applyToSubWindow] - whether to apply the custom density to already created subwindows.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 20
+     */
+    setCustomDensity(density: number, applyToSubWindow?: boolean): void;
+
+    /**
      * Allows the application to control the time when the launch page disappears.
      * This API takes effect only for the application main window when enable.remove.starting.window under metadata in abilities in the module.json5 file is set to true.
      *
