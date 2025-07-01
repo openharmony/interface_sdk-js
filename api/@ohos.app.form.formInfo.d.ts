@@ -1339,15 +1339,6 @@ declare namespace formInfo {
      * @since 18
      */
     DIMENSION_3_3 = 9,
-
-    /**
-     * 3 x 4 form used for tv devices
-     *
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 18
-     */
-    DIMENSION_3_4 = 10,
   }
 
    /**
