@@ -1160,6 +1160,15 @@ declare namespace media {
      * @since 12
      */
     customInfo?: Record<string, string>;
+
+    /**
+     * Tracks info of the media asset. This parameter is read-only in the current version.
+     * @type { ?Array<MediaDescription> }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    tracks?: Array<MediaDescription>;
   }
 
   /**
@@ -7736,6 +7745,14 @@ declare namespace media {
    */
   enum MediaType {
     /**
+     * Track is unsupported.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_UNSUPPORTED = -1,
+    /**
      * track is audio.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
@@ -7780,6 +7797,38 @@ declare namespace media {
      * @since 12
      */
     MEDIA_TYPE_SUBTITLE = 2,
+    /**
+     * Track is attachmemt.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_ATTACHMENT = 3,
+    /**
+     * Track is data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_DATA = 4,
+    /**
+     * Track is timed metadata.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_TIMED_METADATA = 5,
+    /**
+     * Track is auxiliary.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_AUXILIARY = 6,
   }
 
   /**
