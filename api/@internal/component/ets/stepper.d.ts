@@ -110,8 +110,6 @@ interface StepperInterface {
    * @atomicservice
    * @since 11
    */
-  (value?: { index?: number }): StepperAttribute;
-
   /**
    * Called when the stepper component is used.
    *
