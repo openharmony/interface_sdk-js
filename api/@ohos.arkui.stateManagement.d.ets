@@ -24,3 +24,4 @@ export * from './arkui/stateManagement/runtime';
 export * from './arkui/stateManagement/storage/appStorage';
 export * from './arkui/stateManagement/storage/localStorage';
 export * from './arkui/stateManagement/utils';
+export * from './arkui/stateManagement/storage/storageProperty';
