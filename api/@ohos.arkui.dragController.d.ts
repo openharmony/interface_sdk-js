@@ -1004,10 +1004,12 @@ declare namespace dragController {
      * @since 20
      */
     dataSummary?: unifiedDataChannel.Summary;
+    
     /**
-     * Summary of the dragged data. This field is absent if the source application did not configure data.
+     * Additional information provided by the source application when initiating the drag operation.
+     * This field is absent if the source application did not configure it.
      *
-     * @type { ?unifiedDataChannel.Summary }
+     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20
@@ -1078,7 +1080,7 @@ declare namespace dragController {
      * Typically, applications should use default configurations or set them once during binding.
      * Use this method sparingly, e.g., for different drag data types requiring varied UX timing.
      *
-     * @param { config } The spring loading detection configuration
+     * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20
