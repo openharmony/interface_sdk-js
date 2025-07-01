@@ -41,7 +41,7 @@ declare enum FormDimension {
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  Dimension_1_2,
+  Dimension_1_2 = 0,
 
   /**
    * 2 x 2 cards
@@ -51,7 +51,7 @@ declare enum FormDimension {
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  Dimension_2_2,
+  Dimension_2_2 = 1,
 
   /**
    * 2 x 4 cards
@@ -61,7 +61,7 @@ declare enum FormDimension {
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  Dimension_2_4,
+  Dimension_2_4 = 2,
 
   /**
    * 4 x 4 cards
@@ -71,17 +71,17 @@ declare enum FormDimension {
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  Dimension_4_4,
+  Dimension_4_4 = 3,
 
   /**
    * 2 x 1 cards
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
+   * @deprecated since 20
    */
-  Dimension_2_1,
+  Dimension_2_1 = 4,
 
   /**
    * 1 x 1 cards
