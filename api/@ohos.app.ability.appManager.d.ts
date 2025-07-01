@@ -1269,29 +1269,16 @@ declare namespace appManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
-
-  /**
-   * The ability or extension state data.
-   *
-   * @typedef { _AbilityStateData }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 20
-   * @arkts 1.2
-   */
-  export type AbilityStateData = _AbilityStateData;
 
   /**
    * The application state data.
    *
    * @typedef { _AppStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AppStateData = _AppStateData.default;
 
@@ -1300,7 +1287,6 @@ declare namespace appManager {
    *
    * @typedef { _AppStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 20
    * @arkts 1.2
    */
@@ -1357,8 +1343,7 @@ declare namespace appManager {
    *
    * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
+   * @since 14
    */
   export type ProcessData = _ProcessData.default;
 

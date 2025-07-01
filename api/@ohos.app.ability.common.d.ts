@@ -149,7 +149,7 @@ declare namespace common {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 9
    */
   export type AbilityStageContext = _AbilityStageContext.default;
 
@@ -304,7 +304,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 9
    */
   export type ExtensionContext = _ExtensionContext.default;
 

@@ -49,9 +49,9 @@ export interface OnReleaseCallback {
  * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRelease.
  *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @typedef { function } OnReleaseCallback
  * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 20
  * @arkts 1.2
@@ -59,7 +59,7 @@ export interface OnReleaseCallback {
 export type OnReleaseCallback = (msg: string)=> void;
 
 /**
- * The prototype of the listener function interface registered by the Caller.
+ * The prototype of the listener function interfaOnReleaseCallbackce registered by the Caller.
  *
  * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -81,8 +81,9 @@ export interface OnRemoteStateChangeCallback {
 /**
  * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRemoteStateChange.
+ * 
+ * @typedef { function } OnRemoteStateChangeCallback
  * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
- * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 20
@@ -114,9 +115,10 @@ export interface CalleeCallback {
 /**
  * The prototype of the message listener function interface registered by the Callee.
  * Defines the callback of Callee.
+ * 
+ * @typedef { function } CalleeCallback
  * @param { rpc.MessageSequence } indata - Notification indata to the callee.
  * @returns { rpc.Parcelable } Returns the callee's notification result indata.
- * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 20
@@ -615,21 +617,22 @@ declare class UIAbility extends Ability {
 
   /**
    * Called back when the state of an ability will changes to foreground.
-   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillForeground(): void;
 
   /**
-   * Called back when the state of an ability changed to foreground.
+   * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts{'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidForeground(): void;
 
@@ -661,22 +664,24 @@ declare class UIAbility extends Ability {
   onBackground(): void;
 
   /**
-   * Called back when the state of an ability will changes to background.
+   * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts{'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillBackground(): void;
 
   /**
-   * Called back when the state of an ability changed to background.
+   * Called back when the ability is in the background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidBackground(): void;
 

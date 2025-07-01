@@ -39,7 +39,15 @@ import _AbilityStateData from './application/AbilityStateData';
  *
  * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
+ * @since 9
+ */
+/**
+ * The class of an ability manager.
+ *
+ * @namespace abilityManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare namespace abilityManager {
@@ -396,6 +404,7 @@ declare namespace abilityManager {
    * @param { number } requestCode - Request code defined by the user.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -412,6 +421,7 @@ declare namespace abilityManager {
    * @param { number } requestCode - Request code defined by the user.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -538,8 +548,7 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 11
+   * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
 
@@ -548,11 +557,11 @@ declare namespace abilityManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 20
    * @arkts 1.2
    */
   export type AbilityStateData = _AbilityStateData;
+
   /**
    * The class of an extension running information.
    *

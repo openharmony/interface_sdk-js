@@ -25,7 +25,7 @@
  * @since arkts {'1.1':'14', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class ProcessData {
+export default class ProcessData {
   /**
    * The bundle name.
    *
@@ -80,5 +80,3 @@ declare class ProcessData {
    */
   isKeepAlive: boolean;
 }
-
-export default ProcessData;

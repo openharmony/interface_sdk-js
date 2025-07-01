@@ -149,7 +149,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUid(agent: WantAgent): Promise<number>;
 
@@ -447,7 +448,8 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since arkts{'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 

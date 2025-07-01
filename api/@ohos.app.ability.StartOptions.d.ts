@@ -203,9 +203,9 @@ export default class StartOptions {
    * The min width of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
   minWindowWidth?: number;
@@ -214,9 +214,9 @@ export default class StartOptions {
    * The min height of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
   minWindowHeight?: number;
@@ -225,9 +225,9 @@ export default class StartOptions {
    * The max width of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
   maxWindowWidth?: number;
@@ -236,9 +236,9 @@ export default class StartOptions {
    * The max height of window rectangle.
    *
    * @type { ?number }
-   * @syscap SystemCapAbility.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
   maxWindowHeight?: number;
