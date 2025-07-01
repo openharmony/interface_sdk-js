@@ -3126,6 +3126,7 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.2
      */
     currentIndex: int;
 
@@ -3134,6 +3135,7 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.2
      */
     size: int;
 
@@ -3142,10 +3144,9 @@ declare namespace webview {
      *
      * @param { int } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.2
      */
     getItemAtIndex(index: int): HistoryItem;
 
