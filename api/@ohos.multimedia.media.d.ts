@@ -9668,6 +9668,14 @@ declare namespace media {
      * @since 12
      */
     videoFrameHeight?: number;
+
+    /**
+     * Indicates whether to enable B Frame Encoding for reduce file size.
+     * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 20
+     */
+    enableBFrame?: boolean;
   }
  
   /**
