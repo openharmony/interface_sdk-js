@@ -18,61 +18,66 @@ import subprocess
 import sys
 import argparse
 import json
+import stat
 from pathlib import Path
 
-INTEROP_ETS_LIST = ["api","arkts","kits"]
+
+INTEROP_ETS_LIST = ["api", "arkts", "kits"]
+
 
 # 输出的json文件路径
 OUTPUT_PATH = ''
+# 执行工具py脚本路径
+TOOL_PATH = "interface/sdk-js/compile_ets_ts.py"
 
-def build_ets_tool_config(tool_dir, output_dir) -> str:
+
+def build_ets_tool_config(tool_dir, output_dir):
     global OUTPUT_PATH
-    OUTPUT_PATH = os.path.join(tool_dir,"dependence-json/ets_tool_config_json.json")
+    OUTPUT_PATH = os.path.join(tool_dir, "dependence-json/ets_tool_config_json.json")
     all_files = []
     for dirpath, dirnames, filenames in os.walk(tool_dir):
-        cont_folder = Path(os.path.relpath(dirpath,tool_dir)).parts
+        cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
         if len(cont_folder) != 0:
             if cont_folder[0] in INTEROP_ETS_LIST:
-                files = [os.path.join(dirpath,file) 
+                files = [os.path.join(dirpath, file) 
                          for file in filenames
                          if not file.endswith('.json')]
                 all_files.extend(files)
         else :
             continue
     config = {
-        "plugins" : {
+        "plugins": {
             # 依赖的工具
-            "interop_plugin":str(os.path.join(tool_dir,"build-tools/ui-plugins/lib/interop-plugins/index"))
-            },
+            "interop_plugin": str(os.path.join(tool_dir, "build-tools/ui-plugins/lib/interop-plugins/index"))
+        },
         # 需要处理的API声明文件
-        "compileFiles" :all_files,
+        "compileFiles": all_files,
         # 自己命名的包的名字
-        "packageName" :'',
+        "packageName": "",
         "buildType": "build",
         "buildMode": "Release",
         # 需要处理的API目录
-        "moduleRootPath" : str(tool_dir),
+        "moduleRootPath": str(tool_dir),
         "sourceRoots": ["./"],
-        "loaderOutPath" : str(os.path.join(output_dir,"ets1.2interop")),
+        "loaderOutPath": str(os.path.join(output_dir, "ets1.2interop")),
         # 实际在工具转化API时，不参与生成胶水代码及产物
-        "cachePath" : str(os.path.join(tool_dir,"cache")),
+        "cachePath": str(os.path.join(tool_dir, "cache")),
         # buildSdkPath是包含依赖产物的路径
-        "buildSdkPath" : str(os.path.join(tool_dir)),
+        "buildSdkPath": str(os.path.join(tool_dir)),
         "dependentModuleList": [],
         "isIDE": "false",
         # 工具处理时候的线程数
-        "maxWorkers":64,
+        "maxWorkers": 64,
         "enableDeclgenEts2Ts": True,
         # declgenV1OutPath是输出的ets产物
-        "declgenV1OutPath": str(os.path.abspath(os.path.join(output_dir,"ets1.2interop/declaration"))),
+        "declgenV1OutPath": str(os.path.abspath(os.path.join(output_dir, "ets1.2interop/declaration"))),
         # declgenBridgeCodePath是输出的ts产物
-        "declgenBridgeCodePath": str(os.path.abspath(os.path.join(output_dir,"ets1.2interop/bridge"))),
+        "declgenBridgeCodePath": str(os.path.abspath(os.path.join(output_dir, "ets1.2interop/bridge"))),
     }
     
     try:
-        print('build_ets_tool_config config',config)
         out_path_dir = Path(OUTPUT_PATH).resolve()
-        output_dir = Path(out_path_dir).parent.mkdir(parents=True,exist_ok=True)
+        Path(out_path_dir).parent.mkdir(parents=True, exist_ok=True)
         with open(out_path_dir, 'w', encoding="utf-8") as f:
             json.dump(config, f, indent=2, ensure_ascii=False)
         return str(out_path_dir)
@@ -80,11 +85,11 @@ def build_ets_tool_config(tool_dir, output_dir) -> str:
         print(f"run_compile_ets_ts: {str(e)}")
 
 
-def run_compile_ets_ts(root_build_dir:str, tool_dir:str, node_path:str, config_json_path:str):
+def run_compile_ets_ts(root_build_dir: str, tool_dir: str, node_path: str, config_json_path: str):
     # PANDA的依赖路径
-    panda_path = os.path.join(tool_dir,"build-tools/ets2panda/lib")
+    panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
-    tool_path = os.path.join(tool_dir,"build-tools/driver/build-system/dist/entry.js")
+    tool_path = os.path.join(tool_dir, "build-tools/driver/build-system/dist/entry.js")
     json_path = Path(config_json_path).resolve()
     node_path = os.path.abspath(node_path)
     env = os.environ.copy()
@@ -99,7 +104,8 @@ def run_compile_ets_ts(root_build_dir:str, tool_dir:str, node_path:str, config_j
     except Exception as e:
         print(f"run_compile_ets_ts: {str(e)}")
         return False
-    
+
+
 def run_compile_ets_ts_main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root-build-dir', required=True)
@@ -109,8 +115,9 @@ def run_compile_ets_ts_main():
     options = parser.parse_args()
     options.tool_dir = os.path.abspath(options.tool_dir)
     tool_dir = options.tool_dir
-    config_json = build_ets_tool_config(options.tool_dir,options.output_interface_sdk)
+    config_json = build_ets_tool_config(options.tool_dir, options.output_interface_sdk)
     run_compile_ets_ts(options.root_build_dir, options.tool_dir, options.node_path, config_json)
 
-if __name__ == "main":
+
+if __name__ == "__main__":
     sys.exit(run_compile_ets_ts_main())
