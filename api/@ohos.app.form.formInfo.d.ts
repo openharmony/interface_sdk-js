@@ -233,8 +233,8 @@ declare namespace formInfo {
      * @type { ColorMode }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     colorMode: ColorMode;
 
@@ -581,8 +581,8 @@ declare namespace formInfo {
    * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @deprecated since 20
    */
   enum ColorMode {
     /**
@@ -596,8 +596,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_AUTO = -1,
 
@@ -612,8 +612,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_DARK = 0,
 
@@ -628,8 +628,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_LIGHT = 1
   }
