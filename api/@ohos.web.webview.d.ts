@@ -3075,67 +3075,28 @@ declare namespace webview {
      */
     /**
      * Current index in BackForwardList.
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    currentIndex: number;
-
-    /**
-     * Size of in BackForwardList.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Size of in BackForwardList.
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    size: number;
-
-    /**
-     * Get history entry at given index.
-     *
-     * @param { number } index Index of back forward list entry.
-     * @returns { HistoryItem } HistoryItem at given index in back forward list.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get history entry at given index.
-     *
-     * @param { number } index Index of back forward list entry.
-     * @returns { HistoryItem } HistoryItem at given index in back forward list.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    getItemAtIndex(index: number): HistoryItem;
-
-    /**
-     * Current index in BackForwardList.
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     currentIndex: int;
 
     /**
      * Size of in BackForwardList.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * Size of in BackForwardList.
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size: int;
 
@@ -3144,12 +3105,24 @@ declare namespace webview {
      *
      * @param { int } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
+     * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
+     * @since 9
+     */
+    /**
+     * Get history entry at given index.
+     *
+     * @param { int } index Index of back forward list entry.
+     * @returns { HistoryItem } HistoryItem at given index in back forward list.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getItemAtIndex(index: int): HistoryItem;
-
   }
 
   /**

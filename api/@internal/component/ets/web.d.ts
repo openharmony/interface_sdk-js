@@ -5715,21 +5715,12 @@ declare interface OnProgressChangeEvent {
   /**
    * The new progress of the page.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  newProgress: number;
-
-  /**
-   * The new progress of the page.
-   *
-   * @type { int }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   newProgress: int;
 }
