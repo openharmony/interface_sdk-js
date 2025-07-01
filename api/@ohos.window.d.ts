@@ -75,6 +75,7 @@ declare type WindowAnimationCurveParam = Array<number>;
  *
  * @namespace window
  * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @since 6
  */
 /**
  * Window manager.
