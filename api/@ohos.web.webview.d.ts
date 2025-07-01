@@ -3079,8 +3079,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     currentIndex: number;
 
@@ -3095,8 +3094,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     size: number;
 
@@ -3119,10 +3117,38 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getItemAtIndex(index: number): HistoryItem;
+
+    /**
+     * Current index in BackForwardList.
+     * @type { int }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    currentIndex: int;
+
+    /**
+     * Size of in BackForwardList.
+     * @type { int }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    size: int;
+
+    /**
+     * Get history entry at given index.
+     *
+     * @param { int } index Index of back forward list entry.
+     * @returns { HistoryItem } HistoryItem at given index in back forward list.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    getItemAtIndex(index: int): HistoryItem;
+
   }
 
   /**
