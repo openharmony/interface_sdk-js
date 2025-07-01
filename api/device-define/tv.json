@@ -193,6 +193,7 @@
     "SystemCapability.Multimedia.ImageEffect.Core",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.UserIAM.UserAuth.Core",
-    "SystemCapability.USB.USBManager"
+    "SystemCapability.USB.USBManager",
+    "SystemCapability.Advertising.OAID"
   ]
 }
