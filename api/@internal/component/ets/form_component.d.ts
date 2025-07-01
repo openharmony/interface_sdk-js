@@ -102,7 +102,7 @@ declare enum FormDimension {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  DIMENSION_6_4,
+  DIMENSION_6_4 = 7,
 
   /**
    * 2 x 3 cards used for wearable devices
