@@ -491,7 +491,8 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * The max pull down distance for Refresh.
    *
-   * @param { Optional<number> } distance - The max pull down distance for Refresh, default value is { undefined }.
+   * @param { Optional<number> } distance - The max pull down distance for Refresh,
+   * value range is [0, +∞), default value is { undefined }. 
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

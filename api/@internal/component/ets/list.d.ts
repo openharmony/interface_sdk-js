@@ -2096,6 +2096,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * Sets the focus wrap mode of the List component.
    *
    * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the List component.
+   * <br>Default value: **FocusWrapMode.DEFAULT**.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
