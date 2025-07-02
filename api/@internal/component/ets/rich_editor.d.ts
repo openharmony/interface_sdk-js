@@ -1977,7 +1977,6 @@ declare interface RichEditorGesture {
    *
    * @type { ?Callback<GestureEvent> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @systemapi
    * @since 14
    */
