@@ -233,8 +233,8 @@ declare namespace formInfo {
      * @type { ColorMode }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     colorMode: ColorMode;
 
@@ -581,8 +581,8 @@ declare namespace formInfo {
    * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @deprecated since 20
    */
   enum ColorMode {
     /**
@@ -596,8 +596,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_AUTO = -1,
 
@@ -612,8 +612,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_DARK = 0,
 
@@ -628,8 +628,8 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
     MODE_LIGHT = 1
   }
@@ -1304,7 +1304,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    Dimension_2_2,
+    Dimension_2_2 = 2,
 
     /**
      * 2 x 4 form
@@ -1320,7 +1320,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    Dimension_2_4,
+    Dimension_2_4 = 3,
 
     /**
      * 4 x 4 form
@@ -1336,7 +1336,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    Dimension_4_4,
+    Dimension_4_4 = 4,
 
     /**
      * 2 x 1 form
@@ -1349,10 +1349,10 @@ declare namespace formInfo {
      *
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
      */
-    Dimension_2_1,
+    Dimension_2_1 = 5,
 
     /**
      * 1 x 1 form
@@ -1392,17 +1392,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    DIMENSION_3_3 = 9,
-
-    /**
-     * 3 x 4 form used for tv devices
-     *
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    DIMENSION_3_4 = 10
+    DIMENSION_3_3 = 9
   }
 
   /**
