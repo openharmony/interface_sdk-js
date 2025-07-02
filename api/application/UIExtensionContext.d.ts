@@ -1115,7 +1115,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 18
    */
-   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
+  setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }
 
 export default UIExtensionContext;

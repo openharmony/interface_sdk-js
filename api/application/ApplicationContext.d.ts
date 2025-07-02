@@ -446,6 +446,14 @@ declare class ApplicationContext extends Context {
    */
   /**
    * Kill all processes of the application
+   * The application will not go through the normal lifecycle when exiting.
+   * This API uses anasynchronous callback to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * <br>This API is used to forcibly exit an application in abnormal scenarios.To exit an application properly.
+   * call terminateSelf().
+   * </p>
    *
    * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.

@@ -76,23 +76,12 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAbilityDelegator(): AbilityDelegator;
 
   /**
-   * Get the AbilityDelegator object of the application.
-   *
-   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export function getAbilityDelegator(): AbilityDelegator;
-
-  /**
    * Get unit test arguments stored in the AbilityDelegatorArgs object.
    *
    * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
@@ -114,23 +103,12 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getArguments(): AbilityDelegatorArgs;
 
   /**
-   * Get unit test arguments stored in the AbilityDelegatorArgs object.
-   *
-   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export function getArguments(): AbilityDelegatorArgs;
-
-  /**
    * Describes all lifecycle states of an ability.
    *
    * @enum { number }
@@ -152,7 +130,8 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts{'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AbilityLifecycleState {
     /**
