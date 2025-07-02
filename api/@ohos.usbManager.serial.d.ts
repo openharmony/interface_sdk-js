@@ -38,208 +38,198 @@ declare namespace serialManager {
 
   /**
    * Checks whether a serial port device has the access right. The system applications have the access right by default.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @returns {boolean} Returns <b class="+ topic/ph hi-d/b " id="b48481049115520">true</b> if the device has the right; returns <b class="+ topic/ph hi-d/b " id="b192241323195610">false</b> otherwise.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function hasSerialRight(portId: number): boolean;
+  function hasSerialRight(portId: int): boolean;
 
   /**
    * Requests the right for accessing a serial port device from the user. The system applications do not need to call this API.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @returns { Promise<boolean>} Promise used to return the result.
-   * The value <b class="+ topic/ph hi-d/b " id="b529434412284">true</b> means the user allows the access;
-   * the value <b class="+ topic/ph hi-d/b " id="b89755211297">false</b> means the opposite.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @returns { Promise<boolean>} Promise used to return the result. The value <b class="+ topic/ph hi-d/b " id="b529434412284">true</b> means the user allows the access; the value <b class="+ topic/ph hi-d/b " id="b89755211297">false</b> means the opposite.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function requestSerialRight(portId: number): Promise<boolean>;
+  function requestSerialRight(portId: int): Promise<boolean>;
 
   /**
    * Adds the access right for a serial port device.
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { number } tokenId Token ID of the target application.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int } tokenId Token ID of the target application.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @throws { BusinessError } 201 Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function addSerialRight(tokenId: number, portId: number): void;
+  function addSerialRight(tokenId: int, portId: int): void;
 
   /**
    * Cancels the access right for a serial port device. This API will not cancel the default access right of system applications.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cancelSerialRight(portId: number): void;
+  function cancelSerialRight(portId: int): void;
 
   /**
    * Opens a serial port device.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400004 The serial port device is occupied.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function open(portId: number): void;
+  function open(portId: int): void;
 
   /**
    * Closes a serial port device.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function close(portId: number): void;
+  function close(portId: int): void;
 
   /**
    * Obtains the communication parameters of a serial port device.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @returns { Readonly<SerialAttribute>} Communication parameters obtained, which are read-only.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAttribute(portId: number): Readonly<SerialAttribute>;
+  function getAttribute(portId: int): Readonly<SerialAttribute>;
 
   /**
    * Sets the communication parameters for a serial port device.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { SerialAttribute} attribute Communication parameters to set.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setAttribute(portId: number, attribute: SerialAttribute): void;
+  function setAttribute(portId: int, attribute: SerialAttribute): void;
 
   /**
    * Reads data from a serial port device. This API uses a promise to return the result.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
-   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number.
-   * The default value <b class="+ topic/ph hi-d/b " id="b98612056312">0</b> indicates that there is no time limit for data reading.
-   * @returns { Promise<number> } Promise used to return the length of the data read.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int } timeout Timeout duration for reading data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b98612056312">0</b> indicates that there is no time limit for data reading.
+   * @returns { Promise<int> } Promise used to return the length of the data read.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
+  function read(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
   /**
    * Reads data from a serial port device. This API returns the result synchronously.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
-   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number.
-   * The default value <b class="+ topic/ph hi-d/b " id="b25229382302">0</b> indicates that there is no time limit for data reading.
-   * @returns {number} Length of the data read.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int } timeout Timeout duration for reading data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b25229382302">0</b> indicates that there is no time limit for data reading.
+   * @returns { int } Length of the data read.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function readSync(portId: number, buffer: Uint8Array, timeout?: number): number;
+  function readSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
   /**
    * Writes data to a serial port device. This API uses a promise to return the result.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
-   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number.
-   * The default value <b class="+ topic/ph hi-d/b " id="b2661577365">0</b> indicates that there is no time limit for data writing.
-   * @returns { Promise<number> } Promise used to return the length of the data written.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int } timeout Timeout duration for writing data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b2661577365">0</b> indicates that there is no time limit for data writing.
+   * @returns { Promise<int> } Promise used to return the length of the data written.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>;
+  function write(portId: int, buffer: Uint8Array, timeout?: int): Promise<int>;
 
   /**
    * Writes data to a serial port device. This API returns the result synchronously.
-   * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
+   * @param { int} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
-   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number.
-   * The default value <b class="+ topic/ph hi-d/b " id="b45639213380">0</b> indicates that there is no time limit for data writing.
-   * @returns { number } Length of the data written.
-   * @throws { BusinessError } 401 Parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @param { int } timeout Timeout duration for writing data. The value is a non-negative number. The default value <b class="+ topic/ph hi-d/b " id="b45639213380">0</b> indicates that there is no time limit for data writing.
+   * @returns { int } Length of the data written.
+   * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400003 Device does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
-   * @throws { BusinessError } 31400007 I/O exception.
+   * @throws { BusinessError } 31400007 I/O exception. Possible causes:
+   * <br>1. The transfer was canceled.
+   * <br>2. The device offered more data.
    * @syscap SystemCapability.USB.USBManager.Serial
-   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @since arkts{ '1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function writeSync(portId: number, buffer: Uint8Array, timeout?: number): number;
+  function writeSync(portId: int, buffer: Uint8Array, timeout?: int): int;
 
   /**
    * Represents a serial port device.
@@ -252,12 +242,12 @@ declare namespace serialManager {
 
     /**
      * Serial port device ID.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager.Serial
      * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    portId: number;
+    portId: int;
 
     /**
      * Serial port device name.
@@ -318,7 +308,7 @@ declare namespace serialManager {
  }
   /**
    * Enumerates the baud rates of a serial port device, in bit/s.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -568,7 +558,7 @@ declare namespace serialManager {
  }
   /**
    * Enumerates the data bits of a serial port device.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -609,7 +599,7 @@ declare namespace serialManager {
  }
   /**
    * Enumerates the parity bits of a serial port device.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -658,7 +648,7 @@ declare namespace serialManager {
  }
   /**
    * Enumerates the stop bits for serial port communication.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
