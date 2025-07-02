@@ -84,6 +84,31 @@ declare interface WithThemeOptions {
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;
 
 /**
+ * Define WithThemeInterface.
+ *
+ * @interface WithThemeInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface WithThemeInterface {
+  /**
+   * The withTheme options.
+   *
+   * @param { WithThemeOptions } options
+   * @returns { WithThemeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    (options: WithThemeOptions): WithThemeAttribute;
+}
+
+/**
 * Defines the WithTheme attribute functions..
 *
 * @syscap SystemCapability.ArkUI.ArkUI.Full
