@@ -1301,6 +1301,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     Dimension_2_1,
 
