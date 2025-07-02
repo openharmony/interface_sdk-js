@@ -321,8 +321,8 @@ export interface Material extends SceneResource {
    * Control whether the blend is enabled
    * 
    * @type { ?Blend }
-   * @syscap SystemCapability.ArkUi.Graphics3D
    * @default undefined, which means that blending is disabled.
+   * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
   blend?: Blend;
