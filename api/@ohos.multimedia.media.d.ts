@@ -411,6 +411,20 @@ declare namespace media {
    */
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
+   /**
+   * get Configurations which user can changes from AVScreenCapture server
+   * 
+   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @returns { Promise<string> } Returns a configurable configuration item string.
+   * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
+   * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since arkts{'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
    *
