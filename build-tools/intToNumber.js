@@ -437,7 +437,7 @@ function processVisitEachChild2(context, node) {
   return ts.visitEachChild(node, processAllNodes, context);
   function processAllNodes(node) {
     if (ts.isUnionTypeNode(node)) {
-      apiDuplicateRemoval(node);
+      node = apiDuplicateRemoval(node);
     }
     if (ts.isStructDeclaration(node)) {
       node = processStructDeclaration(node);
@@ -457,6 +457,7 @@ function processVisitEachChild2(context, node) {
       }
     });
     node = ts.factory.updateUnionTypeNode(node, newTypes);
+    return node;
   }
 }
 
