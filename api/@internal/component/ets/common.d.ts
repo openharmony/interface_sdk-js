@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import Context from '../../application/Context';
+import OriginalContext from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
 import image from '../../@ohos.multimedia.image';
@@ -1514,6 +1514,19 @@ declare interface ReuseOptions {
  * @since 11
  */
 declare type Context = import('../api/application/Context').default;
+
+/**
+ * Export Context.
+ *
+ * @typedef { OriginalContext } Context
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type Context = OriginalContext;
 
 /**
  * Post Card Action.
