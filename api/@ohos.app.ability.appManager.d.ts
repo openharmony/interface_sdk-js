@@ -19,16 +19,23 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import bundleManager from './@ohos.bundle.bundleManager';
+import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
+/*** if arkts 1.1 */
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import type * as _AppForegroundStateObserver from './application/AppForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
-import * as _AppStateData from './application/AppStateData';
+import * as _AppStateData from './application/AppStateData';         
 import type * as _ProcessData from './application/ProcessData';
-import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
-import bundleManager from './@ohos.bundle.bundleManager';
-import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
+/*** endif */
+/*** if arkts 1.2 */
+import _ApplicationStateObserver from './application/ApplicationStateObserver';
+import _AbilityStateData from './application/AbilityStateData';
+import _AppStateData from './application/AppStateData';
+/*** endif */
 
 /**
  * This module provides the function of app manager service.
@@ -43,7 +50,8 @@ import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/Runni
  * @namespace appManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appManager {
   /**
@@ -52,7 +60,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ApplicationState {
     /**
@@ -60,7 +69,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CREATE,
 
@@ -69,7 +79,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_FOREGROUND,
 
@@ -87,7 +98,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_BACKGROUND,
 
@@ -96,7 +108,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_DESTROY
   }
@@ -114,7 +127,8 @@ declare namespace appManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ProcessState {
     /**
@@ -128,7 +142,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CREATE,
 
@@ -143,7 +158,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_FOREGROUND,
 
@@ -158,7 +174,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_ACTIVE,
 
@@ -173,7 +190,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_BACKGROUND,
 
@@ -188,7 +206,8 @@ declare namespace appManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_DESTROY
   }
@@ -200,7 +219,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PreloadMode {
     /**
@@ -209,7 +229,8 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRESS_DOWN
   }
@@ -483,7 +504,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
 
@@ -497,7 +519,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundApplications(): Promise<Array<AppStateData>>;
 
@@ -849,7 +872,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -892,7 +916,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -974,7 +999,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -990,7 +1016,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInfoByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -1005,7 +1032,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
 
@@ -1021,7 +1049,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
 
@@ -1097,7 +1126,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
 
@@ -1289,6 +1319,16 @@ declare namespace appManager {
   export type AppStateData = _AppStateData.default;
 
   /**
+   * The application state data.
+   *
+   * @typedef { _AppStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppStateData = _AppStateData;
+
+  /**
    * The application state observer.
    *
    * @typedef { _ApplicationStateObserver.default }
@@ -1319,7 +1359,8 @@ declare namespace appManager {
    * @typedef { _ProcessInformation }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type ProcessInformation = _ProcessInformation;
 
@@ -1358,7 +1399,8 @@ declare namespace appManager {
    * @typedef { _RunningMultiAppInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }

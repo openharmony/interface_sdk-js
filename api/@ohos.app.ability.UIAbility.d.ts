@@ -49,6 +49,20 @@ export interface OnReleaseCallback {
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRelease.
+ *
+ * @typedef OnReleaseCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+export type OnReleaseCallback = (msg: string)=> void;
+
+
+/**
+ * The prototype of the listener function interface registered by the Caller.
  *
  * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -94,7 +108,8 @@ export interface CalleeCallback {
  * @interface Caller
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Caller {
   /**
@@ -155,7 +170,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRelease(callback: OnReleaseCallback): void;
 
@@ -336,7 +352,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   launchWant: Want;
 
@@ -355,7 +372,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lastRequestWant: Want;
 
@@ -442,7 +460,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
@@ -488,7 +507,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
@@ -950,7 +970,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onBackPressed(): boolean;
 

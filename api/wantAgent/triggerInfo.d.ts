@@ -34,7 +34,8 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @typedef TriggerInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface TriggerInfo {
   /**
@@ -50,7 +51,8 @@ export interface TriggerInfo {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code: number;
 
@@ -77,7 +79,8 @@ export interface TriggerInfo {
    * @type { ?Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   want?: Want;
 
@@ -98,7 +101,8 @@ export interface TriggerInfo {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   permission?: string;
 
@@ -121,6 +125,17 @@ export interface TriggerInfo {
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  extraInfo?: Record<string, Object>;
+
+  /**
+   * Custom extra data you want to add for triggering a WantAgent.
    * The ability of this property is same as extraInfo. If both are set, this property will be used.
    *
    * @type { ?Record<string, Object> }
@@ -134,7 +149,8 @@ export interface TriggerInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extraInfos?: Record<string, Object>;
 
@@ -145,7 +161,8 @@ export interface TriggerInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    startOptions?: StartOptions;
 }
