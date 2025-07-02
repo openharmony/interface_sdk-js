@@ -462,6 +462,19 @@ declare namespace audio {
     AVAILABLE_RUNNING = 1,
   }
 
+  enum AudioLoopbackReverbModes {
+    REVERB_EFFECT_MODE_ORIGINAL = 1,
+    REVERB_EFFECT_MODE_KTV = 2,
+    REVERB_EFFECT_MODE_THEATRE = 3,
+    REVERB_EFFECT_MODE_CONCERT = 4,
+  }
+
+  enum AudioLoopbackEqualizerModes {
+    EQULIZER_MODE_DEFAULT = 1,
+    EQULIZER_MODE_FULL = 2,
+    EQULIZER_MODE_BRIGHT = 3,
+  }
+
   /**
    * Enumerates audio stream types.
    * @enum { number }
@@ -11411,9 +11424,9 @@ declare namespace audio {
      */
     enable(enable: boolean): Promise<boolean>;
 
-    setReverberation(value : number): Promise<boolean>;
+    setReverberation(mode : AudioLoopbackReverbModes): Promise<boolean>;
 
-    setEqulizer(value : number): Promise<boolean>;
+    setEqulizer(mode : AudioLoopbackEqualizerModes): Promise<boolean>;
   }
 }
 
