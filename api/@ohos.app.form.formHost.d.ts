@@ -1302,7 +1302,6 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function on(type: 'getLiveFormStatus', 
     callback: formInfo.GetLiveFormStatusCallback): void;
@@ -1316,7 +1315,6 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function off(type: 'getLiveFormStatus', 
     callback?: formInfo.GetLiveFormStatusCallback): void;
