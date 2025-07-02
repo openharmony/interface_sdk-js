@@ -11410,6 +11410,10 @@ declare namespace audio {
      * @since 20
      */
     enable(enable: boolean): Promise<boolean>;
+
+    setReverberation(value : number): Promise<boolean>;
+
+    setEqulizer(value : number): Promise<boolean>;
   }
 }
 
