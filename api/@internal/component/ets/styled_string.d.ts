@@ -1195,6 +1195,19 @@ UserDataSpan | BackgroundColorStyle;
  */
 declare class MutableStyledString extends StyledString {
     /**
+     * constructor.
+     *
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the MutableStyledString.
+     * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
+
+    /**
      * Replace the string of the specified range.
      *
      * @param { number } start - the start position of the replacedString.
