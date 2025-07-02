@@ -31,9 +31,10 @@ OUTPUT_PATH = ''
 TOOL_PATH = "interface/sdk-js/compile_ets_ts.py"
 
 
+# 生成工具运行所需要的json文件
 def build_ets_tool_config(tool_dir, output_dir):
     global OUTPUT_PATH
-    OUTPUT_PATH = os.path.join(tool_dir, "dependence-json/ets_tool_config_json.json")
+    OUTPUT_PATH = os.path.abspath(os.path.join(output_dir, "ets1.2interop/dependence-json/ets_tool_config_json.json"))
     all_files = []
     for dirpath, dirnames, filenames in os.walk(tool_dir):
         cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
@@ -59,9 +60,9 @@ def build_ets_tool_config(tool_dir, output_dir):
         # 需要处理的API目录
         "moduleRootPath": str(tool_dir),
         "sourceRoots": ["./"],
-        "loaderOutPath": str(os.path.join(output_dir, "ets1.2interop")),
+        "loaderOutPath": str(os.path.abspath(os.path.join(output_dir, "ets1.2interop"))),
         # 实际在工具转化API时，不参与生成胶水代码及产物
-        "cachePath": str(os.path.join(tool_dir, "cache")),
+        "cachePath": str(os.path.abspath(os.path.join(output_dir, "ets1.2interop/cache"))),
         # buildSdkPath是包含依赖产物的路径
         "buildSdkPath": str(os.path.join(tool_dir)),
         "dependentModuleList": [],
@@ -97,13 +98,12 @@ def run_compile_ets_ts(root_build_dir: str, tool_dir: str, node_path: str, confi
     try:
         cmd  = [node_path, tool_path, json_path]
         result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True)
+        print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
-        return False
     except Exception as e:
         print(f"run_compile_ets_ts: {str(e)}")
-        return False
 
 
 def run_compile_ets_ts_main():
