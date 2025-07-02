@@ -19,7 +19,6 @@ import("//build/templates/bpf/ohos_bpf_config.gni")
 import("//build/templates/metadata/module_info.gni")
 import("interface_config.gni")
 
-
 # 全局变量方法见 https://gitee.com/openharmony/build/blob/master/docs/cmake%E8%BD%ACgn%E6%8C%87%E5%AF%BC%E6%96%87%E6%A1%A3.md#gn%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F
 
 # 将ets1.2文件处理成ets1.2interop
@@ -52,8 +51,8 @@ action("interface_sdk_interop2") {
     rebase_path(node_path, root_build_dir)
   ]
   outputs = [
-    interface_sdk_path+"/ets1.2interop/declaration",
-    interface_sdk_path+"/ets1.2interop/bridge"
+    interface_sdk_path + "/ets1.2interop/declaration",
+    interface_sdk_path + "/ets1.2interop/bridge"
   ]
 }
 
@@ -107,7 +106,7 @@ template("ohos_copy_internal") {
     #                                     ispublic为真，删除sdk_build_public_remove文件。
     deps = [ ":ohos_base_split" ]
     # 在打包编译ets1.2时才会打包出interop文件
-    if ( sdk_build_arkts ) {
+    if (sdk_build_arkts) {
       deps +=[ ":interface_sdk_interop2" ]
     }
     deps += [ ":$_module_info_target" ]
@@ -153,7 +152,7 @@ template("ohos_declaration_template") {
   action_with_pydeps(target_name) {
     deps = [ ":ohos_base_split" ]
     # 在打包编译ets1.2时才会打包出interop文件
-    if ( sdk_build_arkts ) {
+    if (sdk_build_arkts) {
       deps +=[ ":interface_sdk_interop2" ]
     }
     deps += [ ":$_module_info_target" ]
@@ -270,14 +269,14 @@ ohos_copy_internal("bundle_arkts_ets1.2") {
 ohos_copy_internal("bundle_arkts_ets1.2_interop") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2_interop + "/declaration/arkts"
-  input_project_dir = interface_sdk_path_ets2_interop +"/declaration"
+  input_project_dir = interface_sdk_path_ets2_interop + "/declaration"
 }
 
 # ets1.2interop/arkts胶水代码执行脚本
 ohos_copy_internal("bundle_arkts_ets1.2_interop_bridge") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2_interop + "/bridge/arkts"
-  input_project_dir = interface_sdk_path_ets2_interop +"/bridge"
+  input_project_dir = interface_sdk_path_ets2_interop + "/bridge"
 }
 
 ohos_copy_internal("ets_internal_api2") {

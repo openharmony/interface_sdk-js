@@ -18,7 +18,7 @@ import subprocess
 import sys
 import argparse
 import json
-import stat
+import fnmatch
 from pathlib import Path
 
 
@@ -27,22 +27,50 @@ INTEROP_ETS_LIST = ["api", "arkts", "kits"]
 
 # 输出的json文件路径
 OUTPUT_PATH = ''
-# 执行工具py脚本路径
-TOOL_PATH = "interface/sdk-js/compile_ets_ts.py"
+# 需要排除的文件
+CONFIG_JSON = "interface/sdk-js/compile_ets_ts.json"
+
+
+def should_exclude(path, config):
+    # 检查目录排除
+    dirname = os.path.basename(os.path.dirname(path))
+    if any(fnmatch.fnmatch(dirname, pattern) for pattern in config['excluded_dirs']):
+        return True
+    # 检查文件名排除
+    filename = os.path.basename(path)
+    if any(fnmatch.fnmatch(filename, pattern) for pattern in config['excluded_files']):
+        return True
+    # 检查扩展名排除
+    ext = os.path.splitext(path)[1].lower()
+    if ext in config['excluded_extensions']:
+        return True
+
+    return False
+
+
+def walk_with_exclusions(root_dir, file_folder_dir, config_path = CONFIG_JSON):
+    config = {}
+    with open(os.path.join(root_dir, config_path), 'r') as f:
+        config = json.load(f)
+    for root, dirs, files in os.walk(file_folder_dir):
+        # 从dirs列表中移除要排除的目录
+        dirs[:] = [d for d in dirs if not should_exclude(os.path.join(root, d), config)]
+        # 过滤文件
+        filtered_files = [f for f in files if not should_exclude(os.path.join(root, f), config)]
+        yield root, dirs, filtered_files
 
 
 # 生成工具运行所需要的json文件
-def build_ets_tool_config(tool_dir, output_dir):
+def build_ets_tool_config(root_build_dir, tool_dir, output_dir):
     global OUTPUT_PATH
     OUTPUT_PATH = os.path.abspath(os.path.join(output_dir, "ets1.2interop/dependence-json/ets_tool_config_json.json"))
     all_files = []
-    for dirpath, dirnames, filenames in os.walk(tool_dir):
+    for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, tool_dir):
         cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
         if len(cont_folder) != 0:
             if cont_folder[0] in INTEROP_ETS_LIST:
                 files = [os.path.join(dirpath, file) 
-                         for file in filenames
-                         if not file.endswith('.json')]
+                         for file in filenames]
                 all_files.extend(files)
         else :
             continue
@@ -69,6 +97,8 @@ def build_ets_tool_config(tool_dir, output_dir):
         "isIDE": "false",
         # 工具处理时候的线程数
         "maxWorkers": 64,
+        # 工具处理的时候是否跳过检查
+        "skipDeclCheck": False,
         "enableDeclgenEts2Ts": True,
         # declgenV1OutPath是输出的ets产物
         "declgenV1OutPath": str(os.path.abspath(os.path.join(output_dir, "ets1.2interop/declaration"))),
@@ -84,9 +114,10 @@ def build_ets_tool_config(tool_dir, output_dir):
         return str(out_path_dir)
     except Exception as e:
         print(f"run_compile_ets_ts: {str(e)}")
+        return None
 
 
-def run_compile_ets_ts(root_build_dir: str, tool_dir: str, node_path: str, config_json_path: str):
+def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str):
     # PANDA的依赖路径
     panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
@@ -96,7 +127,7 @@ def run_compile_ets_ts(root_build_dir: str, tool_dir: str, node_path: str, confi
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
-        cmd  = [node_path, tool_path, json_path]
+        cmd = [node_path, tool_path, json_path]
         result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True)
         print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
@@ -115,8 +146,8 @@ def run_compile_ets_ts_main():
     options = parser.parse_args()
     options.tool_dir = os.path.abspath(options.tool_dir)
     tool_dir = options.tool_dir
-    config_json = build_ets_tool_config(options.tool_dir, options.output_interface_sdk)
-    run_compile_ets_ts(options.root_build_dir, options.tool_dir, options.node_path, config_json)
+    config_json = build_ets_tool_config(options.root_build_dir, options.tool_dir, options.output_interface_sdk)
+    run_compile_ets_ts(options.tool_dir, options.node_path, config_json)
 
 
 if __name__ == "__main__":
