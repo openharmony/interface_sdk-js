@@ -69,15 +69,8 @@ declare enum FormDimension {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
+   * @deprecated since 20
    */
-  /**
-   * 2 x 1 cards
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since arkts{ '1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
-  */
   Dimension_2_1,
 
   /**
