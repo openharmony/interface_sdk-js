@@ -77,7 +77,7 @@ declare enum FormDimension {
    * @systemapi
    * @since arkts{ '1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
-  */
+   */
   Dimension_2_1,
 
   /**
