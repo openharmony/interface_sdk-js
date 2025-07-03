@@ -1392,7 +1392,32 @@ declare namespace xml {
      * @arkts 1.1&1.2
      */
     tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
+
+    /**
+     * Attribute value and tag callback function.
+     *
+     * @type { ?AttributeWithTagCb }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    attributeWithTagCallbackFunction?: AttributeWithTagCb;
   }
+
+  /**
+   * The type of ParseOptions attributeWithTagCallbackFunction.
+   *
+   * @typedef { function } AttributeWithTagCb
+   * @param { string } tagName - The tag in xml parse node
+   * @param { string } key - The key in xml parse node
+   * @param { string } value - The value in xml parse node
+   * @returns { boolean } - whether continue to parse xml data
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   */
+  type AttributeWithTagCb = (tagName: string, key: string, value: string) => boolean;
 
   /**
    * The XmlPullParser interface is used to parse the existing xml file.
