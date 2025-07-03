@@ -1987,6 +1987,14 @@ declare namespace connection {
      * @since 8
      */
     isDefaultRoute: boolean;
+
+    /**
+     * Whether the route is the excluded route.
+     * @type { ?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 20
+     */
+    isExcludedRoute?: boolean;
   }
 
   /**
