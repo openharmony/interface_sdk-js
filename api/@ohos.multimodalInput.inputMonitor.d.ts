@@ -599,8 +599,7 @@ declare namespace inputMonitor {
    * @returns { Promise<Array<TouchEvent>> } Returns the result through a promise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 3800001 - System internal error.
-   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 20
    */
