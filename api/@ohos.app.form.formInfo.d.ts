@@ -2223,7 +2223,6 @@ declare namespace formInfo {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface GetLiveFormStatusCallback {
     /**
@@ -2234,7 +2233,6 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     (): Record<string, string>;
   }
