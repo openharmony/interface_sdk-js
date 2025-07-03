@@ -420,6 +420,10 @@ declare namespace deviceSettings {
    * @since 12
    */
   function getValue(admin: Want, item: string): string;
+
+  function setHomeWallPaper(admin: Want, fd: number): Promise<void>;
+
+  function setUnlockWallPaper(admin: Want, fd: number): Promise<void>;
 }
 
 export default deviceSettings;
