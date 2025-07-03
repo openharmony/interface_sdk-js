@@ -998,6 +998,6 @@ declare class LightWeightMap<K, V> {
    * @since 20
    * @arkts 1.2
    */
-  type LightWeightMapCbFn<K, V> = (value: V, key: K, map: LightWeightMap<K, V>) => void;
+  export type LightWeightMapCbFn<K, V> = (value: V, key: K, map: LightWeightMap<K, V>) => void;
 
 export default LightWeightMap;

@@ -17,30 +17,69 @@
  * @file
  * @kit ArkTS
  */
- import { Callback } from './@ohos.base';
- import emitter from './@ohos.events.emitter';
- 
- /**
-  * The stream module provides a comprehensive set of stream processing capabilities, including four types of streams:
-  * - Writable: streams designed for writing data to.
-  * - Readable: streams designed for reading data from.
-  * - Duplex: streams that are both readable and writable.
-  * - Transform: a specialized type of duplex stream that can modify or transform data as it's being written and read.
-  *
-  * @namespace stream
-  * @syscap SystemCapability.Utils.Lang
-  * @crossplatform
-  * @atomicservice
-  * @since 12
-  */
+
+/*** if arkts 1.1 */
+import { Callback } from './@ohos.base';
+import emitter from './@ohos.events.emitter';
+/*** endif */
+/*** if arkts 1.2 */
+import buffer from '@ohos.buffer';
+/*** endif */
+
+/**
+ * The stream module provides a comprehensive set of stream processing capabilities, including four types of streams:
+ * - Writable: streams designed for writing data to.
+ * - Readable: streams designed for reading data from.
+ * - Duplex: streams that are both readable and writable.
+ * - Transform: a specialized type of duplex stream that can modify or transform data as it's being written and read.
+ *
+ * @namespace stream
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
 declare namespace stream {
+  /**
+   * Return readable options.
+   *
+   * @interface ReadableOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  interface ReadableOptions {
+    /**
+     * Specifies the encoding format of the data. If this parameter is provided,
+     * the readable stream decodes the data into a string in the specified encoding format. Default: utf8.
+     * If an invalid string is entered, a 401 exception is thrown in the Readable constructor.
+     * Supported encoding formats: utf-8, ibm866, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6,
+     * iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-8859-14, iso-8859-15, koi8-r, koi8-u,
+     * macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
+     * windows-1256, windows-1257, windows-1258, x-mac-cyrillic, gbk, gb18030, big5, euc-jp, iso-2022-jp, shift_jis,
+     * euc-kr, utf-16be, utf-16le.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    encoding?: string;
+  }
+
   /**
    * Streams to which data can be written.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Writable {
     /**
@@ -49,9 +88,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
+
     /**
      * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
      * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
@@ -73,9 +114,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
-    */
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
+
     /**
      * Write the last chunk to Writable.
      *
@@ -91,9 +134,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
+
     /**
      * Set the default encoding mode.
      *
@@ -106,9 +151,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
-    */
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     setDefaultEncoding(encoding?: string): boolean;
+
     /**
      * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
      *
@@ -116,9 +163,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cork(): boolean;
+
     /**
      * After calling, flush all buffers.
      *
@@ -126,9 +175,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uncork(): boolean;
+
     /**
      * Registering Event Messages.
      *
@@ -144,6 +195,20 @@ declare namespace stream {
      * @since 12
      */
     on(event: string, callback: Callback<emitter.EventData>): void;
+
+    /**
+     * Registering Event Messages.
+     *
+     * @param { string } event - Register Event.
+     * @param { Function } callback - event callbacks.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    on(event: string, callback: Function): void;
+
     /**
      * Cancel event message.
      *
@@ -158,6 +223,20 @@ declare namespace stream {
      * @since 12
      */
     off(event: string, callback?: Callback<emitter.EventData>): void;
+
+    /**
+     * Cancel event message.
+     *
+     * @param { string } event - Register Event.
+     * @param { Function } [callback] - event callbacks.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    off(event: string, callback?: Function): void;
+
     /**
      * This method is invoked by the Writable method during initialization and must not be invoked directly.
      * After the resource is initialized in the doInitialize method, the callback () method is invoked.
@@ -169,9 +248,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doInitialize(callback: Function): void;
+
     /**
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
@@ -186,9 +267,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
+
     /**
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
@@ -202,9 +285,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
+
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
@@ -216,6 +301,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableObjectMode: boolean;
+
+    /**
+     * Returns boolean indicating whether it is in ObjectMode.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableObjectMode(): boolean;
+
     /**
      * Value of highWatermark.
      *
@@ -227,6 +325,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableHighWatermark: number;
+
+    /**
+     * Value of highWatermark.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableHighWatermark(): number;
+
     /**
      * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
@@ -238,6 +349,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writable: boolean;
+
+    /**
+     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writable(): boolean;
+
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
@@ -249,6 +373,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableLength: number;
+
+    /**
+     * Size of data that can be flushed, in bytes or objects.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableLength(): number;
+
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
@@ -260,17 +397,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableCorked: number;
+
     /**
      * Whether Writable.end has been called.
      *
-     * @type { boolean }
-     * @readonly
+     * @type { number }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 20
+     * @arkts 1.2
      */
-    readonly writableEnded: boolean;
+    get writableCorked(): number;
+
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
@@ -281,8 +420,46 @@ declare namespace stream {
      * @atomicservice
      * @since 12
      */
-    readonly writableFinished: boolean;
+    readonly writableEnded: boolean;
+
+    /**
+     * Whether Writable.end has been called.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableEnded(): boolean;    
+    
+    /**
+     * Whether Writable.end has been called and all buffers have been flushed.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readonly writableFinished: boolean;    
+    
+
+    /**
+     * Whether Writable.end has been called and all buffers have been flushed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableFinished(): boolean;    
   }
+  
   /**
    * Transform stream is a Duplex stream where the output is computed in some way from the input.
    * Transform implementations must implement the doTransform() method and may also implement the doFlush() method.
@@ -291,7 +468,8 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Transform extends Duplex {
     /**
@@ -300,9 +478,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
+
     /**
      * Convert the input data. After the conversion, Transform.push can be called to send the input to the read stream.
      * Transform.push should not be called Transform.write to call.
@@ -318,9 +498,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doTransform(chunk: string, encoding: string, callback: Function): void;
+
     /**
      * After all data is flushed to the write stream, you can use the Transform.doFlush writes some extra data, must
      * not be called directly, only called by Writable after flushing all data.
@@ -333,39 +515,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doFlush(callback: Function): void;
-  }
-
-  /**
-   * Return readable options.
-   *
-   * @interface ReadableOptions
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  interface ReadableOptions {
-    /**
-    * Specifies the encoding format of the data. If this parameter is provided,
-    * the readable stream decodes the data into a string in the specified encoding format. Default: utf8.
-    * If an invalid string is entered, a 401 exception is thrown in the Readable constructor.
-    * Supported encoding formats: utf-8, ibm866, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6,
-    * iso-8859-7, iso-8859-8, iso-8859-8-i, iso-8859-10, iso-8859-13, iso-8859-14, iso-8859-15, koi8-r, koi8-u,
-    * macintosh, windows-874, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
-    * windows-1256, windows-1257, windows-1258, x-mac-cyrillic, gbk, gb18030, big5, euc-jp, iso-2022-jp, shift_jis,
-    * euc-kr, utf-16be, utf-16le.
-    *
-    * @type { ?string }
-    * @syscap SystemCapability.Utils.Lang
-    * @crossplatform
-    * @atomicservice
-    * @since 12
-    */
-    encoding?: string;
-  }
+  }  
 
   /**
    * The stream from which data can be read.
@@ -373,7 +527,8 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    class Readable {
     /**
@@ -382,9 +537,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
+
     /**
      * The Readable constructor.
      *
@@ -396,9 +553,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(options: ReadableOptions);
+
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
      * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
@@ -416,6 +575,26 @@ declare namespace stream {
      * @since 12
      */
     read(size?: number): string | null;
+
+    /**
+     * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
+     * of the specified size is returned. Otherwise, if Readable has ended, all remaining buffers are returned.
+     *
+     * @param { number } [size] - Expected length of the data to be read.
+     * @returns { buffer.Buffer | string | null } If no data is available to read, null is returned.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
+     * @throws { BusinessError } 10200038 - The doRead method has not been implemented.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    read(size?: number): buffer.Buffer | string | null;
+
     /**
      * Switch Readable to Streaming Mode.
      *
@@ -423,9 +602,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resume(): Readable;
+
     /**
      * Toggle Readable to Suspend Mode.
      *
@@ -433,9 +614,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): Readable;
+  
     /**
      * Sets the encoding format of the input binary data.Default: utf8.
      *
@@ -447,9 +630,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setEncoding(encoding?: string): boolean;
+
     /**
      * Query whether it is in pause state.
      *
@@ -457,9 +642,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPaused(): boolean;
+
     /**
      * Concatenated a Writable to a Readable and switches the Readable to stream mode.
      *
@@ -473,9 +660,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pipe(destination: Writable, options?: Object): Writable;
+
     /**
      * Disconnect Writable from Readable.
      *
@@ -488,9 +677,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unpipe(destination?: Writable): Readable;
+
     /**
      * Registering Event Messages.
      *
@@ -505,6 +696,20 @@ declare namespace stream {
      * @since 12
      */
     on(event: string, callback: Callback<emitter.EventData>): void;
+
+    /**
+     * Registering Event Messages.
+     *
+     * @param { string } event - Registering Events.
+     * @param { Function } callback - Event callback.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    on(event: string, callback: Function): void;
+
     /**
      * Cancel event message.
      *
@@ -519,6 +724,20 @@ declare namespace stream {
      * @since 12
      */
     off(event: string, callback?: Callback<emitter.EventData>): void;
+
+    /**
+     * Cancel event message.
+     *
+     * @param { string } event - Registering Events.
+     * @param { Function } [callback] - Event callback.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    off(event: string, callback?: Function): void;
+
     /**
      * It may be implemented by child classes, and if so, will be called by the Readable class methods only.
      * It must not be called directly.
@@ -531,9 +750,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doInitialize(callback: Function): void;
+
     /**
      * The specific implementation of data production. It must not be actively called. 
      * After data production, Readable.push should be called to push the produced data into the buffer.
@@ -547,9 +768,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doRead(size: number): void;
+
     /**
      * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
      * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
@@ -564,9 +787,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     push(chunk: Uint8Array | string | null, encoding?: string): boolean;
+
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
@@ -578,6 +803,19 @@ declare namespace stream {
      * @since 12
      */
     readonly readableObjectMode: boolean;
+
+    /**
+     * Returns boolean indicating whether it is in ObjectMode.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableObjectMode(): boolean;
+
     /**
      * Is true if it is safe to call readable.read(), which means
      * the stream has not been destroyed or emitted 'error' or 'end'.
@@ -590,6 +828,20 @@ declare namespace stream {
      * @since 12
      */
     readonly readable: boolean;
+
+    /**
+     * Is true if it is safe to call readable.read(), which means
+     * the stream has not been destroyed or emitted 'error' or 'end'.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readable(): boolean;
+
     /**
      * Returns the value of highWatermark passed when creating this Readable.
      *
@@ -601,6 +853,19 @@ declare namespace stream {
      * @since 12
      */
     readonly readableHighWatermark: number;
+
+    /**
+     * Returns the value of highWatermark passed when creating this Readable.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableHighWatermark(): number;
+
     /**
      * This property reflects the current state of the readable stream null/true/false.
      *
@@ -612,6 +877,19 @@ declare namespace stream {
      * @since 12
      */
     readonly readableFlowing: boolean | null;
+
+    /**
+     * This property reflects the current state of the readable stream null/true/false.
+     *
+     * @type { boolean | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableFlowing(): boolean | null;
+
     /**
      * Size of the data that can be read, in bytes or objects.
      *
@@ -623,6 +901,19 @@ declare namespace stream {
      * @since 12
      */
     readonly readableLength: number;
+
+    /**
+     * Size of the data that can be read, in bytes or objects.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableLength(): number;
+
     /**
      * Getter for the property encoding of a given Readable stream. The encoding property can be set using the
      * readable.setEncoding() method.
@@ -635,6 +926,20 @@ declare namespace stream {
      * @since 12
      */
     readonly readableEncoding: string | null;
+
+    /**
+     * Getter for the property encoding of a given Readable stream. The encoding property can be set using the
+     * readable.setEncoding() method.
+     *
+     * @type { string | null }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableEncoding(): string | null;
+
     /**
      * Whether all data has been generated.
      *
@@ -646,7 +951,20 @@ declare namespace stream {
      * @since 12
      */
     readonly readableEnded: boolean;
+
+    /**
+     * Whether all data has been generated.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get readableEnded(): boolean;
   }
+
   /**
    * Duplex streams are streams that implement both the Readable streams and Writable streams interfaces.
    *
@@ -654,18 +972,21 @@ declare namespace stream {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Duplex extends Readable {
     /**
-    * The Duplex constructor.
+     * The Duplex constructor.
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
+
     /**
      * writes a chunk to Writable and invokes callback when the chunk is flushed. The return value indicates
      * whether the internal buffer of the Writable reaches the hightWaterMark. If true is returned, the buffer
@@ -687,9 +1008,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean;
+
     /**
      * Write the last chunk to Writable.
      *
@@ -705,9 +1028,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable;
+
     /**
      * Set the default encoding mode.
      *
@@ -720,9 +1045,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDefaultEncoding(encoding?: string): boolean;
+
     /**
      * After the call, all Write operations will be forced to write to the buffer instead of being flushed.
      *
@@ -730,9 +1057,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cork(): boolean;
+
     /**
      * After calling, flush all buffers.
      *
@@ -740,9 +1069,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uncork(): boolean;
+
     /**
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
@@ -757,9 +1088,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
+
     /**
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
@@ -773,9 +1106,11 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doWritev(chunks: string[] | Uint8Array[], callback: Function): void;
+
     /**
      * Returns boolean indicating whether it is in ObjectMode.
      *
@@ -787,6 +1122,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableObjectMode: boolean;
+
+    /**
+     * Returns boolean indicating whether it is in ObjectMode.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableObjectMode(): boolean;
+
     /**
      * Value of highWatermark.
      *
@@ -798,6 +1146,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableHighWatermark: number;
+
+    /**
+     * Value of highWatermark.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableHighWatermark(): number;
+
     /**
      * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
      *
@@ -809,6 +1170,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writable: boolean;
+
+    /**
+     * Is true if it is safe to call writable.write(), which means the stream has not been destroyed, error or end.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writable(): boolean;
+
     /**
      * Size of data that can be flushed, in bytes or objects.
      *
@@ -820,6 +1194,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableLength: number;
+
+    /**
+     * Size of data that can be flushed, in bytes or objects.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableLength(): number;
+
     /**
      * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
      *
@@ -831,6 +1218,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableCorked: number;
+
+    /**
+     * Number of times writable.uncork() needs to be called in order to fully uncork the stream.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableCorked(): number;
+
     /**
      * Whether Writable.end has been called.
      *
@@ -842,6 +1242,19 @@ declare namespace stream {
      * @since 12
      */
     readonly writableEnded: boolean;
+
+    /**
+     * Whether Writable.end has been called.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableEnded(): boolean;
+
     /**
      * Whether Writable.end has been called and all buffers have been flushed.
      *
@@ -853,6 +1266,18 @@ declare namespace stream {
      * @since 12
      */
     readonly writableFinished: boolean;
+
+    /**
+     * Whether Writable.end has been called and all buffers have been flushed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    get writableFinished(): boolean;
   }
 }
 export default stream;

@@ -412,6 +412,6 @@ declare class Stack<T> {
  * @since 20
  * @arkts 1.2
  */
-type StackForEachCb<T> = (value: T, index: number, stack: Stack<T>) => void
+export type StackForEachCb<T> = (value: T, index: number, stack: Stack<T>) => void
 
 export default Stack;
