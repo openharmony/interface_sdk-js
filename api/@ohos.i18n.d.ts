@@ -55,10 +55,9 @@ declare namespace i18n {
    *                                     the text in the default case format of the locale. The default value is true.
    * @returns { string } Localized script for the specified country.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getDisplayCountry
-   * @arkts 1.1&1.2
    */
   export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -72,10 +71,9 @@ declare namespace i18n {
    *                                     the text in the default case format of the locale. The default value is true.
    * @returns { string } Localized script for the specified language.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getDisplayLanguage
-   * @arkts 1.1&1.2
    */
   export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
@@ -84,10 +82,9 @@ declare namespace i18n {
    *
    * @returns { string } System language ID.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemLanguage
-   * @arkts 1.1&1.2
    */
   export function getSystemLanguage(): string;
 
@@ -96,10 +93,9 @@ declare namespace i18n {
    *
    * @returns { string } System region ID.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemRegion
-   * @arkts 1.1&1.2
    */
   export function getSystemRegion(): string;
 
@@ -108,10 +104,9 @@ declare namespace i18n {
    *
    * @returns { string } System locale ID.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.System.getSystemLocale
-   * @arkts 1.1&1.2
    */
   export function getSystemLocale(): string;
 
@@ -780,7 +775,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemCollations(): Map<string, string>;
 
@@ -793,7 +787,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUsingCollation(): string;
 
@@ -809,7 +802,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static setSystemCollation(identifier: string): void;
 
@@ -822,7 +814,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemMeasurements(): Map<string, string>;
 
@@ -835,7 +826,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUsingMeasurement(): string;
 
@@ -852,7 +842,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static setSystemMeasurement(identifier: string): void;
 
@@ -865,7 +854,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUsingNumberingSystem(): string;
 
@@ -882,7 +870,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static setSystemNumberingSystem(identifier: string): void;
 
@@ -896,7 +883,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemNumberingSystems(): Map<string, string>;
 
@@ -909,7 +895,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemNumberPatterns(): Map<string, string>;
 
@@ -926,7 +911,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static setSystemNumberPattern(pattern: string): void;
 
@@ -940,7 +924,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUsingNumberPattern(): string;
 
@@ -953,7 +936,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemNumericalDatePatterns(): Map<string, string>;
 
@@ -970,7 +952,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static setSystemNumericalDatePattern(identifier : string): void;
 
@@ -983,7 +964,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getUsingNumericalDatePattern(): string;
 
@@ -996,7 +976,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static getSystemTemperatures(): Map<TemperatureType, string>;
   }
@@ -1128,10 +1107,9 @@ declare namespace i18n {
    *
    * @interface Util
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.I18NUtil
-   * @arkts 1.1&1.2
    */
   export interface Util {
     /**
@@ -1145,10 +1123,9 @@ declare namespace i18n {
      *                             default value is short.
      * @returns { string } String obtained after formatting based on the measurement unit specified by toUnit.
      * @syscap SystemCapability.Global.I18n
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since 8
      * @deprecated since 9
      * @useinstead ohos.i18n/i18n.I18NUtil#unitConvert
-     * @arkts 1.1&1.2
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
   }
@@ -2894,10 +2871,9 @@ declare namespace i18n {
    *
    * @returns { boolean } true if the 24-hour clock is used, and false otherwise.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#is24HourClock
-   * @arkts 1.1&1.2
    */
   export function is24HourClock(): boolean;
 
@@ -2909,10 +2885,9 @@ declare namespace i18n {
    *                             clock, and the value "false" means the opposite.
    * @returns { boolean } true if the setting is successful, and false otherwise.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since 7
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#set24HourClock
-   * @arkts 1.1&1.2
    */
   export function set24HourClock(option: boolean): boolean;
 
@@ -2925,10 +2900,9 @@ declare namespace i18n {
    *                             the preferred language list.
    * @returns { boolean } true if the operation is successful, and false otherwise.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#addPreferredLanguage
-   * @arkts 1.1&1.2
    */
   export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -2940,10 +2914,9 @@ declare namespace i18n {
    * @returns { boolean } Whether the operation is successful. The value "true" indicates that the operation is
    *                      successful, and the value "false" indicates the opposite.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#removePreferredLanguage
-   * @arkts 1.1&1.2
    */
   export function removePreferredLanguage(index: number): boolean;
 
@@ -2952,10 +2925,9 @@ declare namespace i18n {
    *
    * @returns { Array<string> } List of preferred languages.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#getPreferredLanguageList
-   * @arkts 1.1&1.2
    */
   export function getPreferredLanguageList(): Array<string>;
 
@@ -2964,10 +2936,9 @@ declare namespace i18n {
    *
    * @returns { string } First language in the preferred language list.
    * @syscap SystemCapability.Global.I18n
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @deprecated since 9
    * @useinstead ohos.i18n/i18n.System#getFirstPreferredLanguage
-   * @arkts 1.1&1.2
    */
   export function getFirstPreferredLanguage(): string;
 
@@ -3257,7 +3228,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     public getZoneRules(): ZoneRules;
   }
@@ -3268,7 +3238,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export class ZoneRules {
     /**
@@ -3279,7 +3248,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     public nextTransition(date?: number): ZoneOffsetTransition;
   }
@@ -3290,7 +3258,6 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export class ZoneOffsetTransition {
     /**
@@ -3300,7 +3267,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     public getMilliseconds(): number;
 
@@ -3311,7 +3277,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     public getOffsetAfter(): number;
 
@@ -3322,7 +3287,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     public getOffsetBefore(): number;
   }
@@ -4399,8 +4363,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export class StyledNumberFormat {
     /**
@@ -4411,9 +4374,8 @@ declare namespace i18n {
      *                                                    The default value is the default text style.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since 18
      * @deprecated since 20
-     * @arkts 1.1&1.2
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -4436,8 +4398,7 @@ declare namespace i18n {
      * @returns { StyledString } Rich text object after formatting.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     format(value: number): StyledString;
   }
@@ -4448,8 +4409,7 @@ declare namespace i18n {
    * @interface StyledNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -4458,8 +4418,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     integer?: TextStyle;
 
@@ -4469,8 +4428,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     decimal?: TextStyle;
 
@@ -4480,8 +4438,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     fraction?: TextStyle;
 
@@ -4491,8 +4448,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     unit?: TextStyle;
   }
