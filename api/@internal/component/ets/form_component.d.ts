@@ -276,6 +276,16 @@ declare interface FormInfo {
    * @since 12
    */
   shape?: FormShape;
+
+  /**
+   * Exempt app lock
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  exemptAppLock?: boolean;
 }
 
 /**
