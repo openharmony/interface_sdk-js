@@ -6130,21 +6130,24 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STARTED = 1,
     /**
      * advertising temporarily enabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENABLED = 2,
     /**
      * advertising temporarily disabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISABLED = 3,
     /**
@@ -6158,7 +6161,8 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STOPPED = 4
   }
