@@ -7968,8 +7968,10 @@ declare namespace window {
     /**
      * Sets the shadow enable of window.
      *
+     * @permission ohos.permission.SET_WINDOW_TRANSPARENT
      * @param { boolean } enable - Enable or disable window shadow.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -10491,7 +10493,7 @@ declare namespace window {
     /**
      * Set window container active and inactive color.
      *
-     * @permission ohos.permission.WINDOW_TRANSPARENT
+     * @permission ohos.permission.SET_WINDOW_TRANSPARENT
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
