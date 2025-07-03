@@ -233,7 +233,6 @@
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
     "SystemCapability.Ability.AppStartup",
-    "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
-    "SystemCapability.Mechanic.Core"
+    "SystemCapability.Ability.AppExtension.PhotoEditorExtension"
   ]
 }

@@ -841,14 +841,12 @@ declare namespace mechanicManager {
      * Enumerates the camera tracking layouts.
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
-     * @systemapi
      * @since 20
      */
     export enum CameraTrackingLayout {
         /**
          * Default layout.
          * @syscap SystemCapability.Mechanic.Core
-         * @systemapi
          * @since 20
          */
         DEFAULT = 0,
@@ -856,7 +854,6 @@ declare namespace mechanicManager {
         /**
          * Left-side layout.
          * @syscap SystemCapability.Mechanic.Core
-         * @systemapi
          * @since 20
          */
         LEFT = 1,
@@ -864,7 +861,6 @@ declare namespace mechanicManager {
         /**
          * Middle layout.
          * @syscap SystemCapability.Mechanic.Core
-         * @systemapi
          * @since 20
          */
         MIDDLE = 2,
@@ -872,7 +868,6 @@ declare namespace mechanicManager {
         /**
          * Right-side layout.
          * @syscap SystemCapability.Mechanic.Core
-         * @systemapi
          * @since 20
          */
         RIGHT = 3
