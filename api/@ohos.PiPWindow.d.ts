@@ -93,7 +93,7 @@ declare namespace PiPWindow {
    * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
    * the context and componentController in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
-   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation. 
+   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation.
    * Indicates the node which display the content of pip window.
    * @returns { Promise<PiPController> } - The promise returned by the function
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1059,7 +1059,7 @@ declare namespace PiPWindow {
      * @since 18
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
-    
+
     /**
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
@@ -1197,7 +1197,6 @@ declare namespace PiPWindow {
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15

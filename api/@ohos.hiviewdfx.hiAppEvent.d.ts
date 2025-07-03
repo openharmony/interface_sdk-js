@@ -1005,6 +1005,13 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -2278,6 +2285,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     configName?: string;
   }
@@ -2308,12 +2316,13 @@ declare namespace hiAppEvent {
    * @param { string } processorName The name of the processor.
    * @param { string } [configName] Initialize the processor by reading the configuration file based on the name.
    * @returns { Promise<number> }  The processor unique ID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11105001 - Invalid parameter value. Possible causes: 1. Incorrect parameter length.
+   * <br>2. Incorrect parameter format.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function addProcessorFromConfig(processorName: string, configName?: string): Promise<number>;
 

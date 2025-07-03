@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides the capabilities to manage the state and data of cloud file synchronization.
@@ -309,6 +309,335 @@ declare namespace cloudSyncManager {
      * @arkts 1.1&1.2
      */
     extraData: string;
+  }
+
+  /**
+   * Describes the reason why the download task stop.
+   * @enum { number } DownloadStopReason
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum DownloadStopReason {
+
+    /**
+     * download task is not stopped.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    NO_STOP = 0,
+
+    /**
+     * Network is unavailable.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    NETWORK_UNAVAILABLE = 1,
+
+    /**
+     * The local storage space is full.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    LOCAL_STORAGE_FULL = 2,
+
+    /**
+     * Temperature control Limits.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    TEMPERATURE_LIMIT = 3,
+
+    /**
+     * User stopped the download task.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    USER_STOPPED = 4,
+
+    /**
+     * The local application has been unloaded.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    APP_UNLOAD = 5,
+
+    /**
+     * Other reasons of some internal error.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    OTHER_REASON = 6
+  }
+
+  /**
+   * Describes the state type of downgrade download.
+   * @enum { number } DownloadState
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum DownloadState {
+
+    /**
+     * Indicates that the download task in process now.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    RUNNING = 0,
+
+    /**
+     * Indicates that the download task finished.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMPLETED = 1,
+
+    /**
+     * Indicates that the download task stopped.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    STOPPED = 2
+  }
+
+  /**
+   * Defines the CloudFileInfo data structure.
+   * @typedef CloudFileInfo
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface CloudFileInfo {
+
+    /**
+     * Total number of files located in the cloud.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    cloudFileCount: number;
+
+    /**
+     * Total size of files located in the cloud, in units of bytes.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    cloudFileTotalSize: number;
+
+    /**
+     * Total number of files located locally.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    localFileCount: number;
+
+    /**
+     * Total size of files located locally, in units of bytes.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    localFileTotalSize: number;
+
+    /**
+     * Total number of files located both locally and in the cloud.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    bothFileCount: number;
+
+    /**
+     * Total size of files located both locally and in the cloud, in units of bytes.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    bothFileTotalSize: number;
+  }
+
+  /**
+   * Defines DownloadProgress object.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  class DownloadProgress {
+
+    /**
+     * The current download task state.
+     * @type { DownloadState }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    state: DownloadState;
+
+    /**
+     * The number of files that downloaded successfully
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    successfulCount: number;
+
+    /**
+     * The number of files that fail to be downloaded.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    failedCount: number;
+
+    /**
+     * Total number of all files to be downloaded.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    totalCount: number;
+
+    /**
+     * Total size of downloaded files.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    downloadedSize: number;
+
+    /**
+     * Total size of all files to be downloaded.
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    totalSize: number;
+
+    /**
+     * The reason for stopping the download task.
+     * @type { DownloadStopReason }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    stopReason: DownloadStopReason;
+  }
+
+  /**
+   * DowngradeDownload object.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  class DowngradeDownload {
+
+    /**
+     * A constructor used to create a DowngradeDownload object.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { string } bundleName - Name of the bundle that need to synchronize and subscribe the sync progress event.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    constructor(bundleName: string);
+
+    /**
+     * Get the total size and number of files in different locations.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @returns { Promise<CloudFileInfo> } - Return the file size and number info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    getCloudFileInfo(): Promise<CloudFileInfo>;
+
+    /**
+     * Start to download all cloud files of the specified application to local.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @throws { BusinessError } 22400006 - The same task is already in progress.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    startDownload(callback: Callback<DownloadProgress>): Promise<void>;
+
+    /**
+     * Stop the specified application's download task.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    stopDownload(): Promise<void>;
   }
 }
 

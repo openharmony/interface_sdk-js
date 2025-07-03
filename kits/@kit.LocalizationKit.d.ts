@@ -18,7 +18,7 @@
  * @kit LocalizationKit
  */
 /*** if arkts 1.1 */
-import fontManager from '@ohos.fontManager'
+import fontManager from '@ohos.fontManager';
 import i18n from '@ohos.i18n';
 import intl from '@ohos.intl';
 import resourceManager from '@ohos.resourceManager';

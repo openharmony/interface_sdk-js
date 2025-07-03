@@ -46,6 +46,15 @@ export declare struct InnerFullScreenLaunchComponent {
    * @since 12
    */
   controller: LaunchController;
+
+  /**
+   * Indicates the callback of onReceive.
+   * @type { ?Callback<Record<string, Object>> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  onReceive?: Callback<Record<string, Object>>;
 }
 
 /**

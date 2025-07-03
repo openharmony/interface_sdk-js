@@ -197,6 +197,34 @@ declare namespace adminManager {
   }
 
   /**
+   * Enum for Policy.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  export enum Policy {
+    /**
+     * flag bolck list.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    BLOCK_LIST = 0,
+
+    /**
+     * flag trust list.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    TRUST_LIST = 1
+  }
+  
+  /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *

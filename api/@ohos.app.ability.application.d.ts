@@ -104,6 +104,38 @@ declare namespace application {
    * @since 14
    */
   export function getApplicationContext(): ApplicationContext;
+
+  /**
+   * Elevate the current process to be a candidate master process.
+   * If UIAbility or UIExtension component within the application is configured with "isolationProcess",launching an
+   * instance of such UIAbility or UIExtension will trigger a callback to the master process's "onNewProcessRequest".
+   * The "onNewProcessRequest" callback return value determines whether the new instance starts in a new process or an existing one.
+   * After successfully invoking this interface, the current process becomes a candidate master process. If the original master process
+   * is destroyed, the candidate process with the highest priority will be selected as the new master process.
+   * 
+   * @param { boolean } insertToHead - Whether inset current process to the head of candidates master process list.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000115 - The current process is not running a component configured with "isolationProcess"
+   *                                      and cannot be set as a candidate master process.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  export function promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise<void>;
+
+  /**
+   * Revoke current process as a candidate master process.
+   * 
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000116 - The current process is already a master process and does not support cancellation.
+   * @throws { BusinessError } 16000117 - The current process is not a candidate master process and does not support cancellation.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
 }
 
 export default application;

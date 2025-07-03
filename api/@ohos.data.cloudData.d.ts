@@ -652,7 +652,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
      * <br>2. Missing GROUP BY clause.
      * @static
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 20
      * @arkts 1.1&1.2

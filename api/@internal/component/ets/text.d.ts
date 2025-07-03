@@ -1653,18 +1653,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   halfLeading(halfLeading: boolean): TextAttribute;
 
   /**
-   * Set to remove trailing spaces from text.
-   *
-   * @param { Optional<boolean> } trim
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  trimSpace(trim: Optional<boolean>): TextAttribute;
-
-  /**
    * Enable or disable haptic feedback.
    *
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
@@ -1699,6 +1687,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20
    */
   enableAutoSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Set text transition.
+   *
+   * @param { Optional<ContentTransition> } transition - The transition of text.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  contentTransition(transition: Optional<ContentTransition>): TextAttribute;
 }
 
 /**

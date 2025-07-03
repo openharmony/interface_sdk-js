@@ -1553,6 +1553,13 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19
      */
+    /**
+     * Get input attachOptions.
+     *
+     * @returns { AttachOptions } return attach options.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
     getAttachOptions(): AttachOptions;
     /**
      * Subscribe 'attachOptionsDidChange' event.
@@ -1562,6 +1569,14 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19
+     */
+    /**
+     * Subscribe 'attachOptionsDidChange' event.
+     *
+     * @param { 'attachOptionsDidChange' } type - the type of subscribe event.
+     * @param { Callback<AttachOptions> } callback - the callback of on('attachOptionsDidChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
      */
     on(type: 'attachOptionsDidChange', callback: Callback<AttachOptions>): void;
     /**
@@ -2016,7 +2031,8 @@ declare namespace inputMethodEngine {
      * <p>It's only used for STATUS_BAR panel or SOFT_KEYBOARD panel with FLG_FLOATING or FLAG_CANDIDATE.</p>
      *
      * @throws { BusinessError } 801 - capability not supported.
-     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
+     *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -2294,6 +2310,17 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     setImmersiveEffect(effect: ImmersiveEffect): void;
+    /**
+     * Set keep screen on.
+     * This setting takes effect when the panel is showing and becomes invalid when the panel is hidden.
+     * 
+     * @param { boolean } isKeepScreenOn - is keep screen on.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
   }
 
   /**
@@ -2914,6 +2941,15 @@ declare namespace inputMethodEngine {
      * @since 19
      */
     requestKeyboardReason?: RequestKeyboardReason;
+
+    /**
+     * Is simple keyboard enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    isSimpleKeyboardEnabled?: boolean;
   }
 
   /**

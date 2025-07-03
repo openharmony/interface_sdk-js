@@ -2017,8 +2017,8 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function createStream(path: string, mode: string): Promise<Stream>;
@@ -2109,8 +2109,8 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
@@ -2238,8 +2238,8 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function createStreamSync(path: string, mode: string): Stream;
@@ -2335,6 +2335,62 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Creates a RandomAccessFile instance based on a file path or file object.
+ * This API uses a promise to return the result.
+ *
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
+ * @returns { Promise<RandomAccessFile> } Promise used to return the RandomAccessFile instance created.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function createRandomAccessFile(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
 
@@ -2372,6 +2428,42 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Creates a RandomAccessFile object in read-only mode based on a file path or file object.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -2427,6 +2519,60 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Creates a RandomAccessFile instance based on a file path or file object.
+ * This API uses an asynchronous callback to return the result.
+ *
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ * @param { AsyncCallback<RandomAccessFile> } callback - Callback used to return the RandomAccessFile instance created.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function createRandomAccessFile(file: string | File, mode: number, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -2518,6 +2664,61 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
+ */
+/**
+ * Creates a RandomAccessFile instance based on a file path or file object.
+ *
+ * @param { string | File } file - Application sandbox path of the file or an opened file object.
+ * @param { number } [mode = OpenMode.READ_ONLY] - Mode for creating the RandomAccessFile instance.
+ * <br>This parameter is valid only when the application sandbox path of the file is passed in.
+ * <br>One of the following options must be specified:
+ * <br>OpenMode.READ_ONLY(0o0): Create the file in read-only mode. This is the default value.
+ * <br>OpenMode.WRITE_ONLY(0o1): Create the file in write-only mode.
+ * <br>OpenMode.READ_WRITE(0o2): Create the file in read/write mode.
+ * <br>You can also specify the following options, separated by a bitwise OR operator (|). By default,
+ * <br>no additional options are given.
+ * <br>OpenMode.CREATE(0o100): If the file does not exist, create it.
+ * <br>OpenMode.TRUNC(0o1000): If the RandomAccessFile object already exists and is created in write mode,
+ * <br>truncate the file length to 0.
+ * <br>OpenMode.APPEND(0o2000): Create the file in append mode. New data will be added to the end
+ * <br>of the RandomAccessFile object.
+ * <br>OpenMode.NONBLOCK(0o4000): If path points to a named pipe (also known as a FIFO), block special file,
+ * <br>or character special file, perform non-blocking operations on the created file and in subsequent I/Os.
+ * <br>OpenMode.DIR(0o200000): If path does not point to a directory, throw an exception. The write permission is not allowed.
+ * <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
+ * <br>OpenMode.SYNC(0o4010000): Create a RandomAccessFile instance in synchronous I/O mode.
+ * @param { RandomAccessFileOptions } [options] - Defines the options used in createRandomAccessFile().
+ * @returns { RandomAccessFile } RandomAccessFile instance created.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function createRandomAccessFileSync(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): RandomAccessFile;
@@ -2663,6 +2864,31 @@ declare function createWriteStream(path: string, options?: WriteStreamOptions): 
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Creates a Watcher object to listen for file or directory changes.
+ *
+ * @param { string } path - Application sandbox path of the file or directory to observe.
+ * @param { number } events - Events to observe. Multiple events can be separated by a bitwise OR operator (|).
+ * @param { WatchEventListener } listener - Callback invoked when an observed event occurs.
+ * <br>The callback will be invoked each time an observed event occurs.
+ * @returns { Watcher } Watcher object created.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
@@ -2867,6 +3093,7 @@ declare function fdatasyncSync(fd: number): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @atomicservice
  * @since 20
  */
@@ -2958,6 +3185,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @atomicservice
  * @since 20
  */
@@ -3047,6 +3275,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
  * @atomicservice
  * @since 20
  */
@@ -3633,8 +3862,8 @@ declare function mkdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function mkdir(path: string, recursion: boolean): Promise<void>;
@@ -3764,8 +3993,8 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
@@ -3888,8 +4117,8 @@ declare function mkdirSync(path: string): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare function mkdirSync(path: string, recursion: boolean): void;
@@ -5608,6 +5837,32 @@ declare function readSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Reads the text content of a file line by line. This API uses a promise to return the result.
+ * Only the files in UTF-8 format are supported.
+ *
+ * @param { string } filePath - Application sandbox path of the file.
+ * @param { Options } [options] - Options for reading the text. The options are as follows:
+ * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ * <br>The default value is 'utf-8', which is the only value supported.
+ * @returns { Promise<ReaderIterator> } Promise used to return a ReaderIterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
 /**
@@ -5630,6 +5885,28 @@ declare function readLines(filePath: string, options?: Options): Promise<ReaderI
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
+ */
+/**
+ * Reads a file text line by line. This API uses an asynchronous callback to return the result.
+ * Only the files in UTF-8 format are supported.
+ *
+ * @param { string } filePath - Application sandbox path of the file.
+ * @param { AsyncCallback<ReaderIterator> } callback - Callback used to return a ReaderIterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -5656,6 +5933,31 @@ declare function readLines(filePath: string, callback: AsyncCallback<ReaderItera
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
+ */
+/**
+ * Reads a file text line by line. This API uses an asynchronous callback to return the result.
+ * Only the files in UTF-8 format are supported.
+ *
+ * @param { string } filePath - Application sandbox path of the file.
+ * @param { Options } options - Options for reading the text. The options are as follows:
+ * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ * <br>The default value is 'utf-8', which is the only value supported.
+ * @param { AsyncCallback<ReaderIterator> } callback - Callback used to return a ReaderIterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -5703,6 +6005,31 @@ declare function readLines(filePath: string, options: Options, callback: AsyncCa
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
+ */
+/**
+ * Reads the text content of a file line by line. This API returns the result synchronously.
+ *
+ * @param { string } filePath - Application sandbox path of the file.
+ * @param { Options } [options] - Options for reading the text. The options are as follows:
+ * <br>encoding (string): format of the data to be encoded. It is valid only when the data is of the string type.
+ * <br>The default value is 'utf-8', which is the only value supported.
+ * @returns { ReaderIterator } Returns the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900044 - Network is unreachable
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
@@ -8046,6 +8373,17 @@ declare interface File {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
+  /**
+   * Obtains the parent directory of this file object.
+   *
+   * @returns { string } Parent directory obtained.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid URI
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   getParent(): string;
 
   /**
@@ -8139,6 +8477,15 @@ declare interface File {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Provides APIs for randomly reading and writing a stream. Before invoking any API of RandomAccessFile,
+ * you need to use createRandomAccessFile() to create a RandomAccessFile instance synchronously or asynchronously
+ *
+ * @interface RandomAccessFile
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare interface RandomAccessFile {
 
   /**
@@ -8149,6 +8496,15 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * FD of the file.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   readonly fd: number;
 
   /**
@@ -8158,6 +8514,15 @@ declare interface RandomAccessFile {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Offset pointer to the RandomAccessFile instance.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readonly filePointer: number;
 
@@ -8173,6 +8538,19 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Sets the file offset pointer.
+   *
+   * @param { number } filePointer - Offset pointer to the RandomAccessFile instance.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   setFilePointer(filePointer: number): void;
 
   /**
@@ -8186,6 +8564,19 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Closes this RandomAccessFile instance. This API returns the result synchronously.
+   *
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   close(): void;
 
@@ -8236,6 +8627,33 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
+  /**
+   * Writes data into a file. This API uses a promise to return the result.
+   *
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   write(
     buffer: ArrayBuffer | string,
     options?: WriteOptions
@@ -8260,6 +8678,27 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Writes data to a file. This API uses an asynchronous callback to return the result.
+   *
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
@@ -8309,6 +8748,33 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Writes data to a file. This API uses an asynchronous callback to return the result.
+   *
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   write(
     buffer: ArrayBuffer | string,
@@ -8362,6 +8828,33 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Writes data to a file. This API returns the result synchronously.
+   *
+   * @param { ArrayBuffer | string } buffer - Data to write. It can be a string or data from a buffer.
+   * @param { WriteOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to write. The default value is the buffer length.
+   * <br>offset (number): start position to write the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is written from the filePointer.
+   * <br>encoding (string): format of the data to be encoded when the data is a string.
+   * <br>The default value is 'utf-8', which is the only value supported.
+   * @returns { number } Length of the data written in the file.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900024 - File too large
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900041 - Quota exceeded
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   writeSync(
     buffer: ArrayBuffer | string,
@@ -8426,6 +8919,29 @@ declare interface RandomAccessFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
+  /**
+   * Reads data from a file. This API uses a promise to return the result.
+   *
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is read from the filePointer.
+   * @returns { Promise<number> } Promise used to return the data read.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900044 - Network is unreachable
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   read(
     buffer: ArrayBuffer,
     options?: ReadOptions
@@ -8447,6 +8963,24 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Reads data from a file. This API uses an asynchronous callback to return the result.
+   *
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
@@ -8488,6 +9022,28 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Reads data from a file. This API uses an asynchronous callback to return the result.
+   *
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is read from the filePointer.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   read(
     buffer: ArrayBuffer,
@@ -8552,6 +9108,29 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Reads data from a file. This API returns the result synchronously.
+   *
+   * @param { ArrayBuffer } buffer - Buffer used to store the file read.
+   * @param { ReadOptions } [options] - The options are as follows:
+   * <br>length (number): length of the data to read. This parameter is optional. The default value is the buffer length.
+   * <br>offset (number): start position to read the data (it is determined by filePointer plus offset).
+   * <br>This parameter is optional. By default, data is read from the filePointer.
+   * @returns { number } Returns the number of file bytes read to buffer.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900019 - Is a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900034 - Operation would block
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 13900044 - Network is unreachable
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readSync(
     buffer: ArrayBuffer,
@@ -8866,6 +9445,16 @@ declare class WriteStream extends stream.Writable {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 15
  */
+/**
+ * AtomicFile is a class used to perform atomic read and write operations on files.
+ * A temporary file is written and renamed to the original file location, which ensures file integrity.
+ * If the write operation fails, the temporary file is deleted without modifying the original file content.
+ * You can call finishWrite() or failWrite() to write or roll back file content.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export class AtomicFile {
   /**
    * The AtomicFile constructor.
@@ -8874,6 +9463,15 @@ export class AtomicFile {
    * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
+   */
+  /**
+   * The AtomicFile constructor.
+   *
+   * @param { string } path - Application sandbox path of the file.
+   * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   constructor(path: string);
 
@@ -8888,6 +9486,18 @@ export class AtomicFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
    */
+  /**
+   * Obtains the file object through the AtomicFile object. The FD needs to be closed by calling close().
+   *
+   * @returns { File } Returns the file object.
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900005 IO error
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   getBaseFile(): File;
 
   /**
@@ -8901,6 +9511,18 @@ export class AtomicFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
    */
+  /**
+   * Creates a ReadStream instance.
+   *
+   * @returns { ReadStream } ReadStream instance obtained.
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   openRead(): ReadStream;
 
   /**
@@ -8911,6 +9533,16 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
+   */
+  /**
+   * Reads all content of a file.
+   *
+   * @returns { ArrayBuffer } Full content of a file.
+   * @throws { BusinessError } 13900005 I/O error
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readFully(): ArrayBuffer;
 
@@ -8927,6 +9559,20 @@ export class AtomicFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
    */
+  /**
+   * Starts to write new file data in the WriteStream object returned. If the file does not exist, create a file.
+   * Call finishWrite() if the write operation is successful; call failWrite() if the write operation fails.
+   *
+   * @returns { WriteStream } Returns the file write stream.
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900027 Read-only file system
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   startWrite(): WriteStream;
 
   /**
@@ -8936,6 +9582,14 @@ export class AtomicFile {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
    */
+  /**
+   * Finishes writing file data when the write operation is complete.
+   *
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   finishWrite(): void;
 
   /**
@@ -8944,6 +9598,14 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
+   */
+  /**
+   * Rolls back the file after the file fails to be written.
+   *
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   failWrite(): void;
 
@@ -8957,6 +9619,18 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 15
+   */
+  /**
+   * Deletes the AtomicFile class, including the original files and temporary files.
+   *
+   * @throws { BusinessError } 13900001 Operation not permitted
+   * @throws { BusinessError } 13900002 No such file or directory
+   * @throws { BusinessError } 13900012 Permission denied
+   * @throws { BusinessError } 13900027 Read-only file system
+   * @throws { BusinessError } 13900042 Internal error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   delete(): void;
 }
@@ -9431,8 +10105,8 @@ declare interface Stat {
  *
  * @interface Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare interface Stream {
@@ -9460,8 +10134,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   close(): Promise<void>;
@@ -9490,8 +10164,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   close(callback: AsyncCallback<void>): void;
@@ -9518,8 +10192,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   closeSync(): void;
@@ -9560,8 +10234,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   flush(): Promise<void>;
@@ -9602,8 +10276,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   flush(callback: AsyncCallback<void>): void;
@@ -9642,8 +10316,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   flushSync(): void;
@@ -9719,8 +10393,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   write(
@@ -9767,8 +10441,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
@@ -9844,8 +10518,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   write(
@@ -9925,8 +10599,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   writeSync(
@@ -10012,8 +10686,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   read(
@@ -10053,8 +10727,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900034 - Operation would block
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
@@ -10117,8 +10791,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900034 - Operation would block
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   read(
@@ -10205,8 +10879,8 @@ declare interface Stream {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   readSync(
@@ -10222,6 +10896,14 @@ declare interface Stream {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Provides APIs for observing events.
+ *
+ * @interface WatchEventListener
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface WatchEventListener {
   /**
    * Specifies the callback function to be invoked.
@@ -10229,6 +10911,14 @@ export interface WatchEventListener {
    * @param { WatchEvent } event - Event for the callback to invoke.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Specifies the callback function to be invoked.
+   *
+   * @param { WatchEvent } event - Event for the callback to invoke.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   (event: WatchEvent): void;
 }
@@ -10240,6 +10930,14 @@ export interface WatchEventListener {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
+/**
+ * Defines the event to observe.
+ *
+ * @interface WatchEvent
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface WatchEvent {
   /**
    * Sandbox path of the file to observe. The sandbox path contains the file name.
@@ -10248,6 +10946,15 @@ export interface WatchEvent {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Sandbox path of the file to observe. The sandbox path contains the file name.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   readonly fileName: string;
 
@@ -10272,6 +10979,28 @@ export interface WatchEvent {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Events to observe. Multiple events can be separated by a bitwise OR operator (|).
+   * 0x1: IN_ACCESS: A file is accessed.
+   * 0x2: IN_MODIFY: The file content is modified.
+   * 0x4: IN_ATTRIB: The file metadata is modified.
+   * 0x8: IN_CLOSE_WRITE: A file is opened, written with data, and then closed.
+   * 0x10: IN_CLOSE_NOWRITE: A file or directory is opened and then closed without data written.
+   * 0x20: IN_OPEN: A file or directory is opened.
+   * 0x40: IN_MOVED_FROM: A file in the observed directory is moved.
+   * 0x80: IN_MOVED_TO: A file is moved to the observed directory.
+   * 0x100: IN_CREATE: A file or directory is created in the observed directory.
+   * 0x200: IN_DELETE: A file or directory is deleted from the observed directory.
+   * 0x400: IN_DELETE_SELF: The observed directory is deleted. After the directory is deleted, the listening stops.
+   * 0x800: IN_MOVE_SELF: The observed file or directory is moved. After the file or directory is moved, the listening continues.
+   * 0xfff: IN_ALL_EVENTS: All events.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   readonly event: number;
 
   /**
@@ -10283,6 +11012,16 @@ export interface WatchEvent {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Cookie bound with the event. Currently, only the IN_MOVED_FROM and IN_MOVED_TO events are supported.
+   * The IN_MOVED_FROM and IN_MOVED_TO events of the same file have the same cookie value.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   readonly cookie: number;
 }
 
@@ -10293,6 +11032,15 @@ export interface WatchEvent {
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
+ */
+/**
+ * Provides APIs for observing the changes of files or directories.
+ * Before using the APIs of Watcher, call createWatcher() to create a Watcher object.
+ *
+ * @interface Watcher
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
  */
 export interface Watcher {
   /**
@@ -10313,6 +11061,26 @@ export interface Watcher {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
+   */
+  /**
+   * Starts listening.
+   *
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900015 - File exists
+   * @throws { BusinessError } 13900018 - Not a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900021 - File table overflow
+   * @throws { BusinessError } 13900022 - Too many open files
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900030 - File name too long
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   start(): void;
 
@@ -10335,6 +11103,26 @@ export interface Watcher {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
+  /**
+   * Stops listening and removes the Watcher object.
+   *
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900008 - Bad file descriptor
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 13900013 - Bad address
+   * @throws { BusinessError } 13900015 - File exists
+   * @throws { BusinessError } 13900018 - Not a directory
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900021 - File table overflow
+   * @throws { BusinessError } 13900022 - Too many open files
+   * @throws { BusinessError } 13900025 - No space left on device
+   * @throws { BusinessError } 13900030 - File name too long
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   stop(): void;
 }
 
@@ -10345,6 +11133,14 @@ export interface Watcher {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Represents the information obtained by the ReaderIterator object.
+ *
+ * @interface ReaderIteratorResult
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface ReaderIteratorResult {
   /**
    * Whether the iteration is complete.
@@ -10354,6 +11150,15 @@ export interface ReaderIteratorResult {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
+  /**
+   * Whether the iteration is complete.
+   * The value true means the iteration is complete; the value false means the iteration is not complete.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   done: boolean;
 
   /**
@@ -10362,6 +11167,14 @@ export interface ReaderIteratorResult {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * File text content read line by line.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   value: string;
 }
@@ -10374,6 +11187,15 @@ export interface ReaderIteratorResult {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Provides a ReaderIterator object. Before calling APIs of ReaderIterator,
+ * you need to use readLines() to create a ReaderIterator instance.
+ *
+ * @interface ReaderIterator
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare interface ReaderIterator {
   /**
    * Obtains the ReaderIterator result.
@@ -10384,6 +11206,17 @@ declare interface ReaderIterator {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Obtains the ReaderIterator result.
+   *
+   * @returns { ReaderIteratorResult } ReaderIteratorResult object obtained.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900037 - No data available
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   next(): ReaderIteratorResult;
 }
@@ -10589,6 +11422,14 @@ export interface ConflictFiles {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Defines the options used in readLines().
+ *
+ * @interface Options
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface Options {
   /**
    * File encoding format. It is optional.
@@ -10596,6 +11437,14 @@ export interface Options {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * File encoding format. It is optional.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   encoding?: string;
 }
@@ -10613,8 +11462,8 @@ export interface Options {
  *
  * @interface ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 export interface ReadOptions {
@@ -10631,8 +11480,8 @@ export interface ReadOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   offset?: number;
@@ -10651,8 +11500,8 @@ export interface ReadOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   length?: number;
@@ -10673,8 +11522,8 @@ export interface ReadOptions {
  * @extends ReadOptions
  * @interface ReadTextOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 export interface ReadTextOptions extends ReadOptions {
@@ -10693,8 +11542,8 @@ export interface ReadTextOptions extends ReadOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   encoding?: string;
@@ -10715,8 +11564,8 @@ export interface ReadTextOptions extends ReadOptions {
  * @extends Options
  * @interface WriteOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 export interface WriteOptions extends Options {
@@ -10759,8 +11608,8 @@ export interface WriteOptions extends Options {
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   offset?: number;
@@ -10777,8 +11626,8 @@ export interface WriteOptions extends Options {
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   length?: number;
@@ -10834,6 +11683,14 @@ export interface ListFileOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 12
  */
+/**
+ * Defines the options used in createRandomAccessFile().
+ *
+ * @interface RandomAccessFileOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 export interface RandomAccessFileOptions {
   /**
    * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current position.
@@ -10841,6 +11698,14 @@ export interface RandomAccessFileOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * Start position to read the data, in bytes. This parameter is optional. By default, data is read from the current position.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   start?: number;
 
@@ -10850,6 +11715,14 @@ export interface RandomAccessFileOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
+   */
+  /**
+   * End position to read the data, in bytes. This parameter is optional. The default value is the end of the file.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   end?: number;
 }
@@ -10987,12 +11860,27 @@ export interface DfsListeners {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
+/**
+ * Enumerates the types of the relative offset position used in lseek().
+ *
+ * @enum { number } whence type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 20
+ */
 declare enum WhenceType {
   /**
    * Starting position of the file offset.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Starting position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   SEEK_SET = 0,
 
@@ -11002,6 +11890,13 @@ declare enum WhenceType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
+  /**
+   * Current position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   SEEK_CUR = 1,
 
   /**
@@ -11009,6 +11904,13 @@ declare enum WhenceType {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
+   */
+  /**
+   * Ending position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
    */
   SEEK_END = 2
 }
@@ -11051,8 +11953,8 @@ declare enum LocationType {
  *
  * @enum { number } access mode type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @crossplatform
+ * @atomicservice
  * @since 20
  */
 declare enum AccessModeType {
@@ -11067,8 +11969,8 @@ declare enum AccessModeType {
    * Whether the file exists.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   EXIST = 0,
@@ -11084,8 +11986,8 @@ declare enum AccessModeType {
    * Verify the write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   WRITE = 2,
@@ -11101,8 +12003,8 @@ declare enum AccessModeType {
    * Verify the read permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   READ = 4,
@@ -11118,8 +12020,8 @@ declare enum AccessModeType {
    * Verify the read/write permission on the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 20
    */
   READ_WRITE = 6

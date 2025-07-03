@@ -18,9 +18,9 @@
  * @kit NetworkKit
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
-import connection from "./@ohos.net.connection";
-import Context from "./application/Context";
+import { AsyncCallback, Callback } from './@ohos.base';
+import connection from './@ohos.net.connection';
+import Context from './application/Context';
 
 /**
  * Provides interfaces to discover DNS based services on a local network over Multicast DNS.

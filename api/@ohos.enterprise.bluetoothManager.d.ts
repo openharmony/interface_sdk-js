@@ -72,6 +72,34 @@ declare namespace bluetoothManager {
   }
 
   /**
+   * Bluetooth protocol
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  export enum Protocol {
+    /**
+     * Gatt protocol.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    GATT = 0,
+
+    /**
+     * Spp protocol.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    SPP = 1,
+  }
+
+  /**
    * Gets bluetooth information.
    * This function can be called by a super administrator.
    *
@@ -279,6 +307,60 @@ declare namespace bluetoothManager {
    * @since 20
    */
   function getDisallowedBluetoothDevices(admin: Want): Array<string>;
+
+    /**
+   * Adds protocols to the list of bluetooth server that are disallowed to use.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be added to the list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>): void;
+
+  /**
+   * Remove protocol from the list of bluetooth server that are disallowed to use.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be removed from the list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>): void;
+
+  /**
+   * Gets protocols to the list of bluetooth server that are disallowed to use.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<Protocol> } protocol of the bluetooth list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+    function getDisallowedBluetoothProtocols(admin: Want, accountId: number): Array<Protocol>;
 }
 
 export default bluetoothManager;

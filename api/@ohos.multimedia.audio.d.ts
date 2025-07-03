@@ -3285,6 +3285,16 @@ declare namespace audio {
     getEffectManager(): AudioEffectManager;
 
     /**
+     * Obtains a collaborative playback management instance.
+     * @returns { AudioCollaborativeManager } Returns a collaborative playback management instance.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 20
+     */
+    getCollaborativeManager(): AudioCollaborativeManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -3353,7 +3363,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 13
    */
-  enum DeviceBlockStatus{
+  enum DeviceBlockStatus {
     /**
      * Device is unblocked.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4475,6 +4485,18 @@ declare namespace audio {
      * @since 20
      */
     isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean;
+
+    /**
+     * Checks whether the audio recording for specific capturer info can start.
+     * Usually this function will be used before audio recording start, because
+     * other existing recording stream may deny it.
+     * @param { AudioCapturerInfo } capturerInfo - Audio capturer infomation used in creation.
+     * @returns { boolean } Value <true> means audio recording can start.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 20
+     */
+    isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
   }
 
   /**
@@ -6428,6 +6450,56 @@ declare namespace audio {
      * @since 18
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
+  }
+
+  /**
+   * Implements audio collaborative management.
+   * @typedef AudioCollaborativeManager
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 20
+   */
+  interface AudioCollaborativeManager {
+    /**
+     * Checks whether the collaborative playback is supported by system.
+     * @returns { boolean } Whether the collaborative playback is supported by system.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackSupported(): boolean;
+
+    /**
+     * Enables or disables collaborative playback for the specified device.
+     * Currently, only A2DP audio devices support collaborative playback.
+     * If the system is using the specified device for audio output, 
+     * the audio will be played from both the local speaker and the specified device after this API is called.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @param { boolean } enabled - Whether to enable or disable collaborative playback. The value true means to enable it, and false means to disable it.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
+     *                              1. The specified device is not an A2DP device.
+     *                              2. The specified device is not connected.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    setCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
+
+    /**
+     * Checks whether collaborative playback is enabled for the specified device.
+     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
+     * @returns { boolean } Returns the check result. The value true means that collaborative playback is enabled for the specified device,
+     * and false means the opposite.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 20
+     */
+    isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
   }
 
   /**
@@ -8468,6 +8540,31 @@ declare namespace audio {
     setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
     /**
+     * Sets the loudness gain of this stream. The default loudness gain is 0.0dB.
+     * The stream usage of the audio renderer must be {@link StreamUsage#STREAM_USAGE_MUSIC},
+     * {@link StreamUsage#STREAM_USAGE_MOVIE} or {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * After calling this interface, the adjustment of loundness gain will take effect immediately.
+     * @param { number } loudnessGain - Loudness gain to set, expressed in dB. The value type is float.
+     *                                  The loudness gain changes from -90.0dB to 24.0dB.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Operation is not supported on this renderer, e.g. the stream usage of this
+     * renderer is not one of {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
+     * {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}, or this renderer is routed through the high-resolution playback path.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    setLoudnessGain(loudnessGain: number): Promise<void>;
+
+    /**
+     * Gets loudness gain of this stream.
+     * @returns { number } Returns one float value.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 20
+     */
+    getLoudnessGain(): number;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -9955,7 +10052,7 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    TTS_MUTE  = 2,
+    TTS_MUTE = 2,
     /**
      * Mute the voice call stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer

@@ -135,6 +135,22 @@ declare namespace uiEffect {
     bezierWarp(controlPoints: Array<common2D.Point>): Filter;
 
     /**
+     * Sets the content light filter.
+     *
+     * @param { common2D.Point3d } lightPosition
+     * @param { common2D.Color } lightColor
+     * @param { number } lightIntensity
+     * @param { Mask } [displacementMap]
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    contentLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
+      displacementMap?: Mask): Filter;
+
+    /**
      * Sets the color gradient filter, may blend with alpha mask.
      *
      * @param { Array<Color> } colors
@@ -345,6 +361,22 @@ declare namespace uiEffect {
     * @arkts 1.1&1.2
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
+
+    /**
+     * Sets the border light effect.
+     *
+     * @param { common2D.Point3d } lightPosition
+     * @param { common2D.Color } lightColor
+     * @param { number } lightIntensity
+     * @param { number } borderWidth
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
+      borderWidth: number): VisualEffect;
   }
 
   /**
@@ -459,6 +491,7 @@ declare namespace uiEffect {
    * The Color of Light.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
    * @since 20
    */
   interface Color {
@@ -466,6 +499,7 @@ declare namespace uiEffect {
      * Red component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     red: number;
@@ -473,6 +507,7 @@ declare namespace uiEffect {
      * Green component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     green: number;
@@ -480,6 +515,7 @@ declare namespace uiEffect {
      * Blue component of color
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     blue: number;
@@ -487,6 +523,7 @@ declare namespace uiEffect {
      * Alpha component of color.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
      * @since 20
      */
     alpha: number;
@@ -530,6 +567,22 @@ declare namespace uiEffect {
      */
     static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       fillColor?: Color): Mask;
+
+    /**
+     * Create a Mask of radial gradient.
+     * @param { common2D.Point } center
+     * @param { number } radiusX
+     * @param { number } radiusY
+     * @param { Array<[number, number]> } values
+     * @returns { Mask }
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createRadialGradientMask(center: common2D.Point, radiusX: number, radiusY: number,
+      values: Array<[number, number]>): Mask;
   }
 
   /**

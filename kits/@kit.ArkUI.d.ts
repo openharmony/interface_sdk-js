@@ -103,11 +103,11 @@ import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
   Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, LengthUnit, LengthMetricsUnit,
   LayoutConstraint, ComponentContent, NodeContent, Content, typeNode, NodeAdapter, ShapeMask, ShapeClip, Rect, RoundRect,
-  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, UIState
+  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, UIState, InputEventType
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
-import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions } from '@ohos.arkui.StateManagement';
+import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
@@ -126,6 +126,7 @@ import matrix4 from '@ohos.matrix4';
 import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
+import floatingBall from '@ohos.window.floatingBall';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
@@ -228,6 +229,7 @@ import {
   MultiCapsuleSegmentButtonV2
 } from '@ohos.arkui.advanced.SegmentButtonV2';
 import { HalfScreenLaunchComponent } from '@ohos.atomicservice.HalfScreenLaunchComponent';
+import { GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback } from '@ohos.arkui.UIContext';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -247,12 +249,12 @@ export {
   InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset,
   LabelOptions, LayeredDrawableDescriptor, LoadingDialog, LocaleResponse, MarginType, Matrix4, MeasureOptions, MeasureText,
   MediaQuery, MediaQueryEvent, MediaQueryList, NodeController, NodeParam, NodeRenderType, Offset, OperateButton, OperateCheck, OperateIcon,
-  OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
+  OperateItem, OperationOption, OperationType, OverlayManager, PathShape, PiPWindow, floatingBall, Pivot, Popup, PopupButtonOptions, PopupIconOptions, PopupOptions,
   PopupTextOptions, Position, PrefixIconOptions, ProgressButton, ProgressButtonV2, ProgressButtonV2Color, ProgressButtonV2ColorOptions, Prompt, PromptAction, PromptOptions, RectShape, RenderNode, RenderOptions, BuildOptions,
   RequestFullWindowOptions, Rotation, Router, RouterOptions, RouterState, Scale, ScreenOnVisibleOptions, SegmentButton, SegmentButtonItemOptionsArray,
   SegmentButtonOptions, SelectDialog, SelectOptions, SelectTitleBar, SelectTitleBarMenuItem, SelectionMenu,
   SelectionMenuOptions, ShapeMask, ShapeClip, ShowActionMenuOptions, ShowDialogOptions, ShowDialogSuccessResponse, AppStorageV2, PersistenceV2, Type, UIUtils,
-  ConnectOptions, ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
+  ConnectOptions, Binding, MutableBinding, ShowToastOptions, Size, SplitLayout, SubHeader, SuffixIconOptions, SwipeRefresher, SymbolOptions, SystemMediaQuery, SystemRouter,
   SubHeaderV2IconType, SubHeaderV2Title, SubHeaderV2Select,
   SubHeaderV2, SubHeaderV2OperationType, SubHeaderV2OperationItem, SubHeaderV2OperationItemType,
   TabSegmentButtonConstructionOptions, TabSegmentButtonOptions, TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem,
@@ -304,5 +306,5 @@ export {
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
   ExpandMode,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
-  StepperModifier, TextMenuController
+  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback
 };

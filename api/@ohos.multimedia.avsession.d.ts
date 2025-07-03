@@ -966,6 +966,82 @@ declare namespace avSession {
   }
 
   /**
+   * Device state used to describe states including discovery, authentication and other scenes.
+   * @typedef DeviceState
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 20
+   */
+  interface DeviceState {
+    /**
+     * Unique device descriptor.
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 20
+     */
+    readonly deviceId: string;
+
+    /**
+     * Device connection state.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 20
+     */
+    readonly deviceState: number;
+
+    /**
+     * Reason for connection failure, for example, user cancellation and timeout.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 20
+     */
+    readonly reasonCode: number;
+
+    /**
+     * System radar error code returned by cast+services.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @systemapi
+     * @since 20
+     */
+    readonly radarErrorCode: number;
+  }
+
+  /**
+   * Registers a system callback for the device connection phase.
+   * The callback includes information such as error codes, connection status, radar errors, and user behavior codes.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'deviceStateChanged' } type - Event Type.
+   * @param { Callback<DeviceState> } callback - Used to returns the device info
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'deviceStateChanged', callback: Callback<DeviceState>): void;
+
+  /**
+   * Unregisters a system callback for the device connection phase.
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'deviceStateChanged' } type - Event Type.
+   * @param { Callback<DeviceState> } [callback] - Used to returns the device info
+   * @throws { BusinessError } 201 - permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'deviceStateChanged', callback?: Callback<DeviceState>): void;
+
+  /**
    * Session type, support audio & video
    * @typedef { 'audio' | 'video' } AVSessionType
    * @syscap SystemCapability.Multimedia.AVSession.Core

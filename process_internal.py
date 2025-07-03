@@ -15,6 +15,7 @@
 
 import os
 import sys
+import shutil
 import optparse
 import json
 
@@ -64,7 +65,7 @@ def copy_files(options):
 
 
 def format_path(filepath, base_dir):
-    return os.path.relpath(filepath, base_dir)
+    return os.path.abspath(filepath)
 
 
 def parse_args(args):
@@ -76,6 +77,7 @@ def parse_args(args):
     parser.add_option('--project-dir', help='current project dir path')
     parser.add_option('--ispublic', help='whether or not sdk build public')
     parser.add_option('--name', help='module label name')
+    parser.add_option('--output', help='output path')
     options, _ = parser.parse_args(args)
     options.input = os.path.realpath(options.input)
     return options
@@ -84,8 +86,11 @@ def parse_args(args):
 def main(argv):
     '''main函数入口'''
     options = parse_args(argv)
+    if not os.path.exists(options.output):
+        os.makedirs(options.output)
     result = copy_files(options)
-    print(json.dumps(result))
+    for file_path in result:
+        shutil.copy(file_path, options.output)
     return 0
 
 

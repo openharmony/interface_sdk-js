@@ -651,7 +651,41 @@ declare namespace systemManager {
    */
   function getAutoUnlockAfterReboot(admin: Want): boolean;
 
-    /**
+  /**
+   * Sets install localEnterpriseApp enable.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { boolean } isEnable - true indicates whether can install localEnterpriseApp, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function setInstallLocalEnterpriseAppEnabled(admin: Want, isEnable: boolean): void;
+
+  /**
+   * Gets install localEnterpriseApp enable.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { boolean } true indicates whether can install localEnterpriseApp, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInstallLocalEnterpriseAppEnabled(admin: Want): boolean;
+
+  /**
    * Near link protocol
    *
    * @enum { number }
@@ -678,7 +712,7 @@ declare namespace systemManager {
      */
     DATA_TRANSFER = 1
   }
-
+  
   /**
    * Adds protocols to the list of near link server that are disallowed to use.
    * This function can be called by a super administrator.
@@ -686,25 +720,26 @@ declare namespace systemManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<NearLinkProtocol> } protocol - protocol of the near link to be added to the list.
+   * @param { Array<NearLinkProtocol> } protocols - protocol of the near link to be added to the list.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-  function addDisallowedNearLinkProtocols(admin: Want, protocol: Array<NearLinkProtocol>, accountId: number): void;
+  function addDisallowedNearLinkProtocols(admin: Want, protocols: Array<NearLinkProtocol>, accountId: number): void;
 
   /**
-   * Remove protocol from the list of near link server that are disallowed to use.
+   * Removes protocol from the list of near link server that are disallowed to use.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { Array<NearLinkProtocol> } protocol - protocol of the near link to be added to the list.
+   * @param { Array<NearLinkProtocol> } protocols - protocol of the near link to be removed to the list.
    * @param { number } accountId - accountId indicates the local ID of the OS account.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -713,7 +748,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 20
    */
-  function removeDisallowedNearLinkProtocols(admin: Want, protocol: Array<NearLinkProtocol>, accountId: number): void;
+  function removeDisallowedNearLinkProtocols(admin: Want, protocols: Array<NearLinkProtocol>, accountId: number): void;
 
   /**
    * Gets protocols from the list of near link server that are disallowed to use.

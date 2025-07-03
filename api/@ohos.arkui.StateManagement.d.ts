@@ -317,4 +317,189 @@ export declare class UIUtils {
    * @since 19
    */
    static enableV2Compatibility<T extends object>(source: T): T;
+
+   /**
+   * Creates read-only data binding.
+   *
+   *
+   * Example. UIUtils.makeBinding<number>(()=>this.num);
+   *
+   * Supports simple getters for read-only data.
+   * Intended for primitive value parameters when calling a @Builder function where arguments are of type Binding.
+   *
+   * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
+   * @returns { Binding<T> } read-only data binding value
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static makeBinding<T>(getter: GetterCallback<T>): Binding<T>;
+
+  /**
+   * Creates a mutable data binding.
+   *
+   * Two functions to implement function overloading.
+   *
+   * Example. UIUtils.makeBinding<number>(()=>this.num, val => this.num = val);
+   *
+   * Supports getter-setter pairs for mutable data.
+   * Intended for primitive value parameters when calling a @Builder
+   * function where arguments are of type MutableBinding.
+   *
+   * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
+   * @param { SetterCallback<T> } setter - A function to set a new value of type T. 
+   * If provided, a MutableBinding is created.
+   * @returns { MutableBinding<T> } mutable data binding value
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
+
+  /**
+   * Dynamically add monitor for state variable change.
+   *
+   * @param { object } target class instance or custom component instance.
+   * @param { string | string[] } path  monitored change for state variable.
+   * @param { MonitorCallback } monitorCallback the function that triggers the callback when state variable change.
+   * @param { MonitorOptions} [options] the monitor configuration parameter.
+   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
+   * @throws { BusinessError } 130001 - The path is invalid.
+   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void;
+
+  /**
+   * Dynamically clear monitor callback for state variable change.
+   *
+   * @param { object } target class instance or custom component instance.
+   * @param { string | string[] } path  monitored change for state variable.
+   * @param { MonitorCallback } [monitorCallback] the function that triggers the callback when state variable change.
+   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
+   * @throws { BusinessError } 130001 - The path is invalid.
+   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback) : void;
+}
+
+/**
+ * Getter callback type. It is used to get value.
+ *
+ * @typedef { function } GetterCallback
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type GetterCallback<T> = () => T;
+
+/**
+ * Setter callback type. It is used to assign a new value.
+ *
+ * @typedef { function } SetterCallback
+ * @param { T } newValue - update the value with newValue.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type SetterCallback<T> = (newValue: T) => void;
+
+/**
+ * Represents a read-only data binding.
+ * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class Binding<T> {
+  /**
+   * Get function that can acquire the value.
+   * @returns T
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  get value(): T;
+}
+
+/**
+ * Represents a mutable data binding allowing both read and write operations.
+ * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare class MutableBinding<T> {
+  /**
+   * Get function that can acquire the value.
+   * @returns T
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  get value(): T;
+  /**
+   * Set function that can set the new value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  set value(newValue: T): void;
+}
+
+/**
+ * Function that returns monitor instance value when state variable is changed.
+ *
+ * @typedef { function } MonitorCallback
+ * @param { IMonitor} monitorValue monitor instance value when state variable is changed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type MonitorCallback = (monitorValue: IMonitor) => void;
+
+/**
+ * Define Monitor options.
+ *
+ * @interface MonitorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface MonitorOptions {
+  /**
+   * Used to determine whether the state variable change is
+   * triggered synchronously or asynchronously. The default value is false.
+   *
+   * @type { ?boolean } isSynchronous parameter
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isSynchronous?: boolean;
 }

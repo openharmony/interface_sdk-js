@@ -650,7 +650,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -685,7 +685,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -725,7 +725,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -767,7 +767,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -810,7 +810,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -855,7 +855,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -901,7 +901,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1085,7 +1085,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1104,7 +1104,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1124,7 +1124,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1145,7 +1145,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the uninstallation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1275,7 +1275,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1291,7 +1291,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1309,7 +1309,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1348,7 +1348,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1503,7 +1503,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1538,7 +1538,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1575,7 +1575,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1592,7 +1592,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1672,7 +1672,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
      * @param { number } appIndex - Indicates the clone application's index.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1692,7 +1692,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundleName of clone app.
      * @param { number } appIndex - Indicates the clone application's index.
      * @param { DestroyAppCloneParam } [destroyAppCloneParam] - Indicates other parameters required for the uninstallation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1712,7 +1712,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of application.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1729,7 +1729,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of application.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1751,7 +1751,7 @@ declare namespace installer {
      * @param { string } hostBundleName - Indicates the bundle name of host application.
      * @param { Array<string> } pluginFilePaths - Indicates the file paths of plugin.
      * @param { PluginParam } [pluginParam] - Indicates parameters required for install plugin.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
@@ -1784,7 +1784,7 @@ declare namespace installer {
      * @param { string } hostBundleName - Indicates the bundle name of host application.
      * @param { string } pluginBundleName - Indicates the bundle name of plugin application.
      * @param { PluginParam } [pluginParam] - Indicates parameters required for uninstall plugin.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -1982,12 +1982,12 @@ declare namespace installer {
     /**
      * Indicates the shared bundle dir paths.
      *
-     * @type { ?Array<String> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
      */
-    sharedBundleDirPaths?: Array<String>;
+    sharedBundleDirPaths?: Array<string>;
 
     /**
      * Indicates the distribution type specified during bundle installation.

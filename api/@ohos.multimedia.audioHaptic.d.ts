@@ -318,10 +318,11 @@ declare namespace audioHaptic {
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Enable haptics when the ringer mode is silent mode. Should be called before playback starting.
+     * Enable haptics when the ringer mode is silent mode.
+     * This function should be called before player start or after stop, and before release.
      * @param { boolean } enable - use {@code true} if application want to enable this feature.
      * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20
@@ -330,10 +331,11 @@ declare namespace audioHaptic {
 
     /**
      * Set audio volume for this player. This method uses a promise to return the result.
+     * This function should be called before player release.
      * @param { number } volume - Target audio volume.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum volume (100%).
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -352,19 +354,50 @@ declare namespace audioHaptic {
     isHapticsIntensityAdjustmentSupported(): boolean;
 
     /**
-     * Set vibration intensity for this player. This method uses a promise to return the result.
-     * @param { number } intensity - Target Hpatics intensity value.
+     * Set haptics intensity for this player. This method uses a promise to return the result.
+     * This function should be called before player release, and can only set once for each starting process.
+     * @param { number } intensity - Target Haptics intensity value.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 801 - Function is not supported in current device.
-     * @throws { BusinessError } 5400102 - Operate not permit.
+     * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @throws { BusinessError } 5400108 - Parameter out of range.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
      * @since 20
      */
     setHapticsIntensity(intensity: number): Promise<void>;
+
+    /**
+     * Check whether the device supports haptics intensity ramp effect.
+     * @returns { boolean } - {@code true} means supported.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    isHapticsRampSupported(): boolean;
+
+    /**
+     * Set haptics intensity ramp effect for this player. This method uses a promise to return the result.
+     * This function should be called before player start or after stop, and before release.
+     * @param { number } duration - ramp duration to set, unit is milliseconds.
+     *     The value should be an integer, and not less than 100.
+     * @param { number } startIntensity - Starting intensity for Haptics ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @param { number } endIntensity - End intensity for haptics ramp to set.
+     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 801 - Function is not supported in current device.
+     * @throws { BusinessError } 5400102 - Operate not permit in current state.
+     * @throws { BusinessError } 5400108 - Parameter out of range.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @systemapi
+     * @since 20
+     */
+    setHapticsRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
   }
 }
 export default audioHaptic;

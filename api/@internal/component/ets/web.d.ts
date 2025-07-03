@@ -65,6 +65,18 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
+ * The callback of onOverrideErrorPage.
+ *
+ * @typedef { function } OnOverrideErrorpageCallback
+ * @param { WebResourceRequest } webResourceRequest - Information about the failed request.
+ * @param { error } WebResourceError - The information of error.
+ * @returns { string } - Return an HTML text content encoded in Base64.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+type OnOverrideErrorPageCallback= (webResourceRequest: WebResourceRequest, error: WebResourceError) => string;
+
+/**
  * The callback of largestContentfulPaint.
  *
  * @typedef { function } OnLargestContentfulPaintCallback
@@ -507,7 +519,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Allows all sources.
+   * Loose Mode: HTTP and HTTPS hybrid content can be loaded. This means that all insecure content can be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -530,7 +542,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Allows sources Compatibly.
+   * Compatibility Modes: HTTP and HTTPS hybrid content can be loaded in compatibility mode. This means that some insecure content may be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -553,7 +565,7 @@ declare enum MixedMode {
    * @since 11
    */
   /**
-   * Don't allow unsecure sources from a secure origin.
+   * Strict Mode: HTTP and HTTPS hybrid content cannot be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -4426,7 +4438,7 @@ declare class WebCookie {
 
 /**
  * Represents the event consumption result sent to the Web component.
- * For details about the supported events, see TouchEvent/mouseEvent.
+ * For details about the supported events, see TouchEvent/MouseEvent.
  * If the application does not consume the event, set this parameter to false,
  * and the event will be consumed by the Web component. If the application has consumed the event,
  * set this parameter to true, and the event will not be consumed by the Web component.
@@ -4475,7 +4487,7 @@ declare class EventResult {
    */
   setGestureEventResult(result: boolean, stopPropagation: boolean): void;
 
-    /**
+  /**
    * Sets the mouse event consumption result.
    *
    * @param { boolean } result - True if the event is consumed.
@@ -5605,6 +5617,16 @@ declare interface OnTitleReceiveEvent {
    * @since 12
    */
   title: string;
+
+  /**
+   * Mark the source of the title. If it is true, the title is derived from the H5 title element;
+   * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  isRealTitle?: boolean;
 }
 
 /**
@@ -7151,7 +7173,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Sets whether to enable Access to the file system in the application.
+   * Sets whether to enable access to the file system in the application.
    * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
    * <p><strong>API Note</strong>:<br>
    * fileAccess is disabled by default since API version 12.
@@ -7290,6 +7312,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
   *
   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+  *    Default value: MixedMode.None, which means that secure origin is not allowed to load content from insecure origin.
   * @returns { WebAttribute }
   * @syscap SystemCapability.Web.Webview.Core
   * @crossplatform
@@ -7382,7 +7405,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7391,16 +7414,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
+   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12
    */
   /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
    * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
+   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7410,7 +7433,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
+   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -7572,7 +7595,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } overviewModeAccess Whether to load web pages by using the overview mode.
    *    {@code true} means the Web access overview mode;
    *    {@code false} means the Web not access overview mode.
-   *    Default value: true
+   *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8207,6 +8230,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
+
+  /**
+   * Triggered when the web page's document resource error.
+   * <p><strong>API Note</strong>:<br>
+   * This only triggered for main frame.
+   * </p>
+   *
+   * @param { OnOverrideErrorPageCallback } callback The triggered function when the
+   * web page's document resource error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  onOverrideErrorPage(callback: OnOverrideErrorPageCallback): WebAttribute;
 
   /**
    * Triggered when starting to download.
@@ -8917,6 +8954,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Key events notify the application before the WebView consumes them.
+   *
    * @param { function } callback Key event info.
    * @returns { WebAttribute } True if the application consumes key events else false.
    * @syscap SystemCapability.Web.Webview.Core
@@ -9669,7 +9707,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
    *   which can affect the user experience.
    * - Waterfall web pages are not supported (drop down to the bottom to load more).
-   * - Only height adaptation is supported. Width adaptation is not supported.
+   * - Only height adaptation is supported(VH units are not supported). Width adaptation is not supported.
    * - Because the height is adaptive to the web page height,
    *   the component height cannot be changed by modifying the component height attribute.
    * </p>
@@ -10124,6 +10162,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
+
+  /**
+   * Set the gesture focus acquisition mode.
+   * When users interact with the web using different gestures,
+   * this determines whether and when focus is acquired based on the configured mode.
+   * Default value: DEFAULT, where all gestures acquire focus on touch down.
+   *
+   * @param { GestureFocusMode } mode - The gesture focus mode, which can be {@link GestureFocusMode}.
+   *    The default value is FocusMode.DEFAULT.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  gestureFocusMode(mode: GestureFocusMode): WebAttribute;
 }
 
 /**
@@ -10252,6 +10304,15 @@ declare interface SslErrorEvent {
    * @since 12
    */
   isMainFrame: boolean;
+
+  /**
+   * Certificate chain data in DER format.
+   *
+   * @type { ?Array<Uint8Array> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  certChainData?: Array<Uint8Array>;
 }
 
 /**
@@ -10376,4 +10437,31 @@ declare interface EmbedOptions {
    * @since 20
    */
   supportCssDisplayChange?: boolean;
+}
+
+/**
+ * Enum type supplied to {@link gestureFocusMode} for setting the web gesture focus mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ */
+declare enum GestureFocusMode {
+  /**
+   * Any action on a web component, such as tapping, long-pressing, scrolling, zooming, etc.,
+   * will cause the web component to acquire focus on touch down.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  DEFAULT = 0,
+
+  /**
+   * Tap and long-press gestures will cause the web component to acquire focus after touch up,
+   * while gestures such as scrolling, zooming, etc., do not request focus.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  GESTURE_TAP_AND_LONG_PRESS = 1
 }

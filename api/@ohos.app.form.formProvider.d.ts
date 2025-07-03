@@ -466,8 +466,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
-   * @throws { BusinessError } 16501011 - The form can not support this operation, please check your fom_config's
-   *     sceneAnimationParams configuration infomation is correct or not.
+   * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
@@ -488,8 +487,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
-   * @throws { BusinessError } 16501011 - The form can not support this operation, please check your fom_config's
-   *     sceneAnimationParams configuration infomation is correct or not.
+   * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
@@ -510,9 +508,9 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
-   * @throws { BusinessError } 16501011 - The form can not support this operation, please check your fom_config's
-   *     sceneAnimationParams configuration infomation is correct or not.
+   * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>;
@@ -530,9 +528,9 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
-   * @throws { BusinessError } 16501011 - The form can not support this operation, please check your fom_config's
-   *     sceneAnimationParams configuration infomation is correct or not.
+   * @throws { BusinessError } 16501011 - The form can not support this operation.
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   function cancelOverflow(formId: string): Promise<void>;
@@ -552,6 +550,7 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   function getFormRect(formId: string): Promise<formInfo.Rect>;

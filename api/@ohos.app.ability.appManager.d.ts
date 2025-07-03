@@ -672,7 +672,7 @@ declare namespace appManager {
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - bundle name.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { number } [appIndex] - The application index.
+   * @param { number } [appIndex] - The index of clone app.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -1227,9 +1227,9 @@ declare namespace appManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000081 - The target bundle does not exist.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
    * @throws { BusinessError } 16000202 - Invalid main element type.
-   * @throws { BusinessError } 16000203 - Can not change keep alive status.
+   * @throws { BusinessError } 16000203 - Cannot change the keep-alive status.
    * @throws { BusinessError } 16000204 - The target bundle is not in u1.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

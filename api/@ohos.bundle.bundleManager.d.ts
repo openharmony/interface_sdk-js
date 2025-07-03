@@ -971,6 +971,16 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
+     * Indicates extension info with type of selection.
+     * This type of extension can access data such as text selected by the user.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SELECTION = 31,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2168,7 +2178,7 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
   /**
-   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2186,7 +2196,7 @@ declare namespace bundleManager {
   function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
-   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2207,7 +2217,7 @@ declare namespace bundleManager {
     appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
-   * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
@@ -2326,7 +2336,7 @@ declare namespace bundleManager {
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
-   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2347,7 +2357,7 @@ declare namespace bundleManager {
   function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2371,7 +2381,7 @@ declare namespace bundleManager {
     abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2394,7 +2404,7 @@ declare namespace bundleManager {
   function queryAbilityInfo(want: Want, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
-   * Query the AbilityInfo by the given Want Array. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want Array.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Array<Want> } wants - Indicates the Want Array containing the application bundle name to be queried.
@@ -2417,7 +2427,7 @@ declare namespace bundleManager {
   function queryAbilityInfo(wants: Array<Want>, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
-   * Query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2455,7 +2465,7 @@ declare namespace bundleManager {
   function getAbilityInfo(uri: string, abilityFlags: number): Promise<Array<AbilityInfo>>;
 
   /**
-   * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query extension info of by utilizing a Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2478,7 +2488,7 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
-   * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query extension info of by utilizing a Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2503,7 +2513,7 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
-   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the ExtensionAbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2528,7 +2538,7 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
-   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the ExtensionAbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2553,7 +2563,7 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
-   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the ExtensionAbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
@@ -2578,7 +2588,7 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
-   * Query the ExtensionAbilityInfo by extension ability type. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   * Query the ExtensionAbilityInfo by extension ability type.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } extensionAbilityType - Indicates ExtensionAbilityType.
@@ -3762,6 +3772,24 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
+  /**
+   * Enable dynamic icon.
+   *
+   * @permission ohos.permission.ACCESS_DYNAMIC_ICON
+   * @param { string } bundleName - Indicates the bundleName.
+   * @param { string } moduleName - Indicates the moduleName for extend resource.
+   * @returns { Promise<void> } Returns enableDynamicIcon result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @throws { BusinessError } 17700307 - Dynamic icons cannot take effect due to existing custom themes.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
   /**
@@ -3783,6 +3811,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @throws { BusinessError } 17700304 - Failed to enable the dynamic icon.
+   * @throws { BusinessError } 17700307 - Dynamic icons cannot take effect due to existing custom themes.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
@@ -4063,7 +4092,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
-   * @returns { Array<String> } Returns a list of developerId.
+   * @returns { Array<string> } Returns a list of developerId.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -4071,7 +4100,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  function getDeveloperIds(appDistributionType?: number): Array<String>;
+  function getDeveloperIds(appDistributionType?: number): Array<string>;
 
   /**
    * Switch uninstall state of a specified application.

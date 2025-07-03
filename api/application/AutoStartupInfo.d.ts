@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -81,6 +81,45 @@ export interface AutoStartupInfo {
    * @since 12
    */
   appCloneIndex?: number;
+
+  /**
+   * The user id of application.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  readonly userId?: number;
+
+  /**
+   * The user id of setter.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  readonly setterUserId?: number;
+
+  /**
+   * Whether to allow user to modify autostartup status.
+   *
+   * @type { ?boolean }
+   * @readonly
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  readonly canUserModify?: boolean;
 }
 
 export default AutoStartupInfo;

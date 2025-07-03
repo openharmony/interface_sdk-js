@@ -84,7 +84,8 @@ declare namespace metadataBinding {
    * @param { string } bundleName - Bundle name of a third-party application
    * @param { Callback<number> } callback - Call back the screenshot event
    * @throws { BusinessError } 32100001 - Internal handling failed. Service exception.
-   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality; 3. Algorithm loading exception
+   * @throws { BusinessError } 32100004 - Subscribe Failed. Possible causes: 1. Abnormal system capability; 2. IPC communication abnormality;
+   * <br>3. Algorithm loading exception.
    * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
    * @atomicservice
    * @since 18

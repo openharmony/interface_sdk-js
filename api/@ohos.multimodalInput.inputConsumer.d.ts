@@ -46,7 +46,8 @@ declare namespace inputConsumer {
    */
   interface KeyOptions {
     /**
-     * Preceding key set. The number of preceding keys ranges from 0 to 4. There is no requirement on the sequence of the keys. 
+     * Preceding key set. The number of preceding keys ranges from 0 to 4. 
+     * There is no requirement on the sequence of the keys. 
      * For example, in the combination keys Ctrl+Alt+A, Ctrl+Alt are called preceding keys.
      *
      * @type { Array<number> }

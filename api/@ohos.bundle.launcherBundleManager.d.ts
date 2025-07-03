@@ -127,7 +127,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -144,7 +144,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -161,7 +161,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -180,7 +180,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on bundleName and userId.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
@@ -196,6 +196,25 @@ declare namespace launcherBundleManager {
    * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
+
+  /**
+   * Obtains shortcut info based on bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Array<ShortcutInfo> } the ShortcutInfo object.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
 
   /**
    * Starts shortcut.

@@ -4880,7 +4880,7 @@ declare class UIAbilityContext extends Context {
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible app service extension ability.
    *
    * @param { Want } want - The element name of the app service ability
-   * @param { ConnectOptions } options - The remote object instance
+   * @param { ConnectOptions } callback - The callback for obtaining the connection result
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -4896,7 +4896,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 20
    */
-  connectAppServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
 
   /**
    * Disconnect current ability from an app service extension, in contrast to {@link connectAppServiceExtensionAbility}.

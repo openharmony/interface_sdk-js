@@ -352,6 +352,28 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   photoBrowserMargin?: Margin;
 
   /**
+   * Support to set offset between first grid item and the top of the grid
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  gridStartOffset?: int;
+
+  /**
+   * Support to set offset between last grid item and the bottom of the grid
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  gridEndOffset?: int;
+
+  /**
    * Support repeat select
    *
    * @type { ?boolean }
@@ -460,6 +482,16 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 20
    */
   singleLineConfig?: SingleLineConfig;
+
+  /**
+   * Support to set UIComponent color mode.
+   *
+   * @type { ?PickerColorMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  uiComponentColorMode?: PickerColorMode;
 }
 
 /**

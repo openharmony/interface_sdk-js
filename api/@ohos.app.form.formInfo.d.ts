@@ -1301,6 +1301,7 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since 11
+     * @deprecated since 20
      */
     Dimension_2_1,
 
@@ -1339,15 +1340,6 @@ declare namespace formInfo {
      * @since 18
      */
     DIMENSION_3_3 = 9,
-
-    /**
-     * 3 x 4 form used for tv devices
-     *
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 18
-     */
-    DIMENSION_3_4 = 10,
   }
 
    /**
@@ -1832,7 +1824,15 @@ declare namespace formInfo {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.Form
+   * @systemapi
    * @since 12
+   */
+  /**
+   * Defines the FormLocation enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @since 20
    */
   enum FormLocation {
     /**
@@ -1848,7 +1848,14 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the desktop
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     DESKTOP = 0,
 
@@ -1856,7 +1863,14 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the form center.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     FORM_CENTER = 1,
 
@@ -1864,7 +1878,14 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the form manager.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     FORM_MANAGER = 2,
 
@@ -1872,7 +1893,14 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the negative screen.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     NEGATIVE_SCREEN = 3,
 
@@ -1898,7 +1926,14 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the screen lock.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     SCREEN_LOCK = 6,
 
@@ -1906,7 +1941,14 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
+     * @systemapi
      * @since 12
+     */
+    /**
+     * Form is on the ai suggestion.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 20
      */
     AI_SUGGESTION = 7,
   }
@@ -1916,6 +1958,7 @@ declare namespace formInfo {
    *
    * @typedef { OverflowInfo }
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   interface OverflowInfo {
@@ -1924,6 +1967,7 @@ declare namespace formInfo {
      *
      * @type { Rect }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     area: Rect;
@@ -1933,9 +1977,20 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     duration: number;
+
+    /**
+     * Whether use default animation, default is true
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
+     */
+    useDefaultAnimation?: boolean;
   }
 
   /**
@@ -2013,6 +2068,7 @@ declare namespace formInfo {
    *
    * @typedef { Rect }
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    */
   interface Rect {
@@ -2021,6 +2077,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     left: number;
@@ -2030,6 +2087,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     top: number;
@@ -2039,6 +2097,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     width: number;
@@ -2048,6 +2107,7 @@ declare namespace formInfo {
      *
      * @type { number }
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      */
     height: number;
@@ -2131,6 +2191,50 @@ declare namespace formInfo {
      * @since 20
      */
     disabledDesktopBehaviors?: string;
+  }
+
+  /**
+   * Get form rect info callback
+   *
+   * @typedef GetFormRectInfoCallback
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface GetFormRectInfoCallback {
+    /**
+     * Get form rect info
+     *
+     * @param { string } formId
+     * @returns { Promise<formInfo.Rect> }
+     *
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    (formId: string): Promise<formInfo.Rect>;
+  }
+
+  /**
+   * Get live form status info callback
+   *
+   * @typedef GetLiveFormStatusCallback
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  interface GetLiveFormStatusCallback {
+    /**
+     * Get all live form status Record
+     *
+     * @returns { Record<string, string> }
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    (): Record<string, string>;
   }
 }
 export default formInfo;
