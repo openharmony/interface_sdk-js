@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,23 +12,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
-
-import { memo, ComponentBuilder } from './../stateManagement/runtime'
+import { Builder } from './builder';
+import { ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Indicates the type of Repeat's Data Source.
  *
  * @typedef { Array<T> | ReadonlyArray<T> | Readonly<Array<T>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
@@ -37,11 +35,9 @@ type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  *
  * @typedef {function} TemplateTypedFunc<T>
  * @param { T } item - data item.
- * @param {number} index - data index number in array.
+ * @param { number } index - data index number in array.
  * @returns { string } template type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 type TemplateTypedFunc<T> = (item: T, index: number) => string;
@@ -51,11 +47,9 @@ type TemplateTypedFunc<T> = (item: T, index: number) => string;
  * @typedef {function} RepeatItemBuilder<T>
  * @param { RepeatItem<T> } repeatItem - the repeat item builder function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-@memo
+@Builder
 type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
 
 /**
@@ -63,86 +57,109 @@ type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  *
  * @interface RepeatItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export interface RepeatItem<T> {
-    /**
-     * The origin data.
-     *
-     * @type { T }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    item: T;
-    /**
-     * index of each item.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    index: number;
+  /**
+   * The origin data.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  item: T;
+  /**
+   * index of each item.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  index: number;
 }
+
+/**
+ * Function that is used to do lazy loading.
+ *
+ * @typedef {function} OnLazyLoadingFunc
+ * @param { number } index - data index.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type OnLazyLoadingFunc = (index: number) => void;
+
+/**
+ * Define key generator function.
+ *
+ * @typedef {function} KeyGeneratorFunc<T>
+ * @param { T } item - data item.
+ * @param { number } index - data index number in array.
+ * @returns { string } key value.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type KeyGeneratorFunc<T> = (item: T, index: number) => string;
+
+/**
+ * Function that is used to get total count.
+ *
+ * @typedef {function} OnTotalCountFunc
+ * @returns { number } Returns the total data count
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type OnTotalCountFunc = () => number;
 
 /**
  * Define the options of repeat virtualScroll to implement reuse and lazy loading.
  *
  * @interface VirtualScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface VirtualScrollOptions {
-    /**
-     * Total data count.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    totalCount?: number;
-    /**
-     * Reuse or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    reusable?: boolean;
-    /**
-     * Data lazy loading
-     *
-     * @param { number } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onLazyLoading?: (index: number) => void;
-    /**
-     * The function of total data count.
-     *
-     * @returns { number } Returns the total data count.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onTotalCount?: () => number;
+  /**
+   * Total data count.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  totalCount?: number;
+  /**
+   * Reuse or not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  reusable?: boolean;
+  /**
+   * Data lazy loading
+   *
+   * @type { ?OnLazyLoadingFunc }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onLazyLoading?: OnLazyLoadingFunc;
+  /**
+   * The function of total data count.
+   *
+   * @type { ?OnTotalCountFunc }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onTotalCount?: OnTotalCountFunc;
+  /**
+   * Indicates whether to activate virtual scroll mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  disableVirtualScroll?: boolean;
 }
 
 /**
@@ -150,107 +167,84 @@ export interface VirtualScrollOptions {
  *
  * @interface TemplateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface TemplateOptions {
-    /**
-     * The cached number of each template.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    cachedCount?: number;
+  /**
+   * The cached number of each template.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  cachedCount?: number;
 }
 
 /**
  * Defines the Repeat component attribute functions.
  *
+ * @typedef RepeatAttribute<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export interface RepeatAttribute<T> {
-    /**
-     * Executes itemGenerator of each item.
-     *
-     * @param { RepeatItemBuilder<T> } itemGenerator
-     * @returns { RepeatAttribute<T> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    each(itemGenerator: RepeatItemBuilder<T>): this;
-    /**
-     * Obtains key of each item.
-     *
-     * @param { function } keyGenerator
-     * @returns { RepeatAttribute<T> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    key(keyGenerator: (item: T, index: number) => string): this;
-    /**
-     * Enable UI lazy loading when scroll up or down.
-     *
-     * @param { VirtualScrollOptions } virtualScrollOptions that defines the options of repeat virtual scroll to
-     * implement reuse and lazy loading.
-     * @returns { RepeatAttribute<T> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    virtualScroll(virtualScrollOptions?: VirtualScrollOptions): this;
-    /**
-     * Type builder function to render specific type of data item.
-     *
-     * @param { string } type that defines the template id.
-     * @param { RepeatItemBuilder<T> } itemBuilder that defines UI builder function.
-     * @param { TemplateOptions } templateOptions that defines a builder template option parameter.
-     * @returns { RepeatAttribute<T> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): this;
-    /**
-     * Typed function to render specific type of data item.
-     *
-     * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
-     * @returns { RepeatAttribute<T> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    templateId(typedFunc: TemplateTypedFunc<T>): this;
+  /**
+   * Executes itemGenerator of each item.
+   *
+   * @param { RepeatItemBuilder<T> } itemGenerator
+   * @returns { this } RepeatAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  each(itemGenerator: RepeatItemBuilder<T>): this;
+  /**
+   * Obtains key of each item.
+   *
+   * @param { KeyGeneratorFunc<T> } keyGenerator
+   * @returns { this } RepeatAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  key(keyGenerator: KeyGeneratorFunc<T>): this;
+  /**
+   * Enable UI lazy loading when scroll up or down.
+   *
+   * @param { VirtualScrollOptions } [virtualScrollOptions] that defines the options of repeat virtual scroll to
+   *     implement reuse and lazy loading.
+   * @returns { this } RepeatAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  virtualScroll(virtualScrollOptions?: VirtualScrollOptions): this;
+  /**
+   * Type builder function to render specific type of data item.
+   *
+   * @param { string } type that defines the template id.
+   * @param { RepeatItemBuilder<T> } itemBuilder that defines UI builder function.
+   * @param { TemplateOptions } [templateOptions] that defines a builder template option parameter.
+   * @returns { this } RepeatAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): this;
+  /**
+   * Typed function to render specific type of data item.
+   *
+   * @param { TemplateTypedFunc<T> } typedFunc that define template typed function.
+   * @returns { this } RepeatAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  templateId(typedFunc: TemplateTypedFunc<T>): this;
 }
 
 /**
  * Indicates the type of Repeat.
  *
- * @typedef { function } RepeatInterface
  * @param { RepeatArray<T> } arr - The Data Source
  * @returns { RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
-@memo
 @ComponentBuilder
-export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>
+export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>;
