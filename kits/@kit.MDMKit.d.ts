@@ -36,9 +36,10 @@ import securityManager from '@ohos.enterprise.securityManager';
 import systemManager from '@ohos.enterprise.systemManager';
 import usbManager from '@ohos.enterprise.usbManager';
 import wifiManager from '@ohos.enterprise.wifiManager';
+import telephonyManager from '@ohos.enterprise.telephonyManager';
 
 export {
   EnterpriseAdminExtensionAbility, accountManager, adminManager, applicationManager, bluetoothManager, browser,
   bundleManager, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
-  networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager
+  networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager, telephonyManager
 };
