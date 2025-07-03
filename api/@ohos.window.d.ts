@@ -4687,7 +4687,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of start system scene animation
+   * The params of start animation
    *
    * @interface StartAnimationSystemParams
    * @syscap SystemCapability.Window.SessionManager
@@ -4705,7 +4705,7 @@ declare namespace window {
      */
     type: AnimationType;
     /**
-     * The config of start system scene animation
+     * The configuration of start animation
      *
      * @type { ?WindowAnimationConfig }
      * @syscap SystemCapability.Window.SessionManager
@@ -4716,7 +4716,7 @@ declare namespace window {
   }
 
   /**
-   * The animation configuration of start scene animation
+   * The params of start animation
    *
    * @interface StartAnimationParams
    * @syscap SystemCapability.Window.SessionManager
@@ -4731,6 +4731,33 @@ declare namespace window {
      * @since 20
      */
     type: AnimationType;
+  }
+
+  /**
+   * Window create params
+   *
+   * @interface WindowCreateParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface WindowCreateParams {
+    /**
+     * The params of start animation
+     *
+     * @type { ?StartAnimationParams }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    animationParams?: StartAnimationParams;
+    /**
+     * The params of system start animation
+     *
+     * @type { ?StartAnimationSystemParams }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    systemAnimationParams?: StartAnimationSystemParams;
   }
 
   /**
