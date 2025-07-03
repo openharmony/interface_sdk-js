@@ -46,14 +46,14 @@ declare namespace taskpool {
   /**
    * The Priority defines the task priority.
    *
-   * @enum { number } Priority
+   * @enum { int } Priority
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
   /**
    * The Priority defines the task priority.
    *
-   * @enum { number } Priority
+   * @enum { int } Priority
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -61,7 +61,7 @@ declare namespace taskpool {
   /**
    * Enumerates the priorities available for created tasks. 
    *
-   * @enum { number } Priority
+   * @enum { int } Priority
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -584,49 +584,49 @@ declare namespace taskpool {
     /**
      * Task ID.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    taskId: number;
+    taskId: int;
 
     /**
      * Total execution time of the task. in ms.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    totalDuration: number;
+    totalDuration: int;
 
     /**
      * Asynchronous I/O time of the task. in ms.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    ioDuration: number;
+    ioDuration: int;
 
     /**
      * CPU time of the task. in ms.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    cpuDuration: number;
+    cpuDuration: int;
   }
 
   /**
@@ -982,7 +982,7 @@ declare namespace taskpool {
   /**
    * The State defines the task state.
    *
-   * @enum { number } State
+   * @enum { int } State
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -993,7 +993,7 @@ declare namespace taskpool {
    * the state changes to RUNNING. After the task is executed and the result is returned, the state is reset to WAITING.
    * When the task is proactively canceled, the state changes to CANCELED.
    *
-   * @enum { number } State
+   * @enum { int } State
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1071,7 +1071,7 @@ declare namespace taskpool {
     /**
      * Task identity.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1080,14 +1080,14 @@ declare namespace taskpool {
     /**
      * Task ID.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    taskId: number;
+    taskId: int;
 
     /**
      * Task state.
@@ -1113,7 +1113,7 @@ declare namespace taskpool {
     /**
      * Duration of task execution.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1121,13 +1121,13 @@ declare namespace taskpool {
     /**
      * Duration that the task has been executed, in ms. If the return value is 0, the task is not running. If the return value is empty, no task is running.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    duration?: number;
+    duration?: int;
 
     /**
      * Task name.
@@ -1160,7 +1160,7 @@ declare namespace taskpool {
     /**
      * Thread id.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1169,19 +1169,19 @@ declare namespace taskpool {
     /**
      * ID of the worker thread. If the return value is empty, no task is running.
      *
-     * @type { number }
+     * @type { int }
      * @default 0
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    tid: number;
+    tid: int;
 
     /**
      * Task id list that running on current thread.
      *
-     * @type { ?number[] }
+     * @type { ?int[] }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -1189,13 +1189,13 @@ declare namespace taskpool {
     /**
      * IDs of tasks running on the calling thread. If the return value is empty, no task is running.
      *
-     * @type { ?number[] }
+     * @type { ?int[] }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    taskIds?: number[];
+    taskIds?: int[];
 
     /**
      * Thread priority.
@@ -1540,7 +1540,7 @@ declare namespace taskpool {
   /**
    * Execute a concurrent task after the specified time.
    *
-   * @param { number } delayTime - delayTime delayTime The time want to delay.
+   * @param { int } delayTime - delayTime delayTime The time want to delay.
    * @param { Task } task - task task The task want to execute.
    * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
@@ -1557,7 +1557,7 @@ declare namespace taskpool {
   /**
    * Execute a concurrent task after the specified time.
    *
-   * @param { number } delayTime - The time want to delay.
+   * @param { int } delayTime - The time want to delay.
    * @param { Task } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
    * @returns { Promise<Object> }
@@ -1579,7 +1579,7 @@ declare namespace taskpool {
    * The task cannot be a task in a task group, serial queue, or asynchronous queue, or a periodic task.
    * This API can be called only once for a continuous task, but multiple times for a non-continuous task.
    *
-   * @param { number } delayTime - Delay, in ms.
+   * @param { int } delayTime - Delay, in ms.
    * @param { Task } task - Task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @returns { Promise<Object> }
@@ -1597,12 +1597,12 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18
    */
-  function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
+  function executeDelayed(delayTime: int, task: Task, priority?: Priority): Promise<Object>;
 
   /**
    * Execute a concurrent task with generics after the specified time.
    *
-   * @param { number } delayTime - The time want to delay.
+   * @param { int } delayTime - The time want to delay.
    * @param { GenericsTask<A, R> } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
    * @returns { Promise<R> }
@@ -1616,7 +1616,7 @@ declare namespace taskpool {
   /**
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task with a delay.
    *
-   * @param { number } delayTime - Delay, in ms.
+   * @param { int } delayTime - Delay, in ms.
    * @param { GenericsTask<A, R> } task - Generic task to be executed with a delay.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @returns { Promise<R> }
@@ -1629,12 +1629,12 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18
    */
-  function executeDelayed<A extends Array<Object>, R>(delayTime: number, task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
+  function executeDelayed<A extends Array<Object>, R>(delayTime: int, task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
 
   /**
    * Execute a concurrent task periodically.
    *
-   * @param { number } period - The period in milliseconds for executing task.
+   * @param { int } period - The period in milliseconds for executing task.
    * @param { Task } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1654,7 +1654,7 @@ declare namespace taskpool {
    * Executes a task periodically. In this execution mode, you can set the task priority and call cancel() to cancel the execution.
    * A periodic task cannot be a task in a task group, serial queue, or asynchronous queue. It cannot call execute() again or have a dependency relationship.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { int } period - Execution period, in ms.
    * @param { Task } task - Task to be executed.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1671,12 +1671,12 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18
    */
-  function executePeriodically(period: number, task: Task, priority?: Priority): void;
+  function executePeriodically(period: int, task: Task, priority?: Priority): void;
 
   /**
    * Execute a concurrent task with generics periodically.
    *
-   * @param { number } period - The period in milliseconds for executing task.
+   * @param { int } period - The period in milliseconds for executing task.
    * @param { GenericsTask<A, R> } task - The task want to execute.
    * @param { Priority } [priority] - Task priority, MEDIUM is default.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -1692,7 +1692,7 @@ declare namespace taskpool {
    * Verifies the passed-in parameter types and return value type of a concurrent function, and executes the generic task
    * periodically at an interval specified by period.
    *
-   * @param { number } period - Execution period, in ms.
+   * @param { int } period - Execution period, in ms.
    * @param { GenericsTask<A, R> } task - Generic task to be executed periodically.
    * @param { Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -1706,7 +1706,7 @@ declare namespace taskpool {
    * @atomicservice
    * @since 18
    */
-  function executePeriodically<A extends Array<Object>, R>(period: number, task: GenericsTask<A, R>, priority?: Priority): void;
+  function executePeriodically<A extends Array<Object>, R>(period: int, task: GenericsTask<A, R>, priority?: Priority): void;
 
   /**
    * Cancel a concurrent task.
@@ -1803,14 +1803,14 @@ declare namespace taskpool {
    * If taskpool.cancel is called by other threads, note that the cancel operation, which is asynchronous,
    * may take effect for later calls of taskpool.execute or taskpool.executeDelayed.
    *
-   * @param { number } taskId - ID of the task to cancel.
+   * @param { int } taskId - ID of the task to cancel.
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.
    * @throws { BusinessError } 10200055 - The asyncRunner task has been canceled.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
    * @since 18
    */
-  function cancel(taskId: number): void;
+  function cancel(taskId: int): void;
 
   /**
    * Get task pool internal information.
@@ -1876,9 +1876,9 @@ declare namespace taskpool {
      * A constructor used to create an AsyncRunner instance. It constructs a non-global asynchronous queue.
      * Even when the parameters passed are the same, it returns different asynchronous queues.
      *
-     * @param { number } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a positive integer.
+     * @param { int } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a positive integer.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
-     * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
+     * @param { ?int } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down. 
      *     The default value is 0, indicating that there is no limit to the number of tasks that can wait.
      *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size exceeds this limit, implementing a discard policy.
@@ -1888,7 +1888,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 18
      */
-    constructor(runningCapacity: number, waitingCapacity?: number);
+    constructor(runningCapacity: int, waitingCapacity?: int);
 
     /**
      * A constructor used to create an AsyncRunner instance. It constructs a global asynchronous queue.
@@ -1898,9 +1898,9 @@ declare namespace taskpool {
      * 2.The task execution concurrency and waiting capacity cannot be modified.
      *
      * @param { string } name - Name of an asynchronous queue.
-     * @param { number } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a positive integer.
+     * @param { int } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a positive integer.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
-     * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
+     * @param { ?int } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
      *     The default value is 0, indicating that there is no limit to the number of tasks that can wait.
      *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size exceeds this limit, implementing a discard policy.
@@ -1910,7 +1910,7 @@ declare namespace taskpool {
      * @atomicservice
      * @since 18
      */
-    constructor(name: string, runningCapacity: number, waitingCapacity?: number);
+    constructor(name: string, runningCapacity: int, waitingCapacity?: int);
 
     /**
      * Adds a task to the asynchronous queue for execution. Before using this API, you must create an AsyncRunner instance.
