@@ -398,7 +398,7 @@ declare namespace connection {
    * Set the network extended attribute for a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the network to be setted. See {@link NetHandle}.
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -414,7 +414,7 @@ declare namespace connection {
    * Set the network extended attribute for a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the network to be setted. See {@link NetHandle}.
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
