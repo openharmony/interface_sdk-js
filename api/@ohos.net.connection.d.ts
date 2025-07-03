@@ -1209,7 +1209,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -1225,7 +1226,8 @@ declare namespace connection {
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
      * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
@@ -1251,7 +1253,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
@@ -1267,7 +1270,8 @@ declare namespace connection {
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
      * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
@@ -1293,7 +1297,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
@@ -1319,7 +1324,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
@@ -1363,7 +1369,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     register(callback: AsyncCallback<void>): void;
 
@@ -1413,7 +1420,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unregister(callback: AsyncCallback<void>): void;
   }
