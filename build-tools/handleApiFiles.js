@@ -20,6 +20,7 @@ const commander = require('commander');
 // 处理的目录类型
 let dirType = '';
 const deleteApiSet = new Set();
+const importNameSet = new Set();
 
 // 处理的目录类型，ets代表处理的是1.1目录，ets2代表处理的是1.2目录里有@arkts 1.1&1.2标签的文件，
 // noTagInEts2代表处理的是1.2目录里无标签的文件
@@ -295,7 +296,7 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
  * @returns 
  */
 function deleteArktsTag(fileContent) {
-  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|\*\s*@arkts\s*1.2s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\*\s*@arkts\s+1.1&1.2\s*(\r|\n)\s*|\*\s*@arkts\s*1.2s*(\r|\n)\s*|\*\s*@arkts\s*1.1s*(\r|\n)\s*/g;
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });
@@ -606,24 +607,36 @@ function deleteApi(sourceFile) {
  */
 const transformExportApi = (context) => {
   return (rootNode) => {
-    const visit = (node) => {
+    const importOrExportNodeVisitor = (node) => {
+      if (ts.isImportClause(node) && node.name && ts.isIdentifier(node.name) ||
+        ts.isImportSpecifier(node) && node.name && ts.isIdentifier(node.name)) {
+        importNameSet.add(node.name?.getText());
+      }
       // 剩下未被删除的API中，如果还有与被删除API名字一样的API，就将其从set集合中删掉
       if (apiNodeTypeArr.includes(node.kind) && deleteApiSet.has(node.name?.getText())) {
         deleteApiSet.delete(node.name?.getText());
       }
+      // 非目标节点：继续遍历子节点
+      return ts.visitEachChild(node, importOrExportNodeVisitor, context);
+    };
+    ts.visitNode(rootNode, importOrExportNodeVisitor);
+
+    const allNodeVisitor = (node) => {
       // 判断是否为要删除的变量声明
-      if (ts.isExportAssignment(node) && deleteApiSet.has(node.expression.escapedText.toString())) {
+      if (ts.isExportAssignment(node) && deleteApiSet.has(node.expression.escapedText.toString()) &&
+        !importNameSet.has(node.expression.escapedText.toString())) {
         return undefined;
       }
 
-      if (ts.isExportSpecifier(node) && deleteApiSet.has(node.name.escapedText.toString())) {
+      if (ts.isExportSpecifier(node) && deleteApiSet.has(node.name.escapedText.toString()) &&
+        !importNameSet.has(node.name.escapedText.toString())) {
         return undefined;
       }
 
       // 非目标节点：继续遍历子节点
-      return ts.visitEachChild(node, visit, context);
+      return ts.visitEachChild(node, allNodeVisitor, context);
     };
-    return ts.visitNode(rootNode, visit);
+    return ts.visitNode(rootNode, allNodeVisitor);
   };
 };
 
