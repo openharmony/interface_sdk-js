@@ -168,6 +168,32 @@ declare class BackupExtensionAbility {
    * @since 20
    */
   onRelease(scenario: number): Promise<void>;
+
+  /**
+   * Callback to be called when getting application backup compatibilityInfo.
+   * Developer could override this method to provide the backup compatibilityInfo.
+   *
+   * @param { string } extInfo Information about the capabilities of the peer.
+   * @returns { Promise<string> } Return backup compatibilityInfo, support promise.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   */
+  getBackupCompatibilityInfo(extInfo: string) : Promise<string>;
+
+  /**
+   * Callback to be called when getting application restore compatibilityInfo.
+   * Developer could override this method to provide the restore compatibilityInfo.
+   *
+   * @param { string } extInfo Information about the capabilities of the peer.
+   * @returns { Promise<string> } Return restore compatibilityInfo, support promise.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   */
+  getRestoreCompatibilityInfo(extInfo: string) : Promise<string>;
 }
 
 export default BackupExtensionAbility;
