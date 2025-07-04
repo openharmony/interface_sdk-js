@@ -374,16 +374,3 @@ ohos_copy("ohos_ets_api") {
   part_name = "sdk"
   subsystem_name = "sdk"
 }
-
-
-
-
-/**
-     * Whether the Wi-Fi hotspot is HiLinkPro network.
-     * @type { boolean }
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 20
-     */
-    isHiLinkProNetwork: boolean;
-    interface_sdk-js/ api / @ohos.wifiManager.d.ts 
