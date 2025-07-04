@@ -206,6 +206,54 @@ declare namespace contextConstant {
      */
     STARTUP_SHOW = 1
   }
+
+  /**
+   * Scenario values for disabling the onNewWant lifecycle callback.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export enum Scenarios {
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the missionManager.moveMissionToFront invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_MOVE_MISSION_TO_FRONT = 0x00000001,
+
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the UIAbilityContext.showAbility invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_SHOW_ABILITY = 0x00000002,
+
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the UIAbilityContext.backToCallerAbilityWithResult invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004
+  }
 }
 
 export default contextConstant;
