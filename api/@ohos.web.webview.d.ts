@@ -3079,7 +3079,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     currentIndex: int;
@@ -3095,7 +3095,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     size: int;
@@ -3119,7 +3119,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     getItemAtIndex(index: int): HistoryItem;
