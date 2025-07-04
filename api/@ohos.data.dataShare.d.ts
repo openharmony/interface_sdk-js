@@ -2086,6 +2086,7 @@ declare namespace dataShare {
      * @returns { DataProxyResult[] } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
@@ -2108,6 +2109,7 @@ declare namespace dataShare {
      * @returns { DataProxyResult[] } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
@@ -2131,6 +2133,7 @@ declare namespace dataShare {
      * @returns { Promise<DataProxyResult[]> } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
@@ -2147,6 +2150,7 @@ declare namespace dataShare {
      * @returns { Promise<DataProxyResult[]> } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
@@ -2163,6 +2167,7 @@ declare namespace dataShare {
      * @returns { Promise<DataProxyGetResult[]> } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
