@@ -5799,7 +5799,7 @@ declare namespace webview {
     getLastJavascriptProxyCallingFrameUrl(): string;
 
     /**
-     * Start current camera.
+     * Start current camera, and before using the camera function, please add the permission in module.json5: ohos.permission.CAMERA.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
