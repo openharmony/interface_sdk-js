@@ -10714,18 +10714,16 @@ declare namespace window {
     /**
      * Set window container active and inactive color.
      *
+     * @permission ohos.permission.SET_WINDOW_TRANSPARENT
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 20
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
 
