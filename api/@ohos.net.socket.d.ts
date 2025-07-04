@@ -2038,7 +2038,7 @@ declare namespace socket {
     getLocalAddress(): Promise<string>;
 
     /**
-     * Close the server. Close the server listening port.
+     * Close the LocalSocketServer. Close the LocalSocketServer listening port.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -4177,7 +4177,7 @@ declare namespace socket {
     listen(address: NetAddress): Promise<void>;
 
     /**
-     * Close the server. Close the server listening port.
+     * Close the TCPSocketServer. Close the TCPSocketServer listening port.
      * @permission ohos.permission.INTERNET
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -4672,7 +4672,7 @@ declare namespace socket {
     listen(options: TLSConnectOptions): Promise<void>;
 
     /**
-     * Close the server. Close the server listening port.
+     * Close the TLSSocketServer. Close the TLSSocketServer listening port.
      * @permission ohos.permission.INTERNET
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
