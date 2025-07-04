@@ -354,24 +354,22 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support to set offset between first grid item and the top of the grid
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
-  gridStartOffset?: int;
+  gridStartOffset?: number;
 
   /**
    * Support to set offset between last grid item and the bottom of the grid
    *
-   * @type { ?int }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.2
    */
-  gridEndOffset?: int;
+  gridEndOffset?: number;
 
   /**
    * Support repeat select
