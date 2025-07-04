@@ -59,6 +59,7 @@
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.Core",
+    "SystemCapability.Multimedia.AVSession.AVInputCast",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Multimedia.Media.AudioCodec",
