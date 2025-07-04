@@ -1930,6 +1930,15 @@ declare namespace userAuth {
     BUSY = 12500007,
 
     /**
+     * Indicates that the paramter is out of range.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    INVALID_PARAMETERS = 12500008,
+
+    /**
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -2001,7 +2010,16 @@ declare namespace userAuth {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    AUTH_TOKEN_EXPIRED = 12500016
+    AUTH_TOKEN_EXPIRED = 12500016,
+
+    /**
+     * Indicates that reuse of last authentication result is failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    REUSE_AUTH_RESULT_FAILED = 12500017
   }
 
   /**
@@ -2103,7 +2121,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 12500002 - General operation error.
-   * @throws { BusinessError } 12500008 - Parameter verification failed.
+   * @throws { BusinessError } 12500008 - The parameter is out of range.
    * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
