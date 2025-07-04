@@ -1649,6 +1649,7 @@ declare namespace bundleManager {
    * 
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 20
    */
   enum AppDistributionType {
