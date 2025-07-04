@@ -1161,6 +1161,20 @@ declare class TextMenuItemId {
    * @since 20
    */
   static readonly dateTime: TextMenuItemId;
+
+
+  /**
+   * Indicates the TextMenuItemId for asking AI.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  static readonly askAI: TextMenuItemId;
 }
 
 /**
