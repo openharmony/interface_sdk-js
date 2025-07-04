@@ -3921,6 +3921,26 @@ declare namespace notificationManager {
   function disableNotificationFeature(disabled:boolean, bundleList: Array<string>): Promise<void>;
 
   /**
+   * Disabling notifications based on the application list.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { boolean } disabled - The switch of disableNotification.
+   * @param { Array<string> } bundleList - The bundles of disableNotification.
+   * @param { number } userId - the userId.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: number): Promise<void>;
+
+  /**
    * Set target device status.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
