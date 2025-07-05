@@ -196,7 +196,7 @@ export { Content } from './arkui/Content';
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
-export { ComponentContent } from './arkui/ComponentContent';
+export { ComponentContent , ComponentContentBase } from './arkui/ComponentContent';
 
 /**
  * Export NodeContent.
