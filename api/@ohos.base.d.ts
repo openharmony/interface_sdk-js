@@ -291,3 +291,50 @@ export interface BusinessError<T = void> extends Error {
    */
   data?: T;
 }
+
+/**
+ * In ArkTS 1.1, using int is equivalent to using number
+ *
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type int = number;
+
+/**
+ * In ArkTS 1.1, using double is equivalent to using number
+ * 
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type double = number;
+/**
+ * In ArkTS 1.1, using float is equivalent to using number
+ *
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type float = number;
+
+/**
+ * In ArkTS 1.1, using long is equivalent to using number
+ * 
+ * @typedef { number }
+ * @syscap SystemCapability.Base
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export type long = number;
