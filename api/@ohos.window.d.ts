@@ -11933,6 +11933,21 @@ declare namespace window {
     setCustomDensity(density: number, applyToSubWindow?: boolean): void;
 
     /**
+     * Set window container background color in the active and inactive states.
+     *
+     * @param { string } activeColor - window container color in active.
+     * @param { string } inactiveColor - window container color in inactive.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
+
+    /**
      * Allows the application to control the time when the launch page disappears.
      * This API takes effect only for the application main window when enable.remove.starting.window under metadata in abilities in the module.json5 file is set to true.
      *
