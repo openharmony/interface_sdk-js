@@ -1672,6 +1672,14 @@ declare namespace media {
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
+     * The parameter value means session does not exist
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVERR_SESSION_NOT_EXIST = 5400109,
+    /**
      * The address of server is incorrect, and IO can not find host.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
@@ -1784,15 +1792,6 @@ declare namespace media {
      * @since 18
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
-
-    /**
-     * The parameter value means session does not exist
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    AVERR_SESSION_NOT_EXIST = 5400109,
   }
 
   /**
