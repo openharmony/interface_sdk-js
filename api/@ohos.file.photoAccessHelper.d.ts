@@ -6240,13 +6240,13 @@ declare namespace photoAccessHelper {
     /**
      * Get recwnt photo or video info by options
      *
-     * @param { RecentPhotoOptions } options - options for recent photo
+     * @param { RecentPhotoOptions } [options] - options for recent photo
      * @returns { Promise<RecentPhotoInfo> } - Returns the recent photo info
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 20
      */
-    getRecentPhotoInfo(options: RecentPhotoOptions): Promise<RecentPhotoInfo>;
+    getRecentPhotoInfo(options?: RecentPhotoOptions): Promise<RecentPhotoInfo>;
   }
 
   /**
@@ -6254,7 +6254,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   export class RecentPhotoOptions {
     /**
@@ -6263,7 +6263,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     period?: number;
 
@@ -6273,7 +6273,7 @@ declare namespace photoAccessHelper {
      * @type { ?photoAccessHelper.PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
 
@@ -6283,7 +6283,7 @@ declare namespace photoAccessHelper {
      * @type { ?PhotoSource }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     photoSource?: PhotoSource;
   }
@@ -6293,7 +6293,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 20
    */
   export class RecentPhotoInfo {
     /**
@@ -6302,7 +6302,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 13
+     * @since 20
      */
     dateTaken?: number;
 
@@ -6312,7 +6312,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 13
+     * @since 20
      */
     identifier?: string;
   }
@@ -6323,7 +6323,7 @@ declare namespace photoAccessHelper {
    * @enum { number } PhotoSource
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 20
    */
   export enum PhotoSource {
     /**
@@ -6331,7 +6331,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     ALL = 0,
 
@@ -6340,7 +6340,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     CAMERA = 1,
 
@@ -6349,7 +6349,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since 12
+     * @since 20
      */
     SCREENSHOT = 2
   }
