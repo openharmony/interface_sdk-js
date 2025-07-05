@@ -135,8 +135,9 @@ export class ComponentContent<T extends Object> extends Content {
   updateConfiguration(): void;
 }
 
+
 /**
- * Defines ComponentContent.
+ * Defines the base class for ComponentContent.
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,7 +146,22 @@ export class ComponentContent<T extends Object> extends Content {
  * @since 20
  * @arkts 1.2
  */
-export declare class ComponentContent<T = undefined> extends Content {
+export abstract class ComponentContentBase extends Content {
+
+}
+
+
+/**
+ * Defines ComponentContent.
+ *
+ * @extends ComponentContentBase
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare class ComponentContent<T = undefined> extends ComponentContentBase {
   /**
    * Constructor.
    *
