@@ -4035,6 +4035,103 @@ declare namespace notificationManager {
   function getDistributedDeviceList(): Promise<Array<string>>;
 
   /**
+   * Set the switch status of silent reminders.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { boolean } enabled - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
+
+  /**
+   * Obtains whether an application silent reminder is enable.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<SwitchState> } Returns whether an application silent reminder is enable.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
+
+  /**
+   * Represents the state of a switch,
+   * distinguishing system defaults from user modifications.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export enum SwitchState {
+    /**
+     * User-modified OFF state,
+     * Represents an off state that was explicitly set by the user.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    USER_MODIFIED_OFF = 0,
+
+    /**
+     * User-modified ON state,
+     * Represents an on state that was explicitly set by the user.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    USER_MODIFIED_ON = 1,
+
+    /**
+     * System default OFF state,
+     * Represents the initial off state before any user modification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SYSTEM_DEFAULT_OFF = 2,
+
+    /**
+     * System default ON state,
+     * Represents the initial on state before any user modification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SYSTEM_DEFAULT_ON = 3,
+  }
+
+  /**
    * Describes a button option for a triggering.
    *
    * @typedef ButtonOptions
