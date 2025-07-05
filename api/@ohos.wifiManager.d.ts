@@ -3319,15 +3319,6 @@ declare namespace wifiManager {
      * @since 12
      */
     isHiLinkNetwork: boolean;
-
-    /**
-     * Whether the Wi-Fi hotspot is HiLinkPro network.
-     * @type { boolean }
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 20
-     */
-    isHiLinkProNetwork: boolean;
   }
 
   /**
