@@ -36,14 +36,15 @@ import Want from './@ohos.app.ability.Want';
  * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace formProvider {
   /**
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -61,7 +62,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @param { AsyncCallback<void> } callback - The callback of setFormNextRefreshTime.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -74,15 +75,16 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTime(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -100,7 +102,7 @@ declare namespace formProvider {
    * Set next update time for a specified form.
    *
    * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
+   * @param { int } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -113,9 +115,10 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
+  function setFormNextRefreshTime(formId: string, minute: int): Promise<void>;
 
   /**
    * Update a specified form.
@@ -405,20 +408,6 @@ declare namespace formProvider {
   function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Open the view of forms belonging to current bundle.
-   * Client to communication with FormManagerService.
-   *
-   * @param { Want } want - The want of the form to open.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 18
-   */
-  function openFormManager(want: Want): void;
-
-  /**
    * Open the view of forms belonging to the specified bundle.
    * Client to communication with FormManagerService.
    *
@@ -451,6 +440,20 @@ declare namespace formProvider {
    * @since 18
    */
   function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
+
+  /**
+   * Open the view of forms belonging to current bundle.
+   * Client to communication with FormManagerService.
+   *
+   * @param { Want } want - The want of the form to open.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 18
+   */
+  function openFormManager(want: Want): void;
 
   /**
    * Activate scene animation

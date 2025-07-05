@@ -19,12 +19,22 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
-/*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
+
+/**
+ * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnStopFn = () => void;
 
 /**
  * class of form extension.
@@ -326,6 +336,18 @@ declare class FormExtensionAbility {
    * @since 12
    */
   onStop?(): void;
+
+  /**
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @type { ?OnStopFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onStop?: OnStopFn;
 
   /**
    * Called to notify the form provider that the form location of the form has been changed.
