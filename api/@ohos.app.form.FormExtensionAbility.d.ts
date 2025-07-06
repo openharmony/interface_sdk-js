@@ -344,14 +344,12 @@ declare class FormExtensionAbility {
    * you want to know the form size be changed, used for data continuity and layout refresh.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @param { string } newDimension - Indicates the new dimension of the form.
+   * @param { formInfo.FormDimension } newDimension - Indicates the new dimension of the form.
    * @param { formInfo.Rect } newRect - Indicates the new rect(vp) of the form.
-   * 
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
-  onSizeChanged(formId: string, newDimension: string, newRect: formInfo.Rect): void;
+  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
 }
 export default FormExtensionAbility;

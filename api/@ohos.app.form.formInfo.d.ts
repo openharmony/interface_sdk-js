@@ -481,7 +481,6 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
-     * @arkts 1.2
      */
     readonly resizable?: boolean;
 
@@ -493,7 +492,6 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 20
-     * @arkts 1.2
      */
     readonly groupId?: string;
   }

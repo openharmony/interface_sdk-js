@@ -1334,8 +1334,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
-  function updateFormSize(formId: string, newDimension: string, newRect: formInfo.Rect): void;
+  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
 }
 export default formHost;
