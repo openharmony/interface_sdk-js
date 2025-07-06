@@ -16,11 +16,8 @@
 /**
  * @file
  * @kit FormKit
+ * @arkts 1.1&1.2
  */
-
-/*** if arkts 1.1 */
-import { BusinessError } from './@ohos.base';
-/*** endif */
 
 /**
  * Interface of formBindingData.
@@ -93,7 +90,8 @@ declare namespace formBindingData {
      * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Object;
 
@@ -112,7 +110,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     proxies?: Array<ProxyData>;
   }
@@ -132,7 +131,8 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ProxyData {
     /**
@@ -150,7 +150,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     key: string;
 
@@ -169,7 +170,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subscriberId?: string;
   }

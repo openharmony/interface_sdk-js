@@ -20,7 +20,9 @@
 
 import { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
+/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
+/*** endif */
 import Want from './@ohos.app.ability.Want';
 
 /**
