@@ -472,6 +472,30 @@ declare namespace formInfo {
      * @since 20
      */
     readonly sceneAnimationParams?: SceneAnimationParams;
+
+    /**
+     * Obtains the resizable of the form.
+     *
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    readonly resizable?: boolean;
+
+    /**
+     * Obtains the group id of the form.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    readonly groupId?: string;
   }
 
   /**
