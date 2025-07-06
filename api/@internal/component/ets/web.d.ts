@@ -6773,6 +6773,57 @@ declare interface OnOverScrollEvent {
 }
 
 /**
+ * Defines the function Triggered when the PDF page scrolling.
+ *
+ * @typedef OnPdfScrollEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+declare interface OnPdfScrollEvent {
+
+  /**
+   * PDF page url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  url:string;
+}
+
+/**
+ * Defines the function Triggered when the PDF load.
+ *
+ * @typedef OnPdfLoadEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+declare interface OnPdfLoadEvent {
+  /**
+   * The PDF page load result.
+   *
+   * @type { PdfLoadResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  result: PdfLoadResult;
+
+  /**
+   * The PDF page url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  url: string;
+}
+
+/**
  * Defines the JavaScript object to be injected.
  *
  * @typedef JavaScriptProxy
@@ -7022,6 +7073,62 @@ declare enum AudioSessionType {
    * @since 20
    */
   AMBIENT=3
+}
+
+/**
+ * PDF page load result
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+declare enum PdfLoadResult {
+
+  /**
+   * The PDF page load success.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  LOAD_SUCCESS = 0,
+
+  /**
+   * The error code for web load PDF file failed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  PARSE_ERROR_FILE = 1,
+
+  /**
+   * The error code for the PDF format is not support.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  PARSE_ERROR_FORMAT = 2,
+
+  /**
+   * The error code for the PDF password is wrong.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  PARSE_ERROR_PASSWORD = 3,
+
+  /**
+   * The error code for the  PDF handler process failed.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  PARSE_ERROR_HANDLER = 4
 }
 
 /**
@@ -9617,6 +9724,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onOverScroll(callback: Callback<OnOverScrollEvent>): WebAttribute;
+
+  /**
+   * Triggered when the PDF in web page scrolling at bottom with pdf scroll event.
+   * @param { Callback<OnPdfScrollEvent> } callback Function Triggered when the scrolling to bottom.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent>): WebAttribute;
+
+  /**
+   * Triggered when the PDF page load finish.
+   * @param { Callback<OnPdfLoadEvent> } callback
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  onPdfLoadEvent(callback: Callback<OnPdfLoadEvent>): WebAttribute;
 
   /**
    * Called when received website security risk check result.
