@@ -338,5 +338,18 @@ declare class FormExtensionAbility {
    * @since 20
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
+
+  /**
+   * Called to notify the form provider that the size of the form has been changed. Override this method if
+   * you want to know the form size be changed, used for data continuity and layout refresh.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @param { formInfo.FormDimension } newDimension - Indicates the new dimension of the form.
+   * @param { formInfo.Rect } newRect - Indicates the new rect(vp) of the form.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @since 20
+   */
+  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
 }
 export default FormExtensionAbility;

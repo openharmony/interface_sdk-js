@@ -1318,5 +1318,23 @@ declare namespace formHost {
    */
   function off(type: 'getLiveFormStatus', 
     callback?: formInfo.GetLiveFormStatusCallback): void;
+
+  /**
+   * Update size of the form.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form id.
+   * @param { formInfo.FormDimension } newDimension - The new dimension of the form.
+   * @param { formInfo.Rect } newRect - The new size of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501012 - The dimension parameter is incorrect
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
 }
 export default formHost;
