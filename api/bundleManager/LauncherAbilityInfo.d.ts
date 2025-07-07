@@ -26,7 +26,8 @@ import { ElementName } from './ElementName';
  *
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface LauncherAbilityInfo {
   /**
@@ -35,7 +36,8 @@ export interface LauncherAbilityInfo {
    * @type { ApplicationInfo }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -45,7 +47,8 @@ export interface LauncherAbilityInfo {
    * @type { ElementName }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly elementName: ElementName;
 
@@ -55,7 +58,8 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly labelId: number;
 
@@ -65,7 +69,8 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly iconId: number;
 
@@ -75,7 +80,8 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly userId: number;
 
@@ -85,7 +91,8 @@ export interface LauncherAbilityInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly installTime: number;
 }

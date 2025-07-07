@@ -28,7 +28,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteA
  * @namespace distributedBundleManager
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace distributedBundleManager {
   /**
@@ -47,7 +48,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
 
@@ -67,7 +69,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
@@ -87,7 +90,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -108,7 +112,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 
@@ -129,7 +134,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementName: ElementName,
     locale: string, callback: AsyncCallback<RemoteAbilityInfo>): void;
@@ -151,7 +157,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementName: ElementName, locale: string): Promise<RemoteAbilityInfo>;
 
@@ -172,7 +179,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>,
     locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
@@ -194,7 +202,8 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
@@ -204,7 +213,8 @@ declare namespace distributedBundleManager {
    * @typedef { _RemoteAbilityInfo }
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
