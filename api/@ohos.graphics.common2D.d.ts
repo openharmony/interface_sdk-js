@@ -22,42 +22,48 @@
  *
  * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace common2D {
   /**
    * Describes a color in ARGB format.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Color {
     /**
      * Alpha component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alpha: number;
     /**
      * Red component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     red: number;
     /**
      * Green component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     green: number;
     /**
      * Blue component of the color. The value is an integer ranging from 0 to 255.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     blue: number;
   }
@@ -66,35 +72,40 @@ declare namespace common2D {
    * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
      * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
     /**
      * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
      * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     right: number;
     /**
      * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bottom: number;
   }
@@ -103,14 +114,16 @@ declare namespace common2D {
    * Describes a coordinate point.
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Point {
     /**
      * Horizontal coordinate. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x: number;
 
@@ -118,7 +131,8 @@ declare namespace common2D {
      * Vertical coordinate. The value is a floating point number.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y: number;
   }
