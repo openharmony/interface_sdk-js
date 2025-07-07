@@ -107,7 +107,8 @@ template("ohos_copy_internal") {
     deps = [ ":ohos_base_split" ]
     # 在打包编译ets1.2时才会打包出interop文件
     if (sdk_build_arkts) {
-      deps +=[ ":interface_sdk_interop2" ]
+      deps +=[ ":interface_sdk_interop2",
+      ":install_tsc_declgen" ]
     }
     deps += [ ":$_module_info_target" ]
     inputs = []
@@ -153,7 +154,8 @@ template("ohos_declaration_template") {
     deps = [ ":ohos_base_split" ]
     # 在打包编译ets1.2时才会打包出interop文件
     if (sdk_build_arkts) {
-      deps +=[ ":interface_sdk_interop2" ]
+      deps +=[ ":interface_sdk_interop2",
+      ":install_tsc_declgen" ]
     }
     deps += [ ":$_module_info_target" ]
     inputs = []
