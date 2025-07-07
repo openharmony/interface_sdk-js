@@ -30,5 +30,6 @@ import ExtensionContext from './ExtensionContext';
  * @atomicservice
  * @since 20
  */
-export default class LiveFormExtensionContext extends ExtensionContext {
+declare class LiveFormExtensionContext extends ExtensionContext {
 }
+export default LiveFormExtensionContext;
