@@ -30,7 +30,7 @@ import ExtensionContext from './ExtensionContext';
  * @atomicservice
  * @since 20
  */
-export default class LiveFormExtensionContext extends ExtensionContext {
+declare class LiveFormExtensionContext extends ExtensionContext {
   /**
    * Set the background image of the live form.
    *
@@ -45,3 +45,4 @@ export default class LiveFormExtensionContext extends ExtensionContext {
    */
   setBackgroundImage(res: Resource): Promise<void>;
 }
+export default LiveFormExtensionContext;

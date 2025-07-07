@@ -28,7 +28,7 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  * @stagemodelonly
  * @since 18
  */
-export default class FormEditExtensionAbility extends UIExtensionAbility {
+declare class FormEditExtensionAbility extends UIExtensionAbility {
 /**
    * Indicates configuration infomation about an form edit extension ability context.
    *
@@ -39,3 +39,4 @@ export default class FormEditExtensionAbility extends UIExtensionAbility {
    */
 	context: FormEditExtensionContext;
 }
+export default FormEditExtensionAbility;
