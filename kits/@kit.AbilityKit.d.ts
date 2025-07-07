@@ -136,17 +136,23 @@ import {
 } from '@ohos.app.ability.UIAbility';
 import wantAgent from '@ohos.app.ability.wantAgent';
 import { WantAgent } from '@ohos.app.ability.wantAgent';
+import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
 import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import defaultAppManager from '@ohos.bundle.defaultAppManager';
+import distributedBundleManager from '@ohos.bundle.distributedBundleManager';
+import freeInstall from '@ohos.bundle.freeInstall';
 import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
   common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
   UIExtensionContentSession, wantConstant, UIAbility, Callee, Caller, OnReleaseCallback, AbilityStage,
   UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
-  bundleManager, bundleMonitor, bundleResourceManager, installer, launcherBundleManager, shortcutManager
+  appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager
 };
 /*** endif */

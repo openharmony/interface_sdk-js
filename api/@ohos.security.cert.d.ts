@@ -17,9 +17,6 @@
  * @file
  * @kit DeviceCertificateKit
  */
-/*** if arkts 1.1 */
-import { int, long } from './@ohos.base';
-/*** endif */
 import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from './@ohos.security.cryptoFramework';
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,19 +15,9 @@
 
 /**
  * @file
- * @kit AbilityKit
+ * @kit MechanicKit
  */
 
-import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
+import mechanicManager from '@ohos.distributedHardware.mechanicManager';
 
-/**
- * The class of Action extension ability.
- *
- * @extends UIExtensionAbility
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
- */
-export default class ActionExtensionAbility extends UIExtensionAbility {
-}
+export { mechanicManager };
