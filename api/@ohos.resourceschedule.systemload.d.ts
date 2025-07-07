@@ -25,7 +25,8 @@ import type { Callback } from './@ohos.base';
  *
  * @namespace systemLoad
  * @syscap SystemCapability.ResourceSchedule.SystemLoad
- * @since 12
+ * @since arkts{ '1.1':'12', '1.2':'20' }
+ * @arkts 1.1&1.2
  */
 declare namespace systemLoad {
     /**
@@ -33,63 +34,72 @@ declare namespace systemLoad {
      *
      * @enum {number}
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     export enum SystemLoadLevel {
         /**
          * level low
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         LOW = 0,
         /**
          * level NORMAL
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         NORMAL = 1,
         /**
          * level MEDIUM
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         MEDIUM = 2,
         /**
          * level HIGH
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         HIGH = 3,
         /**
          * level OVERHEATED
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         OVERHEATED = 4,
         /**
          * level WARNING
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         WARNING = 5,
         /**
          * level EMERGENCY
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         EMERGENCY = 6,
         /**
          * level ESCAPE
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
-         * @since 12
+         * @since arkts{ '1.1':'12', '1.2':'20' }
+         * @arkts 1.1&1.2
          */
         ESCAPE = 7
     }
@@ -101,7 +111,8 @@ declare namespace systemLoad {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
      * <br> 2. Register a exist callback type; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     function on(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void;
 
@@ -112,7 +123,8 @@ declare namespace systemLoad {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
      * <br> 2. Unregister type has not register; 3. Parameter verification failed.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     function off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void;
 
@@ -120,7 +132,8 @@ declare namespace systemLoad {
      * @returns { Promise<SystemLoadLevel> } The promise form returns the SystemLoadLevel result
      * Queries the current system level
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 12
+     * @since arkts{ '1.1':'12', '1.2':'20' }
+     * @arkts 1.1&1.2
      */
     function getLevel(): Promise<SystemLoadLevel>;
 }
