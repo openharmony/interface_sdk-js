@@ -429,7 +429,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { number } fd - the descriptor of home wallpaper file.
-   * @returns { Promise<void> } the promise returned by the setHomeWallPaper.
+   * @returns { Promise<void> } the promise returned by the setHomeWallpaper.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API
@@ -437,7 +437,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 20
    */
-  function setHomeWallPaper(admin: Want, fd: number): Promise<void>;
+  function setHomeWallpaper(admin: Want, fd: number): Promise<void>;
 
   /**
    * Sets unlock wallpaper.
@@ -447,7 +447,7 @@ declare namespace deviceSettings {
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
    * @param { number } fd - the descriptor of unlock wallpaper file.
-   * @returns { Promise<void> } the promise returned by the setHomeWallPaper.
+   * @returns { Promise<void> } the promise returned by the setUnlockWallpaper.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API
@@ -455,7 +455,7 @@ declare namespace deviceSettings {
    * @stagemodelonly
    * @since 20
    */
-  function setUnlockWallPaper(admin: Want, fd: number): Promise<void>;
+  function setUnlockWallpaper(admin: Want, fd: number): Promise<void>;
 }
 
 export default deviceSettings;
