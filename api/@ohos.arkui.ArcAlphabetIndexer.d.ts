@@ -275,6 +275,15 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
  * @atomicservice
  * @since 18
  */
+/**
+ * Defines ArcAlphabetIndexer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 20
+ */
 declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
 
 /**

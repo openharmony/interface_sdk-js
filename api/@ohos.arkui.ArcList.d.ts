@@ -425,6 +425,15 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @atomicservice
  * @since 18
  */
+/**
+ * Defines ArcList Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 20
+ */
 export declare const ArcList: ArcListInterface;
 
 /**
@@ -434,5 +443,14 @@ export declare const ArcList: ArcListInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ */
+/**
+ * Defines ArcListItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 20
  */
 export declare const ArcListItem: ArcListItemInterface;
