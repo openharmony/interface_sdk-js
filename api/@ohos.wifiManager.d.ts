@@ -56,13 +56,14 @@ declare namespace wifiManager {
 
   /**
    * Disable Wi-Fi.
-   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
+   * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
+   *     ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 16
+   * @since 20
    */
   function disableWifi(): void;
 
@@ -3322,12 +3323,12 @@ declare namespace wifiManager {
 
     /**
      * Whether the Wi-Fi hotspot is HiLinkPro network.
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    isHiLinkProNetwork: boolean;
+    isHiLinkProNetwork?: boolean;
   }
 
   /**
@@ -3802,12 +3803,12 @@ declare namespace wifiManager {
 
     /**
      * Whether the Wi-Fi hotspot is HiLinkPro network.
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    isHiLinkProNetwork: boolean;
+    isHiLinkProNetwork?: boolean;
 
     /**
      * Wi-Fi link type
