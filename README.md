@@ -1,4 +1,3 @@
-https://gitee.com/openharmony/interface_sdk-js/pulls/22849
 #  Public Repository for API Declaration Files
 
 ## Overview
