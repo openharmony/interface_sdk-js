@@ -32,7 +32,7 @@ declare namespace charger {
   /**
    * Indicates the type of the charger plugged-in.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}

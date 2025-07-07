@@ -20,9 +20,6 @@
  */
 
 import { BusinessError } from './@ohos.base';
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
 
 /**
  * Provides interfaces to control the power of display.
