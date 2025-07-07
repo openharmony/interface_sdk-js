@@ -6238,7 +6238,7 @@ declare namespace photoAccessHelper {
     setPhotoAlbumOrder(orderStyle: number, albumOrders: Array<AlbumOrder>): Promise<void>;
 
     /**
-     * Get recwnt photo or video info by options
+     * Get recent photo or video info by options
      *
      * @param { RecentPhotoOptions } [options] - options for recent photo
      * @returns { Promise<RecentPhotoInfo> } - Returns the recent photo info
