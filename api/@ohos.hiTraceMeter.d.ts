@@ -135,6 +135,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum HiTraceOutputLevel {
     /**
@@ -151,6 +152,7 @@ declare namespace hiTraceMeter {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     DEBUG = 0,
 
@@ -168,6 +170,7 @@ declare namespace hiTraceMeter {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     INFO = 1,
 
@@ -185,6 +188,7 @@ declare namespace hiTraceMeter {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     CRITICAL = 2,
 
@@ -202,6 +206,7 @@ declare namespace hiTraceMeter {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMERCIAL = 3,
 
@@ -219,6 +224,7 @@ declare namespace hiTraceMeter {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     MAX = COMMERCIAL
   }
@@ -336,6 +342,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function traceByValue(name: string, count: number): void;
 
@@ -348,7 +355,7 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { string } customArgs Indicates key=value pair to be output in trace; multiple pairs should use comma
+   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
    * as separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
@@ -363,12 +370,13 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { string } customArgs Indicates key=value pair to be output in trace; multiple pairs should use comma
+   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
    * as separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function startSyncTrace(level: HiTraceOutputLevel, name: string, customArgs?: string): void;
 
@@ -396,6 +404,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function finishSyncTrace(level: HiTraceOutputLevel): void;
 
@@ -411,7 +420,7 @@ declare namespace hiTraceMeter {
    * @param { number } taskId The unique id used to distinguish the task and match with the id of the
    * corresponding finishAsyncTrace.
    * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
-   * @param { string } customArgs Indicates key=value pair to be output in trace; multiple pairs should use comma
+   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
    * as Separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
@@ -429,12 +438,13 @@ declare namespace hiTraceMeter {
    * @param { number } taskId The unique id used to distinguish the task and match with the id of the
    * corresponding finishAsyncTrace.
    * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
-   * @param { string } customArgs Indicates key=value pair to be output in trace; multiple pairs should use comma
+   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
    * as Separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function startAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: number, customCategory: string,
       customArgs?: string): void;
@@ -469,6 +479,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function finishAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: number): void;
 
@@ -492,6 +503,7 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function traceByValue(level: HiTraceOutputLevel, name: string, count: number): void;
 
@@ -511,9 +523,9 @@ declare namespace hiTraceMeter {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function isTraceEnabled(): boolean;
-
 }
 
 export default hiTraceMeter;
