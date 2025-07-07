@@ -671,7 +671,6 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */

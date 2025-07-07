@@ -477,6 +477,28 @@ declare namespace formInfo {
      * @arkts 1.1&1.2
      */
     readonly renderingMode?: RenderingMode;
+
+    /**
+     * Indicates the fun interaction form params
+     *
+     * @type { ?FunInteractionParams }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    readonly funInteractionParams?: FunInteractionParams;
+
+    /**
+     * Indicates the scene animation form params
+     *
+     * @type { ?SceneAnimationParams }
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 20
+     */
+    readonly sceneAnimationParams?: SceneAnimationParams;
   }
 
   /**
