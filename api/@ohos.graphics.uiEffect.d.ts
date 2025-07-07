@@ -249,7 +249,7 @@ declare namespace uiEffect {
      * @systemapi
      * @since 20
      */
-    directionLight(direction: common2D.Point3d, color: ColorGamut, intensity: number, bumpMask?: Mask): Filter;
+    directionLight(direction: common2D.Point3d, color: Color, intensity: number, bumpMask?: Mask): Filter;
   }
 
   /**
