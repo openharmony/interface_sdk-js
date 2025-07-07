@@ -655,7 +655,6 @@ declare namespace cloudData {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     static cloudSync(
       bundleName: string,
