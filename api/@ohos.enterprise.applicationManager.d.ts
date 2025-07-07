@@ -523,17 +523,17 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *              The admin must have the corresponding permission.
-   * @param { Array<string> } bundleNames - bundleNames indicates the bundle names of applications.
+   *     The admin must have the corresponding permission.
+   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the appIdentifiers of applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
-   *              required to call the API.
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-  function setAllowedKioskApps(admin: Want, bundleNames: Array<string>): void;
+  function setAllowedKioskApps(admin: Want, appIdentifiers: Array<string>): void;
 
   /**
    * Get applications allowed running in kiosk mode.
@@ -541,12 +541,12 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *              The admin must have the corresponding permission.
-   * @returns { Array<string> } the bundle names of allowed running in kiosk mode.
+   *     The admin must have the corresponding permission.
+   * @returns { Array<string> } the appIdentifiers of applications that allowed running in kiosk mode.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
-   *              required to call the API
+   *     required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -556,13 +556,13 @@ declare namespace applicationManager {
   /**
    * Check target application allowed running in kiosk mode.
    *
-   * @param { string } bundleName - bundleName indicates the bundle names of application.
-   * @returns { boolean } true means the bundle name allowed running in kiosk mode, otherwise false.
+   * @param { string } appIdentifier - appIdentifier indicates the appIdentifier of application.
+   * @returns { boolean } true means the application allowed running in kiosk mode, otherwise false.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-  function isAppKioskAllowed(bundleName: string): boolean;
+  function isAppKioskAllowed(appIdentifier: string): boolean;
 
   /**
    * Sets kiosk feature in kiosk mode.
