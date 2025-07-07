@@ -221,6 +221,19 @@ declare namespace uiEffect {
     * @since 20
     */
     hdrBrightnessRatio(ratio: number): Filter;
+
+    /**
+     * Sets variable radius blur effect with radius map.
+     * @param { number } radius - the blurring radius.
+     * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
+     * @param { Mask } radiusMap
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    variableRadiusBlur(radius: number, radiusMap: Mask): Filter;
   }
 
   /**
