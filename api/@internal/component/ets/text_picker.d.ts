@@ -398,7 +398,7 @@ declare interface DividerOptions {
    * Color of the divider.
    *
    * @type { ?ResourceColor }
-   * @default "#33000000"
+   * @default '#33000000'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -612,8 +612,8 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Sets the height of each item in the picker.
    *
    * @param { number | string } value - Height of each item in the picker.
-   * <br>For the number type, the value range is [0, +∞]. For the string type,
-   * <br>only numeric string values, for example, "56", are supported.
+   * <br>For the number type, the value range is [0, +∞).
+   * <br>For the string type, only numeric string values, for example, "56", are supported.
    * @returns { TextPickerAttribute }
    * @default 56 vp (selected) and 36 vp (unselected).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -627,7 +627,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * Sets the height of each item in the picker.
    *
    * @param { Optional<number | string> } height - Height of each item in the picker.
-   * <br>For the number type, the value range is [0, +∞].
+   * <br>For the number type, the value range is [0, +∞).
    * <br>For the string type, only numeric string values, for example, "56", are supported.
    * @default 56 vp (selected) and 36 vp (unselected).
    * @returns { TextPickerAttribute }
@@ -1712,7 +1712,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Background style of selected items.
    *
    * @type { ?PickerBackgroundStyle }
-   * @default true
+   * @default { color: '#0C182431', borderRadius: { value:24, unit:1 } }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
