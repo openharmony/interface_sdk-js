@@ -988,14 +988,14 @@ declare namespace xml {
     /**
      * Obtains the current column number, starting from 1.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColumnNumber(): number;
+    getColumnNumber(): int;
     /**
      * The current depth of the element.
      *
@@ -1014,14 +1014,14 @@ declare namespace xml {
     /**
      * Obtains the depth of this element.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getDepth(): number;
+    getDepth(): int;
     /**
      * The current line number, starting from 1.
      *
@@ -1040,14 +1040,14 @@ declare namespace xml {
     /**
      * Obtains the current line number, starting from 1.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineNumber(): number;
+    getLineNumber(): int;
     /**
      * The current element's name.
      *
@@ -1222,14 +1222,14 @@ declare namespace xml {
     /**
      * Obtains the number of attributes for the current start tag.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getAttributeCount(): number;
+    getAttributeCount(): int;
   }
 
   /**

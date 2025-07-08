@@ -109,9 +109,9 @@ declare namespace json {
    * Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
    *
    * @param { NullishType } value - A JavaScript value, usually an NullishType or array.
-   * @param { Transformer | ((number | string)[]) | null } [replacer] - An array of strings and numbers that acts as an approved list
+   * @param { Transformer | ((double | string)[]) | null } [replacer] - An array of strings and numbers that acts as an approved list
    * for selecting the object properties that will be stringify.
-   * @param { string | number } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+   * @param { string | int } [space] - Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
    * @returns { string } Return a JSON text.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -119,7 +119,7 @@ declare namespace json {
    * @since 20
    * @arkts 1.2
    */
-  function stringify(value: NullishType, replacer?: Transformer | ((number | string)[]) | null, space?: string | number): string;
+  function stringify(value: NullishType, replacer?: Transformer | ((double | string)[]) | null, space?: string | int): string;
 
   /**
    * Converts an ArkTS object or array into a JSON string. In the case of a container, linear containers are supported,
