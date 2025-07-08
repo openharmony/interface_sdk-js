@@ -6756,16 +6756,6 @@ declare namespace photoAccessHelper {
     albumAfterChange: AlbumChangeInfo | null;
 
     /**
-     * Whether the album is deleted.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    isDeleted: boolean;
-
-    /**
      * The version of the album info used to determine the order of notification changes.
      *
      * @type { number }
