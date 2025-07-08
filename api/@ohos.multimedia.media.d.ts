@@ -1781,15 +1781,6 @@ declare namespace media {
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
 
     /**
-     * Clear text traffic not permitted.
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012,
-
-    /**
      * The parameter value is out of the specified range.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
