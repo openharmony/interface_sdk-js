@@ -19,7 +19,7 @@
  */
 
 import workScheduler from './@ohos.resourceschedule.workScheduler';
-import { WorkSchedulerExtensionContext as _WorkSchedulerExtensionContext } from './application/WorkSchedulerExtensionContext';
+import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
 
 /**
  * The context of work scheduler extension. It allows access to
