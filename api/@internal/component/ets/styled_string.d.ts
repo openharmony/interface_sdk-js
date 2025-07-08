@@ -24,8 +24,6 @@
  * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
@@ -39,8 +37,6 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
@@ -53,8 +49,6 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
