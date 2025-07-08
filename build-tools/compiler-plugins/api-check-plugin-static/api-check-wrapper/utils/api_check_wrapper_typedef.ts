@@ -44,18 +44,38 @@ export interface JsDocNodeCheckConfigItem {
  * JSDoc类型
  */
 export interface JSDoc {
-  peer: string;
-  records: JSDocTag[];
+  description: string;
+  tags: JSDocTag[];
 }
 
 /**
  * JSDoc标签类型
  */
 export interface JSDocTag {
+  /**
+   * 标签名
+   */
+  tag: string;
+  /**
+   * 参数名称
+   */
   name: string;
-  param: string;
-  comment: string;
-  peer: string;
+  /**
+   * 默认值
+   */
+  default?: string;
+  /**
+   * 类型
+   */
+  type: string;
+  /**
+   * 是否可选
+   */
+  optional: boolean;
+  /**
+   * 描述
+   */
+  description: string;
 }
 
 export interface CurrentAddress {
