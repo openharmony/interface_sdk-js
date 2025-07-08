@@ -348,6 +348,28 @@ declare namespace applicationManager {
   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
   /**
+   * Adds auto start applications which are not allowed to modify their auto start settings.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *                                        The bundleName and abilityName of the want cannot be non-exist.
+   *                                        The size of the array after setting cannot be greater than 10.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @param { boolean } disallowModify - disallowModify specifies whether the applications are
+   *                         disallowed to modify their auto start setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number, disallowModify: boolean): void;
+
+  /**
    * Removes auto start applications.
    * This function can be called by a super administrator.
    *
@@ -369,6 +391,26 @@ declare namespace applicationManager {
   function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
   /**
+   * Removes auto start applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<Want> } autoStartApps - autoStartApps indicates the information of auto start app ability.
+   *                                        The bundleName and abilityName of the want cannot be non-exist.
+   *                                        The size of the array after setting cannot be greater 10.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>, accountId: number): void;
+
+  /**
    * Gets information of auto start applications.
    * This function can be called by a super administrator.
    *
@@ -386,6 +428,44 @@ declare namespace applicationManager {
    * @since 12
    */
   function getAutoStartApps(admin: Want): Array<Want>;
+
+  /**
+   * Gets information of auto start applications.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   *  @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Array<Want> } the information of auto start applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
+
+  /**
+   * Checks whether the specified application is allowed to modify its auto start setting.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   *  @param { Want } autoStartApp - autoStartApp indicates the information of auto start app ability to be checked.
+   *                                        The bundleName and abilityName of the want cannot be non-exist.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { boolean } true indicates the application is not allowed to modify its auto start setting.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+   function isModifyAutoStartAppsDisallowed(admin: Want, autoStartApp: Want, accountId: number): boolean;
 
   /**
    * Adds the keep alive applications.
