@@ -6236,6 +6236,122 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     setPhotoAlbumOrder(orderStyle: number, albumOrders: Array<AlbumOrder>): Promise<void>;
+
+    /**
+     * Get recent photo or video info by options
+     *
+     * @param { RecentPhotoOptions } [options] - options for recent photo
+     * @returns { Promise<RecentPhotoInfo> } - Returns the recent photo info
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    getRecentPhotoInfo(options?: RecentPhotoOptions): Promise<RecentPhotoInfo>;
+  }
+
+  /**
+   * RecentPhotoOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  export class RecentPhotoOptions {
+    /**
+     * Support set period time
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    period?: number;
+
+    /**
+     * The type of the file in the recent photo window.
+     *
+     * @type { ?photoAccessHelper.PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    MIMEType?: photoAccessHelper.PhotoViewMIMETypes;
+
+    /**
+     * PhotoSource
+     *
+     * @type { ?PhotoSource }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    photoSource?: PhotoSource;
+  }
+
+  /**
+   * Recent photo info
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  export class RecentPhotoInfo {
+    /**
+     * The dateTaken of photos or videos
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    dateTaken?: number;
+
+    /**
+     * The identifier of photos or videos
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    identifier?: string;
+  }
+
+  /**
+   * Enumeration of PhotoSource type
+   *
+   * @enum { number } PhotoSource
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  export enum PhotoSource {
+    /**
+     * all resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    ALL = 0,
+
+    /**
+     * camera resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    CAMERA = 1,
+
+    /**
+     * screenshot resource
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    SCREENSHOT = 2
   }
 
   /**
