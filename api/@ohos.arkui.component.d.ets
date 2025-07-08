@@ -45,7 +45,6 @@ export * from './arkui/component/stack';
 export * from './arkui/component/symbolglyph';
 export * from './arkui/component/units';
 export * from './arkui/component/resources';
-export * from './arkui/component/locationButton';
 export * from './arkui/component/pasteButton';
 export * from './arkui/component/saveButton';
 export * from './arkui/component/securityComponent';
