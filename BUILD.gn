@@ -408,7 +408,7 @@ action("gen_api_check_plugin") {
   script = "build_api_check_plugin.py"
   args = [
     "--source_path",
-    rebase_path(get_path_info("./build-tools", "abspath")),
+    rebase_path(get_path_info("./build-tools/compiler-plugins/api-check-plugin-static", "abspath")),
     "--output_path",
     rebase_path("$target_gen_dir"),
     "--npm",

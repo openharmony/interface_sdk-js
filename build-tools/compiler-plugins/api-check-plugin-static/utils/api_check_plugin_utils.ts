@@ -36,7 +36,7 @@ import {
   PERMISSION_TAG_CHECK_ERROR,
   PERMISSION_TAG_CHECK_NAME,
   RUNTIME_OS_OH,
-  SINCE_TAG_CHECK_ERROER,
+  SINCE_TAG_CHECK_ERROR,
   SINCE_TAG_NAME,
   STAGE_COMPILE_MODE,
   SYSCAP_TAG_CHECK_NAME
@@ -48,7 +48,7 @@ import {
   JsDocNodeCheckConfigItem,
   JSDocTag
 } from '../api-check-wrapper';
-import { PermissionVaildTokenState } from './api_check_plugin_enums';
+import { PermissionValidTokenState } from './api_check_plugin_enums';
 
 /**
  * 从 JSON 文件中提取所有 src 字段到数组
@@ -117,7 +117,7 @@ export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem)
     const minorJSDocVersion: number = getJSDocMinorVersion(jsDocs);
     const compatibleSdkVersion: number = globalObject.projectConfig.compatibleSdkVersion;
     if (minorJSDocVersion > compatibleSdkVersion) {
-      config.message = SINCE_TAG_CHECK_ERROER.replace('$SINCE1', minorJSDocVersion.toString())
+      config.message = SINCE_TAG_CHECK_ERROR.replace('$SINCE1', minorJSDocVersion.toString())
         .replace('$SINCE2', compatibleSdkVersion.toString());
       return true;
     }
@@ -135,11 +135,11 @@ function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
   if (jsDocs && jsDocs.length > 0) {
     for (let i = 0; i < jsDocs.length; i++) {
       const jsdoc: JSDoc = jsDocs[i];
-      if (jsdoc.records && jsdoc.records.length > 0) {
-        for (let j = 0; j < jsdoc.records.length; j++) {
-          const tag: JSDocTag = jsdoc.records[j];
+      if (jsdoc.tags && jsdoc.tags.length > 0) {
+        for (let j = 0; j < jsdoc.tags.length; j++) {
+          const tag: JSDocTag = jsdoc.tags[j];
           if (tag.name === SINCE_TAG_NAME) {
-            const currentVersion: number = Number.parseInt(tag.comment);
+            const currentVersion: number = Number.parseInt(tag.name);
             if (minorVersion === 0 ||
               !Number.isNaN(currentVersion) && currentVersion > minorVersion) {
               minorVersion = currentVersion;
@@ -164,11 +164,11 @@ function getCurrentJSDoc(jsDocs: JSDoc[]): JSDoc {
   if (jsDocs && jsDocs.length > 0) {
     for (let i = 0; i < jsDocs.length; i++) {
       const jsdoc: JSDoc = jsDocs[i];
-      if (jsdoc.records && jsdoc.records.length > 0) {
-        for (let j = 0; j < jsdoc.records.length; j++) {
-          const tag: JSDocTag = jsdoc.records[j];
+      if (jsdoc.tags && jsdoc.tags.length > 0) {
+        for (let j = 0; j < jsdoc.tags.length; j++) {
+          const tag: JSDocTag = jsdoc.tags[j];
           if (tag.name === SINCE_TAG_NAME) {
-            const currentVersion: number = Number.parseInt(tag.comment);
+            const currentVersion: number = Number.parseInt(tag.name);
             if (!Number.isNaN(currentVersion) && minorVersion > currentVersion) {
               minorVersion = currentVersion;
               currentJsDoc = jsdoc;
@@ -189,7 +189,7 @@ function getCurrentJSDoc(jsDocs: JSDoc[]): JSDoc {
  * @returns { JSDocTag | undefined }
  */
 function getJSDocTag(jsDoc: JSDoc, tagName: string): JSDocTag | undefined {
-  const jsDocTag: JSDocTag | undefined = jsDoc.records.find((item: JSDocTag) => {
+  const jsDocTag: JSDocTag | undefined = jsDoc.tags.find((item: JSDocTag) => {
     return item.name === tagName;
   });
   return jsDocTag;
@@ -215,7 +215,7 @@ function validPermission(comment: string, permissionsArray: string[]): boolean {
   //STEP2
   const calcValidResult: PermissionVaildCalcInfo = {
     valid: false,
-    currentToken: PermissionVaildTokenState.Init,
+    currentToken: PermissionValidTokenState.Init,
     finish: false,
     currentPermissionMatch: true,
   };
@@ -307,11 +307,11 @@ function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: Permissi
     return;
   }
   if (atomStacks[0] === 'and') {
-    calcValidResult.currentToken = PermissionVaildTokenState.And;
+    calcValidResult.currentToken = PermissionValidTokenState.And;
   } else if (atomStacks[0] === 'or') {
-    calcValidResult.currentToken = PermissionVaildTokenState.Or;
+    calcValidResult.currentToken = PermissionValidTokenState.Or;
   } else {
-    if (calcValidResult.currentToken === PermissionVaildTokenState.Or) {
+    if (calcValidResult.currentToken === PermissionValidTokenState.Or) {
       if (inValidOrExpression(
         atomStacks,
         calcValidResult,
@@ -319,7 +319,7 @@ function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: Permissi
       )) {
         calcValidResult.currentPermissionMatch = false;
       }
-    } else if (calcValidResult.currentToken === PermissionVaildTokenState.And) {
+    } else if (calcValidResult.currentToken === PermissionValidTokenState.And) {
       if (inValidAndExpression(
         atomStacks,
         calcValidResult,
@@ -690,8 +690,9 @@ export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfig
   if (!jsDocTag) {
     return false;
   }
-  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', jsDocTag.comment);
-  return jsDocTag.comment !== '' && !validPermission(jsDocTag.comment, globalObject.projectConfig.permissionsArray);
+  const permissionExpression: string = jsDocTag.name + ' ' + jsDocTag.description;
+  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
+  return permissionExpression !== '' && !validPermission(permissionExpression, globalObject.projectConfig.permissionsArray);
 }
 
 /**
@@ -742,8 +743,8 @@ export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem
   let currentSyscapValue: string = '';
   if (jsDocs && jsDocs.length > 0) {
     const jsDoc: JSDoc = getCurrentJSDoc(jsDocs);
-    for (let i = 0; i < jsDoc.records.length; i++) {
-      const jsDocTag: JSDocTag = jsDoc.records[i];
+    for (let i = 0; i < jsDoc.tags.length; i++) {
+      const jsDocTag: JSDocTag = jsDoc.tags[i];
       if (jsDocTag && jsDocTag.name === SYSCAP_TAG_CHECK_NAME) {
         currentSyscapValue = jsDocTag.comment;
         break;

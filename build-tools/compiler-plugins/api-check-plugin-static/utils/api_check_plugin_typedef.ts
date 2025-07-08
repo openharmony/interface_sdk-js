@@ -14,7 +14,7 @@
  */
 
 import { JSDoc, JsDocNodeCheckConfigItem } from "../api-check-wrapper";
-import { PermissionVaildTokenState } from "./api_check_plugin_enums";
+import { PermissionValidTokenState } from "./api_check_plugin_enums";
 
 // 定义 JSON 数据结构接口
 export interface WindowConfig {
@@ -101,7 +101,7 @@ export interface GlobalObject {
 
 export interface PermissionVaildCalcInfo {
   valid: boolean;
-  currentToken: PermissionVaildTokenState;
+  currentToken: PermissionValidTokenState;
   finish: boolean;
   currentPermissionMatch: boolean;
 }
