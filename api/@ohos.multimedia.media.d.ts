@@ -1779,6 +1779,15 @@ declare namespace media {
      * @since 18
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
+
+    /**
+     * The parameter value is out of the specified range.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVERR_PARAMETER_OUT_OF_RANGE = 5400108,
   }
 
   /**
