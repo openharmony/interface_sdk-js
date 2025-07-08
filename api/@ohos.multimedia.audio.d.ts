@@ -4911,9 +4911,9 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 12
      * @deprecated since 20
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
-     * @since 12
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -5279,6 +5279,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5287,8 +5289,6 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
-     * @deprecated since 20
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     /**
      * Obtains the volume of a volume type. This method uses a promise to return the query result.
@@ -5297,6 +5297,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5309,8 +5311,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
-     * @deprecated since 20
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     /**
      * Obtains the volume of a volume type.
@@ -5352,8 +5352,6 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
-     * @deprecated since 20
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     /**
      * Obtains the minimum volume allowed for a volume type. This method uses a promise to return the query result.
