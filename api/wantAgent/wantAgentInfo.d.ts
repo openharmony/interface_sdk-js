@@ -197,7 +197,6 @@ export interface WantAgentInfo {
  * @systemapi
  * @stagemodelonly
  * @since 20
- * @arkts 1.1&1.2
  */
 export interface LocalWantAgentInfo {
   /**
@@ -208,7 +207,6 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   wants: Array<Want>;
 
@@ -220,7 +218,6 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   operationType?: abilityWantAgent.OperationType;
 
@@ -232,8 +229,6 @@ export interface LocalWantAgentInfo {
    * @systemapi
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   requestCode: number;
 }
-
