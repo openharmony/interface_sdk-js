@@ -5684,6 +5684,22 @@ declare namespace window {
     getWindowDensityInfo(): WindowDensityInfo;
 
     /**
+     * Set window container background color in the active and inactive states.
+     *
+     * @param { string } activeColor - window container color in active.
+     * @param { string } inactiveColor - window container color in inactive.
+     * @throws { BusinessError } 202 - Permission verification
+     * failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
+
+    /**
      * Determine whether the window spans multiple screens and displays in full screen mode.
      *
      * @returns { Promise<boolean> } Whether the window spans multiple screens and displays in full screen mode. 
