@@ -25,7 +25,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  *
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace power {
   /**
@@ -41,7 +42,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function shutdown(reason: string): void;
 
@@ -73,7 +75,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function reboot(reason: string): void;
 
@@ -105,8 +108,10 @@ declare namespace power {
    * The screen will be on if device is active, screen will be off otherwise.
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isActive(): boolean;
 
@@ -134,7 +139,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function wakeup(detail: string): void;
 
@@ -170,7 +176,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -178,8 +185,10 @@ declare namespace power {
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPowerMode(): DevicePowerMode;
 
@@ -193,9 +202,11 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -209,9 +220,11 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -221,7 +234,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isStandby(): boolean;
 
@@ -247,7 +261,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -266,51 +281,57 @@ declare namespace power {
    * Sets the timeout duration(ms) for turning off the screen with permission.
    *
    * @permission ohos.permission.POWER_MANAGER
-   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setScreenOffTime(timeout: number): void;
+  function setScreenOffTime(timeout: long): void;
 
   /**
    * Power mode of a device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DevicePowerMode {
     /**
      * Normal power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
-     *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
+     *
      */
     MODE_POWER_SAVE,
     /**
      * Performance power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_PERFORMANCE,
     /**
      * Extreme power save mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_EXTREME_POWER_SAVE
   }
