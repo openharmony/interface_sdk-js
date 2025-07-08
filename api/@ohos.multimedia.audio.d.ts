@@ -159,7 +159,7 @@ declare namespace audio {
    * <p><strong>NOTE</strong>:
    * The {@link AudioManager} instance is not a singleton.
    * </p>
-   * 
+   *
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -230,9 +230,9 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -255,7 +255,7 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
@@ -265,9 +265,9 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -506,7 +506,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Audio volume type for media purpose. 
+     * Audio volume type for media purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -4411,6 +4411,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -4429,6 +4431,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -4453,6 +4457,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
 
@@ -4891,6 +4897,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4903,6 +4911,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      * @since 12
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
@@ -5277,6 +5287,8 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     /**
      * Obtains the volume of a volume type. This method uses a promise to return the query result.
@@ -5297,6 +5309,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 10
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     /**
      * Obtains the volume of a volume type.
@@ -5309,6 +5323,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5326,6 +5342,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5334,6 +5352,8 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     /**
      * Obtains the minimum volume allowed for a volume type. This method uses a promise to return the query result.
@@ -5342,6 +5362,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5366,6 +5388,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5383,6 +5407,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5399,6 +5425,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5423,6 +5451,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5465,6 +5495,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -5483,6 +5515,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -5509,6 +5543,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMuteSync(volumeType: AudioVolumeType): boolean;
 
@@ -5863,6 +5899,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
     /**
@@ -5895,6 +5933,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
     /**
@@ -5923,6 +5963,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
 
@@ -6473,7 +6515,7 @@ declare namespace audio {
     /**
      * Enables or disables collaborative playback for the specified device.
      * Currently, only A2DP audio devices support collaborative playback.
-     * If the system is using the specified device for audio output, 
+     * If the system is using the specified device for audio output,
      * the audio will be played from both the local speaker and the specified device after this API is called.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @param { boolean } enabled - Whether to enable or disable collaborative playback. The value true means to enable it, and false means to disable it.
