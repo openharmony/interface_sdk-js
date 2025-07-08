@@ -327,6 +327,9 @@ function tsTransform(utFiles, callback) {
         isTransformer = false;
       }
     }
+    if (/\.static\.d\.ets$/.test(apiBaseName)) {
+      isTransformer = false;
+    }
     if (!isTransformer) {
       writeFile(url, content);
       return;
