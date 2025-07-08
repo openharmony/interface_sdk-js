@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,7 +38,7 @@ declare namespace fileShare {
   /**
    * Enumerates the uri operate mode types.
    *
-   * @enum { number } OperationMode
+   * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -186,12 +186,12 @@ declare namespace fileShare {
     /**
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    operationMode: number;
+    operationMode: int;
   }
 
   /**
@@ -357,7 +357,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -374,7 +375,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
