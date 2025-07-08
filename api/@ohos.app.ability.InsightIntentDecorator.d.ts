@@ -391,29 +391,6 @@ export declare const InsightIntentFunctionMethod: ((intentInfo: FunctionIntentDe
 export declare const InsightIntentFunction: (() => ClassDecorator);
 
 /**
-  * Declare interface of FormIntentDecoratorInfo.
-  *
-  * @extends IntentDecoratorInfo
-  * @interface FormIntentDecoratorInfo
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @atomicservice
-  * @since 20
-  */
-declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
-/**
-   * The form name bound to the intent.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   */
-  formName: string;
-}
-
-/**
  * Declare interface of EntryIntentDecoratorInfo.
  *
  * @extends IntentDecoratorInfo
