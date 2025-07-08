@@ -1078,14 +1078,14 @@ declare interface Point {
   /**
    * The x-coordinate of the coordinate point.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
   /**
    * The y-coordinate of the coordinate point.
    *
@@ -1116,14 +1116,14 @@ declare interface Point {
   /**
    * The y-coordinate of the coordinate point.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
   /**
    * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
    *
@@ -1191,14 +1191,14 @@ declare interface Rect {
   /**
    * The x-coordinate of the top left corner of the rectangle.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  left: number;
+  left: int;
   /**
    * The y-coordinate of the top left corner of the rectangle.
    *
@@ -1229,14 +1229,14 @@ declare interface Rect {
   /**
    * The y-coordinate of the top left corner of the rectangle.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  top: number;
+  top: int;
   /**
    * The x-coordinate at the bottom right corner of the rectangle.
    *
@@ -1267,14 +1267,14 @@ declare interface Rect {
   /**
    * The x-coordinate at the bottom right corner of the rectangle.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  right: number;
+  right: int;
   /**
    * The y-coordinate at the bottom right corner of the rectangle.
    *
@@ -1305,14 +1305,14 @@ declare interface Rect {
   /**
    * The y-coordinate at the bottom right corner of the rectangle.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'20','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  bottom: number;
+  bottom: int;
   /**
    * The displayId to which the rect belongs, default is the displayId of the main screen.
    *
@@ -1423,7 +1423,7 @@ declare interface WindowFilter {
    * @arkts 1.1&1.2
    */
   active?: boolean;
-
+  
   /**
    * Find the window in the specified ID display. By default, it searches all displays.
    *
@@ -1807,14 +1807,14 @@ declare interface TouchPadSwipeOptions {
 
   /**
    * Speed(pixels per second) of touchpad multi-finger swipe, default is 2000, the value ranges from 200 to 40000,set it 2000 if out of range.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since arkts {'1.1':'18','1.2':'20'}
    * @test
    * @arkts 1.1&1.2
    */
-  speed?: number;
+  speed?: int;
 }
 
 /**
@@ -3128,7 +3128,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3140,7 +3140,7 @@ declare class Component {
    * @test
    * @arkts 1.1&1.2
    */
-  scrollToTop(speed?: number): Promise<void>;
+  scrollToTop(speed?: int): Promise<void>;
 
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
@@ -3170,7 +3170,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3182,7 +3182,7 @@ declare class Component {
    * @test
    * @arkts 1.1&1.2
    */
-  scrollToBottom(speed?: number): Promise<void>;
+  scrollToBottom(speed?: int): Promise<void>;
 
   /**
    * Get the bounds rect of this {@link Component}.
@@ -3219,6 +3219,7 @@ declare class Component {
    * @arkts 1.1&1.2
    */ 
   getBounds(): Promise<Rect>;
+
   /**
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    *
@@ -3323,64 +3324,65 @@ declare class Component {
    * @arkts 1.1&1.2
    */
   dragTo(target: Component): Promise<void>;
+  
+   /**
+    * Pinch enlarge this {@link Component} to the target scale.
+    *
+    * @param { number } scale The scale of the pinch enlarge this {@link Component}'s size.
+    * @returns { Promise<void> }
+    * @throws { BusinessError } 401 - if the input parameters are invalid.
+    * @throws { BusinessError } 17000002 - if the async function was not called with await.
+    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 9
+    * @test
+    */
+   /**
+    * Pinch enlarge this {@link Component} to the target scale.
+    *
+    * @param { double } scale - the scale of the pinch enlarge this {@link Component}'s size, ranges greater than 1.
+    * @returns { Promise<void> }
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'11','1.2':'20'}
+    * @test
+    * @arkts 1.1&1.2
+    */
+   pinchOut(scale: double): Promise<void>;
+   /**
+    * Pinch shrink this {@link Component} to the target scale.
+    *
+    * @param { number } scale The scale of the pinch shrink this {@link Component}'s size.
+    * @returns { Promise<void> }
+    * @throws { BusinessError } 401 - if the input parameters are invalid.
+    * @throws { BusinessError } 17000002 - if the async function was not called with await.
+    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 9
+    * @test
+    */
+   /**
+    * Pinch shrink this {@link Component} to the target scale.
+    *
+    * @param { double } scale - the scale of the pinch shrink this {@link Component}'s size, ranges from 0 to 1.
+    * @returns { Promise<void> }
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+    * @throws { BusinessError } 17000002 - The async function is not called with await.
+    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+    * @syscap SystemCapability.Test.UiTest
+    * @crossplatform
+    * @atomicservice
+    * @since arkts {'1.1':'11','1.2':'20'}
+    * @test
+    * @arkts 1.1&1.2
+    */
+   pinchIn(scale: double): Promise<void>;
 
-  /**
-   * Pinch enlarge this {@link Component} to the target scale.
-   *
-   * @param { number } scale The scale of the pinch enlarge this {@link Component}'s size.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
-   * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @since 9
-   * @test
-   */
-  /**
-   * Pinch enlarge this {@link Component} to the target scale.
-   *
-   * @param { number } scale - the scale of the pinch enlarge this {@link Component}'s size, ranges greater than 1.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
-   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @test
-   * @arkts 1.1&1.2
-   */
-  pinchOut(scale: number): Promise<void>;
 
-  /**
-   * Pinch shrink this {@link Component} to the target scale.
-   *
-   * @param { number } scale The scale of the pinch shrink this {@link Component}'s size.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - if the input parameters are invalid.
-   * @throws { BusinessError } 17000002 - if the async function was not called with await.
-   * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @since 9
-   * @test
-   */
-  /**
-   * Pinch shrink this {@link Component} to the target scale.
-   *
-   * @param { number } scale - the scale of the pinch shrink this {@link Component}'s size, ranges from 0 to 1.
-   * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 17000002 - The async function is not called with await.
-   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-   * @syscap SystemCapability.Test.UiTest
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @test
-   * @arkts 1.1&1.2
-   */
-  pinchIn(scale: number): Promise<void>;
    /**
     * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
     *
@@ -3444,7 +3446,7 @@ declare class Component {
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @param { boolean } [vertical] - Whether the swipe direction is vertical, default is true.
-    * @param { number } [offset] - Offset from the swipe start/end point to the component border, default is 80.
+    * @param { int } [offset] - Offset from the swipe start/end point to the component border, default is 80.
     * @returns { Promise<Component | null> } the found result,or null if not found.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3455,7 +3457,7 @@ declare class Component {
     * @test
     * @arkts 1.2
     */
-   scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component | null>;
+  scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
    /**
    * Get the original text attribute value.
    * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
@@ -3561,7 +3563,7 @@ declare class Driver {
   /**
    * Delay with specified duration.
    *
-   * @param { number } duration - the delay duration in milliseconds, not less than 0.
+   * @param { int } duration - the delay duration in milliseconds, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3572,7 +3574,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  delayMs(duration: number): Promise<void>;
+  delayMs(duration: int): Promise<void>;
 
   /**
    * Find the first matched {@link Component} on current UI.
@@ -3693,7 +3695,7 @@ declare class Driver {
     * Find the first matched {@link Component} on current UI during the time given.
     *
     * @param { On } on - the attribute requirements of the target {@link Component}.
-    * @param { number } time - duration of finding in milliseconds, not less than 0.
+    * @param { int } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3703,7 +3705,7 @@ declare class Driver {
     * @test
     * @arkts 1.2
     */
-   waitForComponent(on: On, time: number): Promise<Component | null>;
+  waitForComponent(on: On, time: int): Promise<Component | null>;
   /**
    * Find all the matched {@link Component}s on current UI.
    *
@@ -3858,7 +3860,7 @@ declare class Driver {
   /**
    * Press the specified key.
    *
-   * @param { number } keyCode - the target keyCode.
+   * @param { int } keyCode - the target keyCode.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3869,7 +3871,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  triggerKey(keyCode: number): Promise<void>;
+  triggerKey(keyCode: int): Promise<void>;
 
   /**
    * Press the specified key on the specified display.
@@ -3902,9 +3904,9 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { number } key0 - the first keyCode.
-   * @param { number } key1 - the second keyCode.
-   * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
+   * @param { int } key0 - the first keyCode.
+   * @param { int } key1 - the second keyCode.
+   * @param { int } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3915,7 +3917,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
+  triggerCombineKeys(key0: int, key1: int, key2?: int): Promise<void>;
 
   /**
    * Press two or three key combinations on the specified display.
@@ -3962,8 +3964,8 @@ declare class Driver {
   /**
    * Click on the specified location on the screen.
    *
-   * @param { number } x - the x-coordinate, not less than 0.
-   * @param { number } y - the y-coordinate, not less than 0.
+   * @param { int } x - the x-coordinate, not less than 0.
+   * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -3974,7 +3976,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  click(x: number, y: number): Promise<void>;
+  click(x: int, y: int): Promise<void>;
 
   /**
    * DoubleClick on the specified location on the screen.
@@ -4004,8 +4006,8 @@ declare class Driver {
   /**
    * DoubleClick on the specified location on the screen.
    *
-   * @param { number } x - the x-coordinate, not less than 0.
-   * @param { number } y - the y-coordinate, not less than 0.
+   * @param { int } x - the x-coordinate, not less than 0.
+   * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4016,7 +4018,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  doubleClick(x: number, y: number): Promise<void>;
+  doubleClick(x: int, y: int): Promise<void>;
 
   /**
    * LongClick on the specified location on the screen.
@@ -4046,8 +4048,8 @@ declare class Driver {
   /**
    * LongClick on the specified location on the screen.
    *
-   * @param { number } x - the x-coordinate, not less than 0.
-   * @param { number } y - the y-coordinate, not less than 0.
+   * @param { int } x - the x-coordinate, not less than 0.
+   * @param { int } y - the y-coordinate, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4058,7 +4060,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  longClick(x: number, y: number): Promise<void>;
+  longClick(x: int, y: int): Promise<void>;
 
   /**
    * Swipe on the screen between the specified points.
@@ -4094,11 +4096,11 @@ declare class Driver {
   /**
    * Swipe on the screen between the specified points.
    *
-   * @param { number } startx - the x-coordinate of the starting point, not less than 0.
-   * @param { number } starty - the y-coordinate of the starting point, not less than 0.
-   * @param { number } endx - the x-coordinate of the ending point, not less than 0.
-   * @param { number } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } startx - the x-coordinate of the starting point, not less than 0.
+   * @param { int } starty - the y-coordinate of the starting point, not less than 0.
+   * @param { int } endx - the x-coordinate of the ending point, not less than 0.
+   * @param { int } endy - the y-coordinate of the ending point, not less than 0.
+   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4109,7 +4111,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  swipe(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
+  swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
    * Drag on the screen between the specified points.
@@ -4129,11 +4131,11 @@ declare class Driver {
   /**
    * Drag on the screen between the specified points.
    *
-   * @param { number } startx - the x-coordinate of the starting point, not less than 0.
-   * @param { number } starty - the y-coordinate of the starting point, not less than 0.
-   * @param { number } endx - the x-coordinate of the ending point, not less than 0.
-   * @param { number } endy - the y-coordinate of the ending point, not less than 0.
-   * @param { number } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } startx - the x-coordinate of the starting point, not less than 0.
+   * @param { int } starty - the y-coordinate of the starting point, not less than 0.
+   * @param { int } endx - the x-coordinate of the ending point, not less than 0.
+   * @param { int } endy - the y-coordinate of the ending point, not less than 0.
+   * @param { int } [speed] the speed of drag(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4143,7 +4145,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  drag(startx: number, starty: number, endx: number, endy: number, speed?: number): Promise<void>;
+  drag(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
    * Click on the specified location on the screen.
@@ -4495,8 +4497,8 @@ declare class Driver {
   /**
    * Wait for the UI become idle.
    *
-   * @param { number } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
-   * @param { number } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
+   * @param { int } idleTime - the threshold of UI idle time, in millisecond, not less than 0.
+   * @param { int } timeout - the maximum time to wait for idle, in millisecond, not less than 0.
    * @returns { Promise<boolean> } true if wait for idle succeed in the timeout, false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4506,7 +4508,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  waitForIdle(idleTime: number, timeout: number): Promise<boolean>;
+  waitForIdle(idleTime: int, timeout: int): Promise<boolean>;
 
   /**
    * Inject fling on the device display.
@@ -4542,8 +4544,8 @@ declare class Driver {
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
    * @param { Point } to - the coordinate point where the finger leaves the screen.
-   * @param { number } stepLen - the length of each step, in pixels.
-   * @param { number } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } stepLen - the length of each step, in pixels.
+   * @param { int } [speed] - the speed of fling(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4554,7 +4556,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  fling(from: Point, to: Point, stepLen: number, speed: number): Promise<void>;
+  fling(from: Point, to: Point, stepLen: int, speed: int): Promise<void>;
 
   /**
    * Inject multi-pointer action on the device display.
@@ -4572,7 +4574,7 @@ declare class Driver {
    * Inject multi-pointer action on the device display.
    *
    * @param { PointerMatrix } pointers - the two-dimensional array of pointers to inject.
-   * @param { number } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - the speed of swipe(pixels per second),ranges from 200 to 40000. Set it default 600 if out of range or null or undefined.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4583,7 +4585,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise<boolean>;
+  injectMultiPointerAction(pointers: PointerMatrix, speed?: int): Promise<boolean>;
 
   /**
    * Inject fling on the device display.
@@ -4614,7 +4616,7 @@ declare class Driver {
    * Inject fling on the device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4625,7 +4627,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  fling(direction: UiDirection, speed: number): Promise<void>;
+  fling(direction: UiDirection, speed: int): Promise<void>;
 
   /**
    * Inject fling on the specified device display.
@@ -4633,7 +4635,7 @@ declare class Driver {
    * @param { UiDirection } direction - the direction of this action.
    * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
    * @param { number } displayId - the Id of the specified display.
-  * @returns { Promise<void> }
+   * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
@@ -4662,8 +4664,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4673,7 +4675,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+  mouseClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
 
   /**
    * Move the mouse cursor to the specified location.
@@ -4721,9 +4723,9 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
-   * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4733,17 +4735,17 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): Promise<void>;
+  mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int): Promise<void>;
 
   /**
    * The mouse wheel scrolls the specified cell at the specified position, and press the specified key simultaneously if necessary.
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { boolean } down - whether the mouse wheel rolls down.
-   * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
-   * @param { number } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
+   * @param { int } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } [speed] - The Speed of mouse wheel rolls(cells per second),ranges from 1 to 500.Set it default 20 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4753,7 +4755,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, speed?: number): Promise<void>;
+  mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int, speed?: int): Promise<void>;
 
   /**
    * Capture the specified area of current screen and save as picture which PNG format.
@@ -4810,8 +4812,8 @@ declare class Driver {
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4821,15 +4823,15 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+  mouseDoubleClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
 
   /**
    * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
    *
    * @param { Point } p - the coordinate of the specified location.
    * @param { MouseButton } btnId - the button of Mouse.
-   * @param { number } [key1] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key2] - the second keyCode,set it default 0 if null or undefined.
+   * @param { int } [key1] - the first keyCode,set it default 0 if null or undefined.
+   * @param { int } [key2] - the second keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4839,7 +4841,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise<void>;
+  mouseLongClick(p: Point, btnId: MouseButton, key1?: int, key2?: int): Promise<void>;
 
   /**
    * Long click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -4864,7 +4866,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - speed of swipe (pixels per second),the value ranges from 200 to 40000.Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4874,14 +4876,14 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise<void>;
+  mouseMoveWithTrack(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
    * Hold down the left mouse button and drag on the screen between the specified points.
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
+   * @param { int } [speed] - speed of drag (pixels per second),the value ranges from 200 to 40000,Set it default 600 if out of range or null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -4891,7 +4893,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
+  mouseDrag(from: Point, to: Point, speed?: int): Promise<void>;
 
   /**
    * Hold down the left mouse button and drag on the screen between the specified points.
@@ -4945,7 +4947,7 @@ declare class Driver {
 
   /**
    * Simulate touchpad multi-finger swipe gestures.
-   * @param { number } fingers Finger count of touchpad multi-finger swipe, ranges from 3 to 4.
+   * @param { int } fingers Finger count of touchpad multi-finger swipe, ranges from 3 to 4.
    * @param { UiDirection } direction Direction of touchpad multi-finger swipe.
    * @param { TouchPadSwipeOptions } [options] Additional options touchpad multi-finger swipe gestures, set its parameters to default values if null or undefined.
    * @returns { Promise<void> }
@@ -4958,7 +4960,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
+  touchPadMultiFingerSwipe(fingers: int, direction: UiDirection, options?: TouchPadSwipeOptions): Promise<void>;
 
   /**
    * Simulate pen click operation.
@@ -4977,7 +4979,7 @@ declare class Driver {
   /**
    * Simulate pen long click operation.
    * @param { Point } point Coordinate of the specified location.
-   * @param { number } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @param { double } [pressure] Pressure of pen long click operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 The async function is not called with await.
@@ -4987,7 +4989,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  penLongClick(point: Point, pressure?: number): Promise<void>;
+  penLongClick(point: Point, pressure?: double): Promise<void>;
 
   /**
    * Simulate pen double click operation.
@@ -5007,8 +5009,8 @@ declare class Driver {
    * Simulate pen swipe operation.
    * @param { Point } startPoint Coordinate of the specified location.
    * @param { Point } endPoint Coordinate of the specified location.
-   * @param { number } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-   * @param { number } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @param { int } [speed] Speed(pixels per second) of pen swipe, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { double } [pressure] Pressure of pen swipe operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 The async function is not called with await.
@@ -5018,13 +5020,13 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number): Promise<void>;
+  penSwipe(startPoint: Point, endPoint: Point, speed?: int, pressure?: double): Promise<void>;
 
   /**
    * Inject pen multi-pointer action on the device display.
    * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { number } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-   * @param { number } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
+   * @param { int } [speed] Speed(pixels per second) of inject pen pointer action, default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { double } [pressure] Pressure of inject pen pointer action operation, default is 1.0, the value ranges from 0.0 to 1.0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 The async function is not called with await.
@@ -5034,7 +5036,7 @@ declare class Driver {
    * @test
    * @arkts 1.1&1.2
    */
-  injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: number): Promise<void>;
+  injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
 
   /**
    * Inject a watch crown rotation event, specifies the rotation speed if necessary.
@@ -5254,8 +5256,8 @@ declare class UiWindow {
   /**
    * Move this {@link UiWindow} to the specified points.
    *
-   * @param { number } x - the x coordinate of destination, not less than 0.
-   * @param { number } y - the y coordinate of destination, not less than 0.
+   * @param { int } x - the x coordinate of destination, not less than 0.
+   * @param { int } y - the y coordinate of destination, not less than 0.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
@@ -5267,7 +5269,7 @@ declare class UiWindow {
    * @test
    * @arkts 1.1&1.2
    */
-  moveTo(x: number, y: number): Promise<void>;
+  moveTo(x: int, y: int): Promise<void>;
 
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
@@ -5287,8 +5289,8 @@ declare class UiWindow {
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
    *
-   * @param { number } wide - the expected wide of the window after resizing.
-   * @param { number } height - the expected height of the window after resizing.
+   * @param { int } wide - the expected wide of the window after resizing.
+   * @param { int } height - the expected height of the window after resizing.
    * @param { ResizeDirection } direction - the expected direction of the window after resizing.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5301,7 +5303,7 @@ declare class UiWindow {
    * @test
    * @arkts 1.1&1.2
    */
-  resize(wide: number, height: number, direction: ResizeDirection): Promise<void>;
+  resize(wide: int, height: int, direction: ResizeDirection): Promise<void>;
 
   /**
    * Change this {@link UiWindow} into split screen mode.
@@ -5495,8 +5497,8 @@ declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
    *
-   * @param { number } fingers - The number of fingers, ranges from 1 to 10.
-   * @param { number } steps - The number of steps of each finger trace, ranges from 1 to 1000.
+   * @param { int } fingers - The number of fingers, ranges from 1 to 10.
+   * @param { int } steps - The number of steps of each finger trace, ranges from 1 to 1000.
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5506,7 +5508,7 @@ declare class PointerMatrix {
    * @test
    * @arkts 1.1&1.2
    */
-  static create(fingers: number, steps: number): PointerMatrix;
+  static create(fingers: int, steps: int): PointerMatrix;
 
   /**
    * Set the point value of an element in the PointerMatrix.
@@ -5522,8 +5524,8 @@ declare class PointerMatrix {
   /**
    * Set the point value of an element in the PointerMatrix.
    *
-   * @param { number } finger - the index of target finger to set.
-   * @param { number } step - the index of target step to set.
+   * @param { int } finger - the index of target finger to set.
+   * @param { int } step - the index of target step to set.
    * @param { Point } point - the coordinate of target step to set.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5533,7 +5535,7 @@ declare class PointerMatrix {
    * @test
    * @arkts 1.1&1.2
    */
-  setPoint(finger: number, step: number, point: Point): void;
+  setPoint(finger: int, step: int, point: Point): void;
 }
 
 /**
