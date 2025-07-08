@@ -140,13 +140,13 @@ declare namespace formInfo {
     /**
      * Obtains the displayName resource id of this form.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    displayNameId: int;
+    displayNameId: number;
 
     /**
      * Obtains the description of this form.
@@ -169,20 +169,20 @@ declare namespace formInfo {
     /**
      * Obtains the description id of this form.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
     /**
      * Obtains the description id of this form.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    descriptionId: int;
+    descriptionId: number;
 
     /**
      * Obtains the type of this form. Currently, JS forms are supported.
@@ -331,56 +331,56 @@ declare namespace formInfo {
     /**
      * Obtains the updateDuration.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
      * Obtains the updateDuration.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    updateDuration: int;
+    updateDuration: number;
 
     /**
      * Obtains the default grid style of this form.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
      * Obtains the default grid style of this form.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    defaultDimension: int;
+    defaultDimension: number;
 
     /**
      * Obtains the grid styles supported by this form.
      *
-     * @type { Array<int> }
+     * @type { Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @since 9
      */
     /**
      * Obtains the grid styles supported by this form.
      *
-     * @type { Array<int> }
+     * @type { Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    supportDimensions: Array<int>;
+    supportDimensions: Array<number>;
 
     /**
      * Obtains the custom data defined in this form.
@@ -433,18 +433,18 @@ declare namespace formInfo {
     /**
      * Obtains the shape supported by this form.
      *
-     * @type { Array<int> }
+     * @type { Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    supportedShapes: Array<int>;
+    supportedShapes: Array<number>;
 
     /**
      * Indicates the form previewImage IDs map corresponds to the \"supportDimensions\".
      *
-     * @type { ?Array<int> }
+     * @type { ?Array<number> }
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
@@ -452,7 +452,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly previewImages?: Array<int>;
+    readonly previewImages?: Array<number>;
 
     /**
      * Indicates whether the form uses a blur background provided by the form host.
@@ -504,7 +504,7 @@ declare namespace formInfo {
   /**
    * Rendering mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
@@ -543,14 +543,14 @@ declare namespace formInfo {
   /**
    * Type of form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   /**
    * Type of form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -593,14 +593,14 @@ declare namespace formInfo {
   /**
    * Color mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   /**
    * Color mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
@@ -713,14 +713,14 @@ declare namespace formInfo {
   /**
    * Provides state about a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   /**
    * Provides state about a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1258,38 +1258,38 @@ declare namespace formInfo {
      * optional supportedDimensions that used to ask getFormsInfo to return
      * form infos with the same supportedDimensions.
      *
-     * @type { ?Array<int> }
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    supportedDimensions?: Array<int>;
+    supportedDimensions?: Array<number>;
 
     /**
      * optional supportedShapes that used to ask getFormsInfo to return
      * form infos with the same supportedShapes.
      *
-     * @type { ?Array<int> }
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    supportedShapes?: Array<int>;
+    supportedShapes?: Array<number>;
   }
 
   /**
    * Defines the FormDimension enum.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   /**
    * Defines the FormDimension enum.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1420,7 +1420,7 @@ declare namespace formInfo {
   /**
    * Defines the FormShape enum.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -1451,14 +1451,14 @@ declare namespace formInfo {
   /**
    * The visibility of a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
   /**
    * The visibility of a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1527,14 +1527,14 @@ declare namespace formInfo {
   /**
    * Indicates the launch reason of a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 10
    */
   /**
    * Indicates the launch reason of a form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1612,7 +1612,7 @@ declare namespace formInfo {
   /**
    * The error code of publish form.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
@@ -1855,7 +1855,7 @@ declare namespace formInfo {
     /**
      * Obtains the grid style of this form.
      *
-     * @type { int }
+     * @type { number }
      * @default -
      * @readonly
      * @syscap SystemCapability.Ability.Form
@@ -1863,7 +1863,7 @@ declare namespace formInfo {
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly dimension: int;
+    readonly dimension: number;
 
     /**
      * Obtains the stage of form use.
@@ -1907,7 +1907,7 @@ declare namespace formInfo {
   /**
    * The stage of form use.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1937,7 +1937,7 @@ declare namespace formInfo {
   /**
    * Defines the FormLocation enum.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12
@@ -1945,7 +1945,7 @@ declare namespace formInfo {
   /**
    * Defines the FormLocation enum.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.Form
    * @since 20
    * @arkts 1.1&1.2

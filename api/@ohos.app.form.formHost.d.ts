@@ -617,7 +617,7 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { AsyncCallback<int> } callback - The callback is used to return the number of invalid forms deleted
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of invalid forms deleted
    *     by the Form Manager Service.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -630,7 +630,7 @@ declare namespace formHost {
    * @systemapi
    * @since 9
    */
-  function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<int>): void;
+  function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<number>): void;
 
   /**
    * Deletes invalid forms of the application in the Form Manager Service based on the list of.
@@ -638,7 +638,7 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { Array<string> } formIds - Indicates the specified form id.
-   * @returns { Promise<int> } Returns the number of invalid forms deleted by the Form Manager Service.
+   * @returns { Promise<number> } Returns the number of invalid forms deleted by the Form Manager Service.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -650,7 +650,7 @@ declare namespace formHost {
    * @systemapi
    * @since 9
    */
-  function deleteInvalidForms(formIds: Array<string>): Promise<int>;
+  function deleteInvalidForms(formIds: Array<string>): Promise<number>;
 
   /**
    * Obtains the Form state.
