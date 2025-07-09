@@ -3569,7 +3569,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
-    ERR_UNKOWN = -1,
+    ERR_UNKNOWN = -1,
 
     /**
      * Invalid parameter.
