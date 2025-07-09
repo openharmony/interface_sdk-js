@@ -68,13 +68,12 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * The callback of onOverrideErrorPage.
  *
  * @typedef { function } OnOverrideErrorpageCallback
- * @param { WebResourceRequest } webResourceRequest - Information about the failed request.
- * @param { error } WebResourceError - The information of error.
+ * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
  */
-type OnOverrideErrorPageCallback= (webResourceRequest: WebResourceRequest, error: WebResourceError) => string;
+type OnOverrideErrorPageCallback = (errorPageEvent: OnErrorReceiveEvent) => string;
 
 /**
  * The callback of largestContentfulPaint.
