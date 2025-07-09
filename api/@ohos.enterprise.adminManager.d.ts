@@ -27,7 +27,8 @@ import common from '@ohos.app.ability.common';
  *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace adminManager {
   /**
@@ -36,7 +37,8 @@ declare namespace adminManager {
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface EnterpriseInfo {
     /**
@@ -45,7 +47,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -55,7 +58,8 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description: string;
   }
@@ -455,7 +459,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
@@ -471,7 +476,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
@@ -692,7 +698,8 @@ declare namespace adminManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSuperAdmin(): Promise<Want>;
 
