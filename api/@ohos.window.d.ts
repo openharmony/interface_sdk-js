@@ -1271,7 +1271,6 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   enum WindowAnchor {
@@ -1279,7 +1278,6 @@ declare namespace window {
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_START = 0,
@@ -1287,7 +1285,6 @@ declare namespace window {
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP = 1,
@@ -1295,7 +1292,6 @@ declare namespace window {
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_END = 2,
@@ -1303,7 +1299,6 @@ declare namespace window {
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     START = 3,
@@ -1311,7 +1306,6 @@ declare namespace window {
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     CENTER = 4,
@@ -1319,7 +1313,6 @@ declare namespace window {
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     END = 5,
@@ -1327,7 +1320,6 @@ declare namespace window {
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_START = 6,
@@ -1335,7 +1327,6 @@ declare namespace window {
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM = 7,
@@ -1343,7 +1334,6 @@ declare namespace window {
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_END = 8,
@@ -5499,15 +5489,17 @@ declare namespace window {
     /**
      * Set whether the first level sub window supports maintaining the same relative position with the main window.
      *
-     * @param { boolean } enabled - The value true means the first level sub window supports maintaining the same relative position with the main window,
-     *                              and false means the opposite.
-     * @param { WindowAnchor } anchor - Window anchor point that setting
-     *                                  when the relative position between the primary sub window and the main window remains unchanged.
-     * @param { number } offsetX - The x-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
-     * @param { number } offsetY - The y-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { boolean } enabled - The value true means the first level sub window supports maintaining
+     *     the same relative position with the main window, and false means the opposite.
+     * @param { WindowAnchor } [anchor] - Window anchor point that setting
+     *     when the relative position between the primary sub window and the main window remains unchanged.
+     * @param { number } [offsetX] - The x-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { number } [offsetY] - The y-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
-     *                                 Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
+     *     Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5515,7 +5507,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor, offsetX?: number, offsetY?: number): Promise<void>;
+    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
+        offsetX?: number, offsetY?: number): Promise<void>;
 
     /**
      * Set the type of a window.
