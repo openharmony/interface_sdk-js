@@ -27,7 +27,8 @@ import { ElementName } from './bundleManager/ElementName';
  *
  * @namespace defaultAppManager
  * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace defaultAppManager {
   /**
@@ -35,70 +36,80 @@ declare namespace defaultAppManager {
    *
    * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ApplicationType {
     /**
      * Default browser identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BROWSER = 'Web Browser',
     /**
      * Default image identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE = 'Image Gallery',
     /**
      * Default audio identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO = 'Audio Player',
     /**
      * Default video identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO = 'Video Player',
     /**
      * Default PDF identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PDF = 'PDF Viewer',
     /**
      * Default word identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WORD = 'Word Viewer',
     /**
      * Default excel identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXCEL = 'Excel Viewer',
     /**
      * Default PPT identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PPT = 'PPT Viewer',
     /**
      * Default email identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMAIL = 'Email'
   }
@@ -111,7 +122,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>): void;
 
@@ -123,7 +135,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplication(type: string): Promise<boolean>;
 
@@ -135,7 +148,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplicationSync(type: string): boolean;
 
@@ -155,7 +169,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -173,7 +188,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
@@ -193,7 +209,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultApplication(type: string, userId?: number): Promise<BundleInfo>;
 
@@ -213,7 +230,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultApplicationSync(type: string, userId?: number): BundleInfo;
 
@@ -234,7 +252,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string,
     elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
@@ -254,7 +273,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
@@ -275,7 +295,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string, elementName: ElementName, userId?: number): Promise<void>;
 
@@ -295,7 +316,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: number): void;
 
@@ -314,7 +336,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -331,7 +354,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
@@ -350,7 +374,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function resetDefaultApplication(type: string, userId?: number): Promise<void>;
 
@@ -368,7 +393,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function resetDefaultApplicationSync(type: string, userId?: number): void;
 }

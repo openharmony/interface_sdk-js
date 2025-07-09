@@ -21,14 +21,14 @@
 import { AsyncCallback } from './@ohos.base';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
-/*** if arkts 1.1 */
-import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
-  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
+import Want from './@ohos.app.ability.Want';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
+/*** if arkts 1.1 */
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
-import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
 import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
 import * as _BundleInfo from './bundleManager/BundleInfo';
@@ -39,7 +39,9 @@ import * as _Skill from './bundleManager/Skill';
 /*** if arkts 1.2 */
 import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
+import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
+import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
@@ -397,7 +399,7 @@ declare namespace bundleManager {
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
      * Used to obtain the bundle information of an application installed by any user.
-     * It must be used together with GET_BUNDLE_INFO_WITH_APPLICATION. 
+     * It must be used together with GET_BUNDLE_INFO_WITH_APPLICATION.
      * It is valid only in the {@link getBundleInfo} and {@link getAllBundleInfo} APIs.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -704,8 +706,7 @@ declare namespace bundleManager {
      * Indicates extension info with type of form
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Indicates extension info with type of form
@@ -2191,7 +2192,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
 
@@ -2211,7 +2213,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getApplicationInfo(bundleName: string,
     appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
@@ -2232,7 +2235,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;
 
@@ -2247,7 +2251,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleInfo(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -2264,7 +2269,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
@@ -2281,7 +2287,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleInfo(bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
@@ -2296,7 +2303,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllApplicationInfo(appFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
@@ -2313,7 +2321,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllApplicationInfo(appFlags: number,
     userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
@@ -2331,7 +2340,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
@@ -2352,7 +2362,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
@@ -2375,7 +2386,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAbilityInfo(want: Want,
     abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
@@ -2399,7 +2411,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAbilityInfo(want: Want, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
@@ -2422,7 +2435,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAbilityInfo(wants: Array<Want>, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
@@ -2445,7 +2459,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
   
@@ -2482,7 +2497,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -2507,7 +2523,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
@@ -2532,7 +2549,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
@@ -2557,7 +2575,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: ExtensionAbilityType,
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
@@ -2582,7 +2601,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: string,
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
@@ -2604,7 +2624,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: number,
     userId?: number): Array<ExtensionAbilityInfo>;
@@ -2619,7 +2640,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void;
 
@@ -2633,7 +2655,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleNameByUid(uid: number): Promise<string>;
 
@@ -2647,7 +2670,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleNameByUidSync(uid: number): string;
 
@@ -2665,7 +2689,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700022 - The hapFilePath is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
@@ -2683,7 +2708,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700022 - The hapFilePath is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
 
@@ -2701,7 +2727,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700022 - The hapFilePath is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleArchiveInfoSync(hapFilePath: string, bundleFlags: number): BundleInfo;
 
@@ -2718,7 +2745,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -2735,7 +2763,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
@@ -2754,7 +2783,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
 
@@ -2767,7 +2797,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleCacheSize(): Promise<number>;
 
@@ -2780,7 +2811,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cleanAllBundleCache(): Promise<void>;
 
@@ -2799,7 +2831,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationEnabled(bundleName: string, appIndex: number, isEnabled: boolean): Promise<void>;
 
@@ -2816,7 +2849,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationEnabled(bundleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -2833,7 +2867,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationEnabled(bundleName: string, isEnabled: boolean): Promise<void>;
 
@@ -2849,7 +2884,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
 
@@ -2869,7 +2905,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAbilityEnabled(info: AbilityInfo, appIndex: number, isEnabled: boolean): Promise<void>;
 
@@ -2887,7 +2924,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -2905,7 +2943,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean): Promise<void>;
 
@@ -2922,7 +2961,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityInfo is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAbilityEnabledSync(info: AbilityInfo, isEnabled: boolean): void;
 
@@ -2938,7 +2978,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationEnabled(bundleName: string, appIndex: number): Promise<boolean>;
 
@@ -2952,7 +2993,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -2966,7 +3008,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
 
@@ -2998,7 +3041,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isAbilityEnabled(info: AbilityInfo, appIndex: number): Promise<boolean>;
 
@@ -3013,7 +3057,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
 
@@ -3028,7 +3073,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
 
@@ -3043,7 +3089,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isAbilityEnabledSync(info: AbilityInfo): boolean;
 
@@ -3064,7 +3111,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLaunchWantForBundle(bundleName: string, userId: number, callback: AsyncCallback<Want>): void;
 
@@ -3083,7 +3131,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
 
@@ -3104,7 +3153,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLaunchWantForBundle(bundleName: string, userId?: number): Promise<Want>;
 
@@ -3125,7 +3175,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
 
@@ -3138,7 +3189,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700072 - The launch want is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLaunchWant(): Want;
 
@@ -3171,7 +3223,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -3204,7 +3257,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
 
@@ -3237,7 +3291,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByAbilitySync(moduleName: string, abilityName: string, metadataName?: string): Array<string>;
 
@@ -3268,7 +3323,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -3299,7 +3355,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
@@ -3330,7 +3387,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getProfileByExtensionAbilitySync(moduleName: string, extensionAbilityName: string, metadataName?: string): Array<string>;
 
@@ -3346,7 +3404,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700006 - The specified permission is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
 
@@ -3362,7 +3421,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700006 - The specified permission is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
@@ -3378,7 +3438,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700006 - The specified permission is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPermissionDefSync(permissionName: string): PermissionDef;
 
@@ -3401,7 +3462,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
 
@@ -3424,7 +3486,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
 
@@ -3447,7 +3510,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
@@ -3536,7 +3600,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllSharedBundleInfo(callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
@@ -3549,7 +3614,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllSharedBundleInfo(): Promise<Array<SharedBundleInfo>>;
 
@@ -3567,7 +3633,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharedBundleInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>): void;
 
@@ -3585,7 +3652,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
@@ -3602,7 +3670,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3621,7 +3690,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, userId: number, callback: AsyncCallback<AppProvisionInfo>): void;
 
@@ -3640,7 +3710,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
 
@@ -3659,7 +3730,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppProvisionInfoSync(bundleName: string, userId?: number): AppProvisionInfo;
 
@@ -3675,7 +3747,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSpecifiedDistributionType(bundleName: string): string;
 
@@ -3692,7 +3765,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAdditionalInfo(bundleName: string): string;
 
@@ -3734,7 +3808,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string, userId?: number): string;
 
@@ -3751,7 +3826,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700303 - Failed to obtain extended resources.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getExtResource(bundleName: string): Promise<Array<string>>;
 
@@ -3789,6 +3865,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
@@ -3831,7 +3908,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700305 - Failed to disable the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableDynamicIcon(bundleName: string): Promise<void>;
 
@@ -3871,7 +3949,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700306 - Failed to obtain the dynamic icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDynamicIcon(bundleName: string): Promise<string>;
 
@@ -3937,7 +4016,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean, callback: AsyncCallback<void>): void;
 
@@ -3967,7 +4047,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700201 - Failed to verify the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
 
@@ -3980,7 +4061,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>): void;
 
@@ -3993,7 +4075,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRecoverableApplicationInfo(): Promise<Array<RecoverableApplicationInfo>>;
 
@@ -4011,7 +4094,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700053 - The caller is not AppGallery.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
 
@@ -4039,7 +4123,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700202 - Failed to delete the abc file.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteAbc(abcPath: string): Promise<void>;
 
@@ -4053,7 +4138,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700056 - The scheme of the specified link is not in the querySchemes.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function canOpenLink(link: string): boolean;
 
@@ -4066,7 +4152,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
 
@@ -4083,7 +4170,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700059 - The specified developerId is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
 
@@ -4098,7 +4186,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeveloperIds(appDistributionType?: number): Array<string>;
 
@@ -4115,7 +4204,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700060 - The specified application cannot be uninstalled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
 
@@ -4128,7 +4218,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSignatureInfo(uid: number): SignatureInfo;
 
@@ -4150,7 +4241,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700061 - AppIndex not in valid range.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppCloneBundleInfo(bundleName: string, appIndex: number, bundleFlags: number, userId?: number): Promise<BundleInfo>;
 
@@ -4170,7 +4262,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700026 - The specified bundle and clone apps are all disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
 
@@ -4184,7 +4277,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700021 - The uid is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
 
@@ -4201,13 +4295,14 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllPluginInfo(hostBundleName: string, userId?: number): Promise<Array<PluginBundleInfo>>;
 
   /**
    * Migrate files from the source paths to the destination path.
-   * 
+   *
    * @permission ohos.permission.MIGRATE_DATA
    * @param { Array<string> } sourcePaths - Indicates the source paths to be migrated.
    * @param { string } destinationPath - Target path for data migration.
@@ -4223,7 +4318,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700086 - System error occurred during copy execution.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function migrateData(sourcePaths: Array<string>, destinationPath: string): Promise<void>;
 
@@ -4748,7 +4844,8 @@ declare namespace bundleManager {
    * @typedef { _PermissionDef }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PermissionDef = _PermissionDef;
 
@@ -4776,7 +4873,8 @@ declare namespace bundleManager {
    * @typedef { _SharedBundleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type SharedBundleInfo = _SharedBundleInfo;
 
@@ -4791,6 +4889,17 @@ declare namespace bundleManager {
   export type AppProvisionInfo = _AppProvisionInfo.AppProvisionInfo;
 
   /**
+   * Obtains profile file information about a bundle.
+   *
+   * @typedef { _AppProvisionInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AppProvisionInfo = _AppProvisionInfo;
+
+  /**
    * Obtains profile file validity about a bundle.
    *
    * @typedef { _AppProvisionInfo.Validity }
@@ -4801,12 +4910,24 @@ declare namespace bundleManager {
   export type Validity = _AppProvisionInfo.Validity;
 
   /**
+   * Obtains profile file validity about a bundle.
+   *
+   * @typedef { _Validity }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type Validity = _Validity;
+
+  /**
    * Obtains information about a recoverable preinstalled application.
    *
    * @typedef { _RecoverableApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
@@ -4869,7 +4990,8 @@ declare namespace bundleManager {
    * @typedef { _PluginBundleInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PluginBundleInfo = _PluginBundleInfo;
 
@@ -4879,7 +5001,8 @@ declare namespace bundleManager {
    * @typedef { _PluginModuleInfo  }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PluginModuleInfo = _PluginModuleInfo;
 
