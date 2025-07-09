@@ -40,7 +40,8 @@
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class ApplicationStateChangeCallback {
   /**
