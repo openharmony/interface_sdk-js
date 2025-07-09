@@ -5684,6 +5684,17 @@ declare namespace window {
     getWindowDensityInfo(): WindowDensityInfo;
 
     /**
+     * Set whether to use default density.
+     *
+     * @param { boolean } enabled - Use default density if true, or follow system density change if false.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    setDefaultDensityEnabled(enabled: boolean): void;
+
+    /**
      * Set window container background color in the active and inactive states.
      *
      * @param { string } activeColor - window container color in active.
