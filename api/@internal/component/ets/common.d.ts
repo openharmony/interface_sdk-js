@@ -21284,8 +21284,8 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21296,22 +21296,20 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
-
   /**
    * Add a background for the component.
    *
    * Anonymous Object Rectification.
    * @param { CustomBuilder | ResourceColor } content
-   * @param { BackgroundOptions } options
+   * @param { BackgroundOptions } [options]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
