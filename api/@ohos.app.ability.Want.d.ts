@@ -362,7 +362,8 @@ export default class Want {
    * @readonly
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly fds?: Record<string, number>;
 }
