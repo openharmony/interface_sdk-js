@@ -1137,7 +1137,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000076 - The app instance key is invalid.
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @throws { BusinessError } 16000120 - A maximum of four UIAbility instances can be started simultaneously.
-   *                                      The current parameter exceeds the maximum number.
+   *                                      The current parameter exceeds the maximum number or is less than 1.
    * @throws { BusinessError } 16000121 - The target component type is not a UIAbility.
    * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
    *                                      does not support startup.
