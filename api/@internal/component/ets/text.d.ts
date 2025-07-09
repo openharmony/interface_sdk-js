@@ -584,14 +584,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the font weight is set.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It is only effective for the Text component, not for its child components.
-   * <br>For the number type, the value ranges from 100 to 900, at an interval of 100.
-   * <br>A larger value indicates a heavier font weight.
-   * <br>The default value is 400.
-   * <br>For the string type, only strings that represent a number, for example, "400",
-   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
-   * </p>
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
+
+  /**
+   * Called when the font weight is set.
    *
    * @param { number | FontWeight | string } weight
    * @param { FontSettingOptions } options - font setting options.
@@ -1025,6 +1029,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   letterSpacing(value: number | ResourceStr): TextAttribute;
 
@@ -1121,6 +1126,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   baselineOffset(value: number | ResourceStr): TextAttribute;
 

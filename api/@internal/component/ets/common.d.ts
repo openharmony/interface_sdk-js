@@ -31320,7 +31320,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 

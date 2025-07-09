@@ -740,7 +740,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @crossplatform
    * @since 10
    */
-  /**
+   /**
    * Called when the font weight is set.
    * 
    * <p><strong>NOTE</strong>:
@@ -767,6 +767,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextAreaAttribute;
 

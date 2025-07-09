@@ -140,6 +140,7 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   y?: Length;
 
@@ -197,6 +198,7 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   width?: Length;
 
@@ -254,6 +256,7 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   height?: Length;
 }
@@ -571,7 +574,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the offset of the starting point of border drawing is set.
    *
-   * @param { number | string } value
+   * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -589,6 +592,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   strokeDashOffset(value: Length): ShapeAttribute;
 
@@ -742,7 +746,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the limit value for drawing acute angles as oblique angles is set.
    *
-   * @param { number | string } value
+   * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -759,7 +763,8 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since arkts 20
+   * @arkts 1.1&1.2
    */
   strokeMiterLimit(value: Length): ShapeAttribute;
 
@@ -873,7 +878,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the width of the border is set.
    *
-   * @param { number | string } value
+   * @param { Length } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -891,6 +896,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   strokeWidth(value: Length): ShapeAttribute;
 

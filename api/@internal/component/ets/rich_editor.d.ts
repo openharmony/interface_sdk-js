@@ -3233,7 +3233,7 @@ declare class RichEditorController extends RichEditorBaseController {
    * @atomicservice
    * @since 11
    */
-   /**
+  /**
    * Add a text span.
    *
    * @param { ResourceStr } content - text value.
@@ -3243,6 +3243,7 @@ declare class RichEditorController extends RichEditorBaseController {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
 

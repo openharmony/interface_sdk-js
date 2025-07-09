@@ -756,7 +756,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { Length | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -776,6 +776,20 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @since 20
    */
   radius(value: Length | Array<any>): RectAttribute;
+
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<number | string> } value
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  radius(value: number | string | Array<number | string>): RectAttribute;
 }
 
 /**
