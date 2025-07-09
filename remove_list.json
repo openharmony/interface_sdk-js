@@ -27,5 +27,37 @@
         "sdk_build_public_remove": [
             "featureability.d.ts"
         ]
+    },
+    "ets_internal_api_interop": {
+        "base": [
+            "api/common/full/canvaspattern.d.ets",
+            "api/common/full/featureability.d.ets"
+        ]
+    },
+    "ets_internal_api_bridge_interop": {
+        "base": [
+            "api/common/full/canvaspattern.ts",
+            "api/common/full/featureability.ts"
+        ]
+    },
+    "ets_component_interop": {
+        "global_remove": [
+            "inspector.d.ets"
+        ],
+        "sdk_build_public_remove": [
+            "ability_component.d.ets",
+            "animator.d.ets",
+            "calendar.d.ets",
+            "effect_component.d.ets",
+            "form_component.d.ets",
+            "isolated_component.d.ets",
+            "media_cached_image.d.ets",
+            "plugin_component.d.ets",
+            "remote_window.d.ets",
+            "root_scene.d.ets",
+            "screen.d.ets",
+            "ui_extension_component.d.ets",
+            "window_scene.d.ets"
+        ]
     }
 }

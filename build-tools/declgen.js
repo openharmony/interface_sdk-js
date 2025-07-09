@@ -27,8 +27,8 @@ function main() {
     const program = new commander.Command();
     program.name('intToNumber').version('0.0.1');
     program
-        .option('--input ', 'input path')
-        .option('--output ', 'output path')
+        .option('--input <string>', 'input path')
+        .option('--output <string>', 'output path')
         .action((opts) => {
             if (!opts.input || !opts.output) {
                 console.error(
