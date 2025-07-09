@@ -20,7 +20,9 @@
 
 import { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
+/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
+/*** if arkts 1.1 */
 import Want from './@ohos.app.ability.Want';
 
 /**
@@ -36,7 +38,8 @@ import Want from './@ohos.app.ability.Want';
  * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace formProvider {
   /**
@@ -74,7 +77,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
 
@@ -113,7 +117,8 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
