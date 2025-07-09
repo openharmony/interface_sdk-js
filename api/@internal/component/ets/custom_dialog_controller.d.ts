@@ -30,6 +30,7 @@ import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 import { CustomBuilder } from './builder';
+import { DismissDialogAction } from './actionSheet';
 /*** endif */
 
 /**
@@ -711,8 +712,7 @@ declare interface CustomDialogControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DismissDialogAction {
   /**
@@ -722,8 +722,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
 
@@ -734,8 +733,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reason: DismissReason;
 }

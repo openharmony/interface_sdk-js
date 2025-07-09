@@ -29,6 +29,7 @@ import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, Tr
   BackgroundBlurStyleOptions, BackgroundEffectOptions } from './arkui/component/common';
 import { CustomBuilder } from './arkui/component/builder';
 import { DialogAlignment } from './arkui/component/alertDialog';
+import { DismissDialogAction } from './arkui/component/actionSheet';
 import { BorderStyle,Alignment } from './arkui/component/enums';
 import { Resource } from './global/resource';
 import { LengthMetrics } from './arkui/Graphics';
@@ -2403,8 +2404,7 @@ declare namespace promptAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface DismissDialogAction {
   /**
@@ -2414,8 +2414,7 @@ export declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   dismiss: Callback<void>;
     
@@ -2426,8 +2425,7 @@ export declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reason: DismissReason;
 }
