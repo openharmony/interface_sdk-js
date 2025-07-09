@@ -583,6 +583,23 @@ declare namespace uiEffect {
      */
     static createRadialGradientMask(center: common2D.Point, radiusX: number, radiusY: number,
       values: Array<[number, number]>): Mask;
+
+    /**
+     * Create a Mask of single wave gradient.
+     * @param { common2D.Point } center - The wave source center of the single-wave mask.
+     * @param { number } width - The circular ring width of the single-wave mask.
+     * @param { number } propagationRadius - The outer diffusion radius of the single-wave mask.
+     * @param { number } blurRadius - The blur radius of the single-wave mask.
+     * @param { number } [turbulenceStrength] - The turbulent displacement intensity of the single-wave mask.
+     * @returns { Mask } - Returns wave gradient mask.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createWaveGradientMask(center: common2D.Point, width: number, propagationRadius: number,
+      blurRadius: number, turbulenceStrength?: number): Mask;
   }
 
   /**
