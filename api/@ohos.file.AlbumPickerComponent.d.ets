@@ -59,6 +59,16 @@ export declare struct AlbumPickerComponent {
    * @since 13
    */
   onEmptyAreaClick?: EmptyAreaClickCallback;
+
+   /**
+   * AlbumPickerController
+   *
+   * @type { ?AlbumPickerController }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  albumPickerController?: AlbumPickerController;
 }
 
 /**
@@ -98,6 +108,16 @@ export declare class AlbumPickerOptions {
    * @since 13
    */
   filterType?: photoAccessHelper.PhotoViewMIMETypes;
+
+  /**
+   * The size of the font displayed in the album. When `fontSize` is a number type, must use 'fp' unit
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  fontSize?: number | string;
 }
 
 
@@ -128,4 +148,25 @@ export declare class AlbumInfo {
    * @since 12
    */
   albumName?: string;
+}
+
+
+/**
+ * The class for AlbumPickerController
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 20
+ */
+@Observed
+export declare class AlbumPickerController {
+  /**
+   * Set font size to album picker component
+   *
+   * @param { number | string } fontSize - font size of album picker component
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  setFontSize(fontSize: number | string): void;
 }
