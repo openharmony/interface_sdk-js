@@ -1712,7 +1712,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * Background style of selected items.
    *
    * @type { ?PickerBackgroundStyle }
-   * @default { color: '#0C182431', borderRadius: { value:24, unit:1 } }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
