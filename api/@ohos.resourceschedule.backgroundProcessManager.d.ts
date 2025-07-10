@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit BackgroundTasksKit
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -23,22 +24,25 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since 17
+ * @since arkts{ '1.1':'17','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace backgroundProcessManager {
     /**
      * Describes the level of BackgroundProcessManager priority.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since arkts{ '1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since arkts{ '1.1':'17','1.2':'20'}
+         * @arkts 1.1&1.2
          */
         PROCESS_BACKGROUND = 1,
 
@@ -46,7 +50,8 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 17
+         * @since arkts{ '1.1':'17','1.2':'20'}
+         * @arkts 1.1&1.2
          */
         PROCESS_INACTIVE = 2,
     }
@@ -54,9 +59,10 @@ declare namespace backgroundProcessManager {
     /**
      * Describes the status of the power saving mode.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
+     * @arkts 1.1&1.2
      */
     export enum PowerSaveMode {
         /**
@@ -65,6 +71,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20
+         * @arkts 1.1&1.2
          */
         EFFICIENCY_MODE = 1,
 
@@ -73,6 +80,7 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20
+         * @arkts 1.1&1.2
          */
         DEFAULT_MODE = 2,
     }
@@ -80,31 +88,33 @@ declare namespace backgroundProcessManager {
     /**
      * Set the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be set.
+     * @param { int } pid - Indicates the pid of the process to be set.
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since arkts{ '1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function setProcessPriority(pid: number, priority: ProcessPriority): Promise<void>;
+    function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**
      * Reset the priority of process.
      *
-     * @param { number } pid - Indicates the pid of the process to be reset.
+     * @param { int } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 17
+     * @since arkts{ '1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function resetProcessPriority(pid: number): Promise<void>;
+    function resetProcessPriority(pid: int): Promise<void>;
 
     /**
      * Set the power saving mode of process. The setting may fail due to user setting reasons or
      * <br> system scheduling reasons.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { number } pid - Indicates the pid of the power saving mode to be set.
+     * @param { int } pid - Indicates the pid of the power saving mode to be set.
      * @param { PowerSaveMode } powerSaveMode - Indicates the power saving mode that needs to be set.
      * <br> For details, please refer to PowerSaveModeStatus.
      * @returns { Promise<void> } The promise returned by the function.
@@ -117,14 +127,15 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
+     * @arkts 1.1&1.2
      */
-    function setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise<void>;
+    function setPowerSaveMode(pid: int, powerSaveMode: PowerSaveMode): Promise<void>;
 
     /**
      * Check if the process is in power saving mode.
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
-     * @param { number } pid - Indicates the process to be checked is the pid of the power saving mode.
+     * @param { int } pid - Indicates the process to be checked is the pid of the power saving mode.
      * @returns { Promise<boolean> } The promise returns whether it is in power saving mode.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
@@ -132,8 +143,9 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
+     * @arkts 1.1&1.2
      */
-    function isPowerSaveMode(pid: number): Promise<boolean>;
+    function isPowerSaveMode(pid: int): Promise<boolean>;
 }
 
 export default backgroundProcessManager;
