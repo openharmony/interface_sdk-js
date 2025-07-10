@@ -891,8 +891,71 @@ declare namespace cloudSync {
      * @arkts 1.1&1.2
      */
     cleanCache(uri: string): void;
+    /**
+     * Clean local content of the file that has been synced to the Cloud
+     *
+     * @param { string } uri - uri of file.
+     * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+     *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900012 - Permission denied by the file system
+     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 14000002 - Invalid URI.
+     * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+     *     <br>1.Failed to access the database or execute the SQL statement.
+     *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+     cleanFileCache(uri: string): void;
   }
 
+  /**
+   * Describes the external sync state of file.
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 20
+   */
+   enum FileState {
+    /**
+     * Indicates the initial state after a file is downloaded from the cloud to the local host.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    INITIAL_AFTER_DOWNLOAD = 0,
+    /**
+     * Indicates that the file is uploading now.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    UPLOADING = 1,
+    /**
+     * Indicates that the file sync task stopped.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    STOPPED = 2,
+    /**
+     * Indicates that the file is waiting for upload.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    TO_BE_UPLOADED = 3,
+    /**
+     * Indicates that the file has been already uploaded successfully.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    UPLOAD_SUCCESS = 4,
+    /**
+     * Indicates that the file upload failure
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     */
+    UPLOAD_FAILURE = 5
+  }
   /**
    * Describes the sync state of file.
    *
@@ -987,6 +1050,28 @@ declare namespace cloudSync {
    * @arkts 1.1&1.2
    */
   function getFileSyncState(uri: Array<string>): Promise<Array<FileSyncState>>;
+  /**
+   * Get the sync state of the specified file.
+   *
+   * @param { string } uri - uri of file.
+   * @returns { FileState } - return the sync state of the specified file.
+   * @throws { BusinessError } 13600001 - IPC error. Possible causes:
+   *     <br>1.IPC failed or timed out. 2.Failed to load the service.
+   * @throws { BusinessError } 13900002 - No such file or directory.
+   * @throws { BusinessError } 13900004 - Interrupted system call
+   * @throws { BusinessError } 13900010 - Try again
+   * @throws { BusinessError } 13900012 - Permission denied by the file system
+   * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+   *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 13900031 - Function not implemented
+   * @throws { BusinessError } 14000002 - Invalid URI.
+   * @throws { BusinessError } 22400005 - Inner error. Possible causes:
+   *     <br>1.Failed to access the database or execute the SQL statement.
+   *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @since 20
+   */
+   function getCoreFileSyncState(uri: string): FileState;
   /**
    * Get the sync state of file.
    *
