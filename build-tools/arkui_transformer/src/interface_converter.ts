@@ -17,12 +17,12 @@ import * as ts from 'typescript';
 import * as fs from 'fs';
 import * as path from 'path';
 import { assert } from 'console';
-import uiconfig from './arkui_config_util'
+import uiconfig from './arkui_config_util';
 import { ComponentFile } from './component_file';
-import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods, mergeUniqueOrdered } from './lib/attribute_utils'
+import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods, mergeUniqueOrdered } from './lib/attribute_utils';
 
 function readLangTemplate(): string {
-    return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8')
+    return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8');
 }
 
 function extractSignatureComment(
@@ -34,19 +34,19 @@ function extractSignatureComment(
 
 
     const commentText = sourceFile.text
-        .slice(jsDoc.getStart(sourceFile), jsDoc.getEnd())
+        .slice(jsDoc.getStart(sourceFile), jsDoc.getEnd());
 
     return commentText.split('\n').map((l, index) => {
         if (index == 0) {
             return l.trimStart();
         }
-        return ' ' + l.trimStart()
-    }).join('\n')
+        return ' ' + l.trimStart();
+    }).join('\n');
 }
 
 interface ComponnetFunctionInfo {
     sig: string[],
-    comment: string
+    comment: string;
 }
 
 interface ComponentPram {
@@ -57,13 +57,13 @@ interface ComponentPram {
 
 function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCode: ts.SourceFile, mergeCallSig: boolean = false): Array<ComponnetFunctionInfo> {
     const signatureParams: Array<string[]> = [];
-    const comments: string[] = []
-    const paramList: Array<ComponentPram[]> = []
+    const comments: string[] = [];
+    const paramList: Array<ComponentPram[]> = [];
 
     node.members.forEach(member => {
         if (ts.isCallSignatureDeclaration(member)) {
             const currentSignature: string[] = [];
-            const currentParam: ComponentPram[] = []
+            const currentParam: ComponentPram[] = [];
             const comment = extractSignatureComment(member, originalCode);
             comments.push(comment);
 
@@ -71,38 +71,38 @@ function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCod
                 currentSignature.push(param.getText(originalCode));
                 currentParam.push({ name: (param.name as ts.Identifier).escapedText as string, type: [param.type!.getText(originalCode)], isOptional: !!param.questionToken });
             });
-            signatureParams.push(currentSignature)
-            paramList.push(currentParam)
+            signatureParams.push(currentSignature);
+            paramList.push(currentParam);
         }
     });
 
-    const result: Array<ComponnetFunctionInfo> = new Array
+    const result: Array<ComponnetFunctionInfo> = new Array;
 
     if (mergeCallSig) {
-        const mergedParamList: Array<ComponentPram> = []
+        const mergedParamList: Array<ComponentPram> = [];
         paramList.forEach((params, _) => {
             params.forEach((param, index) => {
                 if (!mergedParamList[index]) {
-                    mergedParamList.push(param)
+                    mergedParamList.push(param);
                     if (index > 0) {
                         (mergedParamList[index] as ComponentPram).isOptional = true;
                     }
                 } else {
-                    mergedParamList[index] = { name: param.name, type: mergeUniqueOrdered(mergedParamList[index].type, param.type), isOptional: mergedParamList[index].isOptional || param.isOptional }
+                    mergedParamList[index] = { name: param.name, type: mergeUniqueOrdered(mergedParamList[index].type, param.type), isOptional: mergedParamList[index].isOptional || param.isOptional };
                 }
-            })
-        })
+            });
+        });
         const mergedSignature: string[] = [];
         mergedParamList.forEach((param, index) => {
-            mergedSignature.push(`${param.name}${param.isOptional ? '?' : ''}: ${param.type.join(' | ')}`)
-        })
+            mergedSignature.push(`${param.name}${param.isOptional ? '?' : ''}: ${param.type.join(' | ')}`);
+        });
         result.push({
             sig: mergedSignature,
             comment: ''
-        })
+        });
     } else {
         for (let i = 0; i < signatureParams.length; i++) {
-            result.push({ sig: signatureParams[i], comment: comments[i] })
+            result.push({ sig: signatureParams[i], comment: comments[i] });
         }
     }
     return result;
@@ -110,17 +110,17 @@ function getAllInterfaceCallSignature(node: ts.InterfaceDeclaration, originalCod
 
 function handleComponentInterface(node: ts.InterfaceDeclaration, file: ComponentFile) {
     const result = getAllInterfaceCallSignature(node, file.sourceFile, !uiconfig.useMemoM3);
-    const declPattern = readLangTemplate()
-    const declComponentFunction: string[] = []
-    const attributeName = node.name!.escapedText as string
-    const componentName = attributeName.replaceAll('Interface', '');
+    const declPattern = readLangTemplate();
+    const declComponentFunction: string[] = [];
+    const attributeName = node.name!.escapedText as string;
+    const componentName = attributeName.replace(/Interface/g, '');
     result.forEach(p => {
         declComponentFunction.push(declPattern
-            .replaceAll("%COMPONENT_NAME%", componentName)
-            .replaceAll("%FUNCTION_PARAMETERS%", p.sig?.map(it => `${it}, `).join("") ?? "")
-            .replaceAll("%COMPONENT_COMMENT%", p.comment))
-    })
-    return declComponentFunction.join('\n')
+            .replace(/%COMPONENT_NAME%/g, componentName)
+            .replace(/%FUNCTION_PARAMETERS%/g, p.sig?.map(it => `${it}, `).join("") ?? "")
+            .replace(/%COMPONENT_COMMENT%/g, p.comment));
+    });
+    return declComponentFunction.join('\n');
 }
 
 function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
@@ -129,7 +129,7 @@ function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
         const paramNameType: Map<string, ts.TypeNode> = new Map();
         node.parameters.forEach(param => {
             paramNameType.set((param.name as ts.Identifier).escapedText!, param.type!);
-        })
+        });
         const jsDoc = node.jsDoc as ts.JSDoc[];
         const updatedJsDoc = jsDoc.map((doc) => {
             const updatedTags = (doc.tags || []).map((tag: ts.JSDocTag) => {
@@ -139,10 +139,10 @@ function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
                         tag.tagName,
                         ts.factory.createJSDocTypeExpression(returnType),
                         tag.comment
-                    )
+                    );
                 }
                 if (tag.tagName.escapedText === 'param') {
-                    const paramTag = tag as ts.JSDocParameterTag
+                    const paramTag = tag as ts.JSDocParameterTag;
                     return ts.factory.updateJSDocParameterTag(
                         paramTag,
                         paramTag.tagName,
@@ -151,15 +151,15 @@ function updateMethodDoc(node: ts.MethodDeclaration): ts.MethodDeclaration {
                         ts.factory.createJSDocTypeExpression(paramNameType.get((paramTag.name as ts.Identifier).escapedText!)!),
                         paramTag.isNameFirst,
                         paramTag.comment
-                    )
+                    );
                 }
-                return tag
-            })
+                return tag;
+            });
             return ts.factory.updateJSDocComment(doc, doc.comment, updatedTags);
         });
-        (node as any).jsDoc = updatedJsDoc
+        (node as any).jsDoc = updatedJsDoc;
     }
-    return node
+    return node;
 }
 
 function handleOptionalType(paramType: ts.TypeNode, wrapUndefined: boolean = true): ts.TypeNode {
@@ -176,7 +176,7 @@ function handleOptionalType(paramType: ts.TypeNode, wrapUndefined: boolean = tru
             ...(ts.isUnionTypeNode(type) ? type.types : [type]),
             ts.factory.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword),
         ]);
-    }
+    };
 
     // Check if the parameter type is Optional<XX>
     if (typeName === 'Optional' && paramType.typeArguments?.length === 1) {
@@ -205,7 +205,7 @@ function handleAttributeMember(node: ts.MethodDeclaration): ts.MethodSignature {
             } else if (ts.isUnionTypeNode(paramType)) {
                 const removeOptionalTypes = paramType.types.map(type => {
                     return handleOptionalType(type, false);
-                })
+                });
                 // Check if the union type already includes undefined
                 const hasUndefined = removeOptionalTypes.some(
                     type => type.kind === ts.SyntaxKind.UndefinedKeyword
@@ -260,7 +260,7 @@ function handleAttributeMember(node: ts.MethodDeclaration): ts.MethodSignature {
         returnType
     );
 
-    return methodSignature
+    return methodSignature;
 }
 
 function handleHeritageClause(node: ts.NodeArray<ts.HeritageClause> | undefined): ts.HeritageClause[] {
@@ -284,7 +284,7 @@ function handleHeritageClause(node: ts.NodeArray<ts.HeritageClause> | undefined)
         const newClause = ts.factory.createHeritageClause(ts.SyntaxKind.ExtendsKeyword, types);
         heritageClauses.push(newClause);
     });
-    return heritageClauses
+    return heritageClauses;
 }
 
 function handleAttributeModifier(node: ts.ClassDeclaration, members: ts.MethodSignature[]) {
@@ -293,8 +293,8 @@ function handleAttributeModifier(node: ts.ClassDeclaration, members: ts.MethodSi
             if ((m.name as ts.Identifier).escapedText === 'attributeModifier') {
                 members.splice(members.indexOf(m), 1);
             }
-        })
-        return
+        });
+        return;
     }
     members.push(
         ts.factory.createMethodSignature(
@@ -328,7 +328,7 @@ function handleAttributeModifier(node: ts.ClassDeclaration, members: ts.MethodSi
             )],
             ts.factory.createThisTypeNode()
         )
-    )
+    );
 }
 
 function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
@@ -339,16 +339,16 @@ function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
         return handleAttributeMember(member);
     }).filter((member): member is ts.MethodSignature => member !== undefined);
 
-    const filetredMethos = removeDuplicateMethods(members)
+    const filetredMethos = removeDuplicateMethods(members);
 
     if (uiconfig.shouldHaveAttributeModifier(node.name!.escapedText as string)) {
-        handleAttributeModifier(node, filetredMethos)
+        handleAttributeModifier(node, filetredMethos);
     }
 
     const exportModifier = ts.factory.createModifier(ts.SyntaxKind.ExportKeyword);
     const delcareModifier = ts.factory.createModifier(ts.SyntaxKind.DeclareKeyword);
 
-    const heritageClauses = handleHeritageClause(node.heritageClauses)
+    const heritageClauses = handleHeritageClause(node.heritageClauses);
 
     const noneUIAttribute = ts.factory.createInterfaceDeclaration(
         [exportModifier, delcareModifier],
@@ -357,7 +357,7 @@ function transformComponentAttribute(node: ts.ClassDeclaration): ts.Node[] {
         heritageClauses,
         filetredMethos
     );
-    return [noneUIAttribute]
+    return [noneUIAttribute];
 }
 
 function getLeadingSpace(line: string): string {
@@ -387,10 +387,10 @@ function addAttributeMemo(node: ts.ClassDeclaration, componentFile: ComponentFil
 
     const functionSet: Set<string> = new Set();
     node.members.forEach(m => {
-        functionSet.add((m.name! as ts.Identifier).escapedText!)
-    })
+        functionSet.add((m.name! as ts.Identifier).escapedText!);
+    });
 
-    const updatedCode: string[] = []
+    const updatedCode: string[] = [];
     originalCode.forEach(l => {
         const name = extractMethodName(l);
         if (!name) {
@@ -398,53 +398,53 @@ function addAttributeMemo(node: ts.ClassDeclaration, componentFile: ComponentFil
             return;
         }
         if (functionSet.has(name)) {
-            updatedCode.push(getLeadingSpace(l) + "@memo")
+            updatedCode.push(getLeadingSpace(l) + "@memo");
         }
         updatedCode.push(l);
-    })
-    const attributeName = node.name!.escapedText!
-    const superInterface = getBaseClassName(node)
+    });
+    const attributeName = node.name!.escapedText!;
+    const superInterface = getBaseClassName(node);
     componentFile.appendAttribute(updatedCode.join('\n')
         .replace(`export declare interface ${attributeName}`, `export declare interface UI${attributeName}`)
         .replace(`extends ${superInterface}`, `extends UI${superInterface}`)
-    )
+    );
 }
 
 function isComponentAttribute(node: ts.Node) {
     if (!(ts.isClassDeclaration(node) && node.name?.escapedText)) {
         return false;
     }
-    return uiconfig.isComponent(node.name.escapedText, 'Attribute')
+    return uiconfig.isComponent(node.name.escapedText, 'Attribute');
 }
 
 function isComponentInterface(node: ts.Node) {
     if (!(ts.isInterfaceDeclaration(node) && node.name?.escapedText)) {
         return false;
     }
-    return uiconfig.isComponent(node.name.escapedText, 'Interface')
+    return uiconfig.isComponent(node.name.escapedText, 'Interface');
 }
 
 export function addMemoTransformer(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
             if (isComponentHerirage(node)) {
-                addAttributeMemo(node as ts.ClassDeclaration, componentFile)
+                addAttributeMemo(node as ts.ClassDeclaration, componentFile);
             }
             return ts.visitEachChild(node, visit, context);
-        }
-        return (sourceFile) => { componentFile.sourceFile = sourceFile; return ts.visitNode(sourceFile, visit) };
-    }
+        };
+        return (sourceFile) => { componentFile.sourceFile = sourceFile; return ts.visitNode(sourceFile, visit); };
+    };
 }
 
 export function interfaceTransformer(program: ts.Program, componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
             if (isComponentInterface(node)) {
-                componentFile.appendFunction(handleComponentInterface(node as ts.InterfaceDeclaration, componentFile))
+                componentFile.appendFunction(handleComponentInterface(node as ts.InterfaceDeclaration, componentFile));
                 return undefined;
             }
             if (isComponentHerirage(node)) {
-                return transformComponentAttribute(node as ts.ClassDeclaration)
+                return transformComponentAttribute(node as ts.ClassDeclaration);
             }
             return ts.visitEachChild(node, visit, context);
         };
@@ -457,10 +457,10 @@ export function componentInterfaceCollector(program: ts.Program, componentFile: 
     return (context) => {
         const visit: ts.Visitor = (node) => {
             if (isComponentAttribute(node)) {
-                const attributeName = (node as ts.ClassDeclaration).name!.escapedText as string
-                componentFile.componentName = attributeName.replaceAll('Attribute', '');
+                const attributeName = (node as ts.ClassDeclaration).name!.escapedText as string;
+                componentFile.componentName = attributeName.replace(/Attribute/g, '');
                 const baseTypes = analyzeBaseClasses(node as ts.ClassDeclaration, componentFile.sourceFile, program);
-                uiconfig.addComponentAttributeHeritage([attributeName, ...baseTypes])
+                uiconfig.addComponentAttributeHeritage([attributeName, ...baseTypes]);
             }
             return ts.visitEachChild(node, visit, context);
         };
