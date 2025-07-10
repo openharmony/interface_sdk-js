@@ -76,8 +76,7 @@ function main() {
         const componentFile = componentFileMap.get(f)!;
         const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
         const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
-        const addMemoResult = ts.transform(transformedFile, [addMemoTransformer(componentFile)]);
-        const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
+        const transformedSource = ts.createPrinter().printFile(transformedFile);
         printResult(transformedSource, componentFile);
         return ts.createSourceFile("", "", ts.ScriptTarget.Latest, true);
       }
