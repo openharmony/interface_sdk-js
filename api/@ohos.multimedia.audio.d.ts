@@ -2710,7 +2710,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getVolume
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -2720,7 +2720,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getVolume
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -2730,7 +2730,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMinVolume
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -2740,7 +2740,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMinVolume
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -2750,7 +2750,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMaxVolume
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -2760,7 +2760,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#getMaxVolume
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -2813,7 +2813,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMute
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -2824,7 +2824,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
+     * @useinstead ohos.multimedia.audio.AudioVolumeGroupManager#isMute
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -2835,7 +2835,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isActive
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -2846,7 +2846,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isActive
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -3067,7 +3067,7 @@ declare namespace audio {
      * @systemapi
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:volumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
     /**
