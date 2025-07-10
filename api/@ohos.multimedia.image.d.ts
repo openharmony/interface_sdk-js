@@ -8226,8 +8226,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
      * 2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be occorrupted.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
