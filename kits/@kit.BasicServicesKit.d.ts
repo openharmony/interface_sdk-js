@@ -88,3 +88,11 @@ export {
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
   PanelInfo, PanelType, SelectionExtensionContext
 };
+
+/*** if arkts 1.2 */
+import zlib from '@ohos.zlib';
+
+export {
+  zlib
+};
+/*** endif */

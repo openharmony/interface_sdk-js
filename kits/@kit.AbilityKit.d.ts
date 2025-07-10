@@ -136,11 +136,16 @@ export {
 
 /*** if arkts 1.2 */
 import bundleManager from '@ohos.bundle.bundleManager';
+import bundleMonitor from '@ohos.bundle.bundleMonitor';
 import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import freeInstall from '@ohos.bundle.freeInstall';
+import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
-  bundleManager, bundleResourceManager, launcherBundleManager, shortcutManager
+  bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
+  shortcutManager
 };
 /*** endif */
