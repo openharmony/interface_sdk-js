@@ -17,24 +17,31 @@
  * @file
  * @kit NetworkKit
  */
-
+/*** if arkts 1.1&1.2 */
 import connection from '@ohos.net.connection';
-import ethernet from '@ohos.net.ethernet';
 import http from '@ohos.net.http';
+import sharing from '@ohos.net.sharing';
+import webSocket from '@ohos.net.webSocket';
+import statistics from '@ohos.net.statistics';
+import networkSecurity from '@ohos.net.networkSecurity';
+export {
+  connection, http, sharing, webSocket, statistics, networkSecurity
+};
+/*** endif */
+
+/*** if arkts 1.1*/
+import ethernet from '@ohos.net.ethernet';
 import mdns from '@ohos.net.mdns';
 import policy from '@ohos.net.policy';
-import sharing from '@ohos.net.sharing';
 import socket from '@ohos.net.socket';
-import statistics from '@ohos.net.statistics';
 import vpn from '@ohos.net.vpn';
-import webSocket from '@ohos.net.webSocket';
 import vpnExtension from '@ohos.net.vpnExtension';
-import networkSecurity from '@ohos.net.networkSecurity';
 import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnExtensionAbility';
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
-  connection, ethernet, http, mdns, policy, sharing, webSocket,
-  socket, statistics, vpn, vpnExtension, networkSecurity, 
+  ethernet, mdns, policy,
+  socket, vpn, vpnExtension, 
   VpnExtensionAbility, VpnExtensionContext, netFirewall
 };
+/*** endif */

@@ -24,27 +24,31 @@ import type { AsyncCallback } from './@ohos.base';
  * Provides networkSecurity related APIs.
  * @namespace networkSecurity
  * @syscap SystemCapability.Communication.NetStack
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace networkSecurity {
   /**
    * Defines the certificate type.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CertType {
     /**
      * PEM type certificate.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CERT_TYPE_PEM = 0,
 
     /**
      * DER type certificate.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CERT_TYPE_DER = 1
   }
@@ -53,14 +57,16 @@ declare namespace networkSecurity {
    * Define the certificate content.
    * @interface CertBlob
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
+  * @since arkts {'1.1':'11','1.2':'20'}
+  * @arkts 1.1&1.2
    */
   export interface CertBlob {
     /**
      * Certificate type.
      * @type { CertType }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: CertType;
 
@@ -68,7 +74,8 @@ declare namespace networkSecurity {
      * Certificate data.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: string | ArrayBuffer;
   }
@@ -77,7 +84,7 @@ declare namespace networkSecurity {
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * Number equals 0 if verify of certification from server succeed, else verify failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
@@ -102,7 +109,7 @@ declare namespace networkSecurity {
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * Number equals 0 if verify of certification from server succeed, else verify failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
@@ -123,9 +130,10 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>;
+  export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<int>;
 
   /**
    * Certificate verification to the server.
@@ -155,7 +163,7 @@ declare namespace networkSecurity {
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { number } Returns 0 if verify of certification from server succeed, else verify failed.
+   * @returns { int } Returns 0 if verify of certification from server succeed, else verify failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -175,9 +183,10 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): number;
+  export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
 
   /**
    * Checks whether the Cleartext traffic is permitted.
@@ -186,7 +195,8 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function isCleartextPermitted(): boolean;
  
@@ -198,7 +208,8 @@ declare namespace networkSecurity {
    * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function isCleartextPermittedByHostName(hostName: string): boolean;
 }
