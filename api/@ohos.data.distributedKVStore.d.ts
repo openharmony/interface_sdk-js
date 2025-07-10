@@ -512,7 +512,7 @@ declare namespace distributedKVStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since arkts {'1.1':'9','1.2':'20'}
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     securityLevel: SecurityLevel;
 
