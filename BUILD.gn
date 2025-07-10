@@ -25,16 +25,6 @@ action("ohos_base_split") {
   script = "//build/ohos/sdk/parse_interface_sdk.py"
   ohos_sdk_arkts_description_file =
       "${interface_sdk_path}/ohos_sdk_pub_description_std.json"
-  if (host_os == "mac") {
-    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
-  } else {
-    node_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
-  }
   args = [
     "--sdk-description-file",
     rebase_path("//build/ohos/sdk/ohos_sdk_description_std.json",
@@ -42,7 +32,7 @@ action("ohos_base_split") {
     "--root-build-dir",
     rebase_path("//", root_build_dir),
     "--node-js",
-    rebase_path(node_path, root_build_dir),
+    rebase_path(nodejs, root_build_dir),
     "--output-arkts-sdk-desc-file",
     rebase_path(ohos_sdk_arkts_description_file, root_build_dir),
     "--sdk-build-public",
@@ -50,7 +40,7 @@ action("ohos_base_split") {
     "--sdk-build-arkts",
     "${sdk_build_arkts}",
     "--npm-path",
-    rebase_path(npm_path, root_build_dir),
+    rebase_path(npm, root_build_dir),
     "--output-interface-sdk",
     rebase_path(interface_sdk_path, root_build_dir),
   ]
@@ -325,16 +315,6 @@ action("ohos_ets_api_arkui_tmp") {
   deps = [ ":ohos_ets_api_tmp" ]
   script = "//interface/sdk-js/arkui_transformer.py"
 
-  if (host_os == "mac") {
-    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/npm"
-  } else {
-    node_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
-    npm_path =
-        "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/npm"
-  }
   args = [
     "--input",
     rebase_path(ohos_ets_api_tmp_path + "/@internal/component/ets",
@@ -344,9 +324,9 @@ action("ohos_ets_api_arkui_tmp") {
     "--source_root_dir",
     rebase_path("//", root_build_dir),
     "--npm-path",
-    rebase_path(npm_path, root_build_dir),
+    rebase_path(npm, root_build_dir),
     "--node-js",
-    rebase_path(node_path, root_build_dir),
+    rebase_path(nodejs, root_build_dir),
   ]
   outputs = [ "$ohos_ets_api_arkui_tmp_path" ]
 }
