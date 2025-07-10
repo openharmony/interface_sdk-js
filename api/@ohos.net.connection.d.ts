@@ -23,7 +23,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /*** if arkts 1.1 */
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
-import { int } from './@ohos.base';
 /*** endif */
 
 /**
@@ -225,7 +224,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
@@ -1622,7 +1621,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
+     * @since arkts {'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
@@ -1638,7 +1637,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
+     * @since arkts {'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressByName(host: string): Promise<NetAddress>;
@@ -2052,19 +2051,10 @@ declare namespace connection {
      * Network card name.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 8
-     * @arkts 1.1
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    interface: string;
-
-    /**
-     * Network card name.
-     * @type {string}
-     * @syscap SystemCapability.Communication.NetManager.Core
-     * @since 20
-     * @arkts 1.2
-     */
-     iface: string;
+    iface: string;
 
     /**
      * Destination Address

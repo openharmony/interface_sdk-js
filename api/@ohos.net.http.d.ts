@@ -21,10 +21,6 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
-
 /**
  * Provides http related APIs.
  * @namespace http
@@ -2084,7 +2080,7 @@ declare namespace http {
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
+     * @param { HttpRequestOptions } option - Optional parameters {@link HttpRequestOptions}.
      * @param { AsyncCallback<int> } callback - the callback of requestInStream.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2125,7 +2121,7 @@ declare namespace http {
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
+    requestInStream(url: string, option: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.

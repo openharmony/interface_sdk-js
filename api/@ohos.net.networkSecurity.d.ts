@@ -20,10 +20,6 @@
 
 import type { AsyncCallback } from './@ohos.base';
 
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
-
 /**
  * Provides networkSecurity related APIs.
  * @namespace networkSecurity

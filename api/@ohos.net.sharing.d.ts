@@ -21,11 +21,6 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
-
-
 /**
  * Provides network sharing related interfaces.
  * @namespace sharing

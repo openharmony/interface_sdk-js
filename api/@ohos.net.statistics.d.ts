@@ -21,10 +21,6 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
-/*** if arkts 1.1 */
-import { int, long } from './@ohos.base';
-/*** endif */
-
 /**
  * Obtains traffic statistics.
  * @namespace statistics
