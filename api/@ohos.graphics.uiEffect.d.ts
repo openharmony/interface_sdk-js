@@ -384,10 +384,17 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @since 13
+   */  
+  /**
+   * Defines the blending effect.
+   * @typedef { BrightnessBlender | HdrBrightnessBlender }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type Blender = BrightnessBlender;
+  type Blender = BrightnessBlender | HdrBrightnessBlender;
 
   /**
    * The Blender of backgroundColorEffect.
@@ -486,6 +493,17 @@ declare namespace uiEffect {
      */
     fraction: number;
   }
+
+  /**
+   * The HDR enabled Blender of backgroundColorEffect.
+   * @extends BrightnessBlender
+   * @typedef HdrBrightnessBlender
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface HdrBrightnessBlender extends BrightnessBlender {}
 
   /**
    * The Color of Light.
@@ -629,6 +647,18 @@ declare namespace uiEffect {
    * @arkts 1.1&1.2
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
+
+  /**
+   * Create a HdrBrightnessBlender to add HdrBrightnessBlender to the component.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
+   * @returns { HdrBrightnessBlender } Returns the blender.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
 }
 
 /**
