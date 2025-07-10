@@ -809,28 +809,6 @@ declare namespace deviceInfo {
    * @since 19
    */
   const performanceClass: PerformanceClassLevel;
-
-  /**
-   * Obtains the SDK Minor api version.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  const sdkMinorApiVersion: number;
-
-  /**
-   * Obtains the SDK Patch api version.
-   *
-   * @type { number }
-   * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  const sdkPatchApiVersion: number;
 }
 
 export default deviceInfo;
