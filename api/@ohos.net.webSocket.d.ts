@@ -21,10 +21,6 @@
 import type { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
-/*** if arkts 1.1 */
-import { int } from './@ohos.base';
-/*** endif */
-
 /**
  * Provides WebSocket APIs.
  * @namespace webSocket
