@@ -374,8 +374,9 @@ declare class FormExtensionAbility {
    * @param { formInfo.Rect } newRect - Indicates the new rect(vp) of the form.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20
    */
-  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
+  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
 export default FormExtensionAbility;
