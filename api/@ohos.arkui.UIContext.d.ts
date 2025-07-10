@@ -22,7 +22,6 @@
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
-import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
@@ -30,6 +29,7 @@ import type componentUtils from './@ohos.arkui.componentUtils';
 /*** if arkts 1.1 */
 import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+import type observer from './@ohos.arkui.observer';
 /*** endif */
 import { SimpleAnimatorOptions } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
@@ -42,6 +42,7 @@ import type pointer from './@ohos.multimodalInput.pointer';
 
 /*** if arkts 1.2 */
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+import type observer from '@ohos.arkui.observer';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import {
   ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam,

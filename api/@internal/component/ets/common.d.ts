@@ -30,7 +30,7 @@ import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
-import uiObserver from '../../@ohos.arkui.observer';
+import uiObserver from '@ohos.arkui.observer';
 import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
 import { DrawContext as _DrawContext, LengthMetrics } from '../../arkui/Graphics';
 import uiEffect from '../../@ohos.graphics.uiEffect';
