@@ -19,6 +19,18 @@
  */
 
 /**
+ * RecordData is used for input parameter obj of the equal function
+ *
+ * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+/**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
  * When querying an element, the system traverses the list from the beginning.
  *
@@ -620,10 +632,25 @@ declare class List<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   equal(obj: Object): boolean;
+
+  /**
+   * Compares the specified object with this list for equality.if the object are the same as this list
+   * return true, otherwise return false.
+   *
+   * @param { RecordData } obj - obj obj Compare objects
+   * @returns { boolean } the boolean type
+   * @throws { BusinessError } 10200011 - The equal method cannot be bound.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  equal(obj: RecordData): boolean;
+  
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
    *
