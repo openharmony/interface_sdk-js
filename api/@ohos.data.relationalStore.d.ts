@@ -2937,8 +2937,9 @@ declare namespace relationalStore {
      * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
      * @param { Array<ValueType> } args - Parameters to be used in the conditions.
      * @returns { RdbPredicates } - Returns the RdbPredicates object.
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
+     * <br>2. Empty conditions. 
+     * <br>3. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -8651,8 +8652,8 @@ declare namespace relationalStore {
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * @throws { BusinessError } 14800001 - Invalid arguments. 1. Parameter is out of valid range;
+     * <br>2. Empty conditions.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -9583,8 +9584,8 @@ declare namespace relationalStore {
    * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
    * @returns { SqlInfo } - Returns a SQL insert statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. 1. Parameter is out of valid range;
+   * <br>2. Empty conditions.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9598,8 +9599,8 @@ declare namespace relationalStore {
    * @param { ValuesBucket } values - Row of data to be updated in the database.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
    * @returns { SqlInfo } - Returns a SQL update statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
+   * <br>2. Empty conditions.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9611,8 +9612,8 @@ declare namespace relationalStore {
    *
    * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
    * @returns { SqlInfo } - Returns a SQL delete statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
+   * <br>2. Empty conditions.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9625,8 +9626,8 @@ declare namespace relationalStore {
    * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
    * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
    * @returns { SqlInfo } - Returns a SQL query statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
+   * <br>2. Empty conditions.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
