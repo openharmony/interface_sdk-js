@@ -24,6 +24,7 @@ import {
   DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions
 } from './common';
 import { CustomBuilder } from './builder';
+import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
 import { BorderStyle } from './enums';
@@ -88,14 +89,14 @@ declare interface CustomDialogControllerOptions {
   /**
    * Custom builder function.
    *
-   * @type { CustomBuilder }
+   * @type { CustomBuilder | ExtendableComponent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  builder: CustomBuilder;
+  builder: CustomBuilder | ExtendableComponent;
 
   /**
    * Defines the cancel function.

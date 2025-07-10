@@ -138,6 +138,44 @@ export @interface CustomLayout {}
 export @interface CustomDialog {}
 
 /**
+ * Definition of base custom dialog class.
+ *
+ * @extends ExtendableComponent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
+   /**
+    * Constructor to use to create a custom dialog instance.
+    * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
+    * @param {LocalStorage} [storage] - localStorage instance.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+   constructor(useSharedStorage?: boolean, storage?: LocalStorage);
+
+    /**
+     * Define the constructor of custom dialog
+     *
+     * @param { () => T } factory - factory to create instance of custom dialog
+     * @param { T_Options } initializers - initial data for all the fields in custom dialog
+     * @param { @Builder () => void } content - tail closure for custom dialog
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    @ComponentBuilder
+    static $_instantiate(
+        factory: () => T,
+        initializers?: T_Options,
+        @Builder content?: () => void
+    ): T
+}
+
+/**
  * Definition of base custom component, which is base class of custom component.
  *
  * @extends ExtendableComponent
