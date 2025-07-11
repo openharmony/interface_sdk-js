@@ -128,7 +128,7 @@ export interface BundleInfo {
   /**
    * Indicates the version code of the bundle
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -136,7 +136,7 @@ export interface BundleInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly versionCode: number;
+  readonly versionCode: long;
 
   /**
    * Indicates the version name of the bundle
@@ -188,7 +188,7 @@ export interface BundleInfo {
   /**
    * Indicates the **minimum ** version compatible with the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -196,7 +196,7 @@ export interface BundleInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minCompatibleVersionCode: number;
+  readonly minCompatibleVersionCode: int;
 
   /**
    * Indicates the target version number of the bundle
@@ -218,7 +218,7 @@ export interface BundleInfo {
   /**
    * Indicates the target version number of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -226,7 +226,7 @@ export interface BundleInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly targetVersion: number;
+  readonly targetVersion: int;
 
   /**
    * Obtains configuration information about an application
@@ -389,14 +389,14 @@ export interface BundleInfo {
   /**
    * Indicates the hap install time
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly installTime: number;
+  readonly installTime: long;
 
   /**
    * Indicates the hap update time
@@ -409,14 +409,14 @@ export interface BundleInfo {
   /**
    * Indicates the hap update time
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly updateTime: number;
+  readonly updateTime: long;
 
   /**
    * Indicates the router information of the application
@@ -433,25 +433,25 @@ export interface BundleInfo {
   /**
    * Indicates the appIndex of application, only work in appClone mode
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 
   /**
    * Indicates the hap first install time
    *
-   * @type { ?number }
+   * @type { ?long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly firstInstallTime?: number;
+  readonly firstInstallTime?: long;
 }
 
 /**
@@ -570,14 +570,14 @@ export interface ReqPermissionDetail {
   /**
    * Indicates the reason id of this required permissions
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  reasonId: number;
+  reasonId: long;
 
   /**
    * Indicates the used scene of this required permissions
@@ -826,11 +826,11 @@ export interface AppCloneIdentity {
   /**
    * Indicates the index of clone app.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }

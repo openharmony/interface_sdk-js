@@ -43,14 +43,14 @@ export interface PluginBundleInfo {
   /**
    * Indicates the label id of the plugin
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the icon of the plugin
@@ -67,14 +67,14 @@ export interface PluginBundleInfo {
   /**
    * Indicates the icon id of the plugin
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
    /**
    * Indicates the name of the plugin
@@ -91,14 +91,14 @@ export interface PluginBundleInfo {
   /**
    * Indicates the version code of the plugin
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly versionCode: number;
+  readonly versionCode: long;
 
   /**
    * Indicates the version name of the plugin
@@ -150,14 +150,14 @@ export interface PluginModuleInfo {
   /**
    * Indicates the description of the plugin
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 
   /**
    * Describes the plugin
