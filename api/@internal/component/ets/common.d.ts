@@ -68,6 +68,7 @@ import { PathAttribute } from './path';
 import { EllipseAttribute } from './ellipse';
 import { LocalStorage } from '../stateManagement/storage/localStorage';
 import { CustomBuilder, WrappedBuilder } from './builder';
+import curves from '../../@ohos.curves';
 /*** endif */
 
 /**
@@ -3883,8 +3884,7 @@ declare interface AnimateParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ICurve {
   /**
@@ -3918,11 +3918,23 @@ interface ICurve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interpolate(fraction: number): number;
 }
+
+/**
+ * Interface for curve object.
+ *
+ * @typedef { curves.ICurve } ICurve
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type ICurve = curves.ICurve;
 
 /**
  * Defines the motion path options.
