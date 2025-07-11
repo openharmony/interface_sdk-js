@@ -113,3 +113,14 @@ export declare function getCompatibleState<T>(
     state: IDecoratedV1Variable<T>,
     createCompatibleState: ESValue
 ): ESValue;
+
+/**
+ * Obtains the compatible WrappedBuilder.
+ *
+ * @param { Any } builder - the WrappedBuilder
+ * @param { FixedArray<ESValue> } args - the parameters of WrappedBuilder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Builder
+export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArray<ESValue>): void;
