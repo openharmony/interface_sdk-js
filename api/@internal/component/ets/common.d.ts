@@ -7241,7 +7241,6 @@ declare class TransitionEffect {
    * Disables the transition effect
    *
    * @type { TransitionEffect }
-   * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7250,13 +7249,12 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  static readonly IDENTITY: TransitionEffect;
+  static get IDENTITY(): TransitionEffect;
 
   /**
    * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
    *
    * @type { TransitionEffect }
-   * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7265,13 +7263,12 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  static readonly OPACITY: TransitionEffect;
+  static get OPACITY(): TransitionEffect;
 
   /**
    * Defines a slide transition effect
    *
    * @type { TransitionEffect }
-   * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7280,7 +7277,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  static readonly SLIDE: TransitionEffect;
+  static get SLIDE(): TransitionEffect;
 
   /**
    * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right,
@@ -7289,7 +7286,6 @@ declare class TransitionEffect {
    * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
    *
    * @type { TransitionEffect }
-   * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7298,7 +7294,7 @@ declare class TransitionEffect {
    * @since 20
    * @arkts 1.2
    */
-  static readonly SLIDE_SWITCH: TransitionEffect;
+  static get SLIDE_SWITCH(): TransitionEffect;
 
   /**
    * Creates a translate transition effect
