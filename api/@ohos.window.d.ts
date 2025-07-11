@@ -4523,6 +4523,15 @@ declare namespace window {
      * @since 20
      */
     INTERPOLATION_SPRING = 1,
+
+    /**
+     * Animation curve type cubic bezier
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    CUBIC_BEZIER = 2,
   }
 
   /**
