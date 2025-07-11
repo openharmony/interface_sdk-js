@@ -319,6 +319,17 @@ export interface RenderContext {
    * @since 20
    */
   loadPlugin(name: string): Promise<boolean>;
+
+  /**
+   * Register resource path
+   *
+   * @param { string } protocol - Protocol of the uri
+   * @param { string } uri - Path to register
+   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  registerResourcePath(protocol: string, uri: string): boolean;
 }
 
 /**
