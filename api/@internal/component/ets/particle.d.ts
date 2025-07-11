@@ -2170,7 +2170,8 @@ interface Particles {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ParticleInterface {
   /**
@@ -2221,24 +2222,20 @@ interface ParticleInterface {
       ACC_ANGLE_UPDATER,
       SPIN_UPDATER
     >): ParticleAttribute;
-}
 
-/**
- * Defines Particle Component.
- * 
- * @param { Particles } particles - Particle infomation.
- * @returns { ParticleAttribute } Returns the particle attribute.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-@memo
-@ComponentBuilder
-export declare function Particle(
-  particles: Particles
-): ParticleAttribute
+  /**
+   * create a particle array.
+   *
+   * @param { Particles } particles - Array of particles.
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (particles: Particles): ParticleAttribute;
+}
 
 /**
  * Enumerates the particle types.
