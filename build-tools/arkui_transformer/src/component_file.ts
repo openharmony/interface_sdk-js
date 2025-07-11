@@ -17,8 +17,8 @@ import * as ts from 'typescript';
 import * as path from 'path';
 
 export class ComponentFile {
-  public componentName: string
-  public outFileName: string
+  public componentName: string;
+  public outFileName: string;
 
   static snake2Camel(name: string, low: boolean = false): string {
     if (!name.includes('_')) {
@@ -37,15 +37,15 @@ export class ComponentFile {
   }
 
   public appendAttribute(str: string) {
-    this.attributeSource.push(str)
+    this.attributeSource.push(str);
   }
 
   public appendFunction(str: string) {
-    this.functionSource = str
+    this.functionSource = str;
   }
 
   get concactSource() {
-    return [...this.attributeSource, this.functionSource].join('\n')
+    return [...this.attributeSource, this.functionSource].join('\n');
   }
 
   constructor(
@@ -54,8 +54,8 @@ export class ComponentFile {
     public attributeSource: string[] = [],
     public functionSource: string = '',
   ) {
-    const pureName = path.basename(this.fileName).replaceAll(".d.ts", "").replaceAll(".d.ets", "");
-    this.componentName = ComponentFile.snake2Camel(pureName)
-    this.outFileName = ComponentFile.snake2Camel(pureName, true).concat(".d.ets")
+    const pureName = path.basename(this.fileName).replace(/\.d\.e?ts/g, "");
+    this.componentName = ComponentFile.snake2Camel(pureName);
+    this.outFileName = ComponentFile.snake2Camel(pureName, true).concat(".d.ets");
   }
 }
