@@ -871,7 +871,7 @@ declare class TreeMap<K, V> {
  * @since 20
  * @arkts 1.2
  */
-type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => void
+export type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => void
 
 /**
  * The type of TreeMap comparator.
@@ -885,6 +885,6 @@ type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => void
  * @since 20
  * @arkts 1.2
  */
-type TreeMapComparator<K> = (firstValue: K, secondValue: K) => number
+export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => number
 
 export default TreeMap;

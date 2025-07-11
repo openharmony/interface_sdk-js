@@ -1007,7 +1007,7 @@ declare class List<T> {
  * @since 20
  * @arkts 1.2
  */
-type ListForEachCb<T> = (value: T, index: number, list: List<T>) => void
+export type ListForEachCb<T> = (value: T, index: number, list: List<T>) => void
 
 /**
  * The type of List callback function.
@@ -1022,6 +1022,6 @@ type ListForEachCb<T> = (value: T, index: number, list: List<T>) => void
  * @since 20
  * @arkts 1.2
  */
-type ListReplaceCb<T> = (value: T, index: number, list: List<T>) => T
+export type ListReplaceCb<T> = (value: T, index: number, list: List<T>) => T
 
 export default List;

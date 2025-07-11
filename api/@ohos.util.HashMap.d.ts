@@ -634,6 +634,6 @@ declare class HashMap<K, V> {
    * @since 20
    * @arkts 1.2
    */
-  type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
+  export type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
 
 export default HashMap;

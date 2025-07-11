@@ -419,14 +419,14 @@ declare class Deque<T> {
   /**
    * Iterates over elements in a generic Deque (double-ended queue) and executes a callback function for each element.
    *
-   * @param { DequeCbFnforEach<T> } callbackFn - A callback function to execute for each element.
+   * @param { DequeForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  forEach(callbackFn: DequeCbFnforEach<T>): void;
+  forEach(callbackFn: DequeForEachCb<T>): void;
   /**
    * Returns the byte at the specified index.
    *
@@ -498,7 +498,7 @@ declare class Deque<T> {
   /**
    * The type of Deque forEach callback function.
    *
-   * @typedef { function } DequeCbFnforEach
+   * @typedef { function } DequeForEachCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
    * @param { Deque<T> } deque - The Deque instance being traversed
@@ -508,6 +508,6 @@ declare class Deque<T> {
    * @since 20
    * @arkts 1.2
    */
-  type DequeCbFnforEach<T> = (value: T, index: number, deque: Deque<T>) => void;
+  export type DequeForEachCb<T> = (value: T, index: number, deque: Deque<T>) => void;
 
 export default Deque;

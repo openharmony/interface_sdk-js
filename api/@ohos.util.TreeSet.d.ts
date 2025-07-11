@@ -765,7 +765,7 @@ declare class TreeSet<T> {
  * @since 20
  * @arkts 1.2
  */
-type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
+export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
 
 /**
  * The type of TreeSet comparator.
@@ -779,6 +779,6 @@ type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
  * @since 20
  * @arkts 1.2
  */
-type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
+export type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
 
 export default TreeSet;

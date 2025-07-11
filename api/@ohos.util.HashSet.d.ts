@@ -468,6 +468,6 @@ declare class HashSet<T> {
  * @since 20
  * @arkts 1.2
  */
-type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
+export type HashSetCbFn<T> = (value: T, key: T, set: HashSet<T>) => void;
 
 export default HashSet;
