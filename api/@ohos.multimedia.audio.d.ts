@@ -5432,6 +5432,24 @@ declare namespace audio {
      * @since 20
      */
     off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
+
+    /**
+     * Interface for forcibly setting the volume type by pressing the volume key.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * that the application expects to control using the volume key.
+     * @param { number } duration - Duration for continuing to control the volume type when no key is pressed.
+     * The forced volume type setting is released when the timer expires. The maximum duration is 10 seconds.
+     * If the duration is set to -1, the setting is canceled.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    forceVolumeKeyControlType(volumeType: AudioVolumeType, duration: number): void;
   }
 
   /**
