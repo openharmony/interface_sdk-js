@@ -175,6 +175,17 @@ declare namespace vpnExtension {
      * @since 11
      */
     create(config: VpnConfig): Promise<number>;
+
+    /**
+     * generate vpn id.
+     *
+     * @returns { Promise<string> } The promise returns vpn id.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 20
+     */
+    generateVpnId(): Promise<string>;
  
     /**
      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
@@ -203,6 +214,19 @@ declare namespace vpnExtension {
      * @since 11
      */
     destroy(): Promise<void>;
+
+    /**
+     * Destroy the VPN network.
+     *
+     * @param { string } vpnId - vpn id.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 20
+     */
+    destroy(vpnId: string): Promise<void>;
   }
 
   /**
@@ -213,6 +237,14 @@ declare namespace vpnExtension {
    * @since 11
    */
   export interface VpnConfig {
+    /**
+     * The uuid for the VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 20
+     */
+    vpnId?: string;
+
     /**
      * The array of addresses for VPN interface.
      * 
