@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { Resource, ResourceColor, Offset, Dimension, ResourceStr } from './units';
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, Bindable } from './common';
 import { DialogAlignment } from './alertDialog';
 import { CrownSensitivity, TextOverflow } from './enums';
 import { LengthMetrics } from './../Graphics';
@@ -233,9 +233,21 @@ declare interface TextPickerOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   value?: ResourceStr | ResourceStr[];
+
+  /**
+   * Value of the current selection.
+   * Only valid when only text is displayed.
+   *
+   * @type { ?(ResourceStr | ResourceStr[] | Bindable<ResourceStr> | Bindable<ResourceStr[]>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value?: ResourceStr | ResourceStr[] | Bindable<ResourceStr> | Bindable<ResourceStr[]>;
 
   /**
    * Current selected subscript.
@@ -259,10 +271,21 @@ declare interface TextPickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selected?: number | number[];
+
+  /**
+   * Current selected subscript.
+   *
+   * @type { ?(number | number[] | Bindable<number> | Bindable<number[]>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected?: number | number[] | Bindable<number> | Bindable<number[]>;
 
   /**
    * Defines the column width of the text picker.

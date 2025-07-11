@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import { ResourceColor, Offset } from './units';
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType,
-   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions } from './common';
+   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from './alertDialog';
 import { CrownSensitivity } from './enums';
 /*** endif */
@@ -217,10 +217,21 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selected?: Date;
+
+  /**
+   * Specifies the time selector check time.
+   *
+   * @type { ?(Date | Bindable<Date>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected?: Date | Bindable<Date>;
 
   /**
    * Specifies the format of the TimePicker that need to be displayed.
