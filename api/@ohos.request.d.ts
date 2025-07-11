@@ -60,7 +60,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_PERMISSION: number;
+  const EXCEPTION_PERMISSION: int;
   /**
    * Error code 401 - The parameters check fails.
    *
@@ -74,7 +74,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_PARAMCHECK: number;
+  const EXCEPTION_PARAMCHECK: int;
   /**
    * Error code 801 - Call unsupported api.
    *
@@ -88,7 +88,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_UNSUPPORTED: number;
+  const EXCEPTION_UNSUPPORTED: int;
   /**
    * Error code 13400001 - Invalid file or file system error.
    *
@@ -102,7 +102,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_FILEIO: number;
+  const EXCEPTION_FILEIO: int;
   /**
    * Error code 13400002 - File path not supported or invalid.
    *
@@ -116,7 +116,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_FILEPATH: number;
+  const EXCEPTION_FILEPATH: int;
   /**
    * Error code 13400003 - Task service ability error.
    *
@@ -130,7 +130,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_SERVICE: number;
+  const EXCEPTION_SERVICE: int;
   /**
    * Error code 13499999 - Others error.
    *
@@ -144,7 +144,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const EXCEPTION_OTHERS: number;
+  const EXCEPTION_OTHERS: int;
 
   /**
    * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
@@ -159,7 +159,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const NETWORK_MOBILE: number;
+  const NETWORK_MOBILE: int;
 
   /**
    * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
@@ -174,7 +174,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const NETWORK_WIFI: number;
+  const NETWORK_WIFI: int;
 
   /**
    * Error code 0 - Indicates that the download cannot be resumed for network reasons.
@@ -189,7 +189,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_CANNOT_RESUME: number;
+  const ERROR_CANNOT_RESUME: int;
 
   /**
    * Error code 1 - Indicates that no storage device, such as an SD card, is found.
@@ -204,7 +204,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_DEVICE_NOT_FOUND: number;
+  const ERROR_DEVICE_NOT_FOUND: int;
 
   /**
    * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
@@ -219,7 +219,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_FILE_ALREADY_EXISTS: number;
+  const ERROR_FILE_ALREADY_EXISTS: int;
 
   /**
    * Error code 3 - Indicates that a file operation fails.
@@ -234,7 +234,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_FILE_ERROR: number;
+  const ERROR_FILE_ERROR: int;
 
   /**
    * Error code 4 - Indicates that the HTTP transmission fails.
@@ -249,7 +249,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_HTTP_DATA_ERROR: number;
+  const ERROR_HTTP_DATA_ERROR: int;
 
   /**
    * Error code 5 - Indicates insufficient storage space.
@@ -264,7 +264,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_INSUFFICIENT_SPACE: number;
+  const ERROR_INSUFFICIENT_SPACE: int;
 
   /**
    * Error code 6 - Indicates an error caused by too many network redirections.
@@ -279,7 +279,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_TOO_MANY_REDIRECTS: number;
+  const ERROR_TOO_MANY_REDIRECTS: int;
 
   /**
    * Error code 7 - Indicates an HTTP code that cannot be identified.
@@ -294,7 +294,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_UNHANDLED_HTTP_CODE: number;
+  const ERROR_UNHANDLED_HTTP_CODE: int;
 
   /**
    * Error code 8 - Indicates an undefined error.
@@ -309,7 +309,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_UNKNOWN: number;
+  const ERROR_UNKNOWN: int;
 
   /**
    * Error code 9 - Indicates network offline.
@@ -324,7 +324,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_OFFLINE: number;
+  const ERROR_OFFLINE: int;
 
   /**
    * Error code 10 - Indicates network type configuration error.
@@ -339,7 +339,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const ERROR_UNSUPPORTED_NETWORK_TYPE: number;
+  const ERROR_UNSUPPORTED_NETWORK_TYPE: int;
 
   /**
    * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
@@ -356,7 +356,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const PAUSED_QUEUED_FOR_WIFI: number;
+  const PAUSED_QUEUED_FOR_WIFI: int;
 
   /**
    * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
@@ -371,7 +371,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const PAUSED_WAITING_FOR_NETWORK: number;
+  const PAUSED_WAITING_FOR_NETWORK: int;
 
   /**
    * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
@@ -386,7 +386,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const PAUSED_WAITING_TO_RETRY: number;
+  const PAUSED_WAITING_TO_RETRY: int;
 
   /**
    * Paused code 3 - Indicates that the download is paused due to the user.
@@ -401,7 +401,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const PAUSED_BY_USER: number;
+  const PAUSED_BY_USER: int;
 
   /**
    * Paused code 4 - Indicates that the download is paused for some reasons.
@@ -416,7 +416,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const PAUSED_UNKNOWN: number;
+  const PAUSED_UNKNOWN: int;
 
   /**
    * Session status code 0 - Indicates that the download session is completed.
@@ -431,7 +431,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const SESSION_SUCCESSFUL: number;
+  const SESSION_SUCCESSFUL: int;
 
   /**
    * Session status code 1 - Indicates that the download session is in progress.
@@ -446,7 +446,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const SESSION_RUNNING: number;
+  const SESSION_RUNNING: int;
 
   /**
    * Session status code 2 - Indicates that the download session is being scheduled.
@@ -461,7 +461,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const SESSION_PENDING: number;
+  const SESSION_PENDING: int;
 
   /**
    * Session status code 3 - Indicates that the download session has been paused.
@@ -476,7 +476,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const SESSION_PAUSED: number;
+  const SESSION_PAUSED: int;
 
   /**
    * Session status code 4 - Indicates that the download session has failed and will not be retried.
@@ -491,7 +491,7 @@ declare namespace request {
    * @crossplatform
    * @since 10
    */
-  const SESSION_FAILED: number;
+  const SESSION_FAILED: int;
 
   /**
    * Starts a download task.
@@ -800,12 +800,12 @@ declare namespace request {
     /**
      * Sets the network type allowed for download.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    networkType?: number;
+    networkType?: int;
     /**
      * Sets the path where the downloaded file is stored.
      *
@@ -896,12 +896,12 @@ declare namespace request {
     /**
      * The real-time downloads size (in bytes).
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    downloadedBytes: number;
+    downloadedBytes: long;
     /**
      * The ID of a file to be downloaded.
      *
@@ -911,12 +911,12 @@ declare namespace request {
     /**
      * The ID of a file to be downloaded.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    downloadId: number;
+    downloadId: long;
     /**
      * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
@@ -926,12 +926,12 @@ declare namespace request {
     /**
      * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    failedReason: number;
+    failedReason: int;
     /**
      * The name of a file to be downloaded.
      *
@@ -971,12 +971,12 @@ declare namespace request {
     /**
      * Cause of download pause, which can be any DownloadSession.PAUSED_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    pausedReason: number;
+    pausedReason: int;
     /**
      * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
@@ -986,12 +986,12 @@ declare namespace request {
     /**
      * The download task status code, which can be any DownloadSession.SESSION_* constant.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    status: number;
+    status: int;
     /**
      * The URI of files to be downloaded.
      *
@@ -1031,12 +1031,12 @@ declare namespace request {
     /**
      * The total size of files to be downloaded (in bytes).
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10
      */
-    downloadTotalBytes: number;
+    downloadTotalBytes: int;
   }
 
   /**
@@ -1097,7 +1097,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    on(type: 'progress', callback: (receivedSize: number, totalSize: number) => void): void;
+    on(type: 'progress', callback: (receivedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current download session is in process.
@@ -1139,7 +1139,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => void): void;
+    off(type: 'progress', callback?: (receivedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current download session complete pause or remove.
@@ -1259,7 +1259,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    on(type: 'fail', callback: (err: number) => void): void;
+    on(type: 'fail', callback: (err: int) => void): void;
 
     /**
      * Called when the current download session fails.
@@ -1295,7 +1295,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    off(type: 'fail', callback?: (err: number) => void): void;
+    off(type: 'fail', callback?: (err: int) => void): void;
 
     /**
      * Deletes a download session and the downloaded files.
@@ -1991,12 +1991,12 @@ declare namespace request {
      * Usually used for a continuous job.
      * The default is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 20
      */
-    index?: number;
+    index?: int;
     /**
      * The start point of a file.
      * Usually used for a continuous job.
@@ -2013,12 +2013,12 @@ declare namespace request {
      * It will start read at the point in upload.
      * The default is 0.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 20
      */
-    begins?: number;
+    begins?: long;
     /**
      * The end point of a file.
      * Usually used for a continuous job.
@@ -2035,12 +2035,12 @@ declare namespace request {
      * It will end read at the point in upload.
      * The default is -1 indicating the end of the data for upload.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 20
      */
-    ends?: number;
+    ends?: long;
     /**
      * A list of files to be uploaded. Please use multipart/form-data to submit.
      *
@@ -2120,12 +2120,12 @@ declare namespace request {
      * The value 0 means that the task is successful,
      * and other values means that the task fails.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 10
      */
-    responseCode: number;
+    responseCode: int;
     /**
      * Upload task information.
      *
@@ -2201,7 +2201,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    on(type: 'progress', callback: (uploadedSize: number, totalSize: number) => void): void;
+    on(type: 'progress', callback: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current upload session is in process.
@@ -2243,7 +2243,7 @@ declare namespace request {
      * @crossplatform
      * @since 12
      */
-    off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => void): void;
+    off(type: 'progress', callback?: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the header of the current upload session has been received.
@@ -2957,21 +2957,21 @@ declare namespace request {
        * If the speed of the task is lower than this value for a period of time, the task fails.
        * If the value is set to 0, no minimum speed limit will be activated.
        *
-       * @type { number }
+       * @type { long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20
        */
-      speed: number;
+      speed: long;
       /**
        * Duration of the speed which is allowed to be below the minimum speed, in seconds.
        * If the speed of the task is lower than this value for a period of time, the task fails.
        * If the value is set to 0, no minimum speed limit will be activated.
        *
-       * @type { number }
+       * @type { int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20
        */
-      duration: number;
+      duration: int;
     }
 
     /**
@@ -2988,11 +2988,11 @@ declare namespace request {
        * If this value is not specified, use default value instead. The default value is 60 seconds.
        * The minimum value allowed is 1 second.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20
        */
-      connectionTimeout?: number;
+      connectionTimeout?: int;
       /**
        * Total timeout of the task, in seconds.
        * Total timeout includes the time to establish a connection, send a request and receive a response.
@@ -3000,11 +3000,11 @@ declare namespace request {
        * The minimum value allowed is 1 second.
        * The maximum value allowed is 604,800 seconds(1 week).
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20
        */
-      totalTimeout?: number;
+      totalTimeout?: int;
     }
 
     /**
@@ -3415,13 +3415,13 @@ declare namespace request {
        * Usually used for a continuous job.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      index?: number;
+      index?: int;
       /**
        * The start point of a file.
        * Usually used for a continuous job.
@@ -3440,13 +3440,13 @@ declare namespace request {
        * It will start read at the point in upload.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      begins?: number;
+      begins?: long;
       /**
        * The end point of a file.
        * Usually used for a continuous job.
@@ -3465,13 +3465,13 @@ declare namespace request {
        * It will end read at the point in upload.
        * The default is -1 indicating the end of the data for upload or download.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      ends?: number;
+      ends?: long;
       /**
        * The policy of the progress notification for background task.
        * If false: only completed or failed notification, the default.
@@ -3548,11 +3548,11 @@ declare namespace request {
        * In tasks of the same mode, the smaller the number, the higher the priority.
        * The default is 0.
        *
-       * @type { ?number }
+       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      priority?: number;
+      priority?: int;
       /**
        * The extras for the configuration.
        * This parameter is left empty by default.
@@ -3838,7 +3838,7 @@ declare namespace request {
       /**
        * The current processing file index in a task.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -3846,7 +3846,7 @@ declare namespace request {
        * @since arkts {'1.1':'11', '1.2':'20'}
        * @arkts 1.1&1.2
        */
-      readonly index: number;
+      readonly index: int;
       /**
        * The processed data size for the current file in a task.
        *
@@ -3858,7 +3858,7 @@ declare namespace request {
       /**
        * The processed data size for the current file in a task.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -3866,7 +3866,7 @@ declare namespace request {
        * @since arkts {'1.1':'11', '1.2':'20'}
        * @arkts 1.1&1.2
        */
-      readonly processed: number;
+      readonly processed: long;
       /**
        * The sizes of files in a task, in bytes.
        *
@@ -3878,14 +3878,14 @@ declare namespace request {
       /**
        * The sizes of files in a task, in bytes.
        *
-       * @type { Array<number> }
+       * @type { Array<long> }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      readonly sizes: Array<number>;
+      readonly sizes: Array<long>;
       /**
        * The extras for an interaction.
        * Such as headers and body of response from server.
@@ -4103,12 +4103,12 @@ declare namespace request {
        * Specify the end Unix timestamp.
        * The default is the moment of calling.
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
        */
-      before?: number;
+      before?: long;
       /**
        * Specify the start Unix timestamp.
        * The default is "`before` - 24 hours".
@@ -4121,12 +4121,12 @@ declare namespace request {
        * Specify the start Unix timestamp.
        * The default is "`before` - 24 hours".
        *
-       * @type { ?number }
+       * @type { ?long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
        */
-      after?: number;
+      after?: long;
       /**
        * Specify the state of tasks.
        * The default is any state.
@@ -4378,12 +4378,12 @@ declare namespace request {
        * In tasks of the same mode, the smaller the number, the higher the priority.
        * The default is 0.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      readonly priority: number;
+      readonly priority: int;
       /**
        * The MIME type in the configuration of the task.
        *
@@ -4442,13 +4442,13 @@ declare namespace request {
        * The creating date and time of a task in Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
        */
-      readonly ctime: number;
+      readonly ctime: long;
       /**
        * The modified date and time of a task in Unix timestamp.
        * It is generated by system of current device.
@@ -4462,13 +4462,13 @@ declare namespace request {
        * The modified date and time of a task in Unix timestamp.
        * It is generated by system of current device.
        *
-       * @type { number }
+       * @type { long }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11
        */
-      readonly mtime: number;
+      readonly mtime: long;
       /**
        * The retry switch of a task.
        * Just for background, frontend always disabled.
@@ -4482,12 +4482,12 @@ declare namespace request {
       /**
        * The tried times of a task.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10
        */
-      readonly tries: number;
+      readonly tries: int;
       /**
        * The faults case of a task.
        *
@@ -4601,7 +4601,7 @@ declare namespace request {
       /**
        * The status code of the HTTP response.
        *
-       * @type { number }
+       * @type { int }
        * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -4609,7 +4609,7 @@ declare namespace request {
        * @since 20
        * @arkts 1.1&1.2 
        */
-      readonly statusCode: number,
+      readonly statusCode: int,
       /**
        * The reason of the HTTP response.
        *
@@ -5419,15 +5419,15 @@ declare namespace request {
        * Sets the maximum transfer speed of the task.
        * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
        *
-       * @param { number } speed - the maximum transfer speed of the task, in bytes per second.
+       * @param { long } speed - the maximum transfer speed of the task, in bytes per second.
        * @returns { Promise<void> } the promise returned by the function.
        * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       *     2. Incorrect parameter type. 3. Parameter verification failed.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 18
        */
-      setMaxSpeed(speed: number): Promise<void>;
+      setMaxSpeed(speed: long): Promise<void>;
     }
 
     /**
