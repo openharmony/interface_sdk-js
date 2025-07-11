@@ -178,9 +178,8 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    *
-   * @type { ?object }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
