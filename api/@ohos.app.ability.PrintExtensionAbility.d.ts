@@ -26,7 +26,8 @@ import type print from './@ohos.print';
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class PrintExtensionAbility {
 
@@ -35,7 +36,8 @@ export default class PrintExtensionAbility {
    * @param { Want } want - call print page want params.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want): void;
 
@@ -43,7 +45,8 @@ export default class PrintExtensionAbility {
    * Called once to start to discover the printers connected with the device.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStartDiscoverPrinter(): void;
 
@@ -51,27 +54,30 @@ export default class PrintExtensionAbility {
    * Called once to stop discovering the printer.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStopDiscoverPrinter(): void;
 
   /**
    * Called once to connect to the specific printer.
-   * @param { number } printerId - connect the printerId.
+   * @param { int } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  onConnectPrinter(printerId: number): void;
+  onConnectPrinter(printerId: int): void;
 
   /**
    * Called once to disconnect to the specific printer.
-   * @param { number } printerId - connect the printerId.
+   * @param { int } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  onDisconnectPrinter(printerId: number): void;
+  onDisconnectPrinter(printerId: int): void;
 
   /**
    * Called once to start print job.
@@ -80,7 +86,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
 
@@ -91,21 +98,23 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
 
   /**
    * Called once to request the capability of the printer.
-   * @param { number } printerId - Indicates the information of printer.
+   * @param { int } printerId - Indicates the information of printer.
    * @returns { print.PrinterCapability } printer capability.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  onRequestPrinterCapability(printerId: number): print.PrinterCapability;
+  onRequestPrinterCapability(printerId: int): print.PrinterCapability;
 
   /**
    * Called once to request preview and send result to Print SA.
@@ -115,7 +124,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
 
@@ -123,7 +133,8 @@ export default class PrintExtensionAbility {
    * Called once to finalize the extensionAbility.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 }
