@@ -166,7 +166,25 @@ export enum ThreadWorkerPriority {
    * @atomicservice
    * @since 18
    */
-  IDLE = 3
+  IDLE = 3,
+
+  /**
+   * Deadline priority, corresponding to QOS_DEADLINE_REQUEST.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   */
+  DEADLINE = 4,
+
+  /**
+   * Vip priority, corresponding to QOS_USER_INTERACTIVE.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   */
+  VIP = 5
 }
 
 /**
