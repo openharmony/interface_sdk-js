@@ -29,21 +29,23 @@ import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Multimedia.Audio.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace audio {
   /**
    * Enumerates audio errors.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 9
    */
   /**
    * Enumerates audio errors.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioErrors {
     /**
@@ -55,7 +57,8 @@ declare namespace audio {
      * Invalid parameter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_INVALID_PARAM = 6800101,
     /**
@@ -67,7 +70,8 @@ declare namespace audio {
      * Allocate memory failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_NO_MEMORY = 6800102,
     /**
@@ -79,7 +83,8 @@ declare namespace audio {
      * Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_ILLEGAL_STATE = 6800103,
     /**
@@ -91,19 +96,22 @@ declare namespace audio {
      * Unsupported option.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_UNSUPPORTED = 6800104,
     /**
      * Time out.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_TIMEOUT = 6800105,
     /**
      * Audio specific errors.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_STREAM_LIMIT = 6800201,
     /**
@@ -115,7 +123,8 @@ declare namespace audio {
      * Default error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ERROR_SYSTEM = 6800301
   }
@@ -124,7 +133,8 @@ declare namespace audio {
    * Define local device network id for audio
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const LOCAL_NETWORK_ID: string;
 
@@ -137,16 +147,18 @@ declare namespace audio {
    * Define default volume group id for audio
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const DEFAULT_VOLUME_GROUP_ID: number;
+  const DEFAULT_VOLUME_GROUP_ID: int;
 
   /**
    * Define default interrupt group id for audio
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const DEFAULT_INTERRUPT_GROUP_ID: number;
+  const DEFAULT_INTERRUPT_GROUP_ID: int;
 
   /**
    * Obtains an {@link AudioManager} instance.
@@ -163,7 +175,8 @@ declare namespace audio {
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAudioManager(): AudioManager;
 
@@ -184,7 +197,8 @@ declare namespace audio {
    * @param { AsyncCallback<AudioCapturer> } callback - Callback used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
@@ -205,7 +219,8 @@ declare namespace audio {
    * @returns { Promise<AudioCapturer> } Promise used to return the audio capturer instance.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
@@ -240,7 +255,8 @@ declare namespace audio {
    * @param { AsyncCallback<AudioRenderer> } callback - Callback used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
 
@@ -275,7 +291,8 @@ declare namespace audio {
    * @returns { Promise<AudioRenderer> } Promise used to return the audio renderer instance.
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
@@ -285,7 +302,8 @@ declare namespace audio {
    * @param { AsyncCallback<TonePlayer> } callback - Callback used to return the tonePlayer instance.
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
 
@@ -295,7 +313,8 @@ declare namespace audio {
    * @returns { Promise<TonePlayer> } Promise used to return the tonePlayer instance.
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
 
@@ -316,16 +335,17 @@ declare namespace audio {
 
   /**
    * Enumerates the audio states.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates the audio states.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioState {
     /**
@@ -337,7 +357,8 @@ declare namespace audio {
      * Invalid state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_INVALID = -1,
     /**
@@ -349,7 +370,8 @@ declare namespace audio {
      * Create new instance state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_NEW = 0,
     /**
@@ -361,7 +383,8 @@ declare namespace audio {
      * Prepared state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_PREPARED = 1,
     /**
@@ -373,7 +396,8 @@ declare namespace audio {
      * Running state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_RUNNING = 2,
     /**
@@ -385,7 +409,8 @@ declare namespace audio {
      * Stopped state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_STOPPED = 3,
     /**
@@ -397,7 +422,8 @@ declare namespace audio {
      * Released state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_RELEASED = 4,
     /**
@@ -409,7 +435,8 @@ declare namespace audio {
      * Paused state.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_PAUSED = 5
   }
@@ -464,16 +491,17 @@ declare namespace audio {
 
   /**
    * Enumerates audio stream types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 7
    */
   /**
    * Enumerates audio stream types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioVolumeType {
     /**
@@ -485,7 +513,8 @@ declare namespace audio {
      * Audio volume type for voice calls.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VOICE_CALL = 0,
     /**
@@ -497,7 +526,8 @@ declare namespace audio {
      * Audio volume type for ringtones.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGTONE = 2,
     /**
@@ -509,7 +539,8 @@ declare namespace audio {
      * Audio volume type for media purpose. 
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA = 3,
     /**
@@ -521,7 +552,8 @@ declare namespace audio {
      * Audio volume type for alarm purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALARM = 4,
     /**
@@ -533,20 +565,31 @@ declare namespace audio {
      * Audio volume type for accessibility purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCESSIBILITY = 5,
     /**
+     * Audio volume for system sound.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SYSTEM = 6,
+    /**
      * Audio volume type for voice assistant.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VOICE_ASSISTANT = 9,
     /**
      * Audio volume type for ultrasonic.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ULTRASONIC = 10,
     /**
@@ -567,30 +610,33 @@ declare namespace audio {
      * Audio volume type for all common.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL = 100,
   }
 
   /**
    * Enumerates audio device flags.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
   /**
    * Enumerates audio device flags.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceFlag {
     /**
      * None devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE_DEVICES_FLAG = 0,
     /**
@@ -602,7 +648,8 @@ declare namespace audio {
      * Output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OUTPUT_DEVICES_FLAG = 1,
     /**
@@ -614,7 +661,8 @@ declare namespace audio {
      * Input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INPUT_DEVICES_FLAG = 2,
     /**
@@ -626,90 +674,102 @@ declare namespace audio {
      * All devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_DEVICES_FLAG = 3,
     /**
      * Distributed output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISTRIBUTED_OUTPUT_DEVICES_FLAG = 4,
     /**
      * Distributed input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISTRIBUTED_INPUT_DEVICES_FLAG = 8,
     /**
      * All Distributed devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_DISTRIBUTED_DEVICES_FLAG = 12,
   }
 
   /**
    * Enumerates audio device for usage.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceUsage {
     /**
      * Media output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA_OUTPUT_DEVICES = 1,
     /**
      * Media input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA_INPUT_DEVICES = 2,
     /**
      * All media devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_MEDIA_DEVICES = 3,
     /**
      * Call output devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_OUTPUT_DEVICES = 4,
     /**
      * Call input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_INPUT_DEVICES = 8,
     /**
      * All call devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_CALL_DEVICES = 12,
   }
 
   /**
    * Enumerates device roles.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
   /**
    * Enumerates device roles.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceRole {
     /**
@@ -722,7 +782,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INPUT_DEVICE = 1,
     /**
@@ -735,24 +796,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OUTPUT_DEVICE = 2,
   }
 
   /**
    * Enumerates device types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
   /**
    * Enumerates device types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceType {
     /**
@@ -765,7 +828,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVALID = 0,
     /**
@@ -778,7 +842,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EARPIECE = 1,
     /**
@@ -791,7 +856,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEAKER = 2,
     /**
@@ -804,7 +870,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIRED_HEADSET = 3,
     /**
@@ -817,7 +884,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIRED_HEADPHONES = 4,
     /**
@@ -830,7 +898,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLUETOOTH_SCO = 7,
     /**
@@ -843,7 +912,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLUETOOTH_A2DP = 8,
     /**
@@ -856,7 +926,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIC = 15,
     /**
@@ -869,54 +940,62 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_HEADSET = 22,
     /**
      * Display port device.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISPLAY_PORT = 23,
     /**
      * Device type for rerouting audio to other remote devices by system application
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REMOTE_CAST = 24,
     /**
      * USB audio device.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_DEVICE = 25,
     /**
      * Accessory devices, such as the mic on remote control.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCESSORY = 26,
 
     /**
      * HDMI device, such as HDMI, ARC, eARC
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDMI = 27,
     /**
      * Line connected digital output device, such as s/pdif
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LINE_DIGITAL = 28,
     /**
      * Distributed virtualization audio device.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REMOTE_DAUDIO = 29,
     /**
@@ -935,7 +1014,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 1000,
   }
@@ -968,16 +1048,17 @@ declare namespace audio {
 
   /**
    * Enumerates the available device types for communication.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @since 9
    */
   /**
    * Enumerates the available device types for communication.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CommunicationDeviceType {
     /**
@@ -989,23 +1070,25 @@ declare namespace audio {
      * Speaker.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEAKER = 2
   }
 
   /**
    * Enumerates ringer modes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @since 7
    */
   /**
    * Enumerates ringer modes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioRingMode {
     /**
@@ -1017,7 +1100,8 @@ declare namespace audio {
      * Silent mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGER_MODE_SILENT = 0,
     /**
@@ -1029,7 +1113,8 @@ declare namespace audio {
      * Vibration mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGER_MODE_VIBRATE = 1,
     /**
@@ -1041,47 +1126,52 @@ declare namespace audio {
      * Normal mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGER_MODE_NORMAL = 2,
   }
 
   /**
    * Enumerates type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PolicyType {
     /**
      * EDM type.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EDM = 0,
     /**
      * PRIVACY type.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVACY = 1,
   }
 
   /**
    * Enumerates the audio sample formats.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates the audio sample formats.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSampleFormat {
     /**
@@ -1093,7 +1183,8 @@ declare namespace audio {
      * Invalid format.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_INVALID = -1,
     /**
@@ -1105,7 +1196,8 @@ declare namespace audio {
      * Unsigned 8 format.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_U8 = 0,
     /**
@@ -1117,7 +1209,8 @@ declare namespace audio {
      * Signed 16 bit integer, little endian.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_S16LE = 1,
     /**
@@ -1129,7 +1222,8 @@ declare namespace audio {
      * Signed 24 bit integer, little endian.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_S24LE = 2,
     /**
@@ -1141,7 +1235,8 @@ declare namespace audio {
      * Signed 32 bit integer, little endian.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_S32LE = 3,
     /**
@@ -1153,23 +1248,25 @@ declare namespace audio {
      * Signed 32 bit float, little endian.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_FORMAT_F32LE = 4,
   }
 
   /**
    * Enumerates the audio channel.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates the audio channel.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioChannel {
     /**
@@ -1181,7 +1278,8 @@ declare namespace audio {
      * Channel 1.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_1 = 1,
     /**
@@ -1193,7 +1291,8 @@ declare namespace audio {
      * Channel 2.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_2 = 2,
     /**
@@ -1205,7 +1304,8 @@ declare namespace audio {
      * Channel 3.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_3 = 3,
     /**
@@ -1217,7 +1317,8 @@ declare namespace audio {
      * Channel 4.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_4 = 4,
     /**
@@ -1229,7 +1330,8 @@ declare namespace audio {
      * Channel 5.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_5 = 5,
     /**
@@ -1241,7 +1343,8 @@ declare namespace audio {
      * Channel 6.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_6 = 6,
     /**
@@ -1253,7 +1356,8 @@ declare namespace audio {
      * Channel 7.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_7 = 7,
     /**
@@ -1265,7 +1369,8 @@ declare namespace audio {
      * Channel 8.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_8 = 8,
     /**
@@ -1277,7 +1382,8 @@ declare namespace audio {
      * Channel 9.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_9 = 9,
     /**
@@ -1289,7 +1395,8 @@ declare namespace audio {
      * Channel 10.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_10 = 10,
     /**
@@ -1301,7 +1408,8 @@ declare namespace audio {
      * Channel 12.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_12 = 12,
     /**
@@ -1313,7 +1421,8 @@ declare namespace audio {
      * Channel 14.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_14 = 14,
     /**
@@ -1325,23 +1434,25 @@ declare namespace audio {
      * Channel 16.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CHANNEL_16 = 16
   }
 
   /**
    * Enumerates the audio sampling rate.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates the audio sampling rate.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSamplingRate {
     /**
@@ -1353,7 +1464,8 @@ declare namespace audio {
      * 8kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_8000 = 8000,
     /**
@@ -1365,7 +1477,8 @@ declare namespace audio {
      * 11.025kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_11025 = 11025,
     /**
@@ -1377,7 +1490,8 @@ declare namespace audio {
      * 12kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_12000 = 12000,
     /**
@@ -1389,7 +1503,8 @@ declare namespace audio {
      * 16kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_16000 = 16000,
     /**
@@ -1401,7 +1516,8 @@ declare namespace audio {
      * 22.05kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_22050 = 22050,
     /**
@@ -1413,7 +1529,8 @@ declare namespace audio {
      * 24kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_24000 = 24000,
     /**
@@ -1425,7 +1542,8 @@ declare namespace audio {
      * 32kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_32000 = 32000,
     /**
@@ -1437,7 +1555,8 @@ declare namespace audio {
      * 44.1kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_44100 = 44100,
     /**
@@ -1449,7 +1568,8 @@ declare namespace audio {
      * 48kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_48000 = 48000,
     /**
@@ -1461,13 +1581,15 @@ declare namespace audio {
      * 64kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_64000 = 64000,
     /**
      * 88.2kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_88200 = 88200,
     /**
@@ -1479,36 +1601,40 @@ declare namespace audio {
      * 96kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_96000 = 96000,
     /**
      * 176.4kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_176400 = 176400,
     /**
      * 192kHz sample rate.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAMPLE_RATE_192000 = 192000
   }
 
   /**
    * Enumerates the audio encoding type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates the audio encoding type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioEncodingType {
     /**
@@ -1521,7 +1647,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENCODING_TYPE_INVALID = -1,
     /**
@@ -1534,7 +1661,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENCODING_TYPE_RAW = 0
   }
@@ -1600,17 +1728,18 @@ declare namespace audio {
 
   /**
    * Enumerates the stream usage.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
    */
   /**
    * Enumerates the stream usage.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum StreamUsage {
     /**
@@ -1623,7 +1752,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_UNKNOWN = 0,
     /**
@@ -1647,7 +1777,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_MUSIC = 1,
     /**
@@ -1660,7 +1791,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
     /**
@@ -1673,7 +1805,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
@@ -1686,7 +1819,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ALARM = 4,
     /**
@@ -1698,7 +1832,8 @@ declare namespace audio {
      * Voice message usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_MESSAGE = 5,
     /**
@@ -1719,7 +1854,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_RINGTONE = 6,
     /**
@@ -1732,7 +1868,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_NOTIFICATION = 7,
     /**
@@ -1745,14 +1882,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ACCESSIBILITY = 8,
     /**
      * System usage, such as screen lock or key click.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_SYSTEM = 9,
     /**
@@ -1765,7 +1904,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_MOVIE = 10,
     /**
@@ -1778,7 +1918,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_GAME = 11,
     /**
@@ -1791,7 +1932,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_AUDIOBOOK = 12,
     /**
@@ -1804,59 +1946,67 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_NAVIGATION = 13,
     /**
      * DTMF dial tone usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_DTMF = 14,
     /**
      * Enforced tone usage, such as camera shutter.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ENFORCED_TONE = 15,
     /**
      * Ultrasonic playing usage. This type is only used for msdp condition.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
      * Used for network video call.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VIDEO_COMMUNICATION = 17,
     /**
      * Voice call assistant type. This type is only used for call assistant functionalities.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STREAM_USAGE_VOICE_CALL_ASSISTANT = 21,
   }
 
   /**
    * Enumerates the audio interrupt request type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptRequestType {
     /**
      * Default type to request audio interrupt.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_REQUEST_TYPE_DEFAULT = 0,
   }
@@ -1864,17 +2014,19 @@ declare namespace audio {
   /**
    * Enumerates volume related operations.
    * Flags should be powers of 2!
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VolumeFlag {
     /**
      * Show system volume bar.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_SHOW_SYSTEM_UI = 1,
   }
@@ -1890,7 +2042,8 @@ declare namespace audio {
    * @typedef AudioStreamInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioStreamInfo {
     /**
@@ -1904,7 +2057,8 @@ declare namespace audio {
      * @type { AudioSamplingRate }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     samplingRate: AudioSamplingRate;
     /**
@@ -1918,7 +2072,8 @@ declare namespace audio {
     * @type { AudioChannel }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     channels: AudioChannel;
     /**
@@ -1932,7 +2087,8 @@ declare namespace audio {
      * @type { AudioSampleFormat }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sampleFormat: AudioSampleFormat;
     /**
@@ -1946,7 +2102,8 @@ declare namespace audio {
      * @type { AudioEncodingType }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encodingType: AudioEncodingType;
     /**
@@ -1960,7 +2117,8 @@ declare namespace audio {
      * @type { ?AudioChannelLayout }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     channelLayout?: AudioChannelLayout;
   }
@@ -1977,7 +2135,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRendererInfo {
     /**
@@ -2007,30 +2166,33 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     usage: StreamUsage;
     /**
      * Audio renderer flags.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
     /**
      * Audio renderer flags. This method is currently reserved, suggest setting the default value to 0.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rendererFlags: number;
+    rendererFlags: int;
     /**
      * Audio volume mode config. If volumeMode is set to {@link AudioVolumeMode.APP_INDIVIDUAL}, this audio renderer
      * will be affeted by app volume percentage setted by {@link setAppVolumePercentage}
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     volumeMode?: AudioVolumeMode;
   }
@@ -2040,33 +2202,37 @@ declare namespace audio {
    * @typedef AudioRendererFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRendererFilter {
     /**
      * Application uid.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    uid?: number;
+    uid?: int;
     /**
      * Renderer information.
      * @type { ?AudioRendererInfo }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rendererInfo?: AudioRendererInfo;
     /**
      * AudioRenderer id.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rendererId?: number;
+    rendererId?: int;
   }
 
   /**
@@ -2074,23 +2240,26 @@ declare namespace audio {
    * @typedef AudioCapturerFilter
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioCapturerFilter {
     /**
      * Application uid.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    uid?: number;
+    uid?: int;
     /**
      * Capturer information.
      * @type { ?AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     capturerInfo?: AudioCapturerInfo;
   }
@@ -2106,7 +2275,8 @@ declare namespace audio {
    * @typedef AudioRendererOptions
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRendererOptions {
     /**
@@ -2120,7 +2290,8 @@ declare namespace audio {
      * @type { AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     streamInfo: AudioStreamInfo;
     /**
@@ -2134,7 +2305,8 @@ declare namespace audio {
      * @type { AudioRendererInfo }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rendererInfo: AudioRendererInfo;
     /**
@@ -2148,23 +2320,25 @@ declare namespace audio {
      * @type { ?AudioPrivacyType }
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     privacyType?: AudioPrivacyType;
   }
 
   /**
    * Enumerates audio stream privacy type for playback capture.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10
    */
   /**
    * Enumerates audio stream privacy type for playback capture.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioPrivacyType {
     /**
@@ -2176,7 +2350,8 @@ declare namespace audio {
      * Privacy type that stream can be captured by third party applications.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVACY_TYPE_PUBLIC = 0,
 
@@ -2189,24 +2364,26 @@ declare namespace audio {
      * Privacy type that stream can not be captured.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVACY_TYPE_PRIVATE = 1,
   }
 
   /**
    * Enumerates the interrupt modes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @since 9
    */
   /**
    * Enumerates the interrupt modes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptMode {
     /**
@@ -2219,7 +2396,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SHARE_MODE = 0,
     /**
@@ -2232,51 +2410,57 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INDEPENDENT_MODE = 1
   }
 
   /**
    * Enumerates the audio renderer rates.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioRendererRate {
     /**
      * Normal playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RENDER_RATE_NORMAL = 0,
     /**
      * Double playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RENDER_RATE_DOUBLE = 1,
     /**
      * Half playback render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RENDER_RATE_HALF = 2
   }
 
   /**
    * Enumerates the interrupt types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7
    */
   /**
    * Enumerates the interrupt types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptType {
     /**
@@ -2289,7 +2473,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_TYPE_BEGIN = 1,
 
@@ -2303,24 +2488,26 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_TYPE_END = 2
   }
 
   /**
    * Enumerates the interrupt hints.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7
    */
   /**
    * Enumerates the interrupt hints.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptHint {
     /**
@@ -2332,7 +2519,8 @@ declare namespace audio {
      * None.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_NONE = 0,
     /**
@@ -2345,7 +2533,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_RESUME = 1,
 
@@ -2358,7 +2547,8 @@ declare namespace audio {
      * Paused/Pause the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_PAUSE = 2,
 
@@ -2371,7 +2561,8 @@ declare namespace audio {
      * Stopped/Stop the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_STOP = 3,
 
@@ -2384,7 +2575,8 @@ declare namespace audio {
      * Ducked the playback. (In ducking, the audio volume is reduced, but not silenced.)
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_DUCK = 4,
 
@@ -2397,7 +2589,8 @@ declare namespace audio {
      * Unducked the playback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_HINT_UNDUCK = 5,
 
@@ -2418,17 +2611,18 @@ declare namespace audio {
 
   /**
    * Enumerates the interrupt force types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 9
    */
   /**
    * Enumerates the interrupt force types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptForceType {
     /**
@@ -2441,7 +2635,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_FORCE = 0,
     /**
@@ -2453,7 +2648,8 @@ declare namespace audio {
      * Share type, application can choose to take action or ignore.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_SHARE = 1
   }
@@ -2470,7 +2666,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InterruptEvent {
     /**
@@ -2485,7 +2682,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventType: InterruptType;
 
@@ -2501,7 +2699,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     forceType: InterruptForceType;
 
@@ -2517,7 +2716,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hintType: InterruptHint;
   }
@@ -2550,16 +2750,17 @@ declare namespace audio {
 
   /**
    * Enumerates device change types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7
    */
   /**
    * Enumerates device change types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceChangeType {
     /**
@@ -2571,7 +2772,8 @@ declare namespace audio {
      * Device connection.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECT = 0,
 
@@ -2584,23 +2786,25 @@ declare namespace audio {
      * Device disconnection.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISCONNECT = 1,
   }
 
   /**
    * Enumerates audio scenes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @since 8
    */
   /**
    * Enumerates audio scenes.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioScene {
     /**
@@ -2612,19 +2816,22 @@ declare namespace audio {
      * Default audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SCENE_DEFAULT = 0,
     /**
      * Ringing audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SCENE_RINGING = 1,
     /**
      * Phone call audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SCENE_PHONE_CALL = 2,
     /**
@@ -2636,31 +2843,35 @@ declare namespace audio {
      * Voice chat audio scene
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SCENE_VOICE_CHAT = 3
   }
 
   /**
    * Enumerates volume adjustment types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VolumeAdjustType {
     /**
      * Adjust volume up.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VOLUME_UP = 0,
     /**
      * Adjust volume down.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VOLUME_DOWN = 1,
   }
@@ -2676,7 +2887,8 @@ declare namespace audio {
    * @typedef AudioManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioManager {
     /**
@@ -2993,7 +3205,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setExtraParameters(mainKey: string, kvpairs: Record<string, string>): Promise<void>;
 
@@ -3009,7 +3222,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExtraParameters(mainKey: string, subKeys?: Array<string>): Promise<Record<string, string>>;
 
@@ -3088,7 +3302,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAudioScene(scene: AudioScene, callback: AsyncCallback<void>): void;
     /**
@@ -3097,7 +3312,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAudioScene(scene: AudioScene): Promise<void>;
     /**
@@ -3111,7 +3327,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioScene> } callback - Callback used to return the audio scene mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioScene(callback: AsyncCallback<AudioScene>): void;
     /**
@@ -3125,7 +3342,8 @@ declare namespace audio {
      * @returns { Promise<AudioScene> } Promise used to return the audio scene mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioScene(): Promise<AudioScene>;
     /**
@@ -3139,7 +3357,8 @@ declare namespace audio {
      * @returns { AudioScene } Current audio scene mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioSceneSync(): AudioScene;
 
@@ -3223,7 +3442,8 @@ declare namespace audio {
      * @returns { AudioVolumeManager } AudioVolumeManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVolumeManager(): AudioVolumeManager;
 
@@ -3238,7 +3458,8 @@ declare namespace audio {
      * @returns { AudioStreamManager } AudioStreamManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamManager(): AudioStreamManager;
 
@@ -3253,7 +3474,8 @@ declare namespace audio {
      * @returns { AudioRoutingManager } AudioRoutingManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRoutingManager(): AudioRoutingManager;
 
@@ -3262,7 +3484,8 @@ declare namespace audio {
      * @returns { AudioSessionManager } AudioSessionManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSessionManager(): AudioSessionManager;
 
@@ -3270,7 +3493,8 @@ declare namespace audio {
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSpatializationManager(): AudioSpatializationManager;
 
@@ -3280,7 +3504,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getEffectManager(): AudioEffectManager;
 
@@ -3302,31 +3527,35 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableSafeMediaVolume(): Promise<void>;
   }
 
   /**
    * Enumerates audio interrupt request result type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum InterruptRequestResultType {
     /**
      * Request audio interrupt success
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_REQUEST_GRANT = 0,
     /**
      * Request audio interrupt fail, may have higher priority type
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERRUPT_REQUEST_REJECT = 1
   }
@@ -3336,7 +3565,8 @@ declare namespace audio {
    * @typedef InterruptResult
    * @syscap SystemCapability.Multimedia.Audio.Interrupt
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface InterruptResult {
     /**
@@ -3344,36 +3574,41 @@ declare namespace audio {
      * @type { InterruptRequestResultType }
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requestResult: InterruptRequestResultType;
     /**
      * Interrupt node as a unit to receive interrupt change event.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    interruptNode: number;
+    interruptNode: int;
   }
 
   /**
    * Desribes audio device block status. By default, the device is consider as unblocked.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceBlockStatus {
     /**
      * Device is unblocked.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNBLOCKED = 0,
     /**
      * Device is blocked.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BLOCKED = 1,
   }
@@ -3382,14 +3617,16 @@ declare namespace audio {
    * Desribes audio device block status info.
    * @typedef DeviceBlockStatusInfo
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceBlockStatusInfo {
     /**
      * Device block status.
      * @type {DeviceBlockStatus}
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     blockStatus: DeviceBlockStatus;
 
@@ -3397,7 +3634,8 @@ declare namespace audio {
      * Audio device descriptors whose block status has changed.
      * @type {AudioDeviceDescriptors}
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     devices: AudioDeviceDescriptors;
   }
@@ -3413,7 +3651,8 @@ declare namespace audio {
    * @typedef AudioRoutingManager
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRoutingManager {
     /**
@@ -3429,7 +3668,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the device list.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -3445,7 +3685,8 @@ declare namespace audio {
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the device list.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
@@ -3469,7 +3710,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors;
 
@@ -3498,7 +3740,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
 
@@ -3523,7 +3766,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -3536,7 +3780,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
 
@@ -3551,7 +3796,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
@@ -3564,7 +3810,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -3586,7 +3833,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -3607,7 +3855,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise<void>;
 
@@ -3624,7 +3873,8 @@ declare namespace audio {
      * @param { AsyncCallback<boolean> } callback - Callback used to return the active status of the device.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>): void;
     /**
@@ -3640,7 +3890,8 @@ declare namespace audio {
      * @returns { Promise<boolean> } Promise used to return the active status of the device.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>;
     /**
@@ -3664,7 +3915,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean;
 
@@ -3674,7 +3926,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
     /**
@@ -3683,7 +3936,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3694,7 +3948,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
     /**
@@ -3704,7 +3959,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3714,7 +3970,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
     /**
@@ -3723,7 +3980,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3736,7 +3994,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectInputDeviceByFilter(filter: AudioCapturerFilter, inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
@@ -3763,7 +4022,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -3789,7 +4049,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
 
@@ -3814,7 +4075,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
 
@@ -3826,7 +4088,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredOutputDeviceByFilter(filter: AudioRendererFilter): AudioDeviceDescriptors;
 
@@ -3857,7 +4120,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
@@ -3883,7 +4147,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -3910,7 +4175,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -3936,7 +4202,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
 
@@ -3948,7 +4215,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredInputDeviceByFilter(filter: AudioCapturerFilter): AudioDeviceDescriptors;
 
@@ -3977,7 +4245,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
@@ -4001,7 +4270,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -4026,7 +4296,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
 
@@ -4034,7 +4305,8 @@ declare namespace audio {
      * Query whether microphone block detection is supported on current device.
      * @returns { Promise<boolean> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMicBlockDetectionSupported():Promise<boolean>;
 
@@ -4050,7 +4322,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): void;
 
@@ -4063,7 +4336,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
      off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
 
@@ -4080,7 +4354,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     excludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
@@ -4095,7 +4370,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unexcludeOutputDevices(usage: DeviceUsage, devices: AudioDeviceDescriptors): Promise<void>;
 
@@ -4109,7 +4385,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
      unexcludeOutputDevices(usage: DeviceUsage): Promise<void>;
 
@@ -4121,7 +4398,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
   }
@@ -4137,7 +4415,8 @@ declare namespace audio {
    * @typedef AudioStreamManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioStreamManager {
     /**
@@ -4153,7 +4432,8 @@ declare namespace audio {
      * of current existing audio renderers.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
 
@@ -4170,7 +4450,8 @@ declare namespace audio {
      * existing audio renderers.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
 
@@ -4185,7 +4466,8 @@ declare namespace audio {
      * @returns { AudioRendererChangeInfoArray } The information of current existing audio renderers.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioRendererInfoArraySync(): AudioRendererChangeInfoArray;
 
@@ -4202,7 +4484,8 @@ declare namespace audio {
      * of current existing audio capturers.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
 
@@ -4219,7 +4502,8 @@ declare namespace audio {
      * audio capturers.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
 
@@ -4234,7 +4518,8 @@ declare namespace audio {
      * @returns { AudioCapturerChangeInfoArray } The information of current existing audio capturers.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerInfoArraySync(): AudioCapturerChangeInfoArray;
 
@@ -4247,7 +4532,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
 
@@ -4260,7 +4546,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>;
 
@@ -4273,7 +4560,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray;
 
@@ -4300,7 +4588,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioRendererChange', callback: Callback<AudioRendererChangeInfoArray>): void;
 
@@ -4332,7 +4621,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void;
 
@@ -4359,7 +4649,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfoArray>): void;
 
@@ -4391,7 +4682,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void;
 
@@ -4410,7 +4702,8 @@ declare namespace audio {
      *  The value true means that the stream is active, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -4428,7 +4721,8 @@ declare namespace audio {
      * true means that the stream is active, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -4452,7 +4746,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
 
@@ -4501,62 +4796,70 @@ declare namespace audio {
 
   /**
    * Audio concurrency mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioConcurrencyMode {
     /**
      * Default concurrency mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONCURRENCY_DEFAULT = 0,
     /**
      * Mix with others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONCURRENCY_MIX_WITH_OTHERS = 1,
     /**
      * Duck others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONCURRENCY_DUCK_OTHERS = 2,
     /**
      * Pause others mode.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONCURRENCY_PAUSE_OTHERS = 3,
   }
 
   /**
    * Audio session deactivated reason.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSessionDeactivatedReason {
     /**
      * Lower priority.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEACTIVATED_LOWER_PRIORITY = 0,
     /**
      * Time out.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEACTIVATED_TIMEOUT = 1,
   }
@@ -4566,7 +4869,8 @@ declare namespace audio {
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSessionStrategy {
     /**
@@ -4574,7 +4878,8 @@ declare namespace audio {
      * @type { AudioConcurrencyMode }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     concurrencyMode: AudioConcurrencyMode;
   }
@@ -4584,7 +4889,8 @@ declare namespace audio {
    * @typedef AudioSessionDeactivatedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSessionDeactivatedEvent {
     /**
@@ -4592,7 +4898,8 @@ declare namespace audio {
      * @type { AudioSessionDeactivatedReason }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: AudioSessionDeactivatedReason;
   }
@@ -4602,7 +4909,8 @@ declare namespace audio {
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSessionManager {
     /**
@@ -4616,7 +4924,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     activateAudioSession(strategy: AudioSessionStrategy): Promise<void>;
 
@@ -4626,7 +4935,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Returned by promise.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deactivateAudioSession(): Promise<void>;
 
@@ -4635,7 +4945,8 @@ declare namespace audio {
      * @returns { boolean } The active audio session status for the current pid application.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAudioSessionActivated(): boolean;
 
@@ -4650,7 +4961,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
@@ -4664,7 +4976,8 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
-    * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
   }
@@ -4689,7 +5002,8 @@ declare namespace audio {
    * @typedef AudioVolumeManager
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioVolumeManager {
     /**
@@ -4698,7 +5012,8 @@ declare namespace audio {
      * @param { AsyncCallback<VolumeGroupInfos> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVolumeGroupInfos(networkId: string, callback: AsyncCallback<VolumeGroupInfos>): void;
     /**
@@ -4707,7 +5022,8 @@ declare namespace audio {
      * @returns { Promise<VolumeGroupInfos> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVolumeGroupInfos(networkId: string): Promise<VolumeGroupInfos>;
     /**
@@ -4720,45 +5036,48 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getVolumeGroupInfosSync(networkId: string): VolumeGroupInfos;
 
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses an asynchronous callback to return the result.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { int } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @param { AsyncCallback<AudioVolumeGroupManager> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses an asynchronous callback to return the result.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { int } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @param { AsyncCallback<AudioVolumeGroupManager> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolumeGroupManager(groupId: number, callback: AsyncCallback<AudioVolumeGroupManager>): void;
+    getVolumeGroupManager(groupId: int, callback: AsyncCallback<AudioVolumeGroupManager>): void;
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses a promise to return the result.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { int } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @returns { Promise<AudioVolumeGroupManager> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains an AudioVolumeGroupManager instance. This method uses a promise to return the result.
-     * @param { number } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
      * @returns { Promise<AudioVolumeGroupManager> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolumeGroupManager(groupId: number): Promise<AudioVolumeGroupManager>;
+    getVolumeGroupManager(groupId: int): Promise<AudioVolumeGroupManager>;
     /**
      * Obtains an AudioVolumeGroupManager instance.
-     * @param { number } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
+     * @param { int } groupId - volume group id, use LOCAL_VOLUME_GROUP_ID in default
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4769,7 +5088,7 @@ declare namespace audio {
      */
     /**
      * Obtains an AudioVolumeGroupManager instance.
-     * @param { number } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
+     * @param { int } groupId - volume group id, use {@link DEFAULT_VOLUME_GROUP_ID} in default
      * @returns { AudioVolumeGroupManager } The audio volume group manager instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -4777,29 +5096,31 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager;
+    getVolumeGroupManagerSync(groupId: int): AudioVolumeGroupManager;
 
     /**
      * Get the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { number } uid - App's uid.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @param { int } uid - App's uid.
+     * @returns { Promise<int> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAppVolumePercentageForUid(uid: number): Promise<number>;
+    getAppVolumePercentageForUid(uid: int): Promise<int>;
 
     /**
      * Sets the volume for specified app with range from 0 to 100. Applications with same uid share the same volume.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { number } uid - App's uid.
-     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @param { int } uid - App's uid.
+     * @param { int } volume - Volume to set. The value range is from 0 to 100.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -4807,15 +5128,16 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setAppVolumePercentageForUid(uid: number, volume: number): Promise<void>;
+    setAppVolumePercentageForUid(uid: int, volume: int): Promise<void>;
 
     /**
      * Checks whether the app volume is muted. If there are multiple callers setting muted states,
      * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { number } uid - App's uid.
+     * @param { int } uid - App's uid.
      * @param { boolean } owned - If true is passed, the result will be indicated your owned muted state
      * settings to this app. Otherwise if false is passed, the result will be indicated the real muted state.
      * @returns { Promise<boolean> } Promise used to return the result.
@@ -4824,15 +5146,16 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    isAppVolumeMutedForUid(uid: number, owned: boolean): Promise<boolean>;
+    isAppVolumeMutedForUid(uid: int, owned: boolean): Promise<boolean>;
 
     /**
      * Change mute state of specified application volume. If there are multiple callers setting muted states,
      * only when all callers cancel muted state the volume of this app will be truly unmuted.
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { number } uid - App's uid.
+     * @param { int } uid - App's uid.
      * @param { boolean } muted - Muted state to set.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -4841,17 +5164,19 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setAppVolumeMutedForUid(uid: number, muted: boolean): Promise<void>;
+    setAppVolumeMutedForUid(uid: int, muted: boolean): Promise<void>;
 
     /**
      * Get the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
-     * @returns { Promise<number> } The application's volume percentage. The value range is from 0 to 100.
+     * @returns { Promise<int> } The application's volume percentage. The value range is from 0 to 100.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAppVolumePercentage(): Promise<number>;
+    getAppVolumePercentage(): Promise<int>;
 
     /**
      * Sets the volume for your app with range from 0 to 100. Applications with the same uid share the same volume.
@@ -4860,14 +5185,15 @@ declare namespace audio {
      * When you change your app's volume, your will receive 'appVolumeChange' callback event.
      * Your app volume can be also changed by other system settings, and you can monitor the changes through
      * 'appVolumeChange' callback.
-     * @param { number } volume - Volume to set. The value range is from 0 to 100.
+     * @param { int } volume - Volume to set. The value range is from 0 to 100.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setAppVolumePercentage(volume: number): Promise<void>;
+    setAppVolumePercentage(volume: int): Promise<void>;
 
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
@@ -4890,7 +5216,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4903,7 +5230,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -4913,16 +5241,17 @@ declare namespace audio {
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { 'appVolumeChangeForUid' } type - Type of the event to listen for. Only the
      * appVolumeChangeForUid event is supported.
-     * @param { number } uid - The app's uid.
+     * @param { int } uid - The app's uid.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'appVolumeChangeForUid', uid: number, callback: Callback<VolumeEvent>): void;
+    on(type: 'appVolumeChangeForUid', uid: int, callback: Callback<VolumeEvent>): void;
 
     /**
      * Unsubscribes to the app volume change events..
@@ -4935,7 +5264,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
@@ -4946,7 +5276,8 @@ declare namespace audio {
      * @param { Callback<VolumeEvent> } callback - Callback used to get the app volume change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'appVolumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4957,7 +5288,8 @@ declare namespace audio {
      * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -5198,50 +5530,54 @@ declare namespace audio {
    * @typedef AudioVolumeGroupManager
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioVolumeGroupManager {
     /**
      * Sets the volume for a stream. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { int } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
+    setVolume(volumeType: AudioVolumeType, volume: int, callback: AsyncCallback<void>): void;
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { int } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
+    setVolume(volumeType: AudioVolumeType, volume: int): Promise<void>;
 
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
-     * @param { number } flags - volume flags used to enable different operations, can be union of {@link VolumeFlag}
+     * @param { int } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { int } flags - volume flags used to enable different operations, can be union of {@link VolumeFlag}
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolumeWithFlag(volumeType: AudioVolumeType, volume: number, flags: number): Promise<void>;
+    setVolumeWithFlag(volumeType: AudioVolumeType, volume: int, flags: int): Promise<void>;
 
     /**
      * Obtains the active volume type in the calling moment. This method returns in sync mode.
-     * @param { number } uid - The target uid's active volume type or
+     * @param { int } uid - The target uid's active volume type or
      * 0 which means the global active volume type.
      * @returns { AudioVolumeType } Current active volume type.
      * @throws { BusinessError } 202 - Not system App.
@@ -5251,46 +5587,49 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getActiveVolumeTypeSync(uid: number): AudioVolumeType;
+    getActiveVolumeTypeSync(uid: int): AudioVolumeType;
 
     /**
      * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the volume of a volume type. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
     /**
      * Obtains the volume of a stream. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { Promise<number> } Promise used to return the volume.
+     * @returns { Promise<int> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the volume of a volume type. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { Promise<number> } Promise used to return the volume.
+     * @returns { Promise<int> } Promise used to return the volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolume(volumeType: AudioVolumeType): Promise<number>;
+    getVolume(volumeType: AudioVolumeType): Promise<int>;
     /**
      * Obtains the volume of a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { number } Current system volume level.
+     * @returns { int } Current system volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5301,53 +5640,56 @@ declare namespace audio {
     /**
      * Obtains the volume of a volume type.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { number } Current system volume level.
+     * @returns { int } Current system volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolumeSync(volumeType: AudioVolumeType): number;
+    getVolumeSync(volumeType: AudioVolumeType): int;
 
     /**
      * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the minimum volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the minimum volume allowed for a volume type. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the minimum volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
     /**
      * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { Promise<number> } Promise used to return the minimum volume.
+     * @returns { Promise<int> } Promise used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the minimum volume allowed for a volume type. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { Promise<number> } Promise used to return the minimum volume.
+     * @returns { Promise<int> } Promise used to return the minimum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinVolume(volumeType: AudioVolumeType): Promise<number>;
+    getMinVolume(volumeType: AudioVolumeType): Promise<int>;
     /**
      * Obtains the minimum volume allowed for a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { number } Min volume level.
+     * @returns { int } Min volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5358,53 +5700,56 @@ declare namespace audio {
     /**
      * Obtains the minimum volume allowed for a volume type.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { number } Min volume level.
+     * @returns { int } Min volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinVolumeSync(volumeType: AudioVolumeType): number;
+    getMinVolumeSync(volumeType: AudioVolumeType): int;
 
     /**
      * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the maximum volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the maximum volume allowed for a volume type. This method uses an asynchronous callback to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the maximum volume.
+     * @param { AsyncCallback<int> } callback - Callback used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
     /**
      * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { Promise<number> } Promise used to return the maximum volume.
+     * @returns { Promise<int> } Promise used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Obtains the maximum volume allowed for a volume type. This method uses a promise to return the query result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { Promise<number> } Promise used to return the maximum volume.
+     * @returns { Promise<int> } Promise used to return the maximum volume.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
+    getMaxVolume(volumeType: AudioVolumeType): Promise<int>;
     /**
      * Obtains the maximum volume allowed for a stream.
      * @param { AudioVolumeType } volumeType - Audio stream type.
-     * @returns { number } Max volume level.
+     * @returns { int } Max volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5415,16 +5760,17 @@ declare namespace audio {
     /**
      * Obtains the maximum volume allowed for a volume type.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @returns { number } Max volume level.
+     * @returns { int } Max volume level.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxVolumeSync(volumeType: AudioVolumeType): number;
+    getMaxVolumeSync(volumeType: AudioVolumeType): int;
 
     /**
      * Mutes a stream. This method uses an asynchronous callback to return the result.
@@ -5434,7 +5780,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -5445,7 +5792,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
 
@@ -5464,7 +5812,8 @@ declare namespace audio {
      * value true means that the volume type is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -5482,7 +5831,8 @@ declare namespace audio {
      * means that the volume type is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -5508,7 +5858,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMuteSync(volumeType: AudioVolumeType): boolean;
 
@@ -5519,7 +5870,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
     /**
@@ -5529,7 +5881,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
 
@@ -5544,7 +5897,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioRingMode> } callback - Callback used to return the ringer mode.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
@@ -5558,7 +5912,8 @@ declare namespace audio {
      * @returns { Promise<AudioRingMode> } Promise used to return the ringer mode.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingerMode(): Promise<AudioRingMode>;
     /**
@@ -5572,7 +5927,8 @@ declare namespace audio {
      * @returns { AudioRingMode } Current ringer mode.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingerModeSync(): AudioRingMode;
 
@@ -5585,7 +5941,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
 
@@ -5595,7 +5952,8 @@ declare namespace audio {
      * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'ringerModeChange', callback?: Callback<AudioRingMode>): void;
 
@@ -5635,7 +5993,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMicMute(mute: boolean): Promise<void>;
 
@@ -5653,7 +6012,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMicMutePersistent(mute: boolean, type: PolicyType): Promise<void>;
 
@@ -5667,7 +6027,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPersistentMicMute(): boolean;
 
@@ -5684,7 +6045,8 @@ declare namespace audio {
      * true means that the microphone is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
@@ -5700,7 +6062,8 @@ declare namespace audio {
      * means that the microphone is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMicrophoneMute(): Promise<boolean>;
     /**
@@ -5716,7 +6079,8 @@ declare namespace audio {
      * means that the microphone is muted, and false means the opposite.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMicrophoneMuteSync(): boolean;
 
@@ -5729,7 +6093,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
 
@@ -5742,7 +6107,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'micStateChange', callback?: Callback<MicStateChangeEvent>): void;
 
@@ -5757,7 +6123,8 @@ declare namespace audio {
      * @returns { boolean } Whether it is volume unadjustable.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isVolumeUnadjustable(): boolean;
 
@@ -5775,7 +6142,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adjustVolumeByStep(adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
@@ -5792,7 +6160,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adjustVolumeByStep(adjustType: VolumeAdjustType): Promise<void>;
 
@@ -5811,7 +6180,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
@@ -5829,7 +6199,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType): Promise<void>;
 
@@ -5837,9 +6208,9 @@ declare namespace audio {
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses an asynchronous callback to return the result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5852,9 +6223,9 @@ declare namespace audio {
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses an asynchronous callback to return the result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5862,16 +6233,17 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType, callback: AsyncCallback<double>): void;
     /**
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses a promise to return the result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5884,9 +6256,9 @@ declare namespace audio {
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * This method uses a promise to return the result.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5894,15 +6266,16 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType): Promise<double>;
     /**
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @returns { number } The system volume in dB.
+     * @returns { double } The system volume in dB.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -5913,47 +6286,50 @@ declare namespace audio {
     /**
      * Gets the volume db value that system calculate by volume type, volume level and device type.
      * @param { AudioVolumeType } volumeType - Audio volume type.
-     * @param { number } volumeLevel - Volume level to set.
+     * @param { int } volumeLevel - Volume level to set.
      * @param { DeviceType } device - Output device type.
-     * @returns { number } The system volume in dB.
+     * @returns { double } The system volume in dB.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+    getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType): double;
 
     /**
      * Gets the max amplitude value for a specific input device.
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } inputDevice - the target device.
-     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @returns { Promise<double> } Promise used to return the max amplitude value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise<number>;
+    getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise<double>;
     /**
      * Gets the max amplitude value for a specific output device.
      * This method uses a promise to return the result.
      * @param { AudioDeviceDescriptor } outputDevice - the target device.
-     * @returns { Promise<number> } Promise used to return the max amplitude value.
+     * @returns { Promise<double> } Promise used to return the max amplitude value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<number>;
+    getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<double>;
   }
 
   /**
@@ -5961,7 +6337,8 @@ declare namespace audio {
    * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSpatialEnabledStateForDevice {
     /**
@@ -5969,7 +6346,8 @@ declare namespace audio {
      * @type { AudioDeviceDescriptor }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceDescriptor: AudioDeviceDescriptor;
     /**
@@ -5977,7 +6355,8 @@ declare namespace audio {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enabled: boolean;
   }
@@ -5986,7 +6365,8 @@ declare namespace audio {
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSpatializationManager {
     /**
@@ -5995,7 +6375,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSpatializationSupported(): boolean;
 
@@ -6010,7 +6391,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSpatializationSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
@@ -6020,7 +6402,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHeadTrackingSupported(): boolean;
 
@@ -6035,7 +6418,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHeadTrackingSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
@@ -6089,7 +6473,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
@@ -6115,7 +6500,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
@@ -6148,7 +6534,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
@@ -6179,7 +6566,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'spatializationEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
@@ -6233,7 +6621,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
@@ -6259,7 +6648,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
@@ -6292,7 +6682,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
@@ -6323,7 +6714,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
@@ -6339,7 +6731,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateSpatialDeviceState(spatialDeviceState: AudioSpatialDeviceState): void;
 
@@ -6355,7 +6748,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSpatializationSceneType(spatializationSceneType: AudioSpatializationSceneType): void;
 
@@ -6365,7 +6759,8 @@ declare namespace audio {
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSpatializationSceneType(): AudioSpatializationSceneType;
 
@@ -6373,7 +6768,8 @@ declare namespace audio {
      * Checks whether the spatialization is enabled by the current device.
      * @returns { boolean } Whether the spatialization is enabled by the current device.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSpatializationEnabledForCurrentDevice(): boolean;
 
@@ -6384,7 +6780,8 @@ declare namespace audio {
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback<boolean>): void;
 
@@ -6394,7 +6791,8 @@ declare namespace audio {
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
   }
@@ -6404,7 +6802,8 @@ declare namespace audio {
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioEffectManager {
     /**
@@ -6416,7 +6815,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
 
@@ -6434,7 +6834,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
 
@@ -6447,7 +6848,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
   }
@@ -6504,17 +6906,19 @@ declare namespace audio {
 
   /**
    * Connect type for device.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ConnectType {
     /**
      * Connect type for local device.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECT_TYPE_LOCAL = 1,
 
@@ -6522,7 +6926,8 @@ declare namespace audio {
      * Connect type for distributed device.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECT_TYPE_DISTRIBUTED = 2
   }
@@ -6532,7 +6937,8 @@ declare namespace audio {
    * @typedef VolumeGroupInfo
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VolumeGroupInfo {
     /**
@@ -6541,29 +6947,32 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly networkId: string;
 
     /**
      * Volume group id.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly groupId: number;
+    readonly groupId: int;
 
     /**
      * Volume mapping group id.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly mappingId: number;
+    readonly mappingId: int;
 
     /**
      * Volume group name.
@@ -6571,7 +6980,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly groupName: string;
 
@@ -6581,7 +6991,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly type: ConnectType;
   }
@@ -6591,7 +7002,8 @@ declare namespace audio {
    * @typedef { Array<Readonly<VolumeGroupInfo>> } VolumeGroupInfos
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type VolumeGroupInfos = Array<Readonly<VolumeGroupInfo>>;
 
@@ -6606,7 +7018,8 @@ declare namespace audio {
    * @typedef { Array<Readonly<AudioRendererChangeInfo>> } AudioRendererChangeInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AudioRendererChangeInfoArray = Array<Readonly<AudioRendererChangeInfo>>;
 
@@ -6621,34 +7034,37 @@ declare namespace audio {
    * @typedef AudioRendererChangeInfo
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRendererChangeInfo {
     /**
      * Audio stream unique id.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Audio stream unique id.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly streamId: number;
+    readonly streamId: int;
 
     /**
      * Uid for audio renderer client application.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly clientUid: number;
+    readonly clientUid: int;
 
     /**
      * Audio renderer information.
@@ -6662,7 +7078,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly rendererInfo: AudioRendererInfo;
 
@@ -6672,7 +7089,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly rendererState: AudioState;
 
@@ -6688,7 +7106,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
   }
@@ -6704,7 +7123,8 @@ declare namespace audio {
    * @typedef { Array<Readonly<AudioCapturerChangeInfo>> } AudioCapturerChangeInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AudioCapturerChangeInfoArray = Array<Readonly<AudioCapturerChangeInfo>>;
 
@@ -6719,34 +7139,37 @@ declare namespace audio {
    * @typedef AudioCapturerChangeInfo
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioCapturerChangeInfo {
     /**
      * Audio stream unique id.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
     /**
      * Audio stream unique id.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly streamId: number;
+    readonly streamId: int;
 
     /**
      * Uid for audio capturer client application.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly clientUid: number;
+    readonly clientUid: int;
 
     /**
      * Audio capturer information.
@@ -6760,7 +7183,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly capturerInfo: AudioCapturerInfo;
 
@@ -6770,7 +7194,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly capturerState: AudioState;
 
@@ -6786,7 +7211,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
 
@@ -6802,7 +7228,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly muted?: boolean;
   }
@@ -6819,7 +7246,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioDeviceDescriptor {
     /**
@@ -6835,7 +7263,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly deviceRole: DeviceRole;
 
@@ -6852,26 +7281,28 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly deviceType: DeviceType;
 
     /**
      * Audio device id.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
     /**
      * Audio device id.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly id: number;
+    readonly id: int;
 
     /**
      * Audio device name.
@@ -6886,7 +7317,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly name: string;
 
@@ -6903,87 +7335,94 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly address: string;
 
     /**
      * Supported sampling rates.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
     /**
      * Supported sampling rates.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly sampleRates: Array<number>;
+    readonly sampleRates: Array<int>;
 
     /**
      * Supported channel counts.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
     /**
      * Supported channel counts.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly channelCounts: Array<number>;
+    readonly channelCounts: Array<int>;
 
     /**
      * Supported channel masks.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
     /**
      * Supported channel masks.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly channelMasks: Array<number>;
+    readonly channelMasks: Array<int>;
     /**
      * Device network id
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly networkId: string;
     /**
      * Interrupt group id
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly interruptGroupId: number;
+    readonly interruptGroupId: int;
     /**
      * Volume group id
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly volumeGroupId: number;
+    readonly volumeGroupId: int;
     /**
      * Name used to display, considering distributed device situation.
      * @type { string }
@@ -6997,7 +7436,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly displayName: string;
 
@@ -7014,7 +7454,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly encodingTypes?: Array<AudioEncodingType>;
 
@@ -7023,20 +7464,22 @@ declare namespace audio {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly spatializationSupported?: boolean;
 
     /**
      * Only {@link DeviceType.SPEAKER} with networkId、{@link DeviceType.REMOTE_CAST}
      * or {@link DeviceType.REMOTE_DAUDIO} has dmDeviceType which indicated deviceTypeId.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly dmDeviceType?: number;
+    readonly dmDeviceType?: int;
   }
 
   /**
@@ -7051,27 +7494,31 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
 
   /**
    * Volume mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioVolumeMode {
     /**
      * Audio volume affected by system volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYSTEM_GLOBAL = 0,
     /**
      * Audio volume affected by app's individual percentage.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP_INDIVIDUAL = 1
   }
@@ -7087,58 +7534,65 @@ declare namespace audio {
    * @typedef VolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VolumeEvent {
     /**
      * Volume type of the current stream.
      * @type { AudioVolumeType }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9
      */
     /**
      * Volume level.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    volume: number;
+    volume: int;
     /**
      * Whether to show the volume change in UI.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateUi: boolean;
     /**
      * volumeGroup id
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    volumeGroupId: number;
+    volumeGroupId: int;
     /**
      * Device network id
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     networkId: string;
     /**
      * Audio volume mode of this volume event
      * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     volumeMode?: AudioVolumeMode;
   }
@@ -7265,14 +7719,16 @@ declare namespace audio {
    * Describes the microphone state change event received by the app when the microphone state is changed.
    * @typedef MicStateChangeEvent
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MicStateChangeEvent {
     /**
      * Mic mute state.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mute: boolean;
   }
@@ -7287,7 +7743,8 @@ declare namespace audio {
    * @typedef DeviceChangeAction
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceChangeAction {
     /**
@@ -7301,7 +7758,8 @@ declare namespace audio {
      * @type { DeviceChangeType }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: DeviceChangeType;
 
@@ -7316,23 +7774,25 @@ declare namespace audio {
      * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceDescriptors: AudioDeviceDescriptors;
   }
 
   /**
    * Enumerates channel blend mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 11
    */
   /**
    * Enumerates channel blend mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ChannelBlendMode {
     /**
@@ -7344,7 +7804,8 @@ declare namespace audio {
      * No channel process.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_DEFAULT = 0,
     /**
@@ -7356,7 +7817,8 @@ declare namespace audio {
      * Blend left and right channel.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_BLEND_LR = 1,
     /**
@@ -7368,7 +7830,8 @@ declare namespace audio {
      * Replicate left to right channel.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_ALL_LEFT = 2,
     /**
@@ -7380,24 +7843,26 @@ declare namespace audio {
      * Replicate right to left channel.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_ALL_RIGHT = 3,
   }
 
   /**
    * Enumerates audio stream device change reason.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 11
    */
   /**
    * Enumerates audio stream device change reason.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioStreamDeviceChangeReason {
     /**
@@ -7410,7 +7875,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REASON_UNKNOWN = 0,
     /**
@@ -7423,7 +7889,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REASON_NEW_DEVICE_AVAILABLE = 1,
     /**
@@ -7438,7 +7905,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REASON_OLD_DEVICE_UNAVAILABLE = 2,
     /**
@@ -7451,7 +7919,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REASON_OVERRODE = 3,
   }
@@ -7467,7 +7936,8 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioStreamDeviceChangeInfo {
     /**
@@ -7482,7 +7952,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     devices: AudioDeviceDescriptors;
     /**
@@ -7497,24 +7968,27 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     changeReason: AudioStreamDeviceChangeReason;
   }
 
   /**
    * Enumerates callback result.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioDataCallbackResult {
     /**
      * Indicates data of this callback is invalid.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVALID = -1,
 
@@ -7522,7 +7996,8 @@ declare namespace audio {
      * Indicates data of this callback is valid.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VALID = 0,
   }
@@ -7546,26 +8021,29 @@ declare namespace audio {
    * Audio timestamp info.
    * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioTimestampInfo {
     /**
      * Frame position.
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly framePos: number;
+    readonly framePos: long;
 
     /**
      * Timestamp when frame in {@link AudioTimestampInfo#framePos} was rendered or captured.
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly timestamp: number;
+    readonly timestamp: long;
   }
 
   /**
@@ -7579,7 +8057,8 @@ declare namespace audio {
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioRenderer {
     /**
@@ -7594,7 +8073,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly state: AudioState;
 
@@ -7611,7 +8091,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioRendererInfo> } callback - Callback used to return the renderer information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRendererInfo(callback: AsyncCallback<AudioRendererInfo>): void;
     /**
@@ -7627,7 +8108,8 @@ declare namespace audio {
      * @returns { Promise<AudioRendererInfo> } Promise used to return the renderer information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRendererInfo(): Promise<AudioRendererInfo>;
     /**
@@ -7641,7 +8123,8 @@ declare namespace audio {
      * @returns { AudioRendererInfo } The renderer information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRendererInfoSync(): AudioRendererInfo;
 
@@ -7656,7 +8139,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioStreamInfo> } callback - Callback used to return the stream information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
@@ -7670,7 +8154,8 @@ declare namespace audio {
      * @returns { Promise<AudioStreamInfo> } Promise used to return the stream information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
@@ -7684,65 +8169,71 @@ declare namespace audio {
      * @returns { AudioStreamInfo } The stream information.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfoSync(): AudioStreamInfo;
 
     /**
      * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the stream id.
+     * @param { AsyncCallback<long> } callback - Callback used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Obtains the renderer stream id. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the stream id.
+     * @param { AsyncCallback<long> } callback - Callback used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamId(callback: AsyncCallback<number>): void;
+    getAudioStreamId(callback: AsyncCallback<long>): void;
     /**
      * Obtains the renderer stream id. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the stream id.
+     * @returns { Promise<long> } Promise used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Obtains the renderer stream id. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the stream id.
+     * @returns { Promise<long> } Promise used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamId(): Promise<number>;
+    getAudioStreamId(): Promise<long>;
     /**
      * Obtains the renderer stream id.
-     * @returns { number } The stream id.
+     * @returns { long } The stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Obtains the renderer stream id.
-     * @returns { number } The stream id.
+     * @returns { long } The stream id.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamIdSync(): number;
+    getAudioStreamIdSync(): long;
 
     /**
      * Obtains the current audio effect mode. This method uses an asynchronous callback to return the query result.
      * @param { AsyncCallback<AudioEffectMode> } callback - Callback used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectMode(callback: AsyncCallback<AudioEffectMode>): void;
     /**
      * Obtains the current audio effect mode. This method uses a promise to return the query result.
      * @returns { Promise<AudioEffectMode> } Promise used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioEffectMode(): Promise<AudioEffectMode>;
 
@@ -7755,7 +8246,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback<void>): void;
     /**
@@ -7767,7 +8259,8 @@ declare namespace audio {
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAudioEffectMode(mode: AudioEffectMode): Promise<void>;
 
@@ -7785,7 +8278,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -7802,7 +8296,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -7832,7 +8327,7 @@ declare namespace audio {
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
      * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * @param { AsyncCallback<long> } callback - Callback used to return the timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -7840,16 +8335,17 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @param { AsyncCallback<long> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioTime(callback: AsyncCallback<number>): void;
+    getAudioTime(callback: AsyncCallback<long>): void;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
      * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * @returns { Promise<long> } Promise used to return the timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -7857,27 +8353,29 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { Promise<long> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioTime(): Promise<number>;
+    getAudioTime(): Promise<long>;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * @returns { long } The audio timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
-     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { long } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioTimeSync(): number;
+    getAudioTimeSync(): long;
 
     /**
      * Obtains the timestamp info.
@@ -7885,7 +8383,8 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -7895,7 +8394,8 @@ declare namespace audio {
      * @returns { AudioTimestampInfo } The returned timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -7910,7 +8410,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drain(callback: AsyncCallback<void>): void;
     /**
@@ -7924,7 +8425,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     drain(): Promise<void>;
 
@@ -7941,7 +8443,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flush(): Promise<void>;
 
@@ -7956,7 +8459,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(callback: AsyncCallback<void>): void;
     /**
@@ -7970,7 +8474,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): Promise<void>;
 
@@ -7985,7 +8490,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -7999,7 +8505,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -8019,7 +8526,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -8038,54 +8546,58 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses an asynchronous callback to
      * return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the buffer size.
+     * @param { AsyncCallback<long> } callback - Callback used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses an asynchronous callback to
      * return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the buffer size.
+     * @param { AsyncCallback<long> } callback - Callback used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSize(callback: AsyncCallback<number>): void;
+    getBufferSize(callback: AsyncCallback<long>): void;
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the buffer size.
+     * @returns { Promise<long> } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the buffer size.
+     * @returns { Promise<long> } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSize(): Promise<number>;
+    getBufferSize(): Promise<long>;
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering.
-     * @returns { number } The audio buffer size.
+     * @returns { long } The audio buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering.
-     * @returns { number } The audio buffer size.
+     * @returns { long } The audio buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSizeSync(): number;
+    getBufferSizeSync(): long;
 
     /**
      * Sets the render rate. This method uses an asynchronous callback to return the result.
@@ -8111,7 +8623,7 @@ declare namespace audio {
 
     /**
      * Sets the playback speed.
-     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @param { double } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -8121,16 +8633,17 @@ declare namespace audio {
      */
     /**
      * Sets the playback speed.
-     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @param { double } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setSpeed(speed: number): void;
+    setSpeed(speed: double): void;
 
     /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
@@ -8164,18 +8677,19 @@ declare namespace audio {
 
     /**
      * Obtains the current playback speed.
-     * @returns { number } The playback speed.
+     * @returns { double } The playback speed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
     /**
      * Obtains the current playback speed.
-     * @returns { number } The playback speed.
+     * @returns { double } The playback speed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getSpeed(): number;
+    getSpeed(): double;
 
     /**
      * Set interrupt mode.
@@ -8190,7 +8704,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setInterruptMode(mode: InterruptMode, callback: AsyncCallback<void>): void;
     /**
@@ -8206,7 +8721,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setInterruptMode(mode: InterruptMode): Promise<void>;
     /**
@@ -8228,55 +8744,59 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setInterruptModeSync(mode: InterruptMode): void;
 
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolume(volume: number, callback: AsyncCallback<void>): void;
+    setVolume(volume: double, callback: AsyncCallback<void>): void;
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 9
      */
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolume(volume: number): Promise<void>;
+    setVolume(volume: double): Promise<void>;
 
     /**
      * Gets volume of this stream.
-     * @returns { number } Returns one float value.
+     * @returns { double } Returns one float value.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getVolume(): number;
+    getVolume(): double;
 
     /**
      * Changes the volume with ramp for a duration.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
-     * @param { number } duration -  Duration for volume ramp, in millisecond.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { int } duration -  Duration for volume ramp, in millisecond.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -8286,146 +8806,156 @@ declare namespace audio {
      */
     /**
      * Changes the volume with ramp for a duration.
-     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
-     * @param { number } duration -  Duration for volume ramp, in millisecond.
+     * @param { double } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { int } duration -  Duration for volume ramp, in millisecond.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setVolumeWithRamp(volume: number, duration: number): void;
+    setVolumeWithRamp(volume: double, duration: int): void;
 
     /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinStreamVolume(callback: AsyncCallback<number>): void;
+    getMinStreamVolume(callback: AsyncCallback<double>): void;
     /**
      * Gets the min volume this stream can set. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the min volume this stream can set. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinStreamVolume(): Promise<number>;
+    getMinStreamVolume(): Promise<double>;
     /**
      * Gets the min volume this stream can set.
-     * @returns { number } Min stream volume.
+     * @returns { double } Min stream volume.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the min volume this stream can set.
-     * @returns { number } Min stream volume.
+     * @returns { double } Min stream volume.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMinStreamVolumeSync(): number;
+    getMinStreamVolumeSync(): double;
 
     /**
      * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<double> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxStreamVolume(callback: AsyncCallback<number>): void;
+    getMaxStreamVolume(callback: AsyncCallback<double>): void;
     /**
      * Gets the max volume this stream can set. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the max volume this stream can set. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<double> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxStreamVolume(): Promise<number>;
+    getMaxStreamVolume(): Promise<double>;
     /**
      * Gets the max volume this stream can set.
-     * @returns { number } Max stream volume.
+     * @returns { double } Max stream volume.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets the max volume this stream can set.
-     * @returns { number } Max stream volume.
+     * @returns { double } Max stream volume.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getMaxStreamVolumeSync(): number;
+    getMaxStreamVolumeSync(): double;
 
     /**
      * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<long> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @param { AsyncCallback<long> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getUnderflowCount(callback: AsyncCallback<number>): void;
+    getUnderflowCount(callback: AsyncCallback<long>): void;
     /**
      * Gets buffer underflow count. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<long> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets buffer underflow count. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the result.
+     * @returns { Promise<long> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getUnderflowCount(): Promise<number>;
+    getUnderflowCount(): Promise<long>;
     /**
      * Gets buffer underflow count.
-     * @returns { number } Underflow count number.
+     * @returns { long } Underflow count number.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     /**
      * Gets buffer underflow count.
-     * @returns { number } Underflow count number.
+     * @returns { long } Underflow count number.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getUnderflowCountSync(): number;
+    getUnderflowCountSync(): long;
 
     /**
      * Gets the output device or devices for this stream.
@@ -8440,7 +8970,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentOutputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
@@ -8456,7 +8987,8 @@ declare namespace audio {
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
     /**
@@ -8470,7 +9002,8 @@ declare namespace audio {
      * @returns { AudioDeviceDescriptors } Output device or devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
 
@@ -8495,7 +9028,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setChannelBlendMode(mode: ChannelBlendMode): void;
 
@@ -8505,7 +9039,8 @@ declare namespace audio {
      *     true: set the silent mode and mix with other streams.
      *     false: unset the silent mode, current stream will trigger the audio focus internally.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSilentModeAndMixWithOthers(on: boolean): void;
 
@@ -8515,7 +9050,8 @@ declare namespace audio {
      *     true: current stream is in the silent mode and mix with other streams.
      *     false: current stream in in the normal playback mode
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSilentModeAndMixWithOthers(): boolean;
 
@@ -8535,7 +9071,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
 
@@ -8587,7 +9124,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
@@ -8597,7 +9135,8 @@ declare namespace audio {
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioInterrupt', callback?: Callback<InterruptEvent>): void;
 
@@ -8605,8 +9144,8 @@ declare namespace audio {
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -8619,13 +9158,14 @@ declare namespace audio {
      * </p>
      *
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'markReach', frame: number, callback: Callback<number>): void;
+    on(type: 'markReach', frame: long, callback: Callback<long>): void;
     /**
      * Unsubscribes from mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -8642,19 +9182,20 @@ declare namespace audio {
     /**
      * Unsubscribes from mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'markReach', callback?: Callback<number>): void;
+    off(type: 'markReach', callback?: Callback<long>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
      * the callback is invoked.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { number } frame - Period during which frame rendering is listened. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Period during which frame rendering is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -8662,13 +9203,14 @@ declare namespace audio {
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
      * the callback is invoked.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { number } frame - Period during which frame rendering is listened. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Period during which frame rendering is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'periodReach', frame: number, callback: Callback<number>): void;
+    on(type: 'periodReach', frame: long, callback: Callback<long>): void;
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -8685,12 +9227,13 @@ declare namespace audio {
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'periodReach', callback?: Callback<number>): void;
+    off(type: 'periodReach', callback?: Callback<long>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -8705,7 +9248,8 @@ declare namespace audio {
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
 
@@ -8715,7 +9259,8 @@ declare namespace audio {
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
@@ -8742,7 +9287,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
 
@@ -8769,7 +9315,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'outputDeviceChangeWithInfo', callback: Callback<AudioStreamDeviceChangeInfo>): void;
 
@@ -8794,7 +9341,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -8819,7 +9367,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'outputDeviceChangeWithInfo', callback?: Callback<AudioStreamDeviceChangeInfo>): void;
 
@@ -8846,7 +9395,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'writeData', callback: AudioRendererWriteDataCallback): void;
 
@@ -8871,29 +9421,32 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void;
   }
 
   /**
    * Enumerates source types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 8
    */
   /**
    * Enumerates source types.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SourceType {
     /**
      * Invalid source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_INVALID = -1,
     /**
@@ -8905,7 +9458,8 @@ declare namespace audio {
      * Mic source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_MIC = 0,
     /**
@@ -8917,7 +9471,8 @@ declare namespace audio {
      * Voice recognition source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
@@ -8933,7 +9488,8 @@ declare namespace audio {
      * Permission ohos.permission.MANAGE_INTELLIGENT_VOICE is needed when calling createAudioCapturer with this type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_WAKEUP = 3,
 
@@ -8942,7 +9498,8 @@ declare namespace audio {
      * Permission ohos.permission.RECORD_VOICE_CALL is needed when calling createAudioCapturer with this type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_VOICE_CALL = 4,
 
@@ -8955,14 +9512,16 @@ declare namespace audio {
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_VOICE_COMMUNICATION = 7,
 
     /**
      * Voice message source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
 
@@ -8970,21 +9529,24 @@ declare namespace audio {
      * Source type for voice transcription and processing.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_VOICE_TRANSCRIPTION = 12,
 
     /**
      * Camcorder source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_CAMCORDER = 13,
 
     /**
      * Unprocessed source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE_TYPE_UNPROCESSED = 14,
     /**
@@ -9006,7 +9568,8 @@ declare namespace audio {
    * @typedef AudioCapturerInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioCapturerInfo {
     /**
@@ -9020,23 +9583,25 @@ declare namespace audio {
      * @type { SourceType }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     source: SourceType;
     /**
      * Audio capturer flags.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
     /**
      * Audio capturer flags.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    capturerFlags: number;
+    capturerFlags: int;
   }
 
   /**
@@ -9050,7 +9615,8 @@ declare namespace audio {
    * @typedef AudioCapturerOptions
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioCapturerOptions {
     /**
@@ -9064,7 +9630,8 @@ declare namespace audio {
      * @type { AudioStreamInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     streamInfo: AudioStreamInfo;
     /**
@@ -9078,7 +9645,8 @@ declare namespace audio {
      * @type { AudioCapturerInfo }
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     capturerInfo: AudioCapturerInfo;
     /**
@@ -9150,7 +9718,8 @@ declare namespace audio {
    * @typedef AudioCapturer
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioCapturer {
     /**
@@ -9165,7 +9734,8 @@ declare namespace audio {
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly state: AudioState;
 
@@ -9182,7 +9752,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioCapturerInfo> } callback - Callback used to return the capturer information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCapturerInfo(callback: AsyncCallback<AudioCapturerInfo>): void;
     /**
@@ -9198,7 +9769,8 @@ declare namespace audio {
      * @returns { Promise<AudioCapturerInfo> } Promise used to return the capturer information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCapturerInfo(): Promise<AudioCapturerInfo>;
     /**
@@ -9212,7 +9784,8 @@ declare namespace audio {
      * @returns { AudioCapturerInfo } The capturer information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCapturerInfoSync(): AudioCapturerInfo;
 
@@ -9227,7 +9800,8 @@ declare namespace audio {
      * @param { AsyncCallback<AudioStreamInfo> } callback - Callback used to return the stream information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
@@ -9241,7 +9815,8 @@ declare namespace audio {
      * @returns { Promise<AudioStreamInfo> } Promise used to return the stream information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
@@ -9255,52 +9830,56 @@ declare namespace audio {
      * @returns { AudioStreamInfo } The stream information.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStreamInfoSync(): AudioStreamInfo;
 
     /**
      * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the stream id.
+     * @param { AsyncCallback<long> } callback - Callback used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
     /**
      * Obtains the capturer stream id. This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the stream id.
+     * @param { AsyncCallback<long> } callback - Callback used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamId(callback: AsyncCallback<number>): void;
+    getAudioStreamId(callback: AsyncCallback<long>): void;
     /**
      * Obtains the capturer stream id. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the stream id.
+     * @returns { Promise<long> } Promise used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 9
      */
     /**
      * Obtains the capturer stream id. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the stream id.
+     * @returns { Promise<long> } Promise used to return the stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamId(): Promise<number>;
+    getAudioStreamId(): Promise<long>;
     /**
      * Obtains the capturer stream id.
-     * @returns { number } The stream id.
+     * @returns { long } The stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
     /**
      * Obtains the capturer stream id.
-     * @returns { number } The stream id.
+     * @returns { long } The stream id.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioStreamIdSync(): number;
+    getAudioStreamIdSync(): long;
 
     /**
      * Starts capturing.
@@ -9316,7 +9895,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -9333,7 +9913,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -9364,7 +9945,7 @@ declare namespace audio {
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
      * asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the timestamp.
+     * @param { AsyncCallback<long> } callback - Callback used to return the timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -9372,16 +9953,16 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @param { AsyncCallback<long> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since 12
      */
-    getAudioTime(callback: AsyncCallback<number>): void;
+    getAudioTime(callback: AsyncCallback<long>): void;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
      * promise to return the result.
-     * @returns { Promise<number> } Promise used to return the timestamp.
+     * @returns { Promise<long> } Promise used to return the timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -9392,24 +9973,26 @@ declare namespace audio {
      * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioTime(): Promise<number>;
+    getAudioTime(): Promise<long>;
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds.
-     * @returns { number } The audio timestamp.
+     * @returns { long } The audio timestamp.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
     /**
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
-     * @returns { number } The audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { long } The audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getAudioTimeSync(): number;
+    getAudioTimeSync(): long;
 
     /**
      * Obtains the timestamp info.
@@ -9417,7 +10000,8 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 19
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
 
@@ -9427,7 +10011,8 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-      * @since 19
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
 
@@ -9442,7 +10027,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -9456,7 +10042,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -9471,7 +10058,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -9485,54 +10073,58 @@ declare namespace audio {
      * @returns { Promise<void> } - Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses an asynchronous callback to
      * return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the buffer size.
+     * @param { AsyncCallback<long> } callback - Callback used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses an asynchronous callback to
      * return the result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the buffer size.
+     * @param { AsyncCallback<long> } callback - Callback used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSize(callback: AsyncCallback<number>): void;
+    getBufferSize(callback: AsyncCallback<long>): void;
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the buffer size.
+     * @returns { Promise<long> } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the buffer size.
+     * @returns { Promise<long> } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSize(): Promise<number>;
+    getBufferSize(): Promise<long>;
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing.
-     * @returns { number } Promise used to return the buffer size.
+     * @returns { long } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 10
      */
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing.
-     * @returns { number } Promise used to return the buffer size.
+     * @returns { long } Promise used to return the buffer size.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getBufferSizeSync(): number;
+    getBufferSizeSync(): long;
 
     /**
      * Gets the input device or devices for this stream.
@@ -9545,7 +10137,8 @@ declare namespace audio {
      * @returns { AudioDeviceDescriptors } Descriptors of input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentInputDevices(): AudioDeviceDescriptors;
 
@@ -9560,25 +10153,28 @@ declare namespace audio {
      * @returns { AudioCapturerChangeInfo } Full capture info.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
 
     /**
      * Gets overflow count.
-     * @returns { Promise<number> } - Promise used to return the result.
+     * @returns { Promise<long> } - Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOverflowCount(): Promise<number>
+    getOverflowCount(): Promise<long>
 
     /**
      * Gets overflow count.
-     * @returns { number } Overflow count number.
+     * @returns { long } Overflow count number.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getOverflowCountSync(): number;
+    getOverflowCountSync(): long;
 
     /**
      * Set if capturer want to be muted instead of interrupted. should be set before start
@@ -9595,8 +10191,8 @@ declare namespace audio {
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -9604,13 +10200,14 @@ declare namespace audio {
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Number of frames to trigger the event. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'markReach', frame: number, callback: Callback<number>): void;
+    on(type: 'markReach', frame: long, callback: Callback<long>): void;
     /**
      * Unsubscribes from the mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -9627,19 +10224,20 @@ declare namespace audio {
     /**
      * Unsubscribes from the mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'markReach', callback?: Callback<number>): void;
+    off(type: 'markReach', callback?: Callback<long>): void;
 
     /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
      * the callback is invoked.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { number } frame - Period during which frame capturing is listened. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Period during which frame capturing is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -9647,13 +10245,14 @@ declare namespace audio {
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
      * the callback is invoked.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { number } frame - Period during which frame capturing is listened. The value must be greater than 0.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { long } frame - Period during which frame capturing is listened. The value must be greater than 0.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    on(type: 'periodReach', frame: number, callback: Callback<number>): void;
+    on(type: 'periodReach', frame: long, callback: Callback<long>): void;
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -9670,12 +10269,13 @@ declare namespace audio {
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<long> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'periodReach', callback?: Callback<number>): void;
+    off(type: 'periodReach', callback?: Callback<long>): void;
 
     /**
      * Subscribes audio state change event callback.
@@ -9690,7 +10290,8 @@ declare namespace audio {
      * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'stateChange', callback: Callback<AudioState>): void;
 
@@ -9700,7 +10301,8 @@ declare namespace audio {
      * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
@@ -9727,7 +10329,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
 
@@ -9750,7 +10353,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioInterrupt'): void;
 
@@ -9777,7 +10381,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
     /**
@@ -9801,7 +10406,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
 
@@ -9828,7 +10434,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
     /**
@@ -9852,7 +10459,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
 
@@ -9879,7 +10487,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'readData', callback: Callback<ArrayBuffer>): void;
 
@@ -9904,7 +10513,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
 
@@ -9926,169 +10536,191 @@ declare namespace audio {
 
   /**
    * ASR noise suppression mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AsrNoiseSuppressionMode {
     /**
      * Bypass noise suppression.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BYPASS = 0,
     /**
      * Standard noise suppression.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STANDARD = 1,
     /**
      * Near field noise suppression.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEAR_FIELD = 2,
     /**
      * Far field noise suppression.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAR_FIELD = 3,
   }
 
   /**
    * ASR AEC mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AsrAecMode {
     /**
      * Bypass AEC.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BYPASS = 0,
     /**
      * Using standard AEC.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STANDARD = 1,
   }
 
   /**
    * ASR voice control mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AsrVoiceControlMode {
     /**
      * Send output stream to TX.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_2_VOICE_TX = 0,
     /**
      * Send both output stream and MIC input to TX.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_MIX_2_VOICE_TX = 1,
     /**
      * Based on the AUDIO_2_VOICE_TX, Send output stream to voice call record.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_2_VOICE_TX_EX = 2,
     /**
      * Based on the AUDIO_MIX_2_VOICE_TX, Send output stream to voice call record.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_MIX_2_VOICE_TX_EX = 3,
   }
 
   /**
    * ASR voice mute mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AsrVoiceMuteMode {
     /**
      * Mute the local output stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OUTPUT_MUTE = 0,
     /**
      * Mute the local MIC input stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INPUT_MUTE = 1,
     /**
      * Send tts output stream to TX and mute the local output stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TTS_MUTE = 2,
     /**
      * Mute the voice call stream.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-       * @since 12
-       */
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     CALL_MUTE = 3,
     /**
      * Based on the OUTPUT_MUTE, send output stream to voice call record.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OUTPUT_MUTE_EX = 4,
   }
 
   /**
    * ASR whisper detection mode.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AsrWhisperDetectionMode {
     /**
      * No operation.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BYPASS = 0,
     /**
      * Use standard whisper detection model.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STANDARD = 1,
   }
@@ -10098,7 +10730,8 @@ declare namespace audio {
    * @typedef AsrProcessingController
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AsrProcessingController {
     /**
@@ -10113,7 +10746,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAsrAecMode(mode: AsrAecMode): boolean;
 
@@ -10124,7 +10758,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAsrAecMode(): AsrAecMode;
 
@@ -10140,7 +10775,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAsrNoiseSuppressionMode(mode: AsrNoiseSuppressionMode): boolean;
 
@@ -10151,7 +10787,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAsrNoiseSuppressionMode(): AsrNoiseSuppressionMode;
 
@@ -10162,7 +10799,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWhispering(): boolean;
 
@@ -10179,7 +10817,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAsrVoiceControlMode(mode: AsrVoiceControlMode, enable: boolean): boolean;
 
@@ -10196,7 +10835,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAsrVoiceMuteMode(mode: AsrVoiceMuteMode, enable: boolean): boolean;
 
@@ -10212,7 +10852,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAsrWhisperDetectionMode(mode: AsrWhisperDetectionMode): boolean;
 
@@ -10223,7 +10864,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800104 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAsrWhisperDetectionMode(): AsrWhisperDetectionMode;
   }
@@ -10243,212 +10885,242 @@ declare namespace audio {
    * is already released.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController;
 
   /**
    * Enumerates tone types for player.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ToneType {
     /**
      * Dial tone for key 0.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_0 = 0,
     /**
      * Dial tone for key 1.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_1 = 1,
     /**
      * Dial tone for key 2.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_2 = 2,
     /**
      * Dial tone for key 3.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_3 = 3,
     /**
      * Dial tone for key 4.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_4 = 4,
     /**
      * Dial tone for key 5.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_5 = 5,
     /**
      * Dial tone for key 6.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_6 = 6,
     /**
      * Dial tone for key 7.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_7 = 7,
     /**
      * Dial tone for key 8.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_8 = 8,
     /**
      * Dial tone for key 9.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_9 = 9,
     /**
      * Dial tone for key *.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_S = 10,
     /**
      * Dial tone for key #.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_P = 11,
     /**
      * Dial tone for key A.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_A = 12,
     /**
      * Dial tone for key B.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_B = 13,
     /**
      * Dial tone for key C.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_C = 14,
     /**
      * Dial tone for key D.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_DIAL_D = 15,
     /**
      * Supervisory tone for dial.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_DIAL = 100,
     /**
      * Supervisory tone for busy.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_BUSY = 101,
     /**
      * Supervisory tone for dial.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_CONGESTION = 102,
     /**
      * Supervisory tone for radio path acknowledgment.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_RADIO_ACK = 103,
     /**
      * Supervisory tone for radio path not available.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_RADIO_NOT_AVAILABLE = 104,
     /**
      * Supervisory tone for call waiting.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_CALL_WAITING = 106,
     /**
      * Supervisory tone for ringtone.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_RINGTONE = 107,
     /**
      * Supervisory tone for call holding.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_SUPERVISORY_CALL_HOLDING = 108,
     /**
      * Proprietary tone for beep.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
     /**
      * Proprietary tone for positive acknowledgment.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_PROPRIETARY_ACK = 201,
     /**
      * Proprietary tone for prompt.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_PROPRIETARY_PROMPT = 203,
     /**
      * Proprietary tone for double beep.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TONE_TYPE_COMMON_PROPRIETARY_DOUBLE_BEEP = 204,
   }
@@ -10458,7 +11130,8 @@ declare namespace audio {
    * @typedef TonePlayer
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TonePlayer {
     /**
@@ -10467,7 +11140,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     load(type: ToneType, callback: AsyncCallback<void>): void;
     /**
@@ -10476,7 +11150,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     load(type: ToneType): Promise<void>;
 
@@ -10485,7 +11160,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -10493,7 +11169,8 @@ declare namespace audio {
      * @returns { Promise<void> }Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -10502,7 +11179,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -10510,7 +11188,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -10519,7 +11198,8 @@ declare namespace audio {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -10527,7 +11207,8 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -10536,22 +11217,24 @@ declare namespace audio {
    * Array of AudioEffectMode, which is read-only.
    * @typedef { Array<Readonly<AudioEffectMode>> } AudioEffectInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AudioEffectInfoArray = Array<Readonly<AudioEffectMode>>;
 
   /**
    * Describes an audio effect mode group.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10
    */
   /**
    * Describes an audio effect mode group.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioEffectMode {
     /**
@@ -10560,10 +11243,11 @@ declare namespace audio {
      * @since 10
      */
     /**
-     * Audio Effect Mode effect none. This effect mode will disable audio effect process for current audio renderer.
+     * Audio Effect Mode effect none.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EFFECT_NONE = 0,
     /**
@@ -10575,7 +11259,8 @@ declare namespace audio {
      * Audio Effect Mode effect default.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EFFECT_DEFAULT = 1,
   }
@@ -10585,7 +11270,8 @@ declare namespace audio {
    * @typedef AudioSpatialDeviceState
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioSpatialDeviceState {
     /**
@@ -10593,7 +11279,8 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     address: string;
 
@@ -10602,7 +11289,8 @@ declare namespace audio {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSpatializationSupported: boolean;
 
@@ -10611,7 +11299,8 @@ declare namespace audio {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHeadTrackingSupported: boolean;
 
@@ -10620,97 +11309,110 @@ declare namespace audio {
      * @type { AudioSpatialDeviceType }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     spatialDeviceType: AudioSpatialDeviceType;
   }
 
   /**
    * Describes a spatial device type group.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSpatialDeviceType {
     /**
      * Audio Spatial Device Type none.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_NONE = 0,
     /**
      * Audio Spatial Device Type in-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_IN_EAR_HEADPHONE = 1,
     /**
      * Audio Spatial Device Type half-in-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_HALF_IN_EAR_HEADPHONE = 2,
     /**
      * Audio Spatial Device Type over-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_OVER_EAR_HEADPHONE = 3,
     /**
      * Audio Spatial Device Type glasses.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_GLASSES = 4,
     /**
      * Audio Spatial Device Type others.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPATIAL_DEVICE_TYPE_OTHERS = 5,
   }
 
   /**
    * Describes a spatialization scene type group.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSpatializationSceneType {
     /**
      * Audio Spatialization Scene Type Default.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
     /**
      * Audio Spatialization Scene Type Music.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MUSIC = 1,
     /**
      * Audio Spatialization Scene Type Movie.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MOVIE = 2,
     /**
      * Audio Spatialization Scene Type Audio Book.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIOBOOK = 3,
   }
@@ -10718,17 +11420,18 @@ declare namespace audio {
   /**
    * Audio AudioChannel Layout
    * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
-   * @enum { number }
+   * @enum { long }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 11
    */
   /**
    * Audio AudioChannel Layout
    * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
-   * @enum { number }
+   * @enum { long }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioChannelLayout {
     /**
@@ -10740,7 +11443,8 @@ declare namespace audio {
      * Unknown Channel Layout
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_UNKNOWN = 0x0,
     /**
@@ -10754,7 +11458,8 @@ declare namespace audio {
      * Speaker layout: front center(FC)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_MONO = 0x4,
     /**
@@ -10768,14 +11473,16 @@ declare namespace audio {
      * Speaker layout: front left(FL), front right(FR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_STEREO = 0x3,
     /**
      * Channel Layout For Stereo-Downmix, 2 channels in total
      * Speaker layout: Stereo left, stereo right
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_STEREO_DOWNMIX = 0x60000000,
     /**
@@ -10789,7 +11496,8 @@ declare namespace audio {
      * Speaker layout: Stereo plus low-frequency effects(LFE)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_2POINT1 = 0xB,
     /**
@@ -10803,7 +11511,8 @@ declare namespace audio {
      * Speaker layout: Stereo plus back center(BC)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_3POINT0 = 0x103,
     /**
@@ -10817,7 +11526,8 @@ declare namespace audio {
      * Speaker layout: Stereo plus FC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_SURROUND = 0x7,
     /**
@@ -10831,7 +11541,8 @@ declare namespace audio {
      * Speaker layout: Surround plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_3POINT1 = 0xF,
     /**
@@ -10845,7 +11556,8 @@ declare namespace audio {
      * Speaker layout: Surround plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_4POINT0 = 0x107,
     /**
@@ -10859,14 +11571,16 @@ declare namespace audio {
      * Speaker layout: Stereo plus left and right back speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_QUAD = 0x33,
     /**
      * Channel Layout For Quad-Side, 4 channels in total
      * Speaker layout: Stereo plus left and right side speakers(SL, SR)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_QUAD_SIDE = 0x603,
     /**
@@ -10880,28 +11594,32 @@ declare namespace audio {
      * Speaker layout: Stereo plus left and right top side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_2POINT0POINT2 = 0x3000000003,
     /**
      * Channel Layout For ORDER1-ACN-N3D First Order Ambisonic(FOA), 4 channels in total
      * First order, Ambisonic Channel Number(ACN) format, Normalization of three-D(N3D)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER1_ACN_N3D = 0x100000000001,
     /**
      * Channel Layout For ORDER1-ACN-SN3D FOA, 4 channels in total
      * First order, ACN format, Semi-Normalization of three-D(SN3D)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER1_ACN_SN3D = 0x100000001001,
     /**
      * Channel Layout For ORDER1-FUMA FOA, 4 channels in total
      * First order, Furse-Malham(FuMa) format
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER1_FUMA = 0x100000000101,
     /**
@@ -10915,7 +11633,8 @@ declare namespace audio {
      * Speaker layout: 4.0 plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_4POINT1 = 0x10F,
     /**
@@ -10929,28 +11648,32 @@ declare namespace audio {
      * Speaker layout: Surround plus two side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT0 = 0x607,
     /**
      * Channel Layout For 5.0-Back, 5 channels in total
      * Speaker layout: Surround plus two back speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT0_BACK = 0x37,
     /**
      * Channel Layout For 2.1.2, 5 channels in total
      * Speaker layout: 2.0.2 plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_2POINT1POINT2 = 0x300000000B,
     /**
      * Channel Layout For 3.0.2, 5 channels in total
      * Speaker layout: 2.0.2 plus FC
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_3POINT0POINT2 = 0x3000000007,
     /**
@@ -10964,14 +11687,16 @@ declare namespace audio {
      * Speaker layout: 5.0 plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT1 = 0x60F,
     /**
      * Channel Layout For 5.1-Back, 6 channels in total
      * Speaker layout: 5.0-Back plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT1_BACK = 0x3F,
     /**
@@ -10985,7 +11710,8 @@ declare namespace audio {
      * Speaker layout: 5.0 plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_6POINT0 = 0x707,
     /**
@@ -10999,21 +11725,24 @@ declare namespace audio {
      * Speaker layout: 5.0-Back plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_HEXAGONAL = 0x137,
     /**
      * Channel Layout For 3.1.2, 6 channels in total
      * Speaker layout: 3.1 plus two top front speakers(TFL, TFR)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_3POINT1POINT2 = 0x500F,
     /**
      * Channel Layout For 6.0-Front, 6 channels in total
      * Speaker layout: Quad-Side plus left and right front center speakers(FLC, FRC)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_6POINT0_FRONT = 0x6C3,
     /**
@@ -11027,21 +11756,24 @@ declare namespace audio {
      * Speaker layout: 5.1 plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_6POINT1 = 0x70F,
     /**
      * Channel Layout For 6.1-Back, 7 channels in total
      * Speaker layout: 5.1-Back plus BC
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_6POINT1_BACK = 0x13F,
     /**
      * Channel Layout For 6.1-Front, 7 channels in total
      * Speaker layout: 6.0-Front plus LFE
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_6POINT1_FRONT = 0x6CB,
     /**
@@ -11055,7 +11787,8 @@ declare namespace audio {
      * Speaker layout: 5.0 plus two back speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT0 = 0x637,
     /**
@@ -11069,7 +11802,8 @@ declare namespace audio {
      * Speaker layout: 5.0 plus left and right front center speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT0_FRONT = 0x6C7,
     /**
@@ -11083,7 +11817,8 @@ declare namespace audio {
      * Speaker layout: 5.1 plus two back speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT1 = 0x63F,
     /**
@@ -11097,7 +11832,8 @@ declare namespace audio {
      * Speaker layout: 5.0 plus BL, BR and BC.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_OCTAGONAL = 0x737,
     /**
@@ -11111,42 +11847,48 @@ declare namespace audio {
      * Speaker layout: 5.1 plus two top side speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT1POINT2 = 0x300000060F,
     /**
      * Channel Layout For 7.1-Wide, 8 channels in total
      * Speaker layout: 5.1 plus left and right front center speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT1_WIDE = 0x6CF,
     /**
      * Channel Layout For 7.1-Wide, 8 channels in total
      * Speaker layout: 5.1-Back plus left and right front center speakers.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT1_WIDE_BACK = 0xFF,
     /**
      * Channel Layout For ORDER2-ACN-N3D Higher Order Ambisonics(HOA), 9 channels in total
      * Second order, ACN format, N3D
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER2_ACN_N3D = 0x100000000002,
     /**
      * Channel Layout For ORDER2-ACN-SN3D HOA, 9 channels in total
      * Second order, ACN format, SN3D
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER2_ACN_SN3D = 0x100000001002,
     /**
      * Channel Layout For ORDER2-FUMA HOA, 9 channels in total
      * Second order, FuMa format
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER2_FUMA = 0x100000000102,
     /**
@@ -11160,7 +11902,8 @@ declare namespace audio {
      * Speaker layout: 5.1 plus four top speakers(TFL, TFR, TBL, TBR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_5POINT1POINT4 = 0x2D60F,
     /**
@@ -11174,7 +11917,8 @@ declare namespace audio {
      * Speaker layout: 7.1 plus two top side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT1POINT2 = 0x300000063F,
     /**
@@ -11188,7 +11932,8 @@ declare namespace audio {
      * Speaker layout: 7.1 plus four top speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_7POINT1POINT4 = 0x2D63F,
     /**
@@ -11202,14 +11947,16 @@ declare namespace audio {
      * Speaker layout: FL, FR, FC, TFL, TFR, BL, BR, BC, SL, SR, wide left(WL), and wide right(WR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_10POINT2 = 0x180005737,
     /**
      * Channel Layout For 9.1.4, 14 channels in total
      * Speaker layout: 7.1.4 plus two wide speakers(WL, WR)
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_9POINT1POINT4 = 0x18002D63F,
     /**
@@ -11223,7 +11970,8 @@ declare namespace audio {
      * Speaker layout: 9.1.4 plus two top side speakers
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_9POINT1POINT6 = 0x318002D63F,
     /**
@@ -11237,7 +11985,8 @@ declare namespace audio {
      * Speaker layout: Octagonal plus two wide speakers, six top speakers(TFL, TFR, TFC, TBL, TBR, TBC)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_HEXADECAGONAL = 0x18003F737,
     /**
@@ -11251,7 +12000,8 @@ declare namespace audio {
      * Third order, ACN format, N3D
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER3_ACN_N3D = 0x100000000003,
     /**
@@ -11265,31 +12015,35 @@ declare namespace audio {
      * Third order, ACN format, N3D
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER3_ACN_SN3D = 0x100000001003,
     /**
      * Channel Layout For ORDER3-FUMA HOA, 16 channels in total
      * Third order, FuMa format
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CH_LAYOUT_AMB_ORDER3_FUMA = 0x100000000103
   }
 
   /**
    * Enumerates audio effect flags.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EffectFlag {
     /**
      * Audio render effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RENDER_EFFECT_FLAG = 0,
 
@@ -11297,7 +12051,8 @@ declare namespace audio {
      * Audio capture effect.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAPTURE_EFFECT_FLAG = 1
   }
@@ -11307,7 +12062,8 @@ declare namespace audio {
    * @typedef AudioEffectProperty
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioEffectProperty {
     /**
@@ -11315,7 +12071,8 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -11324,7 +12081,8 @@ declare namespace audio {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     category: string;
 
@@ -11333,7 +12091,8 @@ declare namespace audio {
      * @type { EffectFlag }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flag: EffectFlag;
   }
