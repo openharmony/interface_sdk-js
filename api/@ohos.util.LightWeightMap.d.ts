@@ -484,6 +484,19 @@ declare class LightWeightMap<K, V> {
 
 
   /**
+   * Obtains the key at the location identified by index in an LightWeightMap container
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { K | undefined } the key of key-value pairs or undefined
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getKeyAt(index: number): K | undefined;
+  /**
    * Obtains a ES6 iterator that contains all the keys of an LightWeightMap container
    *
    * @returns { IterableIterator<K> }
@@ -954,6 +967,19 @@ declare class LightWeightMap<K, V> {
    */
     getValueAt(index: number): V | undefined;
 
+  /**
+   * Obtains the value identified by index in an LightWeightMap container
+   *
+   * @param { number } index - index index Target subscript for search
+   * @returns { V | undefined } the value of key-value pairs or undefined
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getValueAt(index: number): V | undefined;
   /**
    * Returns an iterator of the values contained in this map
    *

@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, ContentModifier, CommonConfiguration, Callback, Bindable } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceColor } from './units';
+/*** endif */
+
 /**
  * Defines the IndicatorType of Radio component
  *
@@ -447,6 +453,20 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 18
    */  
   checked(isChecked: Optional<boolean>): RadioAttribute;
+
+  /**
+   * Called when the radio box is selected.
+   *
+   * @param { boolean | undefined | Bindable<boolean> } isChecked
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  checked(isChecked: boolean | undefined | Bindable<boolean>): RadioAttribute;
 
   /**
    * Called when the radio box selection status changes.

@@ -19,7 +19,7 @@
  * @arkts 1.2
  */
  
-export * from './arkui/stateManagement/common';
+export * from './arkui/stateManagement/decorator';
 export * from './arkui/stateManagement/runtime';
 export * from './arkui/stateManagement/storage';
 export * from './arkui/stateManagement/base/decoratorBase';
@@ -32,3 +32,5 @@ export * from './arkui/stateManagement/decorators/decoratorStorageProp';
 export * from './arkui/stateManagement/decorators/decoratorWatch';
 export * from './arkui/stateManagement/storages/appStorage';
 export * from './arkui/stateManagement/storages/localStorage';
+export * from './arkui/stateManagement/utils';
+export * from './arkui/stateManagement/storage/storageProperty';

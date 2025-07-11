@@ -42,7 +42,7 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -57,14 +57,14 @@ declare namespace shortcutManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  function addDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
    * Delete desktop shortcut info.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -75,13 +75,13 @@ declare namespace shortcutManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: number): Promise<void>;
+  function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
    * Get all desktop shortcut info.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -92,7 +92,7 @@ declare namespace shortcutManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllDesktopShortcutInfo(userId: number): Promise<Array<ShortcutInfo>>;
+  function getAllDesktopShortcutInfo(userId: int): Promise<Array<ShortcutInfo>>;
 
   /**
    * Set a shortcut of current application is visible or invisible.

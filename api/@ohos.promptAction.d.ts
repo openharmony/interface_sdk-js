@@ -2272,6 +2272,7 @@ declare namespace promptAction {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @since 12
  */
 declare interface DismissDialogAction {
   /**
@@ -2281,6 +2282,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * @since 12
    * @since 12
    */
   dismiss: Callback<void>;
@@ -2292,6 +2294,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * @since 12
    * @since 12
    */
   reason: DismissReason;

@@ -18,6 +18,18 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import {
+  ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths,
+  LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles
+} from './units';
+import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
+import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason,
+  BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
+import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
+import { DismissDialogAction } from './actionSheet';
+/*** endif */
+
 /**
  * The alignment of dialog,
  *

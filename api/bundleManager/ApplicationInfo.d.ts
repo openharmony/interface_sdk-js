@@ -128,7 +128,7 @@ export interface ApplicationInfo {
   /**
    * Indicates the description id of the application
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -136,7 +136,7 @@ export interface ApplicationInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 
   /**
    * Indicates whether or not this application may be instantiated
@@ -153,6 +153,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates whether or not this application may be instantiated
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -218,7 +229,7 @@ export interface ApplicationInfo {
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -226,7 +237,7 @@ export interface ApplicationInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the icon of the application
@@ -278,7 +289,7 @@ export interface ApplicationInfo {
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -286,7 +297,7 @@ export interface ApplicationInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Process of application, if user do not set it ,the value equal bundleName
@@ -303,6 +314,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Process of application, if user do not set it ,the value equal bundleName
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -333,6 +355,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates the permissions required for accessing the application.
+   *
+   * @type { Array<string> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -416,6 +449,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates the metadata of the application
+   *
+   * @type { Array<ModuleMetadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly metadataArray: Array<ModuleMetadata>;
@@ -435,6 +479,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates whether or not this application may be removable
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -478,7 +533,7 @@ export interface ApplicationInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly accessTokenId: number;
+  readonly accessTokenId: long;
 
   /**
    * Indicates the uid of the application
@@ -508,7 +563,7 @@ export interface ApplicationInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly uid: number;
+  readonly uid: int;
 
   /**
    * Indicates icon resource of the application
@@ -525,6 +580,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates icon resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -566,6 +632,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates label resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly labelResource: Resource;
@@ -585,6 +662,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates description resource of the application
+   *
+   * @type { Resource }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -626,6 +714,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates the appDistributionType of the application
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly appDistributionType: string;
@@ -656,6 +755,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates the appProvisionType of the application
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly appProvisionType: string;
@@ -675,6 +785,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates whether the application is a system application
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -736,6 +857,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates whether the application is in debug mode.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly debug: boolean;
@@ -747,6 +879,17 @@ export interface ApplicationInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -778,6 +921,16 @@ export interface ApplicationInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @since 20
+   * @since 12
+   */
+  /**
+   * Indicates native library path.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly nativeLibraryPath: string;
@@ -796,13 +949,13 @@ export interface ApplicationInfo {
   /**
    * Indicates the index of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 
   /**
    * Indicates sources to install the app
@@ -834,6 +987,17 @@ export interface ApplicationInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 12
+   */
+  /**
+   * Indicates the release type of the app
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly releaseType: string;
@@ -853,14 +1017,14 @@ export interface ApplicationInfo {
   /**
    * Indicates the flags of the application.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly flags?: number;
+  readonly flags?: int;
 }
 
 /**
@@ -876,6 +1040,16 @@ export interface ApplicationInfo {
  * @typedef ModuleMetadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
+ * @since 11
+ */
+/**
+ * Indicates the ModuleMetadata
+ *
+ * @typedef ModuleMetadata
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  * @since 11
  */
 /**
@@ -904,6 +1078,17 @@ export interface ModuleMetadata {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
+   * @since 11
+   */
+  /**
+   * Indicates the name of this hap module
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @since 11
    */
   /**
@@ -945,6 +1130,17 @@ export interface ModuleMetadata {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @since 11
+   */
+  /**
+   * Indicates the metadata of this hap module
+   *
+   * @type { Array<Metadata> }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
   readonly metadata: Array<Metadata>;
@@ -973,13 +1169,13 @@ export interface MultiAppMode {
   /**
    * Indicates the max count of the bundle
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly maxCount: number;
+  readonly maxCount: int;
 }
 
 /**
@@ -1020,24 +1216,24 @@ export interface PreinstalledApplicationInfo {
   /**
    * Indicates the icon id of the application
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Indicates the label id of the application
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 }

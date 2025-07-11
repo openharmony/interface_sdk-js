@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ChildrenMainSize, ItemDragInfo, RectResult, ScrollableCommonMethod, Optional,
+  OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { Axis } from './enums';
+import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from './scroll';
+import { Dimension, Length, LengthConstrain, ResourceColor } from './units';
+/*** endif */
+
 /**
  * Declare scroll status
  *
@@ -2584,7 +2592,46 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
+  /**
+   * Called when scrolling begin each frame.
+   * Anonymous Object Rectification.
+   *
+   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * @returns { ListAttribute } Returns the instance of the ListAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
+
+   /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onWillScroll(handler: Optional<OnWillScrollCallback>): ListAttribute;
+  
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+   onDidScroll(handler: OnScrollCallback): ListAttribute;
 }
 
 /**

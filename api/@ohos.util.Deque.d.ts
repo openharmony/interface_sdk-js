@@ -420,6 +420,7 @@ declare class Deque<T> {
    * Iterates over elements in a generic Deque (double-ended queue) and executes a callback function for each element.
    *
    * @param { DequeForEachCb<T> } callbackFn - A callback function to execute for each element.
+   * @param { DequeForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -431,27 +432,16 @@ declare class Deque<T> {
    * Returns the byte at the specified index.
    *
    * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the deque matching the given index.
+   *     Throws error if index < 0 or index >= deque.length.
+   * @returns { T } The element in the deque matching the given index. 
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  $_get(index: number): T;
-
-  /**
-   * Sets the byte at the specified index.
-   *
-   * @param { number } index – The index of the element to set.
-   * @param { T } value – The value to set at the specified index.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_set(index: number, value: T): void;
+  [index: number]: T;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
@@ -499,6 +489,7 @@ declare class Deque<T> {
    * The type of Deque forEach callback function.
    *
    * @typedef { function } DequeForEachCb
+   * @typedef { function } DequeForEachCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
    * @param { Deque<T> } deque - The Deque instance being traversed
@@ -508,6 +499,7 @@ declare class Deque<T> {
    * @since 20
    * @arkts 1.2
    */
+  export type DequeForEachCb<T> = (value: T, index: number, deque: Deque<T>) => void;
   export type DequeForEachCb<T> = (value: T, index: number, deque: Deque<T>) => void;
 
 export default Deque;

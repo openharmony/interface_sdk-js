@@ -28,7 +28,8 @@ import BaseContext from './application/BaseContext';
  *
  * @namespace distributedKVStore
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace distributedKVStore {
   /**
@@ -37,7 +38,8 @@ declare namespace distributedKVStore {
    *
    * @interface KVManagerConfig
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KVManagerConfig {
     /**
@@ -45,7 +47,8 @@ declare namespace distributedKVStore {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -54,7 +57,8 @@ declare namespace distributedKVStore {
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * if swap the area, you should close all the KV store and use the new Context to create the KVManager
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Indicates the ability or hap context
@@ -62,7 +66,8 @@ declare namespace distributedKVStore {
      * @type { BaseContext }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     context: BaseContext;
   }
@@ -368,14 +373,16 @@ declare namespace distributedKVStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum KVStoreType {
     /**
      * Device-collaboration database, as specified by {@code DeviceKVStore}
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_COLLABORATION,
 
@@ -383,7 +390,8 @@ declare namespace distributedKVStore {
      * Single-version database, as specified by {@code SingleKVStore}
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_VERSION
   }
@@ -393,7 +401,8 @@ declare namespace distributedKVStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SecurityLevel {
     /**
@@ -401,7 +410,8 @@ declare namespace distributedKVStore {
      * There are some low impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     S1,
 
@@ -410,7 +420,8 @@ declare namespace distributedKVStore {
      * There are some major impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     S2,
 
@@ -419,7 +430,8 @@ declare namespace distributedKVStore {
      * There are some severity impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     S3,
 
@@ -428,7 +440,8 @@ declare namespace distributedKVStore {
      * There are some critical impact when the data is leaked.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     S4
   }
@@ -438,7 +451,8 @@ declare namespace distributedKVStore {
    *
    * @interface Options
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Options {
     /**
@@ -446,7 +460,8 @@ declare namespace distributedKVStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createIfMissing?: boolean;
 
@@ -455,7 +470,8 @@ declare namespace distributedKVStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     encrypt?: boolean;
 
@@ -464,7 +480,8 @@ declare namespace distributedKVStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backup?: boolean;
 
@@ -474,7 +491,8 @@ declare namespace distributedKVStore {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     autoSync?: boolean;
 
@@ -483,7 +501,8 @@ declare namespace distributedKVStore {
      *
      * @type { ?KVStoreType }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     kvStoreType?: KVStoreType;
 
@@ -492,7 +511,8 @@ declare namespace distributedKVStore {
      *
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * arkts 1.1&1.2
      */
     securityLevel: SecurityLevel;
 
@@ -501,7 +521,8 @@ declare namespace distributedKVStore {
      *
      * @type { ?Schema }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     schema?: Schema;
   }
@@ -511,7 +532,8 @@ declare namespace distributedKVStore {
    * You can set the schema object in options when create or open the database.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class Schema {
     /**
@@ -566,7 +588,8 @@ declare namespace distributedKVStore {
    * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class FieldNode {
     /**
@@ -1179,7 +1202,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
 
@@ -1216,7 +1240,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
@@ -1579,7 +1604,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
 
@@ -1596,7 +1622,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(key: string): Promise<boolean | string | number | Uint8Array>;
 
@@ -1934,7 +1961,8 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backup(file: string, callback: AsyncCallback<void>): void;
 
@@ -1948,7 +1976,8 @@ declare namespace distributedKVStore {
      * <br>2.Parameter verification failed.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backup(file: string): Promise<void>;
 
@@ -2338,7 +2367,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
 
@@ -2355,7 +2385,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(key: string): Promise<boolean | string | number | Uint8Array>;
 
@@ -2374,7 +2405,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
 
@@ -2393,7 +2425,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
 
@@ -3044,7 +3077,8 @@ declare namespace distributedKVStore {
    * <br>2.Incorrect parameters types;
    * <br>3.Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createKVManager(config: KVManagerConfig): KVManager;
 
@@ -3054,7 +3088,8 @@ declare namespace distributedKVStore {
    *
    * @interface KVManager
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KVManager {
     /**
@@ -3072,7 +3107,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
@@ -3091,7 +3127,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100002 - Open existed database with changed options.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 

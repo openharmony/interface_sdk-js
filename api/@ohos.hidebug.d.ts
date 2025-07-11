@@ -37,7 +37,8 @@
  * @namespace hidebug
  * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hidebug {
   /**
@@ -46,7 +47,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the total number of bytes occupied by the total space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapSize(): bigint;
 
@@ -55,7 +57,8 @@ declare namespace hidebug {
    * a process, which is measured by the memory allocator.
    * @returns { bigint } Returns the total number of bytes occupied by the total allocated space.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapAllocatedSize(): bigint;
 
@@ -65,7 +68,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the size of the memory occupied by the free normal blocks held by the process, in bytes.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNativeHeapFreeSize(): bigint;
 
@@ -75,7 +79,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the virtual set size used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVss(): bigint;
 
@@ -85,7 +90,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the size of the physical memory actually used by the application process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPss(): bigint;
 
@@ -95,7 +101,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the size of the shared dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSharedDirty(): bigint;
 
@@ -105,7 +112,8 @@ declare namespace hidebug {
    *
    * @returns { bigint } Returns the size of the private dirty memory of the process, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrivateDirty(): bigint;
 
@@ -114,7 +122,8 @@ declare namespace hidebug {
    *
    * @returns { number } Returns the CPU usage of the process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCpuUsage(): number;
 
@@ -169,7 +178,8 @@ declare namespace hidebug {
    * directory of the application based on the specified file name.
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startJsCpuProfiling(filename: string): void;
 
@@ -179,7 +189,8 @@ declare namespace hidebug {
    * methods repeatedly. Otherwise, an exception may occur. It takes effect only when the CPU profiler is turned on
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopJsCpuProfiling(): void;
 
@@ -210,7 +221,8 @@ declare namespace hidebug {
    *                               2.the args parameter is not string array.
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
 
@@ -220,7 +232,8 @@ declare namespace hidebug {
    * @returns { number } Returns the CPU usage of the system.
    * @throws { BusinessError } 11400104 - The status of the system CPU usage is abnormal.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemCpuUsage(): number;
 
@@ -229,7 +242,8 @@ declare namespace hidebug {
    *
    * @interface ThreadCpuUsage
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ThreadCpuUsage {
     /**
@@ -237,7 +251,8 @@ declare namespace hidebug {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     threadId: number;
     /**
@@ -245,7 +260,8 @@ declare namespace hidebug {
      *
      * @type { number }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cpuUsage: number;
   }
@@ -255,7 +271,8 @@ declare namespace hidebug {
    *
    * @returns { ThreadCpuUsage[] } Returns the CPU usage of all threads of the current application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppThreadCpuUsage(): ThreadCpuUsage[];
 
@@ -264,7 +281,8 @@ declare namespace hidebug {
    *
    * @interface SystemMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SystemMemInfo {
     /**
@@ -273,7 +291,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalMem: bigint;
     /**
@@ -282,7 +301,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     freeMem: bigint;
     /**
@@ -291,7 +311,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     availableMem: bigint;
   }
@@ -301,7 +322,8 @@ declare namespace hidebug {
    *
    * @returns { SystemMemInfo } Returns the system memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemMemInfo(): SystemMemInfo;
 
@@ -310,7 +332,8 @@ declare namespace hidebug {
    *
    * @interface NativeMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface NativeMemInfo {
     /**
@@ -320,7 +343,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pss: bigint;
     /**
@@ -330,7 +354,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vss: bigint;
     /**
@@ -339,7 +364,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rss: bigint;
     /**
@@ -348,7 +374,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sharedDirty: bigint;
     /**
@@ -357,7 +384,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     privateDirty: bigint;
     /**
@@ -366,7 +394,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sharedClean: bigint;
     /**
@@ -375,7 +404,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     privateClean: bigint;
   }
@@ -386,7 +416,8 @@ declare namespace hidebug {
    *
    * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppNativeMemInfo(): NativeMemInfo;
 
@@ -395,7 +426,8 @@ declare namespace hidebug {
    *
    * @interface MemoryLimit
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MemoryLimit {
     /**
@@ -403,7 +435,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssLimit: bigint;
     /**
@@ -411,7 +444,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vssLimit: bigint;
     /**
@@ -419,7 +453,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmHeapLimit: bigint;
     /**
@@ -427,7 +462,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     vmTotalHeapSize: bigint;
   }
@@ -437,7 +473,8 @@ declare namespace hidebug {
    *
    * @returns { MemoryLimit } Returns the memory limit of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppMemoryLimit(): MemoryLimit;
 
@@ -446,7 +483,8 @@ declare namespace hidebug {
    *
    * @interface VMMemoryInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VMMemoryInfo {
     /**
@@ -454,7 +492,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     totalHeap: bigint;
     /**
@@ -462,7 +501,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     heapUsed: bigint;
     /**
@@ -470,7 +510,8 @@ declare namespace hidebug {
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     allArraySize: bigint;
   }
@@ -480,7 +521,8 @@ declare namespace hidebug {
    *
    * @returns { VMMemoryInfo } Returns the VM memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAppVMMemoryInfo(): VMMemoryInfo;
 
@@ -489,21 +531,24 @@ declare namespace hidebug {
    *
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TraceFlag {
     /**
      * The main thread of the application.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAIN_THREAD = 1,
     /**
      * All threads of the application.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALL_THREADS = 2
   }
@@ -513,231 +558,264 @@ declare namespace hidebug {
    *
    * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace tags {
     /**
      * Ability Manager tag. The corresponding HiTrace command is tagName:ability.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ABILITY_MANAGER: number;
     /**
      * ArkUI development framework. The corresponding HiTrace command is tagName:ace.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ARKUI: number;
     /**
      * JSVM VM. The corresponding HiTrace command is tagName:ark.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const ARK: number;
     /**
      * Bluetooth. The corresponding HiTrace command is tagName:bluetooth.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const BLUETOOTH: number;
     /**
      * Common library subsystem. The corresponding HiTrace command is tagName:commonlibrary.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const COMMON_LIBRARY: number;
     /**
      * Distributed hardware device management. The corresponding HiTrace command is tagName:devicemanager.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_HARDWARE_DEVICE_MANAGER: number;
     /**
      * Distributed audio. The corresponding HiTrace command is tagName:daudio.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_AUDIO: number;
     /**
      * Distributed camera. The corresponding HiTrace command is tagName:dcamera.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_CAMERA: number;
     /**
      * Distributed data management. The corresponding HiTrace command is tagName:distributeddatamgr.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_DATA: number;
     /**
      * Distributed hardware framework. The corresponding HiTrace command is tagName:dhfwk.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_HARDWARE_FRAMEWORK: number;
     /**
      * Distributed input. The corresponding HiTrace command is tagName:dinput.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_INPUT: number;
     /**
      * Distributed screen. The corresponding HiTrace command is tagName:dscreen.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_SCREEN: number;
     /**
      * Distributed scheduler. The corresponding HiTrace command is tagName:dsched.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const DISTRIBUTED_SCHEDULER: number;
     /**
      * FFRT task. The corresponding HiTrace command is tagName:ffrt.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const FFRT: number;
     /**
      * File management system. The corresponding HiTrace command is tagName:filemanagement.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const FILE_MANAGEMENT: number;
     /**
      * Global resource management. The corresponding HiTrace command is tagName:gresource.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const GLOBAL_RESOURCE_MANAGER: number;
     /**
      * Graphics module. The corresponding HiTrace command is tagName:graphic.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const GRAPHICS: number;
     /**
      * HDF subsystem. The corresponding HiTrace command is tagName:hdf.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const HDF: number;
     /**
      * MISC module. The corresponding HiTrace command is tagName:misc.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MISC: number;
     /**
      * Multi-modal input module. The corresponding HiTrace command is tagName:multimodalinput.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MULTIMODAL_INPUT: number;
     /**
      * Network. The corresponding HiTrace command is tagName:net.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NET: number;
     /**
      * Notification module. The corresponding HiTrace command is tagName:notification.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NOTIFICATION: number;
     /**
      * Nweb. The corresponding HiTrace command is tagName:nweb.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const NWEB: number;
     /**
      * OHOS. The corresponding HiTrace command is tagName:ohos.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const OHOS: number;
     /**
      * Power management. The corresponding HiTrace command is tagName:power.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const POWER_MANAGER: number;
     /**
      * RPC. The corresponding HiTrace command is tagName:rpc.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const RPC: number;
     /**
      * System capability management. The corresponding HiTrace command is tagName:samgr.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const SAMGR: number;
     /**
      * Window management. The corresponding HiTrace command is tagName:window.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const WINDOW_MANAGER: number;
     /**
      * Audio module. The corresponding HiTrace command is tagName:zaudio.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const AUDIO: number;
     /**
      * Camera module. The corresponding HiTrace command is tagName:zcamera.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const CAMERA: number;
     /**
      * Image module. The corresponding HiTrace command is tagName:zimage.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const IMAGE: number;
     /**
      * Media module. The corresponding HiTrace command is tagName:zmedia.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     const MEDIA: number;
   }
@@ -760,7 +838,8 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400103 - No write permission on the file.
    * @throws { BusinessError } 11400104 - Abnormal trace status.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startAppTraceCapture(tags: number[], flag: TraceFlag, limitSize: number): string;
 
@@ -771,7 +850,8 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - The status of the trace is abnormal.
    * @throws { BusinessError } 11400105 - No capture trace running.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopAppTraceCapture(): void;
 
@@ -781,7 +861,8 @@ declare namespace hidebug {
    *
    * @typedef { Record<string, number> } GcStats
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type GcStats = Record<string, number>;
 
@@ -790,7 +871,8 @@ declare namespace hidebug {
    *
    * @returns { GcStats } Returns the system GC statistics.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStats(): GcStats;
 
@@ -803,7 +885,8 @@ declare namespace hidebug {
    *                           1. Invalid parameter, a string parameter required.
    *                           2. Invalid parameter, unknown property.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVMRuntimeStat(item: string): number;
 
@@ -837,7 +920,8 @@ declare namespace hidebug {
    *
    * @returns { boolean } true if the application is in the debugging state.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDebugState(): boolean;
 
@@ -848,7 +932,8 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getGraphicsMemory(): Promise<number>;
 
@@ -859,7 +944,8 @@ declare namespace hidebug {
    * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getGraphicsMemorySync(): number;
 

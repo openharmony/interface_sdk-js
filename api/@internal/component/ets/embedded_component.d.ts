@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import Want from '../../@ohos.app.ability.Want'
+import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
+import { CommonMethod, TerminationInfo } from './common'
+import { EmbeddedType } from './enums'
+/*** endif */
 
 /**
  * Provide an interface for the EmbeddedComponent, which is used
@@ -106,6 +112,18 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12
    */
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
+  
+  /**
+   * Called when some error occurred.
+   *
+   * @param { ErrorCallback<BusinessError> } callback
+   * @returns { EmbeddedComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onError(callback: ErrorCallback<BusinessError>): EmbeddedComponentAttribute;
 }
 
 /**

@@ -44,7 +44,8 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TouchEventReceiver {
     /**

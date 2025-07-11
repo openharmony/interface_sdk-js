@@ -18,6 +18,28 @@
  * @kit ArkWeb
  */
 
+/*** if arkts 1.2 */
+import webview from '../../@ohos.web.webview';
+import image from '../../@ohos.multimedia.image';
+import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent } from './common';
+import { CustomBuilder } from './builder'
+import { Resource } from '../../global/resource';
+import { Position, ResourceStr } from './units';
+import { MenuType, EditMenuOptions } from './textCommon';
+import { CopyOptions, NestedScrollMode } from './enums';
+/*** endif */
+
+/**
+ * Provides methods for controlling the web controller.
+ *
+ * @typedef { webview.WebviewController }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 20
+ * @arkts 1.2
+ */
+type WebviewController = webview.WebviewController;
+
 /**
  * Provides methods for controlling the web controller.
  *
@@ -2193,7 +2215,8 @@ declare enum ProtectedResourceType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SENSOR = 'TYPE_SENSOR'
 }
@@ -4816,6 +4839,17 @@ declare interface WebOptions {
   controller: WebController | WebviewController;
 
   /**
+   * Sets the controller of the Web.
+   *
+   * @type { WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+  */
+  controller: WebviewController;
+
+  /**
    * 	Rendering mode.
    * 	RenderMode.ASYNC_RENDER (default, cannot be dynamically adjusted): The Web component is rendered asynchronously.
    * 	RenderMode.SYNC_RENDER: The Web component is rendered synchronously within the current execution context.
@@ -4887,7 +4921,8 @@ declare interface ScriptItem {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   script: string;
 
@@ -4897,7 +4932,8 @@ declare interface ScriptItem {
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scriptRules: Array<string>;
 }
@@ -5576,13 +5612,13 @@ declare interface OnProgressChangeEvent {
   /**
    * The new progress of the page.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  newProgress: number;
+  newProgress: int;
 }
 
 /**
@@ -6135,7 +6171,8 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   result: FileSelectorResult;
 
@@ -6146,7 +6183,8 @@ declare interface OnShowFileSelectorEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fileSelector: FileSelectorParam;
 }
@@ -6449,7 +6487,8 @@ declare interface OnSslErrorEventReceiveEvent {
    *
    * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -6612,6 +6651,16 @@ declare interface OnFaviconReceivedEvent {
    * @since 12
    */
   favicon: PixelMap;
+
+  /**
+   * Received the Favicon icon for the image.PixelMap object.
+   *
+   * @type { image.PixelMap }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  favicon: image.PixelMap;
 }
 
 /**
@@ -6776,6 +6825,7 @@ declare interface OnOverScrollEvent {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface JavaScriptProxy {
   /**
@@ -6794,6 +6844,7 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   object: object;
 
@@ -6815,6 +6866,7 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   name: string;
 
@@ -6836,6 +6888,7 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   methodList: Array<string>;
 
@@ -6859,6 +6912,18 @@ declare interface JavaScriptProxy {
   controller: WebController | WebviewController;
 
   /**
+   * Controller.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  controller: WebviewController;
+
+  /**
    * The async method of the application side JavaScript object participating in the registration.
    *
    * @type { ?Array<string> }
@@ -6874,6 +6939,7 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   asyncMethodList?: Array<string>;
 
@@ -7427,6 +7493,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 

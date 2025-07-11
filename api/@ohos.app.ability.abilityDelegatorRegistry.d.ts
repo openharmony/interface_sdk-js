@@ -23,7 +23,6 @@ import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abi
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
 import { AbilityStageMonitor as _AbilityStageMonitor } from './application/AbilityStageMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
-
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.

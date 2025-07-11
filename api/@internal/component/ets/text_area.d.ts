@@ -18,6 +18,20 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { KeyboardOptions, PasteEvent } from './richEditor';
+import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue,
+  AutoCapitalizationMode,EditableTextChangeValue,KeyboardAppearance } from './textCommon';
+import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow,
+    TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from './enums';
+import { EnterKeyType, SubmitEvent, ContentType } from './textInput';
+import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr } from './units';
+import { InputCounterOptions, TextContentControllerBase, SelectionOptions,
+    TextDecorationOptions, CommonMethod, Callback, Optional, Bindable } from './common';
+import { CustomBuilder } from './builder';
+import { Resource } from '../../global/resource';
+/*** endif */
+
 /**
  * Provides the method of switching the cursor position.
  *
@@ -241,6 +255,18 @@ declare interface TextAreaOptions {
    * @since 11
    */
   text?: ResourceStr;
+
+  /**
+   * Sets the current value of TextArea.
+   *
+   * @type { ?(ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  text?: ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
 
   /**
    * Called when the position of the insertion cursor is set.

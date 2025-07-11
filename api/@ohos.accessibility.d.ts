@@ -880,7 +880,8 @@ export enum AccessibilityEventType {
  * @namespace accessibility
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 /**
  * Accessibility
@@ -1058,7 +1059,8 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Checks whether accessibility ability is enabled.
@@ -1274,7 +1276,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Register the observe of the accessibility state changed.
@@ -1316,7 +1319,8 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
@@ -1343,7 +1347,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Unregister the observe of the accessibility state changed.
@@ -1385,7 +1390,8 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 

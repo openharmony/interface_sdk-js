@@ -50,7 +50,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501003 - Operation failed because the service is being closed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableWifi(): void;
 
@@ -76,7 +77,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501004 - Operation failed because the service is being opened.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableSemiWifi(): void;
 
@@ -177,7 +179,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWifiDetailState(): WifiDetailState;
 
@@ -231,7 +234,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getScanInfoList(): Array<WifiScanInfo>;
 
@@ -591,7 +595,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSignalLevel(rssi: number, band: number): number;
 
@@ -618,7 +623,8 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
@@ -662,7 +668,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
@@ -677,7 +684,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    function getLinkedInfoSync(): WifiLinkedInfo;
 
@@ -702,7 +710,8 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isConnected(): boolean;
 
@@ -759,7 +768,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getIpInfo(): IpInfo;
 
@@ -772,7 +782,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getIpv6Info(): Ipv6Info;
 
@@ -980,7 +991,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isMeteredHotspot(): boolean;
 
@@ -1070,7 +1082,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isOpenSoftApAllowed(): boolean;
 
@@ -1154,7 +1167,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getStations(): Array<StationInfo>;
 
@@ -2214,7 +2228,8 @@ declare namespace wifiManager {
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceAddressType {
     /**
@@ -2227,7 +2242,8 @@ declare namespace wifiManager {
      * random device address
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RANDOM_DEVICE_ADDRESS,
 
@@ -2241,7 +2257,8 @@ declare namespace wifiManager {
      * real device address
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REAL_DEVICE_ADDRESS,
   }
@@ -2404,14 +2421,16 @@ declare namespace wifiManager {
    * @enum { number } WifiDetailState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiDetailState {
     /**
      * state is unknown
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = -1,
 
@@ -2419,7 +2438,8 @@ declare namespace wifiManager {
      * wifi is closed
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INACTIVE = 0,
 
@@ -2427,7 +2447,8 @@ declare namespace wifiManager {
      * wifi is opened
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVATED = 1,
 
@@ -2435,7 +2456,8 @@ declare namespace wifiManager {
      * wifi is opening
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVATING = 2,
 
@@ -2443,7 +2465,8 @@ declare namespace wifiManager {
      * wifi is closing
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEACTIVATING = 3,
 
@@ -2451,7 +2474,8 @@ declare namespace wifiManager {
      * wifi sta is entering semi active
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEMI_ACTIVATING = 4,
 
@@ -2459,7 +2483,8 @@ declare namespace wifiManager {
      * wifi sta is semi active
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEMI_ACTIVE = 5,
   }
@@ -2501,41 +2526,47 @@ declare namespace wifiManager {
    * Wi-Fi Category.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiCategory {
     /**
      * Default.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT = 1,
 
     /**
      * Wifi6.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI6 = 2,
 
     /**
      * Wifi6+.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI6_PLUS = 3,
 
     /**
      * Wifi7.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7 = 4,
 
     /**
      * Wifi7+.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7_PLUS = 5
   }
@@ -2777,7 +2808,8 @@ declare namespace wifiManager {
    * @typedef WifiDeviceConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiDeviceConfig {
     /** 
@@ -2791,7 +2823,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ssid: string;
 
@@ -2806,7 +2839,8 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssid?: string;
 
@@ -2836,7 +2870,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preSharedKey: string;
 
@@ -2860,7 +2895,8 @@ declare namespace wifiManager {
      * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     securityType: WifiSecurityType;
 
@@ -3157,7 +3193,8 @@ declare namespace wifiManager {
    * @typedef WifiScanInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiScanInfo {
     /**
@@ -3171,7 +3208,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ssid: string;
 
@@ -3186,7 +3224,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssid: string;
 
@@ -3224,7 +3263,8 @@ declare namespace wifiManager {
      * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     securityType: WifiSecurityType;
 
@@ -3239,7 +3279,8 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssi: number;
 
@@ -3247,7 +3288,8 @@ declare namespace wifiManager {
      * Frequency band, 1: 2.4G, 2: 5G
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     band: number;
 
@@ -3310,7 +3352,8 @@ declare namespace wifiManager {
      * Supported wifi category
      * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     supportedWifiCategory: WifiCategory;
 
@@ -3334,14 +3377,16 @@ declare namespace wifiManager {
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiSecurityType {
     /**
      * Invalid security type
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_INVALID = 0,
 
@@ -3356,7 +3401,8 @@ declare namespace wifiManager {
      *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_OPEN = 1,
 
@@ -3364,7 +3410,8 @@ declare namespace wifiManager {
      * Wired Equivalent Privacy (WEP)
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_WEP = 2,
 
@@ -3372,7 +3419,8 @@ declare namespace wifiManager {
      * Pre-shared key (PSK)
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_PSK = 3,
 
@@ -3380,7 +3428,8 @@ declare namespace wifiManager {
      * Simultaneous Authentication of Equals (SAE)
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_SAE = 4,
 
@@ -3388,7 +3437,8 @@ declare namespace wifiManager {
      * EAP authentication.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_EAP = 5,
 
@@ -3396,7 +3446,8 @@ declare namespace wifiManager {
      * SUITE_B_192 192 bit level.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
@@ -3404,7 +3455,8 @@ declare namespace wifiManager {
      * Opportunistic Wireless Encryption.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_OWE = 7,
 
@@ -3412,7 +3464,8 @@ declare namespace wifiManager {
      * WAPI certificate to be specified.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_WAPI_CERT = 8,
 
@@ -3420,7 +3473,8 @@ declare namespace wifiManager {
      * WAPI pre-shared key to be specified.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_SEC_TYPE_WAPI_PSK = 9
   }
@@ -3573,7 +3627,8 @@ declare namespace wifiManager {
    * @typedef WifiLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    
   interface WifiLinkedInfo {
@@ -3588,7 +3643,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ssid: string;
 
@@ -3603,7 +3659,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssid: string;
 
@@ -3627,7 +3684,8 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rssi: number;
 
@@ -3635,7 +3693,8 @@ declare namespace wifiManager {
      * The frequency band of a Wi-Fi access point.
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     band: number;
 
@@ -3732,7 +3791,8 @@ declare namespace wifiManager {
      * The Wi-Fi MAC address of a device. 
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     macAddress: string;
 
@@ -3757,7 +3817,8 @@ declare namespace wifiManager {
      * The state of this Wi-Fi connection. 
      * @type { ConnState }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connState: ConnState;
 
@@ -3781,7 +3842,8 @@ declare namespace wifiManager {
      * Supported wifi category
      * @type { WifiCategory }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     supportedWifiCategory: WifiCategory;
 
@@ -3806,14 +3868,16 @@ declare namespace wifiManager {
    * Wi-Fi IP information.
    * @typedef IpInfo
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IpInfo {
     /**
      * The IP address of the Wi-Fi connection
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ipAddress: number;
 
@@ -3870,14 +3934,16 @@ declare namespace wifiManager {
    * Wi-Fi IPv6 information.
    * @typedef Ipv6Info
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Ipv6Info {
     /**
      * The link IPv6 address of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     linkIpv6Address: string;
 
@@ -3951,7 +4017,8 @@ declare namespace wifiManager {
    * @typedef HotspotConfig
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HotspotConfig {
     /**
@@ -3959,7 +4026,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ssid: string;
 
@@ -3968,7 +4036,8 @@ declare namespace wifiManager {
      * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     securityType: WifiSecurityType;
 
@@ -3977,7 +4046,8 @@ declare namespace wifiManager {
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     band: number;
 
@@ -3995,7 +4065,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preSharedKey: string;
 
@@ -4023,7 +4094,8 @@ declare namespace wifiManager {
    * @typedef StationInfo
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface StationInfo {
     /**
@@ -4040,7 +4112,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     macAddress: string;
 
@@ -4208,14 +4281,16 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ConnState {
     /**
      * The device is searching for an available AP.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCANNING,
 
@@ -4223,7 +4298,8 @@ declare namespace wifiManager {
      * The Wi-Fi connection is being set up.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECTING,
 
@@ -4231,7 +4307,8 @@ declare namespace wifiManager {
      * The Wi-Fi connection is being authenticated.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTHENTICATING,
 
@@ -4239,7 +4316,8 @@ declare namespace wifiManager {
      * The IP address of the Wi-Fi connection is being obtained.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OBTAINING_IPADDR,
 
@@ -4247,7 +4325,8 @@ declare namespace wifiManager {
      * The Wi-Fi connection has been set up.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECTED,
 
@@ -4255,7 +4334,8 @@ declare namespace wifiManager {
      * The Wi-Fi connection is being torn down.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISCONNECTING,
 
@@ -4263,7 +4343,8 @@ declare namespace wifiManager {
      * The Wi-Fi connection has been torn down.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISCONNECTED,
 
@@ -4271,7 +4352,8 @@ declare namespace wifiManager {
      * Failed to set up the Wi-Fi connection.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN
   }
@@ -4281,14 +4363,16 @@ declare namespace wifiManager {
    *
    * @typedef WifiP2pDevice
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiP2pDevice {
     /**
      * Device name
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -4296,7 +4380,8 @@ declare namespace wifiManager {
      * Device mac address
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceAddress: string;
 
@@ -4304,7 +4389,8 @@ declare namespace wifiManager {
      * Device mac address type
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceAddressType?: DeviceAddressType;
 
@@ -4312,7 +4398,8 @@ declare namespace wifiManager {
      * Primary device type
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     primaryDeviceType: string;
 
@@ -4320,7 +4407,8 @@ declare namespace wifiManager {
      * Device status
      * @type { P2pDeviceStatus }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceStatus: P2pDeviceStatus;
 
@@ -4328,7 +4416,8 @@ declare namespace wifiManager {
      * Device group capabilities
      * @type { number }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupCapabilities: number;
   }
@@ -4477,20 +4566,23 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum P2pConnectState {
     /**
      * p2p is disconnected 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISCONNECTED = 0,
 
     /**
      * p2p is connected 
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECTED = 1
   }
@@ -4500,14 +4592,16 @@ declare namespace wifiManager {
    *
    * @typedef WifiP2pLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiP2pLinkedInfo {
     /**
      * Connection status 
      * @type { P2pConnectState }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connectState: P2pConnectState;
 
@@ -4515,7 +4609,8 @@ declare namespace wifiManager {
      * Indicates whether it is group owner
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isGroupOwner: boolean;
 
@@ -4523,7 +4618,8 @@ declare namespace wifiManager {
      * Group owner address
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupOwnerAddr: string;
   }
@@ -4533,41 +4629,47 @@ declare namespace wifiManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum P2pDeviceStatus {
     /** 
      * Indicate p2p device is connected.  
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONNECTED = 0,
 
     /** 
      * Indicate p2p device is invited.   
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVITED = 1,
 
     /**
      * Indicate p2p device is failed.   
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAILED = 2,
 
     /**
      * Indicate p2p device is available.   
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVAILABLE = 3,
 
     /** 
      * Indicate p2p device is unavailable.   
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNAVAILABLE = 4
   }

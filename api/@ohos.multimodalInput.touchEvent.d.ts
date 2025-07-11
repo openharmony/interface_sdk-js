@@ -205,139 +205,139 @@ export declare enum FixedMode {
 export declare interface Touch {
   /**
    * Pointer identifier
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  id: number;
+  id: int;
 
   /**
    * Time stamp when touch is pressed
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  pressedTime: number;
+  pressedTime: long;
 
   /**
    * X coordinate of the touch position on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  screenX: number;
+  screenX: int;
 
   /**
    * Y coordinate of the touch position on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  screenY: number;
+  screenY: int;
 
   /**
    * X coordinate of the touch position in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  windowX: number;
+  windowX: int;
 
   /**
    * Y coordinate of the touch position in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  windowY: number;
+  windowY: int;
 
   /**
    * Pressure value. The value range is [0.0, 1.0]. The value 0.0 indicates that the pressure is not supported.
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  pressure: number;
+  pressure: double;
 
   /**
    * Width of the contact area when touch is pressed
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  width: number;
+  width: int;
 
   /**
    * Height of the contact area when touch is pressed
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  height: number;
+  height: int;
 
   /**
    * Angle relative to the YZ plane. The value range is [-90, 90]. A positive value indicates a rightward tilt.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  tiltX: number;
+  tiltX: int;
 
   /**
    * Angle relative to the XZ plane. The value range is [-90, 90]. A positive value indicates a downward tilt.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  tiltY: number;
+  tiltY: int;
 
   /**
    * Center point X of the tool area
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  toolX: number;
+  toolX: int;
 
   /**
    * Center point Y of the tool area
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  toolY: number;
+  toolY: int;
 
   /**
    * Width of the tool area
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  toolWidth: number;
+  toolWidth: int;
 
   /**
    * Height of the tool area
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  toolHeight: number;
+  toolHeight: int;
 
   /**
    * X coordinate of the input device
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  rawX: number;
+  rawX: int;
 
   /**
    * Y coordinate of the input device
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  rawY: number;
+  rawY: int;
 
   /**
    * Tool type
@@ -349,21 +349,21 @@ export declare interface Touch {
 
   /**
    * fixedDisplayX - Corrected value of the screen x coordinate.
-   * @type { number }
+   * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19
    */
-  fixedDisplayX?: number;
+  fixedDisplayX?: int;
 
   /**
    * fixedDisplayY - Corrected value of the screen y coordinate.
-   * @type { number }
+   * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19
    */
-  fixedDisplayY?: number;
+  fixedDisplayY?: int;
 }
 
 /**

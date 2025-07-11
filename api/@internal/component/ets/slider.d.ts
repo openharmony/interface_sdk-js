@@ -18,6 +18,18 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
+import { Axis, CrownSensitivity } from './enums';
+import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
+import { CircleAttribute } from './circle';
+import { RectAttribute } from './rect';
+import { PathAttribute } from './path';
+import { EllipseAttribute } from './ellipse';
+import { LinearGradient } from './dataPanel';
+
+/*** endif */
+
 /**
  * Declare sliderstyle
  *
@@ -453,6 +465,19 @@ declare interface SliderOptions {
    * @since 11
    */
   value?: number;
+
+  /**
+   * Current value of Slider.
+   *
+   * @type { ?(number| undefined | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value?: number | undefined | Bindable<number>;
 
   /**
    * Sets the min value of Slider.

@@ -11971,30 +11971,22 @@ declare namespace collections {
      * @arkts 1.2
      */
     values(): IterableIterator<number>;
+
     /**
      * Returns the item at that index.
      * 
      * @param { number } index - The zero-based index of the desired code unit.
-     * @returns { number } The element in the bitVector matching the given index.
+     *     Throws error if index < 0 or index >= bitVector.length.
+     * @returns { number } The element in the bitVector matching the given index. 
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    $_get(index: number): number;
-    /**
-     * Set the value of item at that index.
-     *
-     * @param { number } index - The index of the element to set.
-     * @param { number } value - The value to set at the specified index.
-     * @syscap SystemCapability.Utils.Lang
-     * @atomicservice
-     * @crossplatform
-     * @since 20
-     * @arkts 1.2
-     */
-    $_set(index: number, value: number): void;
+    [index: number]: number;    
+     
   }
 
   /**

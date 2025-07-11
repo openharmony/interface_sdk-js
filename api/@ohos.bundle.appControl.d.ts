@@ -40,7 +40,7 @@ declare namespace appControl {
   /**
    * Indicates the ability component type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -71,7 +71,7 @@ declare namespace appControl {
   /**
    * Indicates the ability component type when uninstalled.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since arkts {'1.1':'15', '1.2':'20'}
@@ -92,7 +92,7 @@ declare namespace appControl {
   /**
    * Indicates when to intercept the specified application.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -131,7 +131,7 @@ declare namespace appControl {
   /**
    * Indicates the strategy to intercept the specified application.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -226,13 +226,13 @@ declare namespace appControl {
     /**
      * Indicates priority of the rule.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    priority: number;
+    priority: int;
   }
 
   /**
@@ -270,13 +270,13 @@ declare namespace appControl {
     /**
      * Indicates priority of the rule.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    priority: number;
+    priority: int;
   }
 
   /**
@@ -484,7 +484,7 @@ declare namespace appControl {
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -496,7 +496,7 @@ declare namespace appControl {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function deleteDisposedStatusSync(appId: string, appIndex?: number): void;
+  function deleteDisposedStatusSync(appId: string, appIndex?: int): void;
 
   /**
    * Obtains the disposed rule of a specified bundle.
@@ -518,7 +518,7 @@ declare namespace appControl {
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -531,7 +531,7 @@ declare namespace appControl {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDisposedRule(appId: string, appIndex?: number): DisposedRule;
+  function getDisposedRule(appId: string, appIndex?: int): DisposedRule;
 
   /**
    * Sets the disposed rule of a specified bundle.
@@ -554,7 +554,7 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -566,7 +566,7 @@ declare namespace appControl {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: number): void;
+  function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: int): void;
 
   /**
    * Sets the uninstall disposed rule of a specified bundle.
@@ -574,7 +574,7 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appIdentifier - Indicates the appIdentifier of the application.
    * @param { UninstallDisposedRule } rule - Indicates the uninstall disposed rule of a specified bundle.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -587,14 +587,14 @@ declare namespace appControl {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: number): void;
+  function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: int): void;
   
   /**
    * Obtains the uninstall disposed rule of a specified bundle.
    *
    * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @returns { UninstallDisposedRule } Returns the uninstall disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -607,14 +607,14 @@ declare namespace appControl {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getUninstallDisposedRule(appIdentifier: string, appIndex?: number): UninstallDisposedRule;
+  function getUninstallDisposedRule(appIdentifier: string, appIndex?: int): UninstallDisposedRule;
 
   /**
    * Delete the uninstall disposed rule of a specified bundle.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { number } [appIndex] Indicates the index of clone app.
+   * @param { int } [appIndex] Indicates the index of clone app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.

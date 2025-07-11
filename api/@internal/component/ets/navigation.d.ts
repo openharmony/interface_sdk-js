@@ -18,6 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import window from '../../@ohos.window';
+import { Resource } from '../../global/resource';
+import { TextModifier } from '../../arkui/TextModifier';
+import { LengthMetrics } from '../../arkui/Graphics';
+import { Callback, BlurStyle, CommonMethod, Optional, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, BackgroundBlurStyleOptions, PixelMap, Bindable } from './common'
+import { CustomBuilder, PageMapBuilder } from './builder'
+import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units'
+import { TitleHeight } from './enums'
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier'
+import { NavDestinationContext, NavDestinationMode } from './navDestination'
+/*** endif */
+
 /**
  * Import the SystemBarStyle type for Navigation.
  *
@@ -2630,6 +2643,20 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 11
    */
   navBarWidth(value: Length): NavigationAttribute;
+
+  /**
+
+   * Sets the width of navigation bar.
+   *
+   * @param { Length | Bindable<Length> } value
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  navBarWidth(value: Length | Bindable<Length>): NavigationAttribute;
 
   /**
    * Sets the position of the navigation bar. This attribute takes effect

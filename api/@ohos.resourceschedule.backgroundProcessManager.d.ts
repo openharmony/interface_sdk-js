@@ -17,6 +17,7 @@
  * @file
  * @kit BackgroundTasksKit
  * @arkts 1.1&1.2
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -26,13 +27,18 @@
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
  * @since arkts{ '1.1':'17','1.2':'20'}
  * @arkts 1.1&1.2
+ * @since arkts{ '1.1':'17','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace backgroundProcessManager {
     /**
      * Describes the level of BackgroundProcessManager priority.
      *
      * @enum { int }
+     * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @since arkts{ '1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -43,6 +49,8 @@ declare namespace backgroundProcessManager {
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since arkts{ '1.1':'17','1.2':'20'}
          * @arkts 1.1&1.2
+         * @since arkts{ '1.1':'17','1.2':'20'}
+         * @arkts 1.1&1.2
          */
         PROCESS_BACKGROUND = 1,
 
@@ -50,6 +58,8 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+         * @since arkts{ '1.1':'17','1.2':'20'}
+         * @arkts 1.1&1.2
          * @since arkts{ '1.1':'17','1.2':'20'}
          * @arkts 1.1&1.2
          */
@@ -89,13 +99,17 @@ declare namespace backgroundProcessManager {
      * Set the priority of process.
      *
      * @param { int } pid - Indicates the pid of the process to be set.
+     * @param { int } pid - Indicates the pid of the process to be set.
      * @param { ProcessPriority } priority - Indicates the priority to set. Specific priority can be referenced ProcessPriority
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
+     * @since arkts{ '1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
+    function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**

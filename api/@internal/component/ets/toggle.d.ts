@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from '../../global/resource';
+import { ResourceColor } from './units';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
+/*** endif */
+
 /**
  * Declare the type of status button
  *
@@ -355,6 +361,19 @@ declare interface ToggleOptions {
    * @since 18
    */
   isOn?: boolean
+
+  /**
+   * Whether the toggle is on.
+   *
+   * @type { ?(boolean | undefined | Bindable<boolean>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  isOn?: boolean | undefined | Bindable<boolean>
 }
 
 /**

@@ -4207,12 +4207,12 @@ declare namespace i18n {
     /**
      * Creates a NumberFormat object for rich text display.
      *
-     * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - NumberFormat object.
-     * @param { StyledNumberFormatOptions } [ options ] - Configuration options of the NumberFormat object.
-     *                                                    The default value is the default text style.
+     * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - Indicates the number format object that used to format number.
+     * @param { StyledNumberFormatOptions } [ options ] - Indicates the options used to format the number.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      * @deprecated since 20
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);

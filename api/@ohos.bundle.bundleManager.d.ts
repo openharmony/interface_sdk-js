@@ -95,7 +95,7 @@ declare namespace bundleManager {
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
    * Multiple value input, such as GET_BUNDLE_INFO_DEFAULT | GET_BUNDLE_INFO_WITH_APPLICATION.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -424,7 +424,7 @@ declare namespace bundleManager {
    * Used to query the enumeration value of applicationInfo. Multiple values can be passed in the form.
    * Multiple value input, such as GET_APPLICATION_INFO_DEFAULT | GET_APPLICATION_INFO_WITH_PERMISSION.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -481,7 +481,7 @@ declare namespace bundleManager {
   /**
    * Used to query the enumeration value of abilityInfo. Multiple values can be passed in the form.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 20
@@ -630,7 +630,7 @@ declare namespace bundleManager {
   /**
    * Used to query the enumeration value of ExtensionAbilityInfo. Multiple values can be passed in the form.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -695,7 +695,7 @@ declare namespace bundleManager {
   /**
    * This enumeration value is used to identify various types of extension ability
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1009,7 +1009,7 @@ declare namespace bundleManager {
   /**
    * PermissionGrantState
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -1084,7 +1084,7 @@ declare namespace bundleManager {
   /**
    * Support window mode
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -1181,7 +1181,7 @@ declare namespace bundleManager {
   /**
    * Launch type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -1317,7 +1317,7 @@ declare namespace bundleManager {
   /**
    * Display orientation
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -1676,7 +1676,7 @@ declare namespace bundleManager {
   /**
    * Indicates module type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
    * @atomicservice
@@ -1765,7 +1765,7 @@ declare namespace bundleManager {
   /**
    * Indicates bundle type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1812,7 +1812,7 @@ declare namespace bundleManager {
   /**
    * Shared bundle compatible policy
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1839,7 +1839,7 @@ declare namespace bundleManager {
   /**
    * This enumeration value is used to identify various types of JSON profile.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -1860,7 +1860,7 @@ declare namespace bundleManager {
   /**
    * This enumeration value is used to identify the distribution type of application.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -1943,7 +1943,7 @@ declare namespace bundleManager {
   /**
    * This enumeration value is used to identify various types of extension ability
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -1978,7 +1978,7 @@ declare namespace bundleManager {
   /**
    * This enumeration value is used to identify various flags of application
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -2045,7 +2045,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2054,7 +2054,7 @@ declare namespace bundleManager {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function getBundleInfoForSelf(bundleFlags: number): Promise<BundleInfo>;
+  function getBundleInfoForSelf(bundleFlags: int): Promise<BundleInfo>;
 
   /**
    * Obtains own bundleInfo.
@@ -2078,7 +2078,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2087,7 +2087,7 @@ declare namespace bundleManager {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfoForSelf(bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains own bundleInfo.
@@ -2111,7 +2111,7 @@ declare namespace bundleManager {
   /**
    * Obtains own bundleInfo.
    *
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { BundleInfo } The result of getting the bundle info.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2120,14 +2120,14 @@ declare namespace bundleManager {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function getBundleInfoForSelfSync(bundleFlags: number): BundleInfo;
+  function getBundleInfoForSelfSync(bundleFlags: int): BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2137,15 +2137,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleInfo(bundleName: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2157,15 +2157,15 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function getBundleInfo(bundleName: string,
-    bundleFlags: number, userId: number, callback: AsyncCallback<BundleInfo>): void;
+    bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2176,14 +2176,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+  function getBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<BundleInfo>;
 
   /**
    * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2195,15 +2195,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getApplicationInfo(bundleName: string, appFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
+  function getApplicationInfo(bundleName: string, appFlags: int, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2217,15 +2217,15 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function getApplicationInfo(bundleName: string,
-    appFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
+    appFlags: int, userId: int, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
    * Obtains application info based on a given bundle name.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2238,13 +2238,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getApplicationInfo(bundleName: string, appFlags: number, userId?: number): Promise<ApplicationInfo>;
+  function getApplicationInfo(bundleName: string, appFlags: int, userId?: int): Promise<ApplicationInfo>;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2254,14 +2254,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleInfo(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+  function getAllBundleInfo(bundleFlags: int, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
-   * @param { number } userId - Indicates the user id.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { int } userId - Indicates the user id.
    * @param { AsyncCallback<Array<BundleInfo>> } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2272,14 +2272,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+  function getAllBundleInfo(bundleFlags: int, userId: int, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
-   * @param { number } userId - Indicates the user id.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo that will be returned.
+   * @param { int } userId - Indicates the user id.
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2290,13 +2290,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleInfo(bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
+  function getAllBundleInfo(bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2306,14 +2306,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllApplicationInfo(appFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+  function getAllApplicationInfo(appFlags: int, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Array<ApplicationInfo>> } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2324,15 +2324,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllApplicationInfo(appFlags: number,
-    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+  function getAllApplicationInfo(appFlags: int,
+    userId: int, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } appFlags {@link ApplicationFlag} - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2343,14 +2343,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllApplicationInfo(appFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
+  function getAllApplicationInfo(appFlags: int, userId?: int): Promise<Array<ApplicationInfo>>;
 
   /**
    * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2365,15 +2365,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function queryAbilityInfo(want: Want, abilityFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityInfo(want: Want, abilityFlags: int, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param { number } userId - userId Indicates the user ID.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } userId - userId Indicates the user ID.
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2390,15 +2390,15 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryAbilityInfo(want: Want,
-    abilityFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+    abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
    * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param { number } userId - userId Indicates the user ID.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } userId - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2414,15 +2414,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function queryAbilityInfo(want: Want, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
+  function queryAbilityInfo(want: Want, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 
   /**
    * Query the AbilityInfo by the given Want Array.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Array<Want> } wants - Indicates the Want Array containing the application bundle name to be queried.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param { number } [userId] - userId Indicates the user ID.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } [userId] - userId Indicates the user ID.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2438,15 +2438,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function queryAbilityInfo(wants: Array<Want>, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
+  function queryAbilityInfo(wants: Array<Want>, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 
   /**
    * Query the AbilityInfo by the given Want.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
-   * @param { number } userId - userId Indicates the user ID.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } userId - userId Indicates the user ID.
    * @returns { Array<AbilityInfo> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2462,7 +2462,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
+  function queryAbilityInfoSync(want: Want, abilityFlags: int, userId?: int): Array<AbilityInfo>;
   
   /**
    * Get AbilityInfo by the given uri.
@@ -2485,7 +2485,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2501,7 +2501,7 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-    extensionAbilityFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query extension info of by utilizing a Want.
@@ -2509,9 +2509,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2527,7 +2527,7 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-    extensionAbilityFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+    extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want.
@@ -2535,9 +2535,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2553,7 +2553,7 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType,
-    extensionAbilityFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+    extensionAbilityFlags: int, userId?: int): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want.
@@ -2561,9 +2561,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2579,7 +2579,7 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: ExtensionAbilityType,
-    extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
+    extensionAbilityFlags: int, userId?: int): Array<ExtensionAbilityInfo>;
 
   /**
    * Query the ExtensionAbilityInfo by the given Want.
@@ -2587,9 +2587,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { string } extensionAbilityType - Indicates extensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2605,16 +2605,16 @@ declare namespace bundleManager {
    * @arkts 1.1&1.2
    */
   function queryExtensionAbilityInfoSync(want: Want, extensionAbilityType: string,
-    extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
+    extensionAbilityFlags: int, userId?: int): Array<ExtensionAbilityInfo>;
 
   /**
    * Query the ExtensionAbilityInfo by extension ability type.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
+   * @param { int } extensionAbilityFlags {@link ExtensionAbilityFlag} - Indicates the flag used to specify information contained in the
    *  ExtensionAbilityInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2627,14 +2627,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: number,
-    userId?: number): Array<ExtensionAbilityInfo>;
+  function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: int,
+    userId?: int): Array<ExtensionAbilityInfo>;
 
   /**
    * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { int } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback - The callback of getting bundle name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2643,13 +2643,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleNameByUid(uid: number, callback: AsyncCallback<string>): void;
+  function getBundleNameByUid(uid: int, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { int } uid - Indicates the UID of an application.
    * @returns { Promise<string> } Returns the bundle name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2658,13 +2658,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleNameByUid(uid: number): Promise<string>;
+  function getBundleNameByUid(uid: int): Promise<string>;
 
   /**
    * Obtains bundle name by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { int } uid - Indicates the UID of an application.
    * @returns { string } Returns the bundle name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2673,7 +2673,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleNameByUidSync(uid: number): string;
+  function getBundleNameByUidSync(uid: int): string;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
@@ -2681,7 +2681,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle archive info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2692,7 +2692,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
@@ -2700,7 +2700,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2711,7 +2711,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
+  function getBundleArchiveInfo(hapFilePath: string, bundleFlags: int): Promise<BundleInfo>;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
@@ -2719,7 +2719,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - Indicates the path storing the HAP.
    *  The path should be the relative path to the data directory of the current application.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object to be returned.
    * @returns { BundleInfo } Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2730,7 +2730,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleArchiveInfoSync(hapFilePath: string, bundleFlags: number): BundleInfo;
+  function getBundleArchiveInfoSync(hapFilePath: string, bundleFlags: int): BundleInfo;
 
   /**
    * Clears cache data of a specified application.
@@ -2773,7 +2773,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
    * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleaned.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Promise<void> } Clean bundle cache files result
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2786,13 +2786,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
+  function cleanBundleCacheFiles(bundleName: string, appIndex: int): Promise<void>;
 
   /**
    * Get the all bundle cache size of the current user.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<number> } Returns all bundle cache size.
+   * @returns { Promise<long> } Returns all bundle cache size.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2800,7 +2800,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleCacheSize(): Promise<number>;
+  function getAllBundleCacheSize(): Promise<long>;
 
   /**
    * Clean all bundle cache files of the current user, does not include the currently running program.
@@ -2821,7 +2821,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @returns { Promise<void> } set app enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2834,7 +2834,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setApplicationEnabled(bundleName: string, appIndex: number, isEnabled: boolean): Promise<void>;
+  function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified application.
@@ -2894,7 +2894,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { AbilityInfo } info - Indicates information about the ability to set.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @param { boolean } isEnabled - The value true means to enable it, and the value false means to disable it.
    * @returns { Promise<void> } set ability enabled result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2908,7 +2908,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setAbilityEnabled(info: AbilityInfo, appIndex: number, isEnabled: boolean): Promise<void>;
+  function setAbilityEnabled(info: AbilityInfo, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
@@ -2970,7 +2970,7 @@ declare namespace bundleManager {
    * Checks whether a specified application is enabled.
    *
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -2981,7 +2981,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isApplicationEnabled(bundleName: string, appIndex: number): Promise<boolean>;
+  function isApplicationEnabled(bundleName: string, appIndex: int): Promise<boolean>;
 
   /**
    * Checks whether a specified application is enabled.
@@ -3032,7 +3032,7 @@ declare namespace bundleManager {
    * Checks whether a specified ability is enabled.
    *
    * @param { AbilityInfo } info - Indicates information about the ability to check.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -3044,7 +3044,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isAbilityEnabled(info: AbilityInfo, appIndex: number): Promise<boolean>;
+  function isAbilityEnabled(info: AbilityInfo, appIndex: int): Promise<boolean>;
 
   /**
    * Checks whether a specified ability is enabled.
@@ -3101,7 +3101,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<Want> } callback - The callback for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3114,7 +3114,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLaunchWantForBundle(bundleName: string, userId: number, callback: AsyncCallback<Want>): void;
+  function getLaunchWantForBundle(bundleName: string, userId: int, callback: AsyncCallback<Want>): void;
 
   /**
    * Obtains the Want for starting the main ability of an application based on the
@@ -3143,7 +3143,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Want> } the Want for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3156,7 +3156,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLaunchWantForBundle(bundleName: string, userId?: number): Promise<Want>;
+  function getLaunchWantForBundle(bundleName: string, userId?: int): Promise<Want>;
 
   /**
    * Obtains the Want for starting the main ability of an application based on the
@@ -3165,7 +3165,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Want } the Want for starting the application's main ability.
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3178,7 +3178,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLaunchWantForBundleSync(bundleName: string, userId?: number): Want;
+  function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
   /**
    * Obtains the Want for starting the main ability of own application.
@@ -3520,8 +3520,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { ApplicationInfo } - Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3534,14 +3534,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number): ApplicationInfo;
+  function getApplicationInfoSync(bundleName: string, applicationFlags: int, userId: int): ApplicationInfo;
 
   /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @param { int } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
    * @returns { ApplicationInfo } - Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3553,15 +3553,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getApplicationInfoSync(bundleName: string, applicationFlags: number): ApplicationInfo;
+  function getApplicationInfoSync(bundleName: string, applicationFlags: int): ApplicationInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and userId. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -3572,14 +3572,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo;
+  function getBundleInfoSync(bundleName: string, bundleFlags: int, userId: int): BundleInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
    * @returns { BundleInfo } - Returns the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -3589,7 +3589,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+  function getBundleInfoSync(bundleName: string, bundleFlags: int): BundleInfo;
 
   /**
    * Obtains SharedBundleInfo of all shared bundle available in the system.
@@ -3680,7 +3680,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3693,14 +3693,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAppProvisionInfo(bundleName: string, userId: number, callback: AsyncCallback<AppProvisionInfo>): void;
+  function getAppProvisionInfo(bundleName: string, userId: int, callback: AsyncCallback<AppProvisionInfo>): void;
 
   /**
    * Obtains the profile file information of a specified bundle.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<AppProvisionInfo> } Returns the AppProvisionInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3713,14 +3713,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAppProvisionInfo(bundleName: string, userId?: number): Promise<AppProvisionInfo>;
+  function getAppProvisionInfo(bundleName: string, userId?: int): Promise<AppProvisionInfo>;
 
   /**
    * Obtains the profile file information of a specified bundle.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { AppProvisionInfo } Returns the AppProvisionInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3733,7 +3733,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAppProvisionInfoSync(bundleName: string, userId?: number): AppProvisionInfo;
+  function getAppProvisionInfoSync(bundleName: string, userId?: int): AppProvisionInfo;
 
   /**
    * Obtains the distribution type specified during bundle installation.
@@ -3796,7 +3796,7 @@ declare namespace bundleManager {
    * @param { ProfileType } profileType - Indicates the type of profile to be obtained.
    * @param { string } bundleName - Indicates the name of the bundle to which the profile belongs.
    * @param { string } moduleName - Indicates the name of the module to which the profile belongs.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
+   * @param { int } userId - Indicates the user ID or do not pass user ID.
    * @returns { string } Returns string in json-format of the designated profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3811,7 +3811,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string, userId?: number): string;
+  function getJsonProfile(profileType: ProfileType, bundleName: string, moduleName?: string, userId?: int): string;
 
    /**
    * Get extend resources.
@@ -4179,7 +4179,7 @@ declare namespace bundleManager {
    * Get a list of developedId by distribution type.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { number } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
+   * @param { int } appDistributionType - Indicates the distribution type of the application, and if not passed in, it gets all the developerId.
    * @returns { Array<string> } Returns a list of developerId.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4189,7 +4189,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDeveloperIds(appDistributionType?: number): Array<string>;
+  function getDeveloperIds(appDistributionType?: int): Array<string>;
 
   /**
    * Switch uninstall state of a specified application.
@@ -4213,7 +4213,7 @@ declare namespace bundleManager {
    * Get the SignatureInfo of the application through UID.
    *
    * @permission ohos.permission.GET_SIGNATURE_INFO
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { int } uid - Indicates the UID of an application.
    * @returns { SignatureInfo } The result of getting the signature info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700021 - The uid is not found.
@@ -4221,16 +4221,16 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSignatureInfo(uid: number): SignatureInfo;
+  function getSignatureInfo(uid: int): SignatureInfo;
 
   /**
    * Get the BundleInfo of the specified MultiIsolation App.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appIndex - Indicates the index of clone app.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
-   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
    * @returns { Promise<BundleInfo> } Returns A BundleInfo Of MultiApp Mode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4244,15 +4244,15 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAppCloneBundleInfo(bundleName: string, appIndex: number, bundleFlags: number, userId?: number): Promise<BundleInfo>;
+  function getAppCloneBundleInfo(bundleName: string, appIndex: int, bundleFlags: int, userId?: int): Promise<BundleInfo>;
 
   /**
    * Get all BundleInfo of clone app.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
-   * @param { number } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
+   * @param { int } bundleFlags {@link BundleFlag} - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
+   * @param { int } [userId] - Indicates the user ID, If the user id is not specified, the current user id is used by default.
    * @returns { Promise<Array<BundleInfo>> } Returns BundleInfo Arrays Of MultiApp Mode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4265,13 +4265,13 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<Array<BundleInfo>>;
+  function getAllAppCloneBundleInfo(bundleName: string, bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains AppCloneIdentity contains bundleName and appIndex by the given uid. The application requires to be a system application when requesting the permission of ohos.permission.GET_BUNDLE_INFO.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { int } uid - Indicates the UID of an application.
    * @returns { Promise<AppCloneIdentity> } Returns the clone Identity contains bundleName and appIndex.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -4280,14 +4280,14 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAppCloneIdentity(uid: number): Promise<AppCloneIdentity>;
+  function getAppCloneIdentity(uid: int): Promise<AppCloneIdentity>;
 
   /**
    * Get all plugin info of host application.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hostBundleName - Indicates the host application bundle name to be queried.
-   * @param { number } [userId] - Indicates the user ID or do not pass user ID.
+   * @param { int } [userId] - Indicates the user ID or do not pass user ID.
    * @returns { Promise<Array<PluginBundleInfo>> } Returns PluginBundleInfo Arrays.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4298,7 +4298,7 @@ declare namespace bundleManager {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllPluginInfo(hostBundleName: string, userId?: number): Promise<Array<PluginBundleInfo>>;
+  function getAllPluginInfo(hostBundleName: string, userId?: int): Promise<Array<PluginBundleInfo>>;
 
   /**
    * Migrate files from the source paths to the destination path.

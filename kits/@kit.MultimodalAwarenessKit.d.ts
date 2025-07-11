@@ -18,7 +18,6 @@
  * @kit MultimodalAwarenessKit
  */
 
-import stationary from '@ohos.stationary';
 import motion from '@ohos.multimodalAwareness.motion';
 import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
 import metadataBinding from '@ohos.multimodalAwareness.metadataBinding';

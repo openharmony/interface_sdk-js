@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, Bindable } from './common';
+import { CustomBuilder } from './builder'
+import { Length } from './units';
+import { ComponentContent } from '../ComponentContent'
+/*** endif */
+
 /**
  * Declare item ceiling attribute.
  *
@@ -781,6 +788,21 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 11
    */
   selected(value: boolean): ListItemAttribute;
+
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   *
+   * @param { boolean | Bindable<boolean> } value - if the listItem is selected.
+   * @returns { ListItemAttribute } the attribute of the listItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected(value: boolean | Bindable<boolean>): ListItemAttribute;
 
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.

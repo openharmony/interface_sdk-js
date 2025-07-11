@@ -687,7 +687,17 @@ export interface Edges<T> {
  * @atomicservice
  * @since 12
  */
-declare enum LengthUnit {
+/**
+ * Defines the Length Unit.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare enum LengthUnit {
   /**
    * Logical pixel used in Ace1.0. It's based on frontend design width.
    * For example, when a frontend with 750px design width running on a

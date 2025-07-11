@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { IndicatorComponentController } from './indicatorcomponent';
+import { CommonMethod, Callback, ICurve, Optional, Bindable } from './common';
+import { EdgeEffect, Curve, PageFlipMode } from './enums';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
+/*** endif */
+
 /**
  * Provides methods for switching components.
  *
@@ -1489,6 +1496,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   index(value: number): SwiperAttribute;
+  /**
+   * Called when the index value of the displayed subcomponent is set in the container.
+   *
+   * @param { number | Bindable<number> } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  index(value: number | Bindable<number>): SwiperAttribute;
 
   /**
    * Called when setting whether the subcomponent plays automatically.

@@ -18,6 +18,22 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import {
+  Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType,
+  DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions
+} from './common';
+import { CustomBuilder } from './builder';
+import { ExtendableComponent } from './extendableComponent';
+import { DialogAlignment } from './alertDialog';
+import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
+import { BorderStyle } from './enums';
+import { LengthMetrics } from '../Graphics';
+import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
+import { CustomBuilder } from './builder';
+import { DismissDialogAction } from './actionSheet';
+/*** endif */
+
 /**
  * Defines the options of CustomDialogController.
  *
@@ -68,6 +84,18 @@ declare interface CustomDialogControllerOptions {
    * @since 11
    */
   builder: any;
+
+  /**
+   * Custom builder function.
+   *
+   * @type { CustomBuilder | ExtendableComponent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  builder: CustomBuilder | ExtendableComponent;
 
   /**
    * Defines the cancel function.

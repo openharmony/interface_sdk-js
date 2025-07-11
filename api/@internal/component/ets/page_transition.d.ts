@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ICurve, TranslateOptions, ScaleOptions } from './common';
+import { Curve } from './enums';
+/*** endif */
+
 /**
  * Declare the jump method.
  *
@@ -671,6 +676,47 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 }
 
 /**
+ * Provides an interface to set transition style when a page enters.
+ *
+ * @extends CommonTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class PageTransitionEnter extends CommonTransition {
+
+  /**
+   * Called when page Jump animation is used.
+   *
+   * @param { PageTransitionOptions } value - pageTransition options
+   * @returns { PageTransitionEnter }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static $_invoke(value: PageTransitionOptions): PageTransitionEnter;
+
+  /**
+   * Called frame by frame to customize pageTransition animation when the page enters.
+   * The incoming parameter is the normalized progress of the current incoming animation.
+   *
+   * @param { PageTransitionCallback } event - animation callback frame by frame
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onEnter(event: PageTransitionCallback): this;
+}
+
+/**
  * Provide an interface to exit the transition.
  *
  * @extends CommonTransition<PageTransitionExitInterface>
@@ -769,6 +815,46 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @since 18
    */
   onExit(event: PageTransitionCallback): PageTransitionExitInterface;
+}
+
+/**
+ * Provide an interface to set transition style when a page exits.
+ *
+ * @extends CommonTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20 
+ * @arkts 1.2
+ */
+declare class PageTransitionExit extends CommonTransition {
+  /**
+   * Called when page Jump animation is used.
+   *
+   * @param { PageTransitionOptions } value - pageTransition options
+   * @returns { PageTransitionExit }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static $_invoke(value: PageTransitionOptions): PageTransitionExit;
+
+  /**
+   * Called frame by frame to customize pageTransition animation when the page exits.
+   * The input parameter is the normalized progress of the current exit animation.
+   *
+   * @param { PageTransitionCallback } event
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onExit(event: PageTransitionCallback): this;
 }
 
 /**

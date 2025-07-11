@@ -91,6 +91,8 @@ export interface ShowNotificationOptions {
 }
 
 /**
+ * Manages notifications.
+ *
  * @syscap SystemCapability.Notification.Notification
  * @since 3
  */
@@ -101,6 +103,7 @@ export default class Notification {
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   static show(options?: ShowNotificationOptions): void;
 }

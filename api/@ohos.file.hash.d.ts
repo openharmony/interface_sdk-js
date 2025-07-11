@@ -195,7 +195,8 @@ declare namespace hash {
   * @throws { BusinessError } 13900020 - Invalid argument
   * @throws { BusinessError } 13900042 - Unknown error 
   * @syscap SystemCapability.FileManagement.File.FileIO
-  * @since 12
+  * @since arkts {'1.1':'12', '1.2':'20'}
+  * @arkts 1.1&1.2
   */
  /**
   * Create file read stream.

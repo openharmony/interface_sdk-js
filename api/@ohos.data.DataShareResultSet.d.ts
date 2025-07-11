@@ -161,7 +161,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   goToLastRow(): boolean;
 
@@ -173,7 +174,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   goToNextRow(): boolean;
 
@@ -254,7 +256,8 @@ export default interface DataShareResultSet {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLong(columnIndex: number): number;
 

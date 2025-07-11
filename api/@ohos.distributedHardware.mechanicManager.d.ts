@@ -79,7 +79,7 @@ declare namespace mechanicManager {
      * @param { boolean } isEnabled Whether to enable camera tracking.
      * @throws { BusinessError } 33300001 - Service exception.
      * @throws { BusinessError } 33300002 - Device not connected.
-     * @throws { BusinessError } 33300003 - Feature not supported.
+     * @throws { BusinessError } 33300003 - Device not supported.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
@@ -124,7 +124,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @throws { BusinessError } 33300002 - Device not connected.
-     * @throws { BusinessError } 33300003 - Feature not supported.
+     * @throws { BusinessError } 33300003 - Device not supported.
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20
@@ -144,9 +144,9 @@ declare namespace mechanicManager {
 
     /**
      * Rotates a mechanical device to the relative angles.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @param { RotationAngles } angles Relative angles.
-     * @param { number } duration Rotation duration. Unit: millisecond.
+     * @param { int } duration Rotation duration. Unit: millisecond.
      * @returns { Promise<Result> } Promise that return the execution result.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -156,13 +156,13 @@ declare namespace mechanicManager {
      * @since 20
      */
 
-    function rotate(mechId: number, angles: RotationAngles, duration: number): Promise<Result>;
+    function rotate(mechId: int, angles: RotationAngles, duration: int): Promise<Result>;
 
     /**
      * Rotates a mechanical device to the absolute angles.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @param { EulerAngles } angles Absolute angles.
-     * @param { number } duration Rotation duration. Unit: millisecond.
+     * @param { int } duration Rotation duration. Unit: millisecond.
      * @returns { Promise<Result> } Promise that return the execution result.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -172,13 +172,13 @@ declare namespace mechanicManager {
      * @since 20
      */
 
-    function rotateToEulerAngles(mechId: number, angles: EulerAngles, duration: number): Promise<Result>;
+    function rotateToEulerAngles(mechId: int, angles: EulerAngles, duration: int): Promise<Result>;
 
     /**
      * Obtains the maximum continuous rotation duration of a mechanical device.
      *
-     * @param { number } mechId ID of the mechanical device.
-     * @returns { number } Maximum rotation duration. Unit: millisecond.
+     * @param { int } mechId ID of the mechanical device.
+     * @returns { int } Maximum rotation duration. Unit: millisecond.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @throws { BusinessError } 33300002 - Device not connected.
@@ -186,12 +186,12 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 20
      */
-    function getMaxRotationTime(mechId: number): number;
+    function getMaxRotationTime(mechId: int): int;
 
     /**
      * Obtains the maximum rotation speed of a mechanical device.
      *
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @returns { RotationSpeed } Maximum speed. Only the absolute value of the speed is returned.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -200,13 +200,13 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 20
      */
-    function getMaxRotationSpeed(mechId: number): RotationSpeed;
+    function getMaxRotationSpeed(mechId: int): RotationSpeed;
 
     /**
      * Rotates a mechanical device at the specified speed.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @param { RotationSpeed } speed Rotation speed.
-     * @param { number } duration Rotation duration. Unit: millisecond.
+     * @param { int } duration Rotation duration. Unit: millisecond.
      * @returns { Promise<Result> } Promise that return the execution result.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -215,11 +215,11 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 20
      */
-    function rotateBySpeed(mechId: number, speed: RotationSpeed, duration: number): Promise<Result>;
+    function rotateBySpeed(mechId: int, speed: RotationSpeed, duration: int): Promise<Result>;
 
     /**
      * Stops a mechanical device from moving.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -228,11 +228,11 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 20
      */
-    function stopMoving(mechId: number): Promise<void>;
+    function stopMoving(mechId: int): Promise<void>;
 
     /**
      * Obtains the current angles of a mechanical device.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @returns { EulerAngles } Rotation angles.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -242,12 +242,12 @@ declare namespace mechanicManager {
      * @since 20
      */
 
-    function getCurrentAngles(mechId: number): EulerAngles;
+    function getCurrentAngles(mechId: int): EulerAngles;
 
     /**
      * Obtains the maximum rotation angles relative to the reference point for the specified mechanical device.
      *
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @returns { RotationLimits } Maximum rotation angles.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -257,11 +257,11 @@ declare namespace mechanicManager {
      * @since 20
      */
 
-    function getRotationLimits(mechId: number): RotationLimits;
+    function getRotationLimits(mechId: int): RotationLimits;
 
     /**
      * Obtains the status of the rotation axes.
-     * @param { number } mechId ID of the mechanical device.
+     * @param { int } mechId ID of the mechanical device.
      * @returns { RotationAxesStatus } Rotation axis status.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
@@ -270,7 +270,7 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 20
      */
-    function getRotationAxesStatus(mechId: number): RotationAxesStatus;
+    function getRotationAxesStatus(mechId: int): RotationAxesStatus;
 
 
     /**
@@ -309,11 +309,11 @@ declare namespace mechanicManager {
     export interface MechInfo {
         /**
          * ID of the mechanical device.
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.Mechanic.Core
          * @since 20
          */
-        mechId: number;
+        mechId: int;
 
 
         /**
@@ -343,34 +343,34 @@ declare namespace mechanicManager {
      */
     export interface RotationAngles {
         /**
-         * Yaw angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
-         * @type { ?number }
+         * Yaw angle, ranging from -2π to 2*π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        yaw?: number;
+        yaw?: double;
 
         /**
-         * Roll angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
-         * @type { ?number }
+         * Roll angle, ranging from -2π to 2*π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        roll?: number;
+        roll?: double;
 
         /**
-         * Pitch angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
-         * @type { ?number }
+         * Pitch angle, ranging from -2π to 2*π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        pitch?: number;
+        pitch?: double;
     }
 
     /**
@@ -383,34 +383,34 @@ declare namespace mechanicManager {
      */
     export interface EulerAngles {
         /**
-         * Yaw angle, ranging from -Math.PI to Math.PI, measured in radians.
-         * @type { ?number }
+         * Yaw angle, ranging from -π to π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        yaw?: number;
+        yaw?: double;
 
         /**
-         * Roll angle, ranging from -Math.PI to Math.PI, measured in radians.
-         * @type { ?number }
+         * Roll angle, ranging from -π to π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        roll?: number;
+        roll?: double;
 
         /**
-         * Pitch angle, ranging from -Math.PI to Math.PI, measured in radians.
-         * @type { ?number }
+         * Pitch angle, ranging from -π to π, measured in radians.
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        pitch?: number;
+        pitch?: double;
     }
 
     /**
@@ -425,33 +425,33 @@ declare namespace mechanicManager {
     export interface RotationSpeed {
         /**
          * Yaw speed, measured in radians per second.
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        yawSpeed?: number;
+        yawSpeed?: double;
 
         /**
          * Roll speed, measured in radians per second.
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        rollSpeed?: number;
+        rollSpeed?: double;
 
         /**
          * Pitch speed, measured in radians per second.
-         * @type { ?number }
+         * @type { ?double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
 
-        pitchSpeed?: number;
+        pitchSpeed?: double;
     }
 
 
@@ -467,62 +467,62 @@ declare namespace mechanicManager {
         /**
          * Maximum yaw rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
          * If the value is less than or equal to -2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        negativeYawMax: number;
+        negativeYawMax: double;
 
         /**
          * Maximum yaw rotation angles in the positive direction, ranging from 0 to 2*Math.PI, measured in radians.
          * If the value is greater than or equal to 2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        positiveYawMax: number;
+        positiveYawMax: double;
 
         /**
          * Maximum roll rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
          * If the value is less than or equal to -2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        negativeRollMax: number;
+        negativeRollMax: double;
 
         /**
          * Maximum roll rotation angles in the positive direction, ranging from 0 to 2*Math.PI, measured in radians.
          * If the value is greater than or equal to 2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        positiveRollMax: number;
+        positiveRollMax: double;
 
         /**
          * Maximum pitch rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
          * If the value is less than or equal to -2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        negativePitchMax: number;
+        negativePitchMax: double;
 
         /**
          * Maximum pitch rotation angles in the positive direction, ranging from 0 to 2*Math.PI, measured in radians.
          * If the value is greater than or equal to 2*Math.PI, there is no restriction.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        positivePitchMax: number;
+        positivePitchMax: double;
     }
 
     /**
@@ -632,12 +632,12 @@ declare namespace mechanicManager {
     export interface RotationAxesStateChangeInfo {
         /**
          * ID of the mechanical device.
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
          * @since 20
          */
-        mechId: number;
+        mechId: int;
 
         /**
          * Rotate axis status.

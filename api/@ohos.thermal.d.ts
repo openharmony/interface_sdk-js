@@ -34,7 +34,7 @@ declare namespace thermal {
   /**
    * Enumerates the {@link ThermalLevel} types.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8
    */
