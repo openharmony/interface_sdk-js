@@ -151,7 +151,7 @@ import SystemRouter, {
 import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@ohos.arkui.ArcList';
 import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
 import { ArcScrollBar, ArcScrollBarAttribute } from '@ohos.arkui.ArcScrollBar';
-import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
+import { Colors, CustomColors, Theme, ThemeControl, CustomTheme, CustomDarkColors } from '@ohos.arkui.theme';
 import {
   ExtraRegionPosition,
   ExpandedRegionLayoutOptions,
@@ -271,7 +271,7 @@ export {
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
   AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
-  Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
+  Colors, CustomColors, Theme, ThemeControl, CustomTheme, CustomDarkColors, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   typeNode,
