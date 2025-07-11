@@ -49,6 +49,10 @@ function isTsFile(path) {
   return path.endsWith('d.ts');
 }
 
+function isStaticFile(path) {
+  return path.endsWith('static.d.ets');
+}
+
 function hasEtsFile(path) {
   // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
   if (path.includes('StateManagement.d.ts')) {
@@ -142,8 +146,18 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
   const fullPath = path.join(rootPath, apiRelativePath);
   const isEndWithEts = isEtsFile(apiRelativePath);
   const isEndWithTs = isTsFile(apiRelativePath);
+  const isEndWithStatic = isStaticFile(apiRelativePath);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
+
+  if (isEndWithStatic) {
+    if (type === 'ets2') {
+      writeFile(outputPath, fileContent);
+      return;
+    } else {
+      return;
+    }
+  }
 
   if (!isEndWithEts && !isEndWithTs) {
     writeFile(outputPath, fileContent);
