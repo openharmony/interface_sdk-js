@@ -25,6 +25,7 @@ import Want from './@ohos.app.ability.Want';
  * Defines the ExtensionContext for the word selection service.
  * @extends ExtensionContext
  * @syscap SystemCapability.SelectionInput.Selection
+ * @systemapi
  * @since 20
  */
 export default class SelectionExtensionContext extends ExtensionContext {
@@ -58,6 +59,7 @@ export default class SelectionExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000083 The ExtensionAbility cannot start the ability due to system control.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   startAbility(want: Want): Promise<void>;
