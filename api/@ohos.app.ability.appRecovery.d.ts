@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit AbilityKit
+ * @arkts 1.1&1.2
  */
 
 import UIAbilityContext from './application/UIAbilityContext';
@@ -40,7 +41,8 @@ import Want from './@ohos.app.ability.Want';
  * @namespace appRecovery
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace appRecovery {
   /**
@@ -56,7 +58,8 @@ declare namespace appRecovery {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RestartFlag {
     /**
@@ -70,7 +73,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALWAYS_RESTART = 0,
 
@@ -85,7 +89,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTART_WHEN_JS_CRASH = 0x0001,
 
@@ -100,7 +105,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
@@ -115,7 +121,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_RESTART = 0xFFFF
   }
@@ -137,7 +144,8 @@ declare namespace appRecovery {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SaveOccasionFlag {
     /**
@@ -155,7 +163,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAVE_WHEN_ERROR = 0x0001,
 
@@ -170,7 +179,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAVE_WHEN_BACKGROUND = 0x0002
   }
@@ -188,7 +198,8 @@ declare namespace appRecovery {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SaveModeFlag {
     /**
@@ -202,7 +213,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAVE_WITH_FILE = 0x0001,
 
@@ -217,7 +229,8 @@ declare namespace appRecovery {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAVE_WITH_SHARED_MEMORY = 0x0002
   }
@@ -241,7 +254,8 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag): void;
 
@@ -262,7 +276,8 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function restartApp(): void;
 
@@ -281,7 +296,8 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setRestartWant(want: Want): void;
 
@@ -304,7 +320,8 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function saveAppState(): boolean;
   /**
@@ -326,7 +343,8 @@ declare namespace appRecovery {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function saveAppState(context?: UIAbilityContext): boolean;
 }
