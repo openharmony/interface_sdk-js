@@ -25,22 +25,25 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace certificateManager
  * @syscap SystemCapability.Security.CertificateManager
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace certificateManager {
   /**
    * Enum for result code
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CMErrorCode {
     /**
      * Indicates that the application has no permission to call the API.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_NO_PERMISSION = 201,
 
@@ -49,7 +52,8 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_NOT_SYSTEM_APP = 202,
 
@@ -57,7 +61,8 @@ declare namespace certificateManager {
      * Indicates that the input parameters are invalid.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_INVALID_PARAMS = 401,
 
@@ -66,7 +71,8 @@ declare namespace certificateManager {
      * <br>2. Memory operation error; 3. File operation error.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_GENERIC = 17500001,
 
@@ -74,7 +80,8 @@ declare namespace certificateManager {
      * Indicates that the certificate does not exist.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_NO_FOUND = 17500002,
 
@@ -82,7 +89,8 @@ declare namespace certificateManager {
      * Indicates that the keystore is in an invalid format or the keystore password is incorrect.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
@@ -90,7 +98,8 @@ declare namespace certificateManager {
      * Indicates that the number of certificates or credentials reaches the maximum allowed.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_MAX_CERT_COUNT_REACHED = 17500004,
 
@@ -98,7 +107,8 @@ declare namespace certificateManager {
      * Indicates that the application is not authorized by the user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
@@ -106,7 +116,8 @@ declare namespace certificateManager {
      * Indicates that the device enters advanced security mode.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
@@ -124,7 +135,8 @@ declare namespace certificateManager {
    *
    * @typedef CertInfo
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CertInfo {
     /**
@@ -132,7 +144,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -141,7 +154,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certAlias: string;
 
@@ -150,7 +164,8 @@ declare namespace certificateManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: boolean;
 
@@ -159,7 +174,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     issuerName: string;
 
@@ -168,7 +184,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subjectName: string;
 
@@ -177,7 +194,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serial: string;
 
@@ -186,7 +204,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notBefore: string;
 
@@ -195,7 +214,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notAfter: string;
 
@@ -204,7 +224,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fingerprintSha256: string;
 
@@ -213,7 +234,8 @@ declare namespace certificateManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cert: Uint8Array;
   }
@@ -223,7 +245,8 @@ declare namespace certificateManager {
    *
    * @typedef CertAbstract
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CertAbstract {
     /**
@@ -231,7 +254,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -240,7 +264,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certAlias: string;
 
@@ -249,7 +274,8 @@ declare namespace certificateManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: boolean;
 
@@ -258,7 +284,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subjectName: string;
   }
@@ -268,7 +295,8 @@ declare namespace certificateManager {
    *
    * @typedef Credential
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Credential {
     /**
@@ -276,7 +304,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: string;
 
@@ -285,7 +314,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alias: string;
 
@@ -294,34 +324,38 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     keyUri: string;
 
     /**
      * Indicates the number of certificates included in the credential.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    certNum: number;
+    certNum: int;
 
     /**
      * Indicates the number of key included in the credential.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    keyNum: number;
+    keyNum: int;
 
     /**
      * Indicates the credential binary data.
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialData: Uint8Array;
   }
@@ -331,7 +365,8 @@ declare namespace certificateManager {
    *
    * @typedef CredentialAbstract
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CredentialAbstract {
     /**
@@ -339,7 +374,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: string;
 
@@ -348,7 +384,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alias: string;
 
@@ -357,7 +394,8 @@ declare namespace certificateManager {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     keyUri: string;
   }
@@ -367,7 +405,8 @@ declare namespace certificateManager {
    *
    * @typedef CMResult
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CMResult {
     /**
@@ -375,7 +414,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<CertAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certList?: Array<CertAbstract>;
 
@@ -384,7 +424,8 @@ declare namespace certificateManager {
      *
      * @type { ?CertInfo }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certInfo?: CertInfo;
 
@@ -393,7 +434,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<CredentialAbstract> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credentialList?: Array<CredentialAbstract>;
 
@@ -402,7 +444,8 @@ declare namespace certificateManager {
      *
      * @type { ?Credential }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     credential?: Credential;
 
@@ -411,7 +454,8 @@ declare namespace certificateManager {
      *
      * @type { ?Array<string> }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appUidList?: Array<string>;
 
@@ -420,7 +464,8 @@ declare namespace certificateManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri?: string;
 
@@ -429,7 +474,8 @@ declare namespace certificateManager {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     outData?: Uint8Array;
   }
@@ -437,16 +483,18 @@ declare namespace certificateManager {
   /**
    * Enum for Key Purpose
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CmKeyPurpose {
     /**
      * Indicates that key for signature.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_KEY_PURPOSE_SIGN = 4,
 
@@ -454,7 +502,8 @@ declare namespace certificateManager {
      * Indicates that key for verify.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_KEY_PURPOSE_VERIFY = 8
   }
@@ -462,16 +511,18 @@ declare namespace certificateManager {
   /**
    * Enum for Key Digest
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CmKeyDigest {
     /**
      * Indicates that key digest is none.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_NONE = 0,
 
@@ -479,7 +530,8 @@ declare namespace certificateManager {
      * Indicates that key digest is md5.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_MD5 = 1,
 
@@ -487,7 +539,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha1.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SHA1 = 2,
 
@@ -495,7 +548,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha224.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SHA224 = 3,
 
@@ -503,7 +557,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha256.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SHA256 = 4,
 
@@ -511,7 +566,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha384.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SHA384 = 5,
 
@@ -519,7 +575,8 @@ declare namespace certificateManager {
      * Indicates that key digest is sha512.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SHA512 = 6,
 
@@ -527,7 +584,8 @@ declare namespace certificateManager {
      * Indicates that key digest is SM3.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_DIGEST_SM3 = 7
   }
@@ -535,16 +593,18 @@ declare namespace certificateManager {
   /**
    * Enum for Key Padding
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CmKeyPadding {
     /**
      * Indicates that key padding is none.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_PADDING_NONE = 0,
 
@@ -552,7 +612,8 @@ declare namespace certificateManager {
      * Indicates that key padding is PSS.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_PADDING_PSS = 1,
 
@@ -560,7 +621,8 @@ declare namespace certificateManager {
      * Indicates that key padding is PKCS1_V1_5.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CM_PADDING_PKCS1_V1_5 = 2
   }
@@ -570,7 +632,8 @@ declare namespace certificateManager {
    *
    * @typedef CMSignatureSpec
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CMSignatureSpec {
     /**
@@ -578,7 +641,8 @@ declare namespace certificateManager {
      *
      * @type { CmKeyPurpose }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     purpose: CmKeyPurpose;
 
@@ -587,7 +651,8 @@ declare namespace certificateManager {
      *
      * @type { ?CmKeyPadding }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     padding?: CmKeyPadding;
 
@@ -596,7 +661,8 @@ declare namespace certificateManager {
      *
      * @type { ?CmKeyDigest }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     digest?: CmKeyDigest;
   }
@@ -606,7 +672,8 @@ declare namespace certificateManager {
    *
    * @typedef CMHandle
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CMHandle {
     /**
@@ -614,7 +681,8 @@ declare namespace certificateManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handle: Uint8Array;
   }
@@ -652,7 +720,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function installPrivateCertificate(
     keystore: Uint8Array,
@@ -694,7 +763,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
@@ -711,7 +781,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
@@ -728,7 +799,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
@@ -745,7 +817,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
@@ -760,7 +833,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
@@ -777,7 +851,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
@@ -794,7 +869,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
@@ -829,7 +905,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
@@ -864,7 +941,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
@@ -881,7 +959,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -898,7 +977,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
@@ -914,7 +994,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -931,7 +1012,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
@@ -948,7 +1030,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
@@ -964,7 +1047,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
@@ -980,7 +1064,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function abort(handle: Uint8Array): Promise<void>;
 
@@ -998,7 +1083,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @throws { BusinessError } 17500005 - The application is not authorized by the user.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
@@ -1014,7 +1100,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isAuthorizedApp(keyUri: string): Promise<boolean>;
 
@@ -1027,7 +1114,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllUserTrustedCertificates(): Promise<CMResult>;
 
@@ -1043,7 +1131,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>;
 
@@ -1060,7 +1149,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 
@@ -1075,7 +1165,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
@@ -1088,23 +1179,26 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrivateCertificates(): Promise<CMResult>;
 
   /**
    * Enum for certificate type managed by Certificate Manager.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CertType {
     /**
      * Indicates that ca certificate that installed by HarmonyOS system.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CA_CERT_SYSTEM = 0,
 
@@ -1112,7 +1206,8 @@ declare namespace certificateManager {
      * Indicates that ca certificate that installed by user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CA_CERT_USER = 1
   }
@@ -1120,9 +1215,10 @@ declare namespace certificateManager {
   /**
    * Enum for the scope of user ca certificate.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CertScope {
 
@@ -1130,7 +1226,8 @@ declare namespace certificateManager {
      * Indicates that the user ca certificate for a current user.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURRENT_USER = 1,
 
@@ -1138,7 +1235,8 @@ declare namespace certificateManager {
      * Indicates that the user ca certificate for all users.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GLOBAL_USER = 2
   }
@@ -1146,9 +1244,10 @@ declare namespace certificateManager {
   /**
    * Enum for the certificate algorithm type.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum CertAlgorithm {
     /**
@@ -1156,6 +1255,7 @@ declare namespace certificateManager {
      * 
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
+     * @arkts 1.1&1.2
      */
     INTERNATIONAL = 1,
 
@@ -1164,6 +1264,7 @@ declare namespace certificateManager {
      * 
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
+     * @arkts 1.1&1.2
      */
     SM = 2,
   }
@@ -1173,7 +1274,8 @@ declare namespace certificateManager {
    *
    * @typedef CertStoreProperty
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CertStoreProperty {
     /**
@@ -1181,7 +1283,8 @@ declare namespace certificateManager {
      *
      * @type { CertType }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certType: CertType;
 
@@ -1190,7 +1293,8 @@ declare namespace certificateManager {
      *
      * @type { ?CertScope }
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certScope?: CertScope;
 
@@ -1200,6 +1304,7 @@ declare namespace certificateManager {
      * @type { ?CertAlgorithm }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20
+     * @arkts 1.1&1.2
      */
     certAlg?: CertAlgorithm;
   }
@@ -1228,6 +1333,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500009 - The device does not support the specified certificate store path, such as the overseas device does not support the certificate which algorithm is SM.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getCertificateStorePath(property: CertStoreProperty): string;
 
@@ -1247,7 +1353,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500004 - Indicates that the number of certificates reaches the maximum allowed.
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode. In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult;
 
@@ -1263,7 +1370,8 @@ declare namespace certificateManager {
    * <br>2. Memory operation error; 3. File operation error.
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function uninstallUserTrustedCertificateSync(certUri: string) : void;
 
@@ -1284,23 +1392,26 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500003 - The keystore is in an invalid format or the keystore password is incorrect.
    * @throws { BusinessError } 17500004 - The number of certificates or credentials reaches the maximum allowed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>;
 
   /**
    * Enum for storage authentication level
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.CertificateManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AuthStorageLevel {
     /**
      * Indicates that the file can be accessed after the device is started.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL1 = 1,
 
@@ -1308,7 +1419,8 @@ declare namespace certificateManager {
      * Indicates that the file can be accessed after the device is unlocked for the first time.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL2 = 2,
 
@@ -1316,7 +1428,8 @@ declare namespace certificateManager {
      * Indicates that the file can be accessed when the device is unlocked.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL4 = 4,
   }
