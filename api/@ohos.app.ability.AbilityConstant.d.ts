@@ -475,6 +475,17 @@ declare namespace AbilityConstant {
      * @arkts 1.1&1.2
      */
     PREPARE_CONTINUATION = 10,
+
+    /**
+     * Start by preload.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRELOAD = 11,
   }
 
   /**
