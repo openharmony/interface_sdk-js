@@ -20661,9 +20661,10 @@ declare interface BackgroundOptions {
    */
   align?: Alignment;
   /**
-   * The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass empty edge set.
+   *
    * @type { ?Array<LayoutSafeAreaEdge> }
-   * @default LayoutSafeAreaEdge.ALL
+   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty array [].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
