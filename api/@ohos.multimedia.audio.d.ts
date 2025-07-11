@@ -4562,6 +4562,104 @@ declare namespace audio {
   }
 
   /**
+   * Audio session scene.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum AudioSessionScene {
+    /**
+     * Scene for media.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_MEDIA = 0,
+    /**
+     * Scene for game.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_GAME = 1,
+    /**
+     * Scene for voice communication.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2,
+  }
+
+  /**
+   * Enumerates the session state change hints.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum AudioSessionStateChangeHint {
+    /**
+     * Resume the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_RESUME = 0,
+
+    /**
+     * Paused/Pause the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_PAUSE = 1,
+
+    /**
+     * Stopped/Stop the playback due to focus priority.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_STOP = 2,
+
+    /**
+     * Stopped/Stop the playback due to no audio stream for a long time.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_TIME_OUT_STOP = 3,
+
+    /**
+     * Ducked the playback. (In ducking, the audio volume is reduced, but not silenced.)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_DUCK = 4,
+
+    /**
+     * Unducked the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK = 5,
+  }
+
+  /**
+   * Enumerates the recommend action when device change.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum OutputDeviceChangeRecommendedAction {
+    /**
+     * Recommend to continue the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    DEVICE_CHANGE_RECOMMEND_TO_CONTINUE = 0,
+    /**
+     * Recommend to stop the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    DEVICE_CHANGE_RECOMMEND_TO_STOP = 1,
+  }
+
+  /**
    * Audio session strategy.
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4598,6 +4696,52 @@ declare namespace audio {
   }
 
   /**
+   * Audio session state change event.
+   * @typedef AudioSessionStateChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  interface AudioSessionStateChangedEvent {
+    /**
+     * Audio session state change hints.
+     * @type { AudioSessionStateChangeHint }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    stateChangeHint: AudioSessionStateChangeHint;
+  }
+
+  /**
+   * Audio session device change info.
+   * @typedef CurrentOutputDeviceChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  interface CurrentOutputDeviceChangedEvent {
+    /**
+     * Audio device descriptors after change.
+     * @type { AudioDeviceDescriptors }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio device change reason.
+     * @type { AudioStreamDeviceChangeReason }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+    /**
+     * Recommend action when device change.
+     * @type { OutputDeviceChangeRecommendedAction }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    recommendedAction: OutputDeviceChangeRecommendedAction;
+  }
+
+  /**
    * Implements audio session management.
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4607,6 +4751,7 @@ declare namespace audio {
   interface AudioSessionManager {
     /**
      * Activate the audio session for the current pid application.
+     * If {@link setAudioSessionScene} is called, it will take focus when calling this method.
      * @param { AudioSessionStrategy } strategy - Audio session strategy.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4667,6 +4812,98 @@ declare namespace audio {
     * @since 12
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
+
+    /**
+     * Set scene for audio session.
+     * @param { AudioSessionScene } scene - Audio session scene.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    setAudioSessionScene(scene: AudioSessionScene): void;
+
+    /**
+     * Listens for audio session state change event. When the audio session state change,
+     * registered clients will receive the callback.
+     * @param { 'audioSessionStateChanged' } type - Type of the event to listen for.
+     * Only the audioSessionStateChanged event is supported.
+     * @param { Callback<AudioSessionStateChangedEvent> } callback - Callback invoked for the audio session state change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Allocate memory failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    on(type: 'audioSessionStateChanged', callback: Callback<AudioSessionStateChangedEvent>): void;
+
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { 'audioSessionStateChanged' } type - Type of the event to listen for.
+    * Only the audioSessionStateChanged event is supported.
+    * @param { Callback<AudioSessionStateChangedEvent> } [callback] - Callback invoked for the audio session state change event.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @since 20
+    */
+    off(type: 'audioSessionStateChanged', callback?: Callback<AudioSessionStateChangedEvent>): void;
+
+    /**
+     * Gets the default output device.
+     * @returns { DeviceType } - the available deviceTypes are
+     *                           EARPIECE: Built-in earpiece
+     *                           SPEAKER: Built-in speaker
+     *                           DEFAULT: System default output device
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    getDefaultOutputDevice(): DeviceType;
+
+    /**
+     * Temporarily changes the current audio device
+     * This function applys on audiorenderers whose StreamUsage are
+     * STREAM_USAGE_VOICE_COMMUNICATION/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
+     * Setting the device will only takes effect if no other accessory such as headphones are in use
+     * @param { DeviceType } deviceType - the available deviceTypes are
+     *                                    EARPIECE: Built-in earpiece
+     *                                    SPEAKER: Built-in speaker
+     *                                    DEFAULT: System default output device
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
+     * @throws { BusinessError } 6800102 - Allocate memory failed. Return by promise.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when device change.
+     * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Allocate memory failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    on(type: 'currentOutputDeviceChanged', callback: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * UnSubscribes output device change event callback.
+     * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    off(type: 'currentOutputDeviceChanged', callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
   }
 
   /**
@@ -7454,6 +7691,18 @@ declare namespace audio {
      * @since 12
      */
     REASON_OVERRODE = 3,
+    /**
+     * Device information when the audio session is activated.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    REASON_SESSION_ACTIVATED = 4,
+    /**
+     * There is a higher-priority stream, causing the system device to change.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    REASON_STREAM_PRIORITY_CHANGED = 5,
   }
   /**
    * Audio stream device change info.
