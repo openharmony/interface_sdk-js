@@ -931,8 +931,9 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringValue
      */
     getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
@@ -976,8 +977,9 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringValue
      */
     getStringValue(resource: Resource): Promise<string>;
 
@@ -1046,6 +1048,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringArrayValue
      */
     getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void;
 
@@ -1090,6 +1094,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringArrayValue
      */
     getStringArrayValue(resource: Resource): Promise<Array<string>>;
 
@@ -1155,6 +1161,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -1189,6 +1197,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMediaContent(resource: Resource, density: number, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -1230,6 +1240,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMediaContent(resource: Resource): Promise<Uint8Array>;
 
@@ -1264,6 +1276,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMediaContent(resource: Resource, density: number): Promise<Uint8Array>;
 
@@ -1333,6 +1347,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
 
@@ -1367,6 +1383,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback<string>): void;
 
@@ -1408,6 +1426,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaContentBase64(resource: Resource): Promise<string>;
 
@@ -1440,6 +1460,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaContentBase64(resource: Resource, density: number): Promise<string>;
 
@@ -2392,7 +2414,6 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2445,8 +2466,9 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringSync
      */
     getStringSync(resource: Resource): string;
 
@@ -2482,28 +2504,10 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringSync
      */
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
-    
-    /**
-     * Obtains string resources associated with a specified resource object.
-     *
-     * @param { Resource } resource - Indicates the resource object.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
-     * @returns { string } The character string corresponding to the resource object.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @throws { BusinessError } 9001001 - Invalid resource ID.
-     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
-     * @syscap SystemCapability.Global.ResourceManager
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getStringSync(resource: Resource, ...args: (string | number)[]): string;
 
     /**
      * Obtains string resources associated with a specified resource name.
@@ -2661,6 +2665,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getBoolean
      */
     getBoolean(resource: Resource): boolean;
 
@@ -2787,8 +2793,9 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getNumber
      */
     getNumber(resource: Resource): number;
 
@@ -3186,30 +3193,10 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
-
-    /**
-     * Obtains the singular-plural character string represented by the resource object string corresponding to the
-     * specified number.
-     *
-     * @param { Resource } resource - Indicates the resource object.
-     * @param { number } num - An integer used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
-     * @returns { string } The singular-plural character string represented by the ID string
-     *         corresponding to the specified number.
-     * @throws { BusinessError } 9001001 - Invalid resource ID.
-     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
-     * @syscap SystemCapability.Global.ResourceManager
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getIntPluralStringValueSync(resource: Resource, num: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to
@@ -3311,30 +3298,10 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getDoublePluralStringValueSync
      */
     getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
-
-    /**
-     * Obtains the singular-plural character string represented by the resource object string corresponding to the
-     * specified number.
-     *
-     * @param { Resource } resource - Indicates the resource object.
-     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
-     * @returns { string } The singular-plural character string represented by the ID string
-     *         corresponding to the specified number.
-     * @throws { BusinessError } 9001001 - Invalid resource ID.
-     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
-     * @syscap SystemCapability.Global.ResourceManager
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getDoublePluralStringValueSync(resource: Resource, num: number, ...args: (string | number)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to
@@ -4012,6 +3979,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getDrawableDescriptor
      */
     getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 
@@ -4150,6 +4119,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getColor
      */
     getColor(resource: Resource, callback: _AsyncCallback<number>): void;
 
@@ -4180,6 +4151,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getColor
      */
     getColor(resource: Resource): Promise<number>;
 
@@ -4296,8 +4269,9 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getColorSync
      */
     getColorSync(resource: Resource) : number;
 
@@ -4527,6 +4501,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentSync
      */
     getMediaContentSync(resource: Resource, density?: number): Uint8Array;
 
@@ -4589,6 +4565,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getMediaContentBase64Sync
      */
     getMediaContentBase64Sync(resource: Resource, density?: number): string;
 
@@ -4721,6 +4699,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringArrayValueSync
      */
     getStringArrayValueSync(resource: Resource): Array<string>;
 
@@ -4928,6 +4908,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getSymbol
      */
     getSymbol(resource: Resource) : number;
 
