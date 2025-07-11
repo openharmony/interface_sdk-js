@@ -26,6 +26,7 @@ import type { PanelInfo } from './@ohos.selectionInput.SelectionPanel';
  * Declares the selectionManager for listening for word selection events and managing word selection panels.
  * @namespace selectionManager
  * @syscap SystemCapability.SelectionInput.Selection
+ * @systemapi
  * @since 20
  */
 
@@ -37,6 +38,7 @@ declare namespace selectionManager {
    * event.
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void;
@@ -47,6 +49,7 @@ declare namespace selectionManager {
    * @param { Callback<SelectionInfo> } [callback] (Optional) Callback used to listen for the word selection
    * completion event.
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void;
@@ -59,6 +62,7 @@ declare namespace selectionManager {
    * @throws { BusinessError } 33600001 Selection service exception.
    * @throws { BusinessError } 33600003 Invalid operation. The selection app is not valid.
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>;
@@ -69,6 +73,7 @@ declare namespace selectionManager {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 33600001 Selection service exception.
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   function destroyPanel(panel: Panel): Promise<void>;
@@ -77,6 +82,7 @@ declare namespace selectionManager {
    * Defines the information of a word selection event.
    * @typedef SelectionInfo
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   interface SelectionInfo {
@@ -84,6 +90,7 @@ declare namespace selectionManager {
      * Selected text.
      * @type { string }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     text: string;
@@ -93,6 +100,7 @@ declare namespace selectionManager {
      * @type { SelectionType }
      * @default MOUSE_MOVE
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     selectionType: SelectionType;
@@ -101,6 +109,7 @@ declare namespace selectionManager {
      * X-coordinate of the screen where the word selection starts.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     startDisplayX: number;
@@ -109,6 +118,7 @@ declare namespace selectionManager {
      * Y-coordinate of the screen where the word selection starts.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     startDisplayY: number;
@@ -117,6 +127,7 @@ declare namespace selectionManager {
      * X-coordinate of the screen where the word selection ends.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     endDisplayX: number;
@@ -125,6 +136,7 @@ declare namespace selectionManager {
      * Y-coordinate of the screen where the word selection ends.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     endDisplayY: number;
@@ -133,6 +145,7 @@ declare namespace selectionManager {
      * X-coordinate of the window where the word selection starts.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     startWindowX: number;
@@ -141,6 +154,7 @@ declare namespace selectionManager {
      * Y-coordinate of the window where the word selection starts.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     startWindowY: number;
@@ -149,6 +163,7 @@ declare namespace selectionManager {
      * X-coordinate of the window where the word selection ends.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     endWindowX: number;
@@ -157,6 +172,7 @@ declare namespace selectionManager {
      * Y-coordinate of the window where the word selection ends.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     endWindowY: number;
@@ -165,6 +181,7 @@ declare namespace selectionManager {
      * ID of the screen where the window with selected words is located.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     displayID: number;
@@ -173,6 +190,7 @@ declare namespace selectionManager {
      * ID of the window where words are selected.
      * @type { number }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     windowID: number;
@@ -181,6 +199,7 @@ declare namespace selectionManager {
      * Bundle name of the application where words are selected.
      * @type { string }
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     bundleName: string;
@@ -190,6 +209,7 @@ declare namespace selectionManager {
    * Defines a word selection panel.
    * @typedef Panel
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   interface Panel {
@@ -200,6 +220,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     setUiContent(path: string): Promise<void>;
@@ -210,6 +231,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     show(): Promise<void>;
@@ -220,6 +242,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     hide(): Promise<void>;
@@ -230,6 +253,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     startMoving(): Promise<void>;
@@ -242,6 +266,7 @@ declare namespace selectionManager {
      * @throws { BusinessError } 33600001 Selection service exception.
      * @throws { BusinessError } 33600002 This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     moveTo(x: number, y: number): Promise<void>;
@@ -252,6 +277,7 @@ declare namespace selectionManager {
      * @param { Callback<void> } callback Callback used to listen for the destroy event of the word selection
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     on(type: 'destroyed', callback: Callback<void>): void;
@@ -262,6 +288,7 @@ declare namespace selectionManager {
      * @param { Callback<void> } [callback] Callback used to listen for the destroy event of the word
      * selection panel.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     off(type: 'destroyed', callback?: Callback<void>): void;
@@ -272,6 +299,7 @@ declare namespace selectionManager {
      * @param { Callback<void> } callback Callback used to listen for the hide event of the word selection
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     on(type: 'hidden', callback: Callback<void>): void;
@@ -282,6 +310,7 @@ declare namespace selectionManager {
      * @param { Callback<void> } [callback] Callback used to listen for the hide event of the word selection
      * panel.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     off(type: 'hidden', callback?: Callback<void>): void;
@@ -291,12 +320,14 @@ declare namespace selectionManager {
    * Enumerates the operations for selecting words.
    * @enum { number }
    * @syscap SystemCapability.SelectionInput.Selection
+   * @systemapi
    * @since 20
    */
   enum SelectionType {
     /**
      * Move the cursor to select words.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     MOUSE_MOVE = 1,
@@ -304,6 +335,7 @@ declare namespace selectionManager {
     /**
      * Double-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     DOUBLE_CLICK = 2,
@@ -311,6 +343,7 @@ declare namespace selectionManager {
     /**
      * Triple-click to select words.
      * @syscap SystemCapability.SelectionInput.Selection
+     * @systemapi
      * @since 20
      */
     TRIPLE_CLICK = 3
