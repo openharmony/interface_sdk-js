@@ -3973,6 +3973,7 @@ declare namespace drawing {
      * @returns { Typeface } Typeface.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
@@ -6629,6 +6630,7 @@ declare namespace drawing {
      * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
      * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
@@ -7179,6 +7181,7 @@ declare namespace drawing {
      * @param { common2D.Color4f } color4f - Indicates four floating point values that describes the color.
      * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
      * @since 20
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
