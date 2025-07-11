@@ -50,13 +50,8 @@ action("ohos_base_split") {
 template("ohos_copy_internal") {
   forward_variables_from(invoker, "*")
   iv_input = invoker.iv_input
+  input_project_dir = invoker.input_project_dir
   _module_info_target = "${target_name}_info"
-
-  # fullSDK中api路径
-  input_project_dir = interface_sdk_path_ets1
-  if (sdk_type == "ets2") {
-    input_project_dir = interface_sdk_path_ets2
-  }
 
   # 调用build/templates/common/copy.gni中的ohos_copy方法
   # 将处理完成的文件输出到中间产物对应位置 out/sdk/obj/interface/sdk-js/${target_name}
@@ -102,13 +97,9 @@ template("ohos_copy_internal") {
 # 主要api处理template
 template("ohos_declaration_template") {
   forward_variables_from(invoker, "*")
+  input_project_dir = invoker.input_project_dir
   _module_info_target = "/ohos_declaration/${sdk_type}/${target_name}_info"
 
-  # fullSDK中api路径
-  input_project_dir = interface_sdk_path_ets1
-  if (sdk_type == "ets2") {
-    input_project_dir = interface_sdk_path_ets2
-  }
   input_api_dir = input_project_dir + "/api"
 
   action_with_pydeps(target_name) {
@@ -142,35 +133,42 @@ template("ohos_declaration_template") {
 # ets/api执行脚本
 ohos_declaration_template("ohos_declaration_ets") {
   sdk_type = "ets"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # ets2/api执行脚本
 ohos_declaration_template("ohos_declaration_ets2") {
   sdk_type = "ets2"
+  input_project_dir = interface_sdk_path_ets2
 }
 
 # ets/api/@internal/full执行脚本
 ohos_copy_internal("ets_internal_api") {
   sdk_type = "ets"
   iv_input = interface_sdk_path_ets1 + "/api/@internal/ets"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # ets/arkts执行脚本
 ohos_copy_internal("bundle_arkts") {
   sdk_type = "ets"
   iv_input = interface_sdk_path_ets1 + "/arkts"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # ets1.2/arkts执行脚本
 ohos_copy_internal("bundle_arkts_ets1.2") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/arkts"
+  input_project_dir = interface_sdk_path_ets2
 }
 
 ohos_copy_internal("ets_internal_api2") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/api/@internal/ets"
+  input_project_dir = interface_sdk_path_ets2
 }
+
 
 if (!sdk_build_public) {
   # ets/build-tools/ets-loader/declarations脚本
@@ -188,39 +186,48 @@ if (!sdk_build_public) {
 ohos_copy_internal("ets_component") {
   sdk_type = "ets"
   iv_input = interface_sdk_path_ets1 + "/api/@internal/component/ets"
+  input_project_dir = interface_sdk_path_ets1
 }
+
 
 # ets1.2/arkui/component执行脚本
 ohos_copy_internal("ets_component2") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path + "/arkui_transformer_api"
+  input_project_dir = interface_sdk_path
 }
 
 # ets/kits执行脚本
 ohos_copy_internal("bundle_kits") {
   sdk_type = "ets"
   iv_input = interface_sdk_path_ets1 + "/kits"
+  input_project_dir = interface_sdk_path_ets1
 }
+
 
 # ets2/kits执行脚本
 ohos_copy_internal("bundle_kits2") {
   sdk_type = "ets2"
   iv_input = interface_sdk_path_ets2 + "/kits"
+  input_project_dir = interface_sdk_path_ets2
 }
 
 # js/api执行脚本
 ohos_declaration_template("ohos_declaration_common") {
   sdk_type = "ets"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # js/api/@internal/full执行脚本
 ohos_copy_internal("internal_full") {
   iv_input = interface_sdk_path_ets1 + "/api/common/full"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # js/api/@internal/lite执行脚本呢
 ohos_copy_internal("internal_lite") {
   iv_input = interface_sdk_path_ets1 + "/api/common/lite"
+  input_project_dir = interface_sdk_path_ets1
 }
 
 # js/api/config执行脚本
@@ -254,73 +261,235 @@ ohos_copy("syscap_check") {
   module_install_name = ""
 }
 
-action("ohos_ets_api_tmp") {
-  script = "//interface/sdk-js/ohos_copy_ets.py"
+# ets1.1的执行脚本
+ohos_copy("ohos_build_ets_sdk") {
+  deps = [ ":handle_ets1.1_arkui_label" ]
+  sources = [ "$root_build_dir/ohos_dynamic_arkui" ]
+  outputs=[ target_out_dir+"/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
 
+# ets1.2的执行脚本
+ohos_copy("ohos_build_ets2_sdk") {
+  deps = [ ":handle_ets1.2_arkui_label" ]
+  sources = [ "$root_build_dir/ohos_static_arkui" ]
+  outputs=[ target_out_dir+"/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 处理ets1.1的@noninterop标签
+action("handle_ets1.1_arkui_label") {
+  deps = [ ":ohos_ets_dynamic" ]
+  script = "delete_arkui_label.py"
   args = [
-    "--input",
-    rebase_path("//interface/sdk-js/api"),
-    "--output",
-    rebase_path("$ohos_ets_api_tmp_path"),
-    "--type",
-    "ets2",
-    "--source-root-dir",
-    rebase_path("//"),
+    "--root-build-dir",
+    rebase_path("//", root_build_dir),
+    "--input-interface-sdk",
+    rebase_path(ohos_ets_dynamic_path),
+    "--output-arkui-interface-sdk",
+    rebase_path("$root_build_dir/ohos_dynamic_arkui"),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir)
+  ]
+  outputs=[ "$root_build_dir/ohos_dynamic_arkui" ]
+}
+
+# 处理ets1.2的@noninterop标签
+action("handle_ets1.2_arkui_label") {
+  deps = [ ":ohos_ets_static" ]
+  script = "delete_arkui_label.py"
+  args = [
+    "--root-build-dir",
+    rebase_path("//", root_build_dir),
+    "--input-interface-sdk",
+    rebase_path(ohos_ets_static_path),
+    "--output-arkui-interface-sdk",
+    rebase_path("$root_build_dir/ohos_static_arkui"),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir)
+  ]
+  outputs=[ "$root_build_dir/ohos_static_arkui" ]
+}
+
+# 处理ets1.1的interop
+ohos_copy("build_dynamic_sdk_interop") {
+  deps = [ ":build_sdk_interop1" ]
+  sources = [ "${interface_sdk_path}/ets1.1interop"]
+  outputs=[ target_out_dir + "/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 处理ets1.2 声明文件的interop
+ohos_copy("build_static_declaration_sdk_interop") {
+  deps = [ ":build_sdk_interop2" ]
+  sources = [ "${interface_sdk_path}/ets1.2interop/declaration"]
+  outputs=[ target_out_dir + "/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 处理ets1.2 胶水代码的interop
+ohos_copy("build_static_bridge_sdk_interop") {
+  deps = [ ":build_sdk_interop2" ]
+  sources = [ "${interface_sdk_path}/ets1.2interop/bridge"]
+  outputs=[ target_out_dir + "/${target_name}" ]
+  module_source_dir = target_out_dir + "/${target_name}"
+  module_install_name = ""
+}
+
+# 将ets1.2文件处理成ets1.2interop
+action("build_sdk_interop2") {
+  interface_sdk_interop2_deps = ""
+  if (host_toolchain == toolchain_mac) {
+    interface_sdk_interop2_deps = ":build_ohos_ets($toolchain_mac)"
+  } else if (host_toolchain == toolchain_win) {
+    interface_sdk_interop2_deps = ":build_ohos_ets($toolchain_win)"
+  } else {
+    interface_sdk_interop2_deps = ":build_ohos_ets($toolchain_linux)"
+  }
+  deps = [interface_sdk_interop2_deps]
+  script = "//interface/sdk-js/compile_ets_ts.py"
+  if (host_os == "mac") {
+    if(host_cpu == "arm64") {
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-arm64/bin/node"
+    }
+    else{
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
+    }
+  } else {
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
+  }
+  args=[
+    "--root-build-dir",
+    rebase_path("//", root_build_dir),
+    "--tool-dir",
+    rebase_path(build_sdk_path, root_build_dir),
+    "--output-interface-sdk",
+    rebase_path(ohos_ets_static_path, root_build_dir),
+    "--output-interop-sdk",
+    rebase_path(interface_sdk_path, root_build_dir),
+    "--node-path",
+    rebase_path(node_path, root_build_dir)
+  ]
+  outputs = [
+    interface_sdk_path + "/ets1.2interop/declaration",
+    interface_sdk_path + "/ets1.2interop/bridge"
+  ]
+}
+
+# 运行处理ets1.2interop工具所需要的依赖
+group("build_ohos_ets") {
+  external_deps = [
+    ohos_ets_build_system_deps,
+    ohos_ets_stdlib_deps
+  ]
+  deps = [
+    ":ohos_base_split",
+    ":ohos_ets_static",
+    ohos_ets_koala_wrapper_deps,  
+    ohos_ets_ark_link_deps,
+    ohos_ets_es2panda_deps,
+    ohos_ets_libes2panda_public_deps,
+    ohos_ets_ui_plugins_deps
+  ]
+}
+
+# 将ets1.1文件处理成ets1.1interop
+action("build_sdk_interop1") {
+  deps = [
+    ":ohos_base_split",
+    ":ohos_ets_dynamic"
+  ]
+  external_deps = [
+    "runtime_core:declgen_ts2sts_compile_declgen"
+  ]
+  script="run_compile_declgen.py"
+  args = [
+    "--root-build-dir",
+    rebase_path("//", root_build_dir),
+    "--current-os-dir",
+    current_os,
+    "--output-interface-sdk",
+    rebase_path(ohos_ets_dynamic_path, root_build_dir),
+    "--tool-dir",
+    rebase_path(
+    "${root_out_dir}/obj/arkcompiler/runtime_core/static_core/plugins/ets/tools/declgen_ts2sts/panda-declgen-1.0.0.tgz"),
+    "--output-interop-sdk",
+    rebase_path(interface_sdk_path, root_build_dir),
     "--node-js",
     rebase_path(nodejs, root_build_dir),
   ]
-
-  outputs = [ "$ohos_ets_api_tmp_path" ]
+  outputs = [ "${interface_sdk_path}/ets1.1interop" ]
 }
 
-action("ohos_ets_arkts_tmp") {
-  script = "//interface/sdk-js/ohos_copy_ets.py"
+ohos_copy("ohos_ets_dynamic_api_declaration") {
+  deps = [ ":ohos_declaration_ets" ]
+  sources = [ root_out_dir + "/ohos_declaration/ets/ohos_declaration_ets" ]
+  outputs = [ ohos_ets_dynamic_api_path ]
+}
 
-  args = [
-    "--input",
-    rebase_path("//interface/sdk-js/arkts"),
-    "--output",
-    rebase_path("$ohos_ets_arkts_tmp_path"),
-    "--type",
-    "ets2",
-    "--source-root-dir",
-    rebase_path("//"),
-    "--node-js",
-    rebase_path(nodejs, root_build_dir),
+ohos_copy("ohos_ets_dynamic_api_internal") {
+  deps = [
+    ":ets_internal_api",
+    ":ohos_ets_dynamic_api_declaration",
   ]
-
-  outputs = [ "$ohos_ets_arkts_tmp_path" ]
+  sources = [ target_out_dir + "/ets/ets_internal_api" ]
+  outputs = [ ohos_ets_dynamic_api_path + "/@internal/full" ]
 }
 
-action("ohos_ets_kits_tmp") {
-  script = "//interface/sdk-js/ohos_copy_ets.py"
+ohos_copy("ohos_ets_dynamic_arkts") {
+  deps = [ ":bundle_arkts" ]
+  sources = [ target_out_dir + "/ets/bundle_arkts" ]
+  outputs = [ ohos_ets_dynamic_arkts_path ]
+}
 
-  args = [
-    "--input",
-    rebase_path("//interface/sdk-js/kits"),
-    "--output",
-    rebase_path("$ohos_ets_kits_tmp_path"),
-    "--type",
-    "ets2",
-    "--source-root-dir",
-    rebase_path("//"),
-    "--node-js",
-    rebase_path(nodejs, root_build_dir),
+ohos_copy("ohos_ets_dynamic_component") {
+  deps = [ ":ets_component" ]
+  sources = [ target_out_dir + "/ets/ets_component" ]
+  outputs = [ ohos_ets_dynamic_component_path ]
+}
+
+ohos_copy("ohos_ets_dynamic_kits") {
+  deps = [ ":bundle_kits" ]
+  sources = [ target_out_dir + "/ets/bundle_kits" ]
+  outputs = [ ohos_ets_dynamic_kits_path ]
+}
+
+ohos_copy("ohos_ets_static_api_declaration") {
+  deps = [ ":ohos_declaration_ets2" ]
+  sources = [ root_out_dir + "/ohos_declaration/ets2/ohos_declaration_ets2" ]
+  outputs = [ ohos_ets_static_api_path ]
+}
+
+ohos_copy("ohos_ets_static_api_internal") {
+  deps = [
+    ":ets_internal_api2",
+    ":ohos_ets_static_api_declaration"
   ]
-
-  outputs = [ "$ohos_ets_kits_tmp_path" ]
+  sources = [ target_out_dir + "/ets2/ets_internal_api2" ]
+  outputs = [ ohos_ets_static_api_path + "/@internal/full" ]
 }
 
-action("ohos_ets_api_arkui_tmp") {
-  deps = [ ":ohos_ets_api_tmp" ]
+ohos_copy("ohos_ets_static_arkts") {
+  deps = [ ":bundle_arkts_ets1.2" ]
+  sources = [ target_out_dir + "/ets2/bundle_arkts_ets1.2" ]
+  outputs = [ ohos_ets_static_arkts_path ]
+}
+
+action("ohos_ets_static_component") {
+  deps = [
+    ":ets_component2",
+    ":ohos_ets_static_api_declaration"
+  ]
   script = "//interface/sdk-js/arkui_transformer.py"
-
   args = [
     "--input",
-    rebase_path(ohos_ets_api_tmp_path + "/@internal/component/ets",
-                root_build_dir),
+    rebase_path(interface_sdk_path + "/arkui_transformer_api", root_build_dir),
     "--output",
-    rebase_path(ohos_ets_api_tmp_path + "/arkui/component", root_build_dir),
+    rebase_path(ohos_ets_static_api_path + "/arkui/component", root_build_dir),
     "--source_root_dir",
     rebase_path("//", root_build_dir),
     "--npm-path",
@@ -328,32 +497,61 @@ action("ohos_ets_api_arkui_tmp") {
     "--node-js",
     rebase_path(nodejs, root_build_dir),
   ]
-  outputs = [ "$ohos_ets_api_arkui_tmp_path" ]
+  outputs = [ ohos_ets_static_api_path + "/arkui/component" ]
+}
+
+ohos_copy("ohos_ets_static_kits") {
+  deps = [ ":bundle_kits2" ]
+  sources = [ target_out_dir + "/ets2/bundle_kits2" ]
+  outputs = [ ohos_ets_static_kits_path ]
+}
+
+ohos_copy("ohos_ets_api") {
+  deps = [
+    ":ohos_ets_static_api_declaration",
+    ":ohos_ets_static_api_internal",
+    ":ohos_ets_static_component",
+  ]
+  sources = [ ohos_ets_static_api_path ]
+  outputs = [ ohos_ets_api_path ]
+  part_name = "sdk"
+  subsystem_name = "sdk"
 }
 
 ohos_copy("ohos_ets_arkts") {
-  deps = [ ":ohos_ets_arkts_tmp" ]
-  sources = [ ohos_ets_arkts_tmp_path ]
+  deps = [ ":ohos_ets_static_arkts" ]
+  sources = [ ohos_ets_static_arkts_path ]
   outputs = [ ohos_ets_arkts_path ]
   part_name = "sdk"
   subsystem_name = "sdk"
 }
 
 ohos_copy("ohos_ets_kits") {
-  deps = [ ":ohos_ets_kits_tmp" ]
-  sources = [ ohos_ets_kits_tmp_path ]
+  deps = [ ":ohos_ets_static_kits" ]
+  sources = [ ohos_ets_static_kits_path ]
   outputs = [ ohos_ets_kits_path ]
   part_name = "sdk"
   subsystem_name = "sdk"
 }
 
-ohos_copy("ohos_ets_api") {
+# ets1.1 interop工具的SDK输入
+group("ohos_ets_dynamic") {
   deps = [
-    ":ohos_ets_api_arkui_tmp",
-    ":ohos_ets_api_tmp",
+    ":ohos_ets_dynamic_api_declaration",
+    ":ohos_ets_dynamic_api_internal",
+    ":ohos_ets_dynamic_arkts",
+    ":ohos_ets_dynamic_component",
+    ":ohos_ets_dynamic_kits"
   ]
-  sources = [ ohos_ets_api_tmp_path ]
-  outputs = [ ohos_ets_api_path ]
-  part_name = "sdk"
-  subsystem_name = "sdk"
+}
+
+# ets1.2 interop工具的SDK输入
+group("ohos_ets_static") {
+  deps = [
+    ":ohos_ets_static_api_declaration",
+    ":ohos_ets_static_api_internal",
+    ":ohos_ets_static_arkts",
+    ":ohos_ets_static_component",
+    ":ohos_ets_static_kits"
+  ]
 }

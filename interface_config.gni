@@ -26,3 +26,14 @@ common_api_src_ets2 = [
   "//interface/sdk-js/api/@system.prompt.d.ts",
 ]
 sdk_type = "ets"
+
+ohos_ets_dynamic_path = "$root_build_dir/ohos_dynamic"
+ohos_ets_dynamic_api_path = "$ohos_ets_dynamic_path/api"
+ohos_ets_dynamic_arkts_path = "$ohos_ets_dynamic_path/arkts"
+ohos_ets_dynamic_component_path = "$ohos_ets_dynamic_path/component"
+ohos_ets_dynamic_kits_path = "$ohos_ets_dynamic_path/kits"
+
+ohos_ets_static_path = "$root_build_dir/ohos_static"
+ohos_ets_static_api_path = "$ohos_ets_static_path/api"
+ohos_ets_static_arkts_path = "$ohos_ets_static_path/arkts"
+ohos_ets_static_kits_path = "$ohos_ets_static_path/kits"
