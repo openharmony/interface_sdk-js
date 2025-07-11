@@ -6706,6 +6706,15 @@ declare namespace webview {
      * @since 20
      */
     static isPrivateNetworkAccessEnabled(): boolean;
+
+    /**
+     * Set web destroy mode.
+     * @param { WebDestroyMode } mode web destroy mode, default NORMAL_MODE.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setWebDestroyMode(mode: WebDestroyMode): void;
   }
 
   /**
@@ -9507,6 +9516,29 @@ declare namespace webview {
      * @since 19
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
+  }
+
+  /**
+   * Enum type supplied to {@link SetWebDestroyMode} for indicating the web component destroy mode.
+   * @enum { number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enum WebDestroyMode {  
+    /**
+     * The normal destroy mode, when the web component triggers destroy,
+     * the resources will be released at the appropriate time.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    NORMAL_MODE = 0,
+
+    /**
+     * The fast destroy mode, when the web component triggers destroy, the resources will be immediately released.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    FAST_MODE = 1
   }
 
 }
