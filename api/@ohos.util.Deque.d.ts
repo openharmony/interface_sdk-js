@@ -427,31 +427,21 @@ declare class Deque<T> {
    * @arkts 1.2
    */
   forEach(callbackFn: DequeForEachCb<T>): void;
-  /**
-   * Returns the byte at the specified index.
-   *
-   * @param { number } index - The zero-based index of the desired code unit.
-   * @returns { T } The element in the deque matching the given index.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T;
 
-  /**
-   * Sets the byte at the specified index.
-   *
-   * @param { number } index – The index of the element to set.
-   * @param { T } value – The value to set at the specified index.
+   /**
+   * Returns the item at that index.
+   * 
+   * @param { number } index - The zero-based index of the desired code unit.
+   *     Throws error if index < 0 or index >= deque.length.
+   * @returns { T } The element in the deque matching the given index. 
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  $_set(index: number, value: T): void;
+  [index: number]: T;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
