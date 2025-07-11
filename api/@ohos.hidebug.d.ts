@@ -442,6 +442,29 @@ declare namespace hidebug {
   function getAppMemoryLimit(): MemoryLimit;
 
   /**
+   * Obtains the memory information of the application process asynchronous. This API is implemented
+   *     by reading data from the /proc/{pid}/smaps_rollup and /proc/{pid}/statm node.
+   *
+   * @returns { Promise<NativeMemInfo> } Returns the memory information of the application process.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
+
+  /**
+   * Obtains the memory information of the application process. This API is implemented by reading data from the
+   *     /proc/{pid}/smaps_rollup and /proc/{pid}/statm node. The application memory cache is refresh every 5 minute.
+   *     It will be force to refresh when input true of forceRefresh parameter.
+   *
+   * @param { boolean } [forceRefresh] Whether forceRefresh is required when application memeory cache
+   *     need to refresh. The default value is false.
+   * @returns { NativeMemInfo } Returns the memory information of the application process.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function getAppNativeMemInfoWithCache(forceRefresh?: boolean): NativeMemInfo;
+
+  /**
    * Describes the VM memory information.
    *
    * @interface VMMemoryInfo
