@@ -584,6 +584,20 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
+   * Subscribe to orientation sensor data.
+   * @param { 'orientationChange' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, 
+   *     <br> {@code Options}.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 20
+   * @arkts 1.2
+   */
+  function on(type: 'orientationChange', callback: Callback<OrientationResponse>, options?: Options): void;
+
+  /**
    * Subscribe to pedometer sensor data.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
@@ -1449,7 +1463,18 @@ declare namespace sensor {
    * @since 19
    */
   function off(type: SensorId.ORIENTATION, sensorInfoParam?: SensorInfoParam, callback?: Callback<OrientationResponse>): void;
-  
+
+  /**
+   * Unsubscribe to orientation sensor data.
+   * @param { 'orientationChange' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 20
+   * @arkts 1.2
+   */
+  function off(type: 'orientationChange', callback?: Callback<OrientationResponse>): void;
+
   /**
    * Unsubscribe to orientation sensor data.
    * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
