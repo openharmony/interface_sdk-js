@@ -18,8 +18,7 @@
  * @kit ArkUI
  */
 /*** if arkts 1.2 */
-import { ResourceStr } from './arkui/component/units';
-import { NavPathStack, NavigationOperation, NavBar } from './arkui/component/navigation';
+import { NavPathStack, NavigationOperation, NavBar, ResourceStr } from '@ohos.arkui.component';
 import { UIContext } from '@ohos.arkui.UIContext';
 import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
