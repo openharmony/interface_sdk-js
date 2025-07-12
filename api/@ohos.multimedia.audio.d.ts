@@ -8016,6 +8016,20 @@ declare namespace audio {
    */
   type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void;
 
+  /**
+   * Type definition of callback function for audio renderer write data.
+   *
+   * @typedef { function } AudioRendererWriteDataCallback
+   * @param { ArrayBuffer } data - audio data array buffer.
+   * @returns { AudioDataCallbackResult } result of callback. If AudioDataCallbackResult.VALID
+   * is returned, it indicates the data is valid and will be played. If AudioDataCallbackResult.INVALID
+   * is returned, it indicates the data is will not be played.
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult;
 
   /**
    * Audio timestamp info.
