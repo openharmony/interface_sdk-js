@@ -27,23 +27,26 @@ import type media from '../@ohos.multimedia.media';
  * @typedef RingtoneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RingtoneOptions {
   /**
    * Ringtone volume.
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  volume: number;
+  volume: double;
   /**
    * Loop value.
    * @type { boolean }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loop: boolean;
 }
@@ -53,7 +56,8 @@ export interface RingtoneOptions {
  * @typedef RingtonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RingtonePlayer {
   /**
@@ -61,7 +65,8 @@ export interface RingtonePlayer {
    * @type { media.AVPlayerState }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly state: media.AVPlayerState;
 

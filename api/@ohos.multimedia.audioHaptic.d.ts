@@ -26,28 +26,32 @@ import type audio from './@ohos.multimedia.audio';
  *
  * @namespace audioHaptic
  * @syscap SystemCapability.Multimedia.AudioHaptic.Core
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace audioHaptic {
   /**
    * Obtains an {@link AudioHapticManager} instance. This object is singleton in one process.
    * @returns { AudioHapticManager } AudioHapticManager instance.
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAudioHapticManager(): AudioHapticManager;
 
   /**
    * Audio Latency mode.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioLatencyMode {
     /**
      * Normal audio mode.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_LATENCY_MODE_NORMAL = 0,
 
@@ -55,7 +59,8 @@ declare namespace audioHaptic {
      * Low latency mode. This mode should be used when duration of the audio source is short. If duration of the audio 
      * source is long, it may be truncated. This behavior is the same with sound pool.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_LATENCY_MODE_FAST = 1
   }
@@ -64,14 +69,16 @@ declare namespace audioHaptic {
    * Audio haptic player options object.
    * @typedef AudioHapticPlayerOptions
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioHapticPlayerOptions {
     /**
      * Mute audio.
      * @type {?boolean}
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     muteAudio?: boolean;
 
@@ -79,7 +86,8 @@ declare namespace audioHaptic {
      * Mute haptics.
      * @type {?boolean}
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     muteHaptics?: boolean;
   }
@@ -88,7 +96,8 @@ declare namespace audioHaptic {
    * Audio haptic manager object.
    * @typedef AudioHapticManager
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioHapticManager {
     /**
@@ -96,43 +105,46 @@ declare namespace audioHaptic {
      * source, it will returns the source id. This method uses a promise to return the source id.
      * @param { string } audioUri - Audio file uri.
      * @param { string } hapticUri - Haptic file uri.
-     * @returns { Promise<number> } Promise used to return the source id.
+     * @returns { Promise<int> } Promise used to return the source id.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    registerSource(audioUri: string, hapticUri: string): Promise<number>;
+    registerSource(audioUri: string, hapticUri: string): Promise<int>;
 
     /**
      * Unregister source. This method uses a promise to return the result.
-     * @param { number } id source id.
+     * @param { int } id source id.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    unregisterSource(id: number): Promise<void>;
+    unregisterSource(id: int): Promise<void>;
 
     /**
      * Set the audio latency mode of one source.
-     * @param { number } id - Source id.
+     * @param { int } id - Source id.
      * @param { AudioLatencyMode } latencyMode - Audio latency mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setAudioLatencyMode(id:number, latencyMode: AudioLatencyMode): void;
+    setAudioLatencyMode(id:int, latencyMode: AudioLatencyMode): void;
 
     /**
      * Set the stream usage of one source.
-     * @param { number } id - Source id.
+     * @param { int } id - Source id.
      * @param { audio.StreamUsage } usage - Stream usage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -140,15 +152,16 @@ declare namespace audioHaptic {
      *                                 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setStreamUsage(id: number, usage: audio.StreamUsage): void;
+    setStreamUsage(id: int, usage: audio.StreamUsage): void;
 
     /**
      * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
      * should have the permission of ohos.permission.VIBRATE.
      * @permission ohos.permission.VIBRATE
-     * @param { number } id - Source id.
+     * @param { int } id - Source id.
      * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
      * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -159,9 +172,10 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400106 - Unsupport format.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
+    createPlayer(id: int, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
 
     /**
      * Register audio and haptic file represented by fd into manager. Audio and haptic works are paired while playing.
@@ -177,22 +191,25 @@ declare namespace audioHaptic {
 
   /**
    * Type of audio haptic.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioHapticType {
     /**
      * Audio.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_HAPTIC_TYPE_AUDIO = 0,
 
     /**
      * Haptic.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_HAPTIC_TYPE_HAPTIC = 1,
   }
@@ -236,7 +253,8 @@ declare namespace audioHaptic {
    * Audio haptic player object.
    * @typedef AudioHapticPlayer
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AudioHapticPlayer {
     /**
@@ -247,7 +265,8 @@ declare namespace audioHaptic {
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isMuted(type: AudioHapticType): boolean;
 
@@ -258,7 +277,8 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400103 - IO error.
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -268,7 +288,8 @@ declare namespace audioHaptic {
      * @throws { BusinessError } 5400102 - Operate not permit.
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -277,7 +298,8 @@ declare namespace audioHaptic {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -286,7 +308,8 @@ declare namespace audioHaptic {
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
 
@@ -295,7 +318,8 @@ declare namespace audioHaptic {
      * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
 
@@ -304,7 +328,8 @@ declare namespace audioHaptic {
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 
@@ -313,7 +338,8 @@ declare namespace audioHaptic {
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
 
