@@ -3815,6 +3815,17 @@ export class UIContext {
   showTextPickerDialog(options: TextPickerDialogOptions): void;
 
   /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
+
+  /**
    * Run custom functions inside the UIContext scope.
    *
    * @param { function } callback - The function called through UIContext.

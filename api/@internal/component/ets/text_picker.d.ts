@@ -709,6 +709,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   disappearTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of disappearing items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  disappearTextStyle(style: Optional<PickerTextStyle | TextPickerTextStyle>): TextPickerAttribute;
+
+  /**
    * Sets the font color, font size, and font weight for all items except the top, bottom, and selected items.
    *
    * @param { PickerTextStyle } value - Font color, font size, and font weight of all items except the top,
@@ -745,6 +757,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   textStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of normal items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textStyle(style: Optional<PickerTextStyle | TextPickerTextStyle>): TextPickerAttribute;
+
+  /**
    * Sets the font color, font size, and font weight for the selected item.
    *
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item..
@@ -777,6 +801,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @since 18
    */  
   selectedTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
+
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of selected items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedTextStyle(style: Optional<PickerTextStyle | TextPickerTextStyle>): TextPickerAttribute;
 
   /**
    * Sets whether to enable the text style change animation during the scrolling process.
@@ -1718,6 +1754,342 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 20
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
+}
+
+/**
+ * Defines the TextPickerDialogOptionsExt for Text Picker Dialog.
+ *
+ * @extends TextPickerOptions
+ * @interface TextPickerDialogOptionsExt
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
+  /**
+   * Called when the default height of the selected element is set.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  defaultPickerItemHeight?: number | string;
+
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  canLoop?: boolean;
+
+  /**
+   * Text style of disappearing items.
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  disappearTextStyle?: TextPickerTextStyle;
+
+  /**
+   * Text style of normal items
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  textStyle?: TextPickerTextStyle;
+
+  /**
+   * Style of accept button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Text style of selected items
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  selectedTextStyle?: TextPickerTextStyle;
+
+  /**
+   * Defines whether to disable the text style animation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  disableTextStyleAnimation?: boolean;
+
+  /**
+   * Defines to set the default text style for options.
+   *
+   * @type { ?TextPickerTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  defaultTextStyle?: TextPickerTextStyle;
+
+  /**
+   * Called when the OK button in the dialog is clicked.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onAccept?: Callback<TextPickerResult>;
+
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onCancel?: VoidCallback;
+
+  /**
+   * This event is triggered when a TextPicker text is selected in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onChange?: Callback<TextPickerResult>;
+
+  /**
+   * This event is triggered when a TextPicker text is selected and scrolling has stopped in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onScrollStop?: Callback<TextPickerResult>;
+
+  /**
+   * This event is triggered when an item enters the selected area in dialog.
+   *
+   * @type { ?Callback<TextPickerResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onEnterSelectedArea?: Callback<TextPickerResult>;
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maskRect?: Rectangle;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  offset?: Offset;
+
+  /**
+   * Defines the textPickerDialog's background color
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundColor?: ResourceColor;
+
+  /**
+   * Defines the textPickerDialog's background blur Style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the textPickerDialog's background blur style with options
+   *
+   * @type { ?BackgroundBlurStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
+
+  /**
+   * Defines the textPickerDialog's background effect with options
+   *
+   * @type { ?BackgroundEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundEffect?: BackgroundEffectOptions;
+
+  /**
+   * Callback function when the dialog appears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidAppear?: VoidCallback;
+
+  /**
+   * Callback function when the dialog disappears.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidDisappear?: VoidCallback;
+
+  /**
+   * Callback function before the dialog openAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillAppear?: VoidCallback;
+
+  /**
+   * Callback function before the dialog closeAnimation starts.
+   *
+   * @type { ?VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onWillDisappear?: VoidCallback;
+
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  shadow?: ShadowOptions | ShadowStyle; 
+
+  /**
+   * Defines whether to respond to the hover mode.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableHoverMode?: boolean;
+
+  /**
+   * Defines the dialog's display area in hover mode.
+   *
+   * @type { ?HoverModeAreaType }
+   * @default HoverModeAreaType.BOTTOM_SCREEN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  hoverModeArea?: HoverModeAreaType;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableHapticFeedback?: boolean;
 }
 
 /**
