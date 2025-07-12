@@ -6179,7 +6179,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getPhotoAlbums(options?: FetchOptions): Promise<FetchResult<Album>>;
 
@@ -6199,7 +6198,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getPhotoAlbumOrder(orderStyle: number, options?: FetchOptions): Promise<FetchResult<AlbumOrder>>;
 
@@ -6219,7 +6217,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     setPhotoAlbumOrder(orderStyle: number, albumOrders: Array<AlbumOrder>): Promise<void>;
   }
