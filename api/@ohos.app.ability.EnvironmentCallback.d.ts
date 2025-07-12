@@ -21,6 +21,7 @@
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
 
+/*** if arkts 1.1 */
 /**
  * The environment callback.
  *
@@ -35,6 +36,27 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @since 11
  */
 export default class EnvironmentCallback {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The environment callback.
+ *
+ * @typedef EnvironmentCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 9
+ */
+/**
+ * The environment callback.
+ *
+ * @typedef EnvironmentCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface EnvironmentCallback {
+/*** endif */
   /**
    * Called when the system configuration is updated.
    *
@@ -50,7 +72,8 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfigurationUpdated(config: Configuration): void;
 
@@ -71,7 +94,12 @@ export default class EnvironmentCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
+
+/*** if arkts 1.2 */
+export default EnvironmentCallback;
+/*** endif */

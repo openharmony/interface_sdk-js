@@ -92,10 +92,35 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
+
+  /**
+   * Called back when a service extension is first connected to an ability.
+   *
+   * @param { Want } want - Indicates connection information about the Service ability.
+   * @returns { rpc.RemoteObject } A RemoteObject for communication between the client and server.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onConnect(want: Want): rpc.RemoteObject;
+
+  /**
+   * Called back when a service extension is first connected to an ability.
+   *
+   * @param { Want } want - Indicates connection information about the Service ability.
+   * @returns { Promise<rpc.RemoteObject> } A RemoteObject for communication between the client and server.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onConnectAsync(want: Want): Promise<rpc.RemoteObject>;
 
   /**
    * Called back when all abilities connected to a service extension are disconnected.
@@ -116,21 +141,20 @@ declare class ServiceExtensionAbility {
    * @returns { void } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 20
    * @arkts 1.2
    */
   onDisconnect(want: Want): void;
 
-  /**
-   * Asynchronous callback when all abilities connected to a service extension are disconnected.
-   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
+    /**
+   * Called back when all abilities connected to a service extension are disconnected.
    *
    * @param { Want } want - Indicates disconnection information about the service extension.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 20
    * @arkts 1.2
    */
@@ -169,7 +193,8 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDump(params: Array<string>): Array<string>;
 }

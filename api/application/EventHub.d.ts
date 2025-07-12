@@ -42,7 +42,8 @@ import { BusinessError } from '../@ohos.base';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class EventHub {
   /**
