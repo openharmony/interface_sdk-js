@@ -2404,18 +2404,6 @@ declare namespace buffer {
     toJSON(): jsonx.JsonElement;
 
     /**
-     * Converts this Buffer instance into a JsonElement.
-     *
-     * @returns { jsonx.JsonElement } A new JsonElement containing the Buffer
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    toJSON(): jsonx.JsonElement;
-
-    /**
      * Decodes buf to a string according to the specified character encoding in encoding
      *
      * @param { string } [encoding] - encoding [encoding='utf8'] The character encoding to use
@@ -3563,20 +3551,30 @@ declare namespace buffer {
     writeUIntLE(value: number, offset: number, byteLength: number): number;
 
     /**
-     * Returns the item at that index.
+     * Returns the byte at the specified index.
      *
-     * @param { number } index - The zero-based index of the desired code unit.
-     *     Throws error if index < 0 or index >= buffer.length.
-     * @returns { number } The element in the buffer matching the given index. 
-     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @param { number } index - byte index to read
+     * @returns { number | undefined } Returns the byte value at `index`
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    [index: number]: number;
+    $_get(index: number): number | undefined;
 
+    /**
+     * Sets the byte at the specified index.
+     *
+     * @param { number } index – byte index to write
+     * @param { number } value – byte value (0–255)
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    $_set(index: number, value: number): void;
   }
 
   /**

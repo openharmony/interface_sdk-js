@@ -226,11 +226,11 @@ export declare interface AxisValue {
 
   /**
    * Axis value
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  value: int;
+  value: number;
 }
 
 /**
@@ -293,52 +293,52 @@ export declare interface MouseEvent extends InputEvent {
 
   /**
    * X coordinate of the mouse pointer on the screen
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  screenX: int;
+  screenX: number;
 
   /**
    * Y coordinate of the mouse pointer on the screen
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  screenY: int;
+  screenY: number;
 
   /**
    * X coordinate of the mouse pointer in the window
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  windowX: int;
+  windowX: number;
 
   /**
    * Y coordinate of the mouse pointer in the window
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  windowY: int;
+  windowY: number;
 
   /**
    * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
    * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  rawDeltaX: int;
+  rawDeltaX: number;
 
   /**
    * Y axis offset relative to the previous reported mouse pointer position
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  rawDeltaY: int;
+  rawDeltaY: number;
 
   /**
    * Button that is currently pressed or released
@@ -368,7 +368,6 @@ export declare interface MouseEvent extends InputEvent {
    * List of pressed keys
    * @type { KeyCode[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
    * @since 9
    */
   pressedKeys: KeyCode[];

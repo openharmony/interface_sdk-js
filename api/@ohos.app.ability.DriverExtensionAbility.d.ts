@@ -27,8 +27,7 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
  *
  * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 export type DriverExtensionContext = _DriverExtensionContext;
 
@@ -36,18 +35,16 @@ export type DriverExtensionContext = _DriverExtensionContext;
  * class of driver extension ability.
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
-declare class DriverExtensionAbility {
+export default class DriverExtensionAbility {
   /**
    * Indicates driver extension ability context.
    * 
    * @type { DriverExtensionContext }
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   context: DriverExtensionContext;
 
@@ -56,8 +53,7 @@ declare class DriverExtensionAbility {
    * @param { Want } want - Indicates the want of created driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   onInit(want: Want): void;
 
@@ -65,8 +61,7 @@ declare class DriverExtensionAbility {
    * Called back before a driver extension is destroyed.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   onRelease(): void;
 
@@ -76,8 +71,7 @@ declare class DriverExtensionAbility {
    * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } Rpc remoteObject.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -92,34 +86,13 @@ declare class DriverExtensionAbility {
   onDisconnect(want: Want): void | Promise<void>;
 
   /**
-   * Called back when all abilities connected to a driver extension are disconnected.
-   * @param { Want } want - Indicates disconnection information about the driver extension.
-   * @returns { undefined | Promise<void> }
-   * @syscap SystemCapability.Driver.ExternalDevice
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  onDisconnect(want: Want): undefined | Promise<void>;
-
-  /**
    * Called when dump client information is required.
    * It is recommended that developers don't DUMP sensitive information.
    * @param { Array<string> } params - Indicates th e params from command.
    * @returns { Array<string> } The dump info array.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   onDump(params: Array<string>): Array<string>;
 }
-
-/**
- * class of driver extension ability.
- * @syscap SystemCapability.Driver.ExternalDevice
- * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
- */
-export default DriverExtensionAbility;

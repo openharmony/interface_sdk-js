@@ -19,12 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-/*** if arkts 1.1 */
-import { WantAgent } from '@ohos.wantAgent';
-/*** endif */
-/*** if arkts 1.2 */
-import { WantAgent } from '@ohos.app.ability.wantAgent';
-/*** endif */
+import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
 import type notificationManager from './@ohos.notificationManager';
 
@@ -41,8 +36,7 @@ import type notificationManager from './@ohos.notificationManager';
  * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace backgroundTaskManager {
   /**
@@ -50,8 +44,7 @@ declare namespace backgroundTaskManager {
    *
    * @interface DelaySuspendInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface DelaySuspendInfo {
     /**
@@ -59,8 +52,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     requestId: number;
     /**
@@ -68,8 +60,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     actualDelayTime: number;
   }
@@ -106,8 +97,7 @@ declare namespace backgroundTaskManager {
    * @interface ContinuousTaskNotification
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ContinuousTaskNotification {
     /**
@@ -116,8 +106,7 @@ declare namespace backgroundTaskManager {
      * @type { notificationManager.SlotType }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     slotType: notificationManager.SlotType;
     /**
@@ -126,8 +115,7 @@ declare namespace backgroundTaskManager {
      * @type { notificationManager.ContentType }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     contentType: notificationManager.ContentType;
     /**
@@ -136,16 +124,14 @@ declare namespace backgroundTaskManager {
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     notificationId: number;
     /**
      * The continuous task id.
      * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     continuousTaskId?: number;
   }
@@ -155,8 +141,7 @@ declare namespace backgroundTaskManager {
    *
    * @interface ContinuousTaskCancelInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface ContinuousTaskCancelInfo {
     /**
@@ -164,8 +149,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { ContinuousTaskCancelReason }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     reason: ContinuousTaskCancelReason;
 
@@ -174,8 +158,7 @@ declare namespace backgroundTaskManager {
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     id: number;
   }
@@ -416,8 +399,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function cancelSuspendDelay(requestId: number): void;
 
@@ -436,8 +418,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
 
@@ -456,8 +437,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getRemainingDelayTime(requestId: number): Promise<number>;
 
@@ -477,8 +457,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
@@ -541,8 +520,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
 
@@ -592,8 +570,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
@@ -619,8 +596,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
@@ -644,8 +620,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
@@ -682,8 +657,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Service ability uses this method to request stop running in background.
@@ -738,8 +712,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Service ability uses this method to request stop running in background.
@@ -793,8 +766,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function applyEfficiencyResources(request: EfficiencyResourcesRequest): void;
 
@@ -812,8 +784,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function resetAllEfficiencyResources(): void;
 
@@ -842,8 +813,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -857,8 +827,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    * <br> 2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
 
@@ -927,16 +896,14 @@ declare namespace backgroundTaskManager {
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum BackgroundMode {
     /**
      * data transfer mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     DATA_TRANSFER = 1,
 
@@ -944,16 +911,14 @@ declare namespace backgroundTaskManager {
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     AUDIO_PLAYBACK = 2,
 
@@ -961,8 +926,7 @@ declare namespace backgroundTaskManager {
      * audio recording mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     AUDIO_RECORDING = 3,
 
@@ -970,8 +934,7 @@ declare namespace backgroundTaskManager {
      * location mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     LOCATION = 4,
 
@@ -979,8 +942,7 @@ declare namespace backgroundTaskManager {
      * bluetooth interaction mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BLUETOOTH_INTERACTION = 5,
 
@@ -995,8 +957,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     MULTI_DEVICE_CONNECTION = 6,
 
@@ -1005,8 +966,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     WIFI_INTERACTION = 7,
 
@@ -1014,8 +974,7 @@ declare namespace backgroundTaskManager {
      * Voice over Internet Phone mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     VOIP = 8,
 
@@ -1024,8 +983,7 @@ declare namespace backgroundTaskManager {
      * only supported in particular device
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     TASK_KEEPING = 9,
   }
@@ -1036,8 +994,7 @@ declare namespace backgroundTaskManager {
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export enum ResourceType {
     /**
@@ -1045,8 +1002,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     CPU = 1,
 
@@ -1055,8 +1011,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     COMMON_EVENT = 1 << 1,
 
@@ -1065,8 +1020,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     TIMER = 1 << 2,
 
@@ -1075,8 +1029,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     WORK_SCHEDULER = 1 << 3,
 
@@ -1085,8 +1038,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BLUETOOTH = 1 << 4,
 
@@ -1095,8 +1047,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     GPS = 1 << 5,
 
@@ -1105,8 +1056,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     AUDIO = 1 << 6,
 
@@ -1115,8 +1065,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     RUNNING_LOCK = 1 << 7,
 
@@ -1125,8 +1074,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SENSOR = 1 << 8
   }
@@ -1137,8 +1085,7 @@ declare namespace backgroundTaskManager {
    * @interface EfficiencyResourcesRequest
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface EfficiencyResourcesRequest {
     /**
@@ -1147,8 +1094,7 @@ declare namespace backgroundTaskManager {
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     resourceTypes: number;
 
@@ -1158,8 +1104,7 @@ declare namespace backgroundTaskManager {
      * @type { boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isApply: boolean;
 
@@ -1169,8 +1114,7 @@ declare namespace backgroundTaskManager {
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     timeOut: number;
 
@@ -1180,8 +1124,7 @@ declare namespace backgroundTaskManager {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isPersist?: boolean;
 
@@ -1191,8 +1134,7 @@ declare namespace backgroundTaskManager {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isProcess?: boolean;
 
@@ -1202,8 +1144,7 @@ declare namespace backgroundTaskManager {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     reason: string;
   }
@@ -1213,32 +1154,28 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export enum ContinuousTaskCancelReason {
     /**
      * User cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     USER_CANCEL = 1,
     /**
      * System cancel.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL = 2,
     /**
      * User remove notification.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
 
@@ -1246,8 +1183,7 @@ declare namespace backgroundTaskManager {
      * Low network speed when request data transfer mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
 
@@ -1255,8 +1191,7 @@ declare namespace backgroundTaskManager {
      *  Not use avsession when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
 
@@ -1264,8 +1199,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
 
@@ -1273,8 +1207,7 @@ declare namespace backgroundTaskManager {
      * Audio is not running when request audio recording mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
 
@@ -1282,8 +1215,7 @@ declare namespace backgroundTaskManager {
      * Not use location when request location mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
 
@@ -1291,8 +1223,7 @@ declare namespace backgroundTaskManager {
      * Not use bluetooth when request bluetooth interaction mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
 
@@ -1300,8 +1231,7 @@ declare namespace backgroundTaskManager {
      * Not use multi device when request multi-device connection mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
 
@@ -1309,8 +1239,7 @@ declare namespace backgroundTaskManager {
      * Use some mode illegally.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
   }
@@ -1320,16 +1249,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   export enum BackgroundSubMode {
     /**
      * bluetooth car key mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
     CAR_KEY = 1
   }
@@ -1339,16 +1266,14 @@ declare namespace backgroundTaskManager {
    *
    * @enum { string }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   export enum BackgroundModeType {
     /**
      * subMode type
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
     SUB_MODE = 'subMode'
   }

@@ -120,7 +120,7 @@ declare namespace runningLock {
    * {@link BACKGROUND} ensures that applications can run in the background.
    * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7
    */
@@ -142,7 +142,7 @@ declare namespace runningLock {
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7
      */
-    PROXIMITY_SCREEN_CONTROL = 2
+    PROXIMITY_SCREEN_CONTROL
   }
 
   /**
@@ -180,8 +180,7 @@ declare namespace runningLock {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * 2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isSupported(type: RunningLockType): boolean;
 

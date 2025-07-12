@@ -74,8 +74,7 @@ export default shortKey;
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare enum FingerprintAction {
   /**
@@ -83,8 +82,7 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DOWN = 0,
 
@@ -93,8 +91,7 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   UP = 1,
 
@@ -103,8 +100,7 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SLIDE = 2,
 
@@ -113,8 +109,7 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   RETOUCH = 3,
 
@@ -123,8 +118,7 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CLICK = 4,
 }
@@ -135,8 +129,7 @@ export declare enum FingerprintAction {
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface FingerprintEvent {
   /**
@@ -145,8 +138,7 @@ export declare interface FingerprintEvent {
    * @type { FingerprintAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   action: FingerprintAction;
 
@@ -160,13 +152,12 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  distanceX: double;
+  distanceX: number;
 
   /**
    * This value indicates the sliding percentage of the fingerprint key on the Y axis,
@@ -178,11 +169,10 @@ export declare interface FingerprintEvent {
    * and the horizontal rightward direction stands for the positive direction of the X axis.
    * This way, a rectangular coordinate system is constructed.
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  distanceY: double;
+  distanceY: number;
 }

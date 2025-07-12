@@ -279,8 +279,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isNull(field: string): DataSharePredicates;
 
@@ -294,8 +293,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isNotNull(field: string): DataSharePredicates;
 
@@ -361,8 +359,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
@@ -437,8 +434,7 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 

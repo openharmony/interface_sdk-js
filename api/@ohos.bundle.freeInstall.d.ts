@@ -43,7 +43,7 @@ declare namespace freeInstall {
   /**
    * Used to set the enumeration value of upgrading for free installation.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -83,7 +83,7 @@ declare namespace freeInstall {
    * Used to query the enumeration value of bundlePackInfo.
    * Multiple value input, such as GET_PACKAGES | GET_BUNDLE_SUMMARY.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}

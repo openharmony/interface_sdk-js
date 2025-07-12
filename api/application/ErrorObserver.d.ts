@@ -37,8 +37,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 export default class ErrorObserver {
   /**
@@ -63,8 +62,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onUnhandledException(errMsg: string): void;
 
@@ -90,8 +88,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onException?(errObject: Error): void;
 }

@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+
 import type { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
@@ -527,8 +528,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -637,8 +637,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -753,8 +752,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
@@ -842,8 +840,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
@@ -857,8 +854,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
@@ -872,8 +868,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
@@ -885,8 +880,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
@@ -1118,8 +1112,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
    setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 }

@@ -177,7 +177,7 @@ declare namespace inputDevice {
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deviceId: int;
+    deviceId: number;
   }
 
   /**
@@ -240,52 +240,52 @@ declare namespace inputDevice {
     /**
      * Maximum value of the axis.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    max: int;
+    max: number;
 
     /**
      * Minimum value of the axis.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    min: int;
+    min: number;
 
     /**
      * Fuzzy value of the axis.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fuzz: int;
+    fuzz: number;
 
     /**
      * Benchmark value of the axis.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    flat: int;
+    flat: number;
 
     /**
      * Resolution of the axis.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resolution: int;
+    resolution: number;
   }
 
   /**
@@ -306,7 +306,7 @@ declare namespace inputDevice {
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: int;
+    id: number;
 
     /**
      * Name of the input device.
@@ -343,42 +343,42 @@ declare namespace inputDevice {
     /**
      * Bus type of the input device. By default, the bus type reported by the input device prevails.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    bus: int;
+    bus: number;
 
     /**
      * Product information of the input device.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    product: int;
+    product: number;
 
     /**
      * Vendor information of the input device.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    vendor: int;
+    vendor: number;
 
     /**
      * Version information of the input device.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    version: int;
+    version: number;
 
     /**
      * Physical address of the input device.

@@ -42,8 +42,7 @@ type UpdateOperation = dataShare.UpdateOperation;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 export default class DataShareExtensionAbility {
   /**
@@ -53,8 +52,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   context: ExtensionContext;
 
@@ -66,8 +64,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   onCreate?(want: Want, callback: AsyncCallback<void>): void;
 
@@ -95,8 +92,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   update?(
     uri: string,
@@ -130,8 +126,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -148,8 +143,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   query?(
     uri: string,
@@ -167,8 +161,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 

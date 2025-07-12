@@ -34,7 +34,7 @@ declare namespace defaultAppManager {
   /**
    * The constant for application type.
    *
-   * @enum { string }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -158,7 +158,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -172,7 +172,7 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultApplication(type: string, userId: int, callback: AsyncCallback<BundleInfo>): void;
+  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -198,7 +198,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<BundleInfo> } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -212,14 +212,14 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultApplication(type: string, userId?: int): Promise<BundleInfo>;
+  function getDefaultApplication(type: string, userId?: number): Promise<BundleInfo>;
 
   /**
    * Get default application based on type.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @returns { BundleInfo } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -233,7 +233,7 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultApplicationSync(type: string, userId?: int): BundleInfo;
+  function getDefaultApplicationSync(type: string, userId?: number): BundleInfo;
 
   /**
    * Set default application based on type.
@@ -241,7 +241,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of setting default application result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -256,7 +256,7 @@ declare namespace defaultAppManager {
    * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string,
-    elementName: ElementName, userId: int, callback: AsyncCallback<void>): void;
+    elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -284,7 +284,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of setting default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -298,7 +298,7 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId?: int): Promise<void>;
+  function setDefaultApplication(type: string, elementName: ElementName, userId?: number): Promise<void>;
 
   /**
    * Set default application based on type.
@@ -306,7 +306,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -319,14 +319,14 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: int): void;
+  function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: number): void;
 
   /**
    * Reset default application based on type.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -339,7 +339,7 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function resetDefaultApplication(type: string, userId: int, callback: AsyncCallback<void>): void;
+  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.
@@ -364,7 +364,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of resetting default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -377,14 +377,14 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function resetDefaultApplication(type: string, userId?: int): Promise<void>;
+  function resetDefaultApplication(type: string, userId?: number): Promise<void>;
 
   /**
    * Reset default application based on type.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { number } userId - Indicates the id for the user.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -396,7 +396,7 @@ declare namespace defaultAppManager {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function resetDefaultApplicationSync(type: string, userId?: int): void;
+  function resetDefaultApplicationSync(type: string, userId?: number): void;
 }
 
 export default defaultAppManager;

@@ -108,8 +108,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function on(type: 'locationChange', request: LocationRequest | ContinuousLocationRequest,
   callback: Callback<Location>): void;
@@ -157,8 +156,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
 
@@ -174,8 +172,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'locationError', callback: Callback<LocationError>): void;
 
@@ -191,8 +188,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(type: 'locationError', callback?: Callback<LocationError>): void;
 
@@ -205,8 +201,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'locationEnabledChange', callback: Callback<boolean>): void;
 
@@ -219,8 +214,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locationEnabledChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function off(type: 'locationEnabledChange', callback?: Callback<boolean>): void;
 
@@ -253,8 +247,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function on(type: 'cachedGnssLocationsChange', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
@@ -285,8 +278,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function off(type: 'cachedGnssLocationsChange', callback?: Callback<Array<Location>>): void;
 
@@ -302,8 +294,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'satelliteStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
@@ -319,8 +310,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function off(type: 'satelliteStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
@@ -336,8 +326,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'nmeaMessage', callback: Callback<string>): void;
 
@@ -353,8 +342,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function off(type: 'nmeaMessage', callback?: Callback<string>): void;
 
@@ -404,8 +392,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function on(type: 'countryCodeChange', callback: Callback<CountryCode>): void;
 
@@ -419,8 +406,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301500 - Failed to query the area information.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
@@ -439,8 +425,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
 
@@ -456,8 +441,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('locatingRequiredDataChange')} due to limited device capabilities.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
 
@@ -472,8 +456,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'locationIconStatusChange', callback: Callback<LocationIconStatus>): void;
 
@@ -488,8 +471,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(type: 'locationIconStatusChange', callback?: Callback<LocationIconStatus>): void;
 
@@ -505,8 +487,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   function on(type: 'bluetoothScanResultChange', callback: Callback<BluetoothScanResult>): void;
 
@@ -521,8 +502,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   function off(type: 'bluetoothScanResultChange', callback?: Callback<BluetoothScanResult>): void;
 
@@ -685,8 +665,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getLastLocation(): Location;
 
@@ -707,8 +686,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function isLocationEnabled(): boolean;
 
@@ -752,8 +730,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function enableLocation(callback: AsyncCallback<void>): void;
 
@@ -781,8 +758,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function enableLocation(): Promise<void>;
 
@@ -824,8 +800,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function disableLocation(): void;
 
@@ -870,8 +845,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
 
@@ -885,8 +859,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301300 - Reverse geocoding query failed.
    * @syscap SystemCapability.Location.Location.Geocoder
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
@@ -1217,8 +1190,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @systemapi
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isLocationPrivacyConfirmed(type: LocationPrivacyType): boolean;
 
@@ -1431,8 +1403,7 @@ declare namespace geoLocationManager {
    *
    * @typedef SatelliteStatusInfo
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface SatelliteStatusInfo {
     /**
@@ -1440,8 +1411,7 @@ declare namespace geoLocationManager {
      *
      * @type { number }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     satellitesNumber: number;
 
@@ -1450,8 +1420,7 @@ declare namespace geoLocationManager {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     satelliteIds: Array<number>;
 
@@ -1460,8 +1429,7 @@ declare namespace geoLocationManager {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     carrierToNoiseDensitys: Array<number>;
 
@@ -1470,8 +1438,7 @@ declare namespace geoLocationManager {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     altitudes: Array<number>;
 
@@ -1480,8 +1447,7 @@ declare namespace geoLocationManager {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     azimuths: Array<number>;
 
@@ -1490,8 +1456,7 @@ declare namespace geoLocationManager {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     carrierFrequencies: Array<number>;
 
@@ -1500,8 +1465,7 @@ declare namespace geoLocationManager {
      *
      * @type { ?Array<SatelliteConstellationCategory> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     satelliteConstellation?: Array<SatelliteConstellationCategory>;
 
@@ -1510,8 +1474,7 @@ declare namespace geoLocationManager {
      *
      * @type { ?Array<number> }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     satelliteAdditionalInfo?: Array<number>;
   }
@@ -1521,8 +1484,7 @@ declare namespace geoLocationManager {
    *
    * @typedef CachedGnssLocationsRequest
    * @syscap SystemCapability.Location.Location.Gnss
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface CachedGnssLocationsRequest {
     /**
@@ -1530,8 +1492,7 @@ declare namespace geoLocationManager {
      *
      * @type { number }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     reportingPeriodSec: number;
 
@@ -1540,8 +1501,7 @@ declare namespace geoLocationManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.Location.Location.Gnss
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     wakeUpCacheQueueFull: boolean;
   }

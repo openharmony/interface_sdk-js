@@ -62,7 +62,7 @@ declare namespace camera {
   /**
    * Enum for camera status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -139,7 +139,7 @@ declare namespace camera {
   /**
    * Enum for fold status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 12
    */
@@ -203,8 +203,7 @@ declare namespace camera {
    *
    * @typedef Profile
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Profile for camera streams.
@@ -221,8 +220,7 @@ declare namespace camera {
      * @type { CameraFormat }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera format.
@@ -241,8 +239,7 @@ declare namespace camera {
      * @type { Size }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Resolution. The settings are the width and height of the camera's resolution, not the width and height of the actual output image.
@@ -261,8 +258,7 @@ declare namespace camera {
    *
    * @typedef FrameRateRange
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Frame rate range.
@@ -276,7 +272,7 @@ declare namespace camera {
     /**
      * Min frame rate.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
@@ -284,19 +280,18 @@ declare namespace camera {
     /**
      * Min frame rate.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
-    readonly min: int;
+    readonly min: number;
 
     /**
      * Max frame rate.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
@@ -304,14 +299,13 @@ declare namespace camera {
     /**
      * Max frame rate.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
-    readonly max: int;
+    readonly max: number;
   }
 
   /**
@@ -320,8 +314,7 @@ declare namespace camera {
    * @extends Profile
    * @typedef VideoProfile
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Video profile.
@@ -339,8 +332,7 @@ declare namespace camera {
      * @type { FrameRateRange }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Frame rate range, in fps (frames per second).
@@ -359,8 +351,7 @@ declare namespace camera {
    *
    * @typedef CameraOutputCapability
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Camera output capability.
@@ -377,8 +368,7 @@ declare namespace camera {
      * @type { Array<Profile> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Preview profiles.
@@ -397,8 +387,7 @@ declare namespace camera {
      * @type { Array<Profile> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Photo profiles.
@@ -417,8 +406,7 @@ declare namespace camera {
      * @type { Array<VideoProfile> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Video profiles.
@@ -438,8 +426,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly depthProfiles: Array<DepthProfile>;
 
@@ -449,8 +436,7 @@ declare namespace camera {
      * @type { Array<MetadataObjectType> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * All the supported metadata Object Types.
@@ -467,10 +453,9 @@ declare namespace camera {
   /**
    * Enum for camera error code.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Enum for camera error code.
@@ -485,8 +470,7 @@ declare namespace camera {
      * Parameter missing or parameter type incorrect.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Parameter missing or parameter type incorrect.
@@ -501,8 +485,7 @@ declare namespace camera {
      * Operation not allowed.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Operation not allowed.
@@ -517,8 +500,7 @@ declare namespace camera {
      * Session not config.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Session not config.
@@ -533,8 +515,7 @@ declare namespace camera {
      * Session not running.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Session not running.
@@ -549,8 +530,7 @@ declare namespace camera {
      * Session config locked.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Session config locked.
@@ -565,8 +545,7 @@ declare namespace camera {
      * Device setting locked.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Device setting locked.
@@ -581,8 +560,7 @@ declare namespace camera {
      * Can not use camera cause of conflict.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Can not use camera cause of conflict.
@@ -597,8 +575,7 @@ declare namespace camera {
      * Camera disabled cause of security reason.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera disabled cause of security reason.
@@ -613,8 +590,7 @@ declare namespace camera {
      * Can not use camera cause of preempted.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Can not use camera cause of preempted.
@@ -629,8 +605,7 @@ declare namespace camera {
      * Unresolved conflicts with current configurations.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unresolved conflicts with current configurations.
@@ -646,8 +621,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     DEVICE_FREQUENTLY_SWITCHED = 7400111,
 
@@ -656,8 +630,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     CAMERA_LENS_RETRACTED = 7400112,
 
@@ -665,8 +638,7 @@ declare namespace camera {
      * Camera service fatal error.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera service fatal error.
@@ -681,7 +653,7 @@ declare namespace camera {
   /**
    * Enum for restore parameter.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
@@ -727,32 +699,32 @@ declare namespace camera {
     /**
      * Skin smooth level value for restore.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    skinSmoothLevel: int;
+    skinSmoothLevel: number;
 
     /**
      * Face slender value for restore.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    faceSlender: int;
+    faceSlender: number;
 
     /**
      * Skin tone value for restore.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    skinTone: int;
+    skinTone: number;
   }
 
   /**
@@ -761,8 +733,7 @@ declare namespace camera {
    * @typedef PrelaunchConfig
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface PrelaunchConfig {
     /**
@@ -771,8 +742,7 @@ declare namespace camera {
      * @type { CameraDevice }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     cameraDevice: CameraDevice;
 
@@ -782,21 +752,19 @@ declare namespace camera {
      * @type { ?RestoreParamType }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     restoreParamType?: RestoreParamType;
 
     /**
      * Begin active time.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    activeTime?: int;
+    activeTime?: number;
 
     /**
      * Setting parameter.
@@ -804,8 +772,7 @@ declare namespace camera {
      * @type { ?SettingParam }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     settingParam?: SettingParam;
   }
@@ -831,8 +798,7 @@ declare namespace camera {
      *
      * @returns { Array<CameraDevice> } An array of supported cameras.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Gets the supported camera device objects and return the results synchronously.
@@ -862,8 +828,7 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.
      * @returns { Array<SceneMode> } An array of supported scene mode of camera.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets supported scene mode for specific camera.
@@ -884,8 +849,7 @@ declare namespace camera {
      * @param { SceneMode } mode - Scene mode.
      * @returns { CameraOutputCapability } The camera output capability.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets supported output capability for specific camera.
@@ -904,8 +868,7 @@ declare namespace camera {
      *
      * @returns { boolean } Is camera muted.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Queries whether the current camera is muted.
@@ -932,8 +895,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isCameraMuteSupported(): boolean;
 
@@ -960,8 +922,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     muteCameraPersistent(mute: boolean, type: PolicyType): void;
 
@@ -985,8 +946,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a CameraInput instance by camera.
@@ -1030,8 +990,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a CameraInput instance by camera position and type.
@@ -1073,8 +1032,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a PreviewOutput instance.
@@ -1101,8 +1059,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a PreviewOutput instance without profile.
@@ -1156,8 +1113,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a PhotoOutput instance without surfaceId.
@@ -1198,8 +1154,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a VideoOutput instance.
@@ -1226,8 +1181,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a VideoOutput instance without profile.
@@ -1261,8 +1215,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Creates a MetadataOutput instance.
@@ -1287,8 +1240,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     createDepthDataOutput(profile: DepthProfile): DepthDataOutput;
 
@@ -1314,8 +1266,7 @@ declare namespace camera {
      * 3. Parameter verification failed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets a Session instance by specific scene mode.
@@ -1386,8 +1337,7 @@ declare namespace camera {
      * @param { 'cameraStatus' } type - Event type.
      * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera state callback to get the state change of the camera by registering a callback
@@ -1410,8 +1360,7 @@ declare namespace camera {
      * @param { 'cameraStatus' } type - Event type.
      * @param { AsyncCallback<CameraStatusInfo> } callback - Callback used to get the camera status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from camera status change event callback.
@@ -1430,8 +1379,7 @@ declare namespace camera {
      * @param { 'foldStatusChanged' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for fold state changes. This API uses an asynchronous callback to return the result.
@@ -1453,8 +1401,7 @@ declare namespace camera {
      * @param { 'foldStatusChanged' } type - Event type.
      * @param { AsyncCallback<FoldStatusInfo> } callback - Callback used to get the fold status change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from fold status change event callback.
@@ -1484,8 +1431,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
@@ -1506,8 +1452,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
@@ -1532,8 +1477,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isPrelaunchSupported(camera: CameraDevice): boolean;
 
@@ -1561,8 +1505,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setPrelaunchConfig(prelaunchConfig: PrelaunchConfig): void;
 
@@ -1606,8 +1549,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     preSwitchCamera(cameraId: string): void;
 
@@ -1632,8 +1574,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
 
@@ -1642,8 +1583,7 @@ declare namespace camera {
      *
      * @returns { boolean } this value that specifies whether the device has a torch.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Check if the device has a torch.
@@ -1660,8 +1600,7 @@ declare namespace camera {
      * @param { TorchMode } mode - torch mode.
      * @returns { boolean } is torch mode supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Check if a specifies torch mode is supported.
@@ -1678,8 +1617,7 @@ declare namespace camera {
      *
      * @returns { TorchMode } torch mode.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Get current torch mode.
@@ -1707,8 +1645,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Set torch mode to the device.
@@ -1737,8 +1674,7 @@ declare namespace camera {
      * @param { 'torchStatusChange' } type - Event type
      * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for flashlight state changes to get flashlight state change by registering
@@ -1761,8 +1697,7 @@ declare namespace camera {
      * @param { 'torchStatusChange' } type - Event type
      * @param { AsyncCallback<TorchStatusInfo> } callback - Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes torch status change event callback.
@@ -1781,8 +1716,7 @@ declare namespace camera {
    *
    * @typedef TorchStatusInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Torch status info.
@@ -1799,8 +1733,7 @@ declare namespace camera {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * is torch available
@@ -1819,8 +1752,7 @@ declare namespace camera {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Whether the flashlight is activated or not. True means the flashlight is activated, false means the flashlight
@@ -1837,7 +1769,7 @@ declare namespace camera {
     /**
      * the current torch brightness level.
      *
-     * @type { double }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -1845,20 +1777,19 @@ declare namespace camera {
     /**
      * Flashlight brightness level, value range is [0,1], the closer to 1, the brighter it is.
      *
-     * @type { double }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
-    readonly torchLevel: double;
+    readonly torchLevel: number;
   }
 
   /**
    * Enum for torch mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
@@ -1922,8 +1853,7 @@ declare namespace camera {
    *
    * @typedef CameraStatusInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * An instance of the interface returned by the camera manager's callback that represents camera state information.
@@ -1939,8 +1869,7 @@ declare namespace camera {
      *
      * @type { CameraDevice }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera instance.
@@ -1957,8 +1886,7 @@ declare namespace camera {
      *
      * @type { CameraStatus }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Current camera status.
@@ -1976,8 +1904,7 @@ declare namespace camera {
    *
    * @typedef FoldStatusInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Fold status info.
@@ -1994,8 +1921,7 @@ declare namespace camera {
      * @type { Array<CameraDevice> }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets supported camera devices under the current fold status.
@@ -2014,8 +1940,7 @@ declare namespace camera {
      * @type { FoldStatus }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Current fold status.
@@ -2032,14 +1957,14 @@ declare namespace camera {
   /**
    * Enum for camera position.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
   /**
    * Enum for camera position.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12
@@ -2110,7 +2035,7 @@ declare namespace camera {
   /**
    * Enum for camera type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -2202,7 +2127,7 @@ declare namespace camera {
   /**
    * Enum for camera connection type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -2264,7 +2189,7 @@ declare namespace camera {
   /**
    * Enum for remote camera device type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 10
@@ -2272,7 +2197,7 @@ declare namespace camera {
   /**
    * Enum for remote camera device type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 15
    */
@@ -2357,8 +2282,7 @@ declare namespace camera {
    *
    * @typedef CameraDevice
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Camera device object.
@@ -2375,8 +2299,7 @@ declare namespace camera {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera ID attribute.
@@ -2395,8 +2318,7 @@ declare namespace camera {
      * @type { CameraPosition }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera position attribute.
@@ -2415,8 +2337,7 @@ declare namespace camera {
      * @type { CameraType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera type attribute.
@@ -2435,8 +2356,7 @@ declare namespace camera {
      * @type { ConnectionType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Camera connection type attribute.
@@ -2464,8 +2384,7 @@ declare namespace camera {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     /**
      * Camera remote camera device name attribute.
@@ -2493,8 +2412,7 @@ declare namespace camera {
      * @type { HostDeviceType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     /**
      * Camera remote camera device type attribute.
@@ -2510,7 +2428,7 @@ declare namespace camera {
     /**
      * Camera sensor orientation attribute.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -2518,14 +2436,13 @@ declare namespace camera {
     /**
      * The camera mounting angle, which does not change with screen rotation, takes values from 0° to 360° in degrees.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
-    readonly cameraOrientation: int;
+    readonly cameraOrientation: number;
 
     /**
      * Camera device retractable attribute
@@ -2534,8 +2451,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     readonly isRetractable?: boolean;
   }
@@ -2559,7 +2475,7 @@ declare namespace camera {
     /**
      * Height.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2571,12 +2487,12 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    height: int;
+    height: number;
 
     /**
      * Width.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2588,7 +2504,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    width: int;
+    width: number;
   }
 
   /**
@@ -2610,7 +2526,7 @@ declare namespace camera {
     /**
      * x co-ordinate
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2622,12 +2538,12 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    x: double;
+    x: number;
 
     /**
      * y co-ordinate
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2639,7 +2555,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    y: double;
+    y: number;
   }
 
   /**
@@ -2647,8 +2563,7 @@ declare namespace camera {
    *
    * @interface CameraInput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Camera input object.
@@ -2667,8 +2582,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Open camera.
@@ -2692,8 +2606,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Open camera.
@@ -2718,8 +2631,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Open camera.
@@ -2769,8 +2681,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Close camera.
@@ -2789,8 +2700,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Close camera.
@@ -2806,17 +2716,16 @@ declare namespace camera {
     /**
      * Delay close camera.
      *
-     * @param { int } time - delay time for turning off camera.
+     * @param { number } time - delay time for turning off camera.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    closeDelayed(time: int): Promise<void>;
+    closeDelayed(time: number): Promise<void>;
 
     /**
      * Subscribes to error events.
@@ -2825,8 +2734,7 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.
      * @param { ErrorCallback } callback - Callback used to get the camera input errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for CameraInput error events to get the result by registering
@@ -2851,8 +2759,7 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.
      * @param { ErrorCallback } callback - Callback used to get the camera input errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from error events.
@@ -2874,8 +2781,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'cameraOcclusionDetection', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
@@ -2887,8 +2793,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'cameraOcclusionDetection', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
@@ -2916,8 +2821,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
   }
@@ -2925,7 +2829,7 @@ declare namespace camera {
   /**
    * Enumerates the camera scene modes.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
@@ -3113,7 +3017,7 @@ declare namespace camera {
   /**
    * Enum for camera format type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -3256,7 +3160,7 @@ declare namespace camera {
   /**
    * Enum for flash mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -3336,8 +3240,7 @@ declare namespace camera {
    * @typedef LcdFlashStatus
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface LcdFlashStatus {
     /**
@@ -3347,22 +3250,20 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly isLcdFlashNeeded: boolean;
 
     /**
      * Compensate value for lcd flash.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly lcdCompensation: int;
+    readonly lcdCompensation: number;
   }
 
   /**
@@ -3370,8 +3271,7 @@ declare namespace camera {
    *
    * @interface FlashQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Flash Query object.
@@ -3397,8 +3297,7 @@ declare namespace camera {
      * @returns { boolean } The flash light support status.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Check if device has flash light.
@@ -3429,8 +3328,7 @@ declare namespace camera {
      * @returns { boolean } Is the flash mode supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Checks whether a specified flash mode is supported.
@@ -3453,8 +3351,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isLcdFlashSupported(): boolean;
   }
@@ -3465,8 +3362,7 @@ declare namespace camera {
    * @extends FlashQuery
    * @interface Flash
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Flash object.
@@ -3484,8 +3380,7 @@ declare namespace camera {
      * @returns { FlashMode } The current flash mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current flash mode.
@@ -3504,8 +3399,7 @@ declare namespace camera {
      * @param { FlashMode } flashMode - Target flash mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets flash mode.
@@ -3526,8 +3420,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     enableLcdFlash(enabled: boolean): void;
   }
@@ -3535,7 +3428,7 @@ declare namespace camera {
   /**
    * Enum for exposure mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -3606,11 +3499,10 @@ declare namespace camera {
   /**
    * Enum for exposure metering mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum ExposureMeteringMode {
     /**
@@ -3618,8 +3510,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     MATRIX = 0,
 
@@ -3628,8 +3519,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CENTER = 1,
 
@@ -3638,8 +3528,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SPOT = 2
   }
@@ -3649,8 +3538,7 @@ declare namespace camera {
    *
    * @interface AutoExposureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * AutoExposureQuery object.
@@ -3678,8 +3566,7 @@ declare namespace camera {
      * @returns { boolean } Is the exposure mode supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Checks whether a specified exposure mode is supported.
@@ -3697,7 +3584,7 @@ declare namespace camera {
     /**
      * Query the exposure compensation range.
      *
-     * @returns { Array<double> } The array of compensation range.
+     * @returns { Array<number> } The array of compensation range.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -3706,11 +3593,10 @@ declare namespace camera {
      * Query the exposure compensation range.
      * Move to AutoExposureQuery interface from AutoExposure interface since 12.
      *
-     * @returns { Array<double> } The array of compensation range.
+     * @returns { Array<number> } The array of compensation range.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Query the exposure compensation range.
@@ -3734,8 +3620,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isExposureMeteringModeSupported(aeMeteringMode: ExposureMeteringMode): boolean;
   }
@@ -3746,8 +3631,7 @@ declare namespace camera {
    * @extends AutoExposureQuery
    * @interface AutoExposure
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * AutoExposure object.
@@ -3765,8 +3649,7 @@ declare namespace camera {
      * @returns { ExposureMode } The current exposure mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current exposure mode.
@@ -3785,8 +3668,7 @@ declare namespace camera {
      * @param { ExposureMode } aeMode - Exposure mode
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets Exposure mode.
@@ -3806,8 +3688,7 @@ declare namespace camera {
      * @returns { Point } The current metering point.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current metering point.
@@ -3826,8 +3707,7 @@ declare namespace camera {
      * @param { Point } point - metering point
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Set the center point of the metering area.
@@ -3843,7 +3723,7 @@ declare namespace camera {
     /**
      * Set exposure compensation.
      *
-     * @param { double } exposureBias - Exposure compensation
+     * @param { number } exposureBias - Exposure compensation
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -3851,12 +3731,11 @@ declare namespace camera {
     /**
      * Set exposure compensation.
      *
-     * @param { double } exposureBias - Exposure compensation
+     * @param { number } exposureBias - Exposure compensation
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Set exposure compensation.
@@ -3873,11 +3752,10 @@ declare namespace camera {
     /**
      * Query the exposure value.
      *
-     * @returns { double } The exposure value.
+     * @returns { number } The exposure value.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Query the exposure value.
@@ -3898,8 +3776,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getExposureMeteringMode(): ExposureMeteringMode;
 
@@ -3912,8 +3789,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void;
   }
@@ -3921,7 +3797,7 @@ declare namespace camera {
   /**
    * Enum for focus mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -3998,7 +3874,7 @@ declare namespace camera {
   /**
    * Enum for focus state.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -4060,11 +3936,10 @@ declare namespace camera {
   /**
    * Enum for focus range type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum FocusRangeType {
     /**
@@ -4072,8 +3947,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     AUTO = 0,
 
@@ -4082,8 +3956,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     NEAR = 1
   }
@@ -4091,11 +3964,10 @@ declare namespace camera {
   /**
    * Enum for focus driven type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum FocusDrivenType {
     /**
@@ -4103,8 +3975,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     AUTO = 0,
 
@@ -4113,8 +3984,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     FACE = 1
   }
@@ -4122,11 +3992,10 @@ declare namespace camera {
   /**
    * Enum for focus tracking mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum FocusTrackingMode {
     /**
@@ -4134,8 +4003,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     AUTO = 0
   }
@@ -4146,8 +4014,7 @@ declare namespace camera {
    * @typedef FocusTrackingInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface FocusTrackingInfo {
     /**
@@ -4156,8 +4023,7 @@ declare namespace camera {
      * @type { FocusTrackingMode }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     trackingMode: FocusTrackingMode;
 
@@ -4167,8 +4033,7 @@ declare namespace camera {
      * @type { Rect }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     trackingRegion: Rect;
   }
@@ -4178,8 +4043,7 @@ declare namespace camera {
    *
    * @interface FocusQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Focus Query object.
@@ -4207,8 +4071,7 @@ declare namespace camera {
      * @returns { boolean } Is the focus mode supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Checks whether a specified focus mode is supported.
@@ -4247,8 +4110,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     isFocusRangeTypeSupported(type: FocusRangeType): boolean;
 
@@ -4264,8 +4126,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     isFocusDrivenTypeSupported(type: FocusDrivenType): boolean;
   }
@@ -4276,8 +4137,7 @@ declare namespace camera {
    * @extends FocusQuery
    * @interface Focus
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Focus object.
@@ -4295,8 +4155,7 @@ declare namespace camera {
      * @returns { FocusMode } The current focus mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current focus mode.
@@ -4315,8 +4174,7 @@ declare namespace camera {
      * @param { FocusMode } afMode - Target focus mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets focus mode.
@@ -4335,8 +4193,7 @@ declare namespace camera {
      * @param { Point } point - Target focus point.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets focus point.
@@ -4355,8 +4212,7 @@ declare namespace camera {
      * @returns { Point } The current focus point.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current focus point.
@@ -4373,11 +4229,10 @@ declare namespace camera {
     /**
      * Gets current focal length.
      *
-     * @returns { double } The current focal point.
+     * @returns { number } The current focal point.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Gets current focal length.
@@ -4411,8 +4266,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setFocusAssist(enabled: boolean): void;
 
@@ -4424,8 +4278,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getFocusRange(): FocusRangeType;
 
@@ -4442,8 +4295,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     setFocusRange(type: FocusRangeType): void;
 
@@ -4455,8 +4307,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getFocusDriven(): FocusDrivenType;
 
@@ -4473,8 +4324,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     setFocusDriven(type: FocusDrivenType): void;
   }
@@ -4485,46 +4335,42 @@ declare namespace camera {
    * @interface ManualFocus
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ManualFocus {
     /**
      * Gets current focus distance.
      *
-     * @returns { double } The current focus distance.
+     * @returns { number } The current focus distance.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getFocusDistance(): double;
+    getFocusDistance(): number;
 
     /**
      * Sets focus distance.
      *
-     * @param { double } distance - Focus distance
+     * @param { number } distance - Focus distance
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    setFocusDistance(distance: double): void;
+    setFocusDistance(distance: number): void;
   }
 
   /**
    * Enumerates the camera white balance modes.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Enumerates the camera white balance modes.
@@ -4539,8 +4385,7 @@ declare namespace camera {
      * Automatic white balance mode.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Automatic white balance mode.
@@ -4555,8 +4400,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Cloudy white balance mode.
@@ -4572,8 +4416,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Incandescent white balance mode.
@@ -4589,8 +4432,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Fluorescent white balance mode.
@@ -4606,8 +4448,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Daylight white balance mode.
@@ -4623,8 +4464,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Manual white balance mode.
@@ -4640,8 +4480,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Lock white balance mode.
@@ -4659,8 +4498,7 @@ declare namespace camera {
    * @interface WhiteBalanceQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * White Balance Query object.
@@ -4681,8 +4519,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Checks whether the specified white balance mode is supported.
@@ -4699,13 +4536,12 @@ declare namespace camera {
     /**
      * Query the white balance mode range.
      *
-     * @returns { Array<int> } The array of white balance mode range.
+     * @returns { Array<number> } The array of white balance mode range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Query the white balance mode range.
@@ -4726,8 +4562,7 @@ declare namespace camera {
    * @interface WhiteBalance
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * WhiteBalance object.
@@ -4747,8 +4582,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Obtains the white balance mode in use.
@@ -4769,8 +4603,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Sets white balance mode.
@@ -4787,13 +4620,12 @@ declare namespace camera {
     /**
      * Gets current white balance.
      *
-     * @returns { int } The current white balance.
+     * @returns { number } The current white balance.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets current white balance.
@@ -4809,14 +4641,13 @@ declare namespace camera {
     /**
      * Sets white balance.
      *
-     * @param { int } whiteBalance - White balance.
+     * @param { number } whiteBalance - White balance.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Sets white balance.
@@ -4837,8 +4668,7 @@ declare namespace camera {
    * @interface ManualIsoQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ManualIsoQuery {
     /**
@@ -4849,23 +4679,21 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isManualIsoSupported(): boolean;
 
     /**
      * Get the ISO range.
      *
-     * @returns { Array<int> } The array of ISO range.
+     * @returns { Array<number> } The array of ISO range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getIsoRange(): Array<int>;
+    getIsoRange(): Array<number>;
   }
 
   /**
@@ -4875,45 +4703,41 @@ declare namespace camera {
    * @interface ManualIso
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ManualIso extends ManualIsoQuery {
     /**
      * Gets current ISO.
      *
-     * @returns { int } The current ISO.
+     * @returns { number } The current ISO.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getIso(): int;
+    getIso(): number;
 
     /**
      * Sets ISO.
      *
-     * @param { int } iso - ISO
+     * @param { number } iso - ISO
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    setIso(iso: int): void;
+    setIso(iso: number): void;
   }
 
   /**
    * Enum for smooth zoom mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Enum for smooth zoom mode.
@@ -4928,8 +4752,7 @@ declare namespace camera {
      * Normal zoom mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Normal zoom mode.
@@ -4946,8 +4769,7 @@ declare namespace camera {
    *
    * @typedef SmoothZoomInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * SmoothZoomInfo object
@@ -4961,10 +4783,9 @@ declare namespace camera {
     /**
      * The duration of smooth zoom.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * The duration of smooth zoom.
@@ -4983,33 +4804,30 @@ declare namespace camera {
    * @typedef ZoomPointInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ZoomPointInfo {
     /**
      * The zoom ratio value.
      *
-     * @type { double }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly zoomRatio: double;
+    readonly zoomRatio: number;
 
     /**
      * The equivalent focal Length.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly equivalentFocalLength: int;
+    readonly equivalentFocalLength: number;
   }
 
   /**
@@ -5017,8 +4835,7 @@ declare namespace camera {
    *
    * @interface ZoomQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Zoom query object.
@@ -5032,7 +4849,7 @@ declare namespace camera {
     /**
      * Gets all supported zoom ratio range.
      *
-     * @returns { Array<double> } The zoom ratio range.
+     * @returns { Array<number> } The zoom ratio range.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -5041,11 +4858,10 @@ declare namespace camera {
      * Gets all supported zoom ratio range.
      * Move to ZoomQuery interface from Zoom since 12.
      *
-     * @returns { Array<double> } The zoom ratio range.
+     * @returns { Array<number> } The zoom ratio range.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets all supported zoom ratio range.
@@ -5067,8 +4883,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
   }
@@ -5079,8 +4894,7 @@ declare namespace camera {
    * @extends ZoomQuery
    * @interface Zoom
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Zoom object.
@@ -5095,7 +4909,7 @@ declare namespace camera {
     /**
      * Gets zoom ratio.
      *
-     * @returns { double } The zoom ratio value.
+     * @returns { number } The zoom ratio value.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -5103,12 +4917,11 @@ declare namespace camera {
     /**
      * Gets zoom ratio.
      *
-     * @returns { double } The zoom ratio value.
+     * @returns { number } The zoom ratio value.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets zoom ratio.
@@ -5125,11 +4938,10 @@ declare namespace camera {
     /**
      * Sets zoom ratio.
      *
-     * @param { double } zoomRatio - Target zoom ratio.
+     * @param { number } zoomRatio - Target zoom ratio.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets zoom ratio.
@@ -5145,12 +4957,11 @@ declare namespace camera {
     /**
      * Sets target zoom ratio by smooth method.
      *
-     * @param { double } targetRatio - Target zoom ratio.
+     * @param { number } targetRatio - Target zoom ratio.
      * @param { SmoothZoomMode } mode - Smooth zoom mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Sets target zoom ratio by smooth method.
@@ -5178,8 +4989,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     prepareZoom(): void;
 
@@ -5190,8 +5000,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     unprepareZoom(): void;
   }
@@ -5199,7 +5008,7 @@ declare namespace camera {
   /**
    * Enum for video stabilization mode.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -5293,8 +5102,7 @@ declare namespace camera {
    *
    * @interface StabilizationQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Stabilization Query object.
@@ -5322,8 +5130,7 @@ declare namespace camera {
      * @returns { boolean } Is video stabilization mode supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Check whether the specified video stabilization mode is supported.
@@ -5345,8 +5152,7 @@ declare namespace camera {
    * @extends StabilizationQuery
    * @interface Stabilization
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Stabilization object.
@@ -5364,8 +5170,7 @@ declare namespace camera {
      * @returns { VideoStabilizationMode } The current video stabilization mode.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Query the video stabilization mode currently in use.
@@ -5384,8 +5189,7 @@ declare namespace camera {
      * @param { VideoStabilizationMode } mode - video stabilization mode to set.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Set video stabilization mode.
@@ -5402,11 +5206,10 @@ declare namespace camera {
   /**
    * Enumerates the camera portrait theme types.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum PortraitThemeType {
     /**
@@ -5414,8 +5217,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     NATURAL = 0,
 
@@ -5424,8 +5226,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     DELICATE = 1,
 
@@ -5434,8 +5235,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     STYLISH = 2
   }
@@ -5443,7 +5243,7 @@ declare namespace camera {
   /**
    * Enumerates the camera beauty effect types.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 10
@@ -5492,8 +5292,7 @@ declare namespace camera {
    * @interface BeautyQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface BeautyQuery {
     /**
@@ -5515,8 +5314,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedBeautyTypes(): Array<BeautyType>;
 
@@ -5524,7 +5322,7 @@ declare namespace camera {
      * Gets the specific beauty effect type range.
      *
      * @param { BeautyType } type - The type of beauty effect.
-     * @returns { Array<int> } The array of the specific beauty effect range.
+     * @returns { Array<number> } The array of the specific beauty effect range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -5536,15 +5334,14 @@ declare namespace camera {
      * Move to BeautyQuery from Beauty since 12.
      *
      * @param { BeautyType } type - The type of beauty effect.
-     * @returns { Array<int> } The array of the specific beauty effect range.
+     * @returns { Array<number> } The array of the specific beauty effect range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getSupportedBeautyRange(type: BeautyType): Array<int>;
+    getSupportedBeautyRange(type: BeautyType): Array<number>;
 
     /**
      * Gets supported portrait theme type.
@@ -5554,8 +5351,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     getSupportedPortraitThemeTypes(): Array<PortraitThemeType>;
 
@@ -5567,8 +5363,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     isPortraitThemeSupported(): boolean;
   }
@@ -5580,37 +5375,34 @@ declare namespace camera {
    * @interface Beauty
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface Beauty extends BeautyQuery {
     /**
      * Gets the beauty effect in use.
      *
      * @param { BeautyType } type - The type of beauty effect.
-     * @returns { int } the beauty effect in use.
+     * @returns { number } the beauty effect in use.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    getBeauty(type: BeautyType): int;
+    getBeauty(type: BeautyType): number;
 
     /**
      * Sets a beauty effect for a camera device.
      *
      * @param { BeautyType } type - The type of beauty effect.
-     * @param { int } value The number of beauty effect.
+     * @param { number } value The number of beauty effect.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    setBeauty(type: BeautyType, value: int): void;
+    setBeauty(type: BeautyType, value: number): void;
 
     /**
      * Sets a portrait theme type for a camera device.
@@ -5621,8 +5413,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     setPortraitThemeType(type: PortraitThemeType): void;
   }
@@ -5633,8 +5424,7 @@ declare namespace camera {
    * @typedef EffectSuggestion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface EffectSuggestion {
 
@@ -5646,8 +5436,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isEffectSuggestionSupported(): boolean;
 
@@ -5660,8 +5449,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     enableEffectSuggestion(enabled: boolean): void;
 
@@ -5673,8 +5461,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedEffectSuggestionTypes(): Array<EffectSuggestionType>;
 
@@ -5688,8 +5475,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setEffectSuggestionStatus(status: Array<EffectSuggestionStatus>): void;
 
@@ -5703,8 +5489,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     updateEffectSuggestion(type: EffectSuggestionType, enabled: boolean): void;
   }
@@ -5712,11 +5497,10 @@ declare namespace camera {
   /**
    * Enumerates the camera color effect types.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enum ColorEffectType {
     /**
@@ -5724,8 +5508,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NORMAL = 0,
 
@@ -5734,8 +5517,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     BRIGHT = 1,
 
@@ -5744,8 +5526,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SOFT = 2,
 
@@ -5754,8 +5535,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     BLACK_WHITE = 3
   }
@@ -5763,11 +5543,10 @@ declare namespace camera {
   /**
    * Enum for policy type
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum PolicyType {
     /**
@@ -5775,8 +5554,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PRIVACY = 1
   }
@@ -5787,8 +5565,7 @@ declare namespace camera {
    * @interface ColorEffectQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ColorEffectQuery {
     /**
@@ -5810,8 +5587,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedColorEffects(): Array<ColorEffectType>;
   }
@@ -5823,8 +5599,7 @@ declare namespace camera {
    * @interface ColorEffect
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface ColorEffect extends ColorEffectQuery {
     /**
@@ -5835,8 +5610,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getColorEffect(): ColorEffectType;
 
@@ -5848,8 +5622,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setColorEffect(type: ColorEffectType): void;
   }
@@ -5859,8 +5632,7 @@ declare namespace camera {
    *
    * @interface ColorManagementQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Color Management Query object.
@@ -5877,8 +5649,7 @@ declare namespace camera {
      * @returns { Array<colorSpaceManager.ColorSpace> } The array of the supported color space for the session.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the supported color space types.
@@ -5904,8 +5675,7 @@ declare namespace camera {
    * @extends ColorManagementQuery
    * @interface ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Color Management object.
@@ -5923,8 +5693,7 @@ declare namespace camera {
      * @returns { colorSpaceManager.ColorSpace } Current color space.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the specific color space type.
@@ -5946,8 +5715,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Sets a color space for the session.
@@ -5969,8 +5737,7 @@ declare namespace camera {
    *
    * @interface AutoDeviceSwitchQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   /**
    * Auto Device Switch Query object.
@@ -5987,8 +5754,7 @@ declare namespace camera {
      * @returns { boolean } Is auto device switch supported.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Check whether auto device switch is supported.
@@ -6014,8 +5780,7 @@ declare namespace camera {
    * @extends AutoDeviceSwitchQuery
    * @interface AutoDeviceSwitch
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   /**
    * Auto Device Switch object.
@@ -6038,8 +5803,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Enable auto device switch for session.
@@ -6063,8 +5827,7 @@ declare namespace camera {
    *
    * @typedef AutoDeviceSwitchStatus
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   /**
    * Auto Device Switch Status.
@@ -6081,8 +5844,7 @@ declare namespace camera {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Notify whether device is switched.
@@ -6101,8 +5863,7 @@ declare namespace camera {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Notify whether device capability is changed.
@@ -6122,8 +5883,7 @@ declare namespace camera {
    * @interface MacroQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Macro Query object.
@@ -6151,8 +5911,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Determine whether camera macro is supported.
@@ -6172,8 +5931,7 @@ declare namespace camera {
    * @interface Macro
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Macro object.
@@ -6204,8 +5962,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Enable macro for camera.
@@ -6223,11 +5980,10 @@ declare namespace camera {
   /**
    * Enum for usage type used in capture session.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enum UsageType {
     /**
@@ -6235,8 +5991,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     BOKEH = 0
   }
@@ -6246,8 +6001,7 @@ declare namespace camera {
    *
    * @interface Session
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Session object.
@@ -6271,8 +6025,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400105 - Session config locked.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Begin capture session config.
@@ -6292,8 +6045,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Commit capture session config.
@@ -6314,8 +6066,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Commit capture session config.
@@ -6336,8 +6087,7 @@ declare namespace camera {
      * @param { CameraInput } cameraInput - Target camera input to add.
      * @returns { boolean } You can add the input into the session.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Determines whether the camera input can be added into the session.
@@ -6372,8 +6122,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Adds a camera input.
@@ -6421,8 +6170,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Removes a camera input.
@@ -6456,8 +6204,7 @@ declare namespace camera {
      * @param { CameraOutput } cameraOutput - Target camera output to add.
      * @returns { boolean } You can add the output into the session.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Determines whether the camera output can be added into the session.
@@ -6492,8 +6239,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Adds a camera output.
@@ -6541,8 +6287,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Removes a camera output.
@@ -6586,8 +6331,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Starts capture session.
@@ -6619,8 +6363,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Starts capture session.
@@ -6641,8 +6384,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Stops capture session.
@@ -6661,8 +6403,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Stops capture session.
@@ -6681,8 +6422,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Release capture session instance.
@@ -6701,8 +6441,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Release capture session instance.
@@ -6727,8 +6466,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     setUsage(usage: UsageType, enabled: boolean): void;
 
@@ -6742,8 +6480,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getCameraOutputCapabilities(camera: CameraDevice): Array<CameraOutputCapability>;
   }
@@ -7325,10 +7062,9 @@ declare namespace camera {
    * Types of preconfig, which used to configure session conveniently.
    * Preconfig type contains common use cases of camera output.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Types of preconfig, which used to configure session conveniently.
@@ -7344,8 +7080,7 @@ declare namespace camera {
      * 720P output for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * 720P output for preconfig.
@@ -7360,8 +7095,7 @@ declare namespace camera {
      * 1080P output for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * 1080P output for preconfig.
@@ -7376,8 +7110,7 @@ declare namespace camera {
      * 4K output for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * 4K output for preconfig.
@@ -7392,8 +7125,7 @@ declare namespace camera {
      * high quality output for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * high quality output for preconfig.
@@ -7408,10 +7140,9 @@ declare namespace camera {
   /**
    * The aspect ratios of preconfig, which used to configure session conveniently.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * The aspect ratios of preconfig, which used to configure session conveniently.
@@ -7426,8 +7157,7 @@ declare namespace camera {
      * Aspect ratio 1:1 for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Aspect ratio 1:1 for preconfig.
@@ -7442,8 +7172,7 @@ declare namespace camera {
      * Aspect ratio 4:3 for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Aspect ratio 4:3 for preconfig.
@@ -7458,8 +7187,7 @@ declare namespace camera {
      * Aspect ratio 16:9 for preconfig.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Aspect ratio 16:9 for preconfig.
@@ -7474,11 +7202,10 @@ declare namespace camera {
   /**
    * Enum for feature type used in scene detection.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum SceneFeatureType {
     /**
@@ -7486,8 +7213,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     MOON_CAPTURE_BOOST = 0,
 
@@ -7496,8 +7222,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     TRIPOD_DETECTION = 1,
 
@@ -7506,8 +7231,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     LOW_LIGHT_BOOST = 2
   }
@@ -7518,8 +7242,7 @@ declare namespace camera {
    * @typedef SceneFeatureDetectionResult
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface SceneFeatureDetectionResult {
     /**
@@ -7529,8 +7252,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly featureType: SceneFeatureType;
 
@@ -7541,8 +7263,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly detected: boolean;
   }
@@ -7550,11 +7271,10 @@ declare namespace camera {
   /**
    * Enum for tripod status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enum TripodStatus {
     /**
@@ -7562,8 +7282,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     INVALID = 0,
 
@@ -7572,8 +7291,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     ACTIVE = 1,
 
@@ -7582,8 +7300,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     ENTERING = 2,
 
@@ -7592,8 +7309,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     EXITING = 3
   }
@@ -7605,8 +7321,7 @@ declare namespace camera {
    * @interface TripodDetectionResult
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface TripodDetectionResult extends SceneFeatureDetectionResult {
     /**
@@ -7616,8 +7331,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly tripodStatus: TripodStatus;
   }
@@ -7628,8 +7342,7 @@ declare namespace camera {
    * @interface SceneDetectionQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface SceneDetectionQuery {
     /**
@@ -7641,8 +7354,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isSceneFeatureSupported(type: SceneFeatureType): boolean;
   }
@@ -7654,8 +7366,7 @@ declare namespace camera {
    * @interface SceneDetection
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface SceneDetection extends SceneDetectionQuery {
     /**
@@ -7667,8 +7378,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     enableSceneFeature(type: SceneFeatureType, enabled: boolean): void;
   }
@@ -7689,8 +7399,7 @@ declare namespace camera {
    * @interface PhotoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion, DepthFusion {
   }
@@ -7708,8 +7417,7 @@ declare namespace camera {
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement, AutoDeviceSwitch
    * @interface PhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   /**
    * Photo session object.
@@ -7738,8 +7446,7 @@ declare namespace camera {
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets whether the choosed preconfig type can be used to configure photo session.
@@ -7765,8 +7472,7 @@ declare namespace camera {
      *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_4_3}
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Configure photo session with the preconfig type.
@@ -7788,8 +7494,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for error events from a normal video session to get the result by registering
@@ -7812,8 +7517,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from error events.
@@ -7832,8 +7536,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for camera focus state changes to get the result by registering
@@ -7856,8 +7559,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from focus state change event callback.
@@ -7876,8 +7578,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for state changes in the camera's smooth zoom to get the result by registering
@@ -7900,8 +7601,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from zoom info event callback.
@@ -7922,8 +7622,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
@@ -7935,8 +7634,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
@@ -7949,8 +7647,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'featureDetection', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
 
@@ -7963,8 +7660,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'featureDetection', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
 
@@ -7975,8 +7671,7 @@ declare namespace camera {
      * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -7987,8 +7682,7 @@ declare namespace camera {
      * @param { AsyncCallback<EffectSuggestionType> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -7998,8 +7692,7 @@ declare namespace camera {
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Registers a listener for the camera's automatic lens switching state changes to get the result
@@ -8022,8 +7715,7 @@ declare namespace camera {
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Unsubscribes to auto device switch status event callback.
@@ -8044,8 +7736,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8057,8 +7748,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8071,8 +7761,7 @@ declare namespace camera {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<PhotoFunctions>;
 
@@ -8083,8 +7772,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionConflictFunctions(): Array<PhotoConflictFunctions>;
   }
@@ -8105,8 +7793,7 @@ declare namespace camera {
    * @interface VideoSessionForSys
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   /**
    * Video session object used by the system camera.
@@ -8123,10 +7810,9 @@ declare namespace camera {
   /**
    * Enum for quality prioritization.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   /**
    * Enum for quality prioritization.
@@ -8141,8 +7827,7 @@ declare namespace camera {
      * High quality priority.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     /**
      * High quality priority.
@@ -8157,8 +7842,7 @@ declare namespace camera {
      * Power balance priority.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     /**
      * Power balance priority.
@@ -8184,8 +7868,7 @@ declare namespace camera {
    * @interface VideoSession
    * @extends AutoDeviceSwitch
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   /**
    * Video session object.
@@ -8216,8 +7899,7 @@ declare namespace camera {
      * @returns { boolean } Whether the choosed preconfig type can be used.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets whether the choosed preconfig type can be used to configure video session.
@@ -8243,8 +7925,7 @@ declare namespace camera {
      *                                            default value {@link PreconfigRatio#PRECONFIG_RATIO_16_9}.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Configure video session with the preconfig type.
@@ -8266,8 +7947,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for error events in normal photo sessions to get the result by registering
@@ -8290,8 +7970,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from error events.
@@ -8310,8 +7989,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for error events in normal photo sessions to get the result by registering
@@ -8334,8 +8012,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from focus state change event callback.
@@ -8354,8 +8031,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for state changes in the camera's smooth zoom to get the result by registering
@@ -8378,8 +8054,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from zoom info event callback.
@@ -8400,8 +8075,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
@@ -8413,8 +8087,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
@@ -8426,8 +8099,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8439,8 +8111,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -8450,8 +8121,7 @@ declare namespace camera {
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Registers a listener for the camera's automatic lens switching state changes to get the
@@ -8475,8 +8145,7 @@ declare namespace camera {
      * @param { 'autoDeviceSwitchStatusChange' } type - Event type.
      * @param { AsyncCallback<AutoDeviceSwitchStatus> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Unsubscribes to auto device switch status event callback.
@@ -8497,8 +8166,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     on(type: 'focusTrackingInfoAvailable', callback: Callback<FocusTrackingInfo>): void;
 
@@ -8510,8 +8178,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     off(type: 'focusTrackingInfoAvailable', callback?: Callback<FocusTrackingInfo>): void;
 
@@ -8547,8 +8214,7 @@ declare namespace camera {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<VideoFunctions>;
 
@@ -8559,8 +8225,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionConflictFunctions(): Array<VideoConflictFunctions>;
 
@@ -8575,8 +8240,7 @@ declare namespace camera {
      * 3. Parameter verification failed.
      * @throws { BusinessError } 7400103 - Session not config. The session has not been committed or configured.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     /**
      * Sets quality prioritization.
@@ -8602,8 +8266,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     on(type: 'lightStatusChange', callback: AsyncCallback<LightStatus>): void;
 
@@ -8615,8 +8278,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     off(type: 'lightStatusChange', callback?: AsyncCallback<LightStatus>): void;
   }
@@ -8624,11 +8286,10 @@ declare namespace camera {
   /**
    * Enum for the camera light status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum LightStatus {
     /**
@@ -8636,8 +8297,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     NORMAL = 0,
 
@@ -8646,8 +8306,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     INSUFFICIENT = 1
   }
@@ -8655,11 +8314,10 @@ declare namespace camera {
   /**
    * Enumerates the camera portrait effects.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum PortraitEffect {
     /**
@@ -8667,8 +8325,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     OFF = 0,
 
@@ -8677,8 +8334,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     CIRCLES = 1,
 
@@ -8687,8 +8343,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     HEART = 2,
 
@@ -8697,8 +8352,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     ROTATED = 3,
 
@@ -8707,8 +8361,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     STUDIO = 4,
 
@@ -8717,8 +8370,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     THEATER = 5
   }
@@ -8729,8 +8381,7 @@ declare namespace camera {
    * @interface PortraitQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface PortraitQuery {
     /**
@@ -8762,8 +8413,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedPortraitEffects(): Array<PortraitEffect>;
   }
@@ -8775,8 +8425,7 @@ declare namespace camera {
    * @interface Portrait
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface Portrait extends PortraitQuery {
     /**
@@ -8797,8 +8446,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getPortraitEffect(): PortraitEffect;
 
@@ -8820,8 +8468,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setPortraitEffect(effect: PortraitEffect): void;
   }
@@ -8832,33 +8479,30 @@ declare namespace camera {
    * @typedef ZoomRange
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface ZoomRange {
     /**
      * Min zoom value.
      *
-     * @type { double }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    readonly min: double;
+    readonly min: number;
 
     /**
      * Max zoom value.
      *
-     * @type { double }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    readonly max: double;
+    readonly max: number;
   }
 
   /**
@@ -8867,8 +8511,7 @@ declare namespace camera {
    * @typedef PhysicalAperture
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface PhysicalAperture {
     /**
@@ -8877,21 +8520,19 @@ declare namespace camera {
      * @type { ZoomRange }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     zoomRange: ZoomRange;
 
     /**
      * The supported physical apertures.
      *
-     * @type { Array<double> }
+     * @type { Array<number> }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    apertures: Array<double>;
+    apertures: Array<number>;
   }
 
   /**
@@ -8900,14 +8541,13 @@ declare namespace camera {
    * @interface ApertureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ApertureQuery {
     /**
      * Gets the supported virtual apertures.
      *
-     * @returns { Array<double> } The array of supported virtual apertures.
+     * @returns { Array<number> } The array of supported virtual apertures.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -8918,15 +8558,14 @@ declare namespace camera {
      * Gets the supported virtual apertures.
      * Move to ApertureQuery interface from Aperture since 12.
      *
-     * @returns { Array<double> } The array of supported virtual apertures.
+     * @returns { Array<number> } The array of supported virtual apertures.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getSupportedVirtualApertures(): Array<double>;
+    getSupportedVirtualApertures(): Array<number>;
 
     /**
      * Gets the supported physical apertures.
@@ -8947,8 +8586,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedPhysicalApertures(): Array<PhysicalAperture>;
   }
@@ -8960,61 +8598,56 @@ declare namespace camera {
    * @interface Aperture
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface Aperture extends ApertureQuery {
     /**
      * Gets current virtual aperture value.
      *
-     * @returns { double } The current virtual aperture value.
+     * @returns { number } The current virtual aperture value.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    getVirtualAperture(): double;
+    getVirtualAperture(): number;
 
     /**
      * Sets virtual aperture value.
      *
-     * @param { double } aperture - virtual aperture value
+     * @param { number } aperture - virtual aperture value
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    setVirtualAperture(aperture: double): void;
+    setVirtualAperture(aperture: number): void;
 
     /**
      * Gets current physical aperture value.
      *
-     * @returns { double } The current physical aperture value.
+     * @returns { number } The current physical aperture value.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    getPhysicalAperture(): double;
+    getPhysicalAperture(): number;
 
     /**
      * Sets physical aperture value.
      *
-     * @param { double } aperture - physical aperture value
+     * @param { number } aperture - physical aperture value
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    setPhysicalAperture(aperture: double): void;
+    setPhysicalAperture(aperture: number): void;
   }
 
   /**
@@ -9024,8 +8657,7 @@ declare namespace camera {
    * @interface PortraitPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Portrait, Aperture {
     /**
@@ -9035,8 +8667,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9047,8 +8678,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -9059,8 +8689,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -9071,8 +8700,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -9083,8 +8711,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9095,8 +8722,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9108,8 +8734,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -9121,8 +8746,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
 
@@ -9135,8 +8759,7 @@ declare namespace camera {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionFunctions(outputCapability: CameraOutputCapability): Array<PortraitPhotoFunctions>;
 
@@ -9147,8 +8770,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSessionConflictFunctions(): Array<PortraitPhotoConflictFunctions>;
   }
@@ -9160,8 +8782,7 @@ declare namespace camera {
    * @interface ApertureVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ApertureVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Aperture {
     /**
@@ -9172,8 +8793,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9185,8 +8805,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -9198,8 +8817,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -9211,8 +8829,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -9224,8 +8841,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9237,8 +8853,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -9249,8 +8864,7 @@ declare namespace camera {
    * @interface ManualExposureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ManualExposureQuery {
     /**
@@ -9285,14 +8899,13 @@ declare namespace camera {
    * @interface ManualExposure
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface ManualExposure extends ManualExposureQuery {
     /**
      * Gets current exposure value.
      *
-     * @returns { int } The current exposure value.
+     * @returns { number } The current exposure value.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9302,21 +8915,20 @@ declare namespace camera {
     /**
      * Gets current exposure value.
      *
-     * @returns { int } The current exposure value.
+     * @returns { number } The current exposure value.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getExposure(): int;
+    getExposure(): number;
 
     /**
      * Sets Exposure value.
      *
-     * @param { int } exposure - Exposure value
+     * @param { number } exposure - Exposure value
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -9326,16 +8938,15 @@ declare namespace camera {
     /**
      * Sets Exposure value.
      *
-     * @param { int } exposure - Exposure value
+     * @param { number } exposure - Exposure value
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    setExposure(exposure: int): void;
+    setExposure(exposure: number): void;
   }
 
   /**
@@ -9345,8 +8956,7 @@ declare namespace camera {
    * @interface NightPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface NightPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, Beauty, ColorManagement, ManualExposure {
     /**
@@ -9356,8 +8966,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9368,8 +8977,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -9380,8 +8988,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -9392,8 +8999,7 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -9404,8 +9010,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9416,8 +9021,7 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9429,8 +9033,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
 
@@ -9442,8 +9045,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
   }
@@ -9454,21 +9056,19 @@ declare namespace camera {
    * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface IsoInfo {
     /**
      * ISO value.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly iso?: int;
+    readonly iso?: number;
   }
 
   /**
@@ -9477,21 +9077,19 @@ declare namespace camera {
    * @typedef ExposureInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ExposureInfo {
     /**
      * Exposure time value.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-     readonly exposureTime?: int;
+    readonly exposureTime?: number;
   }
 
   /**
@@ -9500,21 +9098,19 @@ declare namespace camera {
    * @typedef ApertureInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ApertureInfo {
     /**
      * Aperture value.
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly aperture?: double;
+    readonly aperture?: number;
   }
 
   /**
@@ -9523,21 +9119,19 @@ declare namespace camera {
    * @typedef LuminationInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface LuminationInfo {
     /**
      * Lumination value.
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly lumination?: double;
+    readonly lumination?: number;
   }
 
   /**
@@ -9546,8 +9140,7 @@ declare namespace camera {
    * @interface ProfessionalPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ProfessionalPhotoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
@@ -9558,8 +9151,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9571,8 +9163,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -9584,8 +9175,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -9597,8 +9187,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -9610,8 +9199,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9623,8 +9211,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9636,8 +9223,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
@@ -9649,8 +9235,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
@@ -9662,8 +9247,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
@@ -9675,8 +9259,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -9688,8 +9271,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
 
@@ -9701,8 +9283,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
 
@@ -9714,8 +9295,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
@@ -9727,8 +9307,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
   }
@@ -9740,8 +9319,7 @@ declare namespace camera {
    * @interface ProfessionalVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ProfessionalVideoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
@@ -9752,8 +9330,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9765,8 +9342,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -9778,8 +9354,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -9791,8 +9366,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -9804,8 +9378,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9817,8 +9390,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -9830,8 +9402,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
@@ -9843,8 +9414,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
@@ -9856,8 +9426,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
@@ -9869,8 +9438,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -9882,8 +9450,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'apertureInfoChange', callback: AsyncCallback<ApertureInfo>): void;
 
@@ -9895,8 +9462,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'apertureInfoChange', callback?: AsyncCallback<ApertureInfo>): void;
 
@@ -9908,8 +9474,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
@@ -9921,8 +9486,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
   }
@@ -9930,11 +9494,10 @@ declare namespace camera {
   /**
    * Enum for slow motion status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum SlowMotionStatus {
     /**
@@ -9942,8 +9505,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DISABLED = 0,
 
@@ -9952,8 +9514,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     READY = 1,
 
@@ -9962,8 +9523,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     VIDEO_START = 2,
 
@@ -9972,8 +9532,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     VIDEO_DONE = 3,
 
@@ -9982,8 +9541,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FINISHED = 4
   }
@@ -9995,8 +9553,7 @@ declare namespace camera {
    * @interface SlowMotionVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface SlowMotionVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect {
     /**
@@ -10007,8 +9564,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10020,8 +9576,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10033,8 +9588,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10046,8 +9600,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -10059,8 +9612,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10072,8 +9624,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10085,8 +9636,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Determine whether camera slow motion detection is supported.
@@ -10108,8 +9658,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Set slow motion detection area.
@@ -10130,8 +9679,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'slowMotionStatus', callback: AsyncCallback<SlowMotionStatus>): void;
 
@@ -10143,8 +9691,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'slowMotionStatus', callback?: AsyncCallback<SlowMotionStatus>): void;
   }
@@ -10156,8 +9703,7 @@ declare namespace camera {
    * @interface HighResolutionPhotoSession 
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface HighResolutionPhotoSession extends Session, AutoExposure, Focus {
     /**
@@ -10168,8 +9714,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10181,8 +9726,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10194,8 +9738,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10207,8 +9750,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
@@ -10238,8 +9780,7 @@ declare namespace camera {
    * @interface MacroPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement {
     /**
@@ -10250,8 +9791,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10263,8 +9803,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10276,8 +9815,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10289,8 +9827,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -10302,8 +9839,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10315,8 +9851,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -10337,8 +9872,7 @@ declare namespace camera {
    * @interface MacroVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement {
     /**
@@ -10349,8 +9883,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10362,8 +9895,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10375,8 +9907,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10388,8 +9919,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -10401,8 +9931,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10414,8 +9943,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -10426,8 +9954,7 @@ declare namespace camera {
    * @extends Session, Flash, AutoExposure, Focus, Zoom
    * @interface SecureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Secure camera session object.
@@ -10456,8 +9983,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Preview output is marked as secure out put by this interface.
@@ -10486,8 +10012,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for error events on security camera sessions to get the result by registering
@@ -10510,8 +10035,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from error events.
@@ -10530,8 +10054,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for error events on security camera sessions to get the result by registering
@@ -10554,8 +10077,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from focus status change event callback.
@@ -10576,8 +10098,7 @@ declare namespace camera {
    * @interface LightPaintingPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface LightPaintingPhotoSession extends Session, Flash, Focus, Zoom, ColorEffect {
     /**
@@ -10588,8 +10109,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10601,8 +10121,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10614,8 +10133,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10627,8 +10145,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -10640,8 +10157,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10653,8 +10169,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10666,8 +10181,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getLightPaintingType(): LightPaintingType;
 
@@ -10680,8 +10194,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setLightPaintingType(type: LightPaintingType): void;
 
@@ -10693,8 +10206,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedLightPaintingTypes(): Array<LightPaintingType>;
   }
@@ -10706,8 +10218,7 @@ declare namespace camera {
    * @interface QuickShotPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface QuickShotPhotoSession extends Session, AutoExposure, ColorEffect, ColorManagement, EffectSuggestion, Flash, Focus, Zoom {
     /**
@@ -10718,8 +10229,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10731,8 +10241,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10744,8 +10253,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -10757,8 +10265,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -10770,8 +10277,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10783,8 +10289,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -10796,8 +10301,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -10809,8 +10313,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -10822,8 +10325,7 @@ declare namespace camera {
    * @interface PanoramaPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface PanoramaPhotoSession extends Session, Focus, AutoExposure, WhiteBalance, ColorEffect {
     /**
@@ -10834,8 +10336,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10847,8 +10348,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10860,8 +10360,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10873,8 +10372,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
@@ -10886,8 +10384,7 @@ declare namespace camera {
    * @interface FluorescencePhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface FluorescencePhotoSession extends Session, AutoExposure, Focus, Zoom {
     /**
@@ -10898,8 +10395,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -10911,8 +10407,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -10924,8 +10419,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -10937,8 +10431,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
@@ -10950,8 +10443,7 @@ declare namespace camera {
    * @interface PhotoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface PhotoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -10963,8 +10455,7 @@ declare namespace camera {
    * @interface VideoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface VideoFunctions extends FlashQuery, AutoExposureQuery, ManualExposureQuery, FocusQuery, ZoomQuery, StabilizationQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, MacroQuery, SceneDetectionQuery {
   }
@@ -10976,8 +10467,7 @@ declare namespace camera {
    * @interface PortraitPhotoFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface PortraitPhotoFunctions extends FlashQuery, AutoExposureQuery, FocusQuery, ZoomQuery, BeautyQuery, ColorEffectQuery, ColorManagementQuery, PortraitQuery, ApertureQuery, SceneDetectionQuery {
   }
@@ -10989,8 +10479,7 @@ declare namespace camera {
    * @interface PhotoConflictFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface PhotoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -11002,8 +10491,7 @@ declare namespace camera {
    * @interface VideoConflictFunctions
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface VideoConflictFunctions extends ZoomQuery, MacroQuery {
   }
@@ -11015,8 +10503,7 @@ declare namespace camera {
    * @extends ZoomQuery, PortraitQuery, ApertureQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery {
   }
@@ -11026,8 +10513,7 @@ declare namespace camera {
    *
    * @interface CameraOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Camera output object.
@@ -11044,8 +10530,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Release output instance.
@@ -11064,8 +10549,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Release output instance.
@@ -11092,22 +10576,22 @@ declare namespace camera {
      * Status of the sketch stream.
      * 0 is stop, and 1 is start.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    status: int;
+    status: number;
 
     /**
      * The zoom ratio of the sketch stream.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    sketchRatio: double;
+    sketchRatio: number;
   }
 
   /**
@@ -11116,8 +10600,7 @@ declare namespace camera {
    * @extends CameraOutput
    * @interface PreviewOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Preview output object.
@@ -11181,8 +10664,7 @@ declare namespace camera {
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for the preview frame to start to get the result by registering
@@ -11205,8 +10687,7 @@ declare namespace camera {
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from frame start event callback.
@@ -11225,8 +10706,7 @@ declare namespace camera {
      * @param { 'frameEnd' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for the end of the preview frame to get the result by registering
@@ -11249,8 +10729,7 @@ declare namespace camera {
      * @param { 'frameEnd' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from frame end event callback.
@@ -11269,8 +10748,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the preview output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for error events on the preview output to get the result by registering
@@ -11293,8 +10771,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the preview output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from error events.
@@ -11312,8 +10789,7 @@ declare namespace camera {
      *
      * @returns { Array<FrameRateRange> } The array of supported frame rate range.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Get supported frame rates which can be set during session running.
@@ -11328,13 +10804,12 @@ declare namespace camera {
     /**
      * Set a frame rate range.
      *
-     * @param { int } minFps - Minimum frame rate per second.
-     * @param { int } maxFps - Maximum frame rate per second.
+     * @param { number } minFps - Minimum frame rate per second.
+     * @param { number } maxFps - Maximum frame rate per second.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * The supported frame rate range can be queried via the getSupportedFrameRates interface before setting.
@@ -11354,8 +10829,7 @@ declare namespace camera {
      *
      * @returns { FrameRateRange } The active frame rate range.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Queryable after setting the frame rate for the preview stream using the setFrameRate interface.
@@ -11373,8 +10847,7 @@ declare namespace camera {
      * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -11390,13 +10863,12 @@ declare namespace camera {
     /**
      * Gets the preview rotation angle.
      *
-     * @param { int } displayRotation - The current display rotation angle.
+     * @param { number } displayRotation - The current display rotation angle.
      * @returns { ImageRotation } The preview rotation angle.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the preview rotation angle.
@@ -11419,8 +10891,7 @@ declare namespace camera {
       * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
       * @throws { BusinessError } 7400201 - Camera service fatal error.
       * @syscap SystemCapability.Multimedia.Camera.Core
-      * @since arkts {'1.1':'12','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 12
       */
      /**
       * Sets the preview rotation angle.
@@ -11452,8 +10923,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     addDeferredSurface(surfaceId: string): void;
 
@@ -11464,23 +10934,21 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isSketchSupported(): boolean;
 
     /**
      * Gets the specific zoom ratio when sketch stream open.
      *
-     * @returns { double } The specific zoom ratio of sketch.
+     * @returns { number } The specific zoom ratio of sketch.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    getSketchRatio(): double;
+    getSketchRatio(): number;
 
     /**
      * Enable sketch for camera.
@@ -11502,8 +10970,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     enableSketch(enabled: boolean): void;
 
@@ -11527,8 +10994,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     attachSketchSurface(surfaceId: string): void;
 
@@ -11540,8 +11006,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'sketchStatusChanged', callback: AsyncCallback<SketchStatusData>): void;
 
@@ -11553,8 +11018,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     off(type: 'sketchStatusChanged', callback?: AsyncCallback<SketchStatusData>): void;
   }
@@ -11562,11 +11026,10 @@ declare namespace camera {
   /**
    * Enum for effect suggestion.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum EffectSuggestionType {
     /**
@@ -11574,8 +11037,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EFFECT_SUGGESTION_NONE = 0,
     /**
@@ -11583,8 +11045,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EFFECT_SUGGESTION_PORTRAIT = 1,
     /**
@@ -11592,8 +11053,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EFFECT_SUGGESTION_FOOD = 2,
 
@@ -11602,8 +11062,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EFFECT_SUGGESTION_SKY = 3,
 
@@ -11612,8 +11071,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     EFFECT_SUGGESTION_SUNRISE_SUNSET = 4,
 
@@ -11632,8 +11090,7 @@ declare namespace camera {
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class EffectSuggestionStatus {
     /**
@@ -11642,8 +11099,7 @@ declare namespace camera {
      * @type { EffectSuggestionType }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     type: EffectSuggestionType;
     /**
@@ -11652,8 +11108,7 @@ declare namespace camera {
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     status: boolean;
   }
@@ -11661,7 +11116,7 @@ declare namespace camera {
   /**
    * Enumerates the image rotation angles.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -11754,7 +11209,7 @@ declare namespace camera {
     /**
      * Latitude.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -11766,12 +11221,12 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    latitude: double;
+    latitude: number;
 
     /**
      * Longitude.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -11783,12 +11238,12 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    longitude: double;
+    longitude: number;
 
     /**
      * Altitude.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -11800,13 +11255,13 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    altitude: double;
+    altitude: number;
   }
 
   /**
    * Enumerates the image quality levels.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -11955,7 +11410,7 @@ declare namespace camera {
   /**
    * Enumerates the delivery image types.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
@@ -11994,8 +11449,7 @@ declare namespace camera {
    *
    * @typedef Photo
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Photo object
@@ -12067,8 +11521,7 @@ declare namespace camera {
    * @typedef DeferredPhotoProxy
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface DeferredPhotoProxy {
     /**
@@ -12097,7 +11550,7 @@ declare namespace camera {
   /**
    * Enumerates the camera video codec type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 13
    */
@@ -12147,8 +11600,7 @@ declare namespace camera {
    * @extends CameraOutput
    * @interface PhotoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Photo output object.
@@ -12167,8 +11619,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start capture output.
@@ -12189,8 +11640,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start capture output.
@@ -12213,8 +11663,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start capture output.
@@ -12251,8 +11700,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Start capture output.
@@ -12280,8 +11728,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     burstCapture(setting: PhotoCaptureSetting): Promise<void>;
 
@@ -12306,8 +11753,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isRawDeliverySupported(): boolean;
 
@@ -12336,8 +11782,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isDeferredImageDeliverySupported(type: DeferredDeliveryImageType): boolean;
 
@@ -12352,8 +11797,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isDeferredImageDeliveryEnabled(type: DeferredDeliveryImageType): boolean;
 
@@ -12367,8 +11811,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
 
@@ -12381,8 +11824,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isDepthDataDeliverySupported(): boolean;
 
@@ -12396,8 +11838,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     enableDepthDataDelivery(enabled: boolean): void;
 
@@ -12407,8 +11848,7 @@ declare namespace camera {
      * @returns { Array<VideoCodecType> } An array of supported video codec types for moving photo.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Get supported moving photo video codec types.
@@ -12427,8 +11867,7 @@ declare namespace camera {
      * @param { VideoCodecType } codecType - Codec type for moving photo.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Sets codec type for moving photo, default to AVC.
@@ -12562,8 +12001,7 @@ declare namespace camera {
      *
      * @returns { boolean } Is the mirror supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Check whether to support mirror photo.
@@ -12583,8 +12021,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     /**
      * Whether to enable moving photo mirroring.
@@ -12633,8 +12070,7 @@ declare namespace camera {
      * @param { 'captureStartWithInfo' } type - Event type.
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Registers a listener for the start of the photo taking to get the CaptureStartInfo by registering
@@ -12657,8 +12093,7 @@ declare namespace camera {
      * @param { 'captureStartWithInfo' } type - Event type.
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Unsubscribes from capture start event callback.
@@ -12677,8 +12112,7 @@ declare namespace camera {
      * @param { 'frameShutter' } type - Event type.
      * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to get the frame shutter information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Subscribes frame shutter event callback.
@@ -12697,8 +12131,7 @@ declare namespace camera {
      * @param { 'frameShutter' } type - Event type.
      * @param { AsyncCallback<FrameShutterInfo> } callback - Callback used to get the frame shutter information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from frame shutter event callback.
@@ -12717,8 +12150,7 @@ declare namespace camera {
      * @param { 'frameShutterEnd' } type - Event type.
      * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to get the frame shutter end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for the end of photo exposure capture to get the result by registering
@@ -12741,8 +12173,7 @@ declare namespace camera {
      * @param { 'frameShutterEnd' } type - Event type.
      * @param { AsyncCallback<FrameShutterEndInfo> } callback - Callback used to get the frame shutter end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from frame shutter end event callback.
@@ -12761,8 +12192,7 @@ declare namespace camera {
      * @param { 'captureEnd' } type - Event type.
      * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for the end of the photo shoot to get the result by registering
@@ -12786,8 +12216,7 @@ declare namespace camera {
      * @param { 'captureEnd' } type - Event type.
      * @param { AsyncCallback<CaptureEndInfo> } callback - Callback used to get the capture end information.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from capture end event callback.
@@ -12806,8 +12235,7 @@ declare namespace camera {
      * @param { 'captureReady' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to notice capture ready.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for the next available shot to get the result by registering
@@ -12830,8 +12258,7 @@ declare namespace camera {
      * @param { 'captureReady' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to notice capture ready.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from capture ready event callback.
@@ -12848,10 +12275,9 @@ declare namespace camera {
      * Subscribes estimated capture duration event callback.
      *
      * @param { 'estimatedCaptureDuration' } type - Event type.
-     * @param { AsyncCallback<double> } callback - Callback used to notify the estimated capture duration (in milliseconds).
+     * @param { AsyncCallback<number> } callback - Callback used to notify the estimated capture duration (in milliseconds).
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Registers a listener for the estimated time to take a picture to get the result by registering
@@ -12872,10 +12298,9 @@ declare namespace camera {
      * Unsubscribes from estimated capture duration event callback.
      *
      * @param { 'estimatedCaptureDuration' } type - Event type.
-     * @param { AsyncCallback<double> } callback - Callback used to notify the estimated capture duration (in milliseconds).
+     * @param { AsyncCallback<number> } callback - Callback used to notify the estimated capture duration (in milliseconds).
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Unsubscribes from estimated capture duration event callback.
@@ -12894,8 +12319,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the photo output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for errors in the photo output to get the result by registering
@@ -12918,8 +12342,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the photo output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from error events.
@@ -12938,8 +12361,7 @@ declare namespace camera {
      * @returns { Profile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -12971,8 +12393,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isQuickThumbnailSupported(): boolean;
 
@@ -13001,8 +12422,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     enableQuickThumbnail(enabled: boolean): void;
 
@@ -13039,8 +12459,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isAutoHighQualityPhotoSupported(): boolean;
 
@@ -13054,8 +12473,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     enableAutoHighQualityPhoto(enabled: boolean): void;
 
@@ -13067,8 +12485,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isAutoCloudImageEnhancementSupported(): boolean;
 
@@ -13081,8 +12498,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     enableAutoCloudImageEnhancement(enabled: boolean): void;
 
@@ -13092,8 +12508,7 @@ declare namespace camera {
      * @returns { boolean } TRUE if the moving photo is supported.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Confirm if moving photo supported.
@@ -13115,8 +12530,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Enable moving photo.
@@ -13135,13 +12549,12 @@ declare namespace camera {
     /**
      * Gets the photo rotation angle.
      *
-     * @param { int } deviceDegree - The current device rotation degree.
+     * @param { number } deviceDegree - The current device rotation degree.
      * @returns { ImageRotation } The photo rotation angle.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the photo rotation angle.
@@ -13164,8 +12577,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isOfflineSupported(): boolean;
 
@@ -13177,8 +12589,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     enableOffline(): void;
 
@@ -13191,8 +12602,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     on(type: 'offlineDeliveryFinished', callback: AsyncCallback<void>): void;
 
@@ -13205,8 +12615,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     off(type: 'offlineDeliveryFinished', callback?: AsyncCallback<void>): void;
   }
@@ -13230,7 +12639,7 @@ declare namespace camera {
     /**
      * Capture id.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -13242,11 +12651,11 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    captureId: int;
+    captureId: number;
     /**
      * Timestamp for frame.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -13258,7 +12667,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    timestamp: long;
+    timestamp: number;
   }
 
   /**
@@ -13280,7 +12689,7 @@ declare namespace camera {
     /**
      * Capture id.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
@@ -13292,7 +12701,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    captureId: int;
+    captureId: number;
   }
 
   /**
@@ -13314,7 +12723,7 @@ declare namespace camera {
     /**
      * Capture id.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -13326,11 +12735,11 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    captureId: int;
+    captureId: number;
     /**
      * Time(in milliseconds) is the shutter time for the photo.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -13342,7 +12751,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    time: long;
+    time: number;
   }
 
   /**
@@ -13364,7 +12773,7 @@ declare namespace camera {
     /**
      * Capture id.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -13376,11 +12785,11 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    captureId: int;
+    captureId: number;
     /**
      * Frame count.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -13392,7 +12801,7 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    frameCount: int;
+    frameCount: number;
   }
 
   /**
@@ -13401,8 +12810,7 @@ declare namespace camera {
    * @typedef DeferredVideoEnhancementInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DeferredVideoEnhancementInfo {
     /**
@@ -13412,8 +12820,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly isDeferredVideoEnhancementAvailable: boolean;
     /**
@@ -13423,8 +12830,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly videoId?: string;
   }
@@ -13435,8 +12841,7 @@ declare namespace camera {
    * @extends CameraOutput
    * @interface VideoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Video output object.
@@ -13455,8 +12860,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start video output.
@@ -13477,8 +12881,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start video output.
@@ -13497,8 +12900,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Stop video output.
@@ -13515,8 +12917,7 @@ declare namespace camera {
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Stop video output.
@@ -13542,8 +12943,7 @@ declare namespace camera {
      *
      * @returns { boolean } Is video mirror supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     /**
      * Determine whether video mirror is supported.
@@ -13573,8 +12973,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     /**
      * Enable/disable mirror recording.
@@ -13600,8 +12999,7 @@ declare namespace camera {
      *
      * @returns { Array<FrameRateRange> } The array of supported frame rate range.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Get supported frame rates which can be set during session running.
@@ -13616,13 +13014,12 @@ declare namespace camera {
     /**
      * Set a frame rate range.
      *
-     * @param { int } minFps - Minimum frame rate per second.
-     * @param { int } maxFps - Maximum frame rate per second.
+     * @param { number } minFps - Minimum frame rate per second.
+     * @param { number } maxFps - Maximum frame rate per second.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Set a frame rate range.
@@ -13642,8 +13039,7 @@ declare namespace camera {
      *
      * @returns { FrameRateRange } The active frame rate range.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Get active frame rate range which has been set before.
@@ -13658,13 +13054,12 @@ declare namespace camera {
     /**
      * Gets the video rotation angle.
      *
-     * @param { int } deviceDegree - The current device rotation degree.
+     * @param { number } deviceDegree - The current device rotation degree.
      * @returns { ImageRotation } The video rotation angle.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the video rotation angle.
@@ -13687,8 +13082,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isAutoDeferredVideoEnhancementSupported(): boolean;
 
@@ -13700,8 +13094,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     isAutoDeferredVideoEnhancementEnabled(): boolean;
 
@@ -13714,8 +13107,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     enableAutoDeferredVideoEnhancement(enabled: boolean): void;
 
@@ -13726,8 +13118,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     getSupportedRotations(): Array<ImageRotation>;
 
@@ -13738,8 +13129,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     isRotationSupported(): boolean;
 
@@ -13751,8 +13141,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     setRotation(rotation: ImageRotation): void;
 
@@ -13763,8 +13152,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isAutoVideoFrameRateSupported(): boolean;
 
@@ -13776,8 +13164,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     enableAutoVideoFrameRate(enabled: boolean): void;
 
@@ -13789,8 +13176,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'deferredVideoEnhancementInfo', callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -13802,8 +13188,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'deferredVideoEnhancementInfo', callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -13813,8 +13198,7 @@ declare namespace camera {
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for the start of the video recording to get the result by registering
@@ -13837,8 +13221,7 @@ declare namespace camera {
      * @param { 'frameStart' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from frame start event callback.
@@ -13857,8 +13240,7 @@ declare namespace camera {
      * @param { 'frameEnd' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Subscribes frame end event callback.
@@ -13877,8 +13259,7 @@ declare namespace camera {
      * @param { 'frameEnd' } type - Event type.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from frame end event callback.
@@ -13897,8 +13278,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for errors in the metadata stream to get the result by registering
@@ -13921,8 +13301,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from error events.
@@ -13941,8 +13320,7 @@ declare namespace camera {
      * @returns { VideoProfile } The current preconfig type.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -13962,8 +13340,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSupportedVideoMetaTypes(): Array<VideoMetaType>;
 
@@ -13976,8 +13353,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     attachMetaSurface(surfaceId: string, type: VideoMetaType): void;
   }
@@ -13985,19 +13361,17 @@ declare namespace camera {
   /**
    * Video meta type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum VideoMetaType {
     /**
      * Video meta type for storing maker info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     VIDEO_META_MAKER_INFO = 0
   }
@@ -14005,7 +13379,7 @@ declare namespace camera {
   /**
    * Metadata object type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 10
    */
@@ -14100,11 +13474,10 @@ declare namespace camera {
   /**
    * Enum for light painting tabletype.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum LightPaintingType {
     /**
@@ -14112,8 +13485,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     TRAFFIC_TRAILS = 0,
 
@@ -14122,8 +13494,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     STAR_TRAILS = 1,
 
@@ -14132,8 +13503,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SILKY_WATER = 2,
 
@@ -14142,8 +13512,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     LIGHT_GRAFFITI = 3
   }
@@ -14167,7 +13536,7 @@ declare namespace camera {
     /**
      * X coordinator of top left point.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -14179,27 +13548,27 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    topLeftX: double;
-    /**
-     * Y coordinator of top left point.
-     *
-     * @type { double }
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
-     */
+    topLeftX: number;
     /**
      * Y coordinator of top left point.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    /**
+     * Y coordinator of top left point.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 19
      */
-    topLeftY: double;
+    topLeftY: number;
     /**
      * Width of this rectangle.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -14211,11 +13580,11 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    width: double;
+    width: number;
     /**
      * Height of this rectangle.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -14227,17 +13596,16 @@ declare namespace camera {
      * @atomicservice
      * @since 19
      */
-    height: double;
+    height: number;
   }
 
   /**
    * Enum for emotion type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enum Emotion {
     /**
@@ -14245,8 +13613,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     NEUTRAL = 0,
 
@@ -14255,8 +13622,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     SADNESS = 1,
 
@@ -14265,8 +13631,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     SMILE = 2,
 
@@ -14275,8 +13640,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     SURPRISE = 3
   }
@@ -14286,8 +13650,7 @@ declare namespace camera {
    *
    * @typedef MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Metadata object basis.
@@ -14304,8 +13667,7 @@ declare namespace camera {
      * @type { MetadataObjectType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Metadata object type.
@@ -14320,11 +13682,10 @@ declare namespace camera {
     /**
      * Metadata object timestamp in milliseconds.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Metadata object timestamp in milliseconds.
@@ -14342,8 +13703,7 @@ declare namespace camera {
      * @type { Rect }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * The axis-aligned bounding box of detected metadata object.
@@ -14358,25 +13718,23 @@ declare namespace camera {
     /**
      * Metadata object id.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly objectId: int;
+    readonly objectId: number;
     /**
      * Confidence for the detected type.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly confidence: int;
+    readonly confidence: number;
   }
 
   /**
@@ -14386,8 +13744,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataFaceObject extends MetadataObject {
     /**
@@ -14397,8 +13754,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -14409,8 +13765,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly rightEyeBoundingBox: Rect;
 
@@ -14421,58 +13776,53 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly emotion: Emotion;
 
     /**
      * Emotion confidence.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly emotionConfidence: int;
+    readonly emotionConfidence: number;
 
     /**
      * Pitch angle for face.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly pitchAngle: int;
+    readonly pitchAngle: number;
 
     /**
      * Yaw angle for face.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly yawAngle: int;
+    readonly yawAngle: number;
 
     /**
      * Roll angle for face.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    readonly rollAngle: int;
+    readonly rollAngle: number;
   }
 
   /**
@@ -14482,8 +13832,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataHumanBodyObject extends MetadataObject {
   }
@@ -14495,8 +13844,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataCatFaceObject extends MetadataObject {
     /**
@@ -14506,8 +13854,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -14518,8 +13865,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly rightEyeBoundingBox: Rect;
   }
@@ -14531,8 +13877,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataCatBodyObject extends MetadataObject {
   }
@@ -14544,8 +13889,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataDogFaceObject extends MetadataObject {
     /**
@@ -14555,8 +13899,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly leftEyeBoundingBox: Rect;
 
@@ -14567,8 +13910,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly rightEyeBoundingBox: Rect;
   }
@@ -14580,8 +13922,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataDogBodyObject extends MetadataObject {
   }
@@ -14593,8 +13934,7 @@ declare namespace camera {
    * @extends MetadataObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface MetadataSalientDetectionObject extends MetadataObject {
   }
@@ -14606,8 +13946,7 @@ declare namespace camera {
    * @typedef MetadataBarcodeObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface MetadataBarcodeObject extends MetadataObject {
   }
@@ -14618,8 +13957,7 @@ declare namespace camera {
    * @typedef CameraOcclusionDetectionResult
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface CameraOcclusionDetectionResult {
     /**
@@ -14629,8 +13967,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly isCameraOccluded: boolean;
 
@@ -14641,8 +13978,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly isCameraLensDirty: boolean;
   }
@@ -14653,8 +13989,7 @@ declare namespace camera {
    * @extends CameraOutput
    * @interface MetadataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * Metadata Output object
@@ -14673,8 +14008,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start output metadata
@@ -14695,8 +14029,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Start output metadata
@@ -14715,8 +14048,7 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Stop output metadata
@@ -14733,8 +14065,7 @@ declare namespace camera {
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Stop output metadata
@@ -14756,8 +14087,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -14771,8 +14101,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
@@ -14782,8 +14111,7 @@ declare namespace camera {
      * @param { 'metadataObjectsAvailable' } type - Event type.
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for the detected metadata object to get the result by registering
@@ -14806,8 +14134,7 @@ declare namespace camera {
      * @param { 'metadataObjectsAvailable' } type - Event type.
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from metadata objects available event callback.
@@ -14826,8 +14153,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Registers a listener for errors in the video output to get the result by registering
@@ -14850,8 +14176,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Unsubscribes from error events.
@@ -15008,11 +14333,10 @@ declare namespace camera {
   /**
    * Enumerates the timelapse recording state.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum TimeLapseRecordState {
     /**
@@ -15020,8 +14344,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     IDLE = 0,
 
@@ -15030,8 +14353,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     RECORDING = 1
   }
@@ -15039,11 +14361,10 @@ declare namespace camera {
   /**
    * Enumerates the timelapse preview type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum TimeLapsePreviewType {
     /**
@@ -15051,8 +14372,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DARK = 1,
 
@@ -15061,8 +14381,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     LIGHT = 2
   }
@@ -15073,8 +14392,7 @@ declare namespace camera {
    * @typedef TryAEInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface TryAEInfo {
     /**
@@ -15084,8 +14402,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly isTryAEDone: boolean;
 
@@ -15096,8 +14413,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly isTryAEHintNeeded?: boolean;
 
@@ -15108,22 +14424,20 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly previewType?: TimeLapsePreviewType;
 
     /**
      * Timelapse capture interval.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    readonly captureInterval?: int;
+    readonly captureInterval?: number;
   }
 
   /**
@@ -15133,8 +14447,7 @@ declare namespace camera {
    * @interface TimeLapsePhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface TimeLapsePhotoSession extends Session, Focus, ManualFocus, AutoExposure, ManualExposure, ManualIso, WhiteBalance, Zoom, ColorEffect {
     /**
@@ -15145,8 +14458,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -15158,8 +14470,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -15171,8 +14482,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -15184,8 +14494,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -15197,8 +14506,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
@@ -15210,8 +14518,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
@@ -15223,8 +14530,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
@@ -15236,8 +14542,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -15249,8 +14554,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
@@ -15262,8 +14566,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
 
@@ -15275,8 +14578,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isTryAENeeded(): boolean;
 
@@ -15288,8 +14590,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     startTryAE(): void;
 
@@ -15301,8 +14602,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     stopTryAE(): void;
 
@@ -15314,8 +14614,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
 
@@ -15327,50 +14626,46 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
 
     /**
      * Gets supported timelapse interval range.
      *
-     * @returns { Array<int> } Timelapse interval range.
+     * @returns { Array<number> } Timelapse interval range.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getSupportedTimeLapseIntervalRange(): Array<int>;
+    getSupportedTimeLapseIntervalRange(): Array<number>;
 
     /**
      * Gets the timelapse interval in use.
      *
-     * @returns { int } the timelapse interval in use.
+     * @returns { number } the timelapse interval in use.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    getTimeLapseInterval(): int;
+    getTimeLapseInterval(): number;
 
     /**
      * Sets a timelapse interval for a camera device.
      *
-     * @param { int } interval The timelapse interval.
+     * @param { number } interval The timelapse interval.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    setTimeLapseInterval(interval: int): void;
+    setTimeLapseInterval(interval: number): void;
 
     /**
      * Gets the timelapse recording state in use.
@@ -15393,8 +14688,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setTimeLapseRecordState(state: TimeLapseRecordState): void;
 
@@ -15419,8 +14713,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
   }
@@ -15428,7 +14721,7 @@ declare namespace camera {
   /**
    * Enum for Depth Data Accuracy.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -15456,7 +14749,7 @@ declare namespace camera {
   /**
    * Enum for Depth Data Quality Level.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 13
@@ -15496,8 +14789,7 @@ declare namespace camera {
    * @interface DepthProfile
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DepthProfile {
     /**
@@ -15507,8 +14799,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly format: CameraFormat;
 
@@ -15519,8 +14810,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly dataAccuracy: DepthDataAccuracy;
 
@@ -15531,8 +14821,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly size: Size;
   }
@@ -15543,8 +14832,7 @@ declare namespace camera {
    * @interface DepthData.
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DepthData {
     /**
@@ -15554,8 +14842,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly format: CameraFormat;
 
@@ -15577,8 +14864,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly qualityLevel: DepthDataQualityLevel;
 
@@ -15589,8 +14875,7 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     readonly dataAccuracy: DepthDataAccuracy;
 
@@ -15613,8 +14898,7 @@ declare namespace camera {
    * @interface DepthDataOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DepthDataOutput extends CameraOutput {
     /**
@@ -15626,8 +14910,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     start(): Promise<void>;
 
@@ -15640,8 +14923,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     stop(): Promise<void>;
 
@@ -15653,8 +14935,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'depthDataAvailable', callback: AsyncCallback<DepthData>): void;
 
@@ -15666,8 +14947,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'depthDataAvailable', callback?: AsyncCallback<DepthData>): void;
 
@@ -15679,8 +14959,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -15692,8 +14971,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -15704,8 +14982,7 @@ declare namespace camera {
    * @interface DepthFusionQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface DepthFusionQuery {
     /**
@@ -15716,23 +14993,21 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     isDepthFusionSupported(): boolean;
 
     /**
      * Query the depth fusion threshold.
      *
-     * @returns { Array<double> } The depth fusion threshold.
+     * @returns { Array<number> } The depth fusion threshold.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
-    getDepthFusionThreshold(): Array<double>;
+    getDepthFusionThreshold(): Array<number>;
   }
 
   /**
@@ -15742,8 +15017,7 @@ declare namespace camera {
    * @interface DepthFusion
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface DepthFusion extends DepthFusionQuery {
     /**
@@ -15754,8 +15028,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     isDepthFusionEnabled(): boolean;
 
@@ -15769,8 +15042,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     enableDepthFusion(enabled: boolean): void;
   }
@@ -15778,11 +15050,10 @@ declare namespace camera {
   /**
    * Enum for auxiliary type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum AuxiliaryType {
     /**
@@ -15790,8 +15061,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     CONTRACT_LENS = 0
   }
@@ -15799,11 +15069,10 @@ declare namespace camera {
   /**
    * Enum for auxiliary status.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum AuxiliaryStatus {
     /**
@@ -15811,8 +15080,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     LOCKED = 0,
 
@@ -15821,8 +15089,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ON = 1,
 
@@ -15831,8 +15098,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     OFF = 2
   }
@@ -15840,11 +15106,10 @@ declare namespace camera {
   /**
    * Enum for color reservation type.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   enum ColorReservationType {
     /**
@@ -15852,8 +15117,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     NONE = 0,
 
@@ -15862,8 +15126,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     PORTRAIT = 1
   }
@@ -15874,8 +15137,7 @@ declare namespace camera {
    * @interface ColorReservationQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface ColorReservationQuery {
     /**
@@ -15886,8 +15148,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getSupportedColorReservationTypes(): Array<ColorReservationType>;
   }
@@ -15899,8 +15160,7 @@ declare namespace camera {
    * @interface ColorReservation
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface ColorReservation extends ColorReservationQuery {
     /**
@@ -15911,8 +15171,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getColorReservation(): ColorReservationType;
 
@@ -15929,8 +15188,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     setColorReservation(type: ColorReservationType): void;
   }

@@ -26,8 +26,7 @@ import { Callback } from './@ohos.base';
  * @namespace dragInteraction
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare namespace dragInteraction {
   /**
@@ -36,8 +35,7 @@ declare namespace dragInteraction {
    * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum DragState {
     /**
@@ -45,8 +43,7 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     MSG_DRAG_STATE_START = 1,
 
@@ -55,8 +52,7 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     MSG_DRAG_STATE_STOP = 2,
 
@@ -65,8 +61,7 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
@@ -77,8 +72,7 @@ declare namespace dragInteraction {
    * @interface Summary
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface Summary {
     /**
@@ -87,21 +81,19 @@ declare namespace dragInteraction {
      * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     dataType: string;
 
     /**
      * Data length of the dragged object.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    dataSize: int;
+    dataSize: number;
   }
 
   /**
@@ -125,8 +117,7 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
@@ -153,8 +144,7 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
@@ -165,8 +155,7 @@ declare namespace dragInteraction {
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getDataSummary(): Array<Summary>;
 

@@ -1614,8 +1614,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1663,8 +1662,7 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 

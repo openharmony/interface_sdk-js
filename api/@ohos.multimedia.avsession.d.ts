@@ -19,7 +19,7 @@
  */
 
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
-import { WantAgent } from './@ohos.app.ability.wantAgent';
+import { WantAgent } from './@ohos.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';

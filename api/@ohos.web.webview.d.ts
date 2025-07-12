@@ -2955,13 +2955,13 @@ declare namespace webview {
      */
     /**
      * Current index in BackForwardList.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    currentIndex: int;
+    currentIndex: number;
 
     /**
      * Size of in BackForwardList.
@@ -2970,18 +2970,18 @@ declare namespace webview {
      */
     /**
      * Size of in BackForwardList.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since 11
      */
-    size: int;
+    size: number;
 
     /**
      * Get history entry at given index.
      *
-     * @param { int } index Index of back forward list entry.
+     * @param { number } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2990,7 +2990,7 @@ declare namespace webview {
     /**
      * Get history entry at given index.
      *
-     * @param { int } index Index of back forward list entry.
+     * @param { number } index Index of back forward list entry.
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -2999,7 +2999,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    getItemAtIndex(index: int): HistoryItem;
+    getItemAtIndex(index: number): HistoryItem;
   }
 
   /**
@@ -4075,7 +4075,6 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      * @deprecated since 18
-     * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
     getHitTest(): WebHitTestType;
@@ -4274,7 +4273,6 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
-     * @deprecated since 18
      * @deprecated since 18
      * @useinstead ohos.web.webview.WebviewController#getLastHitTest
      */
@@ -5702,8 +5700,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter;
 
@@ -6083,8 +6080,7 @@ declare namespace webview {
      * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
@@ -8409,27 +8405,6 @@ declare namespace webview {
   }
 
   /**
-   * The function of reusme media play.
-   *
-   * @typedef { function } ResumePlayerFn
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type ResumePlayerFn = () => void;
-
-  /**
-   * The function of suspend media play.
-   *
-   * @typedef { function } SuspendPlayerFn
-   * @param { SuspendType } type - The scenario for suspending the media player.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type SuspendPlayerFn = (type: SuspendType) => void;
-
-  /**
    * The bridge between web core and native media player.
    * Apps should implements this interface, and pass an instance to web core.
    * Then web core can control native media player by this bridge.
@@ -8437,8 +8412,7 @@ declare namespace webview {
    * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface NativeMediaPlayerBridge {
     /**
@@ -8450,8 +8424,7 @@ declare namespace webview {
      * @param { number } height - The height of video tag.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     updateRect(x: number, y: number, width: number, height: number): void
 
@@ -8460,8 +8433,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     play(): void
 
@@ -8470,8 +8442,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     pause(): void
 
@@ -8483,8 +8454,7 @@ declare namespace webview {
      * @param { number } targetTime - The target time (in seconds) to FF/BF to.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     seek(targetTime: number): void
 
@@ -8496,8 +8466,7 @@ declare namespace webview {
      * @param { number } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setVolume(volume: number): void
 
@@ -8507,8 +8476,7 @@ declare namespace webview {
      * @param { boolean } muted - Should mute native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setMuted(muted: boolean): void
 
@@ -8520,8 +8488,7 @@ declare namespace webview {
      * @param { number } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setPlaybackRate(playbackRate: number): void
 
@@ -8530,8 +8497,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     release(): void
 
@@ -8540,8 +8506,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     enterFullscreen(): void
 
@@ -8550,8 +8515,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     exitFullscreen(): void
 
@@ -8564,16 +8528,6 @@ declare namespace webview {
     resumePlayer?(): void
 
     /**
-     * Resume the native media player.
-     *
-     * @type { ?ResumePlayerFn }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    resumePlayer?: ResumePlayerFn;
-
-    /**
      * Suspend to release native media player, not the NativeMediaPlayerBridge. The
      * embedder should save the status of player when release the native media player
      * through NativeMediaPlayerBridge.
@@ -8583,18 +8537,6 @@ declare namespace webview {
      * @since 12
      */
     suspendPlayer?(type: SuspendType): void
-
-    /**
-     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
-     * embedder should save the status of player when release the native media player
-     * through NativeMediaPlayerBridge.
-     *
-     * @type { ?SuspendPlayerFn }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
-     */
-    suspendPlayer?: SuspendPlayerFn;
   }
 
   /**
@@ -8885,8 +8827,7 @@ declare namespace webview {
    * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type CreateNativeMediaPlayerCallback =
       (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge;
@@ -9169,7 +9110,6 @@ declare namespace webview {
   /**
    * The ProxyConfig used by applyProxyOverride.
    *
-   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
@@ -9185,7 +9125,6 @@ declare namespace webview {
      * Insert a bypass rule that indicates URLs that should skip the override proxy and connect the server directly instead.
      * These maybe URLs or IP addresses and wildcards are supported. e.g. "*.example.com" means that requests to
      * "https://www.example.com" and "http://test.example.com" will connect the server directly.
-     *
      *
      * @param { string } bypassRule - The bypass rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -9209,7 +9148,6 @@ declare namespace webview {
 
     /**
      * Insert a proxy rule that indicates URLs that match the schemeFilter will connect the server directly.
-     *
      *
      * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.

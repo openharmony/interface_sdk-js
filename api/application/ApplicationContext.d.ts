@@ -751,8 +751,7 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getCurrentAppCloneIndex(): number;
 
@@ -788,8 +787,7 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   getCurrentInstanceKey(): string;
 
@@ -809,8 +807,7 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000078 - The multi-instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
     getAllRunningInstanceKeys(): Promise<Array<string>>;
 }

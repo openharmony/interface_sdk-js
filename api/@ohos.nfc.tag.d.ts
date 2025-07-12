@@ -29,9 +29,7 @@ import {
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
-/*** if arkts 1.1 */
 import type { PacMap } from './ability/dataAbilityHelper';
-/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';

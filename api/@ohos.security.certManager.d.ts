@@ -1319,8 +1319,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManager
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   /**
    * Get the certificate file store path.

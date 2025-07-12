@@ -1571,13 +1571,12 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
-    readonly labelId?: double;
+    readonly labelId?: number;
 
     /**
      * The icon of input method
@@ -1592,12 +1591,12 @@ declare namespace inputMethod {
     /**
      * The icon id of input method
      *
-     * @type { ?double }
+     * @type { ?number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    readonly iconId?: double;
+    readonly iconId?: number;
 
     /**
      * The enabledState of input method
@@ -2029,38 +2028,38 @@ declare namespace inputMethod {
     /**
      * Indicates the left point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    left: double;
+    left: number;
 
     /**
      * Indicates the top point of the cursor info and must be absolute coordinate of the physical screen.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    top: double;
+    top: number;
 
     /**
      * Indicates the width point of the cursor info.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    width: double;
+    width: number;
 
     /**
      * Indicates the height point of the cursor info.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    height: double;
+    height: number;
   }
 
   /**
@@ -2206,20 +2205,20 @@ declare namespace inputMethod {
     /**
      * Indicates the width of the input window.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    width: double;
+    width: number;
 
     /**
      * Indicates the height of the input window.
      *
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    height: double;
+    height: number;
   }
 
   /**

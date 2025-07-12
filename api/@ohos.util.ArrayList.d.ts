@@ -482,7 +482,6 @@ declare class ArrayList<T> {
    * @arkts 1.2
    */
   replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
-  replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
 
   /**
    * Executes a provided function once for each value in the arraylist object.
@@ -541,14 +540,12 @@ declare class ArrayList<T> {
    * Iterates over elements in a generic ArrayList and executes a callback function for each element.
    *
    * @param { ArrayListForEachCb<T> } callbackFn - A callback function to execute for each element.
-   * @param { ArrayListForEachCb<T> } callbackFn - A callback function to execute for each element.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  forEach(callbackFn: ArrayListForEachCb<T>): void;
   forEach(callbackFn: ArrayListForEachCb<T>): void;
 
   /**
@@ -803,12 +800,36 @@ declare class ArrayList<T> {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   [index: number]: T;
+
+  /**
+   * Returns the item at that index.
+   * 
+   * @param { number } index - The zero-based index of the desired code unit.
+   * @returns { T } The element in the arrayList matching the given index.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_get(index: number): T;
+
+  /**
+   * Set the value of item at that index.
+   *
+   * @param { number } index - The index of the element to set.
+   * @param { T } value - The value to set at the specified index.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_set(index: number, value: T): void;
 
   /**
    * If the newCapacity provided by the user is greater than or equal to length,
@@ -923,7 +944,6 @@ declare class ArrayList<T> {
    * The type of ArrayList callback function.
    *
    * @typedef { function } ArrayListForEachCb
-   * @typedef { function } ArrayListForEachCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
    * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
@@ -934,12 +954,10 @@ declare class ArrayList<T> {
    * @arkts 1.2
    */
   export type ArrayListForEachCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
-  export type ArrayListForEachCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => void;
 
   /**
    * The type of ArrayList callback function.
    *
-   * @typedef { function } ArrayListReplaceCb
    * @typedef { function } ArrayListReplaceCb
    * @param { T } value - The current element being processed
    * @param { number } index - The index of the current element
@@ -950,7 +968,6 @@ declare class ArrayList<T> {
    * @since 20
    * @arkts 1.2
    */
-  export type ArrayListReplaceCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => T;
   export type ArrayListReplaceCb<T> =  (value: T, index: number, arrlist: ArrayList<T>) => T;
 
 export default ArrayList;

@@ -50,25 +50,25 @@ declare namespace inputConsumer {
      * There is no requirement on the sequence of the keys. 
      * For example, in the combination keys Ctrl+Alt+A, Ctrl+Alt are called preceding keys.
      *
-     * @type { Array<int> }
+     * @type { Array<number> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    preKeys: Array<int>;
+    preKeys: Array<number>;
 
     /**
      * Final key. This parameter is mandatory. A callback is triggered by the final key. 
      * For example, in the combination keys Ctrl+Alt+A, A is called the final key.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKey: int;
+    finalKey: number;
 
     /**
      * Whether the final key is pressed. 
@@ -89,13 +89,13 @@ declare namespace inputConsumer {
      * a callback is triggered when the key keeps being pressed after the specified duration expires. 
      * If isFinalKeyDown is false, a callback is triggered when the key is released before the specified duration expires.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    finalKeyDownDuration: int;
+    finalKeyDownDuration: number;
 
     /**
      * Whether to report repeated key events. The value true means to report repeated key events, and the value false means the opposite. 
@@ -115,8 +115,7 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface HotkeyOptions {
     /**
@@ -124,23 +123,21 @@ declare namespace inputConsumer {
      * There is no requirement on the sequence of modifier keys.
      * For example, in Ctrl+Shift+Esc, Ctrl and Shift are modifier keys.
      *
-     * @type { Array<int> }
+     * @type { Array<number> }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
-    preKeys: Array<int>;
+    preKeys: Array<number>;
 
     /**
      * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see Keycode.
      * For example, in Ctrl+Shift+Esc, Esc is the modified key.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
-    finalKey: int;
+    finalKey: number;
 
     /**
      * Whether to report repeated key events. The value true means to report repeated key events, and the value false means the opposite.
@@ -148,8 +145,7 @@ declare namespace inputConsumer {
      * 
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     isRepeat?: boolean;
   }
@@ -159,37 +155,33 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   interface KeyPressedConfig {
     /**
      * Key value. Currently, only the KEYCODE_VOLUME_UP and KEYCODE_VOLUME_DOWN keys are supported.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
-    key: int;
+    key: number;
 
     /**
      * Key event type. Currently, this parameter can only be set to 1, indicating key press.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
-    action: int;
+    action: number;
 
     /**
      * The value true means to report repeated key events, and the value false means the opposite. The default value is true.
      *
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-     * @since arkts {'1.1':'16', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
     isRepeat: boolean;
   }
@@ -331,8 +323,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
@@ -347,8 +338,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
@@ -363,8 +353,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
@@ -379,8 +368,7 @@ declare namespace inputConsumer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 }

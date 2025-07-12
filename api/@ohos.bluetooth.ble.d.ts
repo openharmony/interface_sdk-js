@@ -4368,8 +4368,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DescriptorReadRequest {
     /**
@@ -4537,8 +4536,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface DescriptorWriteRequest {
     /**
@@ -5509,8 +5507,7 @@ declare namespace ble {
    * @typedef AdvertisingStateChangeInfo
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface AdvertisingStateChangeInfo {
     /**
@@ -5723,8 +5720,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   interface ScanFilter {
     /**
@@ -6531,8 +6527,7 @@ declare namespace ble {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enum AdvertisingState {
     /**
@@ -6546,24 +6541,21 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     STARTED = 1,
     /**
      * advertising temporarily enabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     ENABLED = 2,
     /**
      * advertising temporarily disabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     DISABLED = 3,
     /**
@@ -6577,8 +6569,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     STOPPED = 4
   }

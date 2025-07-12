@@ -169,8 +169,7 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   onDump(params: Array<string>): Array<string>;
 }

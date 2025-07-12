@@ -2024,8 +2024,7 @@ declare namespace relationalStore {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum ColumnType {
     /**
@@ -2033,8 +2032,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     NULL,
 
@@ -2045,8 +2043,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     INTEGER,
 
@@ -2055,8 +2052,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     REAL,
 
@@ -2065,8 +2061,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     TEXT,
 
@@ -2075,8 +2070,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     BLOB,
 
@@ -2085,8 +2079,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ASSET,
 
@@ -2095,8 +2088,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ASSETS,
 
@@ -2105,8 +2097,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     FLOAT_VECTOR,
 
@@ -2115,8 +2106,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     UNLIMITED_INT,
   }
@@ -3280,8 +3270,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getColumnType(columnIdentifier: number | string): Promise<ColumnType>;
 
@@ -3315,8 +3304,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getColumnTypeSync(columnIdentifier: number | string): ColumnType;
 

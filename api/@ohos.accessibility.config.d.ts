@@ -27,8 +27,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 declare namespace config {
   /**
@@ -58,13 +57,11 @@ declare namespace config {
   /**
    * Indicates the configuration of high-contrast text.
    *
-   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
-  let highContrastText: Config<boolean>;
+  var highContrastText: Config<boolean>;
   /**
    * Indicates the configuration of invert color.
    *
@@ -378,8 +375,7 @@ declare namespace config {
    * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface Config<T> {
     /**
@@ -397,8 +393,7 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     set(value: T): Promise<void>;
 
@@ -417,8 +412,7 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     set(value: T, callback: AsyncCallback<void>): void;
 
@@ -431,8 +425,7 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     get(): Promise<T>;
 
@@ -443,8 +436,7 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     get(callback: AsyncCallback<T>): void;
 

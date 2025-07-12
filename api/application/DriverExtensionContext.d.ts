@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,26 +27,16 @@ import ExtensionContext from './ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
-declare class DriverExtensionContext extends ExtensionContext {
+export default class DriverExtensionContext extends ExtensionContext {
+
+
   /**
    * update the state of driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   updateDriverState(): void;
 }
-/**
- * Define a DriverExtensionContext.
- *
- * @typedef { DriverExtensionContext }
- * @syscap SystemCapability.Driver.ExternalDevice
- * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
- */
-export default DriverExtensionContext;

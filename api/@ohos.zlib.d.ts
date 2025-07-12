@@ -73,7 +73,7 @@ declare namespace zlib {
   /**
    * CompressLevel
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
@@ -157,7 +157,7 @@ declare namespace zlib {
   /**
    * CompressStrategy
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
@@ -250,7 +250,7 @@ declare namespace zlib {
   /**
    * ParallelStrategy
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
@@ -287,7 +287,7 @@ declare namespace zlib {
   /**
    * MemLevel
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
@@ -348,7 +348,7 @@ declare namespace zlib {
   /**
    * CompressFlushMode
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12
@@ -415,7 +415,7 @@ declare namespace zlib {
   /**
    * Return codes for the compression/decompression functions.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12
@@ -450,7 +450,7 @@ declare namespace zlib {
   /**
    * The deflate compression method (the only one supported in this version).
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12
@@ -469,7 +469,7 @@ declare namespace zlib {
   /**
    * Define the reference point for offset.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12
@@ -597,22 +597,22 @@ declare namespace zlib {
     /**
      * Number of bytes available at nextIn.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    availableIn?: int;
+    availableIn?: number;
 
     /**
      * Total number of input bytes read so far.
      *
-     * @type { ?long }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    totalIn?: long;
+    totalIn?: number;
 
     /**
      * Next output byte will go here.
@@ -627,42 +627,42 @@ declare namespace zlib {
     /**
      * Remaining free space at nextOut.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    availableOut?: int;
+    availableOut?: number;
 
     /**
      * Total number of bytes output so far.
      *
-     * @type { ?long }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    totalOut?: long;
+    totalOut?: number;
 
     /**
      * Best guess about the data type.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    dataType?: int;
+    dataType?: number;
 
     /**
      * Adler-32 or CRC-32 value of the uncompressed data.
      *
-     * @type { ?long }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    adler?: long;
+    adler?: number;
   }
 
   /**
@@ -687,32 +687,32 @@ declare namespace zlib {
     /**
      * Operating system.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    os?: int;
+    os?: number;
 
     /**
      * Modification time.
      *
-     * @type { ?long }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    time?: long;
+    time?: number;
 
     /**
      * Extra flags.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    xflags?: int;
+    xflags?: number;
 
     /**
      * Extra field.
@@ -727,12 +727,12 @@ declare namespace zlib {
     /**
      * Extra field length.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    extraLen?: int;
+    extraLen?: number;
 
     /**
      * Zero-terminated file name.
@@ -797,12 +797,12 @@ declare namespace zlib {
     /**
      * Total sizeof the destination buffer.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    destLen: long
+    destLen: number
   }
 
   /**
@@ -827,12 +827,12 @@ declare namespace zlib {
     /**
      * Return dictionary length.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    dictionaryLength: int
+    dictionaryLength: number
   }
 
   /**
@@ -857,22 +857,22 @@ declare namespace zlib {
     /**
      * Total sizeof the destination buffer.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    destLength: long
+    destLength: number
 
     /**
      * Total sizeof the sourceLen.
      *
-     * @type { long }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    sourceLength: long
+    sourceLength: number
   }
 
   /**
@@ -897,22 +897,22 @@ declare namespace zlib {
     /**
      * The number of bytes of output that have been generated.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    pending: int
+    pending: number
 
     /**
      * The number of bits of output that have been generated.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    bits: int
+    bits: number
   }
 
   /**
@@ -966,13 +966,13 @@ declare namespace zlib {
    * @typedef { function }
    * @param { object } outDesc - Object passed to output function. Object dependency requirement implementation.
    * @param { ArrayBuffer } buf - Used to store data to be written.
-   * @param { int } length - Write the length of the output buffer.
-   * @returns { int } Return the number of bytes output.
+   * @param { number } length - Write the length of the output buffer.
+   * @returns { number } Return the number of bytes output.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12
    */
-  type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: int) => int;
+  type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number;
 
   /**
    * Compress the specified file.
@@ -1208,7 +1208,7 @@ declare namespace zlib {
    * Get the original size of the compressed zip file, the size is the meta data stored in zip file.
    *
    * @param { string } compressedFile - Indicates the path of the compressed file.
-   * @returns { Promise<long> } Returns the original size of the compressed file.
+   * @returns { Promise<number> } Returns the original size of the compressed file.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
@@ -1218,7 +1218,7 @@ declare namespace zlib {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getOriginalSize(compressedFile: string): Promise<long>;
+  function getOriginalSize(compressedFile: string): Promise<number>;
 
   /**
    * Asynchronous creation of verification objects.
@@ -1295,9 +1295,9 @@ declare namespace zlib {
     /**
      * Update a running Adler-32 checksum with the bytes buf.
      *
-     * @param { long } adler - Initial value of Adler32 checksum.
+     * @param { number } adler - Initial value of Adler32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated checksum.
+     * @returns { Promise<number> } Return the updated checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
@@ -1305,15 +1305,15 @@ declare namespace zlib {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    adler32(adler: long, buf: ArrayBuffer): Promise<long>;
+    adler32(adler: number, buf: ArrayBuffer): Promise<number>;
 
     /**
      * Combine two Adler-32 checksum into one.
      *
-     * @param { long } adler1 - The first Adler32 checksum.
-     * @param { long } adler2 - The second Adler32 checksum.
-     * @param { long } len2 - The length of the data block associated with the second Adler32 checksum.
-     * @returns { Promise<long> } Returns the Adler-32 checksum.
+     * @param { number } adler1 - The first Adler32 checksum.
+     * @param { number } adler2 - The second Adler32 checksum.
+     * @param { number } len2 - The length of the data block associated with the second Adler32 checksum.
+     * @returns { Promise<number> } Returns the Adler-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
@@ -1321,14 +1321,14 @@ declare namespace zlib {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    adler32Combine(adler1: long, adler2: long, len2: long): Promise<long>;
+    adler32Combine(adler1: number, adler2: number, len2: number): Promise<number>;
 
     /**
      * Update a running CRC-32 with the bytes buf.
      *
-     * @param { long } crc - Initial value of CRC-32 checksum.
+     * @param { number } crc - Initial value of CRC-32 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated CRC-32.
+     * @returns { Promise<number> } Return the updated CRC-32.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
@@ -1336,15 +1336,15 @@ declare namespace zlib {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    crc32(crc: long, buf: ArrayBuffer): Promise<long>;
+    crc32(crc: number, buf: ArrayBuffer): Promise<number>;
 
     /**
      * Combine two CRC-32 check values into one.
      *
-     * @param { long } crc1 - The first CRC-32 checksum.
-     * @param { long } crc2 - The second CRC-32 checksum.
-     * @param { long } len2 - The length of the data block associated with the second CRC-32 checksum.
-     * @returns { Promise<long> } Returns the CRC-32 check value.
+     * @param { number } crc1 - The first CRC-32 checksum.
+     * @param { number } crc2 - The second CRC-32 checksum.
+     * @param { number } len2 - The length of the data block associated with the second CRC-32 checksum.
+     * @returns { Promise<number> } Returns the CRC-32 check value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
@@ -1352,42 +1352,42 @@ declare namespace zlib {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    crc32Combine(crc1: long, crc2: long, len2: long): Promise<long>;
+    crc32Combine(crc1: number, crc2: number, len2: number): Promise<number>;
 
     /**
      * Update a running CRC-64 with the bytes buf.
      *
-     * @param { long } crc - Initial value of CRC-64 checksum.
+     * @param { number } crc - Initial value of CRC-64 checksum.
      * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated CRC-64.
+     * @returns { Promise<number> } Return the updated CRC-64.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    crc64(crc: long, buf: ArrayBuffer): Promise<long>;
+    crc64(crc: number, buf: ArrayBuffer): Promise<number>;
 
     /**
      * Get CRC-32 table.
      *
-     * @returns { Promise<Array<long>> } Return a array to the CRC-32 table.
+     * @returns { Promise<Array<number>> } Return a array to the CRC-32 table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getCrcTable(): Promise<Array<long>>;
+    getCrcTable(): Promise<Array<number>>;
 
     /**
      * Get CRC-64 table.
      *
-     * @returns { Promise<Array<long>> } Return a array to the CRC-64 table.
+     * @returns { Promise<Array<number>> } Return a array to the CRC-64 table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    getCrc64Table(): Promise<Array<long>>;
+    getCrc64Table(): Promise<Array<number>>;
   }
 
   /**
@@ -1422,7 +1422,7 @@ declare namespace zlib {
     /**
      * Return flags indicating compile-time options.
      *
-     * @returns { Promise<int> } Return flags indicating compile-time options.
+     * @returns { Promise<number> } Return flags indicating compile-time options.
      * Type sizes, two bits each, 00 = 16 bits, 01 = 32, 10 = 64, 11 = other:
      * 1.0: size of uInt.
      * 3.2: size of uLong.
@@ -1455,14 +1455,14 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    zlibCompileFlags(): Promise<int>;
+    zlibCompileFlags(): Promise<number>;
 
     /**
      * Compresses the source buffer into the destination buffer.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
      * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
+     * @param { number } sourceLen - Source data length.
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1471,7 +1471,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    compress(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
+    compress(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<ZipOutputInfo>;
 
     /**
      * Compresses the source buffer into the destination buffer.
@@ -1479,7 +1479,7 @@ declare namespace zlib {
      * @param { ArrayBuffer } dest - Destination buffer.
      * @param { ArrayBuffer } source - Source data buffer.
      * @param { CompressLevel } level - Compression level.
-     * @param { long } sourceLen - Source data length.
+     * @param { number } sourceLen - Source data length.
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1489,27 +1489,27 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    compress2(dest: ArrayBuffer, source: ArrayBuffer, level: CompressLevel, sourceLen?: long,): Promise<ZipOutputInfo>;
+    compress2(dest: ArrayBuffer, source: ArrayBuffer, level: CompressLevel, sourceLen?: number,): Promise<ZipOutputInfo>;
 
     /**
      * Calculate the upper limit of the return compression size.
      *
-     * @param { int } sourceLen - The length of the source data.
-     * @returns { Promise<int> } Returns an upper bound on the compressed size after.
+     * @param { number } sourceLen - The length of the source data.
+     * @returns { Promise<number> } Returns an upper bound on the compressed size after.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    compressBound(sourceLen: int): Promise<int>;
+    compressBound(sourceLen: number): Promise<number>;
 
     /**
      * Decompress the compressed data into its original uncompressed form.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
      * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
+     * @param { number } sourceLen - Source data length.
      * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1519,14 +1519,14 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    uncompress(dest:ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
+    uncompress(dest:ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<ZipOutputInfo>;
 
     /**
      * Decompress the compressed data into its original uncompressed form.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
      * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
+     * @param { number } sourceLen - Source data length.
      * @returns { Promise<DecompressionOutputInfo> } Return ReturnStatus and total sizeof the destination buffer and total sizeof the sourceLen.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1536,13 +1536,13 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    uncompress2(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<DecompressionOutputInfo>;
+    uncompress2(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: number): Promise<DecompressionOutputInfo>;
 
     /**
      * Verify the checksum inside the structure of compressed stream z_stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } check - Expected checksum.
+     * @param { number } check - Expected checksum.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1551,7 +1551,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    inflateValidate(strm: ZStream, check: int): Promise<ReturnStatus>;
+    inflateValidate(strm: ZStream, check: number): Promise<ReturnStatus>;
 
     /**
      * Find a synchronization point for the current decompressed stream.
@@ -1617,7 +1617,7 @@ declare namespace zlib {
      * This function is equivalent to inflateEnd followed by inflateInit, but does not free and reallocate the internal decompression state.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } windowBits - Parameter is interpreted the same as it is for inflateInit2.
+     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1626,7 +1626,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    inflateReset2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
+    inflateReset2(strm: ZStream, windowBits: number): Promise<ReturnStatus>;
 
     /**
      * This function is equivalent to inflateEnd followed by inflateInit, but does not free and reallocate the internal decompression state.
@@ -1646,8 +1646,8 @@ declare namespace zlib {
      * This function inserts bits in the inflate input stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } bits - The provided bits.
-     * @param { int } value - The provided value.
+     * @param { number } bits - The provided bits.
+     * @param { number } value - The provided value.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1656,26 +1656,26 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    inflatePrime(strm: ZStream, bits: int, value: int): Promise<ReturnStatus>;
+    inflatePrime(strm: ZStream, bits: number, value: number): Promise<ReturnStatus>;
 
     /**
      * Is used to mark locations in the input data for random access.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<int> } Return the internal marker position of the current decompressed stream.
+     * @returns { Promise<number> } Return the internal marker position of the current decompressed stream.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    inflateMark(strm: ZStream): Promise<int>;
+    inflateMark(strm: ZStream): Promise<number>;
 
     /**
      * Initializes the internal stream state for decompression.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } windowBits - Is the base two logarithm of the maximum window size.
+     * @param { number } windowBits - Is the base two logarithm of the maximum window size.
      * It should be in the range 8..15 for this version of the library. The default value is 15 if inflateInit is used instead.
      * windowBits must be greater than or equal to the windowBits value provided to deflateInit2() while compressing,
      * or it must be equal to 15 if deflateInit2() was not used. If a compressed stream with a larger window size is given as input,
@@ -1701,7 +1701,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    inflateInit2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
+    inflateInit2(strm: ZStream, windowBits: number): Promise<ReturnStatus>;
 
     /**
      * Initializes the internal stream state for decompression.
@@ -1778,20 +1778,20 @@ declare namespace zlib {
      * Obtain the number of Huffman encoding trees that have been used in the current decompression stream during the inflate process.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<long> } Return the number of used Huffman encoding trees.
+     * @returns { Promise<number> } Return the number of used Huffman encoding trees.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    inflateCodesUsed(strm: ZStream): Promise<long>;
+    inflateCodesUsed(strm: ZStream): Promise<number>;
 
     /**
      * Initialize the internal stream state for decompression using inflateBack() calls.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { long } windowBits - Parameter is interpreted the same as it is for inflateInit2. The value range is between 8~15.
+     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2. The value range is between 8~15.
      * @param { ArrayBuffer } window - The preset sliding window buffer.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1801,7 +1801,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    inflateBackInit(strm: ZStream, windowBits: long, window: ArrayBuffer): Promise<ReturnStatus>;
+    inflateBackInit(strm: ZStream, windowBits: number, window: ArrayBuffer): Promise<ReturnStatus>;
 
     /**
      * All memory allocated by inflateBackInit() is freed.
@@ -1872,7 +1872,7 @@ declare namespace zlib {
      * @param { ZStream } strm - Object to structure z_stream.
      * @param { CompressLevel } level - Compression level.
      * @param { CompressMethod } method - The compression method.
-     * @param { int } windowBits - Parameter is interpreted the same as it is for inflateInit2.
+     * @param { number } windowBits - Parameter is interpreted the same as it is for inflateInit2.
      * @param { MemLevel } memLevel - The memory usage level.
      * @param { CompressStrategy } strategy - The compression strategy.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
@@ -1883,7 +1883,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: int,
+    deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: number,
         memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
     /**
@@ -1920,15 +1920,15 @@ declare namespace zlib {
      * Calculate an upper bound on the compressed size.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { long } sourceLength - The length of uncompressed data.
-     * @returns { Promise<int> } Return an upper bound on the compressed size.
+     * @param { number } sourceLength - The length of uncompressed data.
+     * @returns { Promise<number> } Return an upper bound on the compressed size.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    deflateBound(strm: ZStream, sourceLength: long): Promise<int>;
+    deflateBound(strm: ZStream, sourceLength: number): Promise<number>;
 
     /**
      * Provides gzip header information for when a gzip stream is requested by deflateInit2().
@@ -1993,10 +1993,10 @@ declare namespace zlib {
      * Fine tune deflate's internal compression parameters.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } goodLength - Good matching length threshold.
-     * @param { int } maxLazy - Maximum lazy matching times.
-     * @param { int } niceLength - Good Lazy Length Threshold.
-     * @param { int } maxChain - Maximum chain length.
+     * @param { number } goodLength - Good matching length threshold.
+     * @param { number } maxLazy - Maximum lazy matching times.
+     * @param { number } niceLength - Good Lazy Length Threshold.
+     * @param { number } maxChain - Maximum chain length.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2005,7 +2005,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    deflateTune(strm: ZStream, goodLength: int, maxLazy: int, niceLength: int, maxChain: int): Promise<ReturnStatus>;
+    deflateTune(strm: ZStream, goodLength: number, maxLazy: number, niceLength: number, maxChain: number): Promise<ReturnStatus>;
 
     /**
      * This function is equivalent to deflateEnd followed by deflateInit, but does not free and reallocate the internal compression state.
@@ -2069,8 +2069,8 @@ declare namespace zlib {
      * Inserts bits in the deflate output stream.
      *
      * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } bits - The number of bits to be inserted. The value range is between 0~16.
-     * @param { int } value - The bit value corresponding to the number of bits.
+     * @param { number } bits - The number of bits to be inserted. The value range is between 0~16.
+     * @param { number } value - The bit value corresponding to the number of bits.
      * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2079,7 +2079,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    deflatePrime(strm: ZStream, bits: int, value: int): Promise<ReturnStatus>;
+    deflatePrime(strm: ZStream, bits: number, value: number): Promise<ReturnStatus>;
   }
 
   /**
@@ -2095,7 +2095,7 @@ declare namespace zlib {
     /**
      * Associate a gzFile with the file descriptor fd.
      *
-     * @param { int } fd - The file descriptor. Usually this is obtained through system calls to 'open' or other methods.
+     * @param { number } fd - The file descriptor. Usually this is obtained through system calls to 'open' or other methods.
      * @param { string } mode - Used to specify access mode.
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2105,13 +2105,13 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzdopen(fd: int, mode: string): Promise<void>;
+    gzdopen(fd: number, mode: string): Promise<void>;
 
     /**
      * Set the internal buffer size used by this library's functions for file to size.
      *
-     * @param { long } size - The internal buffer size to be set.
-     * @returns { Promise<int> } Returns 0 on success.
+     * @param { number } size - The internal buffer size to be set.
+     * @returns { Promise<number> } Returns 0 on success.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2119,7 +2119,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzbuffer(size: long): Promise<int>;
+    gzbuffer(size: number): Promise<number>;
 
     /**
      * Open the gzip (.gz) file at path for reading and decompressing, or compressing and writing.
@@ -2139,22 +2139,22 @@ declare namespace zlib {
     /**
      * Check if the reading position of the gzip compressed file has reached the end of the file.
      *
-     * @returns { Promise<int> } Return 1 (true) if the end-of-file indicator for file has been set while reading.
+     * @returns { Promise<number> } Return 1 (true) if the end-of-file indicator for file has been set while reading.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    gzeof(): Promise<int>;
+    gzeof(): Promise<number>;
 
     /**
      * Check if the specified gzip file handle file directly accesses the original uncompressed data.
      *
-     * @returns { Promise<int> } returns 1 (true) if transparent writing was requested.
+     * @returns { Promise<number> } returns 1 (true) if transparent writing was requested.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    gzdirect(): Promise<int>;
+    gzdirect(): Promise<number>;
 
     /**
      * Flush all pending output for file, if necessary, close file and deallocate the (de)compression state.
@@ -2192,13 +2192,13 @@ declare namespace zlib {
     /**
      * Read and decompress one byte from file.
      *
-     * @returns { Promise<int> } Return the ASCII code of a character.
+     * @returns { Promise<number> } Return the ASCII code of a character.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    gzgetc(): Promise<int>;
+    gzgetc(): Promise<number>;
 
     /**
      * Flush all pending output to file.
@@ -2218,9 +2218,9 @@ declare namespace zlib {
      * Compress and write nitems items of size size from buf to file.
      *
      * @param { ArrayBuffer } buf - The buffer to write data to.
-     * @param { long } size - The number of bytes in a single data block.
-     * @param { long } nitems - Number of data blocks to be written.
-     * @returns { Promise<long> } Return the number of full items written of size size.
+     * @param { number } size - The number of bytes in a single data block.
+     * @param { number } nitems - Number of data blocks to be written.
+     * @returns { Promise<number> } Return the number of full items written of size size.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2228,15 +2228,15 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzfwrite(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
+    gzfwrite(buf: ArrayBuffer, size: number, nitems: number): Promise<number>;
 
     /**
      * Read and decompress data from gzip compressed files.
      *
      * @param { ArrayBuffer } buf - Target buffer for storing read results.
-     * @param { long } size - The number of bytes in a single data block.
-     * @param { long } nitems - Number of data blocks to be read.
-     * @returns { Promise<long> } Return the number of full items read of size size.
+     * @param { number } size - The number of bytes in a single data block.
+     * @param { number } nitems - Number of data blocks to be read.
+     * @returns { Promise<number> } Return the number of full items read of size size.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2244,7 +2244,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzfread(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
+    gzfread(buf: ArrayBuffer, size: number, nitems: number): Promise<number>;
 
     /**
      * Same as gzclose(), gzclosew() only for use when writing or appending.
@@ -2273,8 +2273,8 @@ declare namespace zlib {
      * Compress and write the len uncompressed bytes at buf to file.
      *
      * @param { ArrayBuffer } buf - Object to the data buffer to be written.
-     * @param { long } len - The len uncompressed bytes.
-     * @returns { Promise<long> } Return the number of uncompressed bytes written.
+     * @param { number } len - The len uncompressed bytes.
+     * @returns { Promise<number> } Return the number of uncompressed bytes written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2282,13 +2282,13 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzwrite(buf: ArrayBuffer, len: long): Promise<long>;
+    gzwrite(buf: ArrayBuffer, len: number): Promise<number>;
 
     /**
      * Push c back onto the stream for file to be read as the first character on the next read.
      *
-     * @param { int } c - To fall back to the character before the input stream.
-     * @returns { Promise<int> } Return the character pushed.
+     * @param { number } c - To fall back to the character before the input stream.
+     * @returns { Promise<number> } Return the character pushed.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2296,18 +2296,18 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzungetc(c: int): Promise<int>;
+    gzungetc(c: number): Promise<number>;
 
     /**
      * Return the starting position for the next gzread or gzwrite on file.
      *
-     * @returns { Promise<long> } Return the starting position for the next gzread or gzwrite on file.
+     * @returns { Promise<number> } Return the starting position for the next gzread or gzwrite on file.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    gztell(): Promise<long>;
+    gztell(): Promise<number>;
 
     /**
      * Dynamically update the compression level and strategy for file.
@@ -2327,9 +2327,9 @@ declare namespace zlib {
     /**
      * Set the starting position to offset relative to whence for the next gzread or gzwrite on file.
      *
-     * @param { long } offset - Specify the new offset to move to.
+     * @param { number } offset - Specify the new offset to move to.
      * @param { OffsetReferencePoint } whence - Define the reference point for offset.
-     * @returns { Promise<long> } Return the resulting offset location as measured in bytes from the beginning of the uncompressed stream.
+     * @returns { Promise<number> } Return the resulting offset location as measured in bytes from the beginning of the uncompressed stream.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2337,7 +2337,7 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzseek(offset: long, whence: OffsetReferencePoint): Promise<long>;
+    gzseek(offset: number, whence: OffsetReferencePoint): Promise<number>;
 
     /**
      * Rewind file. This function is supported only for reading.
@@ -2354,7 +2354,7 @@ declare namespace zlib {
      * Read and decompress up to len uncompressed bytes from file into buf.
      *
      * @param { ArrayBuffer } buf - User provided buffer address.
-     * @returns { Promise<long> } Return the number of uncompressed bytes actually read, less than len for end of file.
+     * @returns { Promise<number> } Return the number of uncompressed bytes actually read, less than len for end of file.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2362,13 +2362,13 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzread(buf: ArrayBuffer): Promise<long>;
+    gzread(buf: ArrayBuffer): Promise<number>;
 
     /**
      * Compress and write the given null-terminated string s to file, excluding the terminating null character.
      *
      * @param { string } str - Format descriptors and plain text.
-     * @returns { Promise<int> } Return the number of characters written.
+     * @returns { Promise<number> } Return the number of characters written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2376,13 +2376,13 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzputs(str: string): Promise<int>;
+    gzputs(str: string): Promise<number>;
 
     /**
      * Compress and write c, converted to an unsigned char, into file.
      *
-     * @param { int } ch - Write ASCII values for characters.
-     * @returns { Promise<int> } Return the value that was written.
+     * @param { number } char - Write ASCII values for characters.
+     * @returns { Promise<number> } Return the value that was written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
@@ -2390,14 +2390,14 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzputc(ch: int): Promise<int>;
+    gzputc(char: number): Promise<number>;
 
     /**
      * Convert, format, compress, and write the arguments to file under control of the string format, as in fprintf.
      *
      * @param { string } format - Format descriptors and plain text.
      * @param { Array<string | number> } args - Variable argument lists.
-     * @returns { Promise<int> } Return the number of uncompressed bytes actually written.
+     * @returns { Promise<number> } Return the number of uncompressed bytes actually written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
      * 2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
@@ -2406,18 +2406,18 @@ declare namespace zlib {
      * @atomicservice
      * @since 12
      */
-    gzprintf(format: string, ...args: Array<string | number>): Promise<int>;
+    gzprintf(format: string, ...args: Array<string | number>): Promise<number>;
 
     /**
      * Return the current compressed (actual) read or write offset of file.
      *
-     * @returns { Promise<long> } Return the current compressed (actual) read or write offset of file.
+     * @returns { Promise<number> } Return the current compressed (actual) read or write offset of file.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    gzoffset(): Promise<long>;
+    gzoffset(): Promise<number>;
 
     /**
      * Read and decompress bytes from file into buf, until len-1 characters are read, or until a newline character is read and transferred to buf,

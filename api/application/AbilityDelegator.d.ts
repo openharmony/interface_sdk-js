@@ -18,8 +18,6 @@
  * @kit AbilityKit
  */
 
-import AbilityStage from '../@ohos.app.ability.AbilityStage';
-import { AbilityStageMonitor } from './AbilityStageMonitor';
 import { AsyncCallback } from '../@ohos.base';
 import { AbilityMonitor } from './AbilityMonitor';
 import Context from './Context';

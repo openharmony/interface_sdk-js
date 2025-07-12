@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,8 +26,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace volumeManager
  * @syscap SystemCapability.FileManagement.StorageService.Volume
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 declare namespace volumeManager {
   /**
@@ -36,8 +35,7 @@ declare namespace volumeManager {
    * @interface Volume
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export interface Volume {
     /**
@@ -56,8 +54,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     uuid: string;
 
@@ -77,8 +74,7 @@ declare namespace volumeManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     description: string;
 
@@ -135,8 +131,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 
@@ -153,8 +148,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAllVolumes(): Promise<Array<Volume>>;
 
@@ -266,8 +260,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getVolumeByUuid(uuid: string, callback: AsyncCallback<Volume>): void;
 
@@ -287,8 +280,7 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getVolumeByUuid(uuid: string): Promise<Volume>;
 

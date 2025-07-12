@@ -489,24 +489,21 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum PrimaryButton {
     /**
      * Left mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     LEFT = 0,
     /**
      * Right mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     RIGHT = 1
   }
@@ -516,32 +513,28 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum RightClickType {
     /**
      * Tapping the right-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
      * Tapping the left-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
      * Tapping or pressing the touchpad with two fingers.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
@@ -602,8 +595,7 @@ declare namespace pointer {
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface CursorConfig {
     /**
@@ -613,8 +605,7 @@ declare namespace pointer {
      * 
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     followSystem : boolean;
   }
@@ -740,7 +731,7 @@ declare namespace pointer {
   /**
    * Sets the mouse pointer style. This API uses an asynchronous callback to return the result.
    *
-   * @param { int } windowId - Window ID.
+   * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -749,12 +740,12 @@ declare namespace pointer {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+  function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the mouse pointer style. This API uses a promise to return the result.
    *
-   * @param { int } windowId - Window ID.
+   * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -763,20 +754,19 @@ declare namespace pointer {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
+  function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
    * Sets the mouse pointer style. This API returns the result synchronously.
    *
-   * @param { int } windowId - Window ID.
+   * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
+  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
 
   /**
    * Obtains the mouse pointer style. This API uses an asynchronous callback to return the result.
@@ -812,10 +802,9 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  function getPointerStyleSync(windowId: int): PointerStyle;
+  function getPointerStyleSync(windowId: number): PointerStyle;
 
   /**
    * Sets the visible status of the mouse pointer. This API uses an asynchronous callback to return the result.

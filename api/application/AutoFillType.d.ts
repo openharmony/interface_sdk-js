@@ -25,8 +25,7 @@
   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
   * @systemapi
   * @StageModelOnly
-  * @since arkts {'1.1':'11', '1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 11
   */
 export enum AutoFillType {
   /**
@@ -35,8 +34,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   UNSPECIFIED = 0,
 
@@ -46,8 +44,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PASSWORD = 1,
 
@@ -57,8 +54,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   USER_NAME = 2,
 
@@ -68,8 +64,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NEW_PASSWORD = 3,
 
@@ -79,8 +74,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FULL_STREET_ADDRESS = 4,
 
@@ -90,8 +84,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOUSE_NUMBER = 5,
 
@@ -101,8 +94,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DISTRICT_ADDRESS = 6,
 
@@ -112,8 +104,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CITY_ADDRESS = 7,
 
@@ -123,8 +114,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PROVINCE_ADDRESS = 8,
 
@@ -134,8 +124,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COUNTRY_ADDRESS = 9,
 
@@ -145,8 +134,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_FULL_NAME = 10,
 
@@ -156,8 +144,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_LAST_NAME = 11,
 
@@ -167,8 +154,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_FIRST_NAME = 12,
 
@@ -178,8 +164,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PHONE_NUMBER = 13,
 
@@ -189,8 +174,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PHONE_COUNTRY_CODE = 14,
 
@@ -200,8 +184,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FULL_PHONE_NUMBER = 15,
 
@@ -221,8 +204,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BANK_CARD_NUMBER = 17,
 
@@ -232,8 +214,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ID_CARD_NUMBER = 18,
 
@@ -243,8 +224,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NICKNAME = 24,
 
@@ -254,8 +234,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DETAIL_INFO_WITHOUT_STREET = 25,
 
@@ -265,8 +244,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FORMAT_ADDRESS = 26,
 
@@ -276,8 +254,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   PASSPORT_NUMBER = 27,
 
@@ -287,8 +264,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   VALIDITY = 28,
 
@@ -298,8 +274,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ISSUE_AT = 29,
 
@@ -309,8 +284,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ORGANIZATION = 30,
 
@@ -320,8 +294,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TAX_ID = 31,
 
@@ -331,8 +304,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ADDRESS_CITY_AND_STATE = 32,
 
@@ -342,8 +314,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   FLIGHT_NUMBER = 33,
 
@@ -353,8 +324,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_NUMBER = 34,
 
@@ -364,8 +334,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_FILE_NUMBER = 35,
 
@@ -375,8 +344,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_PLATE = 36,
 
@@ -386,8 +354,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENGINE_NUMBER = 37,
 
@@ -397,8 +364,7 @@ export enum AutoFillType {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_CHASSIS_NUMBER = 38
 }

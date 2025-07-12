@@ -2392,6 +2392,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2490,11 +2491,13 @@ declare namespace resourceManager {
      * @param { Resource } resource - Indicates the resource object.
      * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20
@@ -3200,6 +3203,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20
@@ -3324,6 +3328,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessError } 9001007 - Failed to format the resource obtained based on the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20

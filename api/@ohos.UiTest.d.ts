@@ -1553,7 +1553,6 @@ declare interface UIEventObserver {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @test
    * @arkts 1.1&1.2
-   * @arkts 1.1&1.2
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
 
@@ -1577,7 +1576,6 @@ declare interface UIEventObserver {
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
    * @test
-   * @arkts 1.1&1.2
    * @arkts 1.1&1.2
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
@@ -3353,7 +3351,6 @@ declare class Component {
     * @since arkts {'1.1':'11','1.2':'20'}
     * @test
     * @arkts 1.1&1.2
-    * @arkts 1.1&1.2
     */
    pinchOut(scale: double): Promise<void>;
    /**
@@ -3381,7 +3378,6 @@ declare class Component {
     * @atomicservice
     * @since arkts {'1.1':'11','1.2':'20'}
     * @test
-    * @arkts 1.1&1.2
     * @arkts 1.1&1.2
     */
    pinchIn(scale: double): Promise<void>;
@@ -3620,12 +3616,10 @@ declare class Driver {
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @since 20
     * @test
-    * @arkts 1.2
     * @arkts 1.2
     */
    findComponent(on: On): Promise<Component | null>;
@@ -3659,12 +3653,10 @@ declare class Driver {
     * @param { WindowFilter } filter - the filer condition of the target {@link UiWindow}.
     * @returns { Promise<UiWindow | null> } the first matched {@link UiWindow} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @since 20
     * @test
-    * @arkts 1.2
     * @arkts 1.2
     */
    findWindow(filter: WindowFilter): Promise<UiWindow | null>;
@@ -3701,12 +3693,10 @@ declare class Driver {
     * @param { int } time - duration of finding in milliseconds, not less than 0.
     * @returns { Promise<Component | null> } the first matched {@link Component} or undefined.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @since 20
     * @test
-    * @arkts 1.2
     * @arkts 1.2
     */
   waitForComponent(on: On, time: int): Promise<Component | null>;
@@ -3753,12 +3743,10 @@ declare class Driver {
     * @param { On } on - the attribute requirements of the target {@link Component}.
     * @returns { Promise<Array<Component> | null> } the matched {@link Component}s list.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
     * @since 20
     * @test
-    * @arkts 1.2
     * @arkts 1.2
     */
   findComponents(on: On): Promise<Array<Component> | null>;

@@ -298,8 +298,7 @@ declare namespace photoAccessHelper {
    * @enum { number } ThumbnailVisibility
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum ThumbnailVisibility {
     /**
@@ -307,8 +306,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     INVISIBLE = 0,
     /**
@@ -316,8 +314,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     VISIBLE = 1
   }
@@ -373,8 +370,7 @@ declare namespace photoAccessHelper {
      * Stored both on a local device and cloud.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16
      */
     LOCAL_AND_CLOUD = 3
   }
@@ -538,8 +534,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ANALYSIS_SEARCH_INDEX = 16
   }
@@ -659,8 +654,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     COLOR_STYLE_PHOTO = 12
   }
@@ -1098,8 +1092,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   class MediaAssetManager {
     /**
@@ -1117,8 +1110,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static requestImage(
       context: Context,
@@ -1166,8 +1158,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static requestImageData(
       context: Context,
@@ -1209,8 +1200,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static requestMovingPhoto(
       context: Context,
@@ -1232,8 +1222,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static cancelRequest(context: Context, requestId: string): Promise<void>;
 
@@ -1272,8 +1261,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     static requestVideoFile(
       context: Context,
@@ -1310,8 +1298,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static loadMovingPhoto(
       context: Context,
@@ -1712,8 +1699,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getThumbnailData(type: ThumbnailType): Promise<ArrayBuffer>;
     /**
@@ -1843,8 +1829,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getExif(callback: AsyncCallback<string>): void;
     /**
@@ -1877,8 +1862,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getExif(): Promise<string>;
     /**
@@ -1894,8 +1878,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setPending(pendingState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -1911,8 +1894,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setPending(pendingState: boolean): Promise<void>;
     /**
@@ -1927,8 +1909,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isEdited(callback: AsyncCallback<boolean>): void;
     /**
@@ -1943,8 +1924,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isEdited(): Promise<boolean>;
     /**
@@ -1959,8 +1939,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     requestEditData(callback: AsyncCallback<string>): void;
     /**
@@ -1975,8 +1954,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     requestEditData(): Promise<string>;
     /**
@@ -1991,8 +1969,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getEditData(): Promise<MediaAssetEditData>;
     /**
@@ -2007,8 +1984,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     clone(title: string): Promise<PhotoAsset>;
     /**
@@ -2051,8 +2027,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     requestSource(callback: AsyncCallback<number>): void;
     /**
@@ -2067,8 +2042,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     requestSource(): Promise<number>;
     /**
@@ -2102,8 +2076,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     commitEditedAsset(editData: string, uri: string): Promise<void>;
     /**
@@ -2133,8 +2106,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     revertToOriginal(): Promise<void>;
     /**
@@ -2182,8 +2154,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     cancelPhotoRequest(requestId: string): void;
     /**
@@ -2200,8 +2171,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getKeyFrameThumbnail(beginFrameTimeMs: number, type: ThumbnailType): Promise<image.PixelMap>;
   }
@@ -2825,8 +2795,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     THUMBNAIL_VISIBLE = 'thumbnail_visible',
     /**
@@ -2834,8 +2803,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     IS_CE_AUTO = 'is_auto',
     /**
@@ -2843,8 +2811,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     OWNER_ALBUM_ID = 'owner_album_id',
     /**
@@ -2852,16 +2819,14 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     IS_RECENT_SHOW = 'is_recent_show',
     /**
      * Suffix of the asset, read only
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     MEDIA_SUFFIX = 'media_suffix',
     /**
@@ -2933,8 +2898,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ALBUM_LPATH = 'lpath',
     /**
@@ -2942,8 +2906,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     BUNDLE_NAME = 'bundle_name',
     /**
@@ -3256,8 +3219,7 @@ declare namespace photoAccessHelper {
    * @interface PhotoCreationSource
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface PhotoCreationSource {
     /**
@@ -3266,8 +3228,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     bundleName?: string;
     /**
@@ -3276,8 +3237,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     appName?: string;
     /**
@@ -3286,8 +3246,7 @@ declare namespace photoAccessHelper {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     appId?: string;
     /**
@@ -3296,8 +3255,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     tokenId?: number;
   }
@@ -3387,8 +3345,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Checks whether the result set points to the last row.
@@ -3576,8 +3533,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Obtains the last object asset in the fetch result.
@@ -3612,8 +3568,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Obtains the last object asset in the fetch result.
@@ -3864,8 +3819,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     SOURCE = 2048,
     /**
@@ -4296,8 +4250,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     readonly lpath?: string;
     /**
@@ -4501,8 +4454,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     readonly dateAdded?: number;
     /**
@@ -4512,8 +4464,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     readonly dateModified?: number;
     /**
@@ -5451,8 +5402,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
      getDataAnalysisProgress(analysisType: AnalysisType): Promise<string>;
     /**
@@ -5714,8 +5664,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     saveGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -5731,8 +5680,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     removeFormInfo(info: FormInfo, callback: AsyncCallback<void>): void;
     /**
@@ -5748,8 +5696,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     removeFormInfo(info: FormInfo): Promise<void>;
     /**
@@ -5765,8 +5712,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     removeGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -5782,8 +5728,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     updateGalleryFormInfo(info: GalleryFormInfo): Promise<void>;
     /**
@@ -5833,8 +5778,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     grantPhotoUrisPermission(tokenId: number, uriList: Array<string>, photoPermissionType: PhotoPermissionType, hideSensitiveType: HideSensitiveType): Promise<number>;
     /**
@@ -5873,8 +5817,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     cancelPhotoUriPermission(tokenId: number, uri: string, photoPermissionType: PhotoPermissionType): Promise<number>;
     /**
@@ -5891,8 +5834,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     startThumbnailCreationTask(predicate: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): number;
     /**
@@ -5924,8 +5866,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     getSharedPhotoAssets(options: FetchOptions): Array<SharedPhotoAsset>;
     /**
@@ -5937,8 +5878,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error. It is recommended to retry and check the logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getSupportedPhotoFormats(photoType: PhotoType): Promise<Array<string>>;
     /**
@@ -5954,8 +5894,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     startAssetAnalysis(type: AnalysisType, assetUris?: Array<string>): Promise<number>;
     /**
@@ -5971,8 +5910,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getAlbumsByIds(albumIds: Array<number>): Promise<Map<number, Album>>;
     /**
@@ -5991,8 +5929,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     createAssetsForAppWithAlbum(source: PhotoCreationSource, albumUri: string, isAuthorized: boolean, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>;
 
@@ -6872,8 +6809,7 @@ declare namespace photoAccessHelper {
    * @interface GalleryFormInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface GalleryFormInfo {
     /**
@@ -6882,8 +6818,7 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     formId: string;
     /**
@@ -6892,8 +6827,7 @@ declare namespace photoAccessHelper {
      * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     assetUris?: Array<string>;
   }
@@ -7060,8 +6994,7 @@ declare namespace photoAccessHelper {
      * @type { Array<SharedPhotoAsset> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     sharedPhotoAssets: Array<SharedPhotoAsset>;
     /**
@@ -7070,8 +7003,7 @@ declare namespace photoAccessHelper {
      * @type { Array<SharedAlbumAsset> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     sharedAlbumAssets: Array<SharedAlbumAsset>;
     /**
@@ -7080,8 +7012,7 @@ declare namespace photoAccessHelper {
      * @type { Array<SharedPhotoAsset> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     sharedExtraPhotoAssets: Array<SharedPhotoAsset>;
   }
@@ -7965,8 +7896,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     constructor(compatibleFormat: string, formatVersion: string);
 
@@ -8059,8 +7989,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PRIVATE_MOVING_PHOTO_METADATA = 5
   }
@@ -8649,8 +8578,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     setOrientation(orientation: number): void;
 
@@ -8702,8 +8630,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static deleteLocalAssetsPermanently(context: Context, assets: Array<PhotoAsset>): Promise<void>;
 
@@ -8808,8 +8735,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setIsRecentShow(isRencentShow: boolean): void;
   }
@@ -9507,8 +9433,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     thumbnailModifiedMs?: number;
     /**
@@ -9517,8 +9442,7 @@ declare namespace photoAccessHelper {
      * @type { ThumbnailVisibility }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     thumbnailVisible: ThumbnailVisibility;
   }
@@ -9529,8 +9453,7 @@ declare namespace photoAccessHelper {
    * @interface SharedAlbumAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
     interface SharedAlbumAsset {
       /**
@@ -9539,8 +9462,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       albumId: number;
       /**
@@ -9549,8 +9471,7 @@ declare namespace photoAccessHelper {
        * @type { AlbumType }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       albumType: AlbumType;
       /**
@@ -9559,8 +9480,7 @@ declare namespace photoAccessHelper {
        * @type { AlbumSubtype }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       albumSubType: AlbumSubtype;
       /**
@@ -9569,8 +9489,7 @@ declare namespace photoAccessHelper {
        * @type { string }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       albumName: string;
       /**
@@ -9579,8 +9498,7 @@ declare namespace photoAccessHelper {
        * @type { string }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       coverUri: string;
       /**
@@ -9589,8 +9507,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       count: number;
       /**
@@ -9599,8 +9516,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       imageCount: number;
       /**
@@ -9609,8 +9525,7 @@ declare namespace photoAccessHelper {
        * @type { number }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @systemapi
-       * @since arkts {'1.1':'14','1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 14
        */
       videoCount: number;
     }
@@ -9877,8 +9792,7 @@ declare namespace photoAccessHelper {
    * @extends MediaAlbumChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi 
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
    class MediaAnalysisAlbumChangeRequest extends MediaAlbumChangeRequest {
     /**
@@ -9890,8 +9804,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     constructor(album: Album);
 
@@ -9909,8 +9822,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
   }
@@ -9920,8 +9832,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi 
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   class AnalysisAlbum {
     /**
@@ -9933,8 +9844,7 @@ declare namespace photoAccessHelper {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     constructor(album: Album);
     /**
@@ -9951,8 +9861,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getOrderPosition(assets: Array<PhotoAsset>): Promise<Array<number>>;
   }
@@ -10010,8 +9919,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getHighlightResource(resourceUri: string): Promise<ArrayBuffer>;
 
@@ -10029,8 +9937,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setHighlightUserActionData(type: HighlightUserActionType, actionData: number): Promise<void>;
 
@@ -10048,8 +9955,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setSubTitle(subTitle: string): Promise<void>;
 
@@ -10069,8 +9975,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static deleteHighlightAlbums(context: Context, albums: Array<Album>): Promise<number>;
   }
@@ -10281,8 +10186,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     submitCloudEnhancementTasks(
       photoAssets: Array<PhotoAsset>,
@@ -10351,8 +10255,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     queryCloudEnhancementTaskState(photoAsset: PhotoAsset): Promise<CloudEnhancementTaskState>;
 
@@ -10442,8 +10345,7 @@ declare namespace photoAccessHelper {
    * @enum { number } CloudMediaAssetTaskStatus
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum CloudMediaAssetTaskStatus {
     /**
@@ -10451,8 +10353,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     DOWNLOADING = 0,
     /**
@@ -10460,8 +10361,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     PAUSED = 1,
     /**
@@ -10469,8 +10369,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     IDLE = 2
   }
@@ -10481,8 +10380,7 @@ declare namespace photoAccessHelper {
    * @enum { number } CloudMediaTaskPauseCause
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum CloudMediaTaskPauseCause {
     /**
@@ -10490,8 +10388,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     NO_PAUSE = 0,
     /**
@@ -10499,8 +10396,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     TEMPERATURE_LIMIT = 1,
     /**
@@ -10508,8 +10404,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     ROM_LIMIT = 2,
     /**
@@ -10517,8 +10412,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     NETWORK_FLOW_LIMIT = 3,
     /**
@@ -10526,8 +10420,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     WIFI_UNAVAILABLE = 4,
     /**
@@ -10535,8 +10428,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     POWER_LIMIT = 5,
     /**
@@ -10544,8 +10436,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     BACKGROUND_TASK_UNAVAILABLE = 6,
     /**
@@ -10553,8 +10444,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     FREQUENT_USER_REQUESTS = 7,
     /**
@@ -10562,8 +10452,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     CLOUD_ERROR = 8,
     /**
@@ -10571,8 +10460,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     USER_PAUSED = 9
   }
@@ -10584,8 +10472,7 @@ declare namespace photoAccessHelper {
    * @interface CloudMediaAssetStatus
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface CloudMediaAssetStatus {
     /**
@@ -10595,8 +10482,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     readonly taskStatus: CloudMediaAssetTaskStatus;
     /**
@@ -10607,8 +10493,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     readonly taskInfo: string;
     /**
@@ -10618,8 +10503,7 @@ declare namespace photoAccessHelper {
      * @readonly
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     readonly errorCode: CloudMediaTaskPauseCause;
   }
@@ -10630,8 +10514,7 @@ declare namespace photoAccessHelper {
    * @enum { number } CloudMediaDownloadType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum CloudMediaDownloadType {
     /**
@@ -10639,8 +10522,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     DOWNLOAD_FORCE = 0,
     /**
@@ -10648,8 +10530,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     DOWNLOAD_GENTLE = 1
   }
@@ -10660,8 +10541,7 @@ declare namespace photoAccessHelper {
    * @enum { number } CloudMediaRetainType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum CloudMediaRetainType {
     /**
@@ -10669,8 +10549,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     RETAIN_FORCE = 0
   }
@@ -10681,8 +10560,7 @@ declare namespace photoAccessHelper {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   class CloudMediaAssetManager {
     /**
@@ -10698,8 +10576,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static getCloudMediaAssetManagerInstance(context: Context): CloudMediaAssetManager;
 
@@ -10717,8 +10594,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     startDownloadCloudMedia(downloadType: CloudMediaDownloadType): Promise<void>;
 
@@ -10733,8 +10609,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     pauseDownloadCloudMedia(): Promise<void>;
 
@@ -10749,8 +10624,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     cancelDownloadCloudMedia(): Promise<void>;
 
@@ -10768,8 +10642,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     retainCloudMediaAsset(retainType: CloudMediaRetainType): Promise<void>;
 
@@ -10784,8 +10657,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     getCloudMediaAssetStatus(): Promise<CloudMediaAssetStatus>;
   }

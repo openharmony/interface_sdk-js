@@ -43,7 +43,7 @@ declare namespace bundleResourceManager {
    * Used to query the enumeration value of resource info. Multiple values can be passed in the form.
    * Multiple value input, such as GET_RESOURCE_INFO_WITH_LABEL | GET_RESOURCE_INFO_WITH_ICON.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -117,7 +117,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -128,15 +128,15 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
+  function getBundleResourceInfo(bundleName: string, resourceFlags?: number): BundleResourceInfo;
 
   /**
    * Obtains the BundleResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
-   * @param { int } [appIndex] - Indicates the index of the bundle,The default value is 0.
+   * @param { number } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo object that will be returned.
+   * @param { number } [appIndex] - Indicates the index of the bundle,The default value is 0.
    * @returns { BundleResourceInfo } Returns the BundleResourceInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -148,14 +148,14 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getBundleResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): BundleResourceInfo;
+  function getBundleResourceInfo(bundleName: string, resourceFlags?: number, appIndex?: number): BundleResourceInfo;
 
   /**
    * Obtains the LauncherAbilityResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -166,16 +166,16 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
+  function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: number): Array<LauncherAbilityResourceInfo>;
 
   /**
    * Obtains the LauncherAbilityResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information
+   * @param { number } [resourceFlags] {@link ResourceFlag} - Indicates the flag used to specify information
    * <br>contained in the LauncherAbilityResourceInfo object that will be returned.
-   * @param { int } [appIndex] - Indicates the index of the bundle,The default value is 0.
+   * @param { number } [appIndex] - Indicates the index of the bundle,The default value is 0.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -187,13 +187,13 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
+  function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: number, appIndex?: number): Array<LauncherAbilityResourceInfo>;
 
   /**
    * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
    * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - The callback of getting a list of BundleResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -203,13 +203,13 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
+  function getAllBundleResourceInfo(resourceFlags: number, callback: AsyncCallback<Array<BundleResourceInfo>>): void;
 
   /**
    * Obtains BundleResourceInfo of all bundles available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the BundleResourceInfo that will be returned.
    * @returns { Promise<Array<BundleResourceInfo>> } Returns a list of BundleResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -219,13 +219,13 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllBundleResourceInfo(resourceFlags: int): Promise<Array<BundleResourceInfo>>;
+  function getAllBundleResourceInfo(resourceFlags: number): Promise<Array<BundleResourceInfo>>;
 
   /**
    * Obtains LauncherAbilityResourceInfo of all launcher abilities available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
    * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback - The callback of getting a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -235,13 +235,13 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>): void;
+  function getAllLauncherAbilityResourceInfo(resourceFlags: number, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>): void;
 
   /**
    * Obtains LauncherAbilityResourceInfo of all launcher abilities available in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { int } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
+   * @param { number } resourceFlags {@link ResourceFlag} - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo that will be returned.
    * @returns { Promise<Array<LauncherAbilityResourceInfo>> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -251,7 +251,7 @@ declare namespace bundleResourceManager {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllLauncherAbilityResourceInfo(resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
+  function getAllLauncherAbilityResourceInfo(resourceFlags: number): Promise<Array<LauncherAbilityResourceInfo>>;
 
   /**
    * Obtains the abilityResourceInfo of a specified bundle.

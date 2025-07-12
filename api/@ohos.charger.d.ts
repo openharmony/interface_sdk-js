@@ -30,7 +30,7 @@ declare namespace charger {
   /**
    * Indicates the type of the charger plugged-in.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 10

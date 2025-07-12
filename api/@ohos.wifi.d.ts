@@ -23,8 +23,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Wi-Fi.
  * @namespace wifi
- * @since arkts {'1.1':'6', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6
  */
 declare namespace wifi {
   /**

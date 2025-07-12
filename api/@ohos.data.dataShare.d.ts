@@ -76,8 +76,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     waitTime?: number;
   }
@@ -354,8 +353,7 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface RdbDataChangeNode {
     /**
@@ -399,8 +397,7 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface PublishedDataChangeNode {
     /**
@@ -829,8 +826,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     addTemplate(uri: string, subscriberId: string, template: Template): void;
 
@@ -860,8 +856,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     delTemplate(uri: string, subscriberId: string): void;
 
@@ -895,8 +890,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(
       type: 'rdbDataChange',
@@ -935,8 +929,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(
       type: 'rdbDataChange',
@@ -975,8 +968,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(
       type: 'publishedDataChange',
@@ -1015,8 +1007,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(
       type: 'publishedDataChange',
@@ -1055,8 +1046,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     publish(
       data: Array<PublishedItem>,
@@ -1093,8 +1083,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     publish(
       data: Array<PublishedItem>,
@@ -1132,8 +1121,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
 
@@ -1225,8 +1213,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -1258,8 +1245,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     insert(uri: string, value: ValuesBucket): Promise<number>;
 
@@ -1291,8 +1277,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -1324,8 +1309,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -1531,8 +1515,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -1562,8 +1545,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -1776,8 +1758,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Close the connection between datashare and extension.

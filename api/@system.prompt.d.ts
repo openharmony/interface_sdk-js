@@ -388,7 +388,7 @@ export interface ShowActionMenuOptions {
  * @atomicservice
  * @since 11
  */
-declare class Prompt {
+export default class Prompt {
   /**
    * Displays the notification text.
    *
@@ -440,5 +440,3 @@ declare class Prompt {
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }
-
-export default Prompt;

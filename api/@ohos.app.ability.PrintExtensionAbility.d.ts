@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type Want from './@ohos.app.ability.Want';
+import type Want from './@ohos.application.Want';
 import type print from './@ohos.print';
 
 /**
@@ -29,7 +29,7 @@ import type print from './@ohos.print';
  * @since arkts {'1.1':'14','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare class PrintExtensionAbility {
+export default class PrintExtensionAbility {
 
   /**
    * Called once to initialize the extensionAbility.
@@ -138,5 +138,3 @@ declare class PrintExtensionAbility {
    */
   onDestroy(): void;
 }
-
-export default PrintExtensionAbility;

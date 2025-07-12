@@ -45,8 +45,7 @@ export interface RunningMultiInstanceInfo {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     uid: number;
   
@@ -56,8 +55,7 @@ export interface RunningMultiInstanceInfo {
      * @type { Array<number> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     pids: Array<number>;
   }

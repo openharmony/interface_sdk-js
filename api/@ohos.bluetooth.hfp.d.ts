@@ -33,8 +33,7 @@ declare namespace hfp {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   type BaseProfile = baseProfile.BaseProfile;
 

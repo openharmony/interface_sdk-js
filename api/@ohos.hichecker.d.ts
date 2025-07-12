@@ -23,8 +23,7 @@
  *
  * @namespace hichecker
  * @syscap SystemCapability.HiviewDFX.HiChecker
- * @since arkts {'1.1':'8','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8
  */
 declare namespace hichecker {
   /**
@@ -32,50 +31,45 @@ declare namespace hichecker {
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
-  const RULE_CAUTION_PRINT_LOG = 9223372036854775808n; // 1 << 63
+  const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
 
   /**
    * The caution rule trigger crash.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
-  const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n; // 1 << 62
+  const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
 
   /**
    * The thread rule check slow process.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
-  const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
+  const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
 
   /**
    * The process rule check ability connection leak.
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
-  const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n; // 1 << 33
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
 
   /**
    * The process rule check ability Arkui performance
    *
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n; // 1 << 34
+  const RULE_CHECK_ARKUI_PERFORMANCE: 17179869184n; // 1 << 34
 
   /**
    * add one or more rule.
@@ -104,8 +98,7 @@ declare namespace hichecker {
    *
    * @returns { bigint } all added thread rule and process rule.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function getRule(): bigint;
 
@@ -127,8 +120,7 @@ declare namespace hichecker {
    * @param { bigint } rule
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function addCheckRule(rule: bigint): void;
 
@@ -138,8 +130,7 @@ declare namespace hichecker {
    * @param { bigint } rule
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function removeCheckRule(rule: bigint): void;
 
@@ -150,8 +141,7 @@ declare namespace hichecker {
    * @returns { boolean } the result of whether the query rule is added.
    * @throws { BusinessError } 401 - the parameter check failed, only one bigint type parameter is needed
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function containsCheckRule(rule: bigint): boolean;
 }

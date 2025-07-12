@@ -657,12 +657,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-<<<<<<< HEAD
    * @since 20
-=======
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
->>>>>>> 94c88a315 (change 0603 to 0328)
    */
   onDidForeground(): void;
 
@@ -708,12 +703,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-<<<<<<< HEAD
    * @since 20
-=======
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
->>>>>>> 94c88a315 (change 0603 to 0328)
    */
   onWillBackground(): void;
 
@@ -730,12 +720,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-<<<<<<< HEAD
    * @since 20
-=======
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
->>>>>>> 94c88a315 (change 0603 to 0328)
    */
   onDidBackground(): void;
 
@@ -799,14 +784,9 @@ declare class UIAbility extends Ability {
    * @since 10
    */
   /**
-<<<<<<< HEAD
    * Called when a UIAbility instance that has undergone the following states is started again:
    * started in the foreground, running in the foreground, and switched to the background.
    * In other words, a UIAbility instance enters this lifecycle callback from a hot start.
-=======
-   * Called when the launch mode of an ability is set to singleton.
-   * This happens when you re-launch an ability that has been at the top of the ability stack.
->>>>>>> 94c88a315 (change 0603 to 0328)
    *
    * @param { Want } want - Want information, such as the ability name and bundle name.
    * @param { AbilityConstant.LaunchParam } launchParam - Reason for the UIAbility startup and the last abnormal exit.
@@ -838,8 +818,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onDump(params: Array<string>): Array<string>;
 

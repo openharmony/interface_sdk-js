@@ -144,7 +144,6 @@ declare namespace util {
      * @since 20
      */
     encodeSync(src: Uint8Array, options?: Type): Uint8Array;
-    encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -160,7 +159,6 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeToStringSync(src: Uint8Array, options?: Type): string;
     encodeToStringSync(src: Uint8Array, options?: Type): string;
 
     /**
@@ -178,7 +176,6 @@ declare namespace util {
      * @since 20
      */
     decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
-    decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
      * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
@@ -194,7 +191,6 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
     encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
@@ -212,13 +208,11 @@ declare namespace util {
      * @since 20
      */
     encodeToString(src: Uint8Array, options?: Type): Promise<string>;
-    encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
     /**
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
      * input u8 array into a newly allocated u8 array.
      *
-     * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
@@ -230,7 +224,6 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
     decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
 
@@ -942,8 +935,6 @@ declare namespace util {
      * @param { Object } obj - An object
      * @returns { boolean } Returns true if the given object is the same as the current object;
      * Otherwise, false is returned.
-     * @returns { boolean } Returns true if the given object is the same as the current object;
-     * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1025,8 +1016,6 @@ declare namespace util {
     /**
      * Checks whether the current RationalNumber object represents the value 0.
      *
-     * @returns { boolean } If the value represented by the current object is 0, true is returned.
-     * Otherwise, false is returned.
      * @returns { boolean } If the value represented by the current object is 0, true is returned.
      * Otherwise, false is returned.
      * @syscap SystemCapability.Utils.Lang
@@ -1159,8 +1148,6 @@ declare namespace util {
      * Check whether the entered value is of arraybuffer type.
      *
      * @param { Object } value - A arraybuffer value
-     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance.
-     * This does not include SharedArrayBuffer instances.
      * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance.
      * This does not include SharedArrayBuffer instances.
      * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
@@ -1439,19 +1426,6 @@ declare namespace util {
   function promisify(original: Function): (...args: FixedArray<Any>) => Promise<Any>;
 
   /**
-   * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
-   * callback as the last argument, and return a function that returns promises.
-   *
-   * @param { Function } original - Asynchronous Function
-   * @returns { Function } Return a function that returns promises
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  function promisify(original: Function): (...args: FixedArray<Any>) => Promise<Any>;
-
-  /**
    * Get the hash code of an object.
    *
    * @param { object } [object] - The object that need to get hash code.
@@ -1462,31 +1436,6 @@ declare namespace util {
    * @since 20
    */
   function getHash(object: object): number;
-
-  /**
-   * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
-   *
-   * @param { boolean } [entropyCache] - Whether to generate the UUID with using the cache. Default: true.
-   * @returns { Uint8Array | undefined } Return a Uint8Array representing this UUID, or undefined on failure.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  function generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array | undefined;
-
-  /**
-   * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
-   *
-   * @param { string } uuid - String that specifies a UUID
-   * @returns { Uint8Array } Return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
-   * @throws { BusinessError } 10200002 - Invalid uuid string.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  function parseUUID(uuid: string): Uint8Array;
 
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.

@@ -28,6 +28,7 @@ import { AsyncCallback } from "./@ohos.base";
  * @since 9
  */
 
+
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates screen hopping event.

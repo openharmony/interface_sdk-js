@@ -18,7 +18,9 @@
  * @kit IPCKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides inter process communication capability.
@@ -1179,8 +1181,7 @@ declare namespace rpc {
      *
      * @returns { MessageSequence } Return the object created.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     static create(): MessageSequence;
 
@@ -1188,8 +1189,7 @@ declare namespace rpc {
      * Reclaim the {@link MessageSequence} object.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     reclaim(): void;
 
@@ -1203,8 +1203,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeRemoteObject(object: IRemoteObject): void;
 
@@ -1215,8 +1214,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readRemoteObject(): IRemoteObject;
 
@@ -1231,8 +1229,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeInterfaceToken(token: string): void;
 
@@ -1259,12 +1256,11 @@ declare namespace rpc {
     /**
      * Obtains the storage capacity (in bytes) of the {@link MessageSequence} object.
      *
-     * @returns { int } Return the storage capacity of the {@link MessageSequence} object.
+     * @returns { number } Return the storage capacity of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    getCapacity(): int;
+    getCapacity(): number;
 
     /**
      * Sets the size of data (in bytes) contained in the {@link MessageSequence} object.
@@ -1286,17 +1282,16 @@ declare namespace rpc {
      * <p>{@code false} is returned if the capacity set in this method is less than
      * the size of data contained in the {@link MessageSequence}.
      *
-     * @param { int } size - Indicates the storage capacity of the {@link MessageSequence} object.
+     * @param { number } size - Indicates the storage capacity of the {@link MessageSequence} object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @throws { BusinessError } 1900011 - Memory allocation failed.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    setCapacity(size: int): void;
+    setCapacity(size: number): void;
 
     /**
      * Obtains the writable data space (in bytes) in the {@link MessageSequence} object.
@@ -1374,8 +1369,7 @@ declare namespace rpc {
      *
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeNoException(): void;
 
@@ -1387,8 +1381,7 @@ declare namespace rpc {
      *
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readException(): void;
 
@@ -1421,30 +1414,28 @@ declare namespace rpc {
     /**
      * Writes an integer value into the {@link MessageSequence} object.
      *
-     * @param { int } val - Indicates the integer value to write.
+     * @param { number } val - Indicates the integer value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeInt(val: int): void;
+    writeInt(val: number): void;
 
     /**
      * Writes a long integer value into the {@link MessageSequence} object.
      *
-     * @param { long } val - Indicates the long integer value to write.
+     * @param { number } val - Indicates the long integer value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeLong(val: long): void;
+    writeLong(val: number): void;
 
     /**
      * Writes a floating point value into the {@link MessageSequence} object.
@@ -1481,8 +1472,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeBoolean(val: boolean): void;
 
@@ -1524,15 +1514,14 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeParcelable(val: Parcelable): void;
 
     /**
      * Writes a byte array into the {@link MessageSequence} object.
      *
-     * @param { int[] } byteArray - Indicates the byte array to write.
+     * @param { number[] } byteArray - Indicates the byte array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1541,10 +1530,9 @@ declare namespace rpc {
      *     5.The type of the element in the array is incorrect.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeByteArray(byteArray: int[]): void;
+    writeByteArray(byteArray: number[]): void;
 
     /**
      * Writes a short integer array into the {@link MessageSequence} object.
@@ -1569,7 +1557,7 @@ declare namespace rpc {
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { int[] } intArray - Indicates the integer array to write.
+     * @param { number[] } intArray - Indicates the integer array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1578,10 +1566,9 @@ declare namespace rpc {
      *     5.The type of the element in the array is incorrect.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeIntArray(intArray: int[]): void;
+    writeIntArray(intArray: number[]): void;
 
     /**
      * Writes a long integer array into the {@link MessageSequence} object.
@@ -1624,7 +1611,7 @@ declare namespace rpc {
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { double[] } doubleArray - Indicates the double-precision floating point array to write.
+     * @param { number[] } doubleArray - Indicates the double-precision floating point array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1633,10 +1620,9 @@ declare namespace rpc {
      *     5.The type of the element in the array is incorrect.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeDoubleArray(doubleArray: double[]): void;
+    writeDoubleArray(doubleArray: number[]): void;
 
     /**
      * Writes a boolean array into the {@link MessageSequence} object.
@@ -1651,8 +1637,7 @@ declare namespace rpc {
      *     4.The element does not exist in the array.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeBooleanArray(booleanArray: boolean[]): void;
 
@@ -1687,8 +1672,7 @@ declare namespace rpc {
      *     5.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeStringArray(stringArray: string[]): void;
 
@@ -1703,8 +1687,7 @@ declare namespace rpc {
      *     4.The element does not exist in the array.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeParcelableArray(parcelableArray: Parcelable[]): void;
 
@@ -1747,24 +1730,22 @@ declare namespace rpc {
     /**
      * Reads an integer value from the {@link MessageSequence} object.
      *
-     * @returns { int } Return an integer value.
+     * @returns { number } Return an integer value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readInt(): int;
+    readInt(): number;
 
     /**
      * Reads a long integer value from the {@link MessageSequence} object.
      *
-     * @returns { long } Return a long integer value.
+     * @returns { number } Return a long integer value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readLong(): long;
+    readLong(): number;
 
     /**
      * Reads a floating point value from the {@link MessageSequence} object.
@@ -1792,8 +1773,7 @@ declare namespace rpc {
      * @returns { boolean } Return a boolean value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readBoolean(): boolean;
 
@@ -1828,8 +1808,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readParcelable(dataIn: Parcelable): void;
 
@@ -1884,28 +1863,26 @@ declare namespace rpc {
     /**
      * Reads an integer array from the {@link MessageSequence} object.
      *
-     * @param { int[] } dataIn - Indicates the integer array to read.
+     * @param { number[] } dataIn - Indicates the integer array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
      *     3.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readIntArray(dataIn: int[]): void;
+    readIntArray(dataIn: number[]): void;
 
     /**
      * Reads an integer array from the {@link MessageSequence} object.
      *
-     * @returns { int[] } Return an integer array.
+     * @returns { number[] } Return an integer array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readIntArray(): int[];
+    readIntArray(): number[];
 
     /**
      * Reads a long integer array from the {@link MessageSequence} object.
@@ -1958,28 +1935,26 @@ declare namespace rpc {
     /**
      * Reads a double-precision floating point array from the {@link MessageSequence} object.
      *
-     * @param { double[] } dataIn - Indicates the double-precision floating point array to read.
+     * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
      *     3.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readDoubleArray(dataIn: double[]): void;
+    readDoubleArray(dataIn: number[]): void;
 
     /**
      * Reads a double-precision floating point array from the {@link MessageSequence} object.
      *
-     * @returns { double[] } Return a double-precision floating point array.
+     * @returns { number[] } Return a double-precision floating point array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readDoubleArray(): double[];
+    readDoubleArray(): number[];
 
     /**
      * Reads a boolean array from the {@link MessageSequence} object.
@@ -1991,8 +1966,7 @@ declare namespace rpc {
      *     3.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readBooleanArray(dataIn: boolean[]): void;
 
@@ -2002,8 +1976,7 @@ declare namespace rpc {
      * @returns { boolean[] } Return a boolean array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readBooleanArray(): boolean[];
 
@@ -2041,8 +2014,7 @@ declare namespace rpc {
      *     3.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readStringArray(dataIn: string[]): void;
 
@@ -2052,8 +2024,7 @@ declare namespace rpc {
      * @returns { string[] } Return a string array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readStringArray(): string[];
 
@@ -2070,8 +2041,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @throws { BusinessError } 1900012 - Failed to call the JS callback function.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readParcelableArray(parcelableArray: Parcelable[]): void;
 
@@ -2104,16 +2074,14 @@ declare namespace rpc {
     /**
      * Closes the specified file descriptor.
      *
-     * @param { int } fd - File descriptor to be closed.
+     * @param { number } fd - File descriptor to be closed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
-     * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    static closeFileDescriptor(fd: int): void;
+    static closeFileDescriptor(fd: number): void;
 
     /**
      * Duplicates the specified file descriptor.
@@ -2142,27 +2110,25 @@ declare namespace rpc {
     /**
      * Writes a file descriptor to this {@link MessageSequence} object.
      *
-     * @param { int } fd - File descriptor to wrote.
+     * @param { number } fd - File descriptor to wrote.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    writeFileDescriptor(fd: int): void;
+    writeFileDescriptor(fd: number): void;
 
     /**
      * Reads a file descriptor from this {@link MessageSequence} object.
      *
-     * @returns { int } Return a file descriptor obtained.
+     * @returns { number } Return a file descriptor obtained.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    readFileDescriptor(): int;
+    readFileDescriptor(): number;
 
     /**
      * Writes an anonymous shared memory object to this {@link MessageSequence} object.
@@ -2173,8 +2139,7 @@ declare namespace rpc {
      *     2.The parameter is not an instance of the Ashmem object.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     writeAshmem(ashmem: Ashmem): void;
 
@@ -2184,8 +2149,7 @@ declare namespace rpc {
      * @returns { Ashmem } Return the anonymous share object obtained.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     readAshmem(): Ashmem;
 
@@ -2225,7 +2189,7 @@ declare namespace rpc {
      * Writes raw data to this {@link MessageSequence} object.
      *
      * @param { ArrayBuffer } rawData - Raw data to wrote.
-     * @param { int } size - Size of the raw data, in bytes.
+     * @param { number } size - Size of the raw data, in bytes.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2235,10 +2199,9 @@ declare namespace rpc {
      *     6.The transferred size is greater than the byte length of ArrayBuffer.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    writeRawDataBuffer(rawData: ArrayBuffer, size: int): void;
+    writeRawDataBuffer(rawData: ArrayBuffer, size: number): void;
 
     /**
      * Reads raw data from this {@link MessageSequence} object.
@@ -2259,17 +2222,16 @@ declare namespace rpc {
     /**
      * Reads raw data from this {@link MessageSequence} object.
      *
-     * @param { int } size - Size of the raw data to read.
+     * @param { number } size - Size of the raw data to read.
      * @returns { ArrayBuffer } Return the raw data obtained, in bytes.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    readRawDataBuffer(size: int): ArrayBuffer;
+    readRawDataBuffer(size: number): ArrayBuffer;
 
     /**
      * Writes the data in an ArrayBuffer object into this {@Link MessageSequence} object.
@@ -2359,8 +2321,7 @@ declare namespace rpc {
      *                            object will be marshalled.
      * @returns { boolean } Return {@code true} if the marshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     marshalling(dataOut: MessageSequence): boolean;
 
@@ -2371,8 +2332,7 @@ declare namespace rpc {
      *                            which the {@code Parcelable} object has been marshalled.
      * @returns { boolean } Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     unmarshalling(dataIn: MessageSequence): boolean;
   }
@@ -2439,29 +2399,26 @@ declare namespace rpc {
    *
    * @typedef RequestResult
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface RequestResult {
     /**
      * Error code. 0 indicates successful, otherwise it is failed.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    errCode: int;
+    errCode: number;
 
     /**
      * Message code. It is same as the code in {@link SendRequest} method.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    code: int;
+    code: number;
 
     /**
      * MessageSequence object sent to the peer process.
@@ -2469,8 +2426,7 @@ declare namespace rpc {
      *
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     data: MessageSequence;
 
@@ -2480,8 +2436,7 @@ declare namespace rpc {
      *
      * @type { MessageSequence }
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     reply: MessageSequence;
   }
@@ -2583,7 +2538,7 @@ declare namespace rpc {
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param { int } code - Message code called by the request, which is determined by the client and server.
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param {MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param {MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -2594,11 +2549,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption
@@ -2637,7 +2591,7 @@ declare namespace rpc {
      * a callback will be invoked when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param {int } code - Message code called by the request, which is determined by the client and server.
+     * @param {number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -2648,11 +2602,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption,
@@ -2677,7 +2630,7 @@ declare namespace rpc {
      * Register a callback used to receive notifications of the death of a remote object.
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be registered.
-     * @param { int } flags - Indicates the flag of the death notification.
+     * @param { number } flags - Indicates the flag of the death notification.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2685,10 +2638,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900005 - Operation allowed only for the proxy object.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    registerDeathRecipient(recipient: DeathRecipient, flags: int): void;
+    registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
     /**
      * Unregister a callback used to receive notifications of the death of a remote object.
@@ -2708,7 +2660,7 @@ declare namespace rpc {
      * Unregister a callback used to receive notifications of the death of a remote object.
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be unregister.
-     * @param { int } flags - Indicates the flag of the death notification.
+     * @param { number } flags - Indicates the flag of the death notification.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2716,10 +2668,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900005 - Operation allowed only for the proxy object.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    unregisterDeathRecipient(recipient: DeathRecipient, flags: int): void;
+    unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
     /**
      * Obtains the interface descriptor of an object.
@@ -2750,8 +2701,7 @@ declare namespace rpc {
      *
      * @returns { boolean } Return {@code true} if the object is dead; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     isObjectDead(): boolean;
   }
@@ -2766,8 +2716,7 @@ declare namespace rpc {
    * 
    * @typedef IRemoteBroker
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface IRemoteBroker {
     /**
@@ -2776,8 +2725,7 @@ declare namespace rpc {
      * @returns { IRemoteObject } Return the RemoteObject if the caller is a RemoteObject; return the IRemoteObject,
      * that is, the holder of this RemoteProxy object, if the caller is a RemoteProxy object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     asObject(): IRemoteObject;
   }
@@ -2799,16 +2747,14 @@ declare namespace rpc {
    * 
    * @typedef DeathRecipient
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface DeathRecipient {
     /**
      * Called to perform subsequent operations when a death notification of the remote object is received.
      *
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     onRemoteDied(): void;
   }
@@ -2828,26 +2774,24 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    static TF_SYNC: int;
+    static TF_SYNC: number;
 
     /**
      * Indicates asynchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    static TF_ASYNC: int;
+    static TF_ASYNC: number;
 
     /**
      * Indicates the sendRequest API for returning the file descriptor.
@@ -2871,25 +2815,24 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @type { int }
+     * @type { number }
      * @default 8
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
-    static TF_WAIT_TIME: int;
+    static TF_WAIT_TIME: number;
 
     /**
      * A constructor used to create a MessageOption instance.
      *
-     * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
+     * @param { number } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @param { number } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since arkts {'1.1':'7', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    constructor(syncFlags?: int, waitTime?: int);
+    constructor(syncFlags?: number, waitTime?: number);
 
     /**
      * A constructor used to create a MessageOption instance.
@@ -2934,20 +2877,18 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the asynchronous call succeeds;
      *                      return {@code false} if the synchronous call succeeds.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     isAsync(): boolean;
 
     /**
      * Sets the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @param { boolean } isAsync - Indicates the call flag, which can be synchronous or asynchronous.
+     * @param { boolean } async - Indicates the call flag, which can be synchronous or asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    setAsync(isAsync: boolean): void;
+    setAsync(async: boolean): void;
 
     /**
      * Obtains the maximum wait time for this RPC call.
@@ -3062,7 +3003,7 @@ declare namespace rpc {
      * @arkts 1.1&1.2
      */
     onRemoteMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption
@@ -3134,7 +3075,7 @@ declare namespace rpc {
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param { int } code - Message code called by the request, which is determined by the client and server.
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -3145,11 +3086,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption
@@ -3188,7 +3128,7 @@ declare namespace rpc {
      * a callback will be invoked when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param { int } code - Message code called by the request, which is determined by the client and server.
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -3199,11 +3139,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption,
@@ -3213,22 +3152,20 @@ declare namespace rpc {
     /**
      * Obtains the PID of the {@link RemoteProxy} object.
      *
-     * @returns { int } Return the PID of the {@link RemoteProxy} object.
+     * @returns { number } Return the PID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    getCallingPid(): int;
+    getCallingPid(): number;
 
     /**
      * Obtains the UID of the {@link RemoteProxy} object.
      *
-     * @returns { int } Return the UID of the {@link RemoteProxy} object.
+     * @returns { number } Return the UID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    getCallingUid(): int;
+    getCallingUid(): number;
 
     /**
      * Modifies the description of the current {@code RemoteObject}.
@@ -3373,7 +3310,7 @@ declare namespace rpc {
      * Register a callback used to receive death notifications of a remote object.
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be registered.
-     * @param { int } flags - Indicates the flag of the death notification. This is a reserved parameter.
+     * @param { number } flags - Indicates the flag of the death notification. This is a reserved parameter.
      *                   Set it to {@code 0}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -3381,10 +3318,9 @@ declare namespace rpc {
      *     3.The callback used to receive remote object death notifications is empty.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    registerDeathRecipient(recipient: DeathRecipient, flags: int): void;
+    registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
     /**
      * Unregister a callback used to receive death notifications of a remote object.
@@ -3405,7 +3341,7 @@ declare namespace rpc {
      * Unregister a callback used to receive death notifications of a remote object.
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be unregister.
-     * @param { int } flags - Indicates the flag of the death notification. This is a reserved parameter.
+     * @param { number } flags - Indicates the flag of the death notification. This is a reserved parameter.
      *                   Set it to {@code 0}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -3413,10 +3349,9 @@ declare namespace rpc {
      *     3.The callback used to receive remote object death notifications is empty.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    unregisterDeathRecipient(recipient: DeathRecipient, flags: int): void;
+    unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
     /**
      * Queries the interface descriptor of remote object.
@@ -3489,7 +3424,7 @@ declare namespace rpc {
      * a promise will be fulfilled when the response to sendMessageRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param { int } code - Message code called by the request, which is determined by the client and server.
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -3500,11 +3435,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption
@@ -3543,7 +3477,7 @@ declare namespace rpc {
      * a callback will be invoked when the response to sendRequest is returned,
      * and the reply message contains the returned information.
      *
-     * @param { int } code - Message code called by the request, which is determined by the client and server.
+     * @param { number } code - Message code called by the request, which is determined by the client and server.
      * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
      * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
      * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
@@ -3554,11 +3488,10 @@ declare namespace rpc {
      *     2.The parameter type does not match;
      *     3.Failed to obtain the passed object instance.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     sendMessageRequest(
-      code: int,
+      code: number,
       data: MessageSequence,
       reply: MessageSequence,
       options: MessageOption,
@@ -3570,8 +3503,7 @@ declare namespace rpc {
      *
      * @returns { boolean } Return {@code true} if the {@code RemoteObject} is dead; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     isObjectDead(): boolean;
   }
@@ -3585,8 +3517,7 @@ declare namespace rpc {
    * peer device IDs, and checking whether the API call is on the same device.
    * 
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   class IPCSkeleton {
     /**
@@ -3595,8 +3526,7 @@ declare namespace rpc {
      *
      * @returns { IRemoteObject } Return an {@link IRemoteObject} reference of the registered service.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     static getContextObject(): IRemoteObject;
 
@@ -3608,13 +3538,11 @@ declare namespace rpc {
      * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
      * the PID of the corresponding {@link RemoteProxy} object is returned.
      *
-     * @returns { int } Return the PID of the proxy.
-     * @static
+     * @returns { number } Return the PID of the proxy.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    static getCallingPid(): int;
+    static getCallingPid(): number;
 
     /**
      * Obtains the UID of a proxy.
@@ -3624,25 +3552,21 @@ declare namespace rpc {
      * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
      * the UID of the corresponding {@link RemoteProxy} object is returned.
      *
-     * @returns { int } Return the UID of the proxy.
-     * @static
+     * @returns { number } Return the UID of the proxy.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
-    static getCallingUid(): int;
+    static getCallingUid(): number;
 
     /**
      * Obtains the TOKENID.
      * <p>This method is static.
      *
-     * @returns { long } Return the TOKENID.
-     * @static
+     * @returns { number } Return the TOKENID.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    static getCallingTokenId(): long;
+    static getCallingTokenId(): number;
 
     /**
      * Obtains the ID of the device where the peer process resides.
@@ -3751,8 +3675,7 @@ declare namespace rpc {
    * obtaining the Ashmem size, and setting Ashmem protection.
    *
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   class Ashmem {
     /**
@@ -3816,19 +3739,17 @@ declare namespace rpc {
      * Creates an Ashmem object with the specified name and size.
      *
      * @param { string } name - Name of the Ashmem object to create.
-     * @param { int } size - Size (in bytes) of the Ashmem object to create.
+     * @param { number } size - Size (in bytes) of the Ashmem object to create.
      * @returns { Ashmem } Return the Ashmem object if it is created successfully; return null otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
      *     3.The Ashmem name passed is empty;
      *     4.The Ashmem size passed is less than or equal to 0.
-     * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
-    static create(name: string, size: int): Ashmem;
+    static create(name: string, size: number): Ashmem;
 
     /**
      * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
@@ -3854,8 +3775,7 @@ declare namespace rpc {
      *     2.The passed parameter is not an Ahmem object;
      *     3.The ashmem instance for obtaining packaging is empty.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     static create(ashmem: Ashmem): Ashmem;
 
@@ -3878,12 +3798,11 @@ declare namespace rpc {
     /**
      * Obtains the mapped memory size of this Ashmem object.
      *
-     * @returns { int } Memory size mapped.
+     * @returns { number } Memory size mapped.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    getAshmemSize(): int;
+    getAshmemSize(): number;
 
     /**
      * Creates the shared file mapping on the virtual address space of this process.
@@ -3929,8 +3848,7 @@ declare namespace rpc {
      *
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     mapReadWriteAshmem(): void;
 

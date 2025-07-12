@@ -27,8 +27,7 @@ import bundle from '../@ohos.bundle.bundleManager';
  * @typedef ExtensionRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 export interface ExtensionRunningInfo {
   /**
@@ -36,8 +35,7 @@ export interface ExtensionRunningInfo {
    * @default Indicates the extension of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   extension: ElementName;
 
@@ -46,8 +44,7 @@ export interface ExtensionRunningInfo {
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   pid: number;
 
@@ -56,8 +53,7 @@ export interface ExtensionRunningInfo {
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   uid: number;
 
@@ -66,8 +62,7 @@ export interface ExtensionRunningInfo {
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   processName: string;
 
@@ -76,8 +71,7 @@ export interface ExtensionRunningInfo {
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   startTime: number;
 
@@ -86,8 +80,7 @@ export interface ExtensionRunningInfo {
    * @default All package names under the current process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   clientPackage: Array<String>;
 
@@ -96,8 +89,7 @@ export interface ExtensionRunningInfo {
    * @default Enumerates types of the extension info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   type: bundle.ExtensionAbilityType;
 }

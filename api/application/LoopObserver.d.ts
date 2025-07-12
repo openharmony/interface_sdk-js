@@ -33,8 +33,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 export interface LoopObserver {
   /**
@@ -52,8 +51,7 @@ export interface LoopObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onLoopTimeOut?(timeout: number): void;
 }

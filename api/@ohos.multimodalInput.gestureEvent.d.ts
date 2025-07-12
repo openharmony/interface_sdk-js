@@ -36,11 +36,11 @@ export declare interface Pinch {
 
   /**
    * scale
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
-  scale: double;
+  scale: number;
 }
 
 /**
@@ -63,11 +63,11 @@ export declare interface Rotate {
   /**
    * Rotate angle
    *
-   * @type { double }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11
    */
-  angle: double;
+  angle: number;
 }
 
 /**
@@ -88,19 +88,19 @@ export declare interface ThreeFingersSwipe {
 
   /**
    * Coordinate x
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
-  x: int;
+  x: number;
 
   /**
    * Coordinate y
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
-  y: int;
+  y: number;
 }
 
 /**
@@ -121,19 +121,19 @@ export declare interface FourFingersSwipe {
 
   /**
    * Coordinate x
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
-  x: int;
+  x: number;
 
   /**
    * Coordinate y
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10
    */
-  y: int;
+  y: number;
 }
 
 /**
@@ -156,21 +156,21 @@ export declare interface SwipeInward {
 
   /**
    * Coordinate x
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12
    */
-  x: int;
+  x: number;
 
   /**
    * Coordinate y
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 12
    */
-  y: int;
+  y: number;
 }
 
 /**

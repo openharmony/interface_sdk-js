@@ -29,8 +29,7 @@
  * @enum { number }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare enum AVCastPickerState {
   /**
@@ -65,8 +64,7 @@ export declare enum AVCastPickerState {
  * @enum { number }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare enum AVCastPickerStyle {
   /**
@@ -91,8 +89,7 @@ export declare enum AVCastPickerStyle {
  * @enum { number }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare enum AVCastPickerColorMode {
   /**

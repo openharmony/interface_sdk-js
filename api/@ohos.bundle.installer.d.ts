@@ -1673,7 +1673,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_CLONE_BUNDLE
      * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
      * @param { CreateAppCloneParam } [createAppCloneParam] Indicates the optional params of create clone app.
-     * @returns { Promise<int> } Return the appIndex of the clone application.
+     * @returns { Promise<number> } Return the appIndex of the clone application.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1686,7 +1686,7 @@ declare namespace installer {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<int>;
+    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1734,11 +1734,12 @@ declare namespace installer {
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
      * @param { string } bundleName - Indicates the bundleName of clone app.
-     * @param { int } appIndex - Indicates the clone application's index.
-     * @param { int | DestroyAppCloneParam } [options] - Indicates other parameters required for the uninstallation.
+     * @param { number } appIndex - Indicates the clone application's index.
+     * @param { number | DestroyAppCloneParam } [options] - Indicates other parameters required for the uninstallation.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
      * @throws { BusinessError } 17700004 - The userId is invalid.
      * @throws { BusinessError } 17700061 - AppIndex not in valid range.
@@ -1748,7 +1749,7 @@ declare namespace installer {
      * @since 20
      * @arkts 1.2
      */
-    destroyAppClone(bundleName: string, appIndex: int, options?: int | DestroyAppCloneParam): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, options?: number | DestroyAppCloneParam): Promise<void>;
 
     /**
      * Install application by bundle name with specified user.
@@ -1772,7 +1773,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of application.
-     * @param { int } [userId] - userId Indicates the user ID.
+     * @param { number } [userId] - userId Indicates the user ID.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1787,7 +1788,7 @@ declare namespace installer {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    installPreexistingApp(bundleName: string, userId?: int): Promise<void>;
+    installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
 
     /**
      * Install plugin for host application.
@@ -1989,24 +1990,24 @@ declare namespace installer {
     /**
      * Indicates the user id
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId?: int;
+    userId?: number;
 
     /**
      * Indicates the installation type. The value 0x00 means normal installation, 0x01 means overwrite installation, and 0x10 means installation-free.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    installFlag?: int;
+    installFlag?: number;
 
     /**
      * Indicates whether the param has data
@@ -2033,13 +2034,13 @@ declare namespace installer {
     /**
      * Indicates the deadline of the crowdtesting bundle
      *
-     * @type { ?long }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    crowdtestDeadline?: long;
+    crowdtestDeadline?: number;
 
     /**
      * Indicates the shared bundle dir paths.
@@ -2132,13 +2133,13 @@ declare namespace installer {
     /**
      * Indicates the shared version code. If default, indicates that all version sharing bundles are uninstalled
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    versionCode?: int;
+    versionCode?: number;
   }
 
   /**
@@ -2154,23 +2155,23 @@ declare namespace installer {
     /**
      * Indicates the user id
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId?: int;
+    userId?: number;
     /**
      * Indicates the appIndex of MultiApp
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    appIndex?: int;
+    appIndex?: number;
   }
 
   /**
@@ -2186,13 +2187,13 @@ declare namespace installer {
     /**
      * Indicates the user id
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId?: int;
+    userId?: number;
     /**
      * Indicates parameters.
      *
@@ -2218,13 +2219,13 @@ declare namespace installer {
     /**
      * Indicates the user id.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'19', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId?: int;
+    userId?: number;
 
     /**
      * Indicates parameters.
