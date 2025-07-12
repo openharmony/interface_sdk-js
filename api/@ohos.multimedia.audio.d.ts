@@ -9984,7 +9984,7 @@ declare namespace audio {
      * Obtains the timestamp for audio frame that passed by system framework most recently.
      * The timestamp is not accurate because audio device latency is not considered very thoughtfully.
      * This method uses a promise to return the result.
-     * @returns { Promise<number> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
+     * @returns { Promise<long> } Promise used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
