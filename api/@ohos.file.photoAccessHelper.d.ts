@@ -298,8 +298,7 @@ declare namespace photoAccessHelper {
    * @enum { number } ThumbnailVisibility
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum ThumbnailVisibility {
     /**
@@ -307,8 +306,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     INVISIBLE = 0,
     /**
@@ -316,8 +314,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     VISIBLE = 1
   }
@@ -3078,8 +3075,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     userId?: number;
   }
@@ -4369,7 +4365,6 @@ declare namespace photoAccessHelper {
    * @enum { number } NotifyChangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum NotifyChangeType {
     /**
@@ -4377,7 +4372,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_ADD = 0,
     /**
@@ -4385,7 +4379,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_UPDATE = 1,
     /**
@@ -4393,7 +4386,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_REMOVE = 2,
   }
@@ -5960,7 +5952,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'photoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -5977,7 +5968,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'photoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -5996,7 +5986,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'hiddenPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6015,7 +6004,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'hiddenPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6034,7 +6022,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'trashedPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6053,7 +6040,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'trashedPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6070,7 +6056,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'photoAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6087,7 +6072,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'photoAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6106,7 +6090,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'hiddenAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6125,7 +6108,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'hiddenAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6144,7 +6126,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'trashedAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6163,7 +6144,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6361,7 +6341,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum ThumbnailChangeStatus {
     /**
@@ -6370,7 +6349,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_NOT_EXISTS = 0,
 
@@ -6380,7 +6358,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_ADD = 1,
 
@@ -6390,7 +6367,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_UPDATE = 2,
 
@@ -6400,7 +6376,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_NOT_CHANGE = 3
   }
@@ -6412,7 +6387,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum StrongAssociationType {
     /**
@@ -6421,7 +6395,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     NORMAL = 0,
     /**
@@ -6430,7 +6403,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     CLOUD_ENHANCEMENT = 1
   }
@@ -6441,7 +6413,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeInfos {
     /**
@@ -6450,7 +6421,6 @@ declare namespace photoAccessHelper {
      * @type { NotifyChangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: NotifyChangeType;
 
@@ -6460,7 +6430,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeData[] | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetChangeDatas: PhotoAssetChangeData[] | null;
 
@@ -6470,7 +6439,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isForRecheck: boolean;
   }
@@ -6481,7 +6449,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeData {
     /**
@@ -6490,7 +6457,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetBeforeChange: PhotoAssetChangeInfo | null;
 
@@ -6500,7 +6466,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetAfterChange: PhotoAssetChangeInfo | null;
 
@@ -6510,7 +6475,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isContentChanged: boolean;
 
@@ -6520,7 +6484,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isDeleted: boolean;
 
@@ -6531,7 +6494,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     thumbnailChangeStatus: ThumbnailChangeStatus;
     
@@ -6542,7 +6504,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     version: number;
   }
@@ -6553,7 +6514,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeInfo {
     /**
@@ -6562,7 +6522,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -6572,7 +6531,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     mediaType: PhotoType;
 
@@ -6582,7 +6540,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumUri: string;
 
@@ -6593,7 +6550,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     fileId: number;
 
@@ -6604,7 +6560,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateDay: string;
 
@@ -6615,7 +6570,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isFavorite: boolean;
 
@@ -6626,7 +6580,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isHidden: boolean;
 
@@ -6637,7 +6590,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     strongAssociation: StrongAssociationType;
 
@@ -6648,7 +6600,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     thumbnailVisible: ThumbnailVisibility;
 
@@ -6659,7 +6610,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateTrashedMs: number;
 
@@ -6670,7 +6620,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateAddedMs: number;
 
@@ -6681,7 +6630,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateTakenMs: number;
   }
@@ -6692,7 +6640,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeInfos {
     /**
@@ -6701,7 +6648,6 @@ declare namespace photoAccessHelper {
      * @type { NotifyChangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: NotifyChangeType;
 
@@ -6711,7 +6657,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeData[] | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumChangeDatas: AlbumChangeData[] | null;
 
@@ -6721,7 +6666,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isForRecheck: boolean;
   }
@@ -6732,7 +6676,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeData {
     /**
@@ -6741,7 +6684,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumBeforeChange: AlbumChangeInfo | null;
 
@@ -6751,7 +6693,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumAfterChange: AlbumChangeInfo | null;
 
@@ -6762,7 +6703,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     version: number;
   }
@@ -6773,7 +6713,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeInfo {
     /**
@@ -6782,7 +6721,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumType: AlbumType;
 
@@ -6792,7 +6730,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumSubtype: AlbumSubtype;
 
@@ -6802,7 +6739,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumName: string;
 
@@ -6812,7 +6748,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumUri: string;
 
@@ -6822,7 +6757,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     imageCount: number;
 
@@ -6832,7 +6766,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     videoCount: number;
 
@@ -6842,7 +6775,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     count: number;
 
@@ -6852,7 +6784,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     coverUri: string;
 
@@ -6863,7 +6794,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCount: number;
 
@@ -6874,7 +6804,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCoverUri: string;
 
@@ -6885,7 +6814,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isCoverChanged: boolean;
 
@@ -6896,7 +6824,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isHiddenCoverChanged: boolean;
 
@@ -6907,7 +6834,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     coverInfo?: PhotoAssetChangeInfo;
 
@@ -6918,7 +6844,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCoverInfo?: PhotoAssetChangeInfo;
   }
