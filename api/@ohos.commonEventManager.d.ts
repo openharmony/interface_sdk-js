@@ -2542,7 +2542,7 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
