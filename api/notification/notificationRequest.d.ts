@@ -248,7 +248,7 @@ export interface NotificationRequest {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.2
+   * @arkts 1.1&1.2
    */
   extendInfo?: Record<string, Object>;
 

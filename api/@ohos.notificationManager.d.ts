@@ -4208,7 +4208,7 @@ declare namespace notificationManager {
      * @type { SlotType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     slotType: SlotType;
@@ -4220,7 +4220,7 @@ declare namespace notificationManager {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     extraInfos?: Record<string, Object>;
