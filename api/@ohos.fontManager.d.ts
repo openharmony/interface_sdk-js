@@ -24,7 +24,8 @@
  * @namespace fontManager
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
- * @since 19
+ * @since arkts {'1.1':'19', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace fontManager {
   /**
@@ -32,7 +33,7 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } path - path indicates the font path.
-   * @returns { Promise<number> } - Number indicates the font installation result.
+   * @returns { Promise<int> } - int indicates the font installation result.
    *        0 - Install successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
@@ -44,16 +45,17 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100106 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function installFont(path: string): Promise<number>;
+  function installFont(path: string): Promise<int>;
 
   /**
    * Uninstalls the specified path font.
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } fullName - fullName indicates the font name.
-   * @returns { Promise<number> } - number indicates the font uninstallation result.
+   * @returns { Promise<int> } - int indicates the font uninstallation result.
    *        0 - Uninstall successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
@@ -62,8 +64,9 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100109 - Other error.
    * @syscap SystemCapability.Global.FontManager
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function uninstallFont(fullName: string): Promise<number>;
+  function uninstallFont(fullName: string): Promise<int>;
 }
 export default fontManager;
