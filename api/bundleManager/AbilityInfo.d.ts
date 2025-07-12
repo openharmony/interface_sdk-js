@@ -189,7 +189,7 @@ export interface AbilityInfo {
   /**
    * Indicates the label id of the ability
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -197,7 +197,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: long;
+  readonly labelId: number;
 
   /**
    * Indicates the ability
@@ -249,7 +249,7 @@ export interface AbilityInfo {
   /**
    * Indicates the description id of the ability
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -257,7 +257,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: long;
+  readonly descriptionId: number;
 
   /**
    * Indicates the icon of the ability
@@ -309,7 +309,7 @@ export interface AbilityInfo {
   /**
    * Indicates the icon id of the ability
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -317,7 +317,7 @@ export interface AbilityInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: long;
+  readonly iconId: number;
 
   /**
    * Process of ability, if user do not set it, the value equal application process
@@ -720,25 +720,25 @@ export interface AbilityInfo {
   /**
    * Indicates the appIndex of application, only work in clone app mode
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: int;
+  readonly appIndex: number;
 
   /**
    * Indicates the orientation id of the ability
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly orientationId: long;
+  readonly orientationId: number;
 }
 
 /**
@@ -795,7 +795,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowRatio: double;
+  readonly maxWindowRatio: number;
 
   /**
    * Indicates minimum ratio of width over height of window under free window status.
@@ -825,7 +825,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowRatio: double;
+  readonly minWindowRatio: number;
 
   /**
    * Indicates maximum width of window under free window status.
@@ -855,7 +855,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowWidth: long;
+  readonly maxWindowWidth: number;
 
   /**
    * Indicates minimum width of window under free window status.
@@ -885,7 +885,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowWidth: long;
+  readonly minWindowWidth: number;
 
   /**
    * Indicates maximum height of window under free window status.
@@ -915,7 +915,7 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly maxWindowHeight: long;
+  readonly maxWindowHeight: number;
 
   /**
    * Indicates minimum height of window under free window status.
@@ -945,5 +945,5 @@ export interface WindowSize {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly minWindowHeight: long;
+  readonly minWindowHeight: number;
 }

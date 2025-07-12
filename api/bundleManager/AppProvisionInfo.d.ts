@@ -31,14 +31,14 @@ export interface AppProvisionInfo {
   /**
    * Indicates the version code of the profile file.
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly versionCode: long;
+  readonly versionCode: number;
 
   /**
    * Indicates the version name of the profile file.
@@ -188,24 +188,24 @@ export interface Validity {
   /**
    * Indicates the earliest validity of the profile file.
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly notBefore: long;
+  readonly notBefore: number;
 
   /**
    * Indicates the latest validity of the profile file.
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly notAfter: long;
+  readonly notAfter: number;
 }

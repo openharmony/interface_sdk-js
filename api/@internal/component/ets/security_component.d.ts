@@ -21,18 +21,17 @@
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
 /**
  * Enumerates the layout direction of the icon and text.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SecurityComponentLayoutDirection {
   /**
@@ -46,8 +45,7 @@ declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HORIZONTAL = 0,
 
@@ -62,8 +60,7 @@ declare enum SecurityComponentLayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   VERTICAL = 1
 }
@@ -235,7 +232,7 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font weight of the inner text.
    *
-   * @param { int | FontWeight | string } value - Indicates the font weight of the text in the security component.
+   * @param { number | FontWeight | string } value - Indicates the font weight of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -257,7 +254,6 @@ declare class SecurityComponentMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string | Resource): T;
 
@@ -420,8 +416,7 @@ declare class SecurityComponentMethod<T> {
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   borderRadius(radius: Dimension | BorderRadiuses): T;
 
@@ -612,29 +607,29 @@ declare class SecurityComponentMethod<T> {
   /**
    * Sets the minimum font scale factor for text.
    *
-   * @param { double | Resource } scale Minimum font scale factor to set.
+   * @param { number | Resource } scale Minimum font scale factor to set.
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
    */
-  minFontScale(scale: double | Resource): T;
+  minFontScale(scale: number | Resource): T;
 
   /**
    * Sets the maximum font scale factor for text.
    *
-   * @param { double | Resource  } scale Maximum font scale factor to set.
+   * @param { number | Resource  } scale Maximum font scale factor to set.
    * @returns { T } Returns the attributes of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
    */
-  maxFontScale(scale: double | Resource): T;
+  maxFontScale(scale: number | Resource): T;
 
   /**
    * Called when the maximum number of lines of text is set.
    *
-   * @param { int } line
+   * @param { number } line
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -654,24 +649,24 @@ declare class SecurityComponentMethod<T> {
   /**
    * Called when the minimum font size of the font is set.
    *
-   * @param { double | string | Resource } minSize
+   * @param { number | string | Resource } minSize
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
    */
-  minFontSize(minSize: double | string | Resource): T;
+  minFontSize(minSize: number | string | Resource): T;
 
   /**
    * Called when the maximum font size of the font is set.
    *
-   * @param { double | string | Resource } maxSize
+   * @param { number | string | Resource } maxSize
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
    */
-  maxFontSize(maxSize: double | string | Resource): T;
+  maxFontSize(maxSize: number | string | Resource): T;
 
   /**
    * Called when the height adaptive policy is set.

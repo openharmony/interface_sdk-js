@@ -763,7 +763,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts 20
+   * @since 20
    * @arkts 1.1&1.2
    */
   strokeMiterLimit(value: Length): ShapeAttribute;

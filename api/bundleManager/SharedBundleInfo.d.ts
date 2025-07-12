@@ -93,14 +93,14 @@ export interface SharedModuleInfo {
   /**
    * Indicates the version code of the shared module
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly versionCode: long;
+  readonly versionCode: number;
 
   /**
    * Indicates the version name of the shared module
@@ -129,12 +129,12 @@ export interface SharedModuleInfo {
   /**
    * Indicates the description of this shared module
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: long;
+  readonly descriptionId: number;
 }

@@ -129,7 +129,7 @@ export interface HapModuleInfo {
   /**
    * Indicates the icon id of this hap module
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -137,7 +137,7 @@ export interface HapModuleInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: long;
+  readonly iconId: number;
 
   /**
    * Indicates the label of this hap module
@@ -189,7 +189,7 @@ export interface HapModuleInfo {
   /**
    * Indicates the label id of this hap module
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -197,7 +197,7 @@ export interface HapModuleInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: long;
+  readonly labelId: number;
 
   /**
    * Describes the hap module
@@ -249,7 +249,7 @@ export interface HapModuleInfo {
   /**
    * Indicates the description of this hap module
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -257,7 +257,7 @@ export interface HapModuleInfo {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: long;
+  readonly descriptionId: number;
 
   /**
    * Indicates main elementName of the hap module
@@ -645,14 +645,14 @@ export interface Dependency {
   /**
    * Indicates the version code of the dependency
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly versionCode: long;
+  readonly versionCode: number;
 }
 
 /**

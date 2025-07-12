@@ -142,12 +142,8 @@ import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
 import defaultAppManager from '@ohos.bundle.defaultAppManager';
 import distributedBundleManager from '@ohos.bundle.distributedBundleManager';
 import freeInstall from '@ohos.bundle.freeInstall';
-import defaultAppManager from '@ohos.bundle.defaultAppManager';
-import distributedBundleManager from '@ohos.bundle.distributedBundleManager';
-import freeInstall from '@ohos.bundle.freeInstall';
 import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
-import overlay from '@ohos.bundle.overlay';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 

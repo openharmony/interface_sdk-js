@@ -479,14 +479,14 @@ export interface AbilityFormInfo {
   /**
    * Indicates the update duration
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly updateDuration: int;
+  readonly updateDuration: number;
 
   /**
    * Indicates the ability support dimensions
@@ -526,14 +526,14 @@ export interface Version {
   /**
    * Indicates the min compatible code of this version
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly minCompatibleVersionCode: int;
+  readonly minCompatibleVersionCode: number;
 
   /**
    * Indicates the name of this version
@@ -550,14 +550,14 @@ export interface Version {
   /**
    * Indicates the code of this version
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly code: int;
+  readonly code: number;
 }
 
 /**
@@ -585,24 +585,24 @@ export interface ApiVersion {
   /**
    * Indicates the compatible version code of the api
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly compatible: int;
+  readonly compatible: number;
 
   /**
    * Indicates the target version code of the api
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly target: int;
+  readonly target: number;
 }

@@ -187,7 +187,6 @@
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
     "SystemCapability.Test.UiTest",
-    "SystemCapability.Resourceschedule.BackgroundProcessManager",
-    "SystemCapability.MultimodalAwareness.RoomLocation"
+    "SystemCapability.Resourceschedule.BackgroundProcessManager"
   ]
 }

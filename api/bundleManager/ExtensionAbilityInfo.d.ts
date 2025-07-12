@@ -111,14 +111,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the label id of the extension ability info
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: long;
+  readonly labelId: number;
 
   /**
    * Indicates the description id of the extension ability info
@@ -131,14 +131,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the description id of the extension ability info
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: long;
+  readonly descriptionId: number;
 
   /**
    * Indicates the icon id of the extension ability info
@@ -151,14 +151,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the icon id of the extension ability info
    *
-   * @type { long }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: long;
+  readonly iconId: number;
 
   /**
    * Indicates whether this ability can be called by other abilities
@@ -347,11 +347,11 @@ export interface ExtensionAbilityInfo {
   /**
    * Indicates the appIndex of extension ability, only work in clone app mode
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly appIndex: int;
+  readonly appIndex: number;
 }

@@ -890,7 +890,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts 20
+   * @since 20
    * @arkts 1.1&1.2
    */
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;

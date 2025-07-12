@@ -360,7 +360,7 @@ action("install_tsc_declgen") {
   ":ohos_base_split"
   ]
   external_deps = [
-  "runtime_core:declgen_ts2sts_compile_declgen"
+  # "runtime_core:declgen_ts2sts_compile_declgen"
   ]
   script="run_compile_declgen.py"
   args = [

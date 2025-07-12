@@ -103,21 +103,17 @@ export interface PlayParameters {
    * The default value is **0**, indicating that the content is played only once.
    *
    * @type { ?number }
-   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  loop?: number;
   loop?: number;
   /**
    * Playback rate. For details, see [AudioRendererRate]{@link #audio.AudioRendererRate}. Default value: **0**.
    *
    * @type { ?number }
-   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  rate?: number;
   rate?: number;
   /**
    * Volume of the left channel. The value ranges from 0.0 to 1.0. Default value: **1.0**.
@@ -141,11 +137,9 @@ export interface PlayParameters {
    * The value is an integer greater than or equal to 0. Default value: **0**.
    *
    * @type { ?number }
-   * @type { ?number }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  priority?: number;
   priority?: number;
   /**
    * Whether the sound can be played in parallel with other active audio streams. The value **true** means that the
@@ -181,7 +175,7 @@ export interface PlayParameters {
  * @syscap SystemCapability.Multimedia.Media.SoundPool
  * @since 10
  */
-export declare interface SoundPool {
+export interface SoundPool {
   /**
    * Loads a sound. This API uses an asynchronous callback to obtain the sound ID.
    * The input parameter **uri** is a string starting with fd://, which is generated based on the file descriptor (FD)
@@ -230,7 +224,6 @@ export declare interface SoundPool {
    * @since 10
    */
   load(uri: string): Promise<number>;
-  load(uri: string): Promise<number>;
   /**
    * Loads a sound. This API uses an asynchronous callback to obtain the sound ID. The input parameter **fd** can be
    * manually input or automatically obtained by reading the embedded resource of the application.
@@ -257,7 +250,6 @@ export declare interface SoundPool {
    * @since 10
    */
   load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void;
-  load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void;
   /**
    * Loads a sound. This API uses a promise to obtain the sound ID. The input parameter **fd** can be manually input or
    * automatically obtained by reading the embedded resource of the application.
@@ -283,7 +275,6 @@ export declare interface SoundPool {
    * @since 10
    */
   load(fd: number, offset: number, length: number): Promise<number>;
-  load(fd: number, offset: number, length: number): Promise<number>;
   /**
    * Plays a sound. This API uses an asynchronous callback to obtain the audio stream ID.
    *
@@ -299,7 +290,6 @@ export declare interface SoundPool {
    * @since 10
    */
   play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void;
-  play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void;
   /**
    * Plays a sound. This API uses an asynchronous callback to obtain the audio stream ID.
    *
@@ -313,7 +303,6 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  play(soundID: number, callback: AsyncCallback<number>): void;
   play(soundID: number, callback: AsyncCallback<number>): void;
   /**
    * Plays a sound. This API uses a promise to obtain the audio stream ID.
@@ -329,7 +318,6 @@ export declare interface SoundPool {
    * @since 10
    */
   play(soundID: number, params?: PlayParameters): Promise<number>;
-  play(soundID: number, params?: PlayParameters): Promise<number>;
   /**
    * Stops playing a sound. This API uses an asynchronous callback to return the result.
    *
@@ -343,7 +331,6 @@ export declare interface SoundPool {
    * @since 10
    */
   stop(streamID: number, callback: AsyncCallback<void>): void;
-  stop(streamID: number, callback: AsyncCallback<void>): void;
   /**
    * Stops playing a sound. This API uses a promise to return the result.
    *
@@ -356,7 +343,6 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  stop(streamID: number): Promise<void>;
   stop(streamID: number): Promise<void>;
   /**
    * Sets the loop mode for an audio stream. This API uses an asynchronous callback to return the result.
@@ -374,10 +360,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void;
   setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void;
   /**
    * Sets the loop mode for an audio stream. This API uses a promise to return the result.
@@ -395,10 +379,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setLoop(streamID: number, loop: number): Promise<void>;
   setLoop(streamID: number, loop: number): Promise<void>;
   /**
    * Sets the priority for an audio stream. This API uses an asynchronous callback to return the result.
@@ -412,10 +394,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void;
   setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void;
   /**
    * Sets the priority for an audio stream. This API uses a promise to return the result.
@@ -429,10 +409,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setPriority(streamID: number, priority: number): Promise<void>;
   setPriority(streamID: number, priority: number): Promise<void>;
   /**
    * Sets the playback rate for an audio stream. This API uses an asynchronous callback to return the result.
@@ -448,7 +426,6 @@ export declare interface SoundPool {
    * @since 10
    */
   setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
-  setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void;
   /**
    * Sets the playback rate for an audio stream. This API uses a promise to return the result.
    *
@@ -463,7 +440,6 @@ export declare interface SoundPool {
    * @since 10
    */
   setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>;
-  setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>;
   /**
    * Sets the volume for an audio stream. This API uses an asynchronous callback to return the result.
    *
@@ -477,10 +453,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
    * @throws { BusinessError } 5400105 - Service died. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
   setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void;
   /**
    * Sets the volume for an audio stream. This API uses a promise to return the result.
@@ -495,10 +469,8 @@ export declare interface SoundPool {
    * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
    * @throws { BusinessError } 5400105 - Service died. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>;
   setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>;
   /**
    * Unloads a sound. This API uses an asynchronous callback to return the result.
@@ -512,7 +484,6 @@ export declare interface SoundPool {
    * @since 10
    */
   unload(soundID: number, callback: AsyncCallback<void>): void;
-  unload(soundID: number, callback: AsyncCallback<void>): void;
   /**
    * Unloads a sound. This API uses a promise to return the result.
    *
@@ -524,7 +495,6 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10
    */
-  unload(soundID: number): Promise<void>;
   unload(soundID: number): Promise<void>;
   /**
    * Releases this **SoundPool** instance. This API uses an asynchronous callback to return the result.

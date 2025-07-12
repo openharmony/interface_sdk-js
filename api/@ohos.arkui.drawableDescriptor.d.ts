@@ -417,11 +417,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @atomicservice
  * @since 12
  */
-<<<<<<< HEAD
-declare interface AnimationOptions {
-=======
 export declare interface AnimationOptions {
->>>>>>> 94c88a315 (change 0603 to 0328)
   /**
    * The duration of animation playback once.
    *

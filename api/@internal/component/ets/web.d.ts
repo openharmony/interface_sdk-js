@@ -6914,7 +6914,7 @@ declare interface JavaScriptProxy {
   /**
    * Controller.
    *
-   * @type { WebController | WebviewController }
+   * @type { WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice

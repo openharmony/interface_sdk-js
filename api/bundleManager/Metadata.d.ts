@@ -128,12 +128,12 @@ export interface Metadata {
   /**
    * Indicates the value id of the metadata
    *
-   * @type { ?long }
+   * @type { ?number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly valueId?: long;
+  readonly valueId?: number;
 }
