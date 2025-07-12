@@ -231,7 +231,7 @@ export default class AccessibilityExtensionAbility {
  * @systemapi
  * @since 20
  */
-declare interface AccessibilityEventInfo {
+export declare interface AccessibilityEventInfo {
   /**
    * EventType
    *
@@ -281,7 +281,7 @@ declare interface AccessibilityEventInfo {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-declare interface AccessibilityEvent {
+export declare interface AccessibilityEvent {
   /**
    * EventType
    *
