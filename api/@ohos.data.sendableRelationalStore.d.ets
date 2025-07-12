@@ -150,7 +150,7 @@ declare namespace sendableRelationalStore {
    * @returns { NonSendableBucket } a non-sendable <b>valuesBucket</b> object. For details,
    *   see {@link NonSendableBucket}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -163,7 +163,7 @@ declare namespace sendableRelationalStore {
    * @param { NonSendableBucket } valuesBucket - Indicates the non-sendable <b>valuesBucket</b> object to convert.
    * @returns { ValuesBucket } a sendable <b>valuesBucket</b> object. For details, see {@link ValuesBucket}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -176,7 +176,7 @@ declare namespace sendableRelationalStore {
    * @param { Asset } asset - Indicates the sendable <b>asset</b> object to convert.
    * @returns { NonSendableAsset } a non-sendable <b>asset</b> object. For details, see {@link NonSendableAsset}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -189,7 +189,7 @@ declare namespace sendableRelationalStore {
    * @param { NonSendableAsset } asset - Indicates the non-sendable <b>asset</b> object to convert.
    * @returns { Asset } a sendable <b>asset</b> object. For details, see {@link Asset}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
