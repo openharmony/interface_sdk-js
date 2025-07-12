@@ -41,30 +41,32 @@ declare namespace systemDateTime {
    * Sets the system time.
    *
    * @permission ohos.permission.SET_TIME
-   * @param { number } time - Indicates the target timestamp(in milliseconds)
+   * @param { long } time - Indicates the target timestamp(in milliseconds)
    * @param { AsyncCallback<void> } callback - The callback of setTime
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setTime(time: number, callback: AsyncCallback<void>): void;
+  function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
    * Sets the system time.
    *
    * @permission ohos.permission.SET_TIME
-   * @param { number } time - Indicates the target timestamp(in milliseconds)
+   * @param { long } time - Indicates the target timestamp(in milliseconds)
    * @returns { Promise<void> } The promise returned by the function
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setTime(time: number): Promise<void>;
+  function setTime(time: long): Promise<void>;
 
   /**
    * Obtains the number of milliseconds that have elapsed since the Unix epoch.
@@ -113,13 +115,13 @@ declare namespace systemDateTime {
    * Obtains the number of timestamp that have elapsed since the Unix epoch.
    *
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
-   * @returns { number } The timestamp returned of getTime.
+   * @returns { long } The timestamp returned of getTime.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getTime(isNanoseconds?: boolean): number;
+  function getTime(isNanoseconds?: boolean): long;
 
   /**
    * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
@@ -201,10 +203,11 @@ declare namespace systemDateTime {
   /**
    * Indicates time type.
    *
-   * @enum { number } TimeType
+   * @enum { int } TimeType
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TimeType {
     /**
@@ -218,9 +221,10 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    STARTUP,
+    STARTUP = 0,
 
     /**
      * Indicates the time elapsed since the system was booted, not including deep sleep time.
@@ -233,9 +237,10 @@ declare namespace systemDateTime {
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    ACTIVE
+    ACTIVE = 1
   }
 
   /**
@@ -253,8 +258,9 @@ declare namespace systemDateTime {
    * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { number } The timestamp returned of getUpTime.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-   *     3. Parameter verification failed. This error code was added due to missing issues.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+   *     2. Incorrect parameter types; 3. Parameter verification failed. This error code was added due to missing
+   *     issues.
    * @syscap SystemCapability.MiscServices.Time
    * @since 12
    */
@@ -263,14 +269,16 @@ declare namespace systemDateTime {
    *
    * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
-   * @returns { number } The timestamp returned of getUpTime.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
-   *     3. Parameter verification failed. This error code was added due to missing issues.
+   * @returns { long } The timestamp returned of getUpTime.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+   *     2. Incorrect parameter types; 3. Parameter verification failed. This error code was added due to missing
+   *     issues.
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUptime(timeType: TimeType, isNanoseconds?: boolean): number;
+  function getUptime(timeType: TimeType, isNanoseconds?: boolean): long;
 
   /**
    * Sets the system time.
@@ -447,14 +455,14 @@ declare namespace systemDateTime {
   /**
    * Obtains the current time of milliseconds since the Unix epoch calculated based on the last updated NTP time.
    *
-   * @returns { number } The current NTP time returned of getNtpTime.
+   * @returns { long } The current NTP time returned of getNtpTime.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 14
    */
-  function getNtpTime(): number;
+  function getNtpTime(): long;
 }
 
 export default systemDateTime;
