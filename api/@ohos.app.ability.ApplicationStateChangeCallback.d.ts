@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 /**
  * The application state change callback.
  *
@@ -43,6 +44,39 @@
  * @since 18
  */
 export default class ApplicationStateChangeCallback {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The application state change callback.
+ *
+ * @typedef ApplicationStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @since 10
+ */
+/**
+ * The application state change callback.
+ *
+ * @typedef ApplicationStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @atomicservice
+ * @since 11
+ */
+/**
+ * The application state change callback.
+ *
+ * @typedef ApplicationStateChangeCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface ApplicationStateChangeCallback {
+/*** endif */
   /**
    * Called back when the state of the application changes to foreground.
    *
@@ -65,7 +99,8 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onApplicationForeground(): void;
 
@@ -91,7 +126,12 @@ export default class ApplicationStateChangeCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onApplicationBackground(): void;
 }
+
+/*** if arkts 1.2 */
+export default ApplicationStateChangeCallback;
+/*** endif */
