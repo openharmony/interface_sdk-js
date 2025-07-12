@@ -79,9 +79,10 @@ function start() {
     .option('--path <string>', 'path name')
     .option('--type <string>', 'handle type')
     .option('--output [string]', 'output path')
+    .option('--isPublic <string>', 'is Public')
     .action((opts) => {
       dirType = opts.type;
-      handleApiFiles(opts.path, opts.type, opts.output);
+      handleApiFiles(opts.path, opts.type, opts.output, opts.isPublic);
     });
   program.parse(process.argv);
 }
@@ -91,7 +92,7 @@ function start() {
  * @param {*} rootPath 
  * @param {*} type 
  */
-function handleApiFiles(rootPath, type, output) {
+function handleApiFiles(rootPath, type, output, isPublic) {
   const allApiFilePathSet = new Set();
   const fileNames = fs.readdirSync(rootPath);
   const apiRootPath = rootPath.replace(/\\/g, '/');
@@ -111,7 +112,7 @@ function handleApiFiles(rootPath, type, output) {
 
   for (const apiRelativePath of allApiFilePathSet) {
     try {
-      handleApiFileByType(apiRelativePath, rootPath, type, output);
+      handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic);
     } catch (error) {
       console.log('error===>', error);
     }
@@ -142,7 +143,7 @@ function handleApiFiles(rootPath, type, output) {
  * @param {*} type 
  * @returns 
  */
-function handleApiFileByType(apiRelativePath, rootPath, type, output) {
+function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) {
   const fullPath = path.join(rootPath, apiRelativePath);
   const isEndWithEts = isEtsFile(apiRelativePath);
   const isEndWithTs = isTsFile(apiRelativePath);
@@ -152,8 +153,13 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output) {
 
   if (isEndWithStatic) {
     if (type === 'ets2') {
-      writeFile(outputPath, fileContent);
-      return;
+      if (isPublic !== 'true') {
+        writeFile(outputPath, fileContent);
+        return;
+      } else {
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), fileContent);
+        return;
+      }
     } else {
       return;
     }
