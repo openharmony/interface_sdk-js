@@ -58,6 +58,7 @@ declare namespace config {
   /**
    * Indicates the configuration of high-contrast text.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
