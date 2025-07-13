@@ -21,7 +21,6 @@
 /*** if arkts 1.1 */
 import BackupExtensionAbility, { BundleVersion } from '@ohos.application.BackupExtensionAbility';
 import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
-import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
 import Environment from '@ohos.file.environment';
@@ -70,12 +69,11 @@ import hash from '@ohos.file.hash';
 import securityLabel from '@ohos.file.securityLabel';
 import statfs from '@ohos.file.statvfs';
 import fileShare from '@ohos.fileshare';
-import userFileManager from '@ohos.filemanagement.userFileManager';
 
 export {
   BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
-  backup, cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs, DfsListeners,
-  TaskSignal, userFileManager
+  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs, DfsListeners,
+  TaskSignal
 };
 /*** endif */
