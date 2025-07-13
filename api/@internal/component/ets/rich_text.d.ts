@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod} from './common';
+/*** endif */
+
 /**
  * Provides an interface for RichText component.
  *
@@ -40,7 +44,8 @@
  * @interface RichTextInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RichTextInterface {
   /**
@@ -73,13 +78,25 @@ interface RichTextInterface {
   /**
    * Set value.
    *
-   * @param { string | Resource } content
+   * @param { string | Resource} content
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 20
    */
   (content: string | Resource): RichTextAttribute;
+
+  /**
+   * Set value.
+   *
+   * @param { string } content
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @arkts 1.2
+   */
+  (content: string): RichTextAttribute;
 }
 
 /**
@@ -104,7 +121,8 @@ interface RichTextInterface {
  * @extends CommonMethod<RichTextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
@@ -132,7 +150,8 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStart(callback: () => void): RichTextAttribute;
 
@@ -161,7 +180,8 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onComplete(callback: () => void): RichTextAttribute;
 }
