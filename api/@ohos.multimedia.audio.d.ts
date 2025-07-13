@@ -920,6 +920,12 @@ declare namespace audio {
      */
     REMOTE_DAUDIO = 29,
     /**
+     * Hearing aid audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    HEARING_AID = 30,
+    /**
      * Nearlink Device.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
