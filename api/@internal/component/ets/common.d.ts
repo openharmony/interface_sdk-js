@@ -18,6 +18,59 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import OriginalContext from '../../application/Context';
+import { Resource } from '../../global/resource';
+import pointer from '../../@ohos.multimodalInput.pointer';
+import image from '../../@ohos.multimedia.image';
+import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
+import promptAction from '../../@ohos.promptAction';
+import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
+import Want from '../../@ohos.app.ability.Want';
+import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
+import uiObserver from '../../@ohos.arkui.observer';
+import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
+import { DrawContext as _DrawContext, LengthMetrics } from '../../arkui/Graphics';
+import uiEffect from '../../@ohos.graphics.uiEffect';
+import { FocusBoxStyle, FocusPriority } from './focus';
+import { ComponentContent } from '../../arkui/ComponentContent';
+import { ResizableOptions } from './image';
+import { Theme } from '../../@ohos.arkui.theme';
+import intl from '../../@ohos.intl';
+import { ButtonType, ButtonStyleMode, ButtonRole } from './button';
+import {
+  Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors,
+  LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias,
+  EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin,
+  BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition,
+  AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback
+ } from './units';
+import { BaseGestureEvent, GestureRecognizer, GestureJudgeResult, GestureType,
+  GestureMask, GestureHandler, GesturePriority, GestureInfo
+ } from './gesture';
+import { ScrollState } from './list';
+import {
+  AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle,
+  HorizontalAlign, VerticalAlign, MouseButton, MouseAction, TransitionType, FontWeight, TouchType,
+  FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode,
+  Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey,
+  ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, IlluminatedType, TextDecorationType,
+  TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction,
+  FocusDrawLevel, CrownSensitivity
+} from './enums';
+import { TextRange } from './textCommon';
+import { StyledString } from './styledString';
+import { CircleAttribute } from './circle';
+import { RectAttribute } from './rect';
+import { PathAttribute } from './path';
+import { EllipseAttribute } from './ellipse';
+import { LocalStorage } from '../stateManagement/storage/localStorage';
+import { CustomBuilder, WrappedBuilder } from './builder';
+import curves from '../../@ohos.curves';
+/*** endif */
+
 /**
  * Defines the options of Component ClassDecorator.
  *
@@ -1445,6 +1498,19 @@ declare interface ReuseOptions {
  * @since 11
  */
 declare type Context = import('../api/application/Context').default;
+
+/**
+ * Export Context.
+ *
+ * @typedef { OriginalContext } Context
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type Context = OriginalContext;
 
 /**
  * Post Card Action.
@@ -3801,6 +3867,19 @@ interface ICurve {
    */
   interpolate(fraction: number): number;
 }
+
+/**
+ * Interface for curve object.
+ *
+ * @typedef { curves.ICurve } ICurve
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type ICurve = curves.ICurve;
 
 /**
  * Defines the motion path options.
@@ -7100,6 +7179,306 @@ declare class TransitionEffect<
    * @form
    * @atomicservice
    * @since 11
+   */
+  combine(transitionEffect: TransitionEffect): TransitionEffect;
+}
+
+/**
+ * Defines the transition effect
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class TransitionEffect {
+
+  /**
+   * Disables the transition effect
+   *
+   * @type { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static get IDENTITY(): TransitionEffect;
+
+  /**
+   * Specifies a transition effect with transparency of 0, which is equivalent to TransitionEffect.opacity(0).
+   *
+   * @type { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static get OPACITY(): TransitionEffect;
+
+  /**
+   * Defines a slide transition effect
+   *
+   * @type { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static get SLIDE(): TransitionEffect;
+
+  /**
+   * Specify a transition effect where the element enters by shrinking first and then expanding as it slides in from the right,
+   * and exits by shrinking first and then expanding as it slides out to the left, with a minimum scale ratio of 0.8.
+   * It comes with default animation parameters, which can also be overridden.
+   * The default animation duration is set to 600ms, and the specified animation curve is cubicBezierCurve(0.24, 0.0, 0.50, 1.0).
+   *
+   * @type { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static get SLIDE_SWITCH(): TransitionEffect;
+
+  /**
+   * Creates a translate transition effect
+   *
+   * @param { TranslateOptions } options - translate options
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static translate(options: TranslateOptions): TransitionEffect;
+
+  /**
+   * Creates a rotation transition effect
+   *
+   * @param { RotateOptions } options - rotate options
+   * Set the rotation effect for component transitions when inserting and deleting.
+   * The value represents the starting rotation point for the inserting animation and the ending rotation point for the deleting animation.
+   * -x: Horizontal component of the rotational vector.
+   * -y: Vertical component of the rotational vector.
+   * -z: Vertical component of the rotational vector.
+   * -centerX, centerY specify the rotation center point, with default values of "50%",
+   * meaning that the default rotation center point is the center point of the component.
+   * -The center point of (0, 0) represents the upper-left corner of the component.
+   * -centerZ refers to the Z-axis anchor point. The default value of centerZ is 0.
+   * -perspective indicates the visual distance. The perspective property does not support transition animation.
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static rotate(options: RotateOptions): TransitionEffect;
+
+  /**
+   * Creates a scale transition effect
+   *
+   * @param { ScaleOptions } options - scale options
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static scale(options: ScaleOptions): TransitionEffect;
+
+  /**
+   * Creates an opacity transition effect with alpha value
+   *
+   * @param { number } alpha - opacity alpha value, value range [0, 1].
+   * Illegal values less than 0 are treated as 0, and illegal values greater than 1 are treated as 1.
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static opacity(alpha: number): TransitionEffect;
+
+  /**
+   * Creates a move transition effect
+   *
+   * @param { TransitionEdge } edge - the edge that component will move to
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static move(edge: TransitionEdge): TransitionEffect;
+
+  /**
+   * Creates an asymmetric transition effect
+   *
+   * @param { TransitionEffect } appear - the transition which will be attached when the component is appear
+   * @param { TransitionEffect } disappear - the transition which will be attached when the component is disappear
+   * @returns { TransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect;
+
+  /**
+   * identity or slideSwitch TransitionEffect constructor
+   *
+   * @param { 'identity' | 'slideSwitch' } type - transition type
+   * @param { undefined } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'identity' | 'slideSwitch', effect: undefined);
+
+  /**
+   * opacity TransitionEffect constructor
+   *
+   * @param { 'opacity' } type - transition type
+   * @param { number } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'opacity', effect: number);
+
+  /**
+   * move TransitionEffect constructor
+   *
+   * @param { 'move' } type - transition type
+   * @param { TransitionEdge } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'move', effect: TransitionEdge);
+
+  /**
+   * translate TransitionEffect constructor
+   *
+   * @param { 'translate' } type - transition type
+   * @param { TranslateOptions } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'translate', effect:TranslateOptions);
+
+  /**
+   * rotate TransitionEffect constructor
+   *
+   * @param { 'rotate' } type - transition type
+   * @param { RotateOptions } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'rotate', effect: RotateOptions);
+
+  /**
+   * scale TransitionEffect constructor
+   *
+   * @param { 'scale' } type - transition type
+   * @param { ScaleOptions } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'scale', effect: ScaleOptions);
+
+  /**
+   * asymmetric TransitionEffect constructor
+   *
+   * @param { 'asymmetric' } type - transition type
+   * @param { AsymmetricTransitionOption } effect - transition options
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(type: 'asymmetric', effect: AsymmetricTransitionOption);
+
+  /**
+   * Set the animation of current transition effect
+   *
+   * @param { AnimateParam } value - animation parameters
+   * @returns { TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  animation(value: AnimateParam): TransitionEffect;
+
+  /**
+   * Combines another transition effect
+   *
+   * @param { TransitionEffect } transitionEffect - transition effect which is be combined
+   * @returns { TransitionEffect } combined transition effect
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   combine(transitionEffect: TransitionEffect): TransitionEffect;
 }
@@ -12794,6 +13173,17 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
  */
 declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType;
 
+/** 
+ * Import the UniformDataType type object for ui component.
+ *
+ * @typedef { uniformTypeDescriptor.UniformDataType } UniformDataType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
+
 /**
  * Import the GetDataParams type object for ui component.
  *
@@ -12806,10 +13196,23 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
 
 /**
+ * Import the GetDataParams type object for ui component.
+ *
+ * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DataSyncOptions = unifiedDataChannel.GetDataParams;
+
+/**
  * The type for SpringLoadingContext, see the detailed description in dragController.
  *
  * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @atomicservice
  * @since 20
  */
@@ -14048,7 +14451,8 @@ declare interface DragEvent {
    * @throws { BusinessError } 190003 - Operation not allowed for current pharse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startDataLoading(options: DataSyncOptions): string;
 
@@ -15161,6 +15565,67 @@ declare interface SpringBackAction {
 }
 
 /**
+ * Defines sheet spring back action
+ *
+ * @interface SpringBackAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface SpringBackAction {
+  /**
+   * Defines spring back function
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  springBack: VoidCallback;
+}
+
+
+/**
+ * Defines the detent array of a single length.
+ *
+ * @typedef { [SheetSize | Length] } SingleLengthDetent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type SingleLengthDetent = [SheetSize | Length];
+
+/**
+ * Defines the detent array of a two-length.
+ *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined] } DoubleLengthDetents
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DoubleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined];
+
+/**
+ * Defines the detent array of a three-length.
+ *
+ * @typedef { [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined] } TripleLengthDetents
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type TripleLengthDetents = [(SheetSize | Length), SheetSize | Length | undefined, SheetSize | Length | undefined];
+
+/**
  * Component sheet options
  *
  * @extends BindOptions
@@ -15289,6 +15754,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
+
+  /**
+   * Defines sheet detents
+   *
+   * @type { ?(SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  detents?: SingleLengthDetent | DoubleLengthDetents | TripleLengthDetents;
 
   /**
    * Background blur of the sheet. By default, there is no background blur.
@@ -16141,6 +16618,17 @@ declare interface DismissPopupAction {
   dismiss: Callback<void>;
 
   /**
+   * Defines popup dismiss function
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dismiss(): void;
+
+  /**
    * Defines popup dismiss reason
    *
    * @type { DismissReason }
@@ -16679,6 +17167,43 @@ declare interface TipsOptions {
    * @since 20
    */
   showAtAnchor?: TipsAnchorType;
+}
+
+/**
+ * Defines the popup button.
+ *
+ * @interface PopupButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface PopupButton {
+
+  /**
+   * Button text value
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value: string;
+
+  /**
+   * action
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  action: VoidCallback;
 }
 
 /**
@@ -27085,6 +27610,21 @@ declare class CommonMethod<T> {
   /**
    * Binds a modal page to the component, whose visibility is subject to the isShow settings.
    *
+   * @param { boolean | Bindable<boolean>} isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } [type] - transition type.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  bindContentCover(isShow: boolean | Bindable<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
+
+  /**
+   * Bind content cover
+   *
    * @param { boolean } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ContentCoverOptions } options - options of content cover.
@@ -27105,7 +27645,22 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  bindContentCover(isShow: boolean , builder: CustomBuilder, options?: ContentCoverOptions): T;
+
+  /**
+   * Bind content cover
+   *
+   * @param { boolean | Bindable<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } [options] - options of content cover.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  bindContentCover(isShow: boolean | Bindable<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
    * Binds a sheet page to the component, whose visibility is subject to the isShow settings.
@@ -27131,6 +27686,21 @@ declare class CommonMethod<T> {
    * @since 11
    */
   bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+
+  /**
+   * Bind sheet
+   *
+   * @param { boolean | Bindable<boolean>} isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { SheetOptions } [options] - options of sheet.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  bindSheet(isShow: boolean | Bindable<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -27247,7 +27817,8 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 17
+   * @since arkts {'1.1':'17','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
 
@@ -29935,6 +30506,19 @@ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.Rout
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
+ * UIContext.
+ *
+ * @typedef { _UIContext } UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type UIContext = _UIContext;
+
+/**
  * DrawContext
  *
  * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
@@ -29944,6 +30528,19 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
  * @since 12
  */
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
+ * DrawContext.
+ *
+ * @typedef { _DrawContext } DrawContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type DrawContext = _DrawContext;
 
 /**
  * VisualEffect
@@ -31320,7 +31917,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
@@ -32836,3 +33434,101 @@ declare interface DateRange {
    */
   end?: Date;
 }
+
+/**
+ * Indicates the information when the provider of the embedded UI is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface TerminationInfo {
+  /**
+   * Defines the termination code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  code: number;
+
+  /**
+   * Defines the additional termination information.
+   *
+   * @type { ?Want }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  want?: Want;
+}
+
+/**
+ * Defines the format for displaying dates and times.
+ *
+ * @typedef { intl.DateTimeOptions } DateTimeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DateTimeOptions = intl.DateTimeOptions;
+
+/**
+ * Defines a bindable property
+ * @interface Bindable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare interface Bindable<T> {
+  /**
+   * Defines value of the bindable property.
+   * @type { T }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly value: T;
+
+  /**
+   * Defines the callback of the bindable property which will be invork when the property is changed..
+   * @type { Callback<T> }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly onChange: Callback<T>;
+}
+
+/**
+ * Convert to a bindable property.
+ *
+ * @param { T } value - indicate the value of a state property.
+ * @returns { Bindable<T> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+export declare function $$<T>(value: T): Bindable<T>;
+
+/**
+ * Apply style function on this CommonMethod.
+ *
+ * @param { T } this
+ * @param { CustomStyles } customStyles
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @arkts 1.2
+ */
+export declare function applyStyles<T extends CommonMethod>(this: T, customStyles: CustomStyles): T;

@@ -18,6 +18,18 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
+import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional, Bindable} from "./common";
+import { CustomBuilder } from './builder';
+import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow,
+   CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from './enums';
+import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from './units';
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions,
+  AutoCapitalizationMode,EditableTextChangeValue,KeyboardAppearance } from "./textCommon";
+import { KeyboardOptions, PasteEvent } from "./richEditor";
+/*** endif */
+
 /**
  * Declare the type of input box
  *
@@ -1147,6 +1159,18 @@ declare interface TextInputOptions {
   text?: ResourceStr;
 
   /**
+   * Sets the current value of TextInput.
+   *
+   * @type { ?(ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+   text?: ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
+
+  /**
    * Called when the position of the insertion cursor is set.
    *
    * @type { ?TextInputController }
@@ -2021,15 +2045,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the font weight is set.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is too large, the text may be clipped depending on the font.
-   * <br>For the number type, the value range is [100, 900], at an interval of 100.
-   * <br>The default value is 400.
-   * <br>A larger value indicates a heavier font weight.
-   * <br>For the string type, only strings that represent a number, for example, "400",
-   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
-   * </p>
-   *
    * @param { number | FontWeight | string } value - Default value is FontWeight.Normal.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2046,6 +2061,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextInputAttribute;
 

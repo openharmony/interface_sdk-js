@@ -26,10 +26,6 @@ interface NoneUIConfig {
     files: Array<string>;
 }
 
-interface UseM3Config {
-    useM3: Array<string>;
-}
-
 export class ArkUIConfigUtil {
     static instance: ArkUIConfigUtil = new ArkUIConfigUtil();
     constructor() {
@@ -41,8 +37,6 @@ export class ArkUIConfigUtil {
         this.noneUIconfig.files.forEach(f => {
             this.noneUIFileSet.add(f);
         });
-        const useM3Config: UseM3Config = JSON.parse(fs.readFileSync("./config/arkui_m3_white_list.json", 'utf-8'));
-        this._useM3Files = useM3Config.useM3;
     }
     // ui components
     private config: ArkUIConfig;
@@ -62,27 +56,13 @@ export class ArkUIConfigUtil {
     private file2Attrbiute: Map<string, string> = new Map();
     private shouldNotHaveAttributeModifier: Set<string> = new Set();
     private _useMemoM3: boolean = false;
-    private _useM3Files: Array<string> = [];
     private _configPath: string = '';
-    get useMemoM3(): boolean {
-        return this._useMemoM3;
-    }
-
-    set useMemoM3(value: boolean) {
-        this._useMemoM3 = value;
-    }
-
-    withM3File(file: string): boolean {
-        if (this._useMemoM3) {
-            return true;
-        }
-        return this._useM3Files.includes(path.basename(file));
-    }
-
     get isHdsComponent(): boolean {
         return this._configPath.length > 0;
     }
-
+    get useMemoM3(): boolean {
+        return this._useMemoM3;
+    }
     public loadConfig(config: OptionValues): void {
         if (config.useMemoM3) {
             this._useMemoM3 = true;
@@ -92,19 +72,19 @@ export class ArkUIConfigUtil {
             this._configPath = config.configPath;
             // exception process: avoid non-existing given path
             try {
-                this.config = JSON.parse(fs.readFileSync(this._configPath + "/hds_uicomponents.json", 'utf-8'));
+                this.config = JSON.parse(fs.readFileSync(this._configPath + '/hds_uicomponents.json', 'utf-8'));
                 this.componentSet.clear();
                 this.config.components.forEach(c => {
                     this.componentSet.add(c);
                 });
-                this.noneUIconfig = JSON.parse(fs.readFileSync(this._configPath + "/hds_non_uicomponents.json", 'utf-8'));
+                this.noneUIconfig = JSON.parse(fs.readFileSync(this._configPath + '/hds_non_uicomponents.json', 'utf-8'));
                 this.noneUIFileSet.clear();
                 this.noneUIconfig.files.forEach(f => {
                     this.noneUIFileSet.add(f);
                 });
             } catch (error) {
                 this._configPath = '';
-                console.log("Load given hds_uicomponents file failed!", error);
+                console.log('Load given hds_uicomponents file failed!', error);
             }
         }
     }
@@ -157,6 +137,9 @@ export class ArkUIConfigUtil {
         return this.componentFiles.has(this.getPureName(name));
     }
     public shouldHaveAttributeModifier(name: string): boolean {
+        if (this.isHdsComponent) {
+            return false;
+        }
         return !this.shouldNotHaveAttributeModifier.has(name) && this.isComponent(name, 'Attribute');
     }
 }

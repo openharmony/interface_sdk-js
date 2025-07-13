@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import curves from '../../@ohos.curves';
+/*** endif */
+
 /**
  * common enum of the checkbox shape
  *
@@ -2231,6 +2235,19 @@ declare enum Curve {
    */
   Friction,
 }
+
+/**
+ * enum Curve.
+ *
+ * @typedef { curves.Curve } Curve
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type Curve = curves.Curve;
 
 /**
  * Sets the state before and after the animation starts.

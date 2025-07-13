@@ -18,6 +18,16 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
+import { ControlSize } from './button';
+import { DividerOptions } from './textPicker';
+import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { TextModifier } from '../TextModifier';
+import { OptionWidthMode } from './enums';
+/*** endif */
+
 /**
  * The declare of selectOption.
  *
@@ -429,6 +439,20 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selected(numCount: Optional<number | Resource>): SelectAttribute;
 
   /**
+   * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number | Resource | undefined | Bindable<number> | Bindable<Resource> } numCount - the serial number of the select item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): SelectAttribute;
+
+
+  /**
    * Sets the text display of the select button itself.
    *
    * @param { string } value
@@ -468,6 +492,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 18
    */  
   value(resStr: Optional<ResourceStr>): SelectAttribute;
+
+  /**
+   * Sets the text display of the select button itself.
+   *
+   * @param { ResourceStr | undefined | Bindable<string> | Bindable<Resource> } resStr - the text display of the select button itself.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value(resStr: ResourceStr | undefined | Bindable<string> | Bindable<Resource>): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.

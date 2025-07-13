@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier, Bindable } from './common'
+import { ResourceStr } from './units';
+/*** endif */
+
 /**
  * Define options used to construct a rating.
  *
@@ -75,6 +80,19 @@ declare interface RatingOptions {
    * @since 18
    */
   rating: number;
+
+  /**
+   * Rating option.
+   *
+   * @type { number | undefined | Bindable<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  rating: number | undefined | Bindable<number>;
 
   /**
    * Indicator option.

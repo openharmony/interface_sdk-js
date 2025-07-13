@@ -67,7 +67,7 @@ declare namespace matrix4 {
    * @atomicservice
    * @since 11
    */
-  interface TranslateOption {
+  export interface TranslateOption {
     /**
      * Indicates the translation distance of the x-axis, in px.
      *
@@ -180,7 +180,7 @@ declare namespace matrix4 {
    * @atomicservice
    * @since 11
    */
-  interface ScaleOption {
+  export interface ScaleOption {
     /**
      * Zoom factor of the x-axis.
      *
@@ -354,7 +354,7 @@ declare namespace matrix4 {
    * @atomicservice
    * @since 11
    */
-  interface RotateOption {
+  export interface RotateOption {
     /**
      * Axis of rotation vector x coordinate.
      *
@@ -660,7 +660,7 @@ declare namespace matrix4 {
    * @atomicservice
    * @since 11
    */
-  interface Matrix4Transit {
+  export interface Matrix4Transit {
     /**
      * Copy function of Matrix, which can copy a copy of the current matrix object.
      *

@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, BlurStyle, Bindable } from './common'
+import { ResourceColor, Length, Position } from './units'
+import { Font } from './units'
+/*** endif */
+
 /**
  * indexer align property.
  *
@@ -190,6 +196,17 @@ interface AlphabetIndexerOptions {
    * @since 18
    */
   selected: number;
+  /**
+   * ID of the selected item.
+   *
+   * @type { number | Bindable<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected: number | Bindable<number>;
 }
 
 /**
@@ -894,6 +911,18 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 11
    */
   selected(index: number): AlphabetIndexerAttribute;
+  /**
+   * Sets the selected index.
+   *
+   * @param { number | Bindable<number> } index
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected(index: number | Bindable<number>): AlphabetIndexerAttribute;
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.

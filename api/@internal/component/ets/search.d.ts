@@ -18,6 +18,18 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { TextContentControllerBase, SelectionOptions,Callback,CommonMethod,Optional,TextDecorationOptions, Bindable } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceStr,Length,ResourceColor ,Dimension,Font} from './units';
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions,KeyboardAppearance,EditableTextChangeValue,AutoCapitalizationMode } from './textCommon';
+import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from './textInput';
+import { CopyOptions,TextAlign } from './enums';
+import { KeyboardOptions } from './richEditor';
+import { Resource } from '../../global/resource';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+/*** endif */
+
 /**
  * Provides the method of switching the cursor position.
  *
@@ -376,6 +388,17 @@ declare interface SearchOptions {
    * @since 20
    */
   value?: ResourceStr;
+
+  /**
+   * Text input in the search text box.
+   *
+   * @type { ?(string | Bindable<string>)}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value?: string | Bindable<string>;
 
   /**
    * Text displayed when there is no input.
@@ -868,6 +891,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
 

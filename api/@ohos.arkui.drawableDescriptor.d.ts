@@ -135,6 +135,18 @@ export class DrawableDescriptor {
   getPixelMap(): image.PixelMap;
 
   /**
+   * Get pixelMap of drawable image.
+   *
+   * @returns { image.PixelMap | undefined } Return the PixelMap of the calling DrawableDescriptor object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getPixelMap(): image.PixelMap | undefined;
+
+  /**
    * Get original width of drawable object.
    *
    * @returns { number } Return the width of the DrawableDescriptor object.
@@ -251,6 +263,18 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   getForeground(): DrawableDescriptor;
 
   /**
+   * Get DrawableDescriptor for the foreground.
+   *
+   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of foreground.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getForeground(): DrawableDescriptor | undefined;
+
+  /**
    * Get DrawableDescriptor for the background.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
@@ -277,6 +301,18 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   getBackground(): DrawableDescriptor;
 
   /**
+   * Get DrawableDescriptor for the background.
+   *
+   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getBackground(): DrawableDescriptor | undefined;
+
+  /**
    * Get DrawableDescriptor for the mask.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
@@ -301,6 +337,18 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 12
    */
   getMask(): DrawableDescriptor;
+
+  /**
+   * Get DrawableDescriptor for the mask.
+   *
+   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of mask.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getMask(): DrawableDescriptor | undefined;
 
 
   /**
@@ -369,7 +417,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @atomicservice
  * @since 12
  */
-declare interface AnimationOptions {
+export declare interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *

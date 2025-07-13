@@ -28,7 +28,7 @@
     "rom": "0KB",
     "ram": "0KB",
     "deps": {
-      "components": [],
+      "components": ["runtime_core"],
       "third_party": []
     },
     "build": {

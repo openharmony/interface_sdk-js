@@ -1229,6 +1229,35 @@ declare interface TextMenuItem {
 type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 
 /**
+ * Callback function when the selection menu create.
+ *
+ * @typedef { function } OnCreateMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
+ * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+ *
+ * @typedef { function } OnMenuItemClickCallback
+ * @param { TextMenuItem } menuItem - current default menu.
+ * @param { TextRange } range - current selected range.
+ * @returns { boolean } - Return True, the event is consumed, false otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange) => boolean
+
+/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
@@ -1271,6 +1300,30 @@ declare interface EditMenuOptions {
    * @since 20
    */
   onPrepareMenu?: OnPrepareMenuCallback;
+
+  /**
+   * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+   *
+   * @type { OnCreateMenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onCreateMenu: OnCreateMenuCallback;
+
+  /**
+   * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+   *
+   * @type { OnMenuItemClickCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onMenuItemClick: OnMenuItemClickCallback;
 }
 
 /**

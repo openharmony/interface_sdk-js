@@ -30,7 +30,7 @@
  * @atomicservice
  * @since 12
  */
-interface ShapeSize {
+export interface ShapeSize {
   /**
    * Defines the width of Shape.
    * @type { ? (number | string) }
@@ -63,7 +63,7 @@ interface ShapeSize {
  * @atomicservice
  * @since 12
  */
-interface RectShapeOptions extends ShapeSize {
+export interface RectShapeOptions extends ShapeSize {
   /**
    * Defines the corner radius of the RectShape.
    * @type { ? (number | string | Array<number | string>) } 
@@ -86,7 +86,7 @@ interface RectShapeOptions extends ShapeSize {
  * @atomicservice
  * @since 12
  */
-interface RoundRectShapeOptions extends ShapeSize {
+export interface RoundRectShapeOptions extends ShapeSize {
   /**
    * Defines the width of the corner radius for RectShape.
    * @type { ? (number | string) }
@@ -118,7 +118,7 @@ interface RoundRectShapeOptions extends ShapeSize {
  * @atomicservice
  * @since 12
  */
-interface PathShapeOptions {
+export interface PathShapeOptions {
   /**
    * Defines the commands for drawing the PathShape.
    * @type { ?string }

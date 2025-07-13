@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Callback, Optional, CommonMethod, Bindable } from './common'
+import { CustomBuilder } from './builder'
+import { ResourceStr } from './units'
+import { ComponentContent } from '../ComponentContent'
+/*** endif */
+
 /**
  * The refresh status of the drop-down refresh.
  *
@@ -212,6 +219,18 @@ interface RefreshOptions {
    * @since 11
    */
   refreshing: boolean;
+  /**
+   * Whether the current component is being refreshed.
+   * This parameter supports $$ for two-way binding of variables.
+   *
+   * @type { boolean | Bindable<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  refreshing: boolean | Bindable<boolean>;
 
   /**
    * Distance to the top of the parent component from the component that

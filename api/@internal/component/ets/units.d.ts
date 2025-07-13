@@ -57,6 +57,19 @@
 declare type Resource = import('../api/global/resource').Resource;
 
 /**
+ * Defines the data type of the interface restriction.
+ *
+ * @typedef { _Resource } Resource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type Resource = _Resource;
+
+/**
  * Defines the length property with string, number and resource unit.
  *
  * @typedef { string | number | Resource } Length

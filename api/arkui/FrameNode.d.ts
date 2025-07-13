@@ -1200,6 +1200,30 @@ export interface TypedFrameNode<C, T> extends FrameNode {
 }
 
 /**
+ * Used to define the FrameNode type.
+ *
+ * @extends FrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare abstract class TypedFrameNode<T> extends FrameNode {
+  /**
+   * Get attribute instance of FrameNode to set attributes.
+   *
+   * @returns { T } - Returns the attribute instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get attribute(): T;
+}
+
+/**
  * Provides methods to implement FrameNode.
  * When typeNode is used to create nodes such as Text, Image, Select, or Toggle, if the UIContext instance
  * corresponding to the passed UIContext is destroyed, calling this API will return an invalid FrameNode.

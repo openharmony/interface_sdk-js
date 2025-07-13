@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, Optional, Bindable } from './common';
+import { ResourceColor, MarkStyle } from './units';
+import { CheckBoxShape } from './enums';
+/*** endif */
+
 /**
  * CheckboxGroup SelectStatus
  *
@@ -504,6 +510,20 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 18
    */  
   selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
+
+  /**
+   * setting whether all checkbox is selected.
+   *
+   * @param { boolean| undefined|Bindable<boolean> } isAllSelected
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.

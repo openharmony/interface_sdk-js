@@ -37,6 +37,28 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 
+/*** if arkts 1.2 */
+import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+import {
+  ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam,
+  KeyframeState, SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional
+} from './arkui/component/common';
+import { CustomBuilder } from './arkui/component/builder';
+import { GestureEvent, GestureRecognizer } from './arkui/component/gesture';
+import { ResourceStr, SizeOptions, VoidCallback } from './arkui/component/units';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from './arkui/component/enums';
+import { TimePickerDialogOptions } from './arkui/component/timePicker';
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
+import { ActionSheetOptions } from './arkui/component/actionSheet';
+import { TextPickerDialogOptions } from './arkui/component/textPicker';
+import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
+import { DatePickerDialogOptions } from './arkui/component/datePicker';
+import { TabsController } from './arkui/component/tabs';
+import { Scroller } from './arkui/component/scroll';
+import { KeyProcessingMode } from './arkui/component/focus';
+import { TextMenuOptions } from './arkui/component/textCommon';
+/*** endif */
 /**
  * class Font
  *
@@ -1035,7 +1057,8 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts { '1.1':'18','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -1052,7 +1075,8 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts { '1.1':'18','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   closeToast(toastId: number): void;
 
@@ -1262,7 +1286,8 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
 
@@ -1280,8 +1305,9 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
+  */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1630,7 +1656,7 @@ export interface OverlayManagerOptions {
    */
   renderRootOverlay?: boolean;
 
-  /**
+/**
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
@@ -1648,6 +1674,7 @@ export interface OverlayManagerOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   enableBackPressedEvent?: boolean;
 }
@@ -2759,7 +2786,8 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 14
+ * @since arkts { '1.1':'14','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 export class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
@@ -2768,7 +2796,8 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
   * @readonly
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since 14
+  * @since arkts { '1.1':'14','1.2':'20' }
+  * @arkts 1.1&1.2
   */
   readonly type: MarqueeDynamicSyncSceneType;
 }
@@ -4484,6 +4513,18 @@ export class UIContext {
    * @since 17
    */
   static destroyUIContextWithoutWindow(): void;
+
+  /**
+   * Thread-safe UI state variables updates interface.
+   *
+   * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  setUIStates(callback: VoidCallback): void;
 }
 
 /**
@@ -4577,7 +4618,8 @@ export const enum SwiperDynamicSyncSceneType {
  * @enum { number } MarqueeDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 14
+ * @since arkts { '1.1':'14','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 export const enum MarqueeDynamicSyncSceneType {
   /**
@@ -4585,7 +4627,8 @@ export const enum MarqueeDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 14
+   * @since arkts { '1.1':'14','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   ANIMATION = 1
 }

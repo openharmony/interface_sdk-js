@@ -152,6 +152,17 @@ declare interface DismissDialogAction {
    * @since 12
    */
   dismiss: Callback<void>;
+
+  /**
+   * Defines dialog dismiss function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  dismiss(): void;
   
   /**
    * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the
