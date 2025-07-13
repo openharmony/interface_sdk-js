@@ -2051,10 +2051,9 @@ declare namespace connection {
      * Network card name.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    iface: string;
+    interface: string;
 
     /**
      * Destination Address
