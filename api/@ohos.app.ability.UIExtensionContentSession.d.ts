@@ -18,15 +18,15 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import type AbilityStartCallback from './application/AbilityStartCallback';
+import type { AsyncCallback } from './@ohos.base';
+import type uiExtensionHost from './@ohos.uiExtensionHost';
+/*** if arkts 1.1 */
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtension from './@ohos.arkui.uiExtension';
 import type { AbilityResult } from './ability/abilityResult';
 /*** endif */
-import type { AsyncCallback } from './@ohos.base';
-import type uiExtensionHost from './@ohos.uiExtensionHost';
 /*** if arkts 1.2 */
 import { AbilityResult } from './ability/abilityResult';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
@@ -587,7 +587,8 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -626,7 +627,8 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;

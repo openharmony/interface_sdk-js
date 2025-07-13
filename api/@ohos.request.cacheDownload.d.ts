@@ -58,13 +58,13 @@ declare namespace cacheDownload {
         /**
          * The decompressed size of the downloaded resource.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly size: number;
+        readonly size: long;
     }
 
     /**
@@ -111,73 +111,73 @@ declare namespace cacheDownload {
         /**
          * Time taken from startup to DNS resolution completion, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly dnsTime: number;
+        readonly dnsTime: long;
         /**
          * Time taken from startup to TCP connection completion, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly connectTime: number;
+        readonly connectTime: long;
         /**
          * Time taken from startup to TLS connection completion, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly tlsTime: number;
+        readonly tlsTime: long;
         /**
          * Time taken from startup to start sending the first byte, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly firstSendTime: number;
+        readonly firstSendTime: long;
         /**
          * Time taken from startup to start receiving the first byte, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly firstReceiveTime: number;
+        readonly firstReceiveTime: long;
         /**
          * Time taken from startup to the completion of the request, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly totalTime: number;
+        readonly totalTime: long;
         /**
          * Time taken from startup to completion of all redirection steps, in milliseconds.
          *
-         * @type { number }
+         * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20
          * @arkts 1.1&1.2
          */
-        readonly redirectTime: number;
+        readonly redirectTime: long;
     }
 
     /**
@@ -255,26 +255,26 @@ declare namespace cacheDownload {
      * The default size is 0 bytes.
      * The maximum size is 1,073,741,824 bytes(1 GB).
      *
-     * @param { number } bytes - The maximum amount of data cached in memory, in bytes.
+     * @param { long } bytes - The maximum amount of data cached in memory, in bytes.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setMemoryCacheSize(bytes: number);
+    function setMemoryCacheSize(bytes: long);
 
     /**
      * Sets the size of the file cache used to store downloaded content.
      * The default size is 104,857,600 bytes(100 MB).
      * The maximum size is 4,294,967,296 bytes(4 GB).
      *
-     * @param { number } bytes - The maximum amount of data cached in files, in bytes.
+     * @param { long } bytes - The maximum amount of data cached in files, in bytes.
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setFileCacheSize(bytes: number);
+    function setFileCacheSize(bytes: long);
 
     /**
      * Gets download information of cache downloads based on URL.
@@ -303,12 +303,12 @@ declare namespace cacheDownload {
      * The default value of the specified size is 0. It means no download information can be stored.
      * The maximum value of the specified size is 8192.
      *
-     * @param { number } size - the size of the download information list.
+     * @param { long } size - the size of the download information list.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20
      * @arkts 1.1&1.2
      */
-    function setDownloadInfoListSize(size: number): void;
+    function setDownloadInfoListSize(size: long): void;
 }
 
 export default cacheDownload;

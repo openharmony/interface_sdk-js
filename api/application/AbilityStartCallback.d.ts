@@ -18,20 +18,33 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
-import type { AbilityResult } from '../ability/abilityResult';
-/*** endif */
 
+import { AbilityResult } from '../ability/abilityResult';
+
+/*** if arkts 1.1 */
 /**
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export default class AbilityStartCallback {
+/*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * The callback of UIAbility or UIExtensionAbility.
+ *
+ * @typedef AbilityStartCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AbilityStartCallback {
+/*** endif */
   /**
    * Called when some error occurred except disconnected from UIAbility or UIExtensionAbility.
    *
@@ -41,7 +54,8 @@ export default class AbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onError(code: number, name: string, message: string): void;
   
@@ -55,4 +69,20 @@ export default class AbilityStartCallback {
    * @since 12
    */
   onResult?(parameter: AbilityResult): void;
+  
+  /**
+   * Called when UIExtensionAbility terminate with result.
+   *
+   * @param { AbilityResult } parameter - The parameter returned if the UIExtensionAbility call terminateSelfWithResult.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onResult(parameter: AbilityResult): void;
 }
+
+/*** if arkts 1.2 */
+export default AbilityStartCallback;
+/*** endif */

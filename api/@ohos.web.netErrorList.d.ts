@@ -24,7 +24,8 @@
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum WebNetErrorList {
   /**
@@ -32,7 +33,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NET_OK = 0,
 
@@ -44,7 +46,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_IO_PENDING = -1,
 
@@ -53,7 +56,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FAILED = -2,
 
@@ -62,7 +66,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ABORTED = -3,
 
@@ -71,7 +76,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_ARGUMENT = -4,
 
@@ -80,7 +86,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_HANDLE = -5,
 
@@ -89,7 +96,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_NOT_FOUND = -6,
 
@@ -98,7 +106,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TIMED_OUT = -7,
 
@@ -107,7 +116,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_TOO_LARGE = -8,
 
@@ -117,7 +127,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNEXPECTED = -9,
 
@@ -126,7 +137,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ACCESS_DENIED = -10,
 
@@ -135,7 +147,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NOT_IMPLEMENTED = -11,
 
@@ -144,7 +157,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INSUFFICIENT_RESOURCES = -12,
   
@@ -153,7 +167,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_OUT_OF_MEMORY = -13,
 
@@ -163,7 +178,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UPLOAD_FILE_CHANGED = -14,
 
@@ -172,7 +188,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_NOT_CONNECTED = -15,
 
@@ -181,7 +198,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_EXISTS = -16,
 
@@ -190,7 +208,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_PATH_TOO_LONG = -17,
 
@@ -199,7 +218,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_NO_SPACE = -18,
 
@@ -208,7 +228,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FILE_VIRUS_INFECTED = -19,
 
@@ -217,7 +238,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BLOCKED_BY_CLIENT = -20,
   
@@ -226,7 +248,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NETWORK_CHANGED = -21,
 
@@ -236,7 +259,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BLOCKED_BY_ADMINISTRATOR = -22,
 
@@ -245,7 +269,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_CONNECTED = -23,
   
@@ -255,7 +280,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UPLOAD_STREAM_REWIND_NOT_SUPPORTED = -25,
 
@@ -265,7 +291,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONTEXT_SHUT_DOWN = -26,
   
@@ -276,7 +303,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BLOCKED_BY_RESPONSE = -27,
 
@@ -286,7 +314,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CLEARTEXT_NOT_PERMITTED = -29,
   
@@ -295,7 +324,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BLOCKED_BY_CSP = -30,
 
@@ -304,7 +334,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_H2_OR_QUIC_REQUIRED = -31,
 
@@ -313,7 +344,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BLOCKED_BY_ORB = -32,
 
@@ -322,7 +354,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_CLOSED = -100,
 
@@ -331,7 +364,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_RESET = -101,
 
@@ -340,7 +374,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_REFUSED = -102,
   
@@ -350,7 +385,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_ABORTED = -103,
 
@@ -359,7 +395,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_FAILED = -104,
 
@@ -368,7 +405,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NAME_NOT_RESOLVED = -105,
 
@@ -377,7 +415,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INTERNET_DISCONNECTED = -106,
 
@@ -386,7 +425,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_PROTOCOL_ERROR = -107,
 
@@ -396,7 +436,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ADDRESS_INVALID = -108,
 
@@ -406,7 +447,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ADDRESS_UNREACHABLE = -109,
 
@@ -415,7 +457,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_CERT_NEEDED = -110,
 
@@ -424,7 +467,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TUNNEL_CONNECTION_FAILED = -111,
 
@@ -433,7 +477,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NO_SSL_VERSIONS_ENABLED = -112,
 
@@ -443,7 +488,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_VERSION_OR_CIPHER_MISMATCH = -113,
 
@@ -452,7 +498,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_RENEGOTIATION_REQUESTED = -114,
 
@@ -462,7 +509,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_AUTH_UNSUPPORTED = -115,
 
@@ -471,7 +519,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_BAD_SSL_CLIENT_AUTH_CERT = -117,
 
@@ -480,7 +529,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONNECTION_TIMED_OUT = -118,
 
@@ -490,7 +540,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HOST_RESOLVER_QUEUE_TOO_LARGE = -119,
 
@@ -499,7 +550,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKS_CONNECTION_FAILED = -120,
 
@@ -509,7 +561,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKS_CONNECTION_HOST_UNREACHABLE = -121,
 
@@ -518,7 +571,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ALPN_NEGOTIATION_FAILED = -122,
 
@@ -527,7 +581,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_NO_RENEGOTIATION = -123,
 
@@ -537,7 +592,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_WINSOCK_UNEXPECTED_WRITTEN_BYTES = -124,
 
@@ -548,7 +604,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_DECOMPRESSION_FAILURE_ALERT = -125,
 
@@ -558,7 +615,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_BAD_RECORD_MAC_ALERT = -126,
 
@@ -567,7 +625,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_AUTH_REQUESTED = -127,
 
@@ -579,7 +638,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_CONNECTION_FAILED = -130,
 
@@ -589,7 +649,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_MANDATORY_PROXY_CONFIGURATION_FAILED = -131,
 
@@ -599,7 +660,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PRECONNECT_MAX_SOCKET_LIMIT = -133,
 
@@ -608,7 +670,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED = -134,
 
@@ -617,7 +680,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY = -135,
 
@@ -626,7 +690,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_CERTIFICATE_INVALID = -136,
 
@@ -635,7 +700,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NAME_RESOLUTION_FAILED = -137,
 
@@ -646,7 +712,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NETWORK_ACCESS_DENIED = -138,
 
@@ -655,7 +722,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TEMPORARILY_THROTTLED = -139,
   /**
@@ -665,7 +733,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTPS_PROXY_TUNNEL_RESPONSE_REDIRECT = -140,
 
@@ -679,7 +748,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED = -141,
 
@@ -689,7 +759,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_MSG_TOO_BIG = -142,
 
@@ -699,7 +770,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_WS_PROTOCOL_ERROR = -145,
 
@@ -708,7 +780,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ADDRESS_IN_USE = -147,
 
@@ -717,7 +790,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_HANDSHAKE_NOT_COMPLETED = -148,
 
@@ -726,7 +800,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_BAD_PEER_PUBLIC_KEY = -149,
 
@@ -737,7 +812,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN = -150,
 
@@ -746,7 +822,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CLIENT_AUTH_CERT_TYPE_UNSUPPORTED = -151,
 
@@ -757,7 +834,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_DECRYPT_ERROR_ALERT = -153,
   
@@ -767,7 +845,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_WS_THROTTLE_QUEUE_TOO_LARGE = -154,
       
@@ -776,7 +855,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_SERVER_CERT_CHANGED = -156,
 
@@ -785,7 +865,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_UNRECOGNIZED_NAME_ALERT = -159,
 
@@ -794,7 +875,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_SET_RECEIVE_BUFFER_SIZE_ERROR = -160,
 
@@ -803,7 +885,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_SET_SEND_BUFFER_SIZE_ERROR = -161,
 
@@ -813,7 +896,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_RECEIVE_BUFFER_SIZE_UNCHANGEABLE = -162,
 
@@ -823,7 +907,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SOCKET_SEND_BUFFER_SIZE_UNCHANGEABLE = -163,
 
@@ -833,7 +918,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_CERT_BAD_FORMAT = -164,
 
@@ -845,7 +931,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ICANN_NAME_COLLISION = -166,
 
@@ -856,7 +943,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_SERVER_CERT_BAD_FORMAT = -167,
 
@@ -865,7 +953,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CT_STH_PARSING_FAILED = -168,
 
@@ -875,7 +964,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CT_STH_INCOMPLETE = -169,
 
@@ -887,7 +977,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH = -170,
 
@@ -896,7 +987,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CT_CONSISTENCY_PROOF_PARSING_FAILED = -171,
 
@@ -908,7 +1000,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_OBSOLETE_CIPHER = -172,
 
@@ -918,7 +1011,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_WS_UPGRADE = -173,
 
@@ -928,7 +1022,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_READ_IF_READY_NOT_IMPLEMENTED = -174,
 
@@ -937,7 +1032,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NO_BUFFER_SPACE = -176,
 
@@ -947,7 +1043,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS = -177,
 
@@ -958,7 +1055,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_EARLY_DATA_REJECTED = -178,
 
@@ -972,7 +1070,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_WRONG_VERSION_ON_EARLY_DATA = -179,
 
@@ -985,7 +1084,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TLS13_DOWNGRADE_DETECTED = -180,
 
@@ -995,7 +1095,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_KEY_USAGE_INCOMPATIBLE = -181,
 
@@ -1004,7 +1105,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_ECH_CONFIG_LIST = -182,
 
@@ -1014,7 +1116,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ECH_NOT_NEGOTIATED = -183,
 
@@ -1024,7 +1127,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ECH_FALLBACK_CERTIFICATE_INVALID = -184,
 
@@ -1041,7 +1145,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_COMMON_NAME_INVALID = -200,
 
@@ -1055,7 +1160,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_DATE_INVALID = -201,
 
@@ -1071,7 +1177,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_AUTHORITY_INVALID = -202,
 
@@ -1085,7 +1192,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_CONTAINS_ERRORS = -203,
 
@@ -1095,7 +1203,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_NO_REVOCATION_MECHANISM = -204,
 
@@ -1109,7 +1218,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_UNABLE_TO_CHECK_REVOCATION = -205,
 
@@ -1120,7 +1230,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_REVOKED = -206,
 
@@ -1132,7 +1243,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_INVALID = -207,
 
@@ -1142,7 +1254,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_WEAK_SIGNATURE_ALGORITHM = -208,
 
@@ -1151,7 +1264,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_NON_UNIQUE_NAME = -210,
 
@@ -1161,7 +1275,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_WEAK_KEY = -211,
   
@@ -1170,7 +1285,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_NAME_CONSTRAINT_VIOLATION = -212,
 
@@ -1179,7 +1295,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_VALIDITY_TOO_LONG = -213,
 
@@ -1189,7 +1306,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERTIFICATE_TRANSPARENCY_REQUIRED = -214,
 
@@ -1198,7 +1316,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_SYMANTEC_LEGACY = -215,
 
@@ -1208,7 +1327,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_KNOWN_INTERCEPTION_BLOCKED = -217,
 
@@ -1217,7 +1337,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SSL_OBSOLETE_VERSION_OR_CIPHER = -218,
 
@@ -1226,7 +1347,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_END = -219,
 
@@ -1235,7 +1357,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_URL = -300,
 
@@ -1244,7 +1367,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DISALLOWED_URL_SCHEME = -301,
 
@@ -1253,7 +1377,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNKNOWN_URL_SCHEME = -302,
 
@@ -1262,7 +1387,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_REDIRECT = -303,
 
@@ -1271,7 +1397,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TOO_MANY_REDIRECTS = -310,
 
@@ -1281,7 +1408,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNSAFE_REDIRECT = -311,
   
@@ -1290,7 +1418,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNSAFE_PORT = -312,
 
@@ -1299,7 +1428,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_RESPONSE = -320,
 
@@ -1308,7 +1438,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_CHUNKED_ENCODING = -321,
 
@@ -1317,7 +1448,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_METHOD_UNSUPPORTED = -322,
 
@@ -1327,7 +1459,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNEXPECTED_PROXY_AUTH = -323,
 
@@ -1336,7 +1469,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_EMPTY_RESPONSE = -324,
 
@@ -1345,7 +1479,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_HEADERS_TOO_BIG = -325,
   
@@ -1354,7 +1489,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PAC_SCRIPT_FAILED = -327,
 
@@ -1364,7 +1500,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_REQUEST_RANGE_NOT_SATISFIABLE = -328,
 
@@ -1373,7 +1510,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_MALFORMED_IDENTITY = -329,
 
@@ -1382,7 +1520,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONTENT_DECODING_FAILED = -330,
 
@@ -1392,7 +1531,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NETWORK_IO_SUSPENDED = -331,
 
@@ -1401,7 +1541,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SYN_REPLY_NOT_RECEIVED = -332,
 
@@ -1410,7 +1551,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ENCODING_CONVERSION_FAILED = -333,
 
@@ -1419,7 +1561,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNRECOGNIZED_FTP_DIRECTORY_LISTING_FORMAT = -334,
 
@@ -1428,7 +1571,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NO_SUPPORTED_PROXIES = -336,
 
@@ -1437,7 +1581,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_PROTOCOL_ERROR = -337,
 
@@ -1446,7 +1591,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_AUTH_CREDENTIALS = -338,
 
@@ -1456,7 +1602,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNSUPPORTED_AUTH_SCHEME = -339,
 
@@ -1465,7 +1612,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ENCODING_DETECTION_FAILED = -340,
 
@@ -1474,7 +1622,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_MISSING_AUTH_CREDENTIALS = -341,
 
@@ -1483,7 +1632,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS = -342,
 
@@ -1493,7 +1643,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_MISCONFIGURED_AUTH_ENVIRONMENT = -343,
 
@@ -1502,7 +1653,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_UNDOCUMENTED_SECURITY_LIBRARY_STATUS = -344,
 
@@ -1511,7 +1663,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN = -345,
 
@@ -1520,7 +1673,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH = -346,
 
@@ -1530,7 +1684,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INCOMPLETE_HTTP2_HEADERS = -347,
 
@@ -1541,7 +1696,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PAC_NOT_IN_DHCP = -348,
 
@@ -1550,7 +1706,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION = -349,
 
@@ -1559,7 +1716,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION = -350,
 
@@ -1572,7 +1730,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_SERVER_REFUSED_STREAM = -351,
 
@@ -1581,7 +1740,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_PING_FAILED = -352,
 
@@ -1591,7 +1751,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONTENT_LENGTH_MISMATCH = -354,
 
@@ -1601,7 +1762,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INCOMPLETE_CHUNKED_ENCODING = -355,
 
@@ -1610,7 +1772,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_QUIC_PROTOCOL_ERROR = -356,
 
@@ -1619,7 +1782,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_RESPONSE_HEADERS_TRUNCATED = -357,
   /**
@@ -1628,7 +1792,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_QUIC_HANDSHAKE_FAILED = -358,
 
@@ -1637,7 +1802,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY = -360,
 
@@ -1646,7 +1812,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_FLOW_CONTROL_ERROR = -361,
 
@@ -1655,7 +1822,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_FRAME_SIZE_ERROR = -362,
 
@@ -1664,7 +1832,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_COMPRESSION_ERROR = -363,
 
@@ -1673,7 +1842,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION = -364,
 
@@ -1682,7 +1852,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP_1_1_REQUIRED = -365,
 
@@ -1691,7 +1862,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PROXY_HTTP_1_1_REQUIRED = -366,
 
@@ -1700,7 +1872,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PAC_SCRIPT_TERMINATED = -367,
 
@@ -1710,7 +1883,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_HTTP_RESPONSE = -370,
 
@@ -1719,7 +1893,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CONTENT_DECODING_INIT_FAILED = -371,
 
@@ -1730,7 +1905,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED = -372,
 
@@ -1739,7 +1915,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE = -373,
 
@@ -1749,7 +1926,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374,
 
@@ -1759,7 +1937,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TOO_MANY_RETRIES = -375,
 
@@ -1768,7 +1947,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_STREAM_CLOSED = -376,
 
@@ -1777,7 +1957,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_CLIENT_REFUSED_STREAM = -377,
 
@@ -1787,7 +1968,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP2_PUSHED_RESPONSE_DOES_NOT_MATCH = -378,
 
@@ -1796,7 +1978,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_HTTP_RESPONSE_CODE_FAILURE = -379,
 
@@ -1807,7 +1990,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_QUIC_UNKNOWN_CERT_ROOT = -380,
 
@@ -1817,7 +2001,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_QUIC_GOAWAY_REQUEST_CAN_BE_RETRIED = -381,
 
@@ -1826,7 +2011,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TOO_MANY_ACCEPT_CH_RESTARTS = -382,
 
@@ -1837,7 +2023,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INCONSISTENT_IP_ADDRESS_SPACE = -383,
 
@@ -1847,7 +2034,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHED_IP_ADDRESS_SPACE_BLOCKED_BY_LOCAL_NETWORK_ACCESS_POLICY = -384,
 
@@ -1856,7 +2044,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_MISS = -400,
 
@@ -1865,7 +2054,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_READ_FAILURE = -401,
 
@@ -1874,7 +2064,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_WRITE_FAILURE = -402,
 
@@ -1883,7 +2074,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_OPERATION_UNSUPPORTED = -403,
 
@@ -1892,7 +2084,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_OPEN_FAILURE = -404,
 
@@ -1901,7 +2094,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_CREATE_FAILURE = -405,
 
@@ -1910,7 +2104,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_RACE = -406,
 
@@ -1919,7 +2114,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_CHECKSUM_READ_FAILURE = -407,
 
@@ -1928,7 +2124,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_CHECKSUM_MISMATCH = -408,
 
@@ -1937,7 +2134,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_LOCK_TIMEOUT = -409,
 
@@ -1947,7 +2145,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_AUTH_FAILURE_AFTER_READ = -410,
 
@@ -1956,7 +2155,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_ENTRY_NOT_SUITABLE = -411,
 
@@ -1965,7 +2165,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_DOOM_FAILURE = -412,
 
@@ -1974,7 +2175,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CACHE_OPEN_OR_CREATE_FAILURE = -413,
 
@@ -1983,7 +2185,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INSECURE_RESPONSE = -501,
 
@@ -1993,7 +2196,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_NO_PRIVATE_KEY_FOR_CERT = -502,
 
@@ -2002,7 +2206,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_ADD_USER_CERT_FAILED = -503,
 
@@ -2011,7 +2216,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_SIGNED_EXCHANGE = -504,
 
@@ -2020,7 +2226,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_INVALID_WEB_BUNDLE = -505,
 
@@ -2030,7 +2237,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TRUST_TOKEN_OPERATION_FAILED = -506,
 
@@ -2041,7 +2249,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_TRUST_TOKEN_OPERATION_SUCCESS_WITHOUT_SENDING_REQUEST = -507,
 
@@ -2051,7 +2260,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_FAILED = -601,
 
@@ -2061,7 +2271,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_SERVICE_UNAVAILABLE = -602,
 
@@ -2071,7 +2282,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_TRANSFER_ABORTED = -603,
 
@@ -2081,7 +2293,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_FILE_BUSY = -604,
 
@@ -2091,7 +2304,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_SYNTAX_ERROR = -605,
 
@@ -2101,7 +2315,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_COMMAND_UNSUPPORTED = -606,
 
@@ -2111,7 +2326,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_FTP_BAD_COMMAND_SEQUENCE = -607,
 
@@ -2120,7 +2336,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PKCS12_IMPORT_BAD_PASSWORD = -701,
 
@@ -2129,7 +2346,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PKCS12_IMPORT_FAILED = -702,
 
@@ -2138,7 +2356,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_IMPORT_CA_CERT_NOT_CA = -703,
 
@@ -2147,7 +2366,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_IMPORT_CERT_ALREADY_EXISTS = -704,
 
@@ -2156,7 +2376,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_IMPORT_CA_CERT_FAILED = -705,
 
@@ -2165,7 +2386,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_IMPORT_SERVER_CERT_FAILED = -706,
 
@@ -2174,7 +2396,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PKCS12_IMPORT_INVALID_MAC = -707,
 
@@ -2183,7 +2406,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PKCS12_IMPORT_INVALID_FILE = -708,
 
@@ -2192,7 +2416,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PKCS12_IMPORT_UNSUPPORTED = -709,
 
@@ -2201,7 +2426,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_KEY_GENERATION_FAILED = -710,
 
@@ -2210,7 +2436,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_PRIVATE_KEY_EXPORT_FAILED = -712,
 
@@ -2219,7 +2446,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_SELF_SIGNED_CERT_GENERATION_FAILED = -713,
 
@@ -2228,7 +2456,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_DATABASE_CHANGED = -714,
 
@@ -2237,7 +2466,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_CERT_VERIFIER_CHANGED = -716,
 
@@ -2246,7 +2476,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_MALFORMED_RESPONSE = -800,
 
@@ -2255,7 +2486,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_SERVER_REQUIRES_TCP = -801,
 
@@ -2272,7 +2504,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_SERVER_FAILED = -802,
   /**
@@ -2280,7 +2513,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_TIMED_OUT = -803,
 
@@ -2290,7 +2524,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_CACHE_MISS = -804,
 
@@ -2299,7 +2534,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_SEARCH_EMPTY = -805,
 
@@ -2308,7 +2544,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_SORT_ERROR = -806,
 
@@ -2317,7 +2554,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
 
@@ -2328,7 +2566,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_NAME_HTTPS_ONLY = -809,
 
@@ -2337,7 +2576,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_REQUEST_CANCELED = -810,
 
@@ -2347,7 +2587,8 @@ export declare enum WebNetErrorList {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ERR_DNS_NO_MATCHING_SUPPORTED_ALPN = -811,
 }

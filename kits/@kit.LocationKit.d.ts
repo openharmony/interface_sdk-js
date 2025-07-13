@@ -17,9 +17,15 @@
  * @file
  * @kit LocationKit
  */
-
-import geolocation from '@ohos.geolocation';
+/*** if arkts 1.1&1.2 */
 import geoLocationManager from '@ohos.geoLocationManager';
+export {
+  geoLocationManager
+};
+/*** endif */
+
+/*** if arkts 1.1*/
+import geolocation from '@ohos.geolocation';
 import FenceExtensionAbility from '@ohos.app.ability.FenceExtensionAbility';
 import FenceExtensionContext from '@ohos.app.ability.FenceExtensionContext';
 import Geolocation, {
@@ -29,6 +35,7 @@ import Geolocation, {
 
 export {
   Geolocation, GeolocationResponse, GetLocationOption, GetLocationTypeOption,
-  GetLocationTypeResponse, SubscribeLocationOption, geoLocationManager, geolocation,
+  GetLocationTypeResponse, SubscribeLocationOption, geolocation,
   FenceExtensionAbility,FenceExtensionContext
 };
+/*** endif */
