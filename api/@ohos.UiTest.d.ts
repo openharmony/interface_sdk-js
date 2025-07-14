@@ -26,8 +26,8 @@ import { Callback } from './@ohos.base';
  * @throws { BusinessError } 17000001 - Initialization failed.
  * @syscap SystemCapability.Test.UiTest
  * @since 20
- * @arkts 1.2
  * @test
+ * @arkts 1.2
 */
 declare function loadAndSetUpUiTest(): void;
  
