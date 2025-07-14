@@ -29,7 +29,7 @@ import { Callback } from './@ohos.base';
  * @arkts 1.2
  * @test
 */
-export function loadAndSetUpUiTest(): void {};
+declare function loadAndSetUpUiTest(): void;
  
 /**
  * Enumerates the string value match pattern.
@@ -5591,3 +5591,8 @@ export {
   UIEventObserver,
   TouchPadSwipeOptions
 };
+ /*** if arkts 1.2 */
+ export {
+   loadAndSetUpUiTest
+ };
+ /*** endif */
