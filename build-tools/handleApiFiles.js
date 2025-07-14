@@ -116,7 +116,8 @@ function handleApiFiles(rootPath, type, output) {
       console.log('error===>', error);
     }
   }
-  if (type === DirType.typeTwo) {
+  const hasApiDir = fs.existsSync(path.join(output, 'api'));
+  if (type === DirType.typeTwo && hasApiDir) {
     NotNullFilePath.forEach((dir) => {
       const outDir = path.join(output, dir);
       if (!fs.existsSync(outDir)) {
