@@ -67,7 +67,6 @@ declare namespace runningLock {
      * timeout parameter must be of type int.
      * @throws { BusinessError } 201 – If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-     * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
@@ -89,7 +88,6 @@ declare namespace runningLock {
      * Checks whether a lock is held or in use.
      *
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
-     * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
@@ -114,7 +112,6 @@ declare namespace runningLock {
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @throws { BusinessError } 201 – If the permission is denied.
-     * @throws { BusinessError } 4900101 - Failed to connect to the service.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
@@ -189,7 +186,6 @@ declare namespace runningLock {
    * @returns { boolean } Whether the specified {@link RunningLockType} is supported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * 2. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
