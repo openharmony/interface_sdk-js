@@ -38,19 +38,19 @@ declare namespace displaySync {
   interface IntervalInfo {
     /**
      * The timestamp means the current drawing frame time.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since arkts {'1.1': '11', '1.2': '20'}
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * The timestamp means the next drawing frame time.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since arkts {'1.1': '11', '1.2': '20'}
      */
-    targetTimestamp: number;
+    targetTimestamp: long;
   }
 
   /**
