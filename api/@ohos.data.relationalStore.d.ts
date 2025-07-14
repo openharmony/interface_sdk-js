@@ -8652,7 +8652,7 @@ declare namespace relationalStore {
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800001 - Invalid arguments. 1. Parameter is out of valid range;
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
      * <br>2. Empty conditions.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9584,7 +9584,7 @@ declare namespace relationalStore {
    * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
    * @returns { SqlInfo } - Returns a SQL insert statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. 1. Parameter is out of valid range;
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
    * <br>2. Empty conditions.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
