@@ -398,6 +398,17 @@ declare namespace audioHaptic {
      * @since 20
      */
     setHapticsRamp(duration: number, startIntensity: number, endIntensity: number): Promise<void>;
+
+    /**
+     * Set the playback to be looping. This method uses a promise to return the result.
+     * This function should be called before player release.
+     * @param { boolean } loop - Whether to loop or not, value true means loop.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operate not permit in current state.
+     * @syscap SystemCapability.Multimedia.AudioHaptic.Core
+     * @since 20
+     */
+    setLoop(loop: boolean): Promise<void>;
   }
 }
 export default audioHaptic;
