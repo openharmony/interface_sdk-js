@@ -3904,7 +3904,7 @@ declare namespace notificationManager {
   /**
    * Disabling notifications based on the application list.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
    * @param { boolean } disabled - The switch of disableNotification.
    * @param { Array<string> } bundleList - The bundles of disableNotification.
    * @returns { Promise<void> } The promise returned by the function.
@@ -3923,7 +3923,7 @@ declare namespace notificationManager {
   /**
    * Disabling notifications based on the application list.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.MANAGE_EDM_POLICY
    * @param { boolean } disabled - The switch of disableNotification.
    * @param { Array<string> } bundleList - The bundles of disableNotification.
    * @param { number } userId - the userId.
