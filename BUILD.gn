@@ -406,3 +406,22 @@ ohos_copy("api_check_plugin") {
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
 }
+
+action("ohos_ets_process_interop") {
+  script = "process_interop.py"
+
+  deps = [
+    ":ohos_base_split"
+  ]
+
+  args = [
+    "--intermediates-output",
+    rebase_path("${interface_sdk_path}", root_build_dir),
+    "--source-root-dir",
+    rebase_path("//", root_build_dir),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir)
+  ]
+
+  outputs = ["${interface_sdk_path}/ets1.1_interop", "${interface_sdk_path}/ets1.2_interop"]
+}

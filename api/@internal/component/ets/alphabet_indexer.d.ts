@@ -232,6 +232,7 @@ interface AlphabetIndexerOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface AlphabetIndexerInterface {
   /**
@@ -339,6 +340,7 @@ declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Arra
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop 
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
@@ -1054,6 +1056,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop 
  */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
 
@@ -1077,5 +1080,6 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;
