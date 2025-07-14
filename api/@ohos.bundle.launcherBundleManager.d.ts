@@ -40,7 +40,7 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -54,14 +54,14 @@ declare namespace launcherBundleManager {
    * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string,
-    userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+    userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
   /**
    * Obtains launcher abilities info based on a given bundleName and userId.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -74,14 +74,14 @@ declare namespace launcherBundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLauncherAbilityInfo(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
+  function getLauncherAbilityInfo(bundleName: string, userId: int): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains launcher abilities info based on a given bundleName and userId.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Array<LauncherAbilityInfo> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 801 - Capability not support.
@@ -91,13 +91,13 @@ declare namespace launcherBundleManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLauncherAbilityInfoSync(bundleName: string, userId: number): Array<LauncherAbilityInfo>;
+  function getLauncherAbilityInfoSync(bundleName: string, userId: int): Array<LauncherAbilityInfo>;
 
   /**
    * Obtains launcher abilities info based on a given userId.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback -The callback of the LauncherAbilityInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -109,13 +109,13 @@ declare namespace launcherBundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
+  function getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
   /**
    * Obtains launcher abilities info based on a given userId.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<Array<LauncherAbilityInfo>> } the LauncherAbilityInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -127,7 +127,7 @@ declare namespace launcherBundleManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
+  function getAllLauncherAbilityInfo(userId: int): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains shortcut info based on a given bundleName.
@@ -187,9 +187,9 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on bundleName and userId.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } userId - Indicates the user ID.
+   * @param { int } userId - Indicates the user ID.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -202,7 +202,7 @@ declare namespace launcherBundleManager {
    * @since arkts {'1.1':'13', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
+  function getShortcutInfoSync(bundleName: string, userId: int): Array<ShortcutInfo>;
 
   /**
    * Obtains shortcut info based on bundleName and appIndex.

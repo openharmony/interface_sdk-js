@@ -43,36 +43,36 @@ export interface PermissionDef {
   /**
    * Indicates the grant mode of this permission
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly grantMode: number;
+  readonly grantMode: int;
 
   /**
    * Indicates the labelId of this permission
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Indicates the descriptionId of this permission
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 }
