@@ -602,7 +602,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @atomicservice
    * @since 12
    */
-   /**
+  /**
    * Called when the font weight is set.
    *
    * @param { number | FontWeight | ResourceStr } weight
@@ -1667,8 +1667,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Set whether to optimize the trailing spaces at the end of each line during text layout.
    *
-   * @param { Optional<boolean> } optimize
-   * @returns { TextAttribute }
+   * @param { Optional<boolean> } optimize - Default value is false, set true to optimize the trailing spaces at the end of each line.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
