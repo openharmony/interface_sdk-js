@@ -452,12 +452,12 @@ declare namespace hidebug {
   function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
 
   /**
-   * Obtains the memory information of the application process. This API is implemented by reading data from the
-   *     /proc/{pid}/smaps_rollup and /proc/{pid}/statm node. The application memory cache is refresh every 5 minute.
-   *     It will be force to refresh when input true of forceRefresh parameter.
+   * Obtains the memory information of the application process, with optional caching to improve performance.
+   *     The cached value remains valid for 5 minutes. This API is implemented by reading data from the
+   *     /proc/{pid}/smaps_rollup and /proc/{pid}/statm node.
    *
-   * @param { boolean } [forceRefresh] Whether forceRefresh is required when application memeory cache
-   *     need to refresh. The default value is false.
+   * @param { boolean } [forceRefresh] Whether to retrieve fresh data and immediate refresh the cached value.
+   *     The default value is false.
    * @returns { NativeMemInfo } Returns the memory information of the application process.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20
