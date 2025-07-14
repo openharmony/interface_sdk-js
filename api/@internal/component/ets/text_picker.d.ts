@@ -2090,6 +2090,17 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 20
    */
   enableHapticFeedback?: boolean;
+
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  selectedBackgroundStyle?: PickerBackgroundStyle;
 }
 
 /**
