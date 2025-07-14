@@ -14628,37 +14628,6 @@ declare interface BindOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Defines transition type
-   *
-   * @type { ?ModalTransition }
-   * @default ModalTransition.Default
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines transition type
-   *
-   * @type { ?ModalTransition }
-   * @default ModalTransition.Default
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines transition type
-   * 
-   * @type { ?ModalTransition }
-   * @default ModalTransition.Default
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  modalTransition?: ModalTransition;
-
-  /**
    * Callback for when the sheet is displayed (after the animation ends).
    *
    * @type { ?function }
@@ -14772,6 +14741,27 @@ declare interface DismissContentCoverAction {
  * @since 11
  */
 declare interface ContentCoverOptions extends BindOptions {
+  /**
+   * Defines transition type
+   *
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Defines transition type
+   *
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  modalTransition?: ModalTransition,
+
   /**
    * Callback function when the content cover interactive dismiss
    *
@@ -15260,6 +15250,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 20
    */
   enableFloatingDragBar?: boolean;
+
+  /**
+   * Defines transition type when preferType is SheetType.CONTENT_COVER.
+   *
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  modalTransition?: ModalTransition;
 
   /**
    * Mask color of the sheet.
