@@ -196,7 +196,6 @@
     "SystemCapability.Global.ResourceManager",
     "SystemCapability.Multimedia.AVSession.AVCast",
     "SystemCapability.MiscServices.Wallpaper",
-    "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.Communication.WiFi.AP.Core",
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Communication.WiFi.P2P",
