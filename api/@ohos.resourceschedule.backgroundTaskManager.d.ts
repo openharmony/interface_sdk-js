@@ -986,8 +986,7 @@ declare namespace backgroundTaskManager {
      * multi-device connection mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * multi-device connection mode
