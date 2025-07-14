@@ -420,7 +420,7 @@ declare namespace media {
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since arkts{'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
