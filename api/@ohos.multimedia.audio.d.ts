@@ -6805,6 +6805,7 @@ declare namespace audio {
      * @param { boolean } enabled - Whether to enable or disable collaborative playback. The value true means to enable it, and false means to disable it.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
      *                              1. The specified device is not an A2DP device.
      *                              2. The specified device is not connected.
