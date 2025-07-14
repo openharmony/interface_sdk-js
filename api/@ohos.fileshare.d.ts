@@ -199,7 +199,8 @@ declare namespace fileShare {
    *
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PathPolicyInfo {
     /**
@@ -207,7 +208,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     path: string;
  
@@ -216,7 +218,8 @@ declare namespace fileShare {
      *
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     operationMode: OperationMode;
   }
@@ -226,14 +229,16 @@ declare namespace fileShare {
    *
    * @enum { number } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PolicyType {
     /**
      * Indicates that the policy is temporary.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEMPORARY_TYPE = 0,
  
@@ -241,7 +246,8 @@ declare namespace fileShare {
      * Indicates that the policy is persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PERSISTENT_TYPE = 1,
   }
@@ -410,7 +416,7 @@ declare namespace fileShare {
    * Check permissions for the path.
    * 
    * @permission ohos.permission.CHECK_SANDBOX_POLICY
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Array<PathPolicyInfo> } policies - Policy information to check on paths.
    * @param { PolicyType } policyType - Persistent or temporary type.
    * @returns { Promise<Array<boolean>> } Returns the permission state of paths.
@@ -421,9 +427,10 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function checkPathPermission(tokenID: number, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
+  function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }
 
 export default fileShare;
