@@ -221,6 +221,50 @@ declare namespace uiEffect {
     * @since 20
     */
     hdrBrightnessRatio(ratio: number): Filter;
+
+    /**
+     * Sets variable radius blur effect with radius map.
+     * 
+     * @param { number } radius - the blurring radius.
+     * The larger the blurring radius, the more blurring the content,
+     * and if the value is 0, the content blurring effect is not blurring.
+     * @param { Mask } radiusMap - the alpha of the mask determines the degree of blurring.
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    variableRadiusBlur(radius: number, radiusMap: Mask): Filter;
+
+    /**
+     * Generates lighting effects from height map and directional light.
+     * 
+     * @param { common2D.Point3d } direction - Direction of light
+     * @param { Color } color - Color of light
+     * @param { number } intensity - Intensity of light
+     * @param { Mask } [bumpMask] - Bump mask, as a displacement map that affects lighting effects
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    directionLight(direction: common2D.Point3d, color: Color, intensity: number, bumpMask?: Mask): Filter;
+
+    /**
+     * Applies Transition with alpha mask
+     * 
+     * @param { Mask } alphaMask - Animatable mask object
+     * @param { number } [factor] - The coefficient of the mask, defaulting to 1.0f [0~1]
+     * @param { boolean } [inverse] - Transition mode, default is fasle (true, false)
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    maskTransition(alphaMask: Mask, factor?: number, inverse?: boolean): Filter;
   }
 
   /**
