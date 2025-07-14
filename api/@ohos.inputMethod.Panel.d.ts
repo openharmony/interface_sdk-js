@@ -23,7 +23,8 @@
  *
  * @typedef PanelInfo
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PanelInfo {
   /**
@@ -31,7 +32,8 @@ export interface PanelInfo {
    *
    * @type { PanelType }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: PanelType;
 
@@ -42,7 +44,8 @@ export interface PanelInfo {
    * @type { ?PanelFlag }
    * @default FLG_FIXED
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   flag?: PanelFlag;
 }
@@ -52,7 +55,8 @@ export interface PanelInfo {
  *
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum PanelFlag {
   /**
@@ -61,7 +65,8 @@ export enum PanelFlag {
    * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FLAG_FIXED = 0,
 
@@ -71,7 +76,8 @@ export enum PanelFlag {
    * When the flag is set, the soft keyboard is floating.</p>
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FLAG_FLOATING,
 
@@ -83,7 +89,8 @@ export enum PanelFlag {
    * Input method application developers are supposed to control the panel status on their own.</p>
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FLAG_CANDIDATE
 }
@@ -93,14 +100,16 @@ export enum PanelFlag {
  *
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum PanelType {
   /**
    * Panel for displaying a virtual soft keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SOFT_KEYBOARD = 0,
 
@@ -108,7 +117,8 @@ export enum PanelType {
    * Panel for displaying status bar.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   STATUS_BAR
 }
