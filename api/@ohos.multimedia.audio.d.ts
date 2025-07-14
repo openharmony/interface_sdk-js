@@ -537,6 +537,13 @@ declare namespace audio {
      */
     ACCESSIBILITY = 5,
     /**
+     * Audio volume for system sound.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    SYSTEM = 6,
+    /**
      * Audio volume type for voice assistant.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 8
