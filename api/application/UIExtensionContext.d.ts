@@ -18,10 +18,14 @@
  * @kit AbilityKit
  */
 
-import type { AbilityResult } from '../ability/abilityResult';
+/*** if arkts 1.2 */
+import { AbilityResult } from '../ability/abilityResult';
+/*** endif */
 import type { AsyncCallback } from '../@ohos.base';
-import type { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
+/*** if arkts 1.1 */
+import type { AbilityResult } from '../ability/abilityResult';
+import type { ConnectOptions } from '../ability/connectOptions';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
@@ -29,6 +33,7 @@ import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
+/*** endif */
 
 /**
  * The context of UI extension. It allows access to UIExtension-specific resources.
@@ -36,9 +41,10 @@ import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectC
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class UIExtensionContext extends ExtensionContext {
+declare class UIExtensionContext extends ExtensionContext {
   /**
    * UI extension uses this method to start a specific ability.If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
@@ -93,7 +99,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -129,7 +135,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -203,7 +209,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -238,7 +244,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -316,7 +322,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -353,7 +359,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -464,7 +470,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -500,7 +506,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -574,7 +580,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -609,7 +615,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -687,7 +693,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -724,7 +730,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version 11 or later.
+   * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater than 11.
    * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -881,7 +887,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -891,7 +898,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
 
@@ -903,7 +911,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
@@ -915,7 +924,8 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
@@ -1101,4 +1111,46 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 18
    */
    setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
+
+  /**
+   * Starts multi UIAbility simultaneously. If the caller application is in foreground, you can use
+   * this method to start abilities; If the caller application is in the background, you need to apply
+   * for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND. If the target ability is visible,
+   * you can start the target ability; If the target ability is invisible,you need to apply for
+   * permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   *
+   * @param { Array<Want> } wantList - Indicates the want info list to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
+   * @throws { BusinessError } 16000076 - The app instance key is invalid.
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
+   * @throws { BusinessError } 16000120 - A maximum of four UIAbility instances can be started simultaneously.
+   *                                      The current parameter exceeds the maximum number or is less than 1.
+   * @throws { BusinessError } 16000121 - The target component type is not a UIAbility.
+   * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
+   *                                      does not support startup.
+   * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+   * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+   * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
+   * @throws { BusinessError } 16000126 - Starting DLP files is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  startUIAbilities(wantList: Array<Want>): Promise<void>;
 }
+
+export default UIExtensionContext;

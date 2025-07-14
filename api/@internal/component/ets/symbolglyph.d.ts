@@ -915,6 +915,72 @@ declare class PulseSymbolEffect extends SymbolEffect {
 }
 
 /**
+ * Defines DisableSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare class DisableSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  constructor(scope?: EffectScope);
+
+  /**
+   * The scope type of symbol effect
+   *
+   * @type { ?EffectScope }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  scope?: EffectScope;
+}
+
+/**
+ * Defines QuickReplaceSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare class QuickReplaceSymbolEffect extends SymbolEffect {
+  /**
+   * constructor.
+   *
+   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  constructor(scope?: EffectScope);
+
+  /**
+   * The scope type of symbol effect
+   *
+   * @type { ?EffectScope }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  scope?: EffectScope;
+}
+
+/**
  * Provides attribute for SymbolGlyph.
  * 
  * @extends CommonMethod<SymbolGlyphAttribute>
@@ -1007,7 +1073,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * Set the shader style of the symbol, such as lineargradient or radialgradient.
    *
    * @param { Array<ShaderStyle> } shaders - The shaders style of the symbol.
-   * @returns { TextAttribute }
+   * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
@@ -1198,6 +1264,22 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 20
    */
   maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
+
+  /**
+   * Set the shadow of symbol.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This API does not work with the fill attribute, showType attribute or coloring strategy.
+   * </p>
+   *
+   * @param { Optional<ShadowOptions> } shadow - The shadow options.
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  symbolShadow(shadow: Optional<ShadowOptions>): SymbolGlyphAttribute;
 }
 
 /**

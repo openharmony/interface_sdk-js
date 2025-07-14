@@ -120,6 +120,16 @@ declare enum ScrollDirection {
    * @since 11
    */
   None,
+
+  /**
+   * Free scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FREE = 4,
 }
 
 /**
@@ -1284,6 +1294,63 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   scrollable(value: ScrollDirection): ScrollAttribute;
 
   /**
+   * Set maximum zoom scale.
+   *
+   * @param { number } scale - Set maximum zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, +∞).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maxZoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Set minimum zoom scale.
+   *
+   * @param { number } scale - Set minimum zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, maxZoomScale).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  minZoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Current zoom scale.
+   * This parameter supports !! for two-way binding of variables.
+   *
+   * @param { number } scale - Current zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, +∞).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  zoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Enable bounces zoom scale.
+   * This parameter supports !! for two-way binding of variables.
+   *
+   * @param { boolean } enable - Enable bounces zoom scale.
+   * <br>Default value: **true**.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableBouncesZoom(enable: boolean): ScrollAttribute;
+
+  /**
    * Called when the setting slides to the specified position.
    *
    * @param { function } event
@@ -1513,6 +1580,42 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 18
    */
   onScrollStop(event: VoidCallback): ScrollAttribute;
+
+  /**
+   * Called when the Scroll did zoom.
+   *
+   * @param { ScrollOnDidZoomCallback } event - callback of zoom.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidZoom(event: ScrollOnDidZoomCallback): ScrollAttribute;
+
+  /**
+   * Called when zooming has stated.
+   *
+   * @param { VoidCallback } event - Zoom start callback.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onZoomStart(event: VoidCallback): ScrollAttribute;
+
+  /**
+   * Called when zooming has stopped.
+   *
+   * @param { VoidCallback } event - Zoom stop callback.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onZoomStop(event: VoidCallback): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
@@ -1845,6 +1948,18 @@ declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollS
   */
 declare type ScrollOnWillScrollCallback =
  (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | OffsetResult;
+
+/**
+ * callback of Scroll, using in onDidZoom.
+ *
+ * @typedef { function } ScrollOnDidZoomCallback
+ * @param { number } scale - current zoom scale.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type ScrollOnDidZoomCallback = (scale: number) => void;
 
 /**
  * Defines Scroll Component.

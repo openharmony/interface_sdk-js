@@ -1824,14 +1824,47 @@ declare interface NavigationInterception {
 }
 
 /**
- * Provide navigator view interface
+ * Indicates the information of home destination.
+ *
+ * @interface HomePathInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface HomePathInfo {
+  /**
+   * Name of the home destination.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  name: string;
+
+  /**
+   * Detailed parameters of the home destination.
+   *
+   * @type { ?Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  param?: Object;
+}
+
+/**
+ * Provide navigation view interface
  *
  * @interface NavigationInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * Provide navigator view interface
+ * Provide navigation view interface
  *
  * @interface NavigationInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1839,7 +1872,7 @@ declare interface NavigationInterception {
  * @since 10
  */
 /**
- * Provide navigator view interface
+ * Provide navigation view interface
  *
  * @interface NavigationInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1849,14 +1882,14 @@ declare interface NavigationInterception {
  */
 interface NavigationInterface {
   /**
-   * Called when the navigator view interface is used.
+   * Called when the navigation view interface is used.
    *
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Called when the navigator view interface is used.
+   * Called when the navigation view interface is used.
    *
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1864,7 +1897,7 @@ interface NavigationInterface {
    * @since 10
    */
   /**
-   * Called when the navigator view interface is used.
+   * Called when the navigation view interface is used.
    *
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1875,7 +1908,7 @@ interface NavigationInterface {
   (): NavigationAttribute;
 
   /**
-   * Called when the navigator view interface is used, with route table provided.
+   * Called when the navigation view interface is used, with route table provided.
    *
    * @param { NavPathStack } pathInfos - The stack of the route table.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
@@ -1884,7 +1917,7 @@ interface NavigationInterface {
    * @since 10
    */
   /**
-   * Called when the navigator view interface is used, with route table provided.
+   * Called when the navigation view interface is used, with route table provided.
    *
    * @param { NavPathStack } pathInfos - The stack of the route table.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
@@ -1894,6 +1927,19 @@ interface NavigationInterface {
    * @since 11
    */
   (pathInfos: NavPathStack): NavigationAttribute;
+
+  /**
+   * Called when the navigation view interface is used, with route table and homeDestination are provided.
+   *
+   * @param { NavPathStack } pathInfos - The stack of the route table.
+   * @param { HomePathInfo } homeDestination - The custom home destination info.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  (pathInfos: NavPathStack, homeDestination: HomePathInfo): NavigationAttribute;
 }
 
 /**

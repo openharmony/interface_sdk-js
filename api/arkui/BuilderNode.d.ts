@@ -194,6 +194,18 @@ export interface BuildOptions {
    * @since 20
    */
   localStorage?: LocalStorage;
+
+  /**
+   * Whether support the inner Consume connect to the outside Provide.
+   * @type { ?boolean }
+   *     enableProvideConsumeCrossing - Indicates whether support the inner Consume
+   *     connect to the outside Provide.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableProvideConsumeCrossing?: boolean;
 }
 
 /**
@@ -527,4 +539,26 @@ export class BuilderNode<Args extends Object[]> {
    * @since 20
    */
   postInputEvent(event: InputEventType): boolean;
+
+  /**
+   * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   *
+   * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  inheritFreezeOptions(enabled: boolean): void;
+
+  /**
+   * Get if the node is disposed.
+   * 
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
 }

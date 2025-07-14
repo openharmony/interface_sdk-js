@@ -2038,6 +2038,15 @@ declare namespace socket {
     getLocalAddress(): Promise<string>;
 
     /**
+     * Close the LocalSocketServer. Close the LocalSocketServer listening port.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     */
+    close(): Promise<void>;
+
+    /**
      * Listens for connect events of the LocalSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<LocalSocketConnection> } callback - The callback of on.
@@ -4168,6 +4177,17 @@ declare namespace socket {
     listen(address: NetAddress): Promise<void>;
 
     /**
+     * Close the TCPSocketServer. Close the TCPSocketServer listening port.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     */
+    close(): Promise<void>;
+
+    /**
      * Obtains the status of the TCPSocketServer connection.
      * @permission ohos.permission.INTERNET
      * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
@@ -4650,6 +4670,17 @@ declare namespace socket {
      * @since 10
      */
     listen(options: TLSConnectOptions): Promise<void>;
+
+    /**
+     * Close the TLSSocketServer. Close the TLSSocketServer listening port.
+     * @permission ohos.permission.INTERNET
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     */
+    close(): Promise<void>;
 
     /**
      * Obtains the status of the TLSSocketServer connection.

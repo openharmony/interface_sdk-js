@@ -442,6 +442,29 @@ declare namespace hidebug {
   function getAppMemoryLimit(): MemoryLimit;
 
   /**
+   * Obtains the memory information of the application process asynchronous. This API is implemented
+   *     by reading data from the /proc/{pid}/smaps_rollup and /proc/{pid}/statm node.
+   *
+   * @returns { Promise<NativeMemInfo> } Returns the memory information of the application process.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function getAppNativeMemInfoAsync(): Promise<NativeMemInfo>;
+
+  /**
+   * Obtains the memory information of the application process. This API is implemented by reading data from the
+   *     /proc/{pid}/smaps_rollup and /proc/{pid}/statm node. The application memory cache is refresh every 5 minute.
+   *     It will be force to refresh when input true of forceRefresh parameter.
+   *
+   * @param { boolean } [forceRefresh] Whether forceRefresh is required when application memeory cache
+   *     need to refresh. The default value is false.
+   * @returns { NativeMemInfo } Returns the memory information of the application process.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function getAppNativeMemInfoWithCache(forceRefresh?: boolean): NativeMemInfo;
+
+  /**
    * Describes the VM memory information.
    *
    * @interface VMMemoryInfo
@@ -811,7 +834,7 @@ declare namespace hidebug {
    * Sets the number of FDs, number of threads, JS memory, or native memory limit of the application.
    * 
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
-   * @param { number } value - For different resource type, values could have different meaning:
+   * @param { int } value - For different resource type, values could have different meaning:
    *                           1.For pss_memory, it means the baseline PSS memory size for the application,
    *                             system memory control will be triggered if exceed the value too much.
    *                           2.For js_heap, it means the percentage of the used JS heap memory to the maximum limit exceed
@@ -829,7 +852,7 @@ declare namespace hidebug {
    * @atomicservice
    * @since 12
    */
-  function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
+  function setAppResourceLimit(type: string, value: int, enableDebugLog: boolean): void;
 
   /**
    * Obtains the debugging state of an application process. If the Ark or native layer of the application process is in
@@ -925,8 +948,8 @@ declare namespace hidebug {
 
   /**
    * Enable the GWP-ASAN grayscale of your application.
-   * @param { GwpAsanOptions } options - The option of GWP-ASAN grayscale.
-   * @param { number } duration - The duration days of GWP-ASAN grayscale.
+   * @param { GwpAsanOptions } [options] - The options of GWP-ASAN grayscale.
+   * @param { number } [duration] - The duration days of GWP-ASAN grayscale.
    * @throws { BusinessError } 11400114 - The number of GWP-ASAN applications of this device overflowed after last boot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20
@@ -949,5 +972,42 @@ declare namespace hidebug {
    * @since 20
    */
   function getGwpAsanGrayscaleState(): number;
+
+  /**
+   * Trimming level of raw heap snapshot.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  enum JsRawHeapTrimLevel {
+    /**
+     * Basic heap snapshot trimming(e.g. reducing content of string object).
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    TRIM_LEVEL_1 = 0,
+    /**
+     * On top of level 1 trimming, object address size has been additionally trimmed.
+     * Please use latest version of rawheap-translator tool for parsing and converting
+     * .rawheap into .heapsnapshot file. Conversion process may fail when legacy tool is utilized.
+     * 
+     * A higher trimming level means a longer time needed to generate the .rawheap file.
+     * Ensure that this duration falls below the app freeze threshold.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 20
+     */
+    TRIM_LEVEL_2 = 1,
+  }
+
+  /**
+   * Sets the raw heap snapshot trimming level for the current process.
+   * @param { JsRawHeapTrimLevel } level - The trimming level of raw heap snapshot.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 20
+   */
+  function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 }
 export default hidebug;

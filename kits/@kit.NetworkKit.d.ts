@@ -31,10 +31,11 @@ import webSocket from '@ohos.net.webSocket';
 import vpnExtension from '@ohos.net.vpnExtension';
 import networkSecurity from '@ohos.net.networkSecurity';
 import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnExtensionAbility';
+import eap from '@ohos.net.eap';
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
   connection, ethernet, http, mdns, policy, sharing, webSocket,
   socket, statistics, vpn, vpnExtension, networkSecurity, 
-  VpnExtensionAbility, VpnExtensionContext, netFirewall
+  VpnExtensionAbility, VpnExtensionContext, eap, netFirewall
 };

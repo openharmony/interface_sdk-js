@@ -778,8 +778,8 @@ declare interface VisibleListContentInfo {
  * Called when a child component enters or leaves the list display area.
  *
  * @typedef {function} OnScrollVisibleContentChangeCallback
- * @param {number} start - Information about the currently displayed first list item or list item group.
- * @param {number} end - Information about the currently displayed last list item or list item group.
+ * @param {VisibleListContentInfo} start - Information about the currently displayed first list item or list item group.
+ * @param {VisibleListContentInfo} end - Information about the currently displayed last list item or list item group.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -2096,6 +2096,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * Sets the focus wrap mode of the List component.
    *
    * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the List component.
+   * <br>Default value: **FocusWrapMode.DEFAULT**.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2103,6 +2104,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 20
    */
   focusWrapMode(mode: Optional<FocusWrapMode>): ListAttribute;
+
+  /**
+   * Set whether to synchronously load child nodes within one frame.
+   *
+   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  syncLoad(enable: boolean): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

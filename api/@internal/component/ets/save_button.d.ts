@@ -543,17 +543,6 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    */
   stateEffect(enabled: boolean): SaveButtonAttribute;
 
-  /**
-   * Sets the position of the tip for saving files.
-   * 
-   * @param { SaveButtonTipPosition } position Position of the tip. The default value is
-   * SaveButtonTipPosition.ABOVE_BOTTOM.
-   * @returns { SaveButtonAttribute } Attributes of the save button.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  tipPosition(position: SaveButtonTipPosition): SaveButtonAttribute;
 }
 
 /**
@@ -587,33 +576,3 @@ declare const SaveButton: SaveButtonInterface;
  * @since 11
  */
 declare const SaveButtonInstance: SaveButtonAttribute;
-
-/**
- * Enumerates the positions of the tip for saving files.
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-
-declare enum SaveButtonTipPosition {
-
-  /**
-   * Above the bottom.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  ABOVE_BOTTOM = 0,
-
-  /**
-   * Below the top.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  BELOW_TOP = 1
-}

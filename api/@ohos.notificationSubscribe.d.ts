@@ -492,6 +492,26 @@ declare namespace notificationSubscribe {
       * @since 18
       */
      userInput?: string;
+
+     /**
+      * action operation type
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.Notification.Notification
+      * @systemapi
+      * @since 20
+      */
+     operationType?: number;
+
+     /**
+      * action button index
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.Notification.Notification
+      * @systemapi
+      * @since 20
+      */
+     buttonIndex?: number;
    }
 
   /**

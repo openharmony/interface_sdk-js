@@ -991,6 +991,50 @@ interface SliderInterface {
 }
 
 /**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderStepItemAccessibility
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface SliderStepItemAccessibility {
+  /**
+   * Set the accessibility of the slider step point.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  text?: ResourceStr;
+}
+
+/**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderShowStepOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface SliderShowStepOptions {
+  /**
+   * Set the accessibility of the slider step points.
+   *
+   * @type { ?Map<number, SliderStepItemAccessibility> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
+}
+
+/**
  * Defines the options for customizing the accessibility of content within a slider.
  * These options can be used to enhance the user experience for assistive technologies.
  *
@@ -1318,6 +1362,20 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    */
   showSteps(value: boolean): SliderAttribute;
+
+  /**
+   * Called when setting whether to display step size.
+   *
+   * @param { boolean } value
+   * @param { SliderShowStepOptions } [options]
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  showSteps(value: boolean, options?: SliderShowStepOptions): SliderAttribute;
 
   /**
    * Called when the percentage of bubble prompt is set when sliding.

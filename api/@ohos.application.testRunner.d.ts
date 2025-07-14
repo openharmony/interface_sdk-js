@@ -33,9 +33,10 @@
  * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export interface TestRunner {
+interface TestRunner {
   /**
    * Prepare the unit testing environment for running test cases.
    *
@@ -47,7 +48,8 @@ export interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onPrepare(): void;
 
@@ -62,9 +64,13 @@ export interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRun(): void;
 }
 
+/*** if arkts 1.1 */
+export { TestRunner };
+/*** endif */
 export default TestRunner;

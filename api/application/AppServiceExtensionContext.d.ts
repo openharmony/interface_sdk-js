@@ -39,7 +39,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
    *
    * @param { Want } want - The element name of the service ability
-   * @param { ConnectOptions } options - The remote object instance
+   * @param { ConnectOptions } callback - The callback for obtaining the connection result
    * @returns { number } Returns the number code of the ability connected
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -53,7 +53,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 20
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
@@ -80,7 +80,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000004 - Failed to start theinvisible ability.
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
@@ -88,7 +88,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000019 - No natching abiliity is found.
+   * @throws { BusinessError } 16000019 - No matching ability is found.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16000071 - App clone is not supported.

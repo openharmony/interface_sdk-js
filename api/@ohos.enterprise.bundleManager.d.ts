@@ -74,6 +74,7 @@ declare namespace bundleManager {
    *
    * @typedef Resource
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 20
    */
   interface Resource {
@@ -82,6 +83,7 @@ declare namespace bundleManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     bundleName: string;
@@ -91,6 +93,7 @@ declare namespace bundleManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     moduleName: string;
@@ -100,6 +103,7 @@ declare namespace bundleManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     id: number;
@@ -110,6 +114,7 @@ declare namespace bundleManager {
    *
    * @typedef BundleInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 20
    */
   interface BundleInfo {
@@ -119,6 +124,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly name: string;
@@ -129,6 +135,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly vendor: string;
@@ -139,6 +146,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly versionCode: number;
@@ -149,6 +157,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly versionName: string;
@@ -159,6 +168,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly minCompatibleVersionCode: number;
@@ -169,6 +179,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly targetVersion: number;
@@ -179,6 +190,7 @@ declare namespace bundleManager {
      * @type { ApplicationInfo }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appInfo: ApplicationInfo;
@@ -189,6 +201,7 @@ declare namespace bundleManager {
      * @type { SignatureInfo }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly signatureInfo: SignatureInfo;
@@ -199,6 +212,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly installTime: number;
@@ -209,6 +223,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly updateTime: number;
@@ -219,6 +234,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appIndex: number;
@@ -229,6 +245,7 @@ declare namespace bundleManager {
      * @type { ?number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly firstInstallTime?: number;
@@ -239,6 +256,7 @@ declare namespace bundleManager {
    *
    * @typedef SignatureInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 20
    */
   interface SignatureInfo {
@@ -249,6 +267,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appId: string;
@@ -259,6 +278,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly fingerprint: string;
@@ -271,6 +291,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appIdentifier: string;
@@ -281,6 +302,7 @@ declare namespace bundleManager {
      * @type { ?string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly certificate?: string;
@@ -291,6 +313,7 @@ declare namespace bundleManager {
    *
    * @typedef ApplicationInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 20
    */
   interface ApplicationInfo {
@@ -300,6 +323,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly name: string;
@@ -310,6 +334,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly description: string;
@@ -320,6 +345,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly descriptionId: number;
@@ -330,6 +356,7 @@ declare namespace bundleManager {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly enabled: boolean;
@@ -340,6 +367,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly label: string;
@@ -350,6 +378,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly labelId: number;
@@ -360,6 +389,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly icon: string;
@@ -370,6 +400,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly iconId: number;
@@ -380,6 +411,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly process: string;
@@ -390,6 +422,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly codePath: string;
@@ -400,6 +433,7 @@ declare namespace bundleManager {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly removable: boolean;
@@ -410,6 +444,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly accessTokenId: number;
@@ -420,6 +455,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly uid: number;
@@ -430,6 +466,7 @@ declare namespace bundleManager {
      * @type { Resource }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly iconResource: Resource;
@@ -440,6 +477,7 @@ declare namespace bundleManager {
      * @type { Resource }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly labelResource: Resource;
@@ -450,6 +488,7 @@ declare namespace bundleManager {
      * @type { Resource }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly descriptionResource: Resource;
@@ -460,6 +499,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appDistributionType: string;
@@ -470,6 +510,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appProvisionType: string;
@@ -480,6 +521,7 @@ declare namespace bundleManager {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly systemApp: boolean;
@@ -490,6 +532,7 @@ declare namespace bundleManager {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly debug: boolean;
@@ -500,6 +543,7 @@ declare namespace bundleManager {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly dataUnclearable: boolean;
@@ -510,6 +554,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly nativeLibraryPath: string;
@@ -520,6 +565,7 @@ declare namespace bundleManager {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly appIndex: number;
@@ -530,6 +576,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly installSource: string;
@@ -540,6 +587,7 @@ declare namespace bundleManager {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 20
      */
     readonly releaseType: string;
@@ -1547,6 +1595,118 @@ declare namespace bundleManager {
    * @since 20
    */
   function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
+  
+  /**
+   * Add the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
+  
+  /**
+   * Remove the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
+  
+  /**
+   * Get the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<AppDistributionType> } the result of app distribution types can be installed in the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+  
+  /**
+   * App distribution type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  enum AppDistributionType {
+	/**
+     * App distribution type of app gallery
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	APP_GALLERY = 1,
+	
+	/**
+     * App distribution type of enterprise
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE = 2,
+	
+	/**
+     * App distribution type of enterprise normal
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE_NORMAL = 3,
+	
+	/**
+     * App distribution type of enterprise MDM
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE_MDM = 4,
+	
+	/**
+     * App distribution type of enterprise internal testing
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	INTERNALTESTING = 5,
+	
+	/**
+     * App distribution type of enterprise crowd testing
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	CROWDTESTING = 6,
+  }
 }
 
 export default bundleManager;

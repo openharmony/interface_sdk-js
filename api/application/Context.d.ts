@@ -234,7 +234,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   databaseDir: string;
 
@@ -391,10 +392,33 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   area: contextConstant.AreaMode;
+
+  /**
+   * Get encryption level of the directory.
+   *
+   * @return { contextConstant.AreaMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get area(): contextConstant.AreaMode;
+
+  /**
+   * Set encryption level of the directory.
+   *
+   * @param { contextConstant.AreaMode }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  set area(mode: contextConstant.AreaMode);
 
   /**
    * Process name of the current application.

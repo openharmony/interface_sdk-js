@@ -832,6 +832,23 @@ declare namespace adminManager {
    * @since 18
    */
   function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
+
+  /**
+   * Administrator delegates access to policies to another application.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
+   * @param { Array<string> } policies - policies indicates the policies accessible to the delegated application.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
 }
 
 export default adminManager;

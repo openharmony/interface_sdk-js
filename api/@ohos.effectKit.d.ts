@@ -242,6 +242,18 @@ declare namespace effectKit {
     * @arkts 1.1&1.2
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
+
+    /**
+    * Gets the PixelMap where all filter effects have been added to the image.
+    * @param { boolean } useCpuRender -  Whether to use cpu render.
+    * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @crossplatform
+    * @form
+    * @atomicservice
+    * @since 20
+    */
+    getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>;
   }
 
   /**

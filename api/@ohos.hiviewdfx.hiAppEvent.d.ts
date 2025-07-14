@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
+ * @arkts 1.1&1.2
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -48,7 +49,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace hiAppEvent {
   /**
@@ -73,7 +75,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EventType {
     /**
@@ -95,7 +98,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAULT = 1,
 
@@ -118,7 +122,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATISTIC = 2,
 
@@ -141,7 +146,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SECURITY = 3,
 
@@ -164,7 +170,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BEHAVIOR = 4
   }
@@ -481,7 +488,7 @@ declare namespace hiAppEvent {
    *
    * @param { ConfigOption } config Configuration items for application event logging.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value. Possible caused by incorrectly formatted.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
@@ -492,7 +499,7 @@ declare namespace hiAppEvent {
    * @param { ConfigOption } config Configuration items for application event logging.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value. Possible caused by incorrectly formatted.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -504,7 +511,7 @@ declare namespace hiAppEvent {
    * @param { ConfigOption } config Configuration items for application event logging.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11103001 - Invalid max storage quota value.
+   * @throws { BusinessError } 11103001 - Invalid max storage quota value. Possible caused by incorrectly formatted.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
@@ -628,7 +635,8 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AppEventInfo {
     /**
@@ -656,7 +664,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domain: string;
 
@@ -688,7 +697,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -714,7 +724,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventType: EventType;
 
@@ -779,7 +790,8 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     params: object;
   }
@@ -794,12 +806,16 @@ declare namespace hiAppEvent {
    * name and the system event name constant defined in Event.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -816,12 +832,16 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -839,18 +859,23 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function write(info: AppEventInfo): Promise<void>;
 
@@ -864,12 +889,16 @@ declare namespace hiAppEvent {
    * event name and the system event name constant defined in Event.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32. 
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid. 
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -886,12 +915,16 @@ declare namespace hiAppEvent {
    * @param { AsyncCallback<void> } callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -909,18 +942,23 @@ declare namespace hiAppEvent {
    * @param { AsyncCallback<void> } callback Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11100001 - Function disabled.
-   * @throws { BusinessError } 11101001 - Invalid event domain.
-   * @throws { BusinessError } 11101002 - Invalid event name.
-   * @throws { BusinessError } 11101003 - Invalid number of event parameters.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101003 - Invalid number of event parameters. Possible caused by the number of parameters
+   * <br>is over 32.
    * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
-   * @throws { BusinessError } 11101005 - Invalid event parameter name.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101006 - Invalid array length of the event parameter.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
@@ -991,6 +1029,14 @@ declare namespace hiAppEvent {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11100001 - Function disabled. Possible caused by the param disable in ConfigOption is true.
+   * @throws { BusinessError } 11101001 - Invalid event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101002 - Invalid event name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11101004 - Invalid string length of the event parameter.
+   * @throws { BusinessError } 11101005 - Invalid event parameter name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1233,7 +1279,8 @@ declare namespace hiAppEvent {
      * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * <br>to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1244,7 +1291,8 @@ declare namespace hiAppEvent {
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * <br>to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1256,7 +1304,8 @@ declare namespace hiAppEvent {
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * <br>to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
@@ -1272,7 +1321,8 @@ declare namespace hiAppEvent {
      * exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * <br>to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
@@ -1285,7 +1335,8 @@ declare namespace hiAppEvent {
      * exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @throws { BusinessError } 11104001 - Invalid size value. Possible caused by the size value is less than or equal
+     * <br>to zero.
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
@@ -1810,11 +1861,13 @@ declare namespace hiAppEvent {
    * @param { Watcher } watcher Event watcher.
    * @returns { AppEventPackageHolder } Subscription data holder. If the subscription fails, null is returned.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
-   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
-   * @throws { BusinessError } 11102003 - Invalid row value.
-   * @throws { BusinessError } 11102004 - Invalid size value.
-   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11102003 - Invalid row value. Possible caused by the row value is less than zero.
+   * @throws { BusinessError } 11102004 - Invalid size value. Possible caused by the size value is less than zero.
+   * @throws { BusinessError } 11102005 - Invalid timeout value. Possible caused by the timeout value is less than zero.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
@@ -1826,11 +1879,13 @@ declare namespace hiAppEvent {
    * @returns { AppEventPackageHolder } Subscription data holder. If the subscription fails, null is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
-   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
-   * @throws { BusinessError } 11102003 - Invalid row value.
-   * @throws { BusinessError } 11102004 - Invalid size value.
-   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11102003 - Invalid row value. Possible caused by the row value is less than zero.
+   * @throws { BusinessError } 11102004 - Invalid size value. Possible caused by the size value is less than zero.
+   * @throws { BusinessError } 11102005 - Invalid timeout value. Possible caused by the timeout value is less than zero.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1843,11 +1898,13 @@ declare namespace hiAppEvent {
    * @returns { AppEventPackageHolder } Subscription data holder. If the subscription fails, null is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
-   * @throws { BusinessError } 11102002 - Invalid filtering event domain.
-   * @throws { BusinessError } 11102003 - Invalid row value.
-   * @throws { BusinessError } 11102004 - Invalid size value.
-   * @throws { BusinessError } 11102005 - Invalid timeout value.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
+   * @throws { BusinessError } 11102002 - Invalid filtering event domain. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid. 
+   * @throws { BusinessError } 11102003 - Invalid row value. Possible caused by the row value is less than zero.
+   * @throws { BusinessError } 11102004 - Invalid size value. Possible caused by the size value is less than zero.
+   * @throws { BusinessError } 11102005 - Invalid timeout value. Possible caused by the timeout value is less than zero.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
@@ -1861,7 +1918,8 @@ declare namespace hiAppEvent {
    *
    * @param { Watcher } watcher Event watcher.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
@@ -1872,7 +1930,8 @@ declare namespace hiAppEvent {
    * @param { Watcher } watcher Event watcher.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
@@ -1884,7 +1943,8 @@ declare namespace hiAppEvent {
    * @param { Watcher } watcher Event watcher.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 11102001 - Invalid watcher name.
+   * @throws { BusinessError } 11102001 - Invalid watcher name. Possible causes: 1. Contain invalid characters;
+   * <br>2. Length is invalid.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
@@ -2090,7 +2150,8 @@ declare namespace hiAppEvent {
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Processor {
     /**
@@ -2100,7 +2161,8 @@ declare namespace hiAppEvent {
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -2111,7 +2173,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     debugMode?: boolean;
 
@@ -2122,7 +2185,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     routeInfo?: string;
 
@@ -2133,7 +2197,8 @@ declare namespace hiAppEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appId?: string;
 
@@ -2144,7 +2209,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onStartReport?: boolean;
 
@@ -2155,7 +2221,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onBackgroundReport?: boolean;
 
@@ -2166,7 +2233,8 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     periodReport?: number;
 
@@ -2178,7 +2246,8 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     batchReport?: number;
 
@@ -2189,7 +2258,8 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userIds?: string[];
 
@@ -2200,7 +2270,8 @@ declare namespace hiAppEvent {
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userProperties?: string[];
 
@@ -2211,7 +2282,8 @@ declare namespace hiAppEvent {
      * @type { ?AppEventReportConfig[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventConfigs?: AppEventReportConfig[];
 
@@ -2223,7 +2295,8 @@ declare namespace hiAppEvent {
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     configId?: number;
 
@@ -2239,7 +2312,8 @@ declare namespace hiAppEvent {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customConfigs?: Record<string, string>;
   
@@ -2250,6 +2324,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     configName?: string;
   }
@@ -2269,7 +2344,8 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addProcessor(processor: Processor): number;
 
@@ -2279,12 +2355,13 @@ declare namespace hiAppEvent {
    * @param { string } processorName The name of the processor.
    * @param { string } [configName] Initialize the processor by reading the configuration file based on the name.
    * @returns { Promise<number> }  The processor unique ID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 11105001 - Invalid parameter value. Possible causes: 1. Incorrect parameter length;
+   * <br>2. Incorrect parameter format.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function addProcessorFromConfig(processorName: string, configName?: string): Promise<number>;
 

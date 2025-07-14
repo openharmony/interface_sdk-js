@@ -677,6 +677,21 @@ declare namespace backup {
      * @since 20
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 
   /**
@@ -901,6 +916,21 @@ declare namespace backup {
      * @since 20
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 
   /**
@@ -1059,6 +1089,21 @@ declare namespace backup {
      * @since 20
      */
     cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 }
 export default backup;

@@ -1339,6 +1339,16 @@ declare namespace userAuth {
      * @since 18
      */
     userId?: number;
+
+    /**
+     * Indicates whether to skip biometric authentication which has been locked by continuous failures.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    skipLockedBiometricAuth?: boolean;
   }
 
   /**
@@ -1534,6 +1544,111 @@ declare namespace userAuth {
   }
 
   /**
+   * Authentication tip code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum UserAuthTipCode {
+    /**
+     * Authentication tip for authentication failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    COMPARE_FAILURE = 1,
+  
+    /**
+     * Authentication tip for authentication timeout.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TIMEOUT = 2,
+  
+    /**
+     * Authentication tip for authentication temporarily frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TEMPORARILY_LOCKED = 3,
+  
+    /**
+     * Authentication tip for authentication permanent frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    PERMANENTLY_LOCKED = 4,
+  
+    /**
+     * Authentication tip for widget load success.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_LOADED = 5,
+  
+    /**
+     * Authentication tip for widget released.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_RELEASED = 6
+  }
+  
+  /**
+   * Authentication tip information.
+   *
+   * @typedef AuthTipInfo
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface AuthTipInfo {
+    /**
+     * Authentication tip type.
+     *
+     * @type { UserAuthType }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipType: UserAuthType;
+  
+    /**
+     * Authentication tip code.
+     *
+     * @type { UserAuthTipCode }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipCode: UserAuthTipCode;
+  }
+  
+  /**
+   * The authentication tip information is returned through the callback.
+   *
+   * @typedef { function } AuthTipCallback
+   * @param { AuthTipInfo } authTipInfo - Tips returned during authentication process.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  type AuthTipCallback = (authTipInfo: AuthTipInfo) => void;
+
+  /**
    * User authentication instance, used to initiate a complete authentication.
    *
    * @interface UserAuthInstance
@@ -1714,6 +1829,32 @@ declare namespace userAuth {
      * @since 12
      */
     cancel(): void;
+
+    /**
+     * Turn on authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'authTip', callback: AuthTipCallback): void;
+
+    /**
+     * Turn off authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } [callback] - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'authTip', callback?: AuthTipCallback): void;
   }
 
   /**
@@ -1930,6 +2071,15 @@ declare namespace userAuth {
     BUSY = 12500007,
 
     /**
+     * Indicates that the paramter is out of range.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    INVALID_PARAMETERS = 12500008,
+
+    /**
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -2001,7 +2151,16 @@ declare namespace userAuth {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    AUTH_TOKEN_EXPIRED = 12500016
+    AUTH_TOKEN_EXPIRED = 12500016,
+
+    /**
+     * Indicates that reuse of last authentication result is failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    REUSE_AUTH_RESULT_FAILED = 12500017
   }
 
   /**
@@ -2093,6 +2252,23 @@ declare namespace userAuth {
      */
     sendCommand(cmdData: string): void;
   }
+
+  /**
+   * Obtains the reusable authentication result.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { AuthParam } authParam - Auth parameter.
+   * @returns { Uint8Array } The reuse authentication token.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500008 - The parameter is out of range.
+   * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
 }
 
 export default userAuth;

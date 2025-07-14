@@ -23,6 +23,7 @@ import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+import window from './@ohos.window';
 /*** endif */
 
 /**
@@ -240,4 +241,24 @@ export default class StartOptions {
    * @since 20
    */
   completionHandler?: CompletionHandler;
+
+  /**
+   * Hide start window or not when launch ability from same bundle.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  hideStartWindow?: boolean;
+
+  /**
+   * Indicates the window creation parameters during application startup.
+   *
+   * @type { ?window.WindowCreateParams }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  windowCreateParams?: window.WindowCreateParams;
 }

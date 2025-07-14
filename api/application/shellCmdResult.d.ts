@@ -48,7 +48,8 @@ export interface ShellCmdResult {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stdResult: string;
 
@@ -65,7 +66,8 @@ export interface ShellCmdResult {
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   exitCode: number;
 }

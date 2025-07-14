@@ -12,12 +12,14 @@
     "SystemCapability.Security.CryptoFramework.Key.AsymKey",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",
     "SystemCapability.Security.CryptoFramework.Key",
+    "SystemCapability.SelectionInput.Selection",
     "SystemCapability.Notification.NotificationSettings",
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Security.CertificateManagerDialog",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Customization.CustomConfig",
     "SystemCapability.Communication.NetManager.NetFirewall",
+    "SystemCapability.Communication.NetManager.Eap",
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.MultimodalInput.Input.Cooperator",
@@ -57,6 +59,7 @@
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.Core",
+    "SystemCapability.Multimedia.AVSession.AVInputCast",
     "SystemCapability.Multimedia.Media.Core",
     "SystemCapability.Graphics.Drawing",
     "SystemCapability.Multimedia.Media.AudioCodec",
@@ -222,6 +225,7 @@
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.Global.I18n"
+    "SystemCapability.Global.I18n",
+    "SystemCapability.Test.PerfTest"
   ]
 }

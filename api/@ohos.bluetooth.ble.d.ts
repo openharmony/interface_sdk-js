@@ -6650,8 +6650,7 @@ declare namespace ble {
      * ScanOptions#interval}.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 19
      */
     BATCH = 2,
     /**
@@ -6709,8 +6708,7 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 19
      */
     ON_BATCH = 3,
   }

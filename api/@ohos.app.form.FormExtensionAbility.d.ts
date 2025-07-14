@@ -19,10 +19,26 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
+/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
+/*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
+/*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
+/*** endif */
+
+/**
+ * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnStopFn = () => void;
 
 /**
  * class of form extension.
@@ -37,9 +53,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class FormExtensionAbility {
+declare class FormExtensionAbility {
   /**
    * Indicates form extension context.
    *
@@ -55,7 +72,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: FormExtensionContext;
 
@@ -82,7 +100,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -101,7 +120,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCastToNormalForm(formId: string): void;
 
@@ -130,7 +150,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -163,7 +184,8 @@ export default class FormExtensionAbility {
    *                                               becomes invisible.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChangeFormVisibility(newStatus: Record<string, number>): void;
 
@@ -190,7 +212,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -211,7 +234,8 @@ export default class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRemoveForm(formId: string): void;
 
@@ -318,14 +342,41 @@ export default class FormExtensionAbility {
   onStop?(): void;
 
   /**
-   * Called to notify the form provider that the form location of the form has been changed. Override this method if
-   * you want to know the form location be Changed
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @type { ?OnStopFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onStop?: OnStopFn;
+
+  /**
+   * Called to notify the form provider that the form location of the form has been changed.
    *
    * @param { string } formId - Indicates the ID of the form.
-   * @param { formInfo.FormLocation } newLocation - Indicates the new form location of the form.
+   * @param { formInfo.FormLocation } newFormLocation - Indicates the new form location of the form.
+   *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 20
    */
-  onFormLocationChanged(formId: string, newLocation: formInfo.FormLocation): void;
+  onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
+
+  /**
+   * Called to notify the form provider that the size of the form has been changed. Override this method if
+   * you want to know the form size be changed, used for data continuity and layout refresh.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @param { formInfo.FormDimension } newDimension - Indicates the new dimension of the form.
+   * @param { formInfo.Rect } newRect - Indicates the new rect(vp) of the form.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
+export default FormExtensionAbility;

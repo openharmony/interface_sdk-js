@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import { ElementName } from "./bundleManager/ElementName";
+import { ElementName } from './bundleManager/ElementName';
 
 /**
  * CompletionHandler is a handler to handle the completion events of start ability.

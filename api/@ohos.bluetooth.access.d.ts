@@ -122,6 +122,59 @@ declare namespace access {
   function disableBluetooth(): void;
 
   /**
+   * Asynchronous interface for enables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900013 - The user does not respond.
+   * @throws { BusinessError } 2900014 - User refuse the action.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function enableBluetoothAsync(): Promise<void>;
+
+  /**
+   * Asynchronous interface for disables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900013 - The user does not respond.
+   * @throws { BusinessError } 2900014 - User refuse the action.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function disableBluetoothAsync(): Promise<void>;
+
+  /**
+   * Notify bluetooth the result of bluetooth dialog.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { NotifyDialogResultParams } notifyDialogResultParams - Indicates the params for dialog result.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   */
+  function notifyDialogResult(notifyDialogResultParams: NotifyDialogResultParams): Promise<void>;
+
+  /**
    * Restrict Bluetooth BR/EDR ability on a device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
@@ -574,6 +627,55 @@ declare namespace access {
      * @since 11
      */
     STATE_BLE_TURNING_OFF = 6
+  }
+
+  /**
+   * Describes the result of bluetooth dialog.
+   *
+   * @typedef NotifyDialogResultParams
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   */
+  interface NotifyDialogResultParams {
+    /**
+     * The type of bluetooth dialog.
+     * 
+     * @type { DialogType }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     */
+    dialogType: DialogType;
+    /**
+     * The result of bluetooth dialog. The value true indicates that the user approves the request,
+     * and the value false indicates that the user rejects the request.
+     * 
+     * @type { boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     */
+    dialogResult: boolean;
+  }
+
+  /**
+   * The enum of bluetooth dialog type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   */
+  enum DialogType {
+    /**
+     * The type of bluetooth switch dialog.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     */
+    BLUETOOTH_SWITCH = 0
   }
 }
 

@@ -102,6 +102,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
+   * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<number>): void;
 
@@ -118,6 +119,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
+   * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>): Promise<number>;
 
@@ -134,6 +136,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<number>, callback: AsyncCallback<void>): void;
 
@@ -150,6 +153,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<number>): Promise<void>;
 

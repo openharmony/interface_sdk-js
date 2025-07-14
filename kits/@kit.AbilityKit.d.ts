@@ -56,7 +56,7 @@ import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,
-  InsightIntentEntry, LinkParamCategory } from '@ohos.app.ability.InsightIntentDecorator';
+  InsightIntentEntry, LinkParamCategory, InsightIntentForm, InsightIntentEntity } from '@ohos.app.ability.InsightIntentDecorator';
 import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
@@ -131,16 +131,21 @@ export {
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, kioskManager
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager
 };
 
 /*** if arkts 1.2 */
 import bundleManager from '@ohos.bundle.bundleManager';
+import bundleMonitor from '@ohos.bundle.bundleMonitor';
 import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import freeInstall from '@ohos.bundle.freeInstall';
+import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
-  bundleManager, bundleResourceManager, launcherBundleManager, shortcutManager
+  bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
+  shortcutManager
 };
 /*** endif */

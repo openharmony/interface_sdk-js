@@ -411,6 +411,20 @@ declare namespace media {
    */
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
+   /**
+   * get Configurations which user can changes from AVScreenCapture server
+   * 
+   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @returns { Promise<string> } Returns a configurable configuration item string.
+   * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
+   * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since arkts{'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
    *
@@ -742,12 +756,19 @@ declare namespace media {
 
     /**
      * Sets the network media source URL and configures request headers.
+     * @permission ohos.permission.INTERNET
      * @param { string } url - The URL of the media resource.
-     * @param { Record<string, string> } headers - Optional request headers.
+     * @param { Record<string, string> } [headers] - Optional request headers.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 201 - Permission denied, requires internet access permission. Returned by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed,
+     * the URL source has already been set and cannot be modified. Returned by promise.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20
+     * @arkts 1.1&1.2
      */
-    setUrlSource(url: string, headers?: Record<string, string>): void;
+    setUrlSource(url: string, headers?: Record<string, string>): Promise<void>;
 
     /**
      * It will decode the given video resource. Then fetch a picture
@@ -1153,6 +1174,15 @@ declare namespace media {
      * @since 12
      */
     customInfo?: Record<string, string>;
+
+    /**
+     * Tracks info of the media asset. This parameter is read-only in the current version.
+     * @type { ?Array<MediaDescription> }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    tracks?: Array<MediaDescription>;
   }
 
   /**
@@ -1164,7 +1194,7 @@ declare namespace media {
   declare interface OutputSize {  
     /**
      * The expected output frame image width.
-     * If the value is less then 0， the width will be  the orginal width of the vido.
+     * If the value is less than 0, the width will be the orginal width of the video.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?number }
@@ -1174,7 +1204,7 @@ declare namespace media {
     width?:number;
     /**
      * The expected output frame image height.
-     * If the value is less then 0， the height will be  the orginal height of the vido.
+     * If the value is less than 0, the height will be the orginal height of the video.
      * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
      * If both width and height is not assigned, the output will be the original size of video frame.
      * @type { ?number }
@@ -1651,6 +1681,14 @@ declare namespace media {
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
+     * The parameter value means session does not exist
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVERR_SESSION_NOT_EXIST = 5400109,
+    /**
      * The address of server is incorrect, and IO can not find host.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
@@ -1763,6 +1801,15 @@ declare namespace media {
      * @since 18
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
+
+    /**
+     * The parameter value is out of the specified range.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVERR_PARAMETER_OUT_OF_RANGE = 5400108,
   }
 
   /**
@@ -2523,8 +2570,7 @@ declare namespace media {
     /**
      * Mute specified media stream. This API can be called only when the AVPlayer is in the prepared, playing,
      * paused, or completed state.
-     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}. 
-     * The parameter can be set only to the audio format.
+     * @param { MediaType } mediaType - specified media Type, see [MediaType]{@link #MediaType}.
      * @param { boolean } muted - true for mute, false for unmute.
      * @returns { Promise<void> } A Promise instance used to return when setMediaMuted completed.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
@@ -3140,7 +3186,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
@@ -3184,7 +3230,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
@@ -3288,7 +3334,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
     /**
@@ -3349,7 +3395,7 @@ declare namespace media {
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
@@ -3442,7 +3488,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'durationUpdate', callback?: Callback<number>): void;
 
@@ -3523,7 +3569,7 @@ declare namespace media {
      * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 20
+     * @since 19
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
 
@@ -5331,7 +5377,8 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the surface required for recording. This API uses a promise to return the result. The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     * Obtains the surface required for recording. This API uses a promise to return the result.
+     * The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
      *
      * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp must be based on the system startup time.
      *
@@ -6138,7 +6185,8 @@ declare namespace media {
      * stop recording control. If the AVRecorderState is also switched to error, call reset() or release()
      * to exit the recording.
      *
-     * An application can subscribe to only one AVRecorder error event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * An application can subscribe to only one AVRecorder error event.
+     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'error' } type - Event type, which is **'error'** in this case.
      * This event is triggered when an error occurs during recording.
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
@@ -7728,6 +7776,14 @@ declare namespace media {
    */
   enum MediaType {
     /**
+     * Track is unsupported.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_UNSUPPORTED = -1,
+    /**
      * track is audio.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
@@ -7772,6 +7828,38 @@ declare namespace media {
      * @since 12
      */
     MEDIA_TYPE_SUBTITLE = 2,
+    /**
+     * Track is attachmemt.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_ATTACHMENT = 3,
+    /**
+     * Track is data.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_DATA = 4,
+    /**
+     * Track is timed metadata.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_TIMED_METADATA = 5,
+    /**
+     * Track is auxiliary.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    MEDIA_TYPE_AUXILIARY = 6,
   }
 
   /**
@@ -8678,6 +8766,14 @@ declare namespace media {
      * @since 18
      */
     enableStableQualityMode?: boolean
+
+    /**
+     * Indicates whether enable B Frame. Default is disabled.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     */
+    enableBFrame?: boolean
   }
 
   /**
@@ -9287,6 +9383,14 @@ declare namespace media {
      * @since 20
      */
     keepCaptureDuringCall?: boolean;
+
+    /**
+     * Indicates whether to enable B-frame encoding, whitch is used to reduce the size of the recorded file.
+     * @type { ?boolean } The default value is false, which means B frames encoding are disabled.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @since 20
+     */
+    enableBFrame?: boolean;
   }
 
   /**
@@ -9644,6 +9748,14 @@ declare namespace media {
      * @since 12
      */
     videoFrameHeight?: number;
+
+    /**
+     * Indicates whether to enable B Frame Encoding for reduce file size.
+     * @type { ?boolean } The default value is false, which means B frame encoding cannot be enabled.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @since 20
+     */
+    enableBFrame?: boolean;
   }
  
   /**

@@ -312,7 +312,14 @@ declare namespace power {
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    MODE_EXTREME_POWER_SAVE
+    MODE_EXTREME_POWER_SAVE,
+    /**
+     * Custom power save mode.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 20
+     */
+    MODE_CUSTOM_POWER_SAVE = 650
   }
 }
 export default power;

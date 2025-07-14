@@ -203,6 +203,18 @@ declare namespace distributedDataObject {
   type StatusObserver = (sessionId: string, networkId: string, status: string) => void;
 
   /**
+   * Defines a callback used to return the asset sync progress.
+     *
+   * @typedef { function } ProcessObserver
+   * @param { string } sessionId - Session ID of the observed object.
+   * @param { number } progress - Asset sync progress. The value range is -1 to 100, where
+   * <br>100 indicates that the asset sync is complete and -1 indicates that the asset sync failed.
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 20
+   */
+    type ProgressObserver = (sessionId: string, progress: number) => void;
+
+  /**
    * Object create by {@link createDistributedObject}.
    *
    * @interface DistributedObject
@@ -596,6 +608,29 @@ declare namespace distributedDataObject {
     off(type: 'status', callback?: StatusObserver): void;
 
     /**
+     * On watch of progress.
+     *
+     * @param { 'progressChanged' } type - Event type, fixed as 'progressChanged', indicates the progress of asset sync
+     * <br>in object.
+     * @param { ProgressObserver } callback - The observer of progress of asset sync.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 20
+     */
+    on(type: 'progressChanged', callback: ProgressObserver): void;
+
+    /**
+     * Off watch of process.
+     *
+     * @param { 'progressChanged' } type - Event type, fixed as 'progressChanged', indicates the progress of asset sync
+     * <br>in object.
+     * @param { ProgressObserver } [callback] - The observer of object status changed, if not null, off the callback, if
+     * <br>undefined, off all callbacks.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 20
+     */
+    off(type: 'progressChanged', callback?: ProgressObserver): void;
+
+    /**
      * Mark an attribute of a distributed object as an asset type. This interface must be called before setSessionId.
      *
      * @param { string } assetKey - Indicates the key of the asset type in Object.
@@ -617,7 +652,7 @@ declare namespace distributedDataObject {
      * @param { Array<string> } uris - Indicates the uri array of asset.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 15400002 - Parameter error. Possible causes:
-     * 1. The assetKey is invalid, such as "";
+     * 1. The assetsKey is invalid, such as "";
      * 2. The uris is invalid, such as the length of uris is more than 50.
      * @throws {BusinessError} 15400003 - The sessionId of the distributed object has been set.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject

@@ -18,8 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import { Configuration } from '../@ohos.app.ability.Configuration';
+/*** endif */
 import Context from './Context';
 import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
 
@@ -38,9 +40,10 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class ExtensionContext extends Context {
+declare class ExtensionContext extends Context {
   /**
    * Indicates configuration information about an module.
    *
@@ -94,7 +97,10 @@ export default class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }
+
+export default ExtensionContext;

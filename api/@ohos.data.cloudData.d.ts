@@ -18,7 +18,7 @@
  * @kit ArkData
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
 
@@ -633,6 +633,35 @@ declare namespace cloudData {
      * @since 12
      */
     static setGlobalCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
+
+    /**
+     * Sync data to cloud.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } storeId - Indicates the store ID.
+     * @param { relationalStore.SyncMode } mode - indicates the database synchronization mode.
+     * @param { Callback<relationalStore.ProgressDetails> } progress - the specified sync condition by
+     * <br>the instance object of {@link ProgressDetails}.
+     * @returns { Promise<void> } : The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed,
+     * <br>usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     * <br>application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
+     * <br>2. Missing GROUP BY clause.
+     * @static
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 20
+     */
+    static cloudSync(
+      bundleName: string,
+      storeId: string,
+      mode: relationalStore.SyncMode,
+      progress: Callback<relationalStore.ProgressDetails>
+    ): Promise<void>;
   }
 
   /**

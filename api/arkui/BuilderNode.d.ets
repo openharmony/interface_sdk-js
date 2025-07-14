@@ -164,7 +164,6 @@ export interface BuildOptions {
    * @since 12
    */
   nestingBuilderSupported?: boolean;
-
 }
 
 /**

@@ -156,4 +156,26 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 18
    */
   onAccountRemoved(accountId: number): void;
+
+  /**
+   * Called back when a bundle entering kiosk mode under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  onKioskModeEntering(bundleName: string, accountId: number): void;
+
+  /**
+   * Called back when a bundle exiting kiosk mode under an account.
+   *
+   * @param { string } bundleName - bundleName indicates the name of the bundle.
+   * @param { number } accountId - accountId indicates the account ID.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  onKioskModeExiting(bundleName: string, accountId: number): void;
 }

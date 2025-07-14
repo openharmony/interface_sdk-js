@@ -1545,7 +1545,7 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
  * @atomicservice
  * @since 20
  */
-declare type NodeIdentity = string | number;
+export declare type NodeIdentity = string | number;
 
 /**
  * Defines the callback type used in UIObserver to monitor one specific node's render state.
@@ -1553,13 +1553,12 @@ declare type NodeIdentity = string | number;
  * @typedef { function } NodeRenderStateChangeCallback
  * @param { NodeRenderState } state - the node's render state
  * @param { FrameNode } [node] - the information of frameNode
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  */
-declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
+export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver to monitor specific gesture triggered information.
@@ -1571,7 +1570,7 @@ declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: Fra
  * @atomicservice
  * @since 20
  */
-declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
+export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
  * Defines the PageInfo type.
@@ -3049,6 +3048,17 @@ export class MeasureUtils {
    * @since 12
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
+
+  /**
+   * Get layout info of the styled string.
+   *
+   * @param { StyledString } styledString - The styled string value.
+   * @param { TextLayoutOptions } [options] - The layout options.
+   * @returns { Array<Paragraph> } paragraph result
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
 
 /**
@@ -3803,6 +3813,17 @@ export class UIContext {
    * @since 11
    */
   showTextPickerDialog(options: TextPickerDialogOptions): void;
+
+  /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
 
   /**
    * Run custom functions inside the UIContext scope.

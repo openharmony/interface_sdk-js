@@ -2443,6 +2443,23 @@ declare class On {
    * @arkts 1.1&1.2
    */
   hint(val: string, pattern?: MatchPattern): On;
+
+  /**
+   * Specifies the original text for the target Component.
+   * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
+   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can use this method to achieve it;
+   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   *
+   * @param { string } text - the original text value.
+   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link MatchPattern.EQUALS} if null or undefined.
+   * @returns { On } this {@link On} object.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  originalText(text: string, pattern?: MatchPattern): On;
 }
 
 /**
@@ -3439,6 +3456,21 @@ declare class Component {
     * @arkts 1.2
     */
    scrollSearch(on: On, vertical?: boolean, offset?: number): Promise<Component | null>;
+   /**
+   * Get the original text attribute value.
+   * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
+   * you will not be able to use {@link Component.getText} to get the original text of the component, but you can use this method to achieve it;
+   * if the component does not set the above accessibility property, this method has no difference with {@link Component.getText}
+   *
+   * @returns { Promise<string> } the original text value.
+   * @throws { BusinessError } 17000002 - The async function is not called with await.
+   * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 20
+   * @test
+   */
+  getOriginalText(): Promise<string>;
 }
 
 /**

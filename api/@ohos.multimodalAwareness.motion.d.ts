@@ -107,90 +107,95 @@ declare namespace motion {
 
   /**
    * Subscribe to detect the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 15
+   * @since arkts{ '1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void;
 
   /**
-   * Unsubscribe to detect the operating hand changed event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * Unsubscribe from the operating hand changed event.
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Indicates the event type.
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 15
+   * @since arkts{ '1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void;
 
   /**
    * Get the recent operating hand status.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @returns { OperatingHandStatus } The result of operating hand status.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
-   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
-   * @since 15
+   * @since arkts{ '1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRecentOperatingHandStatus(): OperatingHandStatus;
 
   /**
    * Subscribe the holding hand change event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500002 - Subscribe Failed. Possible causes: 1. Callback registration failure;
+   * @throws { BusinessError } 31500002 - Subscription failed. Possible causes: 1. Callback registration failure;
    * <br>2. Failed to bind native object to js wrapper; 3. N-API invocation exception, invalid N-API status; 4. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void;
 
   /**
-   * Unsubscribe the holding hand change event.
-   * @permission ohos.permission.ACTIVITY_MOTION
+   * Unsubscribe from the holding hand changed event.
+   * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Indicates the event type.
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
-   * <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION.
+   * <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
    * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer, container-related exception;
    * <br>2. N-API invocation exception, invalid N-API status.
-   * @throws { BusinessError } 31500003 - Unsubscribe Failed. Possible causes: 1. Callback removal failure;
+   * @throws { BusinessError } 31500003 - Unsubscription failed. Possible causes: 1. Callback failure;
    * <br>2. N-API invocation exception, invalid N-API status; 3. IPC request exception.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void;
 }

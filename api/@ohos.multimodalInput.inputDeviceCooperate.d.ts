@@ -32,6 +32,7 @@ import { AsyncCallback } from "./@ohos.base";
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates screen hopping event.
+   * 
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
@@ -40,6 +41,7 @@ declare namespace inputDeviceCooperate {
   enum EventMsg {
     /**
      * Screen hopping starts.
+     * 
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9
@@ -57,6 +59,7 @@ declare namespace inputDeviceCooperate {
 
     /**
      * Screen hopping fails.
+     * 
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
      * @since 9
@@ -344,7 +347,7 @@ declare namespace inputDeviceCooperate {
   /**
    * Disables listening for screen hopping status change events.
    * 
-   * @param { 'cooperation' } Event type. The value is cooperation.
+   * @param { 'cooperation' } type Event type. The value is cooperation.
    * @param { AsyncCallback<void> } callback Callback to be unregistered. 
    * If this parameter is not specified, all callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.

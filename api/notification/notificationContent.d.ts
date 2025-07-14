@@ -22,6 +22,7 @@ import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
+import type { WantAgent } from '../@ohos.wantAgent';
 
 /**
  * Describes icon type.
@@ -93,7 +94,8 @@ export interface NotificationBasicContent {
 
   /**
    * Picture of a notification displayed on the lock screen. Currently, only the live view notification is supported.
-   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber. The recommended icon size is 128 × 128 pixels.
+   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber.
+   * The recommended icon size is 128 × 128 pixels.
    * The display effect depends on the device capability and notification center UI style.
    *
    * @type { ?image.PixelMap }
@@ -380,6 +382,16 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @since 12
    */
   lines: Array<string>;
+  
+  /**
+   * Multi-line wantAgent of the multi-line text notification.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @type { ?Array<WantAgent> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  lineWantAgents?: Array<WantAgent>;
 }
 
 /**

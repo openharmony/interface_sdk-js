@@ -20,7 +20,7 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
-import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
+import { WantAgentInfo as _WantAgentInfo, LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
 
@@ -278,11 +278,14 @@ declare namespace wantAgent {
 
   /**
    * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger information.
+   * If the specified wantAgent is local, you need to apply for permission:
+   * ohos.permission.TRIGGER_LOCAL_WANTAGENT permission.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
    * @param { Context } context - Indicates current context.
    * @returns { Promise<CompleteData> } Returns the CompleteData.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 16000020 - The context is not ability context.
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
@@ -291,6 +294,7 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
@@ -490,6 +494,38 @@ declare namespace wantAgent {
    * @since 18
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
+
+  /**
+   * Create a local WantAgent object.
+   * The WantAgent created by this interface stores data on the client side
+   * and is not managed by the WantAgent servcer.
+   * If this WantAgent object is passed across processes,
+   * its contained data will be serialized and transmitted to the target process.
+   *
+   * @param { LocalWantAgentInfo } info - Information about the local WantAgent object to create.
+   * @returns { WantAgent } Returns the created WantAgent.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function createLocalWantAgent(info: LocalWantAgentInfo): WantAgent;
+
+  /**
+   * Checks whether the specified WantAgent is local.
+   * 
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { boolean } Returns true if the WantAgent is local.
+   * @throws { BusinessError } 202 - Not System app. Interface caller is not a system app.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function isLocalWantAgent(agent: WantAgent): boolean;
 
   /**
    * Enumerates flags for using a WantAgent.
@@ -931,6 +967,18 @@ declare namespace wantAgent {
    * @since 12
    */
   export type WantAgentInfo = _WantAgentInfo;
+
+  /**
+   * Provides the information required to create a local WantAgent.
+   * 
+   * @typedef { _LocalWantAgentInfo }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export type LocalWantAgentInfo = _LocalWantAgentInfo;
+
 }
 
 /**

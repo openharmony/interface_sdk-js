@@ -1161,6 +1161,20 @@ declare class TextMenuItemId {
    * @since 20
    */
   static readonly dateTime: TextMenuItemId;
+
+
+  /**
+   * Indicates the TextMenuItemId for asking AI.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  static readonly askAI: TextMenuItemId;
 }
 
 /**
@@ -1666,15 +1680,122 @@ declare class ColorShaderStyle extends ShaderStyle {
   color: ResourceColor;
 }
 
+/**
+ * Defines the text content transition class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare class ContentTransition {}
+
+/**
+ * Defines the numeric text content transition class.
+ *
+ * @extends ContentTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare class NumericTextTransition extends ContentTransition {
   /**
-   * Defines the line spacing options.
-   * @interface LineSpacingOptions
+   * constructor.
+   *
+   * @param { NumericTextTransitionOptions } [options] -  The options of numeric text transition.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
-  declare interface LineSpacingOptions {
+  constructor(options?: NumericTextTransitionOptions);
+
+  /**
+   * The flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * The options of numeric text transition.
+ *
+ * @interface NumericTextTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare interface NumericTextTransitionOptions {
+  /**
+   * Define the flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * Defines the flip direction of numeric text transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare enum FlipDirection {
+  /**
+   * The flip direction is down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  DOWN = 0,
+
+  /**
+   * The flip direction is up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UP = 1,
+}
+
+/**
+ * Defines the line spacing options.
+ * @interface LineSpacingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface LineSpacingOptions {
   /**
    * Used to set whether it will only take effect between lines. 
    *
@@ -2023,4 +2144,22 @@ declare interface IMEClient {
    * @since 20
    */
   nodeId: number;
+}
+
+/**
+ * Defines text layout options. Use this to set constraints for measure text.
+ *
+ * @interface TextLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare interface TextLayoutOptions {
+  /**
+   * Text display area of width.
+   *
+   * @type { ?LengthMetrics } constraintWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  constraintWidth?: LengthMetrics;
 }

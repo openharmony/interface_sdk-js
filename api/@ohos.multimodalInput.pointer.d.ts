@@ -481,7 +481,16 @@ declare namespace pointer {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    MIDDLE_BTN_EAST_WEST
+    MIDDLE_BTN_EAST_WEST,
+
+    /**
+     * Screen recorder cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCREENRECORDER_CURSOR = 48
   }
 
   /**
@@ -538,7 +547,7 @@ declare namespace pointer {
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
-     * Touchpad two fingers tap or right button
+     * Touchpad two fingers tap or right button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
@@ -546,7 +555,7 @@ declare namespace pointer {
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
       /**
-     * Touchpad two fingers tap or left button
+     * Touchpad two fingers tap or left button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 20
@@ -1399,7 +1408,7 @@ declare namespace pointer {
   function getTouchpadTapSwitch(): Promise<boolean>;
 
   /**
-   * SSets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
+   * Sets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
    * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.

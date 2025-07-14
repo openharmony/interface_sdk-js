@@ -74,6 +74,7 @@ declare type WindowAnimationCurveParam = Array<number>;
  *
  * @namespace window
  * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @since 6
  */
 /**
  * Window manager.
@@ -1238,11 +1239,38 @@ declare namespace window {
   }
 
   /**
+   * Position
+   *
+   * @interface Position
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  export interface Position {
+
+    /**
+     * The X-coordinate
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    x: number;
+
+    /**
+     * The Y-coordinate
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    y: number;
+  }
+
+  /**
    * Enum for window anchor
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   enum WindowAnchor {
@@ -1250,7 +1278,6 @@ declare namespace window {
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_START = 0,
@@ -1258,7 +1285,6 @@ declare namespace window {
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP = 1,
@@ -1266,7 +1292,6 @@ declare namespace window {
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_END = 2,
@@ -1274,7 +1299,6 @@ declare namespace window {
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     START = 3,
@@ -1282,7 +1306,6 @@ declare namespace window {
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     CENTER = 4,
@@ -1290,7 +1313,6 @@ declare namespace window {
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     END = 5,
@@ -1298,7 +1320,6 @@ declare namespace window {
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_START = 6,
@@ -1306,7 +1327,6 @@ declare namespace window {
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM = 7,
@@ -1314,7 +1334,6 @@ declare namespace window {
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_END = 8,
@@ -1588,6 +1607,15 @@ declare namespace window {
     rect: Rect;
 
     /**
+     * Global display rect.
+     *
+     * @type { ?Rect } 
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    globalDisplayRect?: Rect;
+
+    /**
      * bundleName of window
      *
      * @type { string }
@@ -1795,6 +1823,15 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     drawableRect: Rect;
+
+    /**
+     * Global display rect.
+     *
+     * @type { ?Rect } 
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    globalDisplayRect?: Rect;
     
     /**
      * Window type
@@ -2980,7 +3017,7 @@ declare namespace window {
   /**
    * Creates a child window or system window. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW (required when the window type is window.WindowType.TYPE_FLOAT)
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @param { Configuration } config - Parameters used for creating the window.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -3604,7 +3641,6 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   function shiftAppWindowTouchEvent(sourceWindowId: number, targetWindowId: number, fingerId: number): Promise<void>;
@@ -3803,13 +3839,14 @@ declare namespace window {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for watermark flag change.
@@ -3819,13 +3856,14 @@ declare namespace window {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
    * <br>2. Parameter verification failed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
 
   /**
    * Sets starting window background color
@@ -4415,13 +4453,38 @@ declare namespace window {
    */
   enum WindowTransitionType {
     /**
-     * window transition type destroy
+     * Destroy transition
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
     DESTROY = 0,
+  }
+
+  /**
+   * Describes the window animation type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  enum AnimationType {
+    /**
+     * Window animation type fade in out
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    FADE_IN_OUT = 0,
+    /**
+     * Window animation type fade in
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    FADE_IN = 1,
   }
 
   /**
@@ -4434,7 +4497,7 @@ declare namespace window {
    */
   enum WindowAnimationCurve {
     /**
-     * animation curve type linear
+     * Animation curve type linear
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -4443,17 +4506,26 @@ declare namespace window {
     LINEAR = 0,
 
     /**
-     * animation curve type interpolation spring
+     * Animation curve type interpolation spring
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
      */
     INTERPOLATION_SPRING = 1,
+
+    /**
+     * Animation curve type cubic bezier
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    CUBIC_BEZIER = 2,
   }
 
   /**
-   * window animation config
+   * Window animation config
    *
    * @interface WindowAnimationConfig
    * @syscap SystemCapability.Window.SessionManager
@@ -4462,7 +4534,7 @@ declare namespace window {
    */
   interface WindowAnimationConfig {
     /**
-     * curve of the animation
+     * Curve of the animation
      *
      * @type { WindowAnimationCurve }
      * @syscap SystemCapability.Window.SessionManager
@@ -4472,7 +4544,7 @@ declare namespace window {
     curve: WindowAnimationCurve;
 
     /**
-     * duration of the animation
+     * Duration of the animation
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
@@ -4482,7 +4554,7 @@ declare namespace window {
     duration?: number;
 
     /**
-     * param of animation curve
+     * Param of animation curve
      *
      * @type { ?WindowAnimationCurveParam }
      * @syscap SystemCapability.Window.SessionManager
@@ -4519,6 +4591,80 @@ declare namespace window {
      * @since 20
      */
     opacity?: number;
+  }
+
+  /**
+   * The params of start animation
+   *
+   * @interface StartAnimationSystemParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface StartAnimationSystemParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    type: AnimationType;
+    /**
+     * The configuration of start animation
+     *
+     * @type { ?WindowAnimationConfig }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    animationConfig?: WindowAnimationConfig;
+  }
+
+  /**
+   * The params of start animation
+   *
+   * @interface StartAnimationParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface StartAnimationParams {
+    /**
+     * The type of window animation
+     *
+     * @type { AnimationType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    type: AnimationType;
+  }
+
+  /**
+   * Window create params
+   *
+   * @interface WindowCreateParams
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface WindowCreateParams {
+    /**
+     * The params of start animation
+     *
+     * @type { ?StartAnimationParams }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    animationParams?: StartAnimationParams;
+    /**
+     * The params of system start animation
+     *
+     * @type { ?StartAnimationSystemParams }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    systemAnimationParams?: StartAnimationSystemParams;
   }
 
   /**
@@ -4577,7 +4723,6 @@ declare namespace window {
    *
    * @interface KeyFramePolicy
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   interface KeyFramePolicy {
@@ -4586,7 +4731,6 @@ declare namespace window {
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     enable: boolean;
@@ -4596,7 +4740,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     interval?: number;
@@ -4606,7 +4749,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     distance?: number;
@@ -4616,7 +4758,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     animationDuration?: number;
@@ -4626,7 +4767,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     animationDelay?: number;
@@ -4835,12 +4975,12 @@ declare namespace window {
      *
      * @param { ShowWindowOptions } options - options of window shown
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Function showWindow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter validation error. Possible cause: 1. The value of the parameter is out of the allowed range;
+     *                                                                                 2. The length of the parameter exceeds the allowed length;
+     *                                                                                 3. The parameter format is incorrect.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
@@ -5180,6 +5320,22 @@ declare namespace window {
     moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
+     * Move window to the position relative to the main screen.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window relative to the main screen.
+     * @param { number } y - Indicate the Y-coordinate of the window relative to the main screen.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    moveWindowToGlobalDisplay(x: number, y: number): Promise<void>;
+
+    /**
      * Set the size of a window .
      *
      * @param { number } width - Indicates the width of the window.
@@ -5342,25 +5498,26 @@ declare namespace window {
     /**
      * Set whether the first level sub window supports maintaining the same relative position with the main window.
      *
-     * @param { boolean } enabled - The value true means the first level sub window supports maintaining the same relative position with the main window,
-     *                              and false means the opposite.
-     * @param { WindowAnchor } anchor - Window anchor point that setting
-     *                                  when the relative position between the primary sub window and the main window remains unchanged.
-     * @param { number } offsetX - The x-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
-     * @param { number } offsetY - The y-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { boolean } enabled - The value true means the first level sub window supports maintaining
+     *     the same relative position with the main window, and false means the opposite.
+     * @param { WindowAnchor } [anchor] - Window anchor point that setting
+     *     when the relative position between the primary sub window and the main window remains unchanged.
+     * @param { number } [offsetX] - The x-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { number } [offsetY] - The y-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
-     *                                                                   2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
-     *                                 Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
+     *     Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
-    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor, offsetX?: number, offsetY?: number): Promise<void>;
+    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
+        offsetX?: number, offsetY?: number): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -5527,6 +5684,38 @@ declare namespace window {
      * @since 15
      */
     getWindowDensityInfo(): WindowDensityInfo;
+
+    /**
+     * Set window container background color in the active and inactive states.
+     *
+     * @param { string } activeColor - window container color in active.
+     * @param { string } inactiveColor - window container color in inactive.
+     * @throws { BusinessError } 202 - Permission verification
+     * failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    setWindowContainerModalColor(activeColor: string, inactiveColor: string): void;
+
+    /**
+     * Determine whether the window spans multiple screens and displays in full screen mode.
+     *
+     * @returns { Promise<boolean> } Whether the window spans multiple screens and displays in full screen mode. 
+     * The value true means that the window spans multiple screens and displays in full screen mode,and false means the opposite.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isMainWindowFullScreenAcrossDisplays(): Promise<boolean>;
 
     /**
      * Get the avoid area
@@ -7026,6 +7215,41 @@ declare namespace window {
     off(type: 'systemDensityChange', callback?: Callback<number>): void;
 
     /**
+     *  Register Callback for window spans multiple screens and displays in full screen mode changed.
+     * 
+     *
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
+     * indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<boolean> } callback - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */   
+    on(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback: Callback<boolean>): void;
+
+    /**
+     * Unregister Callback for window spans multiple screens and displays in full screen mode changed.
+     *
+     * @param { 'mainWindowFullScreenAcrossDisplaysChanged' } type - The value is fixed at 'mainWindowFullScreenAcrossDisplaysChanged',
+     * indicating the window spans multiple screens and displays in full screen mode changed.
+     * @param { Callback<boolean> } [callback] - Callback used to notify the window spans multiple screens and displays in full screen mode changed.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    off(type: 'mainWindowFullScreenAcrossDisplaysChanged', callback?: Callback<boolean>): void;
+
+    /**
      * Subscribes to non-interaction events in a window within the specified period.
      * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
@@ -7901,6 +8125,23 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     setWindowBackgroundColor(color: string | ColorMetrics): void;
+
+    /**
+     * Sets the shadow enable of window.
+     *
+     * @permission ohos.permission.SET_WINDOW_TRANSPARENT
+     * @param { boolean } enable - Enable or disable window shadow.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * The application does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    setWindowShadowEnabled(enable: boolean): Promise<void>;
 
     /**
      * Sets the brightness of window.
@@ -9268,6 +9509,25 @@ declare namespace window {
     raiseAboveTarget(windowId: number): Promise<void>;
 
     /**
+     * Raise main window above another.
+     *
+     * @param { number } windowId - Indicates target window id.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid Parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    raiseMainWindowAboveTarget(windowId: number): Promise<void>;
+
+    /**
      * Set whether to enable an app sub window to raise itself by click.
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
@@ -10176,6 +10436,62 @@ declare namespace window {
     off(type: 'windowRectChange', callback?: Callback<RectChangeOptions>): void;
 
     /**
+     * Register the callback of rectChangeInGlobalDisplay
+     *
+     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window gloabl rect change event.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    on(type: 'rectChangeInGlobalDisplay', callback: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unregister the callback of rectChangeInGlobalDisplay
+     *
+     * @param { 'rectChangeInGlobalDisplay' } type - The value is fixed at 'rectChangeInGlobalDisplay', indicating the window global rect change event.
+     * @param { Callback<RectChangeOptions> } [callback] - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    off(type: 'rectChangeInGlobalDisplay', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Convert the window coordinates to the global coordinates.
+     *
+     * @param { number } winX - Indicate the X-coordinate of the component relative to the current window.
+     * @param { number } winY - Indicate the Y-coordinate of the component relative to the current window.
+     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the main screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    clientToGlobalDisplay(winX: number, winY: number): Position;
+
+    /**
+     * Convert the global coordinates to the window coordinates.
+     *
+     * @param { number } globalDisplayX - Indicate the X-coordinate of the component relative to the main screen.
+     * @param { number } globalDisplayY - Indicate the Y-coordinate of the component relative to the main screen.
+     * @returns { Position } The pair {x, y} represents respectively the X-coordinate
+     *     and Y-coordinate of the window relative to the current screen.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Position;
+
+    /**
      * Register the callback of rotation change
      *
      * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
@@ -10215,7 +10531,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    on(type: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
+    on(eventType: 'uiExtensionSecureLimitChange', callback: Callback<boolean>): void;
 
     /**
      * UIExtension in window secure limit change callback off.
@@ -10229,7 +10545,7 @@ declare namespace window {
      * @atomicservice
      * @since 20
      */
-    off(type: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
+    off(eventType: 'uiExtensionSecureLimitChange', callback?: Callback<boolean>): void;
  
 
     /**
@@ -10414,18 +10730,16 @@ declare namespace window {
     /**
      * Set window container active and inactive color.
      *
+     * @permission ohos.permission.SET_WINDOW_TRANSPARENT
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @atomicservice
-     * @since 15
+     * @since 20
      */
     setWindowContainerColor(activeColor: string, inactiveColor: string): void;
 
@@ -10482,8 +10796,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Incorrect parameter format.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
@@ -10644,6 +10958,49 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     PAUSED = 6
+  }
+
+  /**
+   * Window stage lifecycle callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @stagemodelonly
+   * @since 20
+   */
+  enum WindowStageLifecycleEventType {
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    SHOWN = 1,
+    /**
+     * The window stage is interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    RESUMED = 2,
+    /**
+     * The window stage is not interactive in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    PAUSED = 3,
+    /**
+     * The window stage is running in the background.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    HIDDEN = 4
   }
 
   /**
@@ -11425,6 +11782,34 @@ declare namespace window {
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 
     /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to return the window stage lifecycle state.
+     *                                                    If a value is passed in, the corresponding subscription is canceled.
+     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 20
+     */
+    off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
      * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
      * 
@@ -11550,6 +11935,20 @@ declare namespace window {
      * @since 15
      */
     setCustomDensity(density: number): void;
+
+    /**
+     * Sets the custom density of ability.
+     *
+     * @param { number } density - the specified custom density value.
+     * @param { boolean } [applyToSubWindow] - whether to apply the custom density to already created subwindows.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 20
+     */
+    setCustomDensity(density: number, applyToSubWindow?: boolean): void;
 
     /**
      * Allows the application to control the time when the launch page disappears.
@@ -11710,7 +12109,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 20
+     * @since 19
      */
     setImageForRecent(imgResourceId: number, value: ImageFit): Promise<void>;
   }

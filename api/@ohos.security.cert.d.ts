@@ -5977,6 +5977,24 @@ declare namespace cert {
     trustAnchors: Array<X509TrustAnchor>;
 
     /**
+     * Indicates whether to use system preinstalled CA certificates to verify the certificate chain.
+     *
+     * If set to true and trustAnchors is not an empty array, both user trustAnchors and system preinstalled CA
+     * certificates are used to verify the certificate chain.
+     *
+     * If set to true and trustAnchors is an empty array, only system preinstalled CA certificates are used to verify
+     * the certificate chain.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    trustSystemCa?: boolean;
+
+    /**
      * The cert and CRL list to build cert chain and verify the certificate chain revocation state.
      *
      * @type { ?Array<CertCRLCollection> }

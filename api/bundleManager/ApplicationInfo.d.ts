@@ -851,6 +851,18 @@ export interface ApplicationInfo {
   readonly cloudFileSyncEnabled: boolean;
 
   /**
+   * Indicates whether the application enables cloud structured data sync.
+   *
+   * @type { ?boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  readonly cloudStructuredDataSyncEnabled?: boolean;
+
+  /**
    * Indicates the flags of the application.
    *
    * @type { ?number }

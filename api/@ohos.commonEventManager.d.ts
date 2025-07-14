@@ -2327,7 +2327,7 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 15
      */
-    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = "usual.event.BUNDLE_RESOURCES_CHANGED",    
+    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',    
 
     /**
      * This common event means that datashare is ready.
@@ -2412,6 +2412,26 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_KIOSK_MODE_OFF = 'usual.event.KIOSK_MODE_OFF',
+
+    /**
+     * This common event means that the config policy of customazation subsystem has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_CUSTOM_CONFIG_POLICY_UPDATED = 'usual.event.CUSTOM_CONFIG_POLICY_UPDATED',
+
+    /**
+     * This common event means that the custom roaming region of device has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_CUSTOM_ROAMING_REGION_UPDATED = 'usual.event.CUSTOM_ROAMING_REGION_UPDATED',
   }
 
   /**

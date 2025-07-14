@@ -22,10 +22,9 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /*** if arkts 1.1 */
 import { WantAgent } from './@ohos.wantAgent';
 /*** endif */
-/*** if arkts 1.2 */
-import { WantAgent } from '@ohos.app.ability.wantAgent';
-/*** endif */
+/*** if arkts 1.1 */
 import { NotificationRequest } from './notification/notificationRequest';
+/*** endif */
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,

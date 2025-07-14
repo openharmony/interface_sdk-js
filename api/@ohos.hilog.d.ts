@@ -20,30 +20,30 @@
  */
 
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @since 7
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @since 7
+ */
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @crossplatform
-* @since 10
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @crossplatform
+ * @since 10
+ */
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @crossplatform
-* @atomicservice
-* @since arkts {'1.1':'11','1.2':'20'}
-* @arkts 1.1&1.2
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @crossplatform
+ * @atomicservice
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
 declare namespace hilog {
 
   /**
@@ -86,13 +86,14 @@ declare namespace hilog {
    * Outputs debug-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { (Object | undefined | null)[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function debug(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
@@ -137,13 +138,14 @@ declare namespace hilog {
    * Outputs info-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { (Object | undefined | null)[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function info(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
@@ -188,13 +190,14 @@ declare namespace hilog {
    * Outputs warning-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { (Object | undefined | null)[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function warn(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
@@ -239,13 +242,14 @@ declare namespace hilog {
    * Outputs error-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { (Object | undefined | null)[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function error(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
@@ -290,13 +294,14 @@ declare namespace hilog {
    * Outputs fatal-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { (Object | undefined | null)[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function fatal(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;

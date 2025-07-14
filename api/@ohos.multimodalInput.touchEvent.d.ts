@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -364,6 +364,24 @@ export declare interface Touch {
    * @since 19
    */
   fixedDisplayY?: number;
+
+  /**
+   * globalX - Global X coordinate.
+   * @type { ?number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  globalX?: number;
+
+  /**
+   * globalY - Global Y coordinate.
+   * @type { ?number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  globalY?: number;
 }
 
 /**
@@ -416,4 +434,13 @@ export declare interface TouchEvent extends InputEvent {
    * @since 19
    */
   fixedMode?: FixedMode;
+
+  /**
+   * Indicates whether the touch event is an inject event.
+   * @type { ?boolean }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  isInject?: boolean;
 }

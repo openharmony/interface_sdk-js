@@ -32,24 +32,6 @@ import { KioskStatus as _KioskStatus } from './application/KioskStatus';
  */
 declare namespace kioskManager {
   /**
-   * Update Kiosk application list, only application in allow list can enter kiosk mode.
-   *
-   * @permission ohos.permission.MANAGE_EDM_POLICY
-   * @param { Array<string> } appList - Indicates the application list that can enter kiosk mode.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
-   */
-  function updateKioskAppList(appList: Array<string>): Promise<void>;
-
-  /**
    * Enter kiosk mode.
    *
    * @param { UIAbilityContext } context - The context that initiates to enter kiosk mode.

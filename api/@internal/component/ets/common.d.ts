@@ -19,26 +19,6 @@
  */
 
 /**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
-
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
-
-/**
  * Defines the options of Component ClassDecorator.
  *
  * @interface ComponentOptions
@@ -6681,6 +6661,19 @@ declare class DrawModifier {
    * @since 12
    */
   drawFront?(drawContext: DrawContext): void;
+
+  /**
+   * drawforeground Method. This method is executed after drawing associated Node and its children.
+   * It allows you to perform additional drawing operations on top of the already rendered content.
+   * This can be useful for adding visual elements that should appear above the main content.
+   * 
+   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  drawForeground(drawContext: DrawContext): void;
   
   /**
    * Invalidate the component, which will cause a re-render of the component.
@@ -10343,26 +10336,6 @@ declare enum LayoutSafeAreaType {
    * @since 12
    */
   SYSTEM = 0,
-
-  /**
-   * Soft keyboard area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  KEYBOARD = 1,
-
-  /**
-   * All safe area regions.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  ALL = 2,
 }
 
 /**
@@ -11185,6 +11158,28 @@ declare class LayoutPolicy {
  */
 declare interface ClickEvent extends BaseEvent {
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * X coordinate of the click point relative to the left edge of the device screen.
    *
    * @type { number }
@@ -11457,6 +11452,26 @@ declare interface HoverEvent extends BaseEvent {
   displayY?: number;
 
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * The blocking hover event pops up.
    *
    * @type { function }
@@ -11525,6 +11540,26 @@ declare interface MouseEvent extends BaseEvent {
    * @since 11
    */
   action: MouseAction;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the mouse point relative to the left edge of the device screen.
@@ -11779,6 +11814,26 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
    * @since 12
    */
   windowY: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 }
 
 /**
@@ -11857,6 +11912,28 @@ declare interface TouchObject {
    * @since 11
    */
   id: number;
+
+  /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -12343,6 +12420,26 @@ declare interface AxisEvent extends BaseEvent {
   action: AxisAction;
 
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayX?: number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  globalDisplayY?: number;
+
+  /**
    * X coordinate of the mouse cursor relative to the left edge of the device screen.
    *
    * @type { number }
@@ -12710,6 +12807,37 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
  * @since 15
  */
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
+
+/**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+ 
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
+
+/**
+ * Import the DataLoadParams type object for ui component.
+ *
+ * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams } DataLoadParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams;
 
 /**
  * Enum for Drag Result.
@@ -13490,6 +13618,26 @@ declare enum BlendApplyType {
  */
 declare interface DragEvent {
   /**
+   * X coordinate of the point relative to the global display.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  getGlobalDisplayX(): number;
+
+  /**
+   * Y coordinate of the point relative to the global display.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  getGlobalDisplayY(): number;
+
+  /**
    * X coordinate of the touch point relative to the left edge of the device screen.
    *
    * @returns { number }
@@ -13937,6 +14085,20 @@ declare interface DragEvent {
    * @since 20
    */
   getDisplayId(): number;
+  
+  /**
+   * Use this method to provide a data representation to the system instead of directly providing a complete data
+   * object. When the user releases the drag over the target application, the system will use this data
+   * representation to request the actual data from drag source. This approach significantly improves the
+   * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+   * reception. It is recommended to use this method instead of the setData method.
+   *
+   * @param { DataLoadParams } dataLoadParams The data backend representation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  setDataLoadParams(dataLoadParams: DataLoadParams): void;
   
   /**
    * Enable the internal drop animation, which is only avaiable for system applications.
@@ -14770,6 +14932,16 @@ declare enum SheetType {
    * @since 20
    */
   SIDE = 3,
+
+  /**
+   * Defines content cover type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CONTENT_COVER = 4,
 }
 
 /**
@@ -14895,6 +15067,16 @@ declare enum SheetKeyboardAvoidMode {
    * @since 13
    */
   TRANSLATE_AND_SCROLL = 3,
+
+  /**
+   * Popup sheet will avoid keyboard by default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  POPUP_SHEET = 4,
 }
 
 /**
@@ -15068,6 +15250,18 @@ declare interface SheetOptions extends BindOptions {
    * @since 20
    */
   enableFloatingDragBar?: boolean;
+
+  /**
+   * Defines transition type when preferType is SheetType.CONTENT_COVER.
+   *
+   * @type { ?ModalTransition }
+   * @default ModalTransition.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  modalTransition?: ModalTransition;
 
   /**
    * Mask color of the sheet.
@@ -18165,6 +18359,68 @@ declare interface MenuMaskType {
 }
 
 /**
+ * Defines the scaling mode for custom preview of contextMenu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum PreviewScaleMode {
+  /**
+   * Automatically resize preview based on the layout area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  AUTO = 0,
+
+  /**
+   * Maintain original size of preview content without scaling.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  CONSTANT = 1,
+
+  /**
+   * Maintain aspect ratio to scale preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  MAINTAIN = 2,
+}
+
+/**
+ * Defines the available layout area.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum AvailableLayoutArea {
+  /**
+   * Size of safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */    
+  SAFE_AREA = 0,
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -18601,7 +18857,6 @@ declare interface ContextMenuOptions {
    * Whether it is a menu without mask.
    *
    * @type { ?(boolean | MenuMaskType) }
-   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18675,6 +18930,29 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   onWillDisappear?: Callback<void>;
+
+  /**
+   * Defines the scaling mode for custom preview of contextMenu.
+   *
+   * @type { ?PreviewScaleMode }
+   * @default PreviewScaleMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  previewScaleMode?: PreviewScaleMode;
+
+  /**
+   * Defines the available layout area of preview.
+   *
+   * @type { ?AvailableLayoutArea }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  availableLayoutArea?: AvailableLayoutArea;
 }
 
 /**
@@ -20385,9 +20663,10 @@ declare interface BackgroundOptions {
    */
   align?: Alignment;
   /**
-   * The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass empty edge set.
+   *
    * @type { ?Array<LayoutSafeAreaEdge> }
-   * @default LayoutSafeAreaEdge.ALL
+   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty array [].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
@@ -21011,8 +21290,8 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -21023,22 +21302,20 @@ declare class CommonMethod<T> {
    *
    * @param { CustomBuilder } builder - Custom background.
    * @param { object } options - Alignment mode between the custom background and the component.
-   * <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   * <br>They will all take effect, with **background** at the top layer.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
-
   /**
    * Add a background for the component.
    *
    * Anonymous Object Rectification.
    * @param { CustomBuilder | ResourceColor } content
-   * @param { BackgroundOptions } options
+   * @param { BackgroundOptions } [options]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24892,6 +25169,19 @@ declare class CommonMethod<T> {
   align(alignment: Alignment | LocalizedAlignment): T;
 
   /**
+   * Defines the align rules of child component in Stack container.
+   *
+   * @param { LocalizedAlignment } alignment
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  layoutGravity(alignment: LocalizedAlignment): T;
+
+  /**
    * position
    *
    * @param { Position } value
@@ -25454,6 +25744,36 @@ declare class CommonMethod<T> {
    * @since 14
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
+
+  /**
+   * Enables the component as a drag-and-drop target with spring loading functionality.
+   *
+   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+   * by hovering (hover) without needing to use another hand.
+   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+   * some common scenarios suitable for supporting this feature:
+   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+   *  automatically opened.
+   *
+   * Please note:
+   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
+   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
+   *   child components always have higher priority.
+   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
+   *   dragged object leaves and re-enters the component's range.
+   *
+   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
+   *    sets it to null to disable the support for spring loading.
+   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
+   *    only used when the entire spring detecting.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 
   /**
    * Allowed drop uniformData type for this node.
@@ -27780,36 +28100,6 @@ declare class CommonMethod<T> {
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 
   /**
- * Enables the component as a drag-and-drop target with spring loading functionality.
- *
- * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
- * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
- * by hovering (hover) without needing to use another hand.
- * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
- * some common scenarios suitable for supporting this feature:
- *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
- *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
- *  automatically opened.
- *
- * Please note:
- *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a control makes it a
- *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
- *   child controls always have higher priority.
- *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
- *   dragged object leaves and re-enters the component's range.
- *
- * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
- *    sets it to null to reset the component's support for spring loading.
- * @param { dragController.DragSpringLoadingConfiguration } configuration The initialized spring loading configuration which is
- *    only used when the entire spring detecting.
- * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
-
-  /**
    * Register one callback which will be executed when all gesture recognizers are collected done, this happens
    * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
    * position, after this, before handling any move events, the component can use this interface to know which
@@ -29809,7 +30099,17 @@ declare class CustomComponent extends BaseCustomComponent {
    * @atomicservice
    * @since 11
    */
-  aboutToReuse?(params: { [key: string]: unknown }): void;
+  /**
+   * Invoked when a reusable custom component is re-added to the node tree
+   * from the reuse cache to receive construction parameters of the component.
+   *
+   * @param { Record<string, Object | undefined | null> } params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  aboutToReuse?(params: Record<string, Object | undefined | null>): void;
 
   /**
    * Custom component override this method to layout each of its sub components.
@@ -31138,6 +31438,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
+   * Called when the scrollable will end dragging.
+   *
+   * @param { OnWillStopDraggingCallback } handler - callback of end dragging.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onWillStopDragging(handler: OnWillStopDraggingCallback): T;
+
+  /**
    * Triggered when the scrollable component reaches the start position.
    *
    * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
@@ -31287,6 +31600,19 @@ declare type OnWillScrollCallback =
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+
+/**
+  * On scroll callback using in scrollable onWillStopDragging.
+  *
+  * @typedef { function } OnWillStopDraggingCallback
+  * @param { number } velocity - The velocity of the scroll view at the moment the touch was released.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
  * Defines the onMove callback.

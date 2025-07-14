@@ -75,7 +75,7 @@ export interface LiveFormInfo {
  * @atomicservice
  * @since 20
  */
-export default class LiveFormExtensionAbility extends ExtensionAbility {
+declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
    * Indicates configuration information about a live form extension ability context.
    *
@@ -110,3 +110,4 @@ export default class LiveFormExtensionAbility extends ExtensionAbility {
    */
   onLiveFormDestroy(liveFormInfo: LiveFormInfo): void;
 }
+export default LiveFormExtensionAbility;

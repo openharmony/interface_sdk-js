@@ -460,6 +460,20 @@ declare namespace dragController {
      * @since 18
      */
     previewOptions?: DragPreviewOptions;
+    
+    /**
+     * Provide a data representation to the system instead of providing a complete data
+     * object directly. When the user releases the drag over the target application, the system will use this data
+     * representation to request the actual data from drag source. This approach significantly improves the
+     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+     * reception. It is recommended to use this instead of the data field.
+     *
+     * @type { ?unifiedDataChannel.DataLoadParams }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    dataLoadParams?: unifiedDataChannel.DataLoadParams;
   }
 
   /**
@@ -877,7 +891,7 @@ declare namespace dragController {
    * @atomicservice
    * @since 20
    */
-  enum DragSpringLoadingState {
+  const enum DragSpringLoadingState {
     /**
      * The user has remained stationary for a period, initiating the spring loading process.
      * This state allows for some preparatory operations during spring loading.
@@ -990,10 +1004,12 @@ declare namespace dragController {
      * @since 20
      */
     dataSummary?: unifiedDataChannel.Summary;
+    
     /**
-     * Summary of the dragged data. This field is absent if the source application did not configure data.
+     * Additional information provided by the source application when initiating the drag operation.
+     * This field is absent if the source application did not configure it.
      *
-     * @type { ?unifiedDataChannel.Summary }
+     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20
@@ -1064,7 +1080,7 @@ declare namespace dragController {
      * Typically, applications should use default configurations or set them once during binding.
      * Use this method sparingly, e.g., for different drag data types requiring varied UX timing.
      *
-     * @param { config } The spring loading detection configuration
+     * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20

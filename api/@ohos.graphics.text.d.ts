@@ -730,7 +730,7 @@ declare namespace text {
 
   /**
    * Describes badge type of text.
-   * @typedef TextBadgeType
+   * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 20
    */
@@ -742,13 +742,13 @@ declare namespace text {
      */
     TEXT_BADGE_NONE,
     /**
-     * Super badge.
+     * Superscript.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */
     TEXT_SUPERSCRIPT,
     /**
-     * Sub badge.
+     * Subscript.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20
      */

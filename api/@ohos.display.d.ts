@@ -766,6 +766,36 @@ declare namespace display {
   function removeVirtualScreenBlocklist(windowIds: Array<number>): Promise<void>;
 
   /**
+   * Convert global coordinates to relative coordinates.
+   *
+   * @param { Position } position - The global coordinates to be converted.
+   * @param { number } [displayId] - The optional display id indicate the display relative to. 
+   * If not specified,use the display where the coodinates are located.
+   * @returns { RelativePosition } The relative coordinates.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function convertGlobalToRelativeCoordinate(position: Position, displayId?: number): RelativePosition;
+
+  /**
+   * Convert relative coordinates to global coordinates.
+   *
+   * @param { RelativePosition } relativePosition - The relative coordinates to be converted.
+   * @returns { Position } The global coordinates.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 20
+   */
+  function convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position;
+
+  /**
    * The parameter for creating virtual screen.
    *
    * @interface VirtualScreenConfig
@@ -2184,6 +2214,16 @@ declare namespace display {
     y?: number;
 
     /**
+     * All supported refresh rates.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    supportedRefreshRates?: Array<number>;
+
+    /**
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
@@ -2263,6 +2303,17 @@ declare namespace display {
     getAvailableArea(): Promise<Rect>;
 
     /**
+     * Get the live crease region in the current display mode.
+     *
+     * @returns { FoldCreaseRegion } Fold crease region in the current display mode.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    getLiveCreaseRegion(): FoldCreaseRegion;
+
+    /**
     * Register the callback for available area changes.
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
@@ -2305,6 +2356,60 @@ declare namespace display {
     * @test
     */
     getDisplayCapability(): string;
+  }
+
+  /**
+   * Coordinates of a point.
+   * 
+   * @interface Position
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface Position {
+    /**
+     * Indicates the x-axis coordinates
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    x: number;
+
+    /**
+     * Indicates the y-axis coordinates
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    y: number;
+  }
+
+  /**
+   * Coordinates of a point relative to specified display.
+   * 
+   * @interface RelativePosition
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 20
+   */
+  interface RelativePosition {
+    /**
+     * Indicates the display.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    displayId: number;
+
+    /**
+     * Indicates the coordinates relative to the display.
+     * 
+     * @type { Position }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20
+     */
+    position: Position;
   }
 }
 

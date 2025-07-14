@@ -47,9 +47,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityStage {
+declare class AbilityStage {
   /**
    * Indicates configuration information about context.
    *
@@ -76,7 +77,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AbilityStageContext;
 
@@ -106,7 +108,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(): void;
 
@@ -166,10 +169,24 @@ export default class AbilityStage {
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Called when UIAbility or configured with the isolationProcess field UIExtensionAbility in the specified process is started.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
+   *
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @returns { string } Custom process identifier. If the process with this identifier has been created, the ability
+   * runs in the process. Otherwise, a new process is created and the ability runs in it.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
   onNewProcessRequest(want: Want): string;
 
   /**
-  * Called back asynchronously upon starting UIAbility in specified process.
+  * Called back asynchronously upon starting UIAbility or UIExtensionAbility in specified process.
   *
   * @param { Want } want - Indicates the want info of the started ability.
   * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
@@ -212,7 +229,8 @@ export default class AbilityStage {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -256,7 +274,8 @@ export default class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 
@@ -303,3 +322,6 @@ export default class AbilityStage {
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }
+
+
+export default AbilityStage;

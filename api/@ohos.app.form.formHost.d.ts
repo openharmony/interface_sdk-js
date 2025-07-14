@@ -731,8 +731,6 @@ declare namespace formHost {
    * @param { 'formOverflow' } type - Indicates event type.
    * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 801 - Capability not supported.function formOverflow can not work correctly
-   *     due to limited device capabilities.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
@@ -746,8 +744,6 @@ declare namespace formHost {
    * @param { 'formOverflow' } type - Indicates event type.
    * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 801 - Capability not supported.function formOverflow can not work correctly
-   *     due to limited device capabilities.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
@@ -762,8 +758,6 @@ declare namespace formHost {
    * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
    *     change scene animation state.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 801 - Capability not supported.function changeSceneAnimationState can not work correctly
-   *     due to limited device capabilities.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
@@ -779,14 +773,38 @@ declare namespace formHost {
    * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
    *     change scene animation state.
    * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 801 - Capability not supported.function changeSceneAnimationState can not work correctly
-   *     due to limited device capabilities.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 20
    */
   function off(type: 'changeSceneAnimationState',
     callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
+  /**
+   * Listens to the event of get form rect.
+   * <p>You can use this method to listen to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
+ 
+  /**
+   * Cancels listening to the event of get form rect.
+   * <p>You can use this method to cancel listening to the event of get form rect.</p>
+   *
+   * @param { 'getFormRect' } type - Indicates event type.
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
 
   /**
    * Notify form is Visible
@@ -1274,5 +1292,49 @@ declare namespace formHost {
    * @since 12
    */
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
+
+  /**
+   * Listens to the event of get live form status.
+   *
+   * @param { 'getLiveFormStatus' } type - Indicates event type.
+   * @param { formInfo.GetLiveFormStatusCallback } callback  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function on(type: 'getLiveFormStatus', 
+    callback: formInfo.GetLiveFormStatusCallback): void;
+  
+  /**
+   * Cancels Listening to the event of get live form status.
+   *
+   * @param { 'getLiveFormStatus' } type - Indicates event type.
+   * @param { formInfo.GetLiveFormStatusCallback } [callback]  - The callback of get live form status.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function off(type: 'getLiveFormStatus', 
+    callback?: formInfo.GetLiveFormStatusCallback): void;
+
+  /**
+   * Update size of the form.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form id.
+   * @param { formInfo.FormDimension } newDimension - The new dimension of the form.
+   * @param { formInfo.Rect } newRect - The new size of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501012 - The dimension parameter is incorrect
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20
+   */
+  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
 export default formHost;
