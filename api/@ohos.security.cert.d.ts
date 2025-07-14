@@ -1419,13 +1419,13 @@ declare namespace cert {
     /**
      * Get X509 cert serial number.
      *
-     * @returns { int } X509 cert serial number.
+     * @returns { number } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
      * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
-    getSerialNumber(): int;
+    getSerialNumber(): number;
 
     /**
      * Get X509 cert serial number.
@@ -2646,13 +2646,13 @@ declare namespace cert {
     /**
      * Get the serial number from this x509crl entry.
      *
-     * @returns { int } serial number of crl entry.
+     * @returns { number } serial number of crl entry.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRLEntry#getSerialNumber
      */
-    getSerialNumber(): int;
+    getSerialNumber(): number;
 
     /**
      * Get the issuer of the x509 certificate described by this entry.
@@ -3097,13 +3097,13 @@ declare namespace cert {
     /**
      * Get version number from CRL.
      *
-     * @returns { int } version of crl.
+     * @returns { number } version of crl.
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRL#getVersion
      */
-    getVersion(): int;
+    getVersion(): number;
 
     /**
      * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
@@ -3153,7 +3153,7 @@ declare namespace cert {
     /**
      * This method can be used to find CRL entries in specified CRLs.
      *
-     * @param { int } serialNumber - serial number of crl.
+     * @param { number } serialNumber - serial number of crl.
      * @returns { X509CrlEntry } next update of crl.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3164,7 +3164,7 @@ declare namespace cert {
      * @deprecated since 11
      * @useinstead ohos.security.cert.X509CRL#getRevokedCert
      */
-    getRevokedCert(serialNumber: int): X509CrlEntry;
+    getRevokedCert(serialNumber: number): X509CrlEntry;
 
     /**
      * This method can be used to find CRL entries in specified cert.
