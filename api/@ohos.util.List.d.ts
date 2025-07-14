@@ -925,32 +925,22 @@ declare class List<T> {
    * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
-  /**
-   * Returns the item at that index
-   *
-   * @param { number } index - the zero-based index of the desired code unit.
-   * @returns { T | undefined } the element in the list matching the given index,
-   * or undefined if the index is out of range.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  $_get(index: number): T | undefined;
 
   /**
-   * Set the value of item at that index.
-   *
-   * @param { number } index – the index of the element to set.
-   * @param { T } value – the value to set at the specified index
+   * Returns the item at that index.
+   * 
+   * @param { number } index - The zero-based index of the desired code unit.
+   *     Throws error if index < 0 or index >= list.length.
+   * @returns { T } The element in the list matching the given index. 
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  $_set(index: number, value: T): void;
+  [index: number]: T;
+
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
