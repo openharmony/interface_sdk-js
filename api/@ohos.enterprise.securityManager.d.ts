@@ -391,34 +391,36 @@ declare namespace securityManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_USER_GRANT_PERMISSION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { ApplicationInstance } applicationInstance - Application instance data.
-   * @param { string[] } permissionNames - ACL permission name List.
-   * @param { PermissionManagedState } permissionManagedState - Permission managed State.
+   * @param { Array<string> } permissions - permissions indicates the list of permission names that need to manage.
+   * @param { PermissionManagedState } managedState - the managed state of application permission.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200010 - The permissionList has conflict permission with current permissions.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionNames: string[], permissionManagedState: PermissionManagedState): void;
+    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissions: Array<string>, managedState: PermissionManagedState): void;
 
   /**
-   * Gets the application's permission managed state of the device by applicationInstance and permissionName.
+   * Gets the permission managed state of an application instance.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_USER_GRANT_PERMISSION
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { ApplicationInstance } applicationInstance - Application instance data.
-   * @param { string } permissionName - ACL permission name.
-   * @returns { PermissionManagedState } the managed State. policy for the permission of the device.
+   * @param { ApplicationInstance } applicationInstance - applicationInstance indicates an application instance.
+   * @param { string } permission - permission indicates the permission name which need to get state.
+   * @returns { PermissionManagedState } the managed state of application permission.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
-    function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissionName: string): PermissionManagedState;
+    function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permission: string): PermissionManagedState;
 
   /**
    * Sets the watermark image displayed during the application running.
