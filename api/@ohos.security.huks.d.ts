@@ -1924,6 +1924,33 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
+   */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -1982,6 +2009,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function finishSession(
     handle: number,
@@ -2048,6 +2103,35 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
