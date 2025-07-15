@@ -25,7 +25,7 @@
  * @since arkts {'1.1':'14', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class AbilityStateData {
+declare class AbilityStateData {
   /**
    * The module name.
    *
@@ -115,3 +115,5 @@ export default class AbilityStateData {
    */
   appCloneIndex?: number;
 }
+
+export default AbilityStateData;
