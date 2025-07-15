@@ -4497,7 +4497,7 @@ declare namespace webview {
 
     /**
      * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4505,7 +4505,7 @@ declare namespace webview {
      */
     /**
      * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4514,7 +4514,7 @@ declare namespace webview {
      */
     /**
      * Gets the index value of the current Web component for the management of multiple Web components.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4523,7 +4523,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getWebId(): number;
+    getWebId(): int;
 
     /**
      * Gets the default user agent.

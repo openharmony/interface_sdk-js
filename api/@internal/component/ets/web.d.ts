@@ -289,13 +289,13 @@ declare interface WebKeyboardOptions {
   /**
    * Set the enter key type when the system keyboard is used, the "enter" key related to the {@link inputMethodEngine}.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  enterKeyType?: number;
+  enterKeyType?: int;
 
   /**
    * Set the custom keyboard builder when the custom keyboard is used.
@@ -341,32 +341,32 @@ declare class WebKeyboardController {
   /**
    * Deletes the specified length of characters from the back to the front in the Web input field.
    *
-   * @param { number } length - length of text, which will be deleted from back to front.
+   * @param { int } length - length of text, which will be deleted from back to front.
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  deleteForward(length: number): void;
+  deleteForward(length: int): void;
 
   /**
    * Delete the specified length of characters in the Web input field from the beginning to the end.
    *
-   * @param { number } length - length of text, which will be deleted from front to back.
+   * @param { int } length - length of text, which will be deleted from front to back.
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  deleteBackward(length: number): void;
+  deleteBackward(length: int): void;
 
   /**
    * Send the function of the key.
    *
-   * @param { number } key - action indicates the "enter" key related to the {@link inputMethodEngine}
+   * @param { int } key - action indicates the "enter" key related to the {@link inputMethodEngine}
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  sendFunctionKey(key: number): void;
+  sendFunctionKey(key: int): void;
 
   /**
    * Close the custom keyboard.
@@ -5830,12 +5830,12 @@ declare interface RenderProcessNotRespondingData {
   /**
    * Process id of render process not responding.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
    * Reason for the render process not responding.
