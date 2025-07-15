@@ -836,10 +836,26 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @deprecated since 20
+   * @useinstead ohos.resourceManager.getSysResourceManager
    */
   export function getSystemResourceManager(): ResourceManager;
+
+  /**
+   * Obtains a global shared system ResourceManager object that provides access to only system resource, in which the
+   *     resConfig is default value(contains resLocale, screenDensityDpi, direction, etc).
+   *
+   * @returns { ResourceManager } The System ResourceManager object is returned.
+   * @throws { BusinessError } 9001009 - Failed to access the system resource.
+   *     which is not mapped to application sandbox, This error code will be thrown.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export function getSysResourceManager(): ResourceManager;
 
   /**
    * Provides the capability of accessing application resources.
