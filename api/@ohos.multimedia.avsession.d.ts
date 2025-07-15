@@ -2772,6 +2772,45 @@ declare namespace avSession {
     off(type: 'castDisplayChange', callback?: Callback<CastDisplayInfo>): void;
 
     /**
+     * Register listener for custom data sent from remote device.
+     * @param { 'customDataChange' } type - Type of the 'customDataChange' to listen for.
+     * @param { Callback<Record<string, Object>> } callback - Callback used to retrieve custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void;
+
+    /**
+     * Unsubscribes from custom data changes.
+     * @param { 'customDataChange' } type Custom data type.
+     * @param { Callback<Record<string, Object>> } [callback] Callback used to return the custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *      You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void;
+
+    /**
+     * Sends custom data to a remote device.
+     * @param { Record<string, Object> } data Custom data populated by the application.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *      You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    sendCustomData(data: Record<string, Object>): Promise<void>;
+
+    /**
      * Stop current cast and disconnect device connection.
      * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -3268,6 +3307,18 @@ declare namespace avSession {
      * @since 12
      */
     processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>;
+
+    /**
+     * Sends custom data to a remote device.
+     * @param { Record<string, Object> } data Custom data populated by the application.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    sendCustomData(data: Record<string, Object>): Promise<void>;
 
     /**
      * Destroy the controller
@@ -3950,6 +4001,30 @@ declare namespace avSession {
      * @since 12
      */
     off(type: 'keyRequest', callback?: KeyRequestCallback): void;
+
+    /**
+     * Register listener for custom data sent from remote device.
+     * @param { 'customDataChange' } type - Type of the 'customDataChange' to listen for.
+     * @param { Callback<Record<string, Object>> } callback - Callback used to retrieve custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void;
+
+    /**
+     * Unregister listener for custom data sent from remote device.
+     * @param { 'customDataChange' } type - Type of the 'customDataChange' to listen for.
+     * @param { Callback<Record<string, Object>> } [callback] - Callback used to retrieve custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void;
   }
 
   /**
@@ -4997,6 +5072,15 @@ declare namespace avSession {
      * @since 12
      */
     displayTags?: number;
+
+    /**
+     * Custom data sent by the application to the receiver during casting.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    customData?: string;
   }
 
   /**
@@ -5776,6 +5860,15 @@ declare namespace avSession {
      * @since 12
      */
     supportedDrmCapabilities?: Array<string>;
+
+    /**
+     * Whether the device supports pull-end playback, including a collection of pull-end client IDs.
+     * @type { ?Array<string> } Bundle names of pull-end clients.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    supportedPullClients?: Array<string>;
 
     /**
      * Define different authentication status.
@@ -7711,6 +7804,46 @@ declare namespace avSession {
      * @since 12
      */
     off(type: 'extrasChange', callback?: (extras: {[key: string]: Object}) => void): void;
+
+    /**
+     * Send custom data to this avsession.
+     * @param { Record<string, Object> } data - The custom data populated by application.
+     * @returns { Promise<void> } void result promise when executed successfully
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    sendCustomData(data: Record<string, Object>): Promise<void>;
+
+    /**
+     * Register listener for custom data.
+     * @param { 'customDataChange' } type - Type of the 'customDataChange' to listen for.
+     * @param { Callback<Record<string, Object>> } callback - Callback used to retrieve custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void;
+
+    /**
+     * Unregister listener for custom data.
+     * @param { 'customDataChange' } type - Type of the 'customDataChange' to listen for.
+     * @param { Callback<Record<string, Object>> } [callback] - Callback used to retrieve custom data.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     *     You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void;
   }
 
   /**
