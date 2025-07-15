@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common';
+/*** endif */
+
 /**
  * Defines the option in number unit of grid-container child component.
  * 
@@ -43,7 +47,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GridColColumnOption {
   /**
@@ -71,7 +76,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   xs?: number,
 
@@ -100,7 +106,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sm?: number,
 
@@ -129,7 +136,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   md?: number,
 
@@ -158,7 +166,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lg?: number,
 
@@ -187,7 +196,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   xl?: number,
 
@@ -216,7 +226,8 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   xxl?: number,
 }
@@ -246,7 +257,8 @@ declare interface GridColColumnOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GridColOptions {
   /**
@@ -274,7 +286,8 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   span?: number | GridColColumnOption;
 
@@ -303,7 +316,8 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: number | GridColColumnOption;
 
@@ -332,7 +346,8 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   order?: number | GridColColumnOption;
 }
@@ -362,7 +377,8 @@ declare interface GridColOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface GridColInterface {
   /**
@@ -393,7 +409,8 @@ interface GridColInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (option?: GridColOptions): GridColAttribute;
 }
@@ -423,7 +440,8 @@ interface GridColInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
@@ -454,7 +472,8 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   span(value: number | GridColColumnOption): GridColAttribute;
 
@@ -486,7 +505,8 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
@@ -518,7 +538,8 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   order(value: number | GridColColumnOption): GridColAttribute;
 }

@@ -622,6 +622,16 @@ export interface IDataSource<T> {
 export interface LazyForEachAttribute {}
 
 /**
+ * declare UILazyForEachAttribute
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface UILazyForEachAttribute {}
+
+/**
  * Enter the value to obtain the LazyForEach.
  *
  * @param { IDataSource } dataSource

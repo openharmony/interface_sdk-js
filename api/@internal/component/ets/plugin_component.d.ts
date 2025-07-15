@@ -18,13 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common'
+import { VoidCallback } from './units'
+/*** endif */
+
 /**
  * PluginComponentTemplate
  *
  * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PluginComponentTemplate {
   /**
@@ -33,7 +39,8 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   source: string;
   /**
@@ -42,7 +49,8 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 }
@@ -171,7 +179,8 @@ declare type PluginErrorCallback = (info: PluginErrorData) => void;
  * @interface PluginComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PluginComponentInterface {
   /**
@@ -203,7 +212,8 @@ interface PluginComponentInterface {
  * @extends CommonMethod<PluginComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**

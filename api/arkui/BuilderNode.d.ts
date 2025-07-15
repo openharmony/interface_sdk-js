@@ -60,9 +60,10 @@ For details, see Rendering and Drawing Video and Button Components at the Same L
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-declare enum NodeRenderType {
+export declare enum NodeRenderType {
   /**
    * Display type.The node will be shown on the display.
    *
@@ -76,7 +77,8 @@ declare enum NodeRenderType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RENDER_TYPE_DISPLAY = 0,
 
@@ -91,7 +93,8 @@ declare enum NodeRenderType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RENDER_TYPE_TEXTURE = 1,
 }
@@ -111,7 +114,8 @@ declare enum NodeRenderType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RenderOptions {
   /**
@@ -127,7 +131,8 @@ export interface RenderOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selfIdealSize?: Size;
 
@@ -142,7 +147,8 @@ export interface RenderOptions {
    * @type { ?NodeRenderType } type - Render type of the node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: NodeRenderType;
 
@@ -158,7 +164,8 @@ export interface RenderOptions {
    * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   surfaceId?: string;
 }
@@ -171,7 +178,8 @@ export interface RenderOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BuildOptions {
 
@@ -184,7 +192,8 @@ export interface BuildOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   nestingBuilderSupported?: boolean;
 

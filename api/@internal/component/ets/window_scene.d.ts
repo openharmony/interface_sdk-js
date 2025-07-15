@@ -18,13 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Position } from './units'
+import { CommonMethod } from './common'
+/*** endif */
+
 /**
  * Defines the interface of WindowScene.
  *
  * @interface WindowSceneInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface WindowSceneInterface {
   /**
@@ -34,7 +40,8 @@ interface WindowSceneInterface {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (persistentId: number): WindowSceneAttribute;
 }
@@ -45,7 +52,8 @@ interface WindowSceneInterface {
  * @extends CommonMethod<WindowSceneAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
@@ -58,7 +66,8 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
    * @returns { WindowSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   attractionEffect(destination: Position, fraction: number): WindowSceneAttribute;
 }

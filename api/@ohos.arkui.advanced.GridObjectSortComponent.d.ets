@@ -18,12 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource, ResourceStr, ResourceColor, LocalizedMargin } from './arkui/component/units';
+import { Prop } from './arkui/stateManagement/common';
+import { Component } from './arkui/component/customComponent';
+/*** endif */
+
 /**
  * Controls the style types of GridObjectSortComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Controls the style types of GridObjectSortComponent.
@@ -38,7 +45,8 @@ export declare enum GridObjectSortComponentType {
    * The GridObjectSortComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The GridObjectSortComponent image text type.
@@ -53,7 +61,8 @@ export declare enum GridObjectSortComponentType {
    * The GridObjectSortComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The GridObjectSortComponent text type.
@@ -70,7 +79,8 @@ export declare enum GridObjectSortComponentType {
  * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Declaration of the GridObjectSortComponent item.
@@ -86,7 +96,8 @@ export interface GridObjectSortComponentItem {
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * id of GridObjectSortComponent item.
@@ -103,7 +114,8 @@ export interface GridObjectSortComponentItem {
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * GridObjectSortComponent item text.
@@ -120,7 +132,8 @@ export interface GridObjectSortComponentItem {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * selected of GridObjectSortComponent item, true is show area, false is add area.
@@ -137,7 +150,8 @@ export interface GridObjectSortComponentItem {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * order of GridObjectSortComponentItem, Used for sorting dataList.
@@ -154,7 +168,8 @@ export interface GridObjectSortComponentItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * image resource path of the GridObjectSortComponent item.
@@ -181,7 +196,8 @@ export interface GridObjectSortComponentItem {
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * GridObjectSortComponentOptions of GridObjectSortComponent.
@@ -198,7 +214,8 @@ export interface GridObjectSortComponentOptions {
    * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Configuration GridObjectSortComponent type.
@@ -216,7 +233,8 @@ export interface GridObjectSortComponentOptions {
    * @type { ?number | ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The size of the GridObjectSortComponent image.
@@ -233,7 +251,8 @@ export interface GridObjectSortComponentOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The title displayed in the unedited state of the  GridObjectSortComponent.
@@ -250,7 +269,8 @@ export interface GridObjectSortComponentOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * The title displayed in the GridObjectSortComponent edit state.
@@ -267,7 +287,8 @@ export interface GridObjectSortComponentOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Display Area Title, First subtitle of the GridObjectSortComponent.
@@ -284,7 +305,8 @@ export interface GridObjectSortComponentOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Add Zone Title, second subtitle of the GridObjectSortComponent.
@@ -302,7 +324,8 @@ export interface GridObjectSortComponentOptions {
  * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
  /**
  * Declare struct GridObjectSortComponent.
@@ -319,7 +342,8 @@ export declare struct GridObjectSortComponent {
    * @type { GridObjectSortComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Component types and parameters of the GridObjectSortComponent.
@@ -337,7 +361,8 @@ export declare struct GridObjectSortComponent {
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Data list of GridObjectSortComponent.
@@ -354,7 +379,8 @@ export declare struct GridObjectSortComponent {
    * @type { (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Callback when Obtain edited data.
@@ -371,7 +397,8 @@ export declare struct GridObjectSortComponent {
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Cancel callback for saving data.
@@ -387,7 +414,8 @@ export declare struct GridObjectSortComponent {
    * Build function of GridObjectSortComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    /**
    * Build function of GridObjectSortComponent.
