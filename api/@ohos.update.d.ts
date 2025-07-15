@@ -910,12 +910,12 @@ declare namespace update {
     /**
      * Update package size
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    size: number;
+    size: int;
 
     /**
      * Effective mode
@@ -1240,22 +1240,22 @@ declare namespace update {
     /**
      * Start time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    start: number;
+    start: int;
 
     /**
      * End time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1350,32 +1350,32 @@ declare namespace update {
     /**
      * Upgrade sub status
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    subStatus: number;
+    subStatus: int;
 
     /**
      * Upgrade progress
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    progress: number;
+    progress: int;
 
     /**
      * Install mode
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    installMode: number;
+    installMode: int;
 
     /**
      * Error messages
@@ -1410,12 +1410,12 @@ declare namespace update {
     /**
      * Error code
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
      */
-    errorCode: number;
+    errorCode: int;
 
     /**
      * Error message
