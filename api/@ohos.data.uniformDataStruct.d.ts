@@ -62,7 +62,14 @@ declare namespace uniformDataStruct {
      */
     abstract?: string;
     /**
-     * Indicates the details of the PlainText.
+     * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
+     * object are of the string type. For example, the following is a details object used to describe the properties of
+     * a file:
+     * {
+     * "title":"Title of the file",
+     * "content":"Content of the file"
+     * }
+     * By default, it is an empty dictionary object.
      *
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -104,7 +111,14 @@ declare namespace uniformDataStruct {
      */
     description?: string;
     /**
-     * Indicates the details of the Hyperlink.
+     * Object of the dictionary type used to describe the attributes of the hyperlink. Both the key and value of the
+     * object are of the string type. For example, the following is a details object used to describe the properties of
+     * a file:
+     * {
+     * "title":"Title of the hyperlink",
+     * "content":"Content"
+     * }
+     * By default, it is an empty dictionary object.
      *
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -148,7 +162,14 @@ declare namespace uniformDataStruct {
      */
     plainContent?: string;
     /**
-     * Indicates the details of html.
+     * Object of the dictionary type used to describe the attributes of the HTML content. Both the key and value of the
+     * object are of the string type. For example, the following is a details object used to describe the properties of
+     * a file:
+     * {
+     * "title":"Title of the HTML content",
+     * "content":"Content"
+     * }
+     * By default, it is an empty dictionary object.
      *
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -166,7 +187,7 @@ declare namespace uniformDataStruct {
    */
   interface OpenHarmonyAppItem {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of openharmony.app-item. For details, see UniformDataType.
      * 
      * @type { 'openharmony.app-item' }
      * @readonly
@@ -223,7 +244,8 @@ declare namespace uniformDataStruct {
      */
     abilityName: string;
     /**
-     * Indicates the details of app.
+     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a
+     * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
      * @type { ?Record<string, number | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -233,7 +255,7 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe content form uniform data struct.
+   * Uniform data type, which has a fixed value of general.content-form.
    *
    * @interface ContentForm
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -314,7 +336,7 @@ declare namespace uniformDataStruct {
    */
   interface Form {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of openharmony.form. For details, see UniformDataType.
      *
      * @type { 'openharmony.form' }
      * @readonly
@@ -387,8 +409,8 @@ declare namespace uniformDataStruct {
    */
   interface FileUri {
     /**
-     * Indicates the uniform data type of this data struct.
-     * 
+     * Uniform data type, which has a fixed value of general.file-uri. For details, see UniformDataType.
+     *
      * @type { 'general.file-uri' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -433,8 +455,8 @@ declare namespace uniformDataStruct {
    */
   interface PixelMap {
     /**
-     * Indicates the uniform data type of this data struct.
-     * 
+     * 	Uniform data type, which has a fixed value of openharmony.pixel-map. For details, see UniformDataType.
+     *
      * @type { 'openharmony.pixel-map' }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
