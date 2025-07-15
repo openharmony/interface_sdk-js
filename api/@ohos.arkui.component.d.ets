@@ -48,6 +48,7 @@ export * from './arkui/component/grid';
 export * from './arkui/component/griditem';
 export * from './arkui/component/image';
 export * from './arkui/component/imageCommon';
+export * from './arkui/component/interop';
 export * from './arkui/component/lazyForEach';
 export * from './arkui/component/list';
 export * from './arkui/component/mediaCachedImage';
