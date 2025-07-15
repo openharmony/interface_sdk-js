@@ -3251,14 +3251,14 @@ declare class WebContextMenuParam {
   /**
    * Horizontal offset coordinates of the menu within the Web component.
    *
-   * @returns { number } The context menu x coordinate.
+   * @returns { int } The context menu x coordinate.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Horizontal offset coordinates of the menu within the Web component.
    *
-   * @returns { number } The context menu x coordinate.
+   * @returns { int } The context menu x coordinate.
    *                     Returns a non-negative integer if normal, otherwise returns -1.
    *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3266,19 +3266,19 @@ declare class WebContextMenuParam {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  x(): number;
+  x(): int;
 
   /**
    * Vertical offset coordinates for the menu within the Web component.
    *
-   * @returns { number } The context menu y coordinate.
+   * @returns { int } The context menu y coordinate.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Vertical offset coordinates for the menu within the Web component.
    *
-   * @returns { number } The context menu y coordinate.
+   * @returns { int } The context menu y coordinate.
    *                     Returns a non-negative integer if normal, otherwise returns -1.
    *                     Unit: vp.
    * @syscap SystemCapability.Web.Webview.Core
@@ -3286,7 +3286,7 @@ declare class WebContextMenuParam {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  y(): number;
+  y(): int;
 
   /**
    * If the long-press location is the link returns the link's security-checked URL.
@@ -3453,40 +3453,40 @@ declare class WebContextMenuParam {
   /**
    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
    *
-   * @returns { number }
+   * @returns { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
    *
-   * @returns { number }
+   * @returns { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getEditStateFlags(): number;
+  getEditStateFlags(): int;
 
   /**
    * Returns the selection menu preview width.
    *
-   * @returns { number } The preview menu width.
+   * @returns { int } The preview menu width.
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'13', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getPreviewWidth(): number;
+  getPreviewWidth(): int;
 
   /**
    * Returns the selection menu preview height.
    *
-   * @returns { number } The preview menu height.
+   * @returns { int } The preview menu height.
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'13', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getPreviewHeight(): number;
+  getPreviewHeight(): int;
 }
 
 /**
@@ -5605,7 +5605,7 @@ declare interface NativeEmbedVisibilityInfo {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @arkts 1.1&1.2
    */
   embedId: string;
 }
@@ -5982,7 +5982,7 @@ declare interface OnTitleReceiveEvent {
   /**
    * Mark the source of the title. If it is true, the title is derived from the H5 title element;
    * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
@@ -6602,26 +6602,26 @@ declare interface OnScaleChangeEvent {
   /**
    * Old scale of the page.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  oldScale: number;
+  oldScale: double;
 
   /**
    * New scale of the page.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  newScale: number;
+  newScale: double;
 }
 
 /**
@@ -6833,26 +6833,26 @@ declare interface OnScrollEvent {
   /**
    * The X offset of the scroll.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  xOffset: number;
+  xOffset: double;
 
   /**
    * The Y offset of the scroll.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  yOffset: number;
+  yOffset: double;
 }
 
 /**
@@ -7222,25 +7222,25 @@ declare interface OnOverScrollEvent {
    * Based on the leftmost part of the page, the horizontal scroll offset is over.
    * Unit: vp.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  xOffset: number;
+  xOffset: double;
 
   /**
    * Based on the top of the page, the vertical scroll offset is over.
    * Unit: vp.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  yOffset: number;
+  yOffset: double;
 }
 
 /**
@@ -8122,7 +8122,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the over-scroll mode for web
    * When the scrolling mode is enabled, when the user slides to the edge on the web root page, the web will bounce back
-   * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce back. 
+   * the interface through elastic animation, and the internal pages on the root page will not trigger the bounce back.
    *
    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
    *    The default value is OverScrollMode.NEVER.
@@ -8213,7 +8213,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the initial scale for the Web.
    *
-   * @param { number } percent the initial scale for the Web.
+   * @param { double } percent the initial scale for the Web.
    *                           Value range: (0, 1000].
    *                           Default value: 100.
    * @returns { WebAttribute }
@@ -8222,7 +8222,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  initialScale(percent: number): WebAttribute;
+  initialScale(percent: double): WebAttribute;
 
   /**
    * Sets the Web's user agent.
