@@ -180,8 +180,7 @@ declare namespace vpnExtension {
      * generate vpn id.
      *
      * @returns { Promise<string> } The promise returns vpn id.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 19900002 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 20
      */
@@ -220,9 +219,9 @@ declare namespace vpnExtension {
      *
      * @param { string } vpnId - vpn id.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 19900001 - Invalid parameter value.
+     * @throws { BusinessError } 19900002 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 20
      */
