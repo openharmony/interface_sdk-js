@@ -562,10 +562,24 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(object: Object, offsetOrEncoding: number | string, length: number): Buffer;
+
+  /**
+   * Creates a Buffer instance based on the specified object.
+   *
+   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
+   * @param { number | string } offsetOrEncoding - Byte offset or encoding format.
+   * @param { number } length - Length of the Buffer instance to create, in bytes.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function from(input: Object, offsetOrEncoding: number | string, length: number): Buffer;
 
   /**
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
