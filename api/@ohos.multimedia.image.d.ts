@@ -2807,14 +2807,14 @@ declare namespace image {
   /**
    * Enumerates the anti-aliasing level.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
   /**
    * Enumerates the anti-aliasing level.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @atomicservice
    * @since arkts {'1.1':'14','1.2':'20'}
@@ -2889,14 +2889,14 @@ declare namespace image {
   /**
    * Enum for image scale mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
   /**
    * Enum for image scale mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
@@ -2904,7 +2904,7 @@ declare namespace image {
   /**
    * Enum for image scale mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @atomicservice
@@ -2913,7 +2913,7 @@ declare namespace image {
   /**
    * Enum for image scale mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
@@ -6371,7 +6371,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6379,7 +6379,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6388,7 +6388,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6398,7 +6398,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
      *
-     * @param { float } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6407,12 +6407,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    opacity(rate: float, callback: AsyncCallback<void>): void;
+    opacity(rate: double, callback: AsyncCallback<void>): void;
 
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6420,7 +6420,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6429,7 +6429,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
      *
-     * @param { number } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6439,7 +6439,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Set the transparent rate of pixel map. This method uses a promise to return the result.
      *
-     * @param { float } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6448,12 +6448,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    opacity(rate: float): Promise<void>;
+    opacity(rate: double): Promise<void>;
 
     /**
      * Set the transparent rate of pixel map.
      *
-     * @param { float } rate The value of transparent rate.
+     * @param { double } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -6463,7 +6463,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    opacitySync(rate: float): void;
+    opacitySync(rate: double): void;
     /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
@@ -6554,8 +6554,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6563,8 +6563,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6573,8 +6573,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6584,8 +6584,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
-     * @param { float } x The zoom value of width.
-     * @param { float } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6594,13 +6594,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale(x: float, y: float, callback: AsyncCallback<void>): void;
+    scale(x: double, y: double, callback: AsyncCallback<void>): void;
 
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6608,8 +6608,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6618,8 +6618,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6629,8 +6629,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image zoom in width and height. This method uses a promise to return the result.
      *
-     * @param { float } x The zoom value of width.
-     * @param { float } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6639,13 +6639,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale(x: float, y: float): Promise<void>;
+    scale(x: double, y: double): Promise<void>;
 
     /**
      * Image zoom in width and height.
      *
-     * @param { float } x The zoom value of width.
-     * @param { float } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -6655,13 +6655,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scaleSync(x: float, y: float): void;
+    scaleSync(x: double, y: double): void;
 
     /**
      * Image zoom in width and height width with anti-aliasing. This method uses a promise to return the result.
      *
-     * @param { float } x The zoom value of width.
-     * @param { float } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6674,13 +6674,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale(x: float, y: float, level: AntiAliasingLevel): Promise<void>;
+    scale(x: double, y: double, level: AntiAliasingLevel): Promise<void>;
 
     /**
      * Image zoom in width and height with anti-aliasing.
      *
-     * @param { float } x The zoom value of width.
-     * @param { float } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
@@ -6691,43 +6691,45 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scaleSync(x: float, y: float, level: AntiAliasingLevel): void;
+    scaleSync(x: double, y: double, level: AntiAliasingLevel): void;
 
     /**
      * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing. This method uses a promise to return the information.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
      * @returns { Promise<PixelMap> } A Promise instance used to return the new scaled pixelmap. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    createScaledPixelMap(x: number, y: number, level?: AntiAliasingLevel): Promise<PixelMap>;
+    createScaledPixelMap(x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
 
     /**
      * Create a new scaled pixelmap based on this image zoom in width and height with anti-aliasing.
      *
-     * @param { number } x The zoom value of width.
-     * @param { number } y The zoom value of height.
+     * @param { double } x The zoom value of width.
+     * @param { double } y The zoom value of height.
      * @param { AntiAliasingLevel } level The anti-aliasing algorithm to be used.
      * @returns { PixelMap } return the new scaled pixelmap. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    createScaledPixelMapSync(x: number, y: number, level?: AntiAliasingLevel): PixelMap;
+    createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6735,8 +6737,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6745,8 +6747,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6756,22 +6758,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a callback to return the operation result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    translate(x: number, y: number, callback: AsyncCallback<void>): void;
+    translate(x: double, y: double, callback: AsyncCallback<void>): void;
 
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6779,8 +6782,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6789,8 +6792,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6800,36 +6803,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image position transformation. This method uses a promise to return the result.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    translate(x: number, y: number): Promise<void>;
+    translate(x: double, y: double): Promise<void>;
 
     /**
      * Image position transformation.
      *
-     * @param { number } x The position value of width.
-     * @param { number } y The position value of height.
+     * @param { double } x The position value of width.
+     * @param { double } y The position value of height.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    translateSync(x: number, y: number): void;
+    translateSync(x: double, y: double): void;
 
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6837,7 +6842,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6846,7 +6851,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6856,7 +6861,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a callback to return the operation result.
      *
-     * @param { float } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6865,12 +6870,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rotate(angle: float, callback: AsyncCallback<void>): void;
+    rotate(angle: double, callback: AsyncCallback<void>): void;
 
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
@@ -6878,7 +6883,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6887,7 +6892,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { number } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6897,7 +6902,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image rotation. This method uses a promise to return the result.
      *
-     * @param { float } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -6906,12 +6911,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rotate(angle: float): Promise<void>;
+    rotate(angle: double): Promise<void>;
 
     /**
      * Image rotation.
      *
-     * @param { float } angle The rotation angle.
+     * @param { double } angle The rotation angle.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
@@ -6921,7 +6926,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rotateSync(angle: float): void;
+    rotateSync(angle: double): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
