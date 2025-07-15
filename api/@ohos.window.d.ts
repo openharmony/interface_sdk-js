@@ -10470,6 +10470,7 @@ declare namespace window {
      *     and Y-coordinate of the window relative to the main screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -10485,6 +10486,7 @@ declare namespace window {
      *     and Y-coordinate of the window relative to the current screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
