@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type Want from './@ohos.application.Want';
+import type Want from './@ohos.app.ability.Want';
 import type print from './@ohos.print';
 
 /**
