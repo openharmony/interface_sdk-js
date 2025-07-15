@@ -22,9 +22,6 @@
 import { BusinessError } from './@ohos.base';
 import intl from './@ohos.intl';
 /*** endif */
-/*** if arkts 1.2 */
-import { StyledString, TextStyle } from './arkui/component/styledString';
-/*** endif */
 
 /**
  * Provides international settings related APIs.
@@ -4358,8 +4355,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export class StyledNumberFormat {
     /**
@@ -4370,9 +4366,8 @@ declare namespace i18n {
      *                                                    The default value is the default text style.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since 18
      * @deprecated since 20
-     * @arkts 1.1&1.2
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -4395,8 +4390,7 @@ declare namespace i18n {
      * @returns { StyledString } Rich text object after formatting.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     format(value: double): StyledString;
   }
@@ -4407,8 +4401,7 @@ declare namespace i18n {
    * @interface StyledNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -4417,8 +4410,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     integer?: TextStyle;
 
@@ -4428,8 +4420,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     decimal?: TextStyle;
 
@@ -4439,8 +4430,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     fraction?: TextStyle;
 
@@ -4450,8 +4440,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     unit?: TextStyle;
   }
