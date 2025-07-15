@@ -286,6 +286,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   export interface DisposedRuleConfiguration {
     /**
@@ -295,18 +296,20 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     appId: string;
 
     /**
      * Indicates the index of clone app.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    appIndex: number;
+    appIndex: int;
 
     /**
      * Indicates the rule for interception.
@@ -315,6 +318,7 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     disposedRule: DisposedRule;
   }
@@ -641,6 +645,7 @@ declare namespace appControl {
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
 }

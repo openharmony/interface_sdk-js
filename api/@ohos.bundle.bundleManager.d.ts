@@ -43,7 +43,8 @@ import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bun
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
-  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity } from './bundleManager/BundleInfo';
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity,
+  DynamicIconInfo as _DynamicIconInfo, BundleOptions as _BundleOptions} from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -2469,15 +2470,16 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_ABILITY_INFO
    * @param { string } uri - Indicates the uri used for matching ability.
-   * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { int } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700003 - The ability is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
-  function getAbilityInfo(uri: string, abilityFlags: number): Promise<Array<AbilityInfo>>;
+  function getAbilityInfo(uri: string, abilityFlags: int): Promise<Array<AbilityInfo>>;
 
   /**
    * Query extension info of by utilizing a Want.
@@ -3892,6 +3894,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function enableDynamicIcon(bundleName: string, moduleName: string, option?: BundleOptions): Promise<void>;
 
@@ -3933,6 +3936,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
 
@@ -3967,6 +3971,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getDynamicIconInfo(bundleName: string): Promise<Array<DynamicIconInfo>>;
 
@@ -3978,7 +3983,7 @@ declare namespace bundleManager {
    * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } [userId] - Indicates the user id, default value is to query all users.
+   * @param { int } [userId] - Indicates the user id, default value is to query all users.
    * @returns { Promise<Array<DynamicIconInfo>> } Returns a list of DynamicIconInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3987,8 +3992,9 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  function getAllDynamicIconInfo(userId?: number): Promise<Array<DynamicIconInfo>>;
+  function getAllDynamicIconInfo(userId?: int): Promise<Array<DynamicIconInfo>>;
 
   /**
    * Verifies the validity of .abc files. Only .abc files passed the verification can run on the restricted VM.
@@ -4328,7 +4334,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @returns { string } Returns the sandbox data directory.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4337,8 +4343,9 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  function getSandboxDataDir(bundleName: string, appIndex: number): string;
+  function getSandboxDataDir(bundleName: string, appIndex: int): string;
 
   /**
    * Obtains AppCloneIdentity contains bundleName and appIndex by the sandbox data directory.
@@ -4348,6 +4355,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
@@ -5017,6 +5025,17 @@ declare namespace bundleManager {
   export type DynamicIconInfo = _BundleInfo.DynamicIconInfo;
 
   /**
+   * Contains dynamic icon.
+   *
+   * @typedef { _DynamicIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type DynamicIconInfo = _DynamicIconInfo;
+
+  /**
    * Contains bundle options.
    *
    * @typedef { _BundleInfo.BundleOptions }
@@ -5025,6 +5044,17 @@ declare namespace bundleManager {
    * @since 20
    */
   export type BundleOptions = _BundleInfo.BundleOptions;
+
+  /**
+   * Contains bundle options.
+   *
+   * @typedef { _BundleOptions }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  export type BundleOptions = _BundleOptions;
 }
 
 export default bundleManager;
