@@ -6420,7 +6420,7 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
      *    Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
      *    The unit is second. Default value is 300s.
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6433,7 +6433,7 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
-      cacheValidTime?: number): void;
+      cacheValidTime?: int): void;
 
     /**
     * Clears the cache of prefetched resources based on the specified cache key list.
@@ -6502,7 +6502,7 @@ declare namespace webview {
      * @param { string } url - Url of the javascript. Only support HTTP/HTTPS protocol and length no longer than 2048.
      * @param { string | Uint8Array } script - Javascript source code. script must not be empty.
      * @param { CacheOptions } cacheOptions - Generate code cache option.
-     * @returns { Promise<number> } - The promise returned by the function.
+     * @returns { Promise<int> } - The promise returned by the function.
      *    0 means generate code cache successfully, -1 means internal error.
      * @throws { BusinessError } 401 - Invalid input parameter.
      *    Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6513,7 +6513,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
+    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<int>;
 
     /**
      * Set IP address for host name.
