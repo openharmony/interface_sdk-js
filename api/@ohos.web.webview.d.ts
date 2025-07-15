@@ -8696,13 +8696,13 @@ declare namespace webview {
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - Current volume of native media player.
+     * @param { double } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleVolumeChanged(volume: number): void
+    handleVolumeChanged(volume: double): void
 
     /**
      * Handle native media player muted status.
@@ -8720,52 +8720,52 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - infinity]
      *
-     * @param { number } playbackRate - Current playback rate of native media player.
+     * @param { double } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handlePlaybackRateChanged(playbackRate: number): void
+    handlePlaybackRateChanged(playbackRate: double): void
 
     /**
      * Handle duration time of media.
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @param { number } duration - Duration time (in seconds) of media.
+     * @param { double } duration - Duration time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleDurationChanged(duration: number): void
+    handleDurationChanged(duration: double): void
 
     /**
      * Handle current playing time of media.
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } currentPlayTime - Current playing time (in seconds) of media.
+     * @param { double } currentPlayTime - Current playing time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleTimeUpdate(currentPlayTime: number): void
+    handleTimeUpdate(currentPlayTime: double): void
 
     /**
      * Handle buffered end time of media.
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } bufferedEndTime - Buffered end time (in seconds) of media.
+     * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleBufferedEndTimeChanged(bufferedEndTime: number): void
+    handleBufferedEndTimeChanged(bufferedEndTime: double): void
 
     /**
      * Handle native player ended event.
@@ -8845,14 +8845,14 @@ declare namespace webview {
     /**
      * Handle size of video.
      *
-     * @param { number } width - Width of video.
-     * @param { number } height - Height of video.
+     * @param { double } width - Width of video.
+     * @param { double } height - Height of video.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleVideoSizeChanged(width: number, height: number): void
+    handleVideoSizeChanged(width: double, height: double): void
   }
 
   /**
@@ -8924,16 +8924,16 @@ declare namespace webview {
     /**
      * Notify native media player that the rect of video tag has changed.
      *
-     * @param { number } x - The x position of video tag in web component.
-     * @param { number } y - The y position of video tag in web component.
-     * @param { number } width - The width of video tag.
-     * @param { number } height - The height of video tag.
+     * @param { double } x - The x position of video tag in web component.
+     * @param { double } y - The y position of video tag in web component.
+     * @param { double } width - The width of video tag.
+     * @param { double } height - The height of video tag.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    updateRect(x: number, y: number, width: number, height: number): void
+    updateRect(x: double, y: double, width: double, height: double): void
 
     /**
      * Request to play.
@@ -8960,26 +8960,26 @@ declare namespace webview {
      *  targetTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } targetTime - The target time (in seconds) to FF/BF to.
+     * @param { double } targetTime - The target time (in seconds) to FF/BF to.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    seek(targetTime: number): void
+    seek(targetTime: double): void
 
     /**
      * Request to change volume of native media player.
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - The volume of native media player.
+     * @param { double } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setVolume(volume: number): void
+    setVolume(volume: double): void
 
     /**
      * Request to mute native media player.
@@ -8997,13 +8997,13 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - 10.0]
      *
-     * @param { number } playbackRate - The playback rate of native media player.
+     * @param { double } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setPlaybackRate(playbackRate: number): void
+    setPlaybackRate(playbackRate: double): void
 
     /**
      * Request to release native media player.
@@ -9182,39 +9182,39 @@ declare namespace webview {
     /**
      * X coordinator of top left point.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x: number;
+    x: double;
     /**
      * Y coordinator of top left point.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y: number;
+    y: double;
     /**
      * Width of this rectangle.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
     /**
      * Height of this rectangle.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
