@@ -848,7 +848,7 @@ declare namespace webview {
     /**
      * Specify the amount of storage for the source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -856,14 +856,14 @@ declare namespace webview {
 	/**
      * Specify the amount of storage for the source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
   	 * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    usage: number;
+    usage: double;
     /**
      * the callback of getOriginUsage.
      *
@@ -873,7 +873,7 @@ declare namespace webview {
     /**
      * the callback of getOriginUsage.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -881,14 +881,14 @@ declare namespace webview {
 	/**
      * the callback of getOriginUsage.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    quota: number;
+    quota: double;
   }
 
   /**
@@ -1156,7 +1156,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1165,7 +1165,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1176,7 +1176,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1186,12 +1186,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginQuota(origin: string): Promise<number>;
+    static getOriginQuota(origin: string): Promise<double>;
 
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1201,7 +1201,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1212,7 +1212,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1222,12 +1222,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
+    static getOriginQuota(origin: string, callback: AsyncCallback<double>): void;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1237,7 +1237,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1248,7 +1248,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1258,12 +1258,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginUsage(origin: string): Promise<number>;
+    static getOriginUsage(origin: string): Promise<double>;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1273,7 +1273,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1284,7 +1284,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1294,7 +1294,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
+    static getOriginUsage(origin: string, callback: AsyncCallback<double>): void;
   }
 
   /**
