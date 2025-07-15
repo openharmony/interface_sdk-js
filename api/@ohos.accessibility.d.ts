@@ -1316,7 +1316,8 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
@@ -1385,7 +1386,8 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
