@@ -186,7 +186,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllDisplays(): Promise<Array<Display>>;
 
@@ -2258,7 +2259,8 @@ declare namespace display {
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCutoutInfo(): Promise<CutoutInfo>;
 
