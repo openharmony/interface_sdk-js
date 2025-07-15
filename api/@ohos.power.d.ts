@@ -108,7 +108,6 @@ declare namespace power {
    * The screen will be on if device is active, screen will be off otherwise.
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -185,7 +184,6 @@ declare namespace power {
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -202,7 +200,6 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -220,7 +217,6 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
