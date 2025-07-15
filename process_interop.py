@@ -47,8 +47,9 @@ def main():
     parser.add_argument('--node-js', required=True)
 
     options = parser.parse_args()
-    process_interop(options, "/ets1.1interop/api/arkui", "/ets1.1interop/api/arkui")
-    process_interop(options, "/ets1.2interop/declaration/api/arkui", "/ets1.2interop/declaration/api/arkui")
+    process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api")
+    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component")
+    process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api")
 
 
 if __name__ == '__main__':

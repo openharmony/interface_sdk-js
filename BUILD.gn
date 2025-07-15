@@ -408,12 +408,11 @@ ohos_copy("api_check_plugin") {
 }
 
 action("ohos_ets_process_interop") {
-  script = "process_interop.py"
-
   deps = [
-    ":ohos_base_split"
+    ":build_sdk_interop1",
+    ":build_sdk_interop2"
   ]
-
+  script = "process_interop.py"
   args = [
     "--intermediates-output",
     rebase_path("${interface_sdk_path}", root_build_dir),
@@ -423,5 +422,5 @@ action("ohos_ets_process_interop") {
     rebase_path(nodejs, root_build_dir)
   ]
 
-  outputs = ["${interface_sdk_path}/ets1.1_interop", "${interface_sdk_path}/ets1.2_interop"]
+  outputs = ["${interface_sdk_path}/arkui_dummy_interop"]
 }
