@@ -195,7 +195,7 @@ export enum MaterialType {
 }
 
 /**
- * The enum of pbr material cull mode.
+ * The enum of PBR material cull mode.
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -236,7 +236,7 @@ export enum CullMode {
  */
 export interface Blend {
   /**
-   * Enable/disable blending.
+   * Control whether blending is enabled
    * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -318,9 +318,10 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * Enable/disable blending.
+   * Control whether the blend is enabled
    * 
    * @type { ?Blend }
+   * @default undefined, which means that blending is disabled.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
@@ -391,7 +392,7 @@ export interface MaterialProperty {
  */
 export interface MetallicRoughnessMaterial extends Material {
   /**
-   * Base color factor of pbr material.
+   * Base color factor of PBR material.
    * Value of factor.xyzw defines rgba color.
    * 
    * @type { MaterialProperty }
@@ -401,7 +402,7 @@ export interface MetallicRoughnessMaterial extends Material {
   baseColor: MaterialProperty;
 
   /**
-   * Normal factor of pbr material.
+   * Normal factor of PBR material.
    * Value of factor.x defines normal scale.
    * 
    * @type { MaterialProperty }
@@ -421,7 +422,7 @@ export interface MetallicRoughnessMaterial extends Material {
   material: MaterialProperty;
 
   /**
-   * Ambient occlusion of pbr material.
+   * Ambient occlusion of PBR material.
    * Value of factor.x defines ambient occlusion factor.
    * 
    * @type { MaterialProperty }
@@ -431,7 +432,7 @@ export interface MetallicRoughnessMaterial extends Material {
   ambientOcclusion: MaterialProperty;
 
   /**
-   * Emissive property of pbr material.
+   * Emissive property of PBR material.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -470,7 +471,7 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatNormal: MaterialProperty;
 
   /**
-   * Sheen color of pbr material.
+   * Sheen color of PBR material.
    * Value of factor.xyz defines RGB sheen color,
    * Value of factor.w defines sheen roughness.
    * 
@@ -481,7 +482,7 @@ export interface MetallicRoughnessMaterial extends Material {
   sheen: MaterialProperty;
 
   /**
-   * Specular color of pbr material.
+   * Specular color of PBR material.
    * Value of factor.xyz defines RGB specular color,
    * Value of factor.w defines specular intensity.
    * 
