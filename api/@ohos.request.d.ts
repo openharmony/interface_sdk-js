@@ -2694,7 +2694,7 @@ declare namespace request {
      *
      * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 11
+     * @since arkts{ '1.1':'11','1.2':'20'}
      */
     enum BroadcastEvent {
       /**
@@ -2703,7 +2703,7 @@ declare namespace request {
        * The data in the commonEventData contains the id of the task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since arkts{ '1.1':'11','1.2':'20'}
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
