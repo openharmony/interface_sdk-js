@@ -512,7 +512,7 @@ declare namespace distributedKVStore {
      * @type { SecurityLevel }
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since arkts {'1.1':'9','1.2':'20'}
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     securityLevel: SecurityLevel;
 
@@ -1152,7 +1152,8 @@ declare namespace distributedKVStore {
    *
    * @interface SingleKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SingleKVStore {
     /**
@@ -1169,7 +1170,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
@@ -1205,7 +1207,8 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
@@ -2309,7 +2312,8 @@ declare namespace distributedKVStore {
    * @extends SingleKVStore
    * @typedef DeviceKVStore
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceKVStore extends SingleKVStore {
     /**
