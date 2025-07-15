@@ -570,7 +570,7 @@ declare class UIAbility extends Ability {
    * @arkts 1.2
    */
   onDestroy(): void;
-
+  
   /**
    * Called back before an ability is destroyed.
    * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
@@ -620,8 +620,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onWillForeground(): void;
 
@@ -631,8 +630,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts{'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onDidForeground(): void;
 
@@ -669,8 +667,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts{'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onWillBackground(): void;
 
@@ -680,8 +677,7 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onDidBackground(): void;
 

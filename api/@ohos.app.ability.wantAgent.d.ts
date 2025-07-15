@@ -149,8 +149,7 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantagent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function getUid(agent: WantAgent): Promise<number>;
 
