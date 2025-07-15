@@ -26,7 +26,8 @@ import { Callback } from './@ohos.base';
  *
  * @namespace screenLock
  * @syscap SystemCapability.MiscServices.ScreenLock
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screenLock {
   /**
@@ -56,7 +57,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isLocked(): boolean;
 
@@ -123,7 +125,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unlock(callback: AsyncCallback<boolean>): void;
 
@@ -146,7 +149,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200003 - Invalid use.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unlock(): Promise<boolean>;
 
@@ -162,7 +166,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function lock(callback: AsyncCallback<boolean>): void;
 
@@ -176,7 +181,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function lock(): Promise<boolean>;
 
@@ -185,7 +191,8 @@ declare namespace screenLock {
    *
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenLockDisabledChanged.
@@ -195,7 +202,8 @@ declare namespace screenLock {
    * | 'strongAuthChanged' | 'screenLockDisabledChanged')}
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type EventType =
     'beginWakeUp'
@@ -284,7 +292,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOT_AUTHED = 0,
 
@@ -293,7 +302,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRE_AUTHED_BY_CREDENTIAL = 1,
 
@@ -302,7 +312,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRE_AUTHED_BY_FINGERPRINT = 2,
 
@@ -311,7 +322,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRE_AUTHED_BY_FACE = 3,
 
@@ -320,7 +332,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTHED_BY_CREDENTIAL = 4,
 
@@ -329,7 +342,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTHED_BY_FINGERPRINT = 5,
 
@@ -338,7 +352,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTHED_BY_FACE = 6,
   }
@@ -349,7 +364,8 @@ declare namespace screenLock {
    * @typedef SystemEvent
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SystemEvent {
     /**
@@ -358,7 +374,8 @@ declare namespace screenLock {
      * @type { EventType }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventType: EventType;
     /**
@@ -367,7 +384,8 @@ declare namespace screenLock {
      * @type { string }
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     params: string;
   }
@@ -385,7 +403,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
@@ -403,7 +422,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
 
@@ -421,7 +441,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
 
@@ -456,7 +477,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getStrongAuth(userId: number): number;
 
@@ -474,7 +496,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
 
@@ -491,7 +514,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isScreenLockDisabled(userId: number): boolean;
 
@@ -510,7 +534,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
 
@@ -527,7 +552,8 @@ declare namespace screenLock {
    * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getScreenLockAuthState(userId: number): AuthState;
 
