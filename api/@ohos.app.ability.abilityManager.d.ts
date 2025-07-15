@@ -526,7 +526,8 @@ declare namespace abilityManager {
    * Restart the current atomic service.
    *
    * @param { Context } context - The context that initiates the restart.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   * 2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @throws { BusinessError } 16000086 - The context is not UIAbilityContext.
