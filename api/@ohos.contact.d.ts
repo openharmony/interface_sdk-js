@@ -420,8 +420,8 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { Holder } [holder] - Indicates the contact holder.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns the specified contact.
    * @syscap SystemCapability.Applications.ContactsData
@@ -437,8 +437,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } key - Indicates the unique query key of a contact.
-   * @param { Holder } holder - Indicates the contact holder.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { Holder } [holder] - Indicates the contact holder.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns the specified contact.
    * @throws { BusinessError } 201 - Permission denied.
@@ -568,9 +568,9 @@ declare namespace contact {
    * Queries contacts with query conditions.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
@@ -585,9 +585,9 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -728,9 +728,9 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
@@ -746,9 +746,9 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } email - Indicates the email address.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attributes.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -897,9 +897,9 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes will be used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @syscap SystemCapability.Applications.ContactsData
@@ -916,9 +916,9 @@ declare namespace contact {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes will be used for matching.
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -986,7 +986,7 @@ declare namespace contact {
    * Queries contact groups by contact holder.
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<Array<Group>> } Returns the contact group list object.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1001,7 +1001,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<Array<Group>> } Returns the contact group list object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1124,7 +1124,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<string> } Returns the query key of the contact.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1140,7 +1140,7 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { number } id - Indicates the contact ID.
-   * @param { Holder } holder - Indicates the contact holder.
+   * @param { Holder } [holder] - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @returns { Promise<string> } Returns the query key of the contact.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1208,7 +1208,7 @@ declare namespace contact {
    * Queries information about "my card".
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns information about "my card".
    * @syscap SystemCapability.Applications.ContactsData
@@ -1223,7 +1223,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<Contact> } Returns information about "my card".
    * @throws { BusinessError } 201 - Permission denied.
@@ -1296,7 +1296,7 @@ declare namespace contact {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1312,7 +1312,7 @@ declare namespace contact {
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Contact } contact - Indicates the contact whose information is to update.
-   * @param { ContactAttributes } attrs - Indicates the contact attribute.
+   * @param { ContactAttributes } [attrs] - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
