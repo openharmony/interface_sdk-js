@@ -1060,12 +1060,12 @@ declare interface WebMediaOptions {
    * The maximum validity period is 60 seconds. Due to the approximate value,
    * the validity period may have a deviation of less than 1 second.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
-  resumeInterval?: number;
+  resumeInterval?: int;
 
   /**
    * Whether the audio of each web is exclusive.
