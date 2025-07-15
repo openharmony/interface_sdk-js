@@ -19,9 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
 import stream from './@ohos.util.stream';
-/*** endif */
 
 /**
  * Hash
