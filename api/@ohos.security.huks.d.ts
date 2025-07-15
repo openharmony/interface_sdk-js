@@ -5257,6 +5257,9 @@ declare namespace huks {
      * The signature carries authentication information. This field is specified when a key is generated or
      * imported. When the key is used for signing, the data will be added with the authentication information and then
      * be signed.
+     * The carried authentication information contains personal identification details. Developers are required
+     * to clearly state the purpose of use, retention policy, and destruction method of such personal information in
+     * their privacy policy.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
