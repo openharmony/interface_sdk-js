@@ -18,7 +18,12 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type appManager from '../@ohos.app.ability.appManager';
+/*** endif */
+/*** if arkts 1.2 */
+import appManager from '../@ohos.app.ability.appManager';
+/*** endif */
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
@@ -43,7 +48,8 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ProcessInformation {
   /**
@@ -66,7 +72,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pid: number;
 
@@ -81,7 +88,8 @@ export interface ProcessInformation {
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uid: number;
 
@@ -105,7 +113,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   processName: string;
 
@@ -129,7 +138,8 @@ export interface ProcessInformation {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleNames: Array<string>;
 
@@ -146,7 +156,8 @@ export interface ProcessInformation {
    * @type { appManager.ProcessState }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   state: appManager.ProcessState;
 
@@ -156,7 +167,8 @@ export interface ProcessInformation {
    * @type { bundleManager.BundleType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleType: bundleManager.BundleType;
 
@@ -165,7 +177,8 @@ export interface ProcessInformation {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appCloneIndex?: number;
 }

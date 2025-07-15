@@ -20,9 +20,12 @@
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
-import { WantAgentInfo as _WantAgentInfo, LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
+/*** if arkts 1.1 */
+import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+/*** endif */
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -45,7 +48,8 @@ import Context from './application/Context';
  * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace wantAgent {
   /**
@@ -72,7 +76,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
@@ -100,7 +105,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleName(agent: WantAgent): Promise<string>;
 
@@ -173,7 +179,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
@@ -190,7 +197,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWant(agent: WantAgent): Promise<Want>;
 
@@ -218,7 +226,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
@@ -246,7 +255,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(agent: WantAgent): Promise<void>;
 
@@ -272,7 +282,8 @@ declare namespace wantAgent {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
@@ -322,7 +333,8 @@ declare namespace wantAgent {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
@@ -350,7 +362,8 @@ declare namespace wantAgent {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
@@ -383,7 +396,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
@@ -416,7 +430,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
@@ -446,7 +461,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
 
@@ -476,7 +492,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOperationType(agent: WantAgent): Promise<number>;
 
@@ -509,7 +526,6 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   function createLocalWantAgent(info: LocalWantAgentInfo): WantAgent;
 
@@ -540,7 +556,8 @@ declare namespace wantAgent {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum WantAgentFlags {
     /**
@@ -555,7 +572,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ONE_TIME_FLAG = 0,
 
@@ -571,7 +589,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_BUILD_FLAG,
 
@@ -587,7 +606,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CANCEL_PRESENT_FLAG,
 
@@ -603,7 +623,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UPDATE_PRESENT_FLAG,
 
@@ -618,7 +639,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONSTANT_FLAG,
 
@@ -638,7 +660,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE_ELEMENT,
 
@@ -658,7 +681,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE_ACTION,
 
@@ -678,7 +702,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE_URI,
 
@@ -698,7 +723,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE_ENTITIES,
 
@@ -718,7 +744,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPLACE_BUNDLE
   }
@@ -736,7 +763,8 @@ declare namespace wantAgent {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum OperationType {
     /**
@@ -750,7 +778,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN_TYPE = 0,
 
@@ -765,7 +794,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_ABILITY,
 
@@ -780,7 +810,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_ABILITIES,
 
@@ -795,7 +826,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_SERVICE,
 
@@ -810,7 +842,8 @@ declare namespace wantAgent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEND_COMMON_EVENT,
 
@@ -820,7 +853,8 @@ declare namespace wantAgent {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     START_SERVICE_EXTENSION = 6
   }
@@ -838,7 +872,8 @@ declare namespace wantAgent {
    * @typedef CompleteData
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CompleteData {
     /**
@@ -947,7 +982,8 @@ declare namespace wantAgent {
    * @typedef { _TriggerInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type TriggerInfo = _TriggerInfo;
 
@@ -964,7 +1000,8 @@ declare namespace wantAgent {
    * @typedef { _WantAgentInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type WantAgentInfo = _WantAgentInfo;
 
@@ -975,7 +1012,6 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   export type LocalWantAgentInfo = _LocalWantAgentInfo;
 
@@ -986,7 +1022,8 @@ declare namespace wantAgent {
  *
  * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type WantAgent = object;
 

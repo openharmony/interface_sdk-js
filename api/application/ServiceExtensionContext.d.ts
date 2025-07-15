@@ -19,15 +19,15 @@
  */
 
 /*** if arkts 1.1 */
-import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
-import Want from '../@ohos.app.ability.Want';
-import StartOptions from '../@ohos.app.ability.StartOptions';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
+import { AsyncCallback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
+import StartOptions from '../@ohos.app.ability.StartOptions';
+import Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of service extension. It allows access to
@@ -40,7 +40,7 @@ import ExtensionContext from './ExtensionContext';
  * @since arkts {'1.1':'9', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class ServiceExtensionContext extends ExtensionContext {
+declare class ServiceExtensionContext extends ExtensionContext {
   /**
    * Service extension uses this method to start a specific ability.
    *
@@ -174,7 +174,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -309,7 +310,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -450,7 +452,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -1300,7 +1303,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1383,7 +1387,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1796,7 +1801,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -1825,7 +1831,8 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
 
@@ -2526,3 +2533,5 @@ export default class ServiceExtensionContext extends ExtensionContext {
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 }
+
+export default ServiceExtensionContext;
