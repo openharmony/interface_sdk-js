@@ -365,6 +365,7 @@ declare namespace config {
    * @param { boolean } state Indicates that whether trigger display magnification.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 9300007 - Trigger magnification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
