@@ -2696,14 +2696,6 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11
      */
-    /**
-     * Broadcast events for the request.
-     *
-     * @enum { string } BroadcastEvent
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 20
-     */
     enum BroadcastEvent {
       /**
        * Completion event for the task.
@@ -2712,15 +2704,6 @@ declare namespace request {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
-       */
-      /**
-       * Completion event for the task.
-       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
-       * The data in the commonEventData contains the id of the task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
