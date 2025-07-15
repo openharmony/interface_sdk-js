@@ -26,7 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace windowAnimationManager
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace windowAnimationManager {
   /**
@@ -35,7 +36,8 @@ declare namespace windowAnimationManager {
    * @param { WindowAnimationController } controller - Window animation controller.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setController(controller: WindowAnimationController): void;
 
@@ -46,7 +48,8 @@ declare namespace windowAnimationManager {
    * @param { AsyncCallback<WindowAnimationFinishedCallback> } callback - Returns the animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
     callback: AsyncCallback<WindowAnimationFinishedCallback>): void;
@@ -58,7 +61,8 @@ declare namespace windowAnimationManager {
    * @returns { Promise<WindowAnimationFinishedCallback> } Promise used to return the animation finished callback.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget): Promise<WindowAnimationFinishedCallback>;
 
@@ -68,53 +72,59 @@ declare namespace windowAnimationManager {
    * @interface RRect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RRect {
     /**
      * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    top: number;
+    top: double;
 
     /**
      * Width of the round rect, in pixels.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Height of the round rect, in pixels.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Radius of the round corner of the round rect, in pixels.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    radius: number;
+    radius: double;
   }
 
   /**
@@ -123,7 +133,8 @@ declare namespace windowAnimationManager {
    * @interface WindowAnimationTarget
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WindowAnimationTarget {
     /**
@@ -132,7 +143,8 @@ declare namespace windowAnimationManager {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly bundleName: string;
 
@@ -142,7 +154,8 @@ declare namespace windowAnimationManager {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly abilityName: string;
 
@@ -152,19 +165,21 @@ declare namespace windowAnimationManager {
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly windowBounds: RRect;
 
     /**
     /* The mission id of the window animation target.
-     * @type { number }  
+     * @type { int }  
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly missionId: number;
+    readonly missionId: int;
   }
 
   /**
@@ -173,7 +188,8 @@ declare namespace windowAnimationManager {
    * @interface WindowAnimationFinishedCallback
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WindowAnimationFinishedCallback {
     /**
@@ -181,7 +197,8 @@ declare namespace windowAnimationManager {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onAnimationFinish(): void;
   }
@@ -192,7 +209,8 @@ declare namespace windowAnimationManager {
    * @interface WindowAnimationController
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface WindowAnimationController {
     /**
@@ -202,7 +220,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onStartAppFromLauncher(startingWindowTarget: WindowAnimationTarget,
       finishCallback: WindowAnimationFinishedCallback): void;
@@ -214,7 +233,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onStartAppFromRecent(startingWindowTarget: WindowAnimationTarget,
       finishCallback: WindowAnimationFinishedCallback): void;
@@ -226,7 +246,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onStartAppFromOther(startingWindowTarget: WindowAnimationTarget,
       finishCallback: WindowAnimationFinishedCallback): void;
@@ -239,7 +260,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onAppTransition(fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
       finishCallback: WindowAnimationFinishedCallback): void;
@@ -251,7 +273,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onMinimizeWindow(minimizingWindowTarget: WindowAnimationTarget,
       finishCallback: WindowAnimationFinishedCallback): void;
@@ -263,7 +286,8 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onCloseWindow(closingWindowTarget: WindowAnimationTarget, finishCallback: WindowAnimationFinishedCallback): void;
 
@@ -273,7 +297,8 @@ declare namespace windowAnimationManager {
      * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onScreenUnlock(finishCallback: WindowAnimationFinishedCallback): void;
 
@@ -285,7 +310,8 @@ declare namespace windowAnimationManager {
      * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onWindowAnimationTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget,
       floatingWindowTargets: Array<WindowAnimationTarget>): void;
