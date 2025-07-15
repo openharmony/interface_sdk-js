@@ -22780,7 +22780,7 @@ interface BackgroundImageOptions {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.2
+ * @arkts 1.1&1.2
  */
 declare interface BackgroundOptions {
   /**
@@ -22810,7 +22810,7 @@ declare interface BackgroundOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.2
+   * @arkts 1.1&1.2
    */
   align?: Alignment;
   /**

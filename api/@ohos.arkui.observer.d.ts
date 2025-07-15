@@ -24,9 +24,11 @@ import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
 /*** endif */
 
+/*** if arkts 1.1 */
 import type { Callback } from './@ohos.base';
 import type UIAbilityContext from './application/UIAbilityContext';
 import type { NavigationOperation, NavBar } from '../component/navigation';
+/*** endif */
 
 /**
  * Register callbacks to observe ArkUI behavior.

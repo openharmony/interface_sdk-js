@@ -2221,7 +2221,7 @@ declare namespace promptAction {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function openToast(toastInfo: ShowToastOptions): Promise<number>;
+  export function openToast(options: ShowToastOptions): Promise<number>;
 
   /**
    * Close the notification text.

@@ -44,7 +44,17 @@ import { TouchEvent } from './component/common';
  * @atomicservice
  * @since 12
  */
-export abstract class NodeController {
+/**
+ * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
+ * and methods to control the child node of the NodeContainer.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare abstract class NodeController {
   /**
    * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
    * attach the return result to the associated NodeContainer.

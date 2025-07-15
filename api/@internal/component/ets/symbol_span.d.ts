@@ -320,7 +320,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * @form
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -346,6 +345,5 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @form
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

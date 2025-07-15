@@ -3404,7 +3404,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-   `* @since arkts {'1.1':'11','1.2':'20'}
+    * @since arkts {'1.1':'11','1.2':'20'}
     * @arkts 1.1&1.2
     */
   toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;

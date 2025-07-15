@@ -803,7 +803,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @returns { XComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':20,'1.2':20}
+   * @since 20
    * @arkts 1.1&1.2
    */
   hdrBrightness(brightness: number): XComponentAttribute;

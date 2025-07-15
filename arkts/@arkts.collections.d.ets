@@ -11710,14 +11710,14 @@ declare namespace collections {
     /**
      * A constructor used to create a BitVector object.
      *
-     * @param { number } length - The length of BitVector object.
+     * @param { int } length - The length of BitVector object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    constructor(length: number);
+    constructor(length: int);
     /**
      * Gets the element number of the BitVector. This is a number one higher than the highest index in the bit vector.
      * It can be changed by resize().
@@ -11729,11 +11729,11 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    get length(): number;
+    get length(): int;
     /**
      * Appends the bit element to the end of this bit vector.
      *
-     * @param { number } element - Element to be appended to this bit vector (0 means 0, else means 1).
+     * @param { int } element - Element to be appended to this bit vector (0 means 0, else means 1).
      * @returns { boolean } The boolean type, returns true if the addition is successful, and returns false if it fails.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -11746,24 +11746,24 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    push(element: number): boolean;
+    push(element: int): boolean;
     /**
      * Retrieves and removes the bit element to the end of this bit vector.
      *
-     * @returns { number | undefined } The boolean type, if the bit push successfully, return true, else return false.
+     * @returns { int | undefined } The boolean type, if the bit push successfully, return true, else return false.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    pop(): number | undefined;
+    pop(): int | undefined;
     /**
      * Check if bit vector contains a particular bit element.
      *
-     * @param { number } element - Element to be contained (0 means 0, else means 1).
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, containing the value at that index.
+     * @param { int } element - Element to be contained (0 means 0, else means 1).
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, containing the value at that index.
      * @returns { boolean } The boolean type, if bit vector contains the specified element, return true,
                             else return false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -11778,13 +11778,13 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    has(element: number, fromIndex: number, toIndex: number): boolean;
+    has(element: int, fromIndex: int, toIndex: int): boolean;
     /**
      * Sets a range of bits in a bit vector to a particular element.
      *
-     * @param { number } element - Element to be set (0 means 0, else means 1).
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @param { int } element - Element to be set (0 means 0, else means 1).
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -11797,11 +11797,11 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    setBitsByRange(element: number, fromIndex: number, toIndex: number): void;
+    setBitsByRange(element: int, fromIndex: int, toIndex: int): void;
     /**
      * Sets all of bits in a bit vector to a particular element.
      *
-     * @param { number } element - Element to be set (0 means 0, else means 1).
+     * @param { int } element - Element to be set (0 means 0, else means 1).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -11813,12 +11813,12 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    setAllBits(element: number): void;
+    setAllBits(element: int): void;
     /**
      * Returns the bit values in a range of indices in a bit vector.
      *
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
      * @returns { BitVector } The BitVector type, returns the bit values in a range of indices in a bit vector.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -11832,11 +11832,11 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    getBitsByRange(fromIndex: number, toIndex: number): BitVector;
+    getBitsByRange(fromIndex: int, toIndex: int): BitVector;
     /**
      * Resize the bitVector's length.
      *
-     * @param { number } size - The new size for bitVector. If count is greater than the current size of bitVector,
+     * @param { int } size - The new size for bitVector. If count is greater than the current size of bitVector,
      * the additional bit elements are set to 0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -11849,14 +11849,14 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    resize(size: number): void;
+    resize(size: int): void;
     /**
      * Counts the number of times a certain bit element occurs within a range of bits in a bit vector.
      *
-     * @param { number } element - Element to be counted (0 means 0, else means 1).
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
-     * @returns { number } The number type, return the number of times a certain bit element
+     * @param { int } element - Element to be counted (0 means 0, else means 1).
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
+     * @returns { int } The number type, return the number of times a certain bit element
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -11869,14 +11869,14 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    getBitCountByRange(element: number, fromIndex: number, toIndex: number): number;
+    getBitCountByRange(element: int, fromIndex: int, toIndex: int): int;
     /**
      * Locates the first occurrence of a certain bit value within a range of bits in a bit vector.
      *
-     * @param { number } element - Element to be Located (0 means 0, else means 1).
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
-     * @returns { number } The number type, return the first index of specified bit within a range,
+     * @param { int } element - Element to be Located (0 means 0, else means 1).
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
+     * @returns { int } The number type, return the first index of specified bit within a range,
      * or -1 if this range of the bitVector does not contain the element.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -11890,14 +11890,14 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    getIndexOf(element: number, fromIndex: number, toIndex: number): number;
+    getIndexOf(element: int, fromIndex: int, toIndex: int): int;
     /**
      * Locates the last occurrence of a certain bit value within a range of bits in a bit vector.
      *
-     * @param { number } element - Element to be Located (0 means 0, else means 1).
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
-     * @returns { number } The number type, return the last index of specified bit within a range,
+     * @param { int } element - Element to be Located (0 means 0, else means 1).
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
+     * @returns { int } The number type, return the last index of specified bit within a range,
      * or -1 if this range of the bitVector does not contain the element.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -11911,11 +11911,11 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    getLastIndexOf(element: number, fromIndex: number, toIndex: number): number;
+    getLastIndexOf(element: int, fromIndex: int, toIndex: int): int;
     /**
      * Flips the bit value by index in a bit vector.(Flip 0 to 1, flip 1 to 0)
      *
-     * @param { number } index - The index in the bit vector.
+     * @param { int } index - The index in the bit vector.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -11928,12 +11928,12 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    flipBitByIndex(index: number): void;
+    flipBitByIndex(index: int): void;
     /**
      * Flips a range of bit values in a bit vector.(Flip 0 to 1, flip 1 to 0).
      *
-     * @param { number } fromIndex - The starting position of the index, containing the value at that index position.
-     * @param { number } toIndex - The end of the index, excluding the value at that index.
+     * @param { int } fromIndex - The starting position of the index, containing the value at that index position.
+     * @param { int } toIndex - The end of the index, excluding the value at that index.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
      *                                    2.Incorrect parameter types.
@@ -11946,22 +11946,22 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    flipBitsByRange(fromIndex: number, toIndex: number): void;
+    flipBitsByRange(fromIndex: int, toIndex: int): void;
     /**
      * Returns an iterator that iterates over bit vector.
      *
-     * @returns { IterableIterator<number> } A new iterable iterator object.
+     * @returns { IterableIterator<int> } A new iterable iterator object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    $_iterator(): IterableIterator<number>;
+    $_iterator(): IterableIterator<int>;
     /**
      * Returns an iterable of values in the bit vector
      *
-     * @returns { IterableIterator<number> }  A new iterable iterator object.
+     * @returns { IterableIterator<int> }  A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -11970,14 +11970,13 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    values(): IterableIterator<number>;
-
+    values(): IterableIterator<int>;
     /**
      * Returns the item at that index.
      * 
-     * @param { number } index - The zero-based index of the desired code unit.
+     * @param { int } index - The zero-based index of the desired code unit.
      *     Throws error if index < 0 or index >= bitVector.length.
-     * @returns { number } The element in the bitVector matching the given index. 
+     * @returns { int } The element in the bitVector matching the given index. 
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -11985,8 +11984,21 @@ declare namespace collections {
      * @since 20
      * @arkts 1.2
      */
-    [index: number]: number;    
-     
+    $_get(index: int): int;
+    /**
+     * Set the value of item at that index.
+     *
+     * @param { int } index - The index of the element to set.
+     *     Throws error if index < 0 or index >= bitVector.length.
+     * @param { int } value - The value to set at the specified index.
+     * @throws { BusinessError } 10200001 - The value of index is out of range.
+     * @syscap SystemCapability.Utils.Lang
+     * @atomicservice
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    $_set(index: int, value: int): void;
   }
 
   /**

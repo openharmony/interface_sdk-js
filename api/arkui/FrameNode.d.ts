@@ -39,7 +39,17 @@ import { ListOptions, ListAttribute } from './component/list'
  * @atomicservice
  * @since 12
  */
-declare interface LayoutConstraint {
+/**
+ * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ *
+ * @interface LayoutConstraint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare interface LayoutConstraint {
   /**
    * MaxSize
    *
@@ -310,7 +320,16 @@ declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) 
  * @atomicservice
  * @since 12
  */
-export class FrameNode {
+/**
+ * Defines FrameNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class FrameNode {
   /**
    * Constructor.
    * Constructor used to create a FrameNode.
@@ -1329,7 +1348,17 @@ export declare abstract class TypedFrameNode<T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace typeNode {
+/**
+ * Provides methods to implement FrameNode.
+ *
+ * @namespace typeNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since arkts{ '1.1':'20','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export declare namespace typeNode {
   /**
    * Define the FrameNode type for Text.
    * 
@@ -3190,7 +3219,16 @@ export namespace typeNode {
  * @atomicservice
  * @since 12
  */
-declare class NodeAdapter {
+/**
+ * Used for lazy loading of typeNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class NodeAdapter {
   /**
    * Constructor.
    * A constructor used to create a NodeAdapter object.

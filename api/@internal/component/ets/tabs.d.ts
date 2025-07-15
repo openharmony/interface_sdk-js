@@ -22,7 +22,6 @@
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode } from './enums';
 import { Dimension, Length, ResourceColor } from './units';
-import { CommonModifier } from "../CommonModifier";
 /*** endif */
 
 /**
@@ -596,8 +595,7 @@ declare interface TabsOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   barModifier?: CommonModifier
 }

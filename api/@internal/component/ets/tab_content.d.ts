@@ -705,8 +705,7 @@ declare interface TabBarIconStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 /**
  * TabBarSymbol object.
@@ -715,6 +714,7 @@ declare interface TabBarIconStyle {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class TabBarSymbol {
   /**
@@ -724,8 +724,7 @@ declare class TabBarSymbol {
    * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * Symbol icon in the normal style.
@@ -736,6 +735,7 @@ declare class TabBarSymbol {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   normal: SymbolGlyphModifier;
 
@@ -810,7 +810,7 @@ declare interface TabBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   icon?: string | Resource;
@@ -847,7 +847,7 @@ declare interface TabBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   text?: string | Resource

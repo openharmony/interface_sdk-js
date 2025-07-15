@@ -787,7 +787,15 @@ export interface AnimatorResult {
  * @atomicservice
  * @since 11
  */
-export default class Animator {
+/**
+ * Defines the Animator class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+declare class Animator {
   /**
    * Create an animator object for custom animation.
    * @param { AnimatorOptions } options - Options.
@@ -855,3 +863,5 @@ export default class Animator {
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }
+
+export default Animator;

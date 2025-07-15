@@ -86,10 +86,20 @@ export { NodeController } from './arkui/NodeController';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
+
+/**
+ * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export { FrameNode, LayoutConstraint, ExpandMode } from './arkui/FrameNode';
 
 /**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.

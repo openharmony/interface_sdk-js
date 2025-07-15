@@ -30,7 +30,17 @@ import { FrameNode } from './FrameNode';
  * @atomicservice
  * @since 12
  */
-export class NodeContent extends Content{
+/**
+ * NodeContent is the entity encapsulation of the node content.
+ *
+ * @extends Content
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class NodeContent extends Content {
   /**
    * constructor
    * 

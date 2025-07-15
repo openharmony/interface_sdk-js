@@ -22,7 +22,6 @@
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
-import type observer from './@ohos.arkui.observer';
 import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
@@ -81,9 +80,10 @@ import { TextMenuOptions } from './arkui/component/textCommon';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class Font {
+export declare class Font {
   /**
    * Register a customized font in the FontManager.
    *
@@ -157,9 +157,10 @@ export class Font {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class MediaQuery {
+export declare class MediaQuery {
   /**
    * Sets the media query criteria and returns the corresponding listening handle
    *
@@ -194,9 +195,10 @@ export class MediaQuery {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class UIInspector {
+export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
@@ -239,9 +241,10 @@ export class UIInspector {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class Router {
+export declare class Router {
   /**
    * Navigates to a specified page in the application.
    *
@@ -1051,9 +1054,10 @@ export interface TargetInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class PromptAction {
+export declare class PromptAction {
   /**
    * Displays the notification text.
    *
@@ -1582,9 +1586,10 @@ export class PromptAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
+type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch pan event.
@@ -1598,9 +1603,10 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since arkts { '1.1':'19','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
+type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch gesture.
@@ -1613,9 +1619,10 @@ declare type PanListenerCallback = (event: GestureEvent, current: GestureRecogni
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
+type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
@@ -1760,7 +1767,16 @@ export interface OverlayManagerOptions {
  * @atomicservice
  * @since 12
  */
-export class UIObserver {
+/**
+ * Register callbacks to observe ArkUI behavior.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class UIObserver {
   /**
    * Subscribes to status changes of this **NavDestination** component.
    *
@@ -1791,6 +1807,24 @@ export class UIObserver {
   on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { observer.NavDestinationSwitchObserverOptions } options - The options object.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  on(
+    type: 'navDestinationUpdate',
+    options: observer.NavDestinationSwitchObserverOptions,
+    callback: Callback<observer.NavDestinationInfo>
+  ): void;
+
+  /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
@@ -1814,6 +1848,25 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
+  
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { observer.NavDestinationSwitchObserverOptions } options - The options object.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                             navigation ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  off(
+    type: 'navDestinationUpdate',
+    options: observer.NavDestinationSwitchObserverOptions,
+    callback?: Callback<observer.NavDestinationInfo>
+  ): void;
 
   /**
    * Subscribes to status changes of this **NavDestination** component.
@@ -1838,7 +1891,8 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
 
@@ -2520,9 +2574,10 @@ export class UIObserver {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class ComponentUtils {
+export declare class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
    *
@@ -2551,9 +2606,10 @@ export class ComponentUtils {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class OverlayManager {
+export declare class OverlayManager {
   /**
    * Adds a specified ComponentContent node to the OverlayManager.
    *
@@ -2850,9 +2906,10 @@ export interface GestureObserverConfigs {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class DynamicSyncScene {
+export declare class DynamicSyncScene {
   /**
    * Sets the FrameRateRange of the DynamicSyncScene.
    * 
@@ -2882,9 +2939,10 @@ export class DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class SwiperDynamicSyncScene extends DynamicSyncScene {
+export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the SwiperDynamicSyncSceneType.
   * @type { SwiperDynamicSyncSceneType }
@@ -2935,9 +2993,10 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts { '1.1':'18','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class DragController {
+export declare class DragController {
   /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
@@ -3176,9 +3235,10 @@ export class DragController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class MeasureUtils {
+export declare class MeasureUtils {
   /**
    * Obtains the width of the specified text in a single line layout.
    *
@@ -3221,9 +3281,10 @@ export class MeasureUtils {
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
- export class FocusController {
+export declare class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3308,9 +3369,10 @@ export type PointerStyle = pointer.PointerStyle;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class CursorController {
+export declare class CursorController {
   /**
    * Restore default cursor.
    *
@@ -3340,9 +3402,10 @@ export class CursorController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class ContextMenuController {
+export declare class ContextMenuController {
   /**
    * Close context menu.
    *
@@ -3363,7 +3426,16 @@ export class ContextMenuController {
  * @atomicservice
  * @since 12
  */
-export abstract class FrameCallback {
+/**
+ * Class FrameCallback
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
@@ -3409,9 +3481,10 @@ export type Context = common.Context;
  * class ComponentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class ComponentSnapshot {
+export declare class ComponentSnapshot {
   /**
      * Get a component snapshot by component id.
      *
@@ -3621,7 +3694,16 @@ export class ComponentSnapshot {
  * @atomicservice
  * @since 11
  */
-export class UIContext {
+/**
+ * class UIContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class UIContext {
       /**
    * Checks whether the UiContext object ia available.
    *
@@ -3760,7 +3842,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPromptAction(): PromptAction;
 
@@ -3777,7 +3860,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getComponentUtils(): ComponentUtils;
 
@@ -4740,6 +4824,20 @@ export class UIContext {
    * @arkts 1.2
    */
   setUIStates(callback: VoidCallback): void;
+
+  /**
+   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
+   * Returns undefined if it does not exist.
+   *
+   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static getFocusedUIContext(): UIContext | undefined;
 }
 
 /**
@@ -4863,9 +4961,10 @@ export const enum MarqueeDynamicSyncSceneType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 16
+ * @since arkts { '1.1':'16','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export class TextMenuController {
+export declare class TextMenuController {
   /**
    * Set text menu options.
    *
