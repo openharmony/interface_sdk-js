@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions } from './common'
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common'
 import { ResourceColor, Offset, VoidCallback } from './units'
 import { DialogAlignment } from './alertDialog'
 import { CrownSensitivity } from './enums'
@@ -280,10 +280,21 @@ declare interface DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selected?: Date;
+
+  /**
+   * Specifies the date selector check date or time selector check time.
+   *
+   * @type { ?(Date | Bindable<Date>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected?: Date | Bindable<Date>;
 
   /**
    * Defines the mode of the date picker.
