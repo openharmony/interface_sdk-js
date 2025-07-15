@@ -5684,7 +5684,7 @@ declare namespace window {
     getWindowDensityInfo(): WindowDensityInfo;
 
     /**
-     * Set whether the current window follows the density of its screen.
+     * Set whether the current window follows the default density of its screen.
      *
      * @param { boolean } enabled - Use default density if true, or follow system density change if false.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
