@@ -2252,46 +2252,46 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The scale param of y direction. Default is 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotX?: number;
+    pivotX?: double;
 
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotY?: number;
+    pivotY?: double;
   }
 
   /**
@@ -2307,57 +2307,57 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The rotate degree of y direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The rotate degree of z direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    z?: number;
+    z?: double;
 
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotX?: number;
+    pivotX?: double;
 
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotY?: number;
+    pivotY?: double;
   }
 
   /**
@@ -2373,35 +2373,35 @@ declare namespace window {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The translate pixel param of y direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The translate pixel param of z direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    z?: number;
+    z?: double;
   }
 
   /**
@@ -12376,21 +12376,21 @@ declare namespace window {
     /**
      * window orientation
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
      */
-    orientation: number;
+    orientation: int;
     /**
      * Display id
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
      */
-    displayId: number;
+    displayId: long;
     /**
      * Display rect
      *
