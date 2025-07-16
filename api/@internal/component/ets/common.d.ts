@@ -25901,10 +25901,24 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
+
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   *
+   * @param { string | CustomBuilder | ComponentContent<T> } value
+   * @param { OverlayOptions } [options]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T>, options?: OverlayOptions): T;
 
   /**
    * Linear Gradient
