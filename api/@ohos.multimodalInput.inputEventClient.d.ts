@@ -103,7 +103,8 @@ declare namespace inputEventClient {
    * @interface TouchEventData
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TouchEventData {
     /**
@@ -112,7 +113,8 @@ declare namespace inputEventClient {
      * @type { TouchEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     touchEvent: TouchEvent;
   }

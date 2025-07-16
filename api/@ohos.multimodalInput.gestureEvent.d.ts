@@ -18,29 +18,34 @@
  * @kit InputKit
  */
 
+import { Touch } from './@ohos.multimodalInput.touchEvent';
+
 /**
  * Pinch event on touchPad
  *
  * @interface Pinch
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface Pinch {
   /**
    * Action type
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 
   /**
    * scale
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  scale: number;
+  scale: double;
 }
 
 /**
@@ -48,7 +53,8 @@ export declare interface Pinch {
  *
  * @interface Rotate
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface Rotate {
   /**
@@ -56,18 +62,20 @@ export declare interface Rotate {
    *
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 
   /**
    * Rotate angle
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  angle: number;
+  angle: double;
 }
 
 /**
@@ -75,32 +83,36 @@ export declare interface Rotate {
  *
  * @interface ThreeFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface ThreeFingersSwipe {
   /**
    * Action type
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
@@ -108,32 +120,36 @@ export declare interface ThreeFingersSwipe {
  *
  * @interface FourFingersSwipe
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface FourFingersSwipe {
   /**
    * Action type
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
@@ -142,7 +158,8 @@ export declare interface FourFingersSwipe {
  * @interface SwipeInward
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface SwipeInward {
   /**
@@ -150,27 +167,30 @@ export declare interface SwipeInward {
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 
   /**
    * Coordinate x
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: int;
 
   /**
    * Coordinate y
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: int;
 }
 
 /**
@@ -178,7 +198,8 @@ export declare interface SwipeInward {
  *
  * @interface ThreeFingersTap
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface ThreeFingersTap {
   /**
@@ -186,7 +207,8 @@ export declare interface ThreeFingersTap {
    *
    * @type { ActionType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ActionType;
 }
@@ -197,7 +219,8 @@ export declare interface ThreeFingersTap {
  * @interface TouchGestureEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface TouchGestureEvent {
   /**
@@ -206,7 +229,8 @@ export declare interface TouchGestureEvent {
    * @type { TouchGestureAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action: TouchGestureAction;
   /**
@@ -215,7 +239,8 @@ export declare interface TouchGestureEvent {
    * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   touches: Touch[];
 }
@@ -226,7 +251,8 @@ export declare interface TouchGestureEvent {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum TouchGestureAction {
   /**
@@ -234,7 +260,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SWIPE_DOWN = 0,
   /**
@@ -242,7 +269,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SWIPE_UP,
   /**
@@ -250,7 +278,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SWIPE_LEFT,
   /**
@@ -258,7 +287,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SWIPE_RIGHT,
   /**
@@ -266,7 +296,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PINCH_CLOSED,
   /**
@@ -274,7 +305,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PINCH_OPENED,
   /**
@@ -282,7 +314,8 @@ export declare enum TouchGestureAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   GESTURE_END
 }
@@ -292,14 +325,16 @@ export declare enum TouchGestureAction {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum ActionType {
   /**
    * Cancel of the gesture
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CANCEL = 0,
 
@@ -307,7 +342,8 @@ export declare enum ActionType {
    * Begin of the gesture
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BEGIN = 1,
 
@@ -315,7 +351,8 @@ export declare enum ActionType {
    * Update of the gesture
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UPDATE = 2,
 
@@ -323,7 +360,8 @@ export declare enum ActionType {
    * End of the gesture
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   END = 3
 }
