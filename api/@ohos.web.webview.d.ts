@@ -4568,7 +4568,7 @@ declare namespace webview {
 
     /**
      * Gets the content height of current Web page.
-     * @returns { number } Returns the page height of the current page.
+     * @returns { int } Returns the page height of the current page.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4576,7 +4576,7 @@ declare namespace webview {
      */
     /**
      * Obtains the height of this web page.
-     * @returns { number } Height of the current web page. Unit: vp.
+     * @returns { int } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4585,7 +4585,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getPageHeight(): number;
+    getPageHeight(): int;
 
     /**
      * Goes forward or back backOrForward in the history of the web page.
