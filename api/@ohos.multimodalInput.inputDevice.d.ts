@@ -80,14 +80,16 @@ declare namespace inputDevice {
    * 
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum KeyboardType {
     /**
      * Keyboard without keys.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -95,7 +97,8 @@ declare namespace inputDevice {
      * Keyboard with unknown keys.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = 1,
 
@@ -103,7 +106,8 @@ declare namespace inputDevice {
      * Full keyboard.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALPHABETIC_KEYBOARD = 2,
 
@@ -111,7 +115,8 @@ declare namespace inputDevice {
      * Keypad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIGITAL_KEYBOARD = 3,
 
@@ -119,7 +124,8 @@ declare namespace inputDevice {
      * Stylus.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HANDWRITING_PEN = 4,
 
@@ -127,7 +133,8 @@ declare namespace inputDevice {
      * Remote control.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REMOTE_CONTROL = 5
   }
@@ -137,14 +144,16 @@ declare namespace inputDevice {
    * 
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FunctionKey {
     /**
      * CapsLock key. This key can be enabled or disabled only for the input keyboard extension.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAPS_LOCK = 1
   }

@@ -489,21 +489,24 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PrimaryButton {
     /**
      * Left mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEFT = 0,
     /**
      * Right mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RIGHT = 1
   }
@@ -513,28 +516,32 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RightClickType {
     /**
      * Tapping the right-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
      * Tapping the left-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
      * Tapping or pressing the touchpad with two fingers.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
@@ -595,7 +602,8 @@ declare namespace pointer {
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CursorConfig {
     /**
@@ -605,7 +613,8 @@ declare namespace pointer {
      * 
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     followSystem : boolean;
   }
