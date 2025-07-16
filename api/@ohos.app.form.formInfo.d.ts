@@ -1223,6 +1223,21 @@ declare namespace formInfo {
      * @arkts 1.1&1.2
      */
     FORM_PERMISSION_GRANTED_KEY = 'ohos.extra.param.key.permission_granted',
+
+    /**
+     * Indicates the key specifying the original form id, used in conjunction with LaunchReason.FORM_SIZE_CHANGE.
+     * which is represented as
+     * want: {
+     *   "parameters": {
+     *       ORIGINAL_FORM_KEY: "119476135"
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
+     */
+    ORIGINAL_FORM_KEY = 'ohos.extra.param.key.original_form_id',
   }
 
   /**
@@ -1592,7 +1607,15 @@ declare namespace formInfo {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    FORM_SHARE = 2
+    FORM_SHARE = 2,
+    /**
+     * Indicates the launch reason of a form is change size.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
+     */
+    FORM_SIZE_CHANGE = 3
   }
 
   /**
