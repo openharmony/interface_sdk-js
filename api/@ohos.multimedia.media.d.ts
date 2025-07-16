@@ -4884,7 +4884,6 @@ declare namespace media {
      *                    -2, means player need current data any more, the client should stop current read process.
      *                    -3, means player buffer is full, the client should wait for next read.
      * @syscap  SystemCapability.Multimedia.Media.Core
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */
@@ -9738,10 +9737,10 @@ declare namespace media {
   /**
    * Provides the container definition for media description key-value pairs.
    *
+   * The media description consists of key-value pairs where keys reference @MediaDescriptionKey.
    * @typedef { Record<string, Object> }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
