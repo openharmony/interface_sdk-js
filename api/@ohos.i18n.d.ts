@@ -22,9 +22,6 @@
 import { BusinessError } from './@ohos.base';
 import intl from './@ohos.intl';
 /*** endif */
-/*** if arkts 1.2 */
-import { StyledString, TextStyle } from './arkui/component/styledString';
-/*** endif */
 
 /**
  * Provides international settings related APIs.
@@ -1523,7 +1520,7 @@ declare namespace i18n {
     /**
      * Checks whether the phone number is valid for the country/region in the PhoneNumberFormat object.
      *
-     * @param { string } number - Phone number to be checked.
+     * @param { string } phoneNumber - Phone number to be checked.
      * @returns { boolean } Whether the phone number is valid. The value "true" indicates that the phone number is
      *                      valid, and the value "false" indicates the opposite.
      * @syscap SystemCapability.Global.I18n
@@ -1532,7 +1529,7 @@ declare namespace i18n {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    isValidNumber(number: string): boolean;
+    isValidNumber(phoneNumber: string): boolean;
 
     /**
      * Obtains the formatted phone number strings of number.
@@ -1554,7 +1551,7 @@ declare namespace i18n {
     /**
      * Formats a phone number.
      *
-     * @param { string } number - Phone number to be formatted.
+     * @param { string } phoneNumber - Phone number to be formatted.
      * @returns { string } Formatted phone number.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -1562,7 +1559,7 @@ declare namespace i18n {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    format(number: string): string;
+    format(phoneNumber: string): string;
 
     /**
      * Determine the location by phone number, and return it according to the specified regional language.
@@ -1576,7 +1573,7 @@ declare namespace i18n {
     /**
      * Obtains the home location of a phone number.
      *
-     * @param { string } number - Phone number. To obtain the home location of a number in other countries/regions,
+     * @param { string } phoneNumber - Phone number. To obtain the home location of a number in other countries/regions,
      *                            you need to prefix the number with 00 and the country code.
      * @param { string } locale - System locale, which consists of the language, script, and country/region.
      * @returns { string } Home location of the phone number. If the number is invalid, an empty string is returned.
@@ -1585,7 +1582,7 @@ declare namespace i18n {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLocationName(number: string, locale: string): string;
+    getLocationName(phoneNumber: string, locale: string): string;
   }
 
   /**
@@ -4358,8 +4355,7 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export class StyledNumberFormat {
     /**
@@ -4370,9 +4366,8 @@ declare namespace i18n {
      *                                                    The default value is the default text style.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since 18
      * @deprecated since 20
-     * @arkts 1.1&1.2
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -4395,8 +4390,7 @@ declare namespace i18n {
      * @returns { StyledString } Rich text object after formatting.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     format(value: double): StyledString;
   }
@@ -4407,8 +4401,7 @@ declare namespace i18n {
    * @interface StyledNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -4417,8 +4410,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     integer?: TextStyle;
 
@@ -4428,8 +4420,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     decimal?: TextStyle;
 
@@ -4439,8 +4430,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     fraction?: TextStyle;
 
@@ -4450,8 +4440,7 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     unit?: TextStyle;
   }
