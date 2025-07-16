@@ -20,6 +20,7 @@
 
 import { UIContext } from '@ohos.arkui.UIContext'
 import { Builder } from './builder'
+import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
 
 /**
  * Defining interface of LifeCycle for custom component and custom dialog
@@ -110,4 +111,41 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      * @since 20
      */
     getUniqueId(): int
+    
+    /**
+    * Queries the navigation destination information.
+    *
+    * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    queryNavDestinationInfo(): NavDestinationInfo | undefined;
+
+    /**
+    * Queries the navigation destination information.
+    *
+    * @param { Optional<boolean> } isInner
+    * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
+
+    /**
+    * Query the navigation information of the current custom component.
+    *
+    * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    queryNavigationInfo(): NavigationInfo | undefined;
+
+    /**
+    * Query the router page information of the current custom component.
+    *
+    * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    queryRouterPageInfo(): RouterPageInfo | undefined;
 }
