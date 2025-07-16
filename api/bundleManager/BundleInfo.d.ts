@@ -254,9 +254,20 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   readonly appInfo: ApplicationInfo;
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly appInfo: ApplicationInfo | null;
 
   /**
    * Obtains configuration information about a module
@@ -374,9 +385,20 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   readonly signatureInfo: SignatureInfo;
+
+  /**
+   * Indicates the SignatureInfo of the bundle
+   *
+   * @type { SignatureInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly signatureInfo: SignatureInfo | null;
 
   /**
    * Indicates the hap install time
