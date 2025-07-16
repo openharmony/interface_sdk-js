@@ -1350,7 +1350,7 @@ declare namespace geoLocationManager {
    * due to limited device capabilities.
    * @throws { BusinessError } 3501100 - Failed to add a beacon fence because the location switch is off.
    * @throws { BusinessError } 3501101 - Failed to add a beacon fence because the bluetooth switch is off.
-   * @throws { BusinessError } 3501601 - The number of geofences exceeds the maximum.
+   * @throws { BusinessError } 3501601 - The number of beacon fence exceeds the maximum.
    * @throws { BusinessError } 3501603 - Duplicate beacon fence information.
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
@@ -1362,7 +1362,7 @@ declare namespace geoLocationManager {
    * Remove a beacon fence.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-   * @param { BeaconFence } beaconFence - Indicates the details of the beacon fence.
+   * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    * required to call the API.
@@ -3067,7 +3067,7 @@ declare namespace geoLocationManager {
      * @atomicservice
      * @since 20
      */
-    type: BeaconFenceInfoType;
+    beaconFenceInfoType: BeaconFenceInfoType;
 
     /**
      * Beacon equipment manufacture data.
@@ -3102,12 +3102,12 @@ declare namespace geoLocationManager {
     /**
      * Indicates the callback for reporting the BeaconFence transition status.
      *
-     * @type { ?AsyncCallback<GeofenceTransition> }
+     * @type { ?Callback<GeofenceTransition> }
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20
      */
-    transitionCallback?: AsyncCallback<GeofenceTransition>;
+    transitionCallback?: Callback<GeofenceTransition>;
 
     /**
      * Indicates the name of FenceExtensionAbility.
