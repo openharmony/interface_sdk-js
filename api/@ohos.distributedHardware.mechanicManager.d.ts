@@ -63,7 +63,7 @@ declare namespace mechanicManager {
 
     /**
      * Sets a user operation.
-     * @permission ohos.permission.CONNECT_MECHANIC_HARD
+     * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
      * @param { Operation } operation Operation type.
      * @param { string } mac MAC address.
      * @param { string } params Operation parameters.
