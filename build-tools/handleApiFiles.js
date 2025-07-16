@@ -153,7 +153,7 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
 
   if (isEndWithStatic) {
     if (type === 'ets2') {
-      if (isPublic !== 'true') {
+      if (isPublic === 'true') {
         writeFile(outputPath, fileContent);
         return;
       } else {
