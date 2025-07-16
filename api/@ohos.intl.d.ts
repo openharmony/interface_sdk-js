@@ -3291,7 +3291,7 @@ declare namespace intl {
     /**
      * Formats a number.
      *
-     * @param { double } number - Number to be formatted.
+     * @param { double } num - Number to be formatted.
      * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -3301,7 +3301,7 @@ declare namespace intl {
      * @useinstead Intl.NumberFormat.format
      * @arkts 1.1&1.2
      */
-    format(number: double): string;
+    format(num: double): string;
 
     /**
      * Formats a number range.
