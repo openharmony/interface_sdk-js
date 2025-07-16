@@ -2695,6 +2695,7 @@ declare namespace request {
      * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since arkts{ '1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enum BroadcastEvent {
       /**
@@ -2704,6 +2705,7 @@ declare namespace request {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since arkts{ '1.1':'11','1.2':'20'}
+       * @arkts 1.1&1.2
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
