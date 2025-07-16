@@ -24,4 +24,5 @@ import { ComponentContent } from '@ohos.arkui.node';
 export { promptAction, ComponentContent };
 export * from '@ohos.arkui.component';
 export * from '@ohos.arkui.stateManagement';
+export * from '@ohos.arkui.node';
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
