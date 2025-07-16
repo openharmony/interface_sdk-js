@@ -26,7 +26,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace update
  * @syscap SystemCapability.Update.UpdateService
  * @systemapi hide for inner use.
- * @since 9
+ * @since arkts{ '1.1':'9','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 declare namespace update {
   /**
@@ -37,7 +38,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
 
@@ -48,7 +50,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getRestorer(): Restorer;
 
@@ -59,7 +62,8 @@ declare namespace update {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function getLocalUpdater(): LocalUpdater;
 
@@ -69,7 +73,8 @@ declare namespace update {
    * @interface Updater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface Updater {
     /**
@@ -82,7 +87,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     checkNewVersion(callback: AsyncCallback<CheckResult>): void;
 
@@ -96,7 +102,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     checkNewVersion(): Promise<CheckResult>;
 
@@ -110,7 +117,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
 
@@ -124,7 +132,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
@@ -141,7 +150,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getNewVersionDescription(
       versionDigestInfo: VersionDigestInfo,
@@ -162,7 +172,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getNewVersionDescription(
       versionDigestInfo: VersionDigestInfo,
@@ -179,7 +190,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
 
@@ -193,7 +205,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
@@ -209,7 +222,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getCurrentVersionDescription(
       descriptionOptions: DescriptionOptions,
@@ -228,7 +242,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
@@ -242,7 +257,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
 
@@ -256,7 +272,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getTaskInfo(): Promise<TaskInfo>;
 
@@ -267,7 +284,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -275,7 +292,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     download(
       versionDigestInfo: VersionDigestInfo,
@@ -297,7 +315,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
@@ -308,7 +327,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -316,7 +335,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     resumeDownload(
       versionDigestInfo: VersionDigestInfo,
@@ -338,7 +358,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
@@ -349,7 +370,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -357,7 +378,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     pauseDownload(
       versionDigestInfo: VersionDigestInfo,
@@ -379,7 +401,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions): Promise<void>;
 
@@ -390,7 +413,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -398,7 +421,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
 
@@ -416,7 +440,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
@@ -426,7 +451,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -434,7 +459,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
@@ -451,7 +477,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions): Promise<void>;
 
@@ -465,7 +492,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
 
@@ -479,7 +507,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     getUpgradePolicy(): Promise<UpgradePolicy>;
 
@@ -494,7 +523,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
 
@@ -509,7 +539,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
@@ -524,7 +555,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     terminateUpgrade(callback: AsyncCallback<void>): void;
 
@@ -538,7 +570,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     terminateUpgrade(): Promise<void>;
 
@@ -550,7 +583,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
@@ -562,7 +596,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
   }
@@ -573,21 +608,23 @@ declare namespace update {
    * @interface Restorer
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface Restorer {
     /**
      * Reboot and clean user data.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     factoryReset(callback: AsyncCallback<void>): void;
 
@@ -601,7 +638,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     factoryReset(): Promise<void>;
   }
@@ -612,7 +650,8 @@ declare namespace update {
    * @interface LocalUpdater
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface LocalUpdater {
     /**
@@ -628,7 +667,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
 
@@ -645,7 +685,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
@@ -662,7 +703,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
 
@@ -679,7 +721,8 @@ declare namespace update {
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     applyNewVersion(upgradeFiles: Array<UpgradeFile>): Promise<void>;
 
@@ -691,7 +734,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
 
@@ -703,7 +747,8 @@ declare namespace update {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
   }
@@ -714,7 +759,8 @@ declare namespace update {
    * @typedef UpgradeInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface UpgradeInfo {
     /**
@@ -723,7 +769,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     upgradeApp: string;
 
@@ -733,7 +780,8 @@ declare namespace update {
      * @type { BusinessType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     businessType: BusinessType;
   }
@@ -744,7 +792,8 @@ declare namespace update {
    * @typedef BusinessType
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface BusinessType {
     /**
@@ -753,7 +802,8 @@ declare namespace update {
      * @type { BusinessVendor }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     vendor: BusinessVendor;
 
@@ -763,7 +813,8 @@ declare namespace update {
      * @type { BusinessSubType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     subType: BusinessSubType;
   }
@@ -774,7 +825,8 @@ declare namespace update {
    * @typedef CheckResult
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface CheckResult {
     /**
@@ -783,7 +835,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     isExistNewVersion: boolean;
 
@@ -793,7 +846,8 @@ declare namespace update {
      * @type { NewVersionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     newVersionInfo: NewVersionInfo;
   }
@@ -804,7 +858,8 @@ declare namespace update {
    * @typedef NewVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface NewVersionInfo {
     /**
@@ -813,7 +868,8 @@ declare namespace update {
      * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionDigestInfo: VersionDigestInfo;
 
@@ -823,7 +879,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -834,7 +891,8 @@ declare namespace update {
    * @typedef VersionDigestInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface VersionDigestInfo {
     /**
@@ -843,7 +901,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionDigest: string;
   }
@@ -854,7 +913,8 @@ declare namespace update {
    * @typedef VersionComponent
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface VersionComponent {
     /**
@@ -863,7 +923,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     componentId: string;
 
@@ -873,7 +934,8 @@ declare namespace update {
      * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     componentType: ComponentType;
 
@@ -883,39 +945,43 @@ declare namespace update {
      * @type { UpgradeAction }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     upgradeAction: UpgradeAction;
 
     /**
-     * Display version number
+     * Display version int
      *
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     displayVersion: string;
 
     /**
-     * Internal version number
+     * Internal version int
      *
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     innerVersion: string;
 
     /**
      * Update package size
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    size: number;
+    size: int;
 
     /**
      * Effective mode
@@ -923,7 +989,8 @@ declare namespace update {
      * @type { EffectiveMode }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     effectiveMode: EffectiveMode;
 
@@ -933,19 +1000,10 @@ declare namespace update {
      * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     descriptionInfo: DescriptionInfo;
-
-    /**
-     * Ota mode
-     *
-     * @type { ?OtaMode }
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 20
-     */
-    otaMode?: OtaMode;
   }
 
   /**
@@ -954,7 +1012,8 @@ declare namespace update {
    * @typedef DescriptionOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface DescriptionOptions {
     /**
@@ -963,7 +1022,8 @@ declare namespace update {
      * @type { DescriptionFormat }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     format: DescriptionFormat;
 
@@ -973,7 +1033,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     language: string;
   }
@@ -984,7 +1045,8 @@ declare namespace update {
    * @typedef ComponentDescription
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface ComponentDescription {
     /**
@@ -993,7 +1055,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     componentId: string;
 
@@ -1003,7 +1066,8 @@ declare namespace update {
      * @type { DescriptionInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     descriptionInfo: DescriptionInfo;
   }
@@ -1014,7 +1078,8 @@ declare namespace update {
    * @typedef DescriptionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface DescriptionInfo {
     /**
@@ -1023,7 +1088,8 @@ declare namespace update {
      * @type { DescriptionType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     descriptionType: DescriptionType;
 
@@ -1033,7 +1099,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     content: string;
   }
@@ -1044,16 +1111,18 @@ declare namespace update {
    * @typedef CurrentVersionInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface CurrentVersionInfo {
     /**
-     * System version number
+     * System version int
      *
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     osVersion: string;
 
@@ -1063,7 +1132,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -1073,7 +1143,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -1084,7 +1155,8 @@ declare namespace update {
    * @typedef DownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface DownloadOptions {
     /**
@@ -1093,7 +1165,8 @@ declare namespace update {
      * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     allowNetwork: NetType;
 
@@ -1103,7 +1176,8 @@ declare namespace update {
      * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     order: Order;
   }
@@ -1114,7 +1188,8 @@ declare namespace update {
    * @typedef ResumeDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface ResumeDownloadOptions {
     /**
@@ -1123,7 +1198,8 @@ declare namespace update {
      * @type { NetType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     allowNetwork: NetType;
   }
@@ -1134,7 +1210,8 @@ declare namespace update {
    * @typedef PauseDownloadOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface PauseDownloadOptions {
     /**
@@ -1143,7 +1220,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     isAllowAutoResume: boolean;
   }
@@ -1154,7 +1232,8 @@ declare namespace update {
    * @typedef UpgradeOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface UpgradeOptions {
     /**
@@ -1163,7 +1242,8 @@ declare namespace update {
      * @type { Order }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     order: Order;
   }
@@ -1174,7 +1254,8 @@ declare namespace update {
    * @typedef ClearOptions
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface ClearOptions {
     /**
@@ -1183,7 +1264,8 @@ declare namespace update {
      * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     status: UpgradeStatus;
   }
@@ -1194,7 +1276,8 @@ declare namespace update {
    * @typedef UpgradePolicy
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface UpgradePolicy {
     /**
@@ -1203,7 +1286,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     downloadStrategy: boolean;
 
@@ -1213,7 +1297,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     autoUpgradeStrategy: boolean;
 
@@ -1223,7 +1308,8 @@ declare namespace update {
      * @type { Array<UpgradePeriod> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     autoUpgradePeriods: Array<UpgradePeriod>;
   }
@@ -1234,28 +1320,31 @@ declare namespace update {
    * @typedef UpgradePeriod
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface UpgradePeriod {
     /**
      * Start time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    start: number;
+    start: int;
 
     /**
      * End time of upgrade period
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1264,7 +1353,8 @@ declare namespace update {
    * @typedef TaskInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface TaskInfo {
     /**
@@ -1273,7 +1363,8 @@ declare namespace update {
      * @type { boolean }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     existTask: boolean;
 
@@ -1283,7 +1374,8 @@ declare namespace update {
      * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     taskBody: TaskBody;
   }
@@ -1294,7 +1386,8 @@ declare namespace update {
    * @typedef EventInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface EventInfo {
     /**
@@ -1303,7 +1396,8 @@ declare namespace update {
      * @type { EventId }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     eventId: EventId;
 
@@ -1313,7 +1407,8 @@ declare namespace update {
      * @type { TaskBody }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     taskBody: TaskBody;
   }
@@ -1324,7 +1419,8 @@ declare namespace update {
    * @typedef TaskBody
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface TaskBody {
     /**
@@ -1333,7 +1429,8 @@ declare namespace update {
      * @type { VersionDigestInfo }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionDigestInfo: VersionDigestInfo;
 
@@ -1343,39 +1440,43 @@ declare namespace update {
      * @type { UpgradeStatus }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     status: UpgradeStatus;
 
     /**
      * Upgrade sub status
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    subStatus: number;
+    subStatus: int;
 
     /**
      * Upgrade progress
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    progress: number;
+    progress: int;
 
     /**
      * Install mode
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    installMode: number;
+    installMode: int;
 
     /**
      * Error messages
@@ -1383,7 +1484,8 @@ declare namespace update {
      * @type { Array<ErrorMessage> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     errorMessages: Array<ErrorMessage>;
 
@@ -1393,7 +1495,8 @@ declare namespace update {
      * @type { Array<VersionComponent> }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     versionComponents: Array<VersionComponent>;
   }
@@ -1404,18 +1507,20 @@ declare namespace update {
    * @typedef ErrorMessage
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface ErrorMessage {
     /**
      * Error code
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    errorCode: number;
+    errorCode: int;
 
     /**
      * Error message
@@ -1423,7 +1528,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     errorMessage: string;
   }
@@ -1434,7 +1540,8 @@ declare namespace update {
    * @typedef EventClassifyInfo
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface EventClassifyInfo {
     /**
@@ -1443,7 +1550,8 @@ declare namespace update {
      * @type { EventClassify }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     eventClassify: EventClassify;
 
@@ -1453,7 +1561,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     extraInfo: string;
   }
@@ -1464,7 +1573,8 @@ declare namespace update {
    * @typedef UpgradeFile
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export interface UpgradeFile {
     /**
@@ -1473,7 +1583,8 @@ declare namespace update {
      * @type { ComponentType }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     fileType: ComponentType;
 
@@ -1483,7 +1594,8 @@ declare namespace update {
      * @type { string }
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     filePath: string;
   }
@@ -1495,19 +1607,10 @@ declare namespace update {
    * @typedef UpgradeTaskCallback
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
-  export interface UpgradeTaskCallback {
-    /**
-     * Event callback.
-     *
-     * @param { EventInfo } eventInfo - Event information.
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 9
-     */
-    (eventInfo: EventInfo): void;
-  }
+  export type UpgradeTaskCallback = (eventInfo: EventInfo) => void;
 
   /**
    * Enumerates business vendor type.
@@ -1515,7 +1618,8 @@ declare namespace update {
    * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum BusinessVendor {
     /**
@@ -1523,7 +1627,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     PUBLIC = 'public'
   }
@@ -1531,10 +1636,11 @@ declare namespace update {
   /**
    * Enumerates business sub type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum BusinessSubType {
     /**
@@ -1542,7 +1648,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     FIRMWARE = 1
   }
@@ -1550,10 +1657,11 @@ declare namespace update {
   /**
    * Enumerates component type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum ComponentType {
     /**
@@ -1561,7 +1669,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     OTA = 1
   }
@@ -1572,7 +1681,8 @@ declare namespace update {
    * @enum { string }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum UpgradeAction {
     /**
@@ -1580,7 +1690,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     UPGRADE = 'upgrade',
 
@@ -1589,7 +1700,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     RECOVERY = 'recovery'
   }
@@ -1597,10 +1709,11 @@ declare namespace update {
   /**
    * Enumerates effective mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum EffectiveMode {
     /**
@@ -1608,7 +1721,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     COLD = 1,
 
@@ -1617,7 +1731,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     LIVE = 2,
 
@@ -1626,64 +1741,20 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     LIVE_AND_COLD = 3
   }
 
   /**
-   * Enumerates ota mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Update.UpdateService
-   * @systemapi hide for inner use.
-   * @since 20
-   */
-  export enum OtaMode {
-    /**
-     * Regular update.
-     *
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 20
-     */
-    REGULAR_OTA = 0,
-
-    /**
-     * Stream update.
-     *
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 20
-     */
-    STREAM_OTA = 1,
-
-    /**
-     * AB regular update.
-     *
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 20
-     */
-    AB_REGULAR_OTA = 2,
-
-    /**
-     * AB stream update.
-     *
-     * @syscap SystemCapability.Update.UpdateService
-     * @systemapi hide for inner use.
-     * @since 20
-     */
-    AB_STREAM_OTA = 3
-  }
-
-  /**
    * Enumerates description type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum DescriptionType {
     /**
@@ -1691,7 +1762,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     CONTENT = 0,
 
@@ -1700,7 +1772,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     URI = 1
   }
@@ -1708,10 +1781,11 @@ declare namespace update {
   /**
    * Enumerates description format.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum DescriptionFormat {
     /**
@@ -1719,7 +1793,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     STANDARD = 0,
 
@@ -1728,7 +1803,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     SIMPLIFIED = 1
   }
@@ -1736,10 +1812,11 @@ declare namespace update {
   /**
    * Enumerates network type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum NetType {
     /**
@@ -1747,7 +1824,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     CELLULAR = 1,
 
@@ -1756,7 +1834,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     METERED_WIFI = 2,
 
@@ -1765,7 +1844,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     NOT_METERED_WIFI = 4,
 
@@ -1774,7 +1854,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     WIFI = 6,
 
@@ -1783,7 +1864,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     CELLULAR_AND_WIFI = 7
   }
@@ -1791,10 +1873,11 @@ declare namespace update {
   /**
    * Enumerates upgrade order.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum Order {
     /**
@@ -1802,7 +1885,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     DOWNLOAD = 1,
 
@@ -1811,7 +1895,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     INSTALL = 2,
 
@@ -1820,7 +1905,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     DOWNLOAD_AND_INSTALL = 3,
 
@@ -1829,7 +1915,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     APPLY = 4,
 
@@ -1838,7 +1925,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     INSTALL_AND_APPLY = 6
   }
@@ -1846,110 +1934,332 @@ declare namespace update {
   /**
    * Enumerates upgrade status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum UpgradeStatus {
     /**
-     * Upgrade status is waiting for download.
+     * Upgrade status is ERROR.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    WAITING_DOWNLOAD = 20,
+    ERROR = -1,
 
     /**
-     * Upgrade status is downloading.
+     * Upgrade status is INIT.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    DOWNLOADING = 21,
+    INIT = 0,
 
     /**
-     * Upgrade status is download paused.
+     * Upgrade status is CHECKING_VERSION.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    DOWNLOAD_PAUSED = 22,
+    CHECKING_VERSION = 10,
 
     /**
-     * Upgrade status is download failed.
+     * Upgrade status is CHECK_VERSION_FAIL.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    CHECK_VERSION_FAIL = 11,
+
+    /**
+     * Upgrade status is CHECK_VERSION_SUCCESS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    CHECK_VERSION_SUCCESS = 12,
+
+    /**
+     * Upgrade status is DOWNLOADING.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    DOWNLOADING = 20,
+
+    /**
+     * Upgrade status is DOWNLOAD_PAUSE.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    DOWNLOAD_PAUSE = 21,
+
+    /**
+     * Upgrade status is DOWNLOAD_CANCEL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    DOWNLOAD_CANCEL = 22,
+
+    /**
+     * Upgrade status is DOWNLOAD_FAIL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     DOWNLOAD_FAIL = 23,
 
     /**
-     * Upgrade status is waiting for installation.
+     * Upgrade status is DOWNLOAD_SUCCESS.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    WAITING_INSTALL = 30,
+    DOWNLOAD_SUCCESS = 24,
 
     /**
-     * Upgrade status is upgrading.
+     * Upgrade status is VERIFYING.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    UPDATING = 31,
+    VERIFYING = 30,
 
     /**
-     * Upgrade status is waiting for applying the update.
+     * Upgrade status is VERIFY_FAIL.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    WAITING_APPLY = 40,
+    VERIFY_FAIL = 31,
 
     /**
-     * Upgrade status is applying the update.
+     * Upgrade status is VERIFY_SUCCESS.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    APPLYING = 41,
+    VERIFY_SUCCESS = 32,
 
     /**
-     * Upgrade status is update succeeded.
+     * Upgrade status is AUTHING.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    UPGRADE_SUCCESS = 50,
+    AUTHING = 60,
 
     /**
-     * Upgrade status is update failed.
+     * Upgrade status is AUTH_FAIL.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    UPGRADE_FAIL = 51
+    AUTH_FAIL = 61,
+
+    /**
+     * Upgrade status is AUTH_SUCCESS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    AUTH_SUCCESS = 62,
+
+    /**
+     * Upgrade status is WAIT_TRANSFER.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    WAIT_TRANSFER = 68,
+
+    /**
+     * Upgrade status is TRANSFER_START.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    TRANSFER_START = 69,
+
+    /**
+     * Upgrade status is PACKAGE_TRANSING.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    PACKAGE_TRANSING = 70,
+
+    /**
+     * Upgrade status is PACKAGE_TRANS_FAIL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    PACKAGE_TRANS_FAIL = 71,
+
+    /**
+     * Upgrade status is PACKAGE_TRANS_SUCCESS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    PACKAGE_TRANS_SUCCESS = 72,
+
+    /**
+     * Upgrade status is INSTALLING.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    INSTALLING = 80,
+
+    /**
+     * Upgrade status is INSTALL_FAIL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    INSTALL_FAIL = 81,
+
+    /**
+     * Upgrade status is INSTALL_SUCCESS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    INSTALL_SUCCESS = 82,
+
+    /**
+     * Upgrade status is INSTALL_PAUSE.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    INSTALL_PAUSE = 83,
+
+    /**
+     * Upgrade status is UPDATING.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPDATING = 90,
+
+    /**
+     * Upgrade status is UPDATE_FAIL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPDATE_FAIL = 91,
+
+    /**
+     * Upgrade status is UPDATE_SUCCESS.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPDATE_SUCCESS = 92,
+
+    /**
+     * Upgrade status is UPGRADE_REBOOT.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPGRADE_REBOOT = 93,
+
+    /**
+     * Upgrade status is UPGRADE_COUNT_DOWN.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPGRADE_COUNT_DOWN = 100,
+
+    /**
+     * Upgrade status is UPGRADE_CANCEL.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
+     */
+    UPGRADE_CANCEL = 101
   }
 
   /**
    * Enumerates event classify.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum EventClassify {
     /**
@@ -1957,7 +2267,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     TASK = 0x01000000
   }
@@ -1965,10 +2276,11 @@ declare namespace update {
   /**
    * Enumerates event id.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
-   * @since 9
+   * @since arkts{ '1.1':'9','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   export enum EventId {
     /**
@@ -1976,16 +2288,18 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
-    EVENT_TASK_BASE = EventClassify.TASK,
+    EVENT_TASK_BASE = 0x01000000,
 
     /**
      * Event id is task received.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_TASK_RECEIVE,
 
@@ -1994,7 +2308,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_TASK_CANCEL,
 
@@ -2003,7 +2318,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_WAIT,
 
@@ -2012,7 +2328,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_START,
 
@@ -2021,7 +2338,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_UPDATE,
 
@@ -2030,7 +2348,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_PAUSE,
 
@@ -2039,7 +2358,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_RESUME,
 
@@ -2048,7 +2368,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_SUCCESS,
 
@@ -2057,7 +2378,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_DOWNLOAD_FAIL,
 
@@ -2066,7 +2388,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_UPGRADE_WAIT,
 
@@ -2075,7 +2398,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_UPGRADE_START,
 
@@ -2084,7 +2408,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_UPGRADE_UPDATE,
 
@@ -2093,7 +2418,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_APPLY_WAIT,
 
@@ -2102,7 +2428,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_APPLY_START,
 
@@ -2111,7 +2438,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_UPGRADE_SUCCESS,
 
@@ -2120,7 +2448,8 @@ declare namespace update {
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts{ '1.1':'9','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     EVENT_UPGRADE_FAIL
   }
