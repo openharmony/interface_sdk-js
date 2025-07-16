@@ -140,11 +140,11 @@ declare namespace distributedDataObject {
     /**
      * version of saved object, can compare with DistributedObject.__version
      *
-     * @type { double }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    version: double;
+    version: int;
 
     /**
      * deviceid that data saved
