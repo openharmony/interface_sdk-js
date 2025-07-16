@@ -59,38 +59,38 @@ declare namespace process {
     /**
      * Return pid is the pid of the current process
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
      * @test
      */
-    readonly pid: int;
+    readonly pid: number;
 
     /**
      * Return ppid is the pid of the current child process
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
      * @test
      */
-    readonly ppid: int;
+    readonly ppid: number;
 
     /**
      * Return exitCode is the exit code of the current child process
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
      * @test
      */
-    readonly exitCode: int;
+    readonly exitCode: number;
 
     /**
      * Return boolean is whether the current process signal is sent successfully
@@ -105,15 +105,15 @@ declare namespace process {
     readonly killed: boolean;
 
     /**
-     * Return 'int' is the target process exit code
+     * Return 'number' is the target process exit code
      *
-     * @returns { Promise<int> } Return the target process exit code.
+     * @returns { Promise<number> } Return the target process exit code.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
      * @test
      */
-    wait(): Promise<int>;
+    wait(): Promise<number>;
 
     /**
      * Return it as 'Uint8Array' of the stdout until EOF
@@ -150,13 +150,13 @@ declare namespace process {
     /**
      * Send a signal to process
      *
-     * @param { int | string } signal - Int or string represents the signal sent.
+     * @param { number | string } signal - Number or string represents the signal sent.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 7
      * @test
      */
-    kill(signal: int | string): void;
+    kill(signal: number | string): void;
   }
 
   /**
@@ -190,7 +190,7 @@ declare namespace process {
     /**
      * Returns a boolean whether the specified uid belongs to a particular application.
      *
-     * @param { int } v - An id.
+     * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -201,7 +201,7 @@ declare namespace process {
     /**
      * Returns a boolean whether the specified uid belongs to a particular application.
      *
-     * @param { int } v - An id.
+     * @param { number } v - An id.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -213,7 +213,7 @@ declare namespace process {
     /**
      * Checks whether a UID belongs to this application.
      *
-     * @param { int } v - UID. which can be obtained by running process.uid.
+     * @param { number } v - UID. which can be obtained by running process.uid.
      * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -223,13 +223,13 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    isAppUid(v: int): boolean;
+    isAppUid(v: number): boolean;
 
     /**
      * Returns the uid based on the specified user name.
      *
      * @param { string } v - Process name.
-     * @returns { int } Return the uid based on the specified user name.
+     * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -240,7 +240,7 @@ declare namespace process {
      * Returns the uid based on the specified user name.
      *
      * @param { string } v - Process name.
-     * @returns { int } Return the uid based on the specified user name.
+     * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -252,7 +252,7 @@ declare namespace process {
      * Obtains the UID of a user from the user database of the system based on the specified user name.
      *
      * @param { string } v - User name.
-     * @returns { int } Return the uid based on the specified user name.
+     * @returns { number } Return the uid based on the specified user name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -261,13 +261,13 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    getUidForName(v: string): int;
+    getUidForName(v: string): number;
 
     /**
      * Returns the thread priority based on the specified tid.
      *
-     * @param { int } v - The tid of the process.
-     * @returns { int } Return the thread priority based on the specified tid.
+     * @param { number } v - The tid of the process.
+     * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -277,8 +277,8 @@ declare namespace process {
     /**
      * Returns the thread priority based on the specified tid.
      *
-     * @param { int } v - The tid of the process.
-     * @returns { int } Return the thread priority based on the specified tid.
+     * @param { number } v - The tid of the process.
+     * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -289,8 +289,8 @@ declare namespace process {
     /**
      * Obtains the thread priority based on the specified TID.
      *
-     * @param { int } v - TID.
-     * @returns { int } Return the thread priority based on the specified tid.
+     * @param { number } v - TID.
+     * @returns { number } Return the thread priority based on the specified tid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -299,13 +299,13 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    getThreadPriority(v: int): int;
+    getThreadPriority(v: number): number;
 
     /**
      * Returns the system configuration at runtime.
      *
-     * @param { int } name - Parameters defined by the system configuration.
-     * @returns { long } Return the system configuration at runtime.
+     * @param { number } name - Parameters defined by the system configuration.
+     * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -315,8 +315,8 @@ declare namespace process {
     /**
      * Returns the system configuration at runtime.
      *
-     * @param { int } name - Parameters defined by the system configuration.
-     * @returns { long } Return the system configuration at runtime.
+     * @param { number } name - Parameters defined by the system configuration.
+     * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -327,8 +327,8 @@ declare namespace process {
     /**
      * Obtains the system configuration.
      *
-     * @param { int } name - System configuration parameter name.
-     * @returns { long } Return the system configuration at runtime.
+     * @param { number } name - System configuration parameter name.
+     * @returns { number } Return the system configuration at runtime.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -337,7 +337,7 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    getSystemConfig(name: int): long;
+    getSystemConfig(name: number): number;
 
     /**
      * Returns the system value for environment variables.
@@ -380,7 +380,7 @@ declare namespace process {
     /**
      * Process exit
      *
-     * @param { int } code - Process exit code.
+     * @param { number } code - Process exit code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -390,7 +390,7 @@ declare namespace process {
     /**
      * Process exit
      *
-     * @param { int } code - Process exit code.
+     * @param { number } code - Process exit code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -401,7 +401,7 @@ declare namespace process {
     /**
      * Terminates this process.
      *
-     * @param { int } code - Exit code of the process.
+     * @param { number } code - Exit code of the process.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -410,13 +410,13 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    exit(code: int): void;
+    exit(code: number): void;
 
     /**
      * Return whether the signal was sent successfully
      *
-     * @param { int } signal - Signal sent.
-     * @param { int } pid - Send signal to target pid.
+     * @param { number } signal - Signal sent.
+     * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -427,8 +427,8 @@ declare namespace process {
     /**
      * Return whether the signal was sent successfully
      *
-     * @param { int } signal - Signal sent.
-     * @param { int } pid - Send signal to target pid.
+     * @param { number } signal - Signal sent.
+     * @param { number } pid - Send signal to target pid.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -440,8 +440,8 @@ declare namespace process {
     /**
      * Sends a signal to the specified process to terminate it.
      *
-     * @param { int } signal - Signal to send.
-     * @param { int } pid - PID of the process, to which the signal will be sent.
+     * @param { number } signal - Signal to send.
+     * @param { number } pid - PID of the process, to which the signal will be sent.
      * @returns { boolean } Return the result of the signal.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
@@ -451,7 +451,7 @@ declare namespace process {
      * @atomicservice
      * @since 11
      */
-    kill(signal: int, pid: int): boolean;
+    kill(signal: number, pid: number): boolean;
   }
 
   /**
@@ -462,7 +462,7 @@ declare namespace process {
    * @since 7
    * @test
    */
-  const egid: int;
+  const egid: number;
 
   /**
    * Return the numeric valid user identity of the process
@@ -472,7 +472,7 @@ declare namespace process {
    * @since 7
    * @test
    */
-  const euid: int;
+  const euid: number;
 
   /**
    * Returns the numeric group id of the process
@@ -482,7 +482,7 @@ declare namespace process {
    * @since 7
    * @test
    */
-  const gid: int;
+  const gid: number;
 
   /**
    * Returns the digital user id of the process
@@ -505,7 +505,7 @@ declare namespace process {
    * @atomicservice
    * @since 11
    */
-  const uid: int;
+  const uid: number;
 
   /**
    * Return an array with supplementary group id
@@ -515,7 +515,7 @@ declare namespace process {
    * @since 7
    * @test
    */
-  const groups: int[];
+  const groups: number[];
 
   /**
    * Return pid is The pid of the current process
@@ -538,7 +538,7 @@ declare namespace process {
    * @atomicservice
    * @since 11
    */
-  const pid: int;
+  const pid: number;
 
   /**
    * Return ppid is The pid of the current child process
@@ -548,7 +548,7 @@ declare namespace process {
    * @since 7
    * @test
    */
-  const ppid: int;
+  const ppid: number;
 
   /**
    * Returns the tid of the current thread.
@@ -571,7 +571,7 @@ declare namespace process {
    * @atomicservice
    * @since 11
    */
-  const tid: int;
+  const tid: number;
 
   /**
    * Returns a boolean whether the process is isolated.
@@ -593,14 +593,14 @@ declare namespace process {
   /**
    * Returns a boolean whether the specified uid belongs to a particular application.
    *
-   * @param { int } v - An id.
+   * @param { number } v - An id.
    * @returns { boolean } Return a boolean whether the specified uid belongs to a particular application.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.isAppUid
    */
-  function isAppUid(v: int): boolean;
+  function isAppUid(v: number): boolean;
 
   /**
    * Returns a boolean whether the process is running in a 64-bit environment.
@@ -632,37 +632,37 @@ declare namespace process {
    * Returns the uid based on the specified user name.
    *
    * @param { string } v - Process name.
-   * @returns { int } Return the uid based on the specified user name.
+   * @returns { number } Return the uid based on the specified user name.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getUidForName
    */
-  function getUidForName(v: string): int;
+  function getUidForName(v: string): number;
 
   /**
    * Returns the thread priority based on the specified tid.
    *
-   * @param { int } v - The tid of the process.
-   * @returns { int } Return the thread priority based on the specified tid.
+   * @param { number } v - The tid of the process.
+   * @returns { number } Return the thread priority based on the specified tid.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getThreadPriority
    */
-  function getThreadPriority(v: int): int;
+  function getThreadPriority(v: number): number;
 
   /**
    * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
    *
-   * @returns { long } Return the start of the system to the start of the process.
+   * @returns { number } Return the start of the system to the start of the process.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
    *
-   * @returns { long } Return the start of the system to the start of the process.
+   * @returns { number } Return the start of the system to the start of the process.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -670,25 +670,25 @@ declare namespace process {
   /**
    * Obtains the duration, in milliseconds, from the time the system starts to the time the process starts.
    *
-   * @returns { long } Return the start of the system to the start of the process.
+   * @returns { number } Return the start of the system to the start of the process.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  function getStartRealtime(): long;
+  function getStartRealtime(): number;
 
   /**
    * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
    *
-   * @returns { long } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
+   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
    * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
    *
-   * @returns { long } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
+   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -696,25 +696,25 @@ declare namespace process {
   /**
    * Obtains the CPU time (in milliseconds) from the time the process starts to the current time.
    *
-   * @returns { long } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
+   * @returns { number } Return the cpu time (in milliseconds) from the time when the process starts to the current time.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  function getPastCpuTime(): long;
+  function getPastCpuTime(): number;
 
   /**
    * Returns the system configuration at runtime.
    *
-   * @param { int } name - Parameters defined by the system configuration.
-   * @returns { long } Return the system configuration at runtime.
+   * @param { number } name - Parameters defined by the system configuration.
+   * @returns { number } Return the system configuration at runtime.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.getSystemConfig
    */
-  function getSystemConfig(name: int): long;
+  function getSystemConfig(name: number): number;
 
   /**
    * Returns the system value for environment variables.
@@ -775,35 +775,35 @@ declare namespace process {
     /**
      * Maximum running time (in ms) of the child process.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
-    timeout?: int;
+    timeout?: number;
 	  
     /**
      * Signal sent to the child process when the running time of a child process exceeds the timeout period.
      *
-     * @type { ?(int | string) }
+     * @type { ?(number | string) }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
-    killSignal?: int | string;
+    killSignal?: number | string;
 	  
     /**
      * Maximum buffer size for the standard input and output of the child process.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Utils.Lang
      * @systemapi Hide this for inner system use
      * @since 10
      * @test
      */
-    maxBuffer?: int;
+    maxBuffer?: number;
   }
   /**
    * Returns a child process object and spawns a new ChildProcess to run the command.
@@ -874,13 +874,13 @@ declare namespace process {
   /**
    * Process exit
    *
-   * @param { int } code - Process exit code.
+   * @param { number } code - Process exit code.
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.exit
    */
-  function exit(code: int): void;
+  function exit(code: number): void;
 
   /**
    * Return the current work directory;
@@ -907,14 +907,14 @@ declare namespace process {
   /**
    * Returns the running time of the system
    *
-   * @returns { long } Return the running time of the system.
+   * @returns { number } Return the running time of the system.
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    */
   /**
    * Returns the running time of the system
    *
-   * @returns { long } Return the running time of the system.
+   * @returns { number } Return the running time of the system.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -922,25 +922,25 @@ declare namespace process {
   /**
    * Obtains the running time of this process.
    *
-   * @returns { long } Return the running time of the system.
+   * @returns { number } Return the running time of the system.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  function uptime(): long;
+  function uptime(): number;
 
   /**
    * Return whether the signal was sent successfully
    *
-   * @param { int } signal - Signal sent.
-   * @param { int } pid - Send signal to target pid.
+   * @param { number } signal - Signal sent.
+   * @param { number } pid - Send signal to target pid.
    * @returns { boolean } Return the result of the signal.
    * @syscap SystemCapability.Utils.Lang
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.process.ProcessManager.kill
    */
-  function kill(signal: int, pid: int): boolean;
+  function kill(signal: number, pid: number): boolean;
 }
 export default process;

@@ -304,7 +304,7 @@ declare namespace utils {
     /**
      * Mode of lock operations.
      *
-     * @enum { int } AsyncLockMode
+     * @enum { number } AsyncLockMode
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
@@ -312,7 +312,7 @@ declare namespace utils {
     /**
      * Mode of lock operations.
      *
-     * @enum { int } AsyncLockMode
+     * @enum { number } AsyncLockMode
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -430,7 +430,7 @@ declare namespace utils {
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
        *
-       * @type { int }
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 12
@@ -439,13 +439,13 @@ declare namespace utils {
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
        *
-       * @type { int }
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 18
        */
-      timeout: int;
+      timeout: number;
     }
 
     /**
@@ -557,7 +557,7 @@ declare namespace utils {
       /**
        * lockAsync caller's execution context identifier.
        *
-       * @type { int }
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 12
@@ -565,13 +565,13 @@ declare namespace utils {
       /**
        * lockAsync caller's execution context identifier.
        *
-       * @type { int }
+       * @type { number }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 18
        */
-      contextId: int;
+      contextId: number;
     }
 
     /**
@@ -673,14 +673,14 @@ declare namespace utils {
       /**
        * Waits for the ConditionVariable to be notified, or until the specified time limit is reached.
        *
-       * @param { int } timeout - The maximum time to wait.
+       * @param { number } timeout - The maximum time to wait.
        * @returns { Promise<void> } A promise that will be resolved once the ConditionVariable is notified or the
        * specified time limit is reached.
        * @syscap SystemCapability.Utils.Lang
        * @atomicservice
        * @since 18
        */
-      waitFor(timeout: int): Promise<void>;
+      waitFor(timeout: number): Promise<void>;
       /**
        * Notify all waiting promise.
        *
@@ -815,7 +815,7 @@ declare namespace utils {
     /**
     * Enum defining modes for handling bigint.
     *
-    * @enum { int } BigIntMode
+    * @enum { number } BigIntMode
     * @syscap SystemCapability.Utils.Lang
     * @atomicservice
     * @since 12
@@ -823,7 +823,7 @@ declare namespace utils {
     /**
      * Enum defining modes for handling bigint.
      *
-     * @enum { int } BigIntMode
+     * @enum { number } BigIntMode
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -883,7 +883,7 @@ declare namespace utils {
     /**
     * The return types for parsing.
     *
-    * @enum { int } ParseReturnType
+    * @enum { number } ParseReturnType
     * @syscap SystemCapability.Utils.Lang
     * @atomicservice
     * @since 12
@@ -891,7 +891,7 @@ declare namespace utils {
     /**
      * The return types for parsing.
      *
-     * @enum { int } ParseReturnType
+     * @enum { number } ParseReturnType
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1000,26 +1000,26 @@ declare namespace utils {
     /**
      * The length of the SendableLruCache.
      *
-     * @type { int }
+     * @type { number }
      * @readonly
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    readonly length: int;
+    readonly length: number;
     /**
      * Default constructor.
      *
-     * @param { int } capacity - The capacity of the SendableLruCache.
+     * @param { number } capacity - The capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    constructor(capacity?: int);
+    constructor(capacity?: number);
     /**
      * Update the capacity of the SendableLruCache.
      *
-     * @param { int } newCapacity - The new capacity of the SendableLruCache.
+     * @param { number } newCapacity - The new capacity of the SendableLruCache.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1027,7 +1027,7 @@ declare namespace utils {
      * @atomicservice
      * @since 18
      */
-    updateCapacity(newCapacity: int): void;
+    updateCapacity(newCapacity: number): void;
     /**
      * Get the value associated with a specified key in the SendableLruCache.
      *
@@ -1074,57 +1074,57 @@ declare namespace utils {
     /**
      * Get the number of times createDefault in the SendableLruCache.
      *
-     * @returns { int } The number of times createDefault.
+     * @returns { number } The number of times createDefault.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getCreateCount(): int;
+    getCreateCount(): number;
     /**
      * Get the number of times that the queried values are not matched in the SendableLruCache.
      *
-     * @returns { int } The number of times that the queried values are unmatched.
+     * @returns { number } The number of times that the queried values are unmatched.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getMissCount(): int;
+    getMissCount(): number;
     /**
      * Get the number of times that values are removed from the SendableLruCache.
      *
-     * @returns { int } The number of times that values are removed.
+     * @returns { number } The number of times that values are removed.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getRemoveCount(): int;
+    getRemoveCount(): number;
     /**
      * Get the number of times that the queried values are matched in the SendableLruCache.
      *
-     * @returns { int } The number of times that the queried values are matched.
+     * @returns { number } The number of times that the queried values are matched.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getMatchCount(): int;
+    getMatchCount(): number;
     /**
      * Get the number of times that values are added to SendableLruCache.
      *
-     * @returns { int } The number of times that values are added.
+     * @returns { number } The number of times that values are added.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getPutCount(): int;
+    getPutCount(): number;
     /**
      * Get the Capacity of the SendableLruCache.
      *
-     * @returns { int } The Capacity of the SendableLruCache.
+     * @returns { number } The Capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
      */
-    getCapacity(): int;
+    getCapacity(): number;
     /**
      * Clear all key-value pairs from the SendableLruCache.
      *
