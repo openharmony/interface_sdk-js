@@ -93,7 +93,7 @@ interface RichTextInterface {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
+   * @since 20
    * @arkts 1.2
    */
   (content: string): RichTextAttribute;

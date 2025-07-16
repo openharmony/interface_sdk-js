@@ -38,7 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- */
+*/
 export declare class CommonModifier extends CommonAttribute implements AttributeModifier<CommonAttribute> {
 
   /**

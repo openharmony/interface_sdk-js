@@ -348,7 +348,10 @@ ohos_copy("ohos_ets_kits") {
 }
 
 ohos_copy("ohos_ets_api") {
-  deps = [ ":ohos_ets_api_tmp" ]
+  deps = [
+    ":ohos_ets_api_arkui_tmp",
+    ":ohos_ets_api_tmp",
+  ]
   sources = [ ohos_ets_api_tmp_path ]
   outputs = [ ohos_ets_api_path ]
   part_name = "sdk"

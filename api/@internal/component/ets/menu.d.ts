@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common';
+import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
+/*** endif */
+
 /**
  * Defines the Menu Component.
  *
@@ -40,7 +45,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface MenuInterface {
   /**
@@ -65,7 +71,8 @@ interface MenuInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): MenuAttribute;
 }
@@ -77,7 +84,8 @@ interface MenuInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SubMenuExpandingMode {
   /**
@@ -86,7 +94,8 @@ declare enum SubMenuExpandingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SIDE_EXPAND = 0,
 
@@ -96,7 +105,8 @@ declare enum SubMenuExpandingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EMBEDDED_EXPAND = 1,
 
@@ -106,7 +116,8 @@ declare enum SubMenuExpandingMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   STACK_EXPAND = 2,
 }
@@ -133,7 +144,8 @@ declare enum SubMenuExpandingMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
@@ -167,7 +179,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font(value: Font): MenuAttribute;
 
@@ -188,7 +201,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): MenuAttribute;
 
@@ -211,7 +225,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius(value: Dimension | BorderRadiuses): MenuAttribute;
 
@@ -223,7 +238,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
 
@@ -235,7 +251,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItemGroupDivider(options: DividerStyleOptions | undefined): MenuAttribute;
 
@@ -247,7 +264,8 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;
 

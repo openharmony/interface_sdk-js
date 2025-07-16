@@ -18,6 +18,24 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+import { Length } from './units';
+/*** endif */
+
+/**
+ * Defines the RadiusItem, the first element is the width of the rounded corner, the second is the height of the rounded corner.
+ * 
+ * @typedef { [Length, Length] } RadiusItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type RadiusItem = [Length, Length];
+
 /**
  * Define options used to construct a rectangle.
  *
@@ -26,7 +44,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RectOptions {
   /**
@@ -83,6 +102,7 @@ declare interface RectOptions {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   width?: Length;
 
@@ -140,6 +160,7 @@ declare interface RectOptions {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   height?: Length;
 
@@ -199,6 +220,19 @@ declare interface RectOptions {
    * @since 20
    */
   radius?: Length | Array<any>;
+  
+  /**
+   * Corner radius of the rectangle.
+   *
+   * @type { ?(Length | Array<RadiusItem>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  radius?: Length | Array<RadiusItem>;
 }
 
 /**
@@ -209,7 +243,8 @@ declare interface RectOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RoundedRectOptions {
   /**
@@ -621,7 +656,8 @@ interface RectInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
@@ -848,3 +884,32 @@ declare const RectInStance: RectAttribute;
  * @since 11
  */
 declare const RectInstance: RectAttribute;
+
+/**
+ * Provides an interface for drawing rectangles.
+ *
+ * @interface RectInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface RectInterface {
+  /**
+   * Called when a rectangle is created.
+   *
+   * @param { RectOptions | RoundedRectOptions } [options] - Rect options
+   * @returns { RectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (
+    options?: RectOptions | RoundedRectOptions,
+  ): RectAttribute;
+}

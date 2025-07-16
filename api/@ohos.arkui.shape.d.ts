@@ -18,7 +18,9 @@
  * @kit ArkUI
  */
 
-
+/*** if arkts 1.2 */
+import { Position, ResourceColor, Length, SizeOptions } from './arkui/component/units'
+/*** endif */
 
 /**
  * Interface for shape size properties.
@@ -28,7 +30,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShapeSize {
   /**
@@ -37,7 +40,8 @@ export interface ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: number | string;
 
@@ -47,7 +51,8 @@ export interface ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: number | string;
 }
@@ -61,7 +66,8 @@ export interface ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RectShapeOptions extends ShapeSize {
   /**
@@ -70,7 +76,8 @@ export interface RectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius?: number | string | Array<number | string>;
 }
@@ -84,7 +91,8 @@ export interface RectShapeOptions extends ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RoundRectShapeOptions extends ShapeSize {
   /**
@@ -93,7 +101,8 @@ export interface RoundRectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radiusWidth?: number | string;
 
@@ -103,7 +112,8 @@ export interface RoundRectShapeOptions extends ShapeSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radiusHeight?: number | string;
 }
@@ -116,7 +126,8 @@ export interface RoundRectShapeOptions extends ShapeSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PathShapeOptions {
   /**
@@ -125,7 +136,8 @@ export interface PathShapeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   commands?: string;
 }
@@ -137,7 +149,8 @@ export interface PathShapeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CommonShapeMethod<T> {
   /**
@@ -149,7 +162,8 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset(offset: Position): T;
 
@@ -162,7 +176,8 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fill(color: ResourceColor): T;
 
@@ -175,7 +190,8 @@ declare class CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position(position: Position): T;
 }
@@ -188,7 +204,8 @@ declare class CommonShapeMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BaseShape<T> extends CommonShapeMethod<T> {
   /**
@@ -200,7 +217,8 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width(width: Length): T;
 
@@ -213,7 +231,8 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height(height: Length): T;
 
@@ -226,7 +245,8 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   size(size: SizeOptions): T;
 }
@@ -239,7 +259,8 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class RectShape extends BaseShape<RectShape> {
   /**
@@ -250,7 +271,8 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options?: RectShapeOptions | RoundRectShapeOptions);
 
@@ -263,7 +285,8 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radiusWidth(rWidth: number | string): RectShape;
 
@@ -276,7 +299,8 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radiusHeight(rHeight: number | string): RectShape;
 
@@ -289,7 +313,8 @@ export declare class RectShape extends BaseShape<RectShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius(radius: number | string | Array<number | string>): RectShape;
 }
@@ -302,7 +327,8 @@ export declare class RectShape extends BaseShape<RectShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class CircleShape extends BaseShape<CircleShape> {
   /**
@@ -313,7 +339,8 @@ export declare class CircleShape extends BaseShape<CircleShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options?: ShapeSize);
 }
@@ -326,7 +353,8 @@ export declare class CircleShape extends BaseShape<CircleShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
@@ -337,7 +365,8 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options?: ShapeSize);
 }
@@ -350,7 +379,8 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
@@ -361,7 +391,8 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(options?: PathShapeOptions);
 
@@ -374,7 +405,8 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   commands(commands: string): PathShape;
 }

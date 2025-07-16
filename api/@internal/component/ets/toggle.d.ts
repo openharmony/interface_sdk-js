@@ -56,7 +56,8 @@ import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable 
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ToggleType {
   /**
@@ -87,7 +88,8 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Checkbox,
 
@@ -119,7 +121,8 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Switch,
 
@@ -151,7 +154,8 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Button,
 }
@@ -163,7 +167,8 @@ declare enum ToggleType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SwitchStyle {
   /**
@@ -173,7 +178,8 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pointRadius?: number | Resource;
 
@@ -184,7 +190,8 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   unselectedColor?: ResourceColor;
 
@@ -195,7 +202,8 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pointColor?: ResourceColor;
 
@@ -206,7 +214,8 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackBorderRadius?: number | Resource;
 }
@@ -219,7 +228,8 @@ declare interface SwitchStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
 
@@ -230,7 +240,8 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isOn: boolean;
 
@@ -241,7 +252,8 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enabled: boolean;
 
@@ -252,7 +264,8 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerChange: Callback<boolean>;
 }
@@ -265,7 +278,8 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ToggleOptions {
   /**
@@ -311,7 +325,8 @@ declare interface ToggleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: ToggleType;
 
@@ -408,7 +423,8 @@ declare interface ToggleOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ToggleInterface {
   /**
@@ -459,7 +475,8 @@ interface ToggleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: ToggleOptions): ToggleAttribute;
 }
@@ -496,7 +513,8 @@ interface ToggleInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
@@ -535,7 +553,8 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
@@ -547,7 +566,8 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<ToggleConfiguration>): ToggleAttribute;
 
@@ -587,7 +607,8 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
@@ -627,7 +648,8 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 
@@ -639,7 +661,8 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   switchStyle(value: SwitchStyle): ToggleAttribute;
 }
