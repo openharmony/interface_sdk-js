@@ -1015,8 +1015,7 @@ export declare enum KeyCode {
    * KEYCODE_FORWARD
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   KEYCODE_FORWARD = 2084,
 
@@ -1390,7 +1389,8 @@ export declare enum KeyCode {
    * Joystick key A
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_A = 2301,
 
@@ -1398,7 +1398,8 @@ export declare enum KeyCode {
    * Joystick key B
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_B = 2302,
 
@@ -1406,7 +1407,8 @@ export declare enum KeyCode {
    * Joystick key X
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_X = 2304,
 
@@ -1414,7 +1416,8 @@ export declare enum KeyCode {
    * Joystick key Y
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_Y = 2305,
 
@@ -1422,7 +1425,8 @@ export declare enum KeyCode {
    * Joystick key L1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_L1 = 2307,
 
@@ -1430,7 +1434,8 @@ export declare enum KeyCode {
    * Joystick key R1
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_R1 = 2308,
 
@@ -1438,7 +1443,8 @@ export declare enum KeyCode {
    * Joystick key L2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_L2 = 2309,
 
@@ -1446,7 +1452,8 @@ export declare enum KeyCode {
    * Joystick key R2
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_R2 = 2310,
 
@@ -1454,7 +1461,8 @@ export declare enum KeyCode {
    * Joystick key Select
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_SELECT = 2311,
 
@@ -1462,7 +1470,8 @@ export declare enum KeyCode {
    * Joystick key Start
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_START = 2312,
 
@@ -1470,7 +1479,8 @@ export declare enum KeyCode {
    * Joystick key Mode
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_MODE = 2313,
 
@@ -1478,7 +1488,8 @@ export declare enum KeyCode {
    *Joystick key THUMBL
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_THUMBL = 2314,
 
@@ -1486,7 +1497,8 @@ export declare enum KeyCode {
    * Joystick key THUMBR
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_BUTTON_THUMBR = 2315,
 
