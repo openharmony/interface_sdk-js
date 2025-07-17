@@ -35,7 +35,7 @@ declare namespace userAccessCtrl {
    *
    * @permission ohos.permission.USE_USER_ACCESS_MANAGER
    * @param { Uint8Array } authToken - AuthToken to be verified.
-   * @param { number } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
+   * @param { int } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
    * @returns { Promise<AuthToken> } Returns parsed authToken.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -51,7 +51,7 @@ declare namespace userAccessCtrl {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function verifyAuthToken(authToken: Uint8Array, allowableDuration: number): Promise<AuthToken>;
+  function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
   /**
    * Authentication token.
@@ -110,13 +110,13 @@ declare namespace userAccessCtrl {
     /**
      * The user id of authToken.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId: number;
+    userId: int;
 
     /**
      * The time interval from the authToken is issued till now in milliseconds.
@@ -166,7 +166,7 @@ declare namespace userAccessCtrl {
   /**
    * The issued type for authToken.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18','1.2':'20'}

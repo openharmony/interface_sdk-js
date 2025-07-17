@@ -61,7 +61,7 @@ declare namespace userAuth {
    * @since 20
    * @arkts 1.2
    */
-  const MAX_ALLOWABLE_REUSE_DURATION: number = 300000;
+  const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
 
   /**
    * Enum for authentication result.
@@ -692,7 +692,7 @@ declare namespace userAuth {
   /**
    * Enumerates the identity authentication types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -770,7 +770,7 @@ declare namespace userAuth {
    * For details about typical scenarios and examples, see Principles for Classifying Biometric
    * Authentication Trust Levels.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -1104,24 +1104,24 @@ declare namespace userAuth {
     /**
      * Credential digest, which is randomly generated when a credential is added.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    credentialDigest: number;
+    credentialDigest: int;
 
     /**
      * Number of enrolled credentials.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    credentialCount: number;
+    credentialCount: int;
   }
 
   /**
@@ -1164,7 +1164,7 @@ declare namespace userAuth {
   /**
    * Enumerates the window types of the authentication widget.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
@@ -1195,7 +1195,7 @@ declare namespace userAuth {
   /**
    * Enumerates the modes for reusing authentication results.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -1284,13 +1284,13 @@ declare namespace userAuth {
      * Period for which the authentication result can be reused. The value must be greater than 0 and less
      * than MAX_ALLOWABLE_REUSE_DURATION.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    reuseDuration: number;
+    reuseDuration: int;
   }
 
   /**
@@ -1379,14 +1379,14 @@ declare namespace userAuth {
     /**
      * ID of the user to be authenticated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default The ID of the current user. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    userId?: number;
+    userId?: int;
   }
 
   /**
@@ -1499,13 +1499,13 @@ declare namespace userAuth {
      * User authentication result. If the authentication is successful, SUCCESS is returned. Otherwise, an error code
      * is returned. For details, see UserAuthResultCode.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    result: number;
+    result: int;
 
     /**
      * The authentication result if the authentication is passed.
@@ -1834,7 +1834,7 @@ declare namespace userAuth {
   /**
    * Defines the type of the user authentication notification.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
@@ -1882,7 +1882,7 @@ declare namespace userAuth {
   /**
    * Enumerates the authentication result codes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -2154,7 +2154,7 @@ declare namespace userAuth {
    * </p>
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version - Version of the user authentication widget.
+   * @param { int } version - Version of the user authentication widget.
    * @returns { UserAuthWidgetMgr } UserAuthWidgetMgr instance obtained.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -2167,7 +2167,7 @@ declare namespace userAuth {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getUserAuthWidgetMgr(version: number): UserAuthWidgetMgr;
+  function getUserAuthWidgetMgr(version: int): UserAuthWidgetMgr;
 
   /**
    * Provides the callback for returning the commands sent from the user authentication framework
