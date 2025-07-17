@@ -18,9 +18,19 @@
  * @kit AudioKit
  */
 
+/*** if arkts 1.1 */
 import audio from '@ohos.multimedia.audio';
 import audioHaptic from '@ohos.multimedia.audioHaptic';
 import systemSoundManager from '@ohos.multimedia.systemSoundManager';
 import { AVVolumePanel, AVVolumePanelParameter } from '@ohos.multimedia.avVolumePanel';
 
 export { audio, audioHaptic, systemSoundManager, AVVolumePanel, AVVolumePanelParameter };
+/*** endif */
+
+/*** if arkts 1.2 */
+import audio from '@ohos.multimedia.audio';
+import audioHaptic from '@ohos.multimedia.audioHaptic';
+import systemSoundManager from '@ohos.multimedia.systemSoundManager';
+
+export { audio, audioHaptic, systemSoundManager };
+/*** endif */
