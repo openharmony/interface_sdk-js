@@ -77,10 +77,11 @@ declare class WorkSchedulerExtensionAbility {
 }
 
 /**
- * class of driver extension ability.
+ * Class of the work scheduler extension ability.
+ *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @stagemodelonly
- * @since arkts {'1.1':'9', '1.2':'20'}
+ * @StageModelOnly
+ * @since arkts {'1.1':'9','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export default WorkSchedulerExtensionAbility;
