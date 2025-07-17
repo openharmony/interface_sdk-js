@@ -80,7 +80,7 @@ declare namespace distributedDeviceManager {
 
   /**
    * The state of the nearby devices.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
@@ -252,7 +252,8 @@ declare namespace distributedDeviceManager {
    * @interface ServiceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ServiceProfileInfo {
     /**
@@ -260,7 +261,8 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -297,7 +299,8 @@ declare namespace distributedDeviceManager {
    * @interface DeviceProfileInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceProfileInfo {
     /**
@@ -305,7 +308,8 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -341,7 +345,8 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceType: string;
 
@@ -359,7 +364,8 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -734,7 +740,8 @@ declare namespace distributedDeviceManager {
    *                                                  2. Incorrect parameter type;
    *                                                  3. Parameter verification failed.
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createDeviceManager(bundleName: string): DeviceManager;
 
@@ -806,7 +813,8 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLocalDeviceNetworkId(): string;
 
@@ -844,7 +852,8 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLocalDeviceId(): string;
 
@@ -862,7 +871,8 @@ declare namespace distributedDeviceManager {
      *                                                  4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDeviceName(networkId: string): string;
 
@@ -968,7 +978,8 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unbindTarget(deviceId: string): void;
 
