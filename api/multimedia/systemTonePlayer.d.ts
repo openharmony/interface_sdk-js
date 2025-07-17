@@ -25,9 +25,10 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * @typedef SystemTonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export interface SystemTonePlayer {
+export declare interface SystemTonePlayer {
   /**
    * Gets the title of system tone.
    * @returns { Promise<string> } Promise used to return the title.
@@ -109,7 +110,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400103 - I/O error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   prepare(): Promise<void>;
 
@@ -118,7 +120,7 @@ export interface SystemTonePlayer {
    * or haptics. If haptics is needed, caller should have the permission of ohos.permission.VIBRATE.
    * @permission ohos.permission.VIBRATE
    * @param { SystemToneOptions } toneOptions - Tone options used for this play.
-   * @returns { Promise<number> } Promise used to return the id of this playback.
+   * @returns { Promise<int> } Promise used to return the id of this playback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -127,13 +129,14 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  start(toneOptions?: SystemToneOptions): Promise<number>;
+  start(toneOptions?: SystemToneOptions): Promise<int>;
 
   /**
    * Stop with playback id.
-   * @param { number } id - The Playback id to stop.
+   * @param { int } id - The Playback id to stop.
    * @returns { Promise<void> } Promise used to return result of this stop.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -142,9 +145,10 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 5400102 - Operation not allowed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  stop(id: number): Promise<void>;
+  stop(id: int): Promise<void>;
 
   /**
    * Release this system tone player.
@@ -152,7 +156,8 @@ export interface SystemTonePlayer {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(): Promise<void>;
 
@@ -212,7 +217,8 @@ export interface SystemTonePlayer {
  * @typedef SystemToneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SystemToneOptions {
   /**
@@ -220,7 +226,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   muteAudio?: boolean;
 
@@ -229,7 +236,8 @@ export interface SystemToneOptions {
    * @type {?boolean}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   muteHaptics?: boolean;
 }
