@@ -83,7 +83,8 @@ export declare enum KeyCode {
    * KEYCODE_SEARCH
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_SEARCH = 9,
 
@@ -1015,7 +1016,8 @@ export declare enum KeyCode {
    * KEYCODE_FORWARD
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   KEYCODE_FORWARD = 2084,
 
