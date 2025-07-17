@@ -999,8 +999,7 @@ export declare enum KeyCode {
    * KEYCODE_INSERT
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   KEYCODE_INSERT = 2083,
 
