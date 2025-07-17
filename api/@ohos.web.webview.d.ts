@@ -694,79 +694,79 @@ declare namespace webview {
     /**
      * Number of the width.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Number of the height.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Number of the marginTop.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginTop: number;
+    marginTop: double;
 
     /**
      * Number of the marginBottom.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginBottom: number;
+    marginBottom: double;
 
     /**
      * Number of the marginRight.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginRight: number;
+    marginRight: double;
 
     /**
      * Number of the marginLeft.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginLeft: number;
+    marginLeft: double;
 
     /**
      * Number of the scaling.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale?: number;
+    scale?: double;
 
     /**
      * Whether background should be printed when creating pdf.
