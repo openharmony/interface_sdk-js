@@ -60,7 +60,7 @@ declare namespace uniformDataStruct {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-    abstract?: string;
+    textAbstract?: string;
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of

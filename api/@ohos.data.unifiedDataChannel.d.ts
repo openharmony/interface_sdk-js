@@ -838,7 +838,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 14
      */
-    abstract?: string;
+    textAbstract?: string;
 
     /**
      * Indicates the abstract of text
