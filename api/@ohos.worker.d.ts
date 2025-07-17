@@ -126,7 +126,7 @@ export interface WorkerOptions {
 /**
  * Enumerates the priorities available for Worker threads. For details about the mappings between priorities and QoS levels, see QoS Level.
  *
- * @enum { int } ThreadWorkerPriority
+ * @enum { number } ThreadWorkerPriority
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 18
@@ -232,14 +232,14 @@ export interface Event {
   /**
    * Timestamp (accurate to millisecond) when the event is created. This parameter is not supported yet.
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  readonly timeStamp: int;
+  readonly timeStamp: number;
 }
 
 /**
@@ -331,14 +331,14 @@ export interface ErrorEvent extends Event {
   /**
    * Serial number of the line where the exception is located.
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly lineno: int;
+  readonly lineno: number;
 
   /**
    * Number of the column where the exception is located.
@@ -356,14 +356,14 @@ export interface ErrorEvent extends Event {
   /**
    * Serial number of the column where the exception is located.
    *
-   * @type { int }
+   * @type { number }
    * @readonly
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  readonly colno: int;
+  readonly colno: number;
 
   /**
    * Type of the exception.
@@ -1390,7 +1390,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    *
    * @param { string } instanceName - the exact key used in registration
    * @param { string } methodName - a string which is same to the method called on globalCallObject.
-   * @param { int } timeout - the specific milliseconds that will wait for result to return, between 0 and 5000.
+   * @param { number } timeout - the specific milliseconds that will wait for result to return, between 0 and 5000.
    * @param { Object[] } args - the method argument called on registered globalCallObject.
    * @returns { Object } Return the result of method if it has a return value, otherwise return void.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1413,7 +1413,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { string } instanceName - Key used for registration. It is used to search for the object in the host thread.
    * @param { string } methodName - Name of the method to call. Note that the method cannot be modified by async or generator,
    *     or return results asynchronously by using the asynchronous mechanism at the bottom layer. Otherwise, an exception is thrown.
-   * @param { int } timeout - Maximum duration that the current synchronous invoking waits, in ms.
+   * @param { number } timeout - Maximum duration that the current synchronous invoking waits, in ms.
    *     The value is an integer ranging from 1 to 5000. The value 0 means that the 5000 ms duration is used.
    * @param { Object[] } args - the method argument called on registered globalCallObject.
    * @returns { Object } Return the result of method if it has a return value, otherwise return void.
@@ -1431,7 +1431,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @atomicservice
    * @since 12
    */
-  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: int, ...args: Object[]): Object;
+  callGlobalCallObjectMethod(instanceName: string, methodName: string, timeout: number, ...args: Object[]): Object;
 }
 
 /**
@@ -1574,7 +1574,7 @@ declare namespace worker {
      * @atomicservice
      * @since 11
      */
-    onexit?: (code: int) => void;
+    onexit?: (code: number) => void;
     /**
      * The onerror attribute of the worker specifies the event handler to be called
      * when an exception occurs during worker execution.
@@ -2297,7 +2297,7 @@ declare namespace worker {
      * @deprecated since 9
      * @useinstead ohos.worker.ThreadWorker.onexit
      */
-    onexit?: (code: int) => void;
+    onexit?: (code: number) => void;
 
     /**
      * The onerror attribute of the worker specifies the event handler to be called
