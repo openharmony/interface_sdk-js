@@ -521,7 +521,7 @@ parameters are left unspecified;
    * Get the free size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
