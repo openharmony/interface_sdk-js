@@ -27,7 +27,6 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  *
  * @typedef { _WorkSchedulerExtensionContext }
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
