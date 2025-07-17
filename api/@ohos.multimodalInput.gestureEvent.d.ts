@@ -18,9 +18,7 @@
  * @kit InputKit
  */
 
-/*** if arkts 1.2 */
 import { Touch } from './@ohos.multimodalInput.touchEvent';
-/*** endif */
 
 /**
  * Pinch event on touchPad

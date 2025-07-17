@@ -18,13 +18,8 @@
  * @kit InputKit
  */
 
-/*** if arkts 1.1 */
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
-/*** endif */
-/*** if arkts 1.2 */
-import { InputEvent } from './@ohos.multimodalInput.inputEvent';
-/*** endif */
 
 /**
  * Action
@@ -415,7 +410,8 @@ export declare interface MouseEvent extends InputEvent {
    * List of pressed keys
    * @type { KeyCode[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressedKeys: KeyCode[];
 
