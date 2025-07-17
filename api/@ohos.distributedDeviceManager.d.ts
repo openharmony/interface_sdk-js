@@ -34,7 +34,8 @@ declare namespace distributedDeviceManager {
    * Basic description information of a distributed device.
    * @interface DeviceBasicInfo
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceBasicInfo {
     /**
@@ -77,7 +78,8 @@ declare namespace distributedDeviceManager {
    * The state of the nearby devices.
    * @enum { number }
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DeviceStateChange {
     /**
@@ -862,7 +864,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } networkId - Device network id.
-     * @returns { number } - Returns device type.
+     * @returns { int } - Returns device type.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
@@ -871,21 +873,8 @@ declare namespace distributedDeviceManager {
      *                                                  4. The size of specified networkId is greater than 255.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
-     */
-    getDeviceType(networkId: string): number;
-
-    /**
-     * Get the device type by network id.
-     *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } networkId - Device network id.
-     * @returns { int } - Returns device type.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 11600101 - Failed to execute the function.
-     * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDeviceType(networkId: string): int;
 
@@ -1329,7 +1318,7 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'replyResult' } type - Ui reply result to register.
      * @param { Callback<ReplyResult> } callback - Indicates the devicemanager ui state to register.
-     * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1362,7 +1351,7 @@ declare namespace distributedDeviceManager {
       * @permission ohos.permission.ACCESS_SERVICE_DM
       * @param { 'replyResult' } type - Ui reply result to unregister.
       * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
-      * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
       * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
       * @syscap SystemCapability.DistributedHardware.DeviceManager
       * @systemapi this method can be used only by system applications.
