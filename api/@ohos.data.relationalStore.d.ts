@@ -4083,7 +4083,6 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Assets type.
      * If the value of the specified column in the current row exceeds the value range of number, return a string type.
-     * Only for flutter
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
@@ -4102,7 +4101,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 20
      */
-    getValueForFlutter(columnIndex: number): ValueType
+    getPreciseValue(columnIndex: number): ValueType
 
     /**
      * Obtains the value of the specified column in the current row as a float array.
@@ -4210,7 +4209,6 @@ declare namespace relationalStore {
     /**
      * Obtains the values of all columns in the specified row.
      * If the value of a column in the current row exceeds the value range of number, return a string type.
-     * Only for flutter
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -4228,7 +4226,7 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 20
      */
-    getRowForFlutter(): ValuesBucket
+    getPreciseRow(): ValuesBucket
 
     /**
      * Obtains the values of all columns in the specified rows.
