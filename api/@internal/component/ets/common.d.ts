@@ -21034,6 +21034,17 @@ declare interface BackgroundOptions {
 }
 
 /**
+ * Defines the value of the custom property..
+ *
+ * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21211,10 +21222,23 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   customProperty(name: string, value: Optional<Object>): T;
+
+  /**
+   * Sets the custom property of the current component.
+   *
+   * @param { string } name - the name of the custom property.
+   * @param { CustomProperty } value - the value of the custom property.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  customProperty(name: string, value: CustomProperty): T;
 
   /**
    * Expands the safe area.
