@@ -63,9 +63,11 @@ declare namespace mechanicManager {
 
     /**
      * Sets a user operation.
+     * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
      * @param { Operation } operation Operation type.
      * @param { string } mac MAC address.
      * @param { string } params Operation parameters.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
