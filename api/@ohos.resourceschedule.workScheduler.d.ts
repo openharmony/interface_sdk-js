@@ -348,7 +348,7 @@ declare namespace workScheduler {
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { int } workId - The id of work.
+   * @param { number } workId - The id of work.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @returns { boolean } true if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
@@ -362,7 +362,7 @@ declare namespace workScheduler {
    * @since 9
    * @deprecated since 10
    */
-  function isLastWorkTimeOut(workId: int, callback: AsyncCallback<void>): boolean;
+  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
