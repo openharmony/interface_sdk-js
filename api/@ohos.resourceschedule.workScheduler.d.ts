@@ -43,13 +43,13 @@ declare namespace workScheduler {
     /**
      * The id of the current work.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    workId: number;
+    workId: int;
     /**
      * The bundle name of the current work.
      *
@@ -113,13 +113,13 @@ declare namespace workScheduler {
     /**
      * The battery level for triggering a work.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batteryLevel?: number;
+    batteryLevel?: int;
     /**
      * The battery status for triggering a work.
      *
@@ -143,13 +143,13 @@ declare namespace workScheduler {
     /**
      * The interval at which the work is repeated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    repeatCycleTime?: number;
+    repeatCycleTime?: int;
     /**
      * Whether the work has been set to repeat at the specified interval.
      *
@@ -163,13 +163,13 @@ declare namespace workScheduler {
     /**
      * The repeat of the current work.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    repeatCount?: number;
+    repeatCount?: int;
     /**
      * Whether the device deep idle state has been set for triggering the work.
      *
@@ -183,23 +183,23 @@ declare namespace workScheduler {
     /**
      * The idle wait time based on which the work is triggered.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    idleWaitTime?: number;
+    idleWaitTime?: int;
     /**
-     * The parameters of the work. The value is only supported basic type(Number, String, Boolean).
+     * The parameters of the work. The value is only supported basic type(Int, Double, String, Boolean).
      *
-     * @type { ?Record<string, number | string | boolean> }
+     * @type { ?Record<string, int | double | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    parameters?: Record<string, number | string | boolean>;
+    parameters?: Record<string, int | double | string | boolean>;
   }
 
   /**
@@ -244,7 +244,7 @@ declare namespace workScheduler {
   /**
    * Obtains the work info of the wordId.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @param { AsyncCallback<WorkInfo> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -257,12 +257,12 @@ declare namespace workScheduler {
    * @since arkts {'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getWorkStatus(workId: number, callback: AsyncCallback<WorkInfo>): void;
+  function getWorkStatus(workId: int, callback: AsyncCallback<WorkInfo>): void;
 
   /**
    * Obtains the work info of the wordId.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @returns { Promise<WorkInfo> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -275,7 +275,7 @@ declare namespace workScheduler {
    * @since arkts {'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getWorkStatus(workId: number): Promise<WorkInfo>;
+  function getWorkStatus(workId: int): Promise<WorkInfo>;
 
   /**
    * Get all works of the calling application.
@@ -348,7 +348,7 @@ declare namespace workScheduler {
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @returns { boolean } true if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
@@ -362,12 +362,12 @@ declare namespace workScheduler {
    * @since 9
    * @deprecated since 10
    */
-  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
+  function isLastWorkTimeOut(workId: int, callback: AsyncCallback<void>): boolean;
 
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @param { AsyncCallback<boolean> } callback - The callback of the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -380,12 +380,12 @@ declare namespace workScheduler {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<boolean>): void;
+  function isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
    *
-   * @param { number } workId - The id of work.
+   * @param { int } workId - The id of work.
    * @returns { Promise<boolean> } True if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -398,12 +398,12 @@ declare namespace workScheduler {
    * @since arkts {'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isLastWorkTimeOut(workId: number): Promise<boolean>;
+  function isLastWorkTimeOut(workId: int): Promise<boolean>;
 
   /**
    * Describes network type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -470,7 +470,7 @@ declare namespace workScheduler {
   /**
    * Describes charging type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -519,7 +519,7 @@ declare namespace workScheduler {
   /**
    * Describes the battery status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -559,7 +559,7 @@ declare namespace workScheduler {
   /**
    * Describes the storage request.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
    * @since arkts {'1.1':'9','1.2':'20'}

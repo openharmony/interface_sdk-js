@@ -41,7 +41,7 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * @since arkts {'1.1':'9','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class WorkSchedulerExtensionAbility {
+declare class WorkSchedulerExtensionAbility {
   /**
    * Indicates work scheduler extension ability context.
    *
@@ -75,3 +75,12 @@ export default class WorkSchedulerExtensionAbility {
    */
   onWorkStop(work: workScheduler.WorkInfo): void;
 }
+
+/**
+ * class of driver extension ability.
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+ * @stagemodelonly
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export default WorkSchedulerExtensionAbility;

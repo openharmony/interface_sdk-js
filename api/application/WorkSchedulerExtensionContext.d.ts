@@ -31,7 +31,7 @@ import type Want from '../@ohos.app.ability.Want';
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class WorkSchedulerExtensionContext extends ExtensionContext {
+declare class WorkSchedulerExtensionContext extends ExtensionContext {
   /**
    * Starts a new service extension ability.
    * If the target service extension ability is visible, you can start the target service extension ability;
@@ -93,3 +93,13 @@ export default class WorkSchedulerExtensionContext extends ExtensionContext {
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 }
+/**
+ * Define a WorkSchedulerExtensionContext.
+ *
+ * @typedef { WorkSchedulerExtensionContext }
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+ * @stagemodelonly
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export default WorkSchedulerExtensionContext;
