@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,6 +27,24 @@ import Want from './@ohos.app.ability.Want';
 /*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
 /*** endif */
+
+/**
+ * Called to return a {@link FormState} object.
+ * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+ * this method returns {@link FormState#DEFAULT} by default.</p>
+ *
+ * @typedef { function }
+ * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
+ *                        is obtained. The description covers the bundle name, ability name, module name,
+ *                        form name, and form dimensions.
+ * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
 /**
  * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
@@ -286,6 +304,20 @@ declare class FormExtensionAbility {
    * @since 11
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
+
+  /**
+   * Called to return a {@link FormState} object.
+   * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+   * this method returns {@link FormState#DEFAULT} by default.</p>
+   *
+   * @type { ?OnAcquireFormStateFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+    onAcquireFormState?: OnAcquireFormStateFn;
 
   /**
    * Called when the system shares the form.
