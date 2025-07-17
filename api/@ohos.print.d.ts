@@ -1398,6 +1398,14 @@ declare namespace print {
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
+     * Print printer driver exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17,
+
+    /**
      * Print an error occurred when printing the account.
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'14','1.2':'20'}
@@ -1484,6 +1492,30 @@ declare namespace print {
      * @arkts 1.1&1.2
      */
     PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
+
+    /**
+     * Print driver file missing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_DRIVER_MISSING = 34,
+
+    /**
+     * Print job interrupt.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_INTERRUPT = 35,
+
+    /**
+     * Print on an unavailable printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98,
 
     /**
      * Print unknown issue.
@@ -1714,14 +1746,26 @@ declare namespace print {
    * Load the specific printer extension and start to discover printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *        empty list of extensionList Indicates to find printer with all installed extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Load the specific printer extension and start to discover printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { Array<string> } extensionList - Indicates the list of printer extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
@@ -1730,14 +1774,26 @@ declare namespace print {
    * Load the specific printer extension and start to discover printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *        empty list of extensionList Indicates to find printer with all installed extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Load the specific printer extension and start to discover printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { Array<string> } extensionList - Indicates the list of printer extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
@@ -1753,6 +1809,15 @@ declare namespace print {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Stop discovering the printer with specific printer extension.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
   /**
@@ -1766,6 +1831,15 @@ declare namespace print {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Stop discovering the printer with specific printer extension.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function stopDiscoverPrinter(): Promise<void>;
 
   /**
@@ -1775,10 +1849,21 @@ declare namespace print {
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
@@ -1790,10 +1875,21 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string): Promise<void>;
@@ -1917,6 +2013,20 @@ declare namespace print {
    * @arkts 1.1&1.2
    */
   function cancelPrintJob(jobId: string): Promise<void>;
+
+  /**
+   * Restart the print job has been sent.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { string } jobId - Indicates the specific print job.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function restartPrintJob(jobId: string): Promise<void>;
 
   /**
    * Request preview of the print job.
@@ -2233,9 +2343,9 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
+   * @arkts 1.1&1.2
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -2248,11 +2358,24 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
+   * @arkts 1.1&1.2
    */
   function queryAllPrintJobs(): Promise<void>;
+
+  /**
+   * Get all active printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @returns { Promise<PrintJob[]> } Returns a list of all active print jobs.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function queryAllActivePrintJobs(): Promise<PrintJob[]>;
 
   /**
    * Get all the printJobs in the queue.
@@ -2378,7 +2501,8 @@ declare namespace print {
    * @returns { Promise<PrinterInfo> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'12','1.2':'20'}
