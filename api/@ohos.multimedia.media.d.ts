@@ -4657,6 +4657,18 @@ declare namespace media {
      * @since 20
      */
     keepDecodingOnMute?: boolean;
+
+    /**
+     * Indicates whether to enable camera post-processing during video playback,
+     * which is used to apply image enhancements when playing back video content.
+     * @type { ?boolean } The default value is false, which means that the video
+     *                    will be played back without any camera post-processing effects.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    enableCameraPostprocessing?: boolean;
   }
 
   /**
