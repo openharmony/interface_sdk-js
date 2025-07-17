@@ -1029,7 +1029,8 @@ declare namespace distributedDeviceManager {
      * @param { 'deviceStateChange' } type - Device state change.
      * @param { Callback<DeviceStateChangeResult> } callback
      * Indicates the device state callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1061,7 +1062,8 @@ declare namespace distributedDeviceManager {
      * @param { 'deviceStateChange' } type - Device state change.
      * @param { Callback<DeviceStateChangeResult> } [callback]
      * Indicates the device state callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1091,7 +1093,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverSuccess' } type - Successfully discovered device.
      * @param { Callback<DiscoverySuccessResult> } callback - Indicates the device discovery callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1121,7 +1124,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'discoverSuccess' } type - Successfully discovered device.
      * @param { Callback<DiscoverySuccessResult> } [callback] - Indicates the device discovery callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1151,7 +1155,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'deviceNameChange' } type - Changed device name.
      * @param { Callback<DeviceNameChangeResult> } callback - Indicates the device name change callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1181,7 +1186,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'deviceNameChange' } type - Changed device name.
      * @param { Callback<DeviceNameChangeResult> } [callback] - Indicates the device name change callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1213,7 +1219,8 @@ declare namespace distributedDeviceManager {
      * @param { 'discoverFailure' } type - Discovery Device Failure.
      * @param { Callback<DiscoveryFailureResult> } callback
      * Indicates the device found result callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1245,7 +1252,8 @@ declare namespace distributedDeviceManager {
      * @param { 'discoverFailure' } type - Discovery Device Failure.
      * @param { Callback<DiscoveryFailureResult> } [callback]
      * Indicates the device found result callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1275,7 +1283,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'serviceDie' } type - Service death.
      * @param { Callback<ServiceDieData> } [callback] - Indicates the service error callback to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1305,7 +1314,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'serviceDie' } type - Service death.
      * @param { Callback<ServiceDieData> } [callback] - Indicates the service error callback to unregister.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 20
      * @arkts 1.2
@@ -1336,7 +1346,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.ACCESS_SERVICE_DM
      * @param { 'replyResult' } type - Ui reply result to register.
      * @param { Callback<ReplyResult> } callback - Indicates the devicemanager ui state to register.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
@@ -1364,18 +1375,19 @@ declare namespace distributedDeviceManager {
     off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
 
     /**
-      * Unregister uiStateChange, this interface can only be used by devicemanager ui.
-      *
-      * @permission ohos.permission.ACCESS_SERVICE_DM
-      * @param { 'replyResult' } type - Ui reply result to unregister.
-      * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
-      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-      * @syscap SystemCapability.DistributedHardware.DeviceManager
-      * @systemapi this method can be used only by system applications.
-      * @since 20
-      * @arkts 1.2
-      */
+     * Unregister uiStateChange, this interface can only be used by devicemanager ui.
+     *
+     * @permission ohos.permission.ACCESS_SERVICE_DM
+     * @param { 'replyResult' } type - Ui reply result to unregister.
+     * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
+     * @throws { BusinessError } 201 - Permission verification failed. 
+     *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 20
+     * @arkts 1.2
+     */
     off(type: 'replyResult', callback?: Callback<ReplyResult>): void;
 
     /**
