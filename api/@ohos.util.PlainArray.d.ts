@@ -99,14 +99,14 @@ declare class PlainArray<T> {
   /**
    * Gets the element number of the PlainArray.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Appends a key-value pair to PlainArray
@@ -136,7 +136,7 @@ declare class PlainArray<T> {
   /**
    * Appends a key-value pair to PlainArray
    *
-   * @param { number } key - key key Added the key of key-value
+   * @param { int } key - key key Added the key of key-value
    * @param { T } value - value value Added the value of key-value
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -148,7 +148,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  add(key: number, value: T): void;
+  add(key: int, value: T): void;
   /**
    * Clears the current PlainArray object
    *
@@ -232,7 +232,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    *
-   * @param { number } key - key key need to determine whether to include the key
+   * @param { int } key - key key need to determine whether to include the key
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -244,7 +244,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  has(key: number): boolean;
+  has(key: int): boolean;
   /**
    * Queries the value associated with the specified key
    *
@@ -289,7 +289,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    *
-   * @param { number } key - looking for goals
+   * @param { int } key - looking for goals
    * @returns { T | undefined } the value of key-value pairs
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -298,7 +298,7 @@ declare class PlainArray<T> {
    * @since 20
    * @arkts 1.2
    */
-  get(key: number): T | undefined;
+  get(key: int): T | undefined;
 
   /**
    * Queries the index for a specified key
@@ -328,8 +328,8 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    *
-   * @param { number } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @param { int } key - key key Looking for goals
+   * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -340,7 +340,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getIndexOfKey(key: number): number;
+  getIndexOfKey(key: int): int;
   /**
    * Queries the index for a specified value
    *
@@ -364,7 +364,7 @@ declare class PlainArray<T> {
    * Queries the index for a specified value
    *
    * @param { T } value - value value Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -372,7 +372,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getIndexOfValue(value: T): number;
+  getIndexOfValue(value: T): int;
   /**
    * Checks whether the current PlainArray object is empty
    *
@@ -499,7 +499,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *
-   * @param { number } key - target to be deleted
+   * @param { int } key - target to be deleted
    * @returns { T | undefined } target mapped value, or undefined if key is not exist
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -508,7 +508,7 @@ declare class PlainArray<T> {
    * @since 20
    * @arkts 1.2
    */
-  remove(key: number): T | undefined;
+  remove(key: int): T | undefined;
 
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
@@ -554,7 +554,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    *
-   * @param { number } index - target subscript for search
+   * @param { int } index - target subscript for search
    * @returns { T | undefined } the T type, or undefined if container is empty
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
@@ -563,7 +563,7 @@ declare class PlainArray<T> {
    * @since 20
    * @arkts 1.2
    */
-  removeAt(index: number): T | undefined;
+  removeAt(index: int): T | undefined;
 
   /**
    * Remove a group of key-value pairs from a specified index
@@ -597,9 +597,9 @@ declare class PlainArray<T> {
   /**
    * Remove a group of key-value pairs from a specified index
    *
-   * @param { number } index - index index remove start index
-   * @param { number } size - size size Expected deletion quantity
-   * @returns { number } Actual deleted quantity
+   * @param { int } index - index index remove start index
+   * @param { int } size - size size Expected deletion quantity
+   * @returns { int } Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -611,7 +611,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  removeRangeFrom(index: number, size: number): number;
+  removeRangeFrom(index: int, size: int): int;
   /**
    * Update value on specified index
    *
@@ -642,7 +642,7 @@ declare class PlainArray<T> {
   /**
    * Update value on specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @param { T } value - value value Updated the target mapped value
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -655,7 +655,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setValueAt(index: number, value: T): void;
+  setValueAt(index: int, value: T): void;
   /**
    * Obtains the string representation of the PlainArray object
    *
@@ -715,7 +715,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @returns { T } the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -728,7 +728,7 @@ declare class PlainArray<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getValueAt(index: number): T;
+  getValueAt(index: int): T;
   /**
    * Executes a provided function once for each value in the PlainArray object.
    *
@@ -826,14 +826,14 @@ declare class PlainArray<T> {
   /**
    * returns an iterator. Each item of the iterator is a ArkTS Object
    *
-   * @returns { IterableIterator<[number, T]> }
+   * @returns { IterableIterator<[int, T]> }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  $_iterator(): IterableIterator<[number, T]>;
+  $_iterator(): IterableIterator<[int, T]>;
 
 }
 
@@ -842,7 +842,7 @@ declare class PlainArray<T> {
  *
  * @typedef { function } PlainArrayForEachCb
  * @param { T } value - The value of current element
- * @param { number } key - The key of current element
+ * @param { int } key - The key of current element
  * @param { PlainArray<T> } PlainArray - The PlainArray instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
@@ -850,6 +850,6 @@ declare class PlainArray<T> {
  * @since 20
  * @arkts 1.2
  */
-export type PlainArrayForEachCb<T> = (value: T, key: number, PlainArray: PlainArray<T>) => void
+export type PlainArrayForEachCb<T> = (value: T, key: int, PlainArray: PlainArray<T>) => void
 
 export default PlainArray;

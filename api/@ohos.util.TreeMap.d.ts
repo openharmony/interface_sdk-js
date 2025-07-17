@@ -136,14 +136,14 @@ declare class TreeMap<K, V> {
   /**
    * Gets the element number of the TreeMap.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Returns whether the Map object contains elements
@@ -879,12 +879,12 @@ export type TreeMapForEachCb<K, V> = (value: V, key: K, map: TreeMap<K, V>) => v
  * @typedef { function } TreeMapComparator
  * @param { K } firstValue - The first value compared
  * @param { K } secondValue - The second value compared
- * @returns { number } - Comparison results
+ * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => number
+export type TreeMapComparator<K> = (firstValue: K, secondValue: K) => double
 
 export default TreeMap;

@@ -101,14 +101,14 @@ declare class Deque<T> {
     /**
    * Gets the element number of the Deque.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
   /**
    * Inserts an element into the deque header.
    *
@@ -431,7 +431,7 @@ declare class Deque<T> {
    /**
    * Returns the item at that index.
    * 
-   * @param { number } index - The zero-based index of the desired code unit.
+   * @param { int } index - The zero-based index of the desired code unit.
    *     Throws error if index < 0 or index >= deque.length.
    * @returns { T } The element in the deque matching the given index. 
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -441,7 +441,7 @@ declare class Deque<T> {
    * @since 20
    * @arkts 1.2
    */
-  [index: number]: T;
+  [index: int]: T;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
@@ -485,19 +485,19 @@ declare class Deque<T> {
   $_iterator(): IterableIterator<T>;
 }
 
-  /**
-   * The type of Deque forEach callback function.
-   *
-   * @typedef { function } DequeForEachCb
-   * @param { T } value - The current element being processed
-   * @param { number } index - The index of the current element
-   * @param { Deque<T> } deque - The Deque instance being traversed
-   * @returns { void } This callback does not return a value
-   * @syscap SystemCapability.Utils.Lang
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export type DequeForEachCb<T> = (value: T, index: number, deque: Deque<T>) => void;
+/**
+ * The type of Deque forEach callback function.
+ *
+ * @typedef { function } DequeForEachCb
+ * @param { T } value - The current element being processed
+ * @param { int } index - The index of the current element
+ * @param { Deque<T> } deque - The Deque instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type DequeForEachCb<T> = (value: T, index: int, deque: Deque<T>) => void;
 
 export default Deque;
