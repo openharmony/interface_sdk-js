@@ -98,14 +98,14 @@ declare class HashMap<K, V> {
   /**
    * Gets the number of elements in a hash map.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
   /**
    * Returns whether the Map object contains elements
    *
