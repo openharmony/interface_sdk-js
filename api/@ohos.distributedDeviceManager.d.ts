@@ -44,7 +44,8 @@ declare namespace distributedDeviceManager {
      * the obtained ID will change.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -52,7 +53,8 @@ declare namespace distributedDeviceManager {
      * Device name.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
 
@@ -61,7 +63,8 @@ declare namespace distributedDeviceManager {
      * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car}.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceType: string;
 
@@ -69,7 +72,8 @@ declare namespace distributedDeviceManager {
      * Device network id.
      * @type { ?string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     networkId?: string;
   }
@@ -86,21 +90,24 @@ declare namespace distributedDeviceManager {
      * This state indicates the device is online but the state is unknown,The distributed function cannot used until
      * state changes to AVAILABLE.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN = 0,
 
     /**
      * This state indicates the device has been synchronized to the database, Now the distributed function can be used.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVAILABLE = 1,
 
     /**
      * This state indicates the device is offline.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNAVAILABLE = 2,
   }
