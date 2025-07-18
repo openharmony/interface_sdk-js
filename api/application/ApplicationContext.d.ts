@@ -103,6 +103,28 @@ declare class ApplicationContext extends Context {
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
+    /**
+   * Registers a listener to monitor the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { 'abilityLifecycle' } type - Event type.
+   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
+   * @returns { double } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): double;
+
   /**
    * Unregister ability lifecycle callback.
    *
@@ -148,6 +170,29 @@ declare class ApplicationContext extends Context {
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
+    /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   *    
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { 'abilityLifecycle' } type - Event type.
+   * @param { double } callbackId - ID of the listener to unregister.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   * err is undefined. Otherwise, err is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  off(type: 'abilityLifecycle', callbackId: double, callback: AsyncCallback<void>): void;
+
   /**
    * Unregister ability lifecycle callback.
    *
@@ -191,6 +236,28 @@ declare class ApplicationContext extends Context {
    * @since 12
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { 'abilityLifecycle' } type - Event type.
+   * @param { double } callbackId - ID of the listener to unregister.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   * 2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  off(type: 'abilityLifecycle', callbackId: double): Promise<void>;
 
   /**
    * Register environment callback.

@@ -44,7 +44,8 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class AbilityLifecycleCallback {
   /**
@@ -72,7 +73,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -115,7 +117,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -223,7 +226,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -264,7 +268,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -304,7 +309,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -344,7 +350,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityBackground(ability: UIAbility): void;
 
