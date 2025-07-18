@@ -1221,7 +1221,7 @@ declare namespace usageStatistics {
   /**
    * Declares group type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since arkts{ '1.1':'9', '1.2':'20' }
