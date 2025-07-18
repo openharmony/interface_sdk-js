@@ -18823,6 +18823,7 @@ declare interface ContextMenuOptions {
     * The color of menu's outer border.
     *
     * @type { ?(ResourceColor | EdgeColors) }
+    * @default '#19ffffff'
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
@@ -18832,8 +18833,10 @@ declare interface ContextMenuOptions {
 
   /**
     * The width of menu's outer border.
+    * If outline effects are required, outlineWidth is required.
     *
     * @type { ?(Dimension | EdgeOutlineWidths) }
+    * @default 0vp - Percentage values are not supported.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
