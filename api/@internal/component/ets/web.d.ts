@@ -5464,24 +5464,24 @@ declare interface NativeEmbedInfo {
   /**
    * The embed tag width.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  width?: number;
+  width?: int;
 
   /**
    * The embed tag height.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  height?: number;
+  height?: int;
 
   /**
    * The embed tag url.
@@ -5711,24 +5711,24 @@ declare interface FirstMeaningfulPaint {
   /**
    * Start time of navigation.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  navigationStartTime?: number;
+  navigationStartTime?: long;
 
   /**
    * Paint time of first meaningful content.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  firstMeaningfulPaintTime?: number;
+  firstMeaningfulPaintTime?: long;
 }
 
 /**
@@ -5744,68 +5744,68 @@ declare interface LargestContentfulPaint {
   /**
    *  Start time of navigation.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  navigationStartTime?: number;
+  navigationStartTime?: long;
 
   /**
    * Paint time of largest image.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  largestImagePaintTime?: number;
+  largestImagePaintTime?: long;
 
   /**
    * Paint time of largest text.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  largestTextPaintTime?: number;
+  largestTextPaintTime?: long;
 
   /**
    * Bits per pixel of image.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  imageBPP?: number;
+  imageBPP?: double;
 
   /**
    * Load start time of largest image.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  largestImageLoadStartTime?: number;
+  largestImageLoadStartTime?: long;
 
   /**
    * Load end time of largest image.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  largestImageLoadEndTime?: number;
+  largestImageLoadEndTime?: long;
 }
 
 /**
@@ -7164,24 +7164,24 @@ declare interface OnFirstContentfulPaintEvent {
   /**
    * The time at which navigation begins, expressed in microseconds.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  navigationStartTick: number;
+  navigationStartTick: long;
 
   /**
    * The time it takes to draw content for the first time from navigation, expressed in milliseconds.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  firstContentfulPaintMs: number;
+  firstContentfulPaintMs: long;
 }
 
 /**
@@ -8161,7 +8161,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { int } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -8169,14 +8169,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { int } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  textZoomRatio(textZoomRatio: number): WebAttribute;
+  textZoomRatio(textZoomRatio: int): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
@@ -9632,7 +9632,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
    *
-   * @param { number } size Font size.
+   * @param { int } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9640,7 +9640,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { number } size Default fixed font size to set, in px.
+   * @param { int } size Default fixed font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 13.
@@ -9650,12 +9650,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  defaultFixedFontSize(size: number): WebAttribute;
+  defaultFixedFontSize(size: int): WebAttribute;
 
   /**
    * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
    *
-   * @param { number } size Font size.
+   * @param { int } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9663,7 +9663,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the default font size for the web page.
    *
-   * @param { number } size Default font size to set, in px.
+   * @param { int } size Default font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering, values greater than 72 are handled as 72,
    *    and values less than 1 are handled as 1. Default value: 16.
    * @returns { WebAttribute }
@@ -9672,12 +9672,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  defaultFontSize(size: number): WebAttribute;
+  defaultFontSize(size: int): WebAttribute;
 
   /**
    * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
-   * @param { number } size Font size.
+   * @param { int } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9685,7 +9685,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum font size for the web page.
    *
-   * @param { number } size Minimum font size to set, in px.
+   * @param { int } size Minimum font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
@@ -9696,12 +9696,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minFontSize(size: number): WebAttribute;
+  minFontSize(size: int): WebAttribute;
 
   /**
    * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
    *
-   * @param { number } size Font size.
+   * @param { int } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -9709,7 +9709,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the minimum logical font size for the web page.
    *
-   * @param { number } size Minimum logical font size to set, in px.
+   * @param { int } size Minimum logical font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
    *    values greater than 72 are handled as 72, and values less than 1 are handled as 1.
    *    Default value: 8
@@ -9719,7 +9719,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minLogicalFontSize(size: number): WebAttribute;
+  minLogicalFontSize(size: int): WebAttribute;
 
   /**
    * Set the default text encodingFormat value of webview. The default value is UTF-8.

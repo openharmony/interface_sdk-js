@@ -95,14 +95,14 @@ declare class HashSet<T> {
     /**
    * Gets the element number of the HashSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
   /**
    * Returns whether the Set object contains elements
    *

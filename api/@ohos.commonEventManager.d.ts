@@ -378,6 +378,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
@@ -1014,6 +1015,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
 
@@ -1024,6 +1026,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
 
@@ -2591,6 +2594,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
 
