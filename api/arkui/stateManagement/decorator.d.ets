@@ -675,6 +675,36 @@ export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedM
 export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
 /**
+ * Define Local decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @interface ILocalDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {} 
+
+/**
+ * Define Param decoration variable interface.
+ *
+ * @extends IDecoratedImmutableVariable<T>,  IDecoratedUpdatableVariable<T>, IDecoratedV2Variable
+ * @interface IParamDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV2Variable {}
+
+/**
+ * Define Param Once decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @interface IParamOnceDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+
+/**
  * Define Link source type.
  *
  * @typedef { IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
@@ -712,44 +742,167 @@ export declare interface IMutableStateMeta {
   fireChange(): void;
 }
 
+/**
+ * Define mutable state meta interface with key.
+ *
+ * @interface IMutableKeyedStateMeta
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IMutableKeyedStateMeta {
-    addRef(key: string): void;
-    addRef(index: int): void;
-    fireChange(key: string): void;
-    fireChange(index: int): void;
+  /**
+   * Collect the dependancy for UI component with state variable based on given key
+   *
+   * @param { string } key
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  addRef(key: string): void;
+  /**
+   * Collect the dependancy for UI component with state variable based on given key
+   *
+   * @param { int } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  addRef(index: int): void;
+  /**
+   * Notify UI component with given key to update when state variable is changed
+   *
+   * @param { string } key
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  fireChange(key: string): void;
+  /**
+   * Notify UI component with given key to update when state variable is changed
+   *
+   * @param { int } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  fireChange(index: int): void;
 }
 
+/**
+ * Define IObserve interface.
+ *
+ * @interface IObserve
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IObserve {
-    readonly renderingComponent: number;
-    readonly renderingId: RenderIdType;
-    shouldAddRef(iObjectsRenderId: RenderIdType): boolean;
+  /**
+   * Rendering component.
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  readonly renderingComponent: number;
+  /**
+   * Rendering component id.
+   *
+   * @type { RenderIdType }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  readonly renderingId: RenderIdType;
+  /**
+   * Collect the dependancy for UI component with state variable
+   *
+   * @param { RenderIdType } iObjectsRenderId
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  shouldAddRef(iObjectsRenderId: RenderIdType): boolean;
 }
 
+/**
+ * Define OBSERVED.
+ *
+ * @type { IObserve }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare const OBSERVE: IObserve;
 
+/**
+ * Define int alias.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export type RenderIdType = int;
 
+/**
+ * Define IObservedObject interface.
+ *
+ * @extends IWatchSubscriberRegister
+ * @interface IObservedObject
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IObservedObject extends IWatchSubscriberRegister {
-    setV1RenderId(renderId: RenderIdType): void;
+  /**
+   * Set V1 renderId
+   *
+   * @param { RenderIdType } renderId
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  setV1RenderId(renderId: RenderIdType): void;
 }
 
+/**
+ * Define STATE_MGMT_FACTORY.
+ *
+ * @type { IStateMgmtFactory }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare const STATE_MGMT_FACTORY: IStateMgmtFactory;
 
+/**
+ * Define IStateMgmtFactory interface.
+ *
+ * @interface IStateMgmtFactory
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IStateMgmtFactory {
-    makeMutableStateMeta(): IMutableStateMeta;
-    makeSubscribedWatches(): ISubscribedWatches;
-    makeState<T>(owningView: ExtendableComponent, varName: string, initValue: T,
-        watchFunc?: WatchFuncType): IStateDecoratedVariable<T>;
-    makeProp<T>(owningView: ExtendableComponent, varName: string, initValue: T,
-        watchFunc?: WatchFuncType): IPropDecoratedVariable<T>;
-    makeLink<T>(owningView: ExtendableComponent, varName: string, source: LinkSourceType<T>,
-        watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
-    makeProvide<T>(owningView: ExtendableComponent, varName: string, provideAlias: string,
-        initValue: T, allowOverride: boolean, wathcFunc?: WatchFuncType): IProvideDecoratedVariable<T>;
-    makeConsume<T>(owningView: ExtendableComponent, varName: string,
-        provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
-    makeObjectLink<T>(owningView: ExtendableComponent, varName: string,
-        initValue: T, wathcFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
+  /**
+   * get mutable state meta
+   *
+   * @returns { IMutableStateMeta }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeMutableStateMeta(): IMutableStateMeta;
+  /**
+   * get subscribed watches
+   *
+   * @returns { ISubscribedWatches }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeSubscribedWatches(): ISubscribedWatches;
+  /**
+   * Create a State variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - state variable initValue.
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { IStateDecoratedVariable<T> } State instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeState<T>(owningView: ExtendableComponent, varName: string, initValue: T,
+    watchFunc?: WatchFuncType): IStateDecoratedVariable<T>;
 
   /**
    * Create a PropRef variable instance.
@@ -762,8 +915,69 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   makePropRef<T>(owningView: ExtendableComponent, varName: string, initValue: T,
-        watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
+  makePropRef<T>(owningView: ExtendableComponent, varName: string, initValue: T,
+    watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
+  
+  /**
+   * Create a Link variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { LinkSourceType<T> } source - state variable sync source.
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { ILinkDecoratedVariable<T> } PropRef instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeLink<T>(owningView: ExtendableComponent, varName: string, source: LinkSourceType<T>,
+    watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
+
+  makeProp<T>(owningView: ExtendableComponent, varName: string, initValue: T,
+        watchFunc?: WatchFuncType): IPropDecoratedVariable<T>;
+  
+  /**
+   * Create a Provide variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { string } provideAlias - provide alias.
+   * @param { T } initValue - init value.
+   * @param { boolean } allowOverride - Override the @Provide of any parent
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { IProvideDecoratedVariable<T> } Provide instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeProvide<T>(owningView: ExtendableComponent, varName: string, provideAlias: string, initValue: T, 
+      allowOverride: boolean, watchFunc?: WatchFuncType): IProvideDecoratedVariable<T>;
+
+  /**
+   * Create a Consume variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { string } provideAlias - provide alias.
+   * @param { WatchFuncType } [watchFunc] - watch type
+   * @returns { IConsumeDecoratedVariable<T> } Consume instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeConsume<T>(owningView: ExtendableComponent, varName: string,
+    provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
+
+  /**
+   * Create a ObjectLink variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - init value.
+   * @param { WatchFuncType } [wathcFunc] - watch type
+   * @returns { IObjectLinkDecoratedVariable<T> } ObjectLink instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeObjectLink<T>(owningView: ExtendableComponent, varName: string,
+    initValue: T, wathcFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
 
   /**
    * Create a StorageLink variable instance.
@@ -778,7 +992,7 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-    makeStorageLink<T>(owningView: ExtendableComponent, propName: string,
+  makeStorageLink<T>(owningView: ExtendableComponent, propName: string,
         varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
    /**
     * Create a StoragePropRef variable instance.
@@ -793,7 +1007,7 @@ export declare interface IStateMgmtFactory {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20
     */
-    makeStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
+   makeStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
         varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
   /**
    * Create a LocalStoragePropRef variable instance.
@@ -824,21 +1038,164 @@ export declare interface IStateMgmtFactory {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-    makeLocalStorageLink<T>(owningView: ExtendableComponent, propName: string,
+   makeLocalStorageLink<T>(owningView: ExtendableComponent, propName: string,
         varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
+
+  /**
+   * Create a Local variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { T } localInitValue - state variable initValue.
+   * @returns { ILocalDecoratedVariable<T> } Local instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+   makeLocal<T>(owningView: ExtendableComponent, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
+
+  /**
+   * Create a Param variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - param variable initValue.
+   * @returns { IParamDecoratedVariable<T> } Param instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeParam<T>(owningView: ExtendableComponent, varName: string, initValue: T): IParamDecoratedVariable<T>;
+
+  /**
+   * Create a param once variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - state variable name.
+   * @param { T } initValue - param once variable initValue.
+   * @returns { IParamOnceDecoratedVariable<T> } Param Once instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+   makeParamOnce<T>(owningView: ExtendableComponent, varName: string, initValue: T): IParamOnceDecoratedVariable<T>;
+
+  /**
+   * Create a provider variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - provider variable name.
+   * @param { string } providerAlias - provider alias.
+   * @param { T } localInitValue - provider local variable value.
+   * @returns { IProviderDecoratedVariable<T> } Provider instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeProvider<T>(owningView: ExtendableComponent, varName: string, providerAlias: string, localInitValue: T ): IProviderDecoratedVariable<T>;
+
+  /**
+   * Create a consumer variable instance.
+   *
+   * @param { ExtendableComponent } owningView - custom component.
+   * @param { string } varName - consumer variable name.
+   * @param { string } providerAlias - consumer alias.
+   * @param { T } defaultValue - consumer default value.
+   * @returns { IConsumerDecoratedVariable<T> } Consumer instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeConsumer<T>(owningView: ExtendableComponent, varName: string, providerAlias: string, defaultValue: T): IConsumerDecoratedVariable<T>;      
 }
 
-export type WatchFuncType = ((propertyName: string) => void);
 
+/**
+ * Define V2 decorated variable interface.
+ *
+ * @extends IDecoratedVariable
+ * @interface IDecoratedV2Variable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export interface IDecoratedV2Variable extends IDecoratedVariable {}
+
+/**
+ * Define Provider decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @interface IProviderDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+
+/**
+ * Define Consumer decoration variable interface.
+ *
+ * @extends IDecoratedMutableVariable<T>, IDecoratedV2Variable
+ * @interface IConsumerDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+
+/**
+ * Defines the callback that is called when state variable is change
+ * @typedef { function } WatchFuncType
+ * @param {string} propertyName - property name
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type WatchFuncType = (propertyName: string) => void;
+
+/**
+ * Define int alias.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export type WatchIdType = int;
 
+/**
+ * Define IWatchSubscriberRegister interface.
+ *
+ * @interface IWatchSubscriberRegister
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface IWatchSubscriberRegister {
-    addWatchSubscriber(watchId: WatchIdType): void;
-    removeWatchSubscriber(watchId: WatchIdType): boolean;
+  /**
+   * Registers the watch function callback.
+   *
+   * @param { WatchIdType } watchId - the watch function id
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  addWatchSubscriber(watchId: WatchIdType): void;
+  /**
+   * UnRegister the watch function callback.
+   *
+   * @param { WatchIdType } watchId - the watch function id
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  removeWatchSubscriber(watchId: WatchIdType): boolean;
 }
 
+/**
+ * Define ISubscribedWatches interface.
+ *
+ * @extends IWatchSubscriberRegister
+ * @interface ISubscribedWatches
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
-    executeOnSubscribingWatches(propertyName: string): void;
+  /**
+   * Execute the watch function callback.
+   *
+   * @param { string } propertyName - property name
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  executeOnSubscribingWatches(propertyName: string): void;
 }
 
 export declare interface AbstractProperty<T> extends IDecoratedMutableVariable<T> {
