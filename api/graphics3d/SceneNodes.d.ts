@@ -16,6 +16,7 @@
 /**
  * @file Defines 3D node related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
 import { SceneResource, Mesh, Morpher } from './SceneResources';
@@ -34,28 +35,28 @@ export interface LayerMask {
   /**
    * Get whether layer mask is enabled.
    *
-   * @param { number } index - the layer mask
+   * @param { int } index - the layer mask
    * @returns { boolean } whether layer mask is enabled 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  getEnabled(index: number): boolean;
+  getEnabled(index: int): boolean;
 
   /**
    * Set whether the layer mask is enabled.
    *
-   * @param { number } index - the layer mask
+   * @param { int } index - the layer mask
    * @param { boolean } enabled - whether layer mask is enabled
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  setEnabled(index: number, enabled: boolean): void;
+  setEnabled(index: int, enabled: boolean): void;
 }
 
 /**
  * The enum of node type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -132,12 +133,12 @@ export interface Container<T> {
   /**
    * Returns a child at given index from this Container's child list.
    *
-   * @param { number } index - the index of the child to return
+   * @param { int } index - the index of the child to return
    * @returns { T | null } return the item specified by the index
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  get(index: number): T | null;
+  get(index: int): T | null;
 
   /**
    * Clear all children.
@@ -150,11 +151,11 @@ export interface Container<T> {
   /**
    * Returns the number of items in the container.
    *
-   * @returns { number } the number of the container
+   * @returns { int } the number of the container
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  count(): number;
+  count(): int;
 }
 
 /**
@@ -296,7 +297,7 @@ export interface Geometry extends Node {
 /**
  * The enum of light type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -349,11 +350,11 @@ export interface Light extends Node {
   /**
    * The intensity of the light.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  intensity: number;
+  intensity: double;
 
   /**
    * Whether casting shadows.
@@ -408,29 +409,29 @@ export interface Camera extends Node {
   /**
    * Field of view of the camera.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  fov: number;
+  fov: double;
 
   /**
    * Near plane of the directional light.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  nearPlane: number;
+  nearPlane: double;
 
   /**
    * Far plane of the directional light.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  farPlane: number;
+  farPlane: double;
 
   /**
    * Whether enabled the camera.
