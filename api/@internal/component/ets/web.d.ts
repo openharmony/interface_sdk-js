@@ -7280,6 +7280,18 @@ declare interface JavaScriptProxy {
    * @since 20
    * @arkts 1.1&1.2
    */
+  object: object;
+
+  /**
+   * Objects participating in registration.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
   jsObject: object;
 
   /**

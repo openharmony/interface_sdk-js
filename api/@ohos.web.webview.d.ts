@@ -4794,6 +4794,41 @@ declare namespace webview {
      * otherwise, this registration will fail.
      *  <p>
      *
+     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { string } name - The name of the registered object, which is consistent with the
+     *                          object name called in the window.
+     * @param { Array<string> } methodList - The method of the application side JavaScript object participating
+     *                                       in the registration.
+     * @param { Array<string> } [asyncMethodList] - The async method of the application side JavaScript object
+     *                                            participating in the registration.
+     * @param { string } [permission] - permission configuration defining web page URLs that can access JavaScriptProxy methods.
+     *                                The configuration can be defined at two levels, object level and method level.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1
+     */
+    registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
+        asyncMethodList?: Array<string>, permission?: string): void;
+
+    /**
+     * Registers the supplied ArkTS object into this Web component.
+     * The object is registered into all frames of the web page, including all iframes, using the specified name.
+     * This allows the methods of the ArkTS object to be accessed from JavaScript.
+     * <p><strong>API Note</strong>:<br>
+     * Registed objects will not appear in JavaScript until the page is next (re)load.
+     * To avoid memory leaks, registerJavaScriptProxy must be used together with deleteJavaScriptProxy.
+     * To avoid security risks, it is recommended that registerJavaScriptProxy be used with trusted web components.
+     * If the same method is registered repeatedly in both synchronous and asynchronous list, it will default to an asynchronous method.
+     * The synchronous function list and asynchronous function list cannot be empty at the same time.<br>
+     * otherwise, this registration will fail.
+     *  <p>
+     *
      * @param { object } jsObject - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
      *                          object name called in the window.
@@ -4811,10 +4846,10 @@ declare namespace webview {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
+     * @arkts 1.2
      */
     registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>,
-        asyncMethodList?: Array<string>, permission?: string): void;
+      asyncMethodList?: Array<string>, permission?: string): void;
 
     /**
      * Deletes a registered JavaScript object with given name.
