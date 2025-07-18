@@ -579,12 +579,12 @@ declare namespace reminderAgentManager {
      * Action button displayed on the reminder notification.
      * (The parameter is optional. Up to three buttons are supported).
      *
-     * @type { ?[ActionButton?, ActionButton?, ActionButton?] }
+     * @type { ?Array<ActionButton> }
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since arkts{ '1.1':'10', '1.2':'20' }
      * @arkts 1.1&1.2
      */
-    actionButton?: [ActionButton?, ActionButton?, ActionButton?];
+    actionButton?: Array<ActionButton>;
 
     /**
      * Information about the ability that is redirected to when the notification is clicked.
