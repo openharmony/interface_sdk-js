@@ -4079,31 +4079,6 @@ declare namespace relationalStore {
     getValue(columnIndex: number): ValueType;
 
     /**
-     * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     * If the value of the specified column in the current row exceeds the value range of number, return a string type.
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 20
-     */
-    getPreciseValue(columnIndex: number): ValueType
-
-    /**
      * Obtains the value of the specified column in the current row as a float array.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the float array type.
@@ -4205,28 +4180,6 @@ declare namespace relationalStore {
      * @since 14
      */
     getRow(): ValuesBucket;
-
-    /**
-     * Obtains the values of all columns in the specified row.
-     * If the value of a column in the current row exceeds the value range of number, return a string type.
-     *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20
-     */
-    getPreciseRow(): ValuesBucket
 
     /**
      * Obtains the values of all columns in the specified rows.
