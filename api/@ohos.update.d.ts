@@ -284,7 +284,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1012,6 +1012,7 @@ declare namespace update {
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     otaMode?: OtaMode;
   }
@@ -1775,6 +1776,7 @@ declare namespace update {
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
    * @since 20
+   * @arkts 1.1&1.2
    */
   export enum OtaMode {
     /**
@@ -1783,6 +1785,7 @@ declare namespace update {
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     REGULAR_OTA = 0,
 
@@ -1792,6 +1795,7 @@ declare namespace update {
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     STREAM_OTA = 1,
 
@@ -1801,6 +1805,7 @@ declare namespace update {
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     AB_REGULAR_OTA = 2,
 
@@ -1810,6 +1815,7 @@ declare namespace update {
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 20
+     * @arkts 1.1&1.2
      */
     AB_STREAM_OTA = 3
   }
