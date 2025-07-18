@@ -23,5 +23,6 @@ import motion from '@ohos.multimodalAwareness.motion';
 import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
 import metadataBinding from '@ohos.multimodalAwareness.metadataBinding';
 import userStatus from '@ohos.multimodalAwareness.userStatus';
+import onScreen from '@ohos.multimodalAwareness.onScreen';
 
-export { stationary, motion, deviceStatus, metadataBinding, userStatus };
+export { stationary, motion, deviceStatus, metadataBinding, userStatus, onScreen };
