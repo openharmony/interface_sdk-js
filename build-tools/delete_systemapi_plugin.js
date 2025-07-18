@@ -87,7 +87,7 @@ function collectComponentEtsFiles() {
 }
 
 function getPureName(name) {
-  return path.basename(name).replace('.d.ts', '').replace('.d.ets', '').replace(/_/g, '').toLowerCase();
+  return path.basename(name).replace('.d.ts', '').replace('.static.ets', '').replace('.d.ets', '').replace(/_/g, '').toLowerCase();
 }
 
 /**
@@ -104,6 +104,8 @@ function tsTransformKitFile(kitPath) {
   kitFiles.forEach((kitFile) => {
     const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
     const content = fs.readFileSync(kitFile, 'utf-8');
+    writeFile(kitFile, content);
+    return;
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
     const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
@@ -115,7 +117,6 @@ function tsTransformKitFile(kitPath) {
     if (sourceInfo.copyrightMessage !== '') {
       result = sourceInfo.copyrightMessage + result;
     }
-    writeFile(kitFile, result);
   });
 }
 
@@ -312,6 +313,12 @@ function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+    if (/\.static\.d\.ets$/.test(apiBaseName)) {
+      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), content);
+      return;
+    }
+    writeFile(url, content);
+    return;
     if (isArkTsSpecialSyntax(content)) {
       if (!/\@systemapi/.test(content)) {
         writeFile(url, content);
@@ -327,10 +334,7 @@ function tsTransform(utFiles, callback) {
         isTransformer = false;
       }
     }
-    if (/\.static\.d\.ets$/.test(apiBaseName)) {
-      writeFile(url.substring(0, url.length - 12) + 'd.ets', content);
-      return;
-    }
+
     if (!isTransformer) {
       writeFile(url, content);
       return;
@@ -1181,7 +1185,7 @@ function isEmptyFile(node) {
       break;
     }
   }
-  const fileName = getPureName(node.fileName.replace('.ts', '').replace('.ets', ''));
+  const fileName = getPureName(node.fileName.replace('.ts', '').replace('.static.ets', '').replace('.ets', ''));
   if (isEmpty && componentEtsFiles.includes(fileName)) {
     componentEtsDeleteFiles.push(fileName);
   }
