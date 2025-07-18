@@ -59,7 +59,6 @@ declare namespace sendablePhotoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @StageModelOnly
-   * @crossplatform
    * @since 19
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
