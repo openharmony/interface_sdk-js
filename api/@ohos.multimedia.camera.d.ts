@@ -10592,6 +10592,16 @@ declare namespace camera {
      * @since 11
      */
     sketchRatio: number;
+
+    /**
+     * The offset point of the sketch stream.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    centerPointOffset: Point;
   }
 
   /**
