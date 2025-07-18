@@ -16,15 +16,19 @@
 /**
  * @file Defines 3D resource related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
+/*** if arkts 1.2 */
+import { ResourceStr } from '../arkui/component/units';
+/*** endif */
 import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
 import { Callback } from '../@ohos.base';
 
 /**
  * The enum of SceneResource type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -161,18 +165,18 @@ export interface Shader extends SceneResource {
   /**
    * Shader inputs.
    * 
-   * @type { Record<string, number | Vec2 | Vec3 | Vec4 | Image> }
+   * @type { Record<string, double | Vec2 | Vec3 | Vec4 | Image> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly inputs: Record<string, number | Vec2 | Vec3 | Vec4 | Image>;
+  readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 }
 
 /**
  * The enum of material type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -197,7 +201,7 @@ export enum MaterialType {
 /**
  * The enum of pbr material cull mode.
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20
  */
@@ -514,7 +518,7 @@ export interface ShaderMaterial extends Material {
 /**
  * Sampler filter Mode
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20
  */
@@ -538,7 +542,7 @@ export enum SamplerFilter {
 /**
  * Addressing mode for Sampler
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20
  */
@@ -760,12 +764,12 @@ export interface Animation extends SceneResource {
   /**
    * The duration of the animation.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly duration: number;
+  readonly duration: double;
 
   /**
    * Whether the animation is running.
@@ -780,12 +784,12 @@ export interface Animation extends SceneResource {
   /**
    * The progress of the animation between 0~1.
    *
-   * @type { number }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly progress: number;
+  readonly progress: double;
 
   /**
    * Register a callback when animation finished.
@@ -824,11 +828,11 @@ export interface Animation extends SceneResource {
   /**
    * Seek the animation to the position.
    *
-   * @param { number } position - the position seek between 0~1
+   * @param { double } position - the position seek between 0~1
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  seek(position: number): void;
+  seek(position: double): void;
 
   /**
    * Start the animation.
@@ -857,7 +861,7 @@ export interface Animation extends SceneResource {
 
 /**
  * The enum of environment background type.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
@@ -980,20 +984,20 @@ export interface Image extends SceneResource {
   /**
    * The width of the image.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly width: number;
+  readonly width: int;
 
   /**
    * The height of the image.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly height: number;
+  readonly height: int;
 }
