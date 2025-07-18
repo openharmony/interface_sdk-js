@@ -32,11 +32,11 @@ import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** if arkts 1.1 */
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -4658,7 +4658,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 

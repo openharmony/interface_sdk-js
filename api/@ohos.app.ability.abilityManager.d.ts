@@ -22,10 +22,10 @@ import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import Context from './application/Context';
 /*** if arkts 1.1 */
 import { AbilityResult } from './ability/abilityResult';
 import { Configuration } from './@ohos.app.ability.Configuration';
-import Context from './application/Context';
 
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
@@ -489,7 +489,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
