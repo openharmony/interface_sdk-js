@@ -327,7 +327,7 @@ declare namespace restrictions {
    *                             the supported device features are as follows:
    *                             modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera, mtpClient, mtpServer,
    *                             globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk, nfc, privateSpace, vpn, airplaneMode,
-   *                             mobileData, maintenanceMode, sambaClient, sambaServer.
+   *                             mobileData, maintenanceMode, sambaClient, sambaServer, otaUpdate.
    * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -384,7 +384,7 @@ declare namespace restrictions {
    *                             the supported device features are as follows:
    *                             modifyDateTime, bluetooth, printer, hdc, microphone, fingerprint, usb, wifi, tethering, inactiveUserFreeze, camera, mtpClient, mtpServer,
    *                             globalDrag, externalSdCard, backupAndRestore, notification, mms, sms, remoteDiagnosis, remoteDesk, nfc, privateSpace, vpn, airplaneMode,
-   *                             mobileData, maintenanceMode, sambaClient, sambaServer.
+   *                             mobileData, maintenanceMode, sambaClient, sambaServer, otaUpdate.
    * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
