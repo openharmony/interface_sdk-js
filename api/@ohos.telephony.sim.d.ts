@@ -2546,14 +2546,16 @@ declare namespace sim {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CardType {
     /**
      * Icc card type: unknown type Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN_CARD = -1,
 
@@ -2561,7 +2563,8 @@ declare namespace sim {
      * Icc card type: Single sim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_MODE_SIM_CARD = 10,
 
@@ -2569,7 +2572,8 @@ declare namespace sim {
      * Icc card type: Single usim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_MODE_USIM_CARD = 20,
 
@@ -2577,7 +2581,8 @@ declare namespace sim {
      * Icc card type: Single ruim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_MODE_RUIM_CARD = 30,
 
@@ -2585,7 +2590,8 @@ declare namespace sim {
      * Icc card type: Double card C+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DUAL_MODE_CG_CARD = 40,
 
@@ -2593,7 +2599,8 @@ declare namespace sim {
      * Icc card type: China Telecom Internal Roaming Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CT_NATIONAL_ROAMING_CARD = 41,
 
@@ -2601,7 +2608,8 @@ declare namespace sim {
      * Icc card type: China Unicom Dual Mode Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CU_DUAL_MODE_CARD = 42,
 
@@ -2609,7 +2617,8 @@ declare namespace sim {
      * Icc card type: China Telecom LTE Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DUAL_MODE_TELECOM_LTE_CARD = 43,
 
@@ -2617,14 +2626,16 @@ declare namespace sim {
      * Icc card type: Double card U+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DUAL_MODE_UG_CARD = 50,
 
     /**
      * Icc card type: Single isim card type.
      * @syscap SystemCapability.Telephony.CoreService
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINGLE_MODE_ISIM_CARD = 60
   }

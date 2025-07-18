@@ -27,8 +27,8 @@ function main() {
     const program = new commander.Command();
     program.name('intToNumber').version('0.0.1');
     program
-        .option('--input ', 'input path')
-        .option('--output ', 'output path')
+        .option('--input <string>', 'input path')
+        .option('--output <string>', 'output path')
         .action((opts) => {
             if (!opts.input || !opts.output) {
                 console.error(
@@ -55,14 +55,63 @@ function runDeclgen(inputDir, outputDir) {
     const inputFiles = [];
     readFile(inputDir + '/api', inputFiles);
     readFile(inputDir + '/arkts', inputFiles);
+    readFile(inputDir + '/component', inputFiles);
     readFile(inputDir + '/kits', inputFiles);
     const config = {
         inputDirs: [],
         inputFiles: inputFiles,
         outDir: outputDir,
-        rootDir: inputDir
+        rootDir: inputDir,
+        customResolveModuleNames: resolveModuleNames(inputDir)
     };
     generateInteropDecls(config);
+}
+
+function resolveModuleNames(inputDir) {
+    return (moduleNames, containingFile) => {
+        const resolvedModuleNames = [];
+        moduleNames.forEach((moduleName) => {
+            let dirPath = path.dirname(containingFile);
+            if (moduleName.startsWith('@ohos.')) {
+                dirPath = path.join(inputDir, 'api');
+            } else if (moduleName.startsWith('@arkts.')) {
+                dirPath = path.join(inputDir, 'arkts');
+            } else if (dirPath === path.join(inputDir, 'kits')) {
+                dirPath = path.join(inputDir, 'api');
+            }
+            let resolveModule = getResolveModule(dirPath, moduleName, [
+                '.d.ts',
+                '.d.ets'
+            ]);
+            if (resolveModule) {
+                resolvedModuleNames.push(resolveModule);
+            }
+        });
+        return resolvedModuleNames;
+    };
+}
+
+function getResolveModule(dirPath, moduleName, extensions) {
+    let resolvedModuleFull = {
+        resolvedFileName: '',
+        isExternalLibraryImport: false,
+        extension: ''
+    };
+    const fileName = moduleName.replace(/^\.\//, '');
+    for (let i = 0; i < extensions.length; i++) {
+        const extension = extensions[i];
+        const filePath = path.join(dirPath, fileName + extension);
+        if (!fs.existsSync(filePath)) {
+            continue;
+        }
+        resolvedModuleFull.resolvedFileName = filePath;
+        resolvedModuleFull.extension = extension;
+        break;
+    }
+    if (resolvedModuleFull.resolvedFileName === '') {
+        return undefined;
+    }
+    return resolvedModuleFull;
 }
 
 /**

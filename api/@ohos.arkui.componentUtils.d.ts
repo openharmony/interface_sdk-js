@@ -37,7 +37,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace componentUtils {
 
@@ -60,9 +61,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface ComponentInfo {
+  export interface ComponentInfo {
 
     /**
     * component size.
@@ -83,7 +85,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     size: Size
 
@@ -106,7 +109,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     localOffset: Offset
 
@@ -129,7 +133,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     windowOffset: Offset
 
@@ -152,7 +157,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     screenOffset: Offset
 
@@ -175,7 +181,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     translate: TranslateResult
 
@@ -198,7 +205,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     scale: ScaleResult
 
@@ -221,7 +229,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     rotate: RotateResult
 
@@ -244,7 +253,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     transform: Matrix4Result
   }
@@ -268,9 +278,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface Size {
+  export interface Size {
 
     /**
     * Defines the width property.
@@ -291,7 +302,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     width: number
 
@@ -314,7 +326,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     height: number
   }
@@ -338,9 +351,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface Offset {
+  export interface Offset {
 
     /**
     * Coordinate x of the Position.
@@ -361,7 +375,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     x: number
 
@@ -384,7 +399,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     y: number
   }
@@ -408,9 +424,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface TranslateResult {
+  export interface TranslateResult {
 
     /**
     * Indicates the translation distance of the x-axis, in vp.
@@ -431,7 +448,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     x: number
 
@@ -454,7 +472,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     y: number
 
@@ -477,7 +496,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     z: number
   }
@@ -501,9 +521,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface ScaleResult {
+  export interface ScaleResult {
 
     /**
     * Zoom factor of the x-axis.
@@ -524,7 +545,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     x: number
 
@@ -547,7 +569,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     y: number
 
@@ -570,7 +593,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     z: number
 
@@ -593,7 +617,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     centerX: number
 
@@ -616,7 +641,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     centerY: number
   }
@@ -640,9 +666,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  interface RotateResult {
+  export interface RotateResult {
 
     /**
     * Axis of rotation vector x coordinate.
@@ -663,7 +690,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     x: number
 
@@ -686,7 +714,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     y: number
 
@@ -709,7 +738,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     z: number
 
@@ -732,7 +762,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     centerX: number
 
@@ -755,7 +786,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     centerY: number
 
@@ -778,7 +810,8 @@ declare namespace componentUtils {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     angle: number
   }
@@ -802,9 +835,10 @@ declare namespace componentUtils {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
-  type Matrix4Result = [
+  export type Matrix4Result = [
     number,
     number,
     number,

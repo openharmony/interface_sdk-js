@@ -22,7 +22,8 @@ import subprocess
 INTERFACE_PATH = "interface/sdk-js"
 PROCESS_INTEROP = "interface/sdk-js/build-tools/process_interop.js"
 
-def process_interop(options, sub_input, sub_output):
+
+def process_interop(options, sub_input, sub_output, export_flag):
     nodejs = os.path.abspath(options.node_js)
     tool = os.path.abspath(os.path.join(options.source_root_dir, PROCESS_INTEROP))
     cwd_dir = os.path.abspath(os.path.join(
@@ -33,7 +34,7 @@ def process_interop(options, sub_input, sub_output):
     output_dir = intermediates_output + sub_output
     os.makedirs(output_dir, exist_ok=True)
     process = subprocess.run([nodejs, tool, "--input", input_dir,
-                                "--output", output_dir], shell=False,
+                                "--output", output_dir, "--export", export_flag], shell=False,
                                 cwd=os.path.abspath(os.path.join(
                                     options.source_root_dir, cwd_dir)),
                                 stdout=subprocess.PIPE)
@@ -47,9 +48,9 @@ def main():
     parser.add_argument('--node-js', required=True)
 
     options = parser.parse_args()
-    process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api")
-    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component")
-    process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api")
+    process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
+    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "true")
+    process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
 
 
 if __name__ == '__main__':

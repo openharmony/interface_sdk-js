@@ -140,11 +140,11 @@ declare namespace distributedDataObject {
     /**
      * version of saved object, can compare with DistributedObject.__version
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    version: number;
+    version: int;
 
     /**
      * deviceid that data saved
@@ -207,12 +207,12 @@ declare namespace distributedDataObject {
      *
    * @typedef { function } ProcessObserver
    * @param { string } sessionId - Session ID of the observed object.
-   * @param { number } progress - Asset sync progress. The value range is -1 to 100, where
+   * @param { int } progress - Asset sync progress. The value range is -1 to 100, where
    * <br>100 indicates that the asset sync is complete and -1 indicates that the asset sync failed.
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20
    */
-    type ProgressObserver = (sessionId: string, progress: number) => void;
+    type ProgressObserver = (sessionId: string, progress: int) => void;
 
   /**
    * Object create by {@link createDistributedObject}.

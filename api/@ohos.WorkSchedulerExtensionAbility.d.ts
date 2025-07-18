@@ -28,7 +28,8 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  * @typedef { _WorkSchedulerExtensionContext }
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
@@ -36,17 +37,18 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * Class of the work scheduler extension ability.
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class WorkSchedulerExtensionAbility {
+declare class WorkSchedulerExtensionAbility {
   /**
    * Indicates work scheduler extension ability context.
    *
    * @type { WorkSchedulerExtensionContext }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: WorkSchedulerExtensionContext;
 
@@ -56,7 +58,8 @@ export default class WorkSchedulerExtensionAbility {
    * @param {workScheduler.WorkInfo} work - The info of work.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWorkStart(work: workScheduler.WorkInfo): void;
 
@@ -66,7 +69,18 @@ export default class WorkSchedulerExtensionAbility {
    * @param {workScheduler.WorkInfo} work - The info of work.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWorkStop(work: workScheduler.WorkInfo): void;
 }
+
+/**
+ * Class of the work scheduler extension ability.
+ *
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+ * @StageModelOnly
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export default WorkSchedulerExtensionAbility;

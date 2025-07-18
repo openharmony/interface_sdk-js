@@ -96,14 +96,14 @@ declare class LightWeightSet<T> {
   /**
    * Gets the element number of the LightWeightSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * If the set does not contain the element, the specified element is added
@@ -305,7 +305,7 @@ declare class LightWeightSet<T> {
    * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
    * and that the container has all the original objects after capacity expansion
    *
-   * @param { number } minimumCapacity Minimum capacity to be reserved
+   * @param { int } minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -318,7 +318,7 @@ declare class LightWeightSet<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  increaseCapacityTo(minimumCapacity: number): void;
+  increaseCapacityTo(minimumCapacity: int): void;
   /**
    * Obtains the index of s key of a specified Object type in an LightWeightSet container
    *
@@ -342,7 +342,7 @@ declare class LightWeightSet<T> {
    * Obtains the index of s key of a specified Object type in an LightWeightSet container
    *
    * @param { T } key - key key Looking for goals
-   * @returns { number } Subscript corresponding to target
+   * @returns { int } Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -350,7 +350,7 @@ declare class LightWeightSet<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getIndexOf(key: T): number;
+  getIndexOf(key: T): int;
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    *
@@ -424,7 +424,7 @@ declare class LightWeightSet<T> {
   /**
    * Deletes an object at the location identified by index from an LightWeightSet container
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @returns { boolean } the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -436,7 +436,7 @@ declare class LightWeightSet<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  removeAt(index: number): boolean;
+  removeAt(index: int): boolean;
   /**
    * Removes all of the mapping from this map
    * The map will be empty after this call returns
@@ -675,7 +675,7 @@ declare class LightWeightSet<T> {
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    *
-   * @param { number } index - index index Target subscript for search
+   * @param { int } index - index index Target subscript for search
    * @returns { T | undefined } the value at the specified index, or undefined if the index out of range
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -683,7 +683,7 @@ declare class LightWeightSet<T> {
    * @since 20
    * @arkts 1.2
    */
-  getValueAt(index: number): T | undefined;
+  getValueAt(index: int): T | undefined;
 
   /**
    * Returns a ES6 iterator of the values contained in this Set

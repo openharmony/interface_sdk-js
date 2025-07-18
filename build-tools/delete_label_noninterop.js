@@ -27,8 +27,6 @@ function start() {
     .action((opts) => {
       outputPath = opts.output;
       inputDir = opts.input;
-      console.error('yulong--- inputDir', inputDir);
-      console.error('yulong--- outputPath', outputPath);
       transformFiles(opts.input);
     });
   program.parse(process.argv);
@@ -60,7 +58,6 @@ function deleteLabel(content) {
  */
 function tsTransform(utFiles) {
   utFiles.forEach((url) => {
-    console.error('yulong--- url', url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     writeFile(url, deleteLabel(content));
   });

@@ -99,14 +99,14 @@ declare class Stack<T> {
   /**
    * Gets the element number of the Stack.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Tests if this stack is empty
@@ -282,7 +282,7 @@ declare class Stack<T> {
    * Returns the 1-based position where an object is on this stack
    *
    * @param { T } element - element element Target to be deleted
-   * @returns { number } the T type,If there is no such element, return -1
+   * @returns { int } the T type,If there is no such element, return -1
    * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -290,7 +290,7 @@ declare class Stack<T> {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  locate(element: T): number;
+  locate(element: T): int;
   /**
    * Executes a provided function once for each value in the Stack object.
    *
@@ -404,7 +404,7 @@ declare class Stack<T> {
  *
  * @typedef { function } StackForEachCb
  * @param { T } value - The value of current element
- * @param { number } index - The key of current element
+ * @param { int } index - The key of current element
  * @param { Stack<T> } stack - The Stack instance being traversed
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
@@ -412,6 +412,6 @@ declare class Stack<T> {
  * @since 20
  * @arkts 1.2
  */
-export type StackForEachCb<T> = (value: T, index: number, stack: Stack<T>) => void
+export type StackForEachCb<T> = (value: T, index: int, stack: Stack<T>) => void
 
 export default Stack;

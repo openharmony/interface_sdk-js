@@ -25,7 +25,8 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace usbManager
  * @syscap SystemCapability.USB.USBManager
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace usbManager {
   /**
@@ -41,7 +42,8 @@ declare namespace usbManager {
    * @returns { Array<Readonly<USBDevice>> } USB device list.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
@@ -68,7 +70,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
@@ -93,7 +96,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasRight(deviceName: string): boolean;
 
@@ -120,7 +124,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestRight(deviceName: string): Promise<boolean>;
 
@@ -147,7 +152,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeRight(deviceName: string): boolean;
 
@@ -229,6 +235,7 @@ declare namespace usbManager {
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
+
   /* usb port functions begin */
   /**
    * Obtains the USBPort list.
@@ -308,7 +315,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
@@ -331,18 +339,19 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { string } funcs - descriptor of the supported function list. It cannot be empty.
-   * @returns { number } the numeric mask combination of the function list.
+   * @returns { int } the numeric mask combination of the function list.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getFunctionsFromString(funcs: string): number;
+  function getFunctionsFromString(funcs: string): int;
 
   /**
    * Converts the numeric mask combination of a given USB function list to a string descriptor.
@@ -372,7 +381,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getStringFromFunctions(funcs: FunctionType): string;
 
@@ -408,7 +418,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400006 - Unsupported operation. The function is not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDeviceFunctions(funcs: FunctionType): Promise<void>;
 
@@ -432,9 +443,11 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceFunctions(): FunctionType;
+
   /* usb port functions begin */
   /**
    * Obtains the USBPort list.
@@ -457,7 +470,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPortList(): Array<USBPort>;
 
@@ -469,7 +483,7 @@ declare namespace usbManager {
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -479,19 +493,20 @@ declare namespace usbManager {
    * Gets the mask combination for the supported mode list of the specified USBPort.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @param { int } portId - unique ID of the port. It cannot be empty.
    * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getPortSupportModes(portId: number): PortModeType;
+  function getPortSupportModes(portId: int): PortModeType;
 
   /**
    * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
@@ -514,10 +529,10 @@ declare namespace usbManager {
    * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { number } portId - unique ID of the port. It cannot be empty.
+   * @param { int } portId - unique ID of the port. It cannot be empty.
    * @param { PowerRoleType } powerRole - charging role. It cannot be empty.
    * @param { DataRoleType } dataRole - data role. It cannot be empty.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } the promise returned by the function.  
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -527,9 +542,10 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setPortRoleTypes(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
+  function setPortRoleTypes(portId: int, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
   /**
    * Adds USB accessory access right.
@@ -553,7 +569,7 @@ declare namespace usbManager {
    * Adds USB accessory access right.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { number } tokenId - refers to application that require access permissions. It cannot be empty.
+   * @param { int } tokenId - refers to application that require access permissions. It cannot be empty.
    * @param { USBAccessory } accessory - USB accessory. It cannot be empty.
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -566,9 +582,11 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function addAccessoryRight(tokenId: number, accessory: USBAccessory): void;
+  function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
+
   /* usb pipe functions begin */
   /**
    * Claims a USB interface.
@@ -589,15 +607,16 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to claim. It cannot be empty.
    * @param { boolean } [force] - optional parameter that determines whether to forcibly claim the USB interface.
-   * @returns { number } returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
+   * @returns { int } returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
+  function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): int;
 
   /**
    * Releases a USB interface.
@@ -607,7 +626,7 @@ declare namespace usbManager {
    * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * <br>2.Incorrect parameter types. 
    * @syscap SystemCapability.USB.USBManager
    * @since 9
    */
@@ -616,15 +635,16 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to release. It cannot be empty.
-   * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
+   * @returns { int } returns **0** if the USB interface is successfully released; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * <br>2.Incorrect parameter types. 
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
+  function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
    * Sets the device configuration.
@@ -643,15 +663,16 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBConfiguration } config - device configuration. It cannot be empty.
-   * @returns { number } returns **0** if the device configuration is successfully set; returns an error code otherwise.
+   * @returns { int } returns **0** if the device configuration is successfully set; returns an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): number;
+  function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): int;
 
   /**
    * Sets a USB interface.
@@ -670,15 +691,16 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the bus number and device address. It cannot be empty.
    * @param { USBInterface } iface - USB interface, which is used to determine the interface to set. It cannot be empty.
-   * @returns { number } returns **0** if the USB interface is successfully set; return an error code otherwise.
+   * @returns { int } returns **0** if the USB interface is successfully set; return an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
+  function setInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
    * Obtains the raw USB descriptor.
@@ -701,7 +723,8 @@ declare namespace usbManager {
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
@@ -720,22 +743,23 @@ declare namespace usbManager {
    * Obtains the file descriptor.
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
-   * @returns { number } returns the file descriptor of the USB device.
+   * @returns { int } returns the file descriptor of the USB device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getFileDescriptor(pipe: USBDevicePipe): number;
+  function getFileDescriptor(pipe: USBDevicePipe): int;
 
   /**
    * Performs control transfer.
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBControlParams } controlparam - control transfer parameters. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
    * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -753,7 +777,7 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBDeviceRequestParams } requestparam - control transfer parameters. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
+   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout. 
    * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -767,17 +791,18 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBDeviceRequestParams } requestparam - control transfer parameters. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
+   * @param { int } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
+   * @returns { Promise<int> } returns the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise<number>;
+  function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int): Promise<int>;
 
   /**
    * Performs bulk transfer.
@@ -800,22 +825,23 @@ declare namespace usbManager {
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
    * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB port for data transfer. It cannot be empty.
    * @param { Uint8Array } buffer - buffer for writing or reading data. It cannot be empty.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } the size of the transmitted or received data block if the control transfer is successful;
+   * @param { int } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
+   * @returns { Promise<int> } the size of the transmitted or received data block if the control transfer is successful;
    * return -1 if an exception occurs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function bulkTransfer(
     pipe: USBDevicePipe,
     endpoint: USBEndpoint,
     buffer: Uint8Array,
-    timeout?: number
-  ): Promise<number>;
+    timeout?: int
+  ): Promise<int>;
 
   /**
    * Closes a USB device pipe.
@@ -832,15 +858,16 @@ declare namespace usbManager {
    * Closes a USB device pipe.
    *
    * @param { USBDevicePipe } pipe - device pipe, which is used to determine the USB device. It cannot be empty.
-   * @returns { number } returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
+   * @returns { int } returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function closePipe(pipe: USBDevicePipe): number;
+  function closePipe(pipe: USBDevicePipe): int;
 
   /**
    * Checks whether the application has the right to access the USB accessory.
@@ -871,7 +898,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasAccessoryRight(accessory: USBAccessory): boolean;
 
@@ -904,7 +932,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
 
@@ -935,7 +964,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400005 - Database operation exception.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAccessoryRight(accessory: USBAccessory): void;
 
@@ -956,7 +986,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAccessoryList(): Array<Readonly<USBAccessory>>;
 
@@ -968,7 +999,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
@@ -986,14 +1017,15 @@ declare namespace usbManager {
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
    * @throws { BusinessError } 14401002 - Failed to open the native accessory node.
    * @throws { BusinessError } 14401003 - Cannot reopen the accessory.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function openAccessory(accessory: USBAccessory): USBAccessoryHandle;
 
@@ -1020,7 +1052,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
@@ -1029,51 +1062,57 @@ declare namespace usbManager {
    *
    * @typedef USBEndpoint
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBEndpoint {
     /**
      * Endpoint address
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    address: number;
+    address: int;
 
     /**
      * Endpoint attributes
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    attributes: number;
+    attributes: int;
 
     /**
      * Endpoint interval
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    interval: number;
+    interval: int;
 
     /**
      * Maximum size of data packets on the endpoint
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxPacketSize: number;
+    maxPacketSize: int;
 
     /**
      * Endpoint direction
      *
      * @type { USBRequestDirection }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     direction: USBRequestDirection;
 
@@ -1087,25 +1126,34 @@ declare namespace usbManager {
     number: number;
 
     /**
+     * Endpoint address
+     *
+     * @type { int }
+     * @syscap SystemCapability.USB.USBManager
+     * @since 20
+     * @arkts 1.2
+     */
+    endpointAddr: int;
+
+    /**
      * Endpoint type
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    type: number;
+    type: int;
 
     /**
      * Unique ID defined by USBInterface.id, which indicates the interface to which the endpoint belongs
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    interfaceId: number;
-
-
-
+    interfaceId: int;
   }
 
   /**
@@ -1113,60 +1161,67 @@ declare namespace usbManager {
    *
    * @typedef USBInterface
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBInterface {
     /**
      * Unique ID of the USB interface
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * Interface protocol
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    protocol: number;
+    protocol: int;
 
     /**
      * Device type
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    clazz: number;
+    clazz: int;
 
     /**
      * Device subclass
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    subClass: number;
+    subClass: int;
 
     /**
      * Alternation between descriptors of the same USB interface
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    alternateSetting: number;
+    alternateSetting: int;
 
     /**
      * Interface name
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1175,7 +1230,8 @@ declare namespace usbManager {
      *
      * @type { Array<USBEndpoint> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endpoints: Array<USBEndpoint>;
   }
@@ -1185,42 +1241,47 @@ declare namespace usbManager {
    *
    * @typedef USBConfiguration
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBConfiguration {
     /**
      * Unique ID of the USB configuration
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * Configuration attributes
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    attributes: number;
+    attributes: int;
 
     /**
      * Maximum power consumption, in mA
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxPower: number;
+    maxPower: int;
 
     /**
      * Configuration name, which can be left empty
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1229,7 +1290,8 @@ declare namespace usbManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRemoteWakeup: boolean;
 
@@ -1238,7 +1300,8 @@ declare namespace usbManager {
      *
      * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSelfPowered: boolean;
 
@@ -1247,7 +1310,8 @@ declare namespace usbManager {
      *
      * @type { Array<USBInterface> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interfaces: Array<USBInterface>;
   }
@@ -1257,33 +1321,37 @@ declare namespace usbManager {
    *
    * @typedef USBDevice
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDevice {
     /**
      * Bus address
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    busNum: number;
+    busNum: int;
 
     /**
      * Device address
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    devAddress: number;
+    devAddress: int;
 
     /**
      * Device SN
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serial: string;
 
@@ -1292,7 +1360,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -1301,7 +1370,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufacturerName: string;
 
@@ -1310,7 +1380,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     productName: string;
 
@@ -1319,61 +1390,68 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: string;
 
     /**
      * Vendor ID
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    vendorId: number;
+    vendorId: int;
 
     /**
      * Product ID
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    productId: number;
+    productId: int;
 
     /**
      * Device class
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    clazz: number;
+    clazz: int;
 
     /**
      * Device subclass
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    subClass: number;
+    subClass: int;
 
     /**
      * Device protocol code
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    protocol: number;
+    protocol: int;
 
     /**
      * Device configuration descriptor information
      *
      * @type { Array<USBConfiguration> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     configs: Array<USBConfiguration>;
   }
@@ -1383,35 +1461,39 @@ declare namespace usbManager {
    *
    * @typedef USBDevicePipe
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDevicePipe {
     /**
      * Bus address.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    busNum: number;
+    busNum: int;
 
     /**
      * Device address
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    devAddress: number;
+    devAddress: int;
   }
 
   /**
    * Enumerates power role types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PowerRoleType {
     /**
@@ -1419,7 +1501,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -1428,7 +1511,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOURCE = 1,
 
@@ -1437,7 +1521,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SINK = 2
   }
@@ -1445,10 +1530,11 @@ declare namespace usbManager {
   /**
    * Enumerates data role types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DataRoleType {
     /**
@@ -1456,7 +1542,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -1465,7 +1552,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HOST = 1,
 
@@ -1474,7 +1562,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE = 2
   }
@@ -1482,10 +1571,11 @@ declare namespace usbManager {
   /**
    * Enumerates port mode types
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PortModeType {
     /**
@@ -1493,7 +1583,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -1502,7 +1593,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UFP = 1,
 
@@ -1511,7 +1603,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DFP = 2,
 
@@ -1520,7 +1613,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DRP = 3,
 
@@ -1529,7 +1623,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NUM_MODES = 4
   }
@@ -1540,38 +1635,42 @@ declare namespace usbManager {
    * @typedef USBPortStatus
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBPortStatus {
     /**
      * USB mode
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    currentMode: number;
+    currentMode: int;
 
     /**
      * Power role
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    currentPowerRole: number;
+    currentPowerRole: int;
 
     /**
      * Data role
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    currentDataRole: number;
+    currentDataRole: int;
   }
 
   /**
@@ -1580,18 +1679,20 @@ declare namespace usbManager {
    * @typedef USBPort
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBPort {
     /**
      * Unique ID of the USB port
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * Mask combination for the supported mode list of the USB port
@@ -1599,7 +1700,8 @@ declare namespace usbManager {
      * @type { PortModeType }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     supportedModes: PortModeType;
 
@@ -1609,7 +1711,8 @@ declare namespace usbManager {
      * @type { USBPortStatus }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: USBPortStatus;
   }
@@ -1690,60 +1793,67 @@ declare namespace usbManager {
    *
    * @typedef USBDeviceRequestParams
    * @syscap SystemCapability.USB.USBManager
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBDeviceRequestParams {
     /**
      * Bit map request type
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    bmRequestType: number;
+    bmRequestType: int;
 
     /**
      * Byte request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    bRequest: number;
+    bRequest: int;
 
     /**
      * Request parameter word value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    wValue: number;
+    wValue: int;
 
     /**
      * Word index of the parameter value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    wIndex: number;
+    wIndex: int;
 
     /**
      * Word length of the parameter value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    wLength: number;
+    wLength: int;
 
     /**
      * Data written to or read from the buffer
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
   }
@@ -1751,16 +1861,18 @@ declare namespace usbManager {
   /**
    * Enumerates USB request target types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum USBRequestTargetType {
     /**
      * USB device
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TARGET_DEVICE = 0,
 
@@ -1768,7 +1880,8 @@ declare namespace usbManager {
      * USB interface
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TARGET_INTERFACE = 1,
 
@@ -1776,7 +1889,8 @@ declare namespace usbManager {
      * Endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
@@ -1784,7 +1898,8 @@ declare namespace usbManager {
      * Others
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TARGET_OTHER = 3
   }
@@ -1792,16 +1907,18 @@ declare namespace usbManager {
   /**
    * Enumerates control request types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum USBControlRequestType {
     /**
      * Standard
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TYPE_STANDARD = 0,
 
@@ -1809,7 +1926,8 @@ declare namespace usbManager {
      * Class
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TYPE_CLASS = 1,
 
@@ -1817,7 +1935,8 @@ declare namespace usbManager {
      * Vendor
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_TYPE_VENDOR = 2
   }
@@ -1825,16 +1944,18 @@ declare namespace usbManager {
   /**
    * Enumerates request directions.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum USBRequestDirection {
     /**
      * Request for writing data from the host to the device
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
@@ -1842,7 +1963,8 @@ declare namespace usbManager {
      * Request for reading data from the device to the host
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_REQUEST_DIR_FROM_DEVICE = 0x80
   }
@@ -1850,10 +1972,11 @@ declare namespace usbManager {
   /**
    * Enumerates function modes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum FunctionType {
     /**
@@ -1861,7 +1984,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
 
@@ -1870,7 +1994,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACM = 1,
 
@@ -1879,7 +2004,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ECM = 2,
 
@@ -1888,7 +2014,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HDC = 4,
 
@@ -1897,7 +2024,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MTP = 8,
 
@@ -1906,7 +2034,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PTP = 16,
 
@@ -1915,7 +2044,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RNDIS = 32,
 
@@ -1924,7 +2054,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDI = 64,
 
@@ -1933,7 +2064,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE = 128,
 
@@ -1942,7 +2074,8 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NCM = 256
   }
@@ -1952,7 +2085,8 @@ declare namespace usbManager {
    *
    * @typedef USBAccessory
    * @syscap SystemCapability.USB.USBManager
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBAccessory {
     /**
@@ -1960,16 +2094,18 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufacturer: string;
-
+  
     /**
      * The product of the accessory.
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     product: string;
 
@@ -1978,7 +2114,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description: string;
 
@@ -1987,7 +2124,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: string;
 
@@ -1996,7 +2134,8 @@ declare namespace usbManager {
      *
      * @type { string }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serialNumber: string;
   }
@@ -2006,32 +2145,36 @@ declare namespace usbManager {
    *
    * @typedef USBAccessoryHandle
    * @syscap SystemCapability.USB.USBManager
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface USBAccessoryHandle {
     /**
      * The file descriptor of the accessory.The valid USBAccessoryHandle.accessoryFd is a positive value.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    accessoryFd: number;
+    accessoryFd: int;
   }
 
   /**
-   * Usb transfer flag.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.USB.USBManager
-   * @since 18
-   */
+     * Usb transfer flag.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.USB.USBManager
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
   export enum UsbTransferFlags {
     /**
      * Report short frames as errors
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_TRANSFER_SHORT_NOT_OK = 0,
 
@@ -2039,7 +2182,8 @@ declare namespace usbManager {
      * Automatically free transfer buffer
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_TRANSFER_FREE_BUFFER = 1,
 
@@ -2047,7 +2191,8 @@ declare namespace usbManager {
      * Automatically free transfer after callback returns
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_TRANSFER_FREE_TRANSFER = 2,
 
@@ -2055,7 +2200,8 @@ declare namespace usbManager {
      * Transmissions that are multiples of wMaxPacketSize will add an additional zero packet.
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USB_TRANSFER_ADD_ZERO_PACKET = 3
   }
@@ -2063,16 +2209,18 @@ declare namespace usbManager {
   /**
    * Usb transfer status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum UsbTransferStatus {
     /**
      * Transfer completed
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_COMPLETED = 0,
 
@@ -2080,7 +2228,8 @@ declare namespace usbManager {
      * Transfer failed
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_ERROR = 1,
 
@@ -2088,7 +2237,8 @@ declare namespace usbManager {
      * Transfer timed out
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TIMED_OUT = 2,
 
@@ -2096,7 +2246,8 @@ declare namespace usbManager {
      * Transfer was canceled
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_CANCELED = 3,
 
@@ -2105,7 +2256,8 @@ declare namespace usbManager {
      * stalled). For control endpoints: control request not supported.
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_STALL = 4,
 
@@ -2113,7 +2265,8 @@ declare namespace usbManager {
      * Device was disconnected
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_NO_DEVICE = 5,
 
@@ -2121,7 +2274,8 @@ declare namespace usbManager {
      * Device sent more data than requested
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_OVERFLOW = 6
   }
@@ -2129,16 +2283,18 @@ declare namespace usbManager {
   /**
    * USB DATA transfer type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum UsbEndpointTransferType {
     /**
      * Isochronous endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_ISOCHRONOUS = 0x1,
 
@@ -2146,7 +2302,8 @@ declare namespace usbManager {
      * Bulk endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_BULK = 0x2,
 
@@ -2154,7 +2311,8 @@ declare namespace usbManager {
      * Interrupt endpoint
      *
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_INTERRUPT = 0x3
   }
@@ -2164,61 +2322,68 @@ declare namespace usbManager {
    *
    * @typedef UsbIsoPacketDescriptor
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UsbIsoPacketDescriptor {
     /**
      * Length of data to request in this packet
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    length: number;
+    length: int;
 
     /**
      * Amount of data that was actually transferred
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    actualLength: number;
+    actualLength: int;
 
     /**
      * Status code for this packet
      *
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: UsbTransferStatus;
   }
 
   /**
-   * submit transfer callback.
-   *
-   * @typedef SubmitTransferCallback
-   * @syscap SystemCapability.USB.USBManager
-   * @since 18
-   */
+  * submit transfer callback.
+  *
+  * @typedef SubmitTransferCallback
+  * @syscap SystemCapability.USB.USBManager
+  * @since arkts {'1.1':'18', '1.2':'20'}
+  * @arkts 1.1&1.2
+  */
   interface SubmitTransferCallback {
     /**
      * Actual length of data that was transferred. Read-only, and only for
      * use within transfer callback function. Not valid for isochronous endpoint transfers.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    actualLength: number;
+    actualLength: int;
 
     /**
      * The status of the transfer. Read-only, and only for use within transfer callback function.
      *
      * @type { UsbTransferStatus }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: UsbTransferStatus;
 
@@ -2227,18 +2392,20 @@ declare namespace usbManager {
      *
      * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
 
   /**
    * As a generic USB data transfer interface. The Client populates this interface and
-   * submits it in order to request a transfer.
+   * submits it in order to request a transfer. 
    *
    * @typedef UsbDataTransferParams
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UsbDataTransferParams {
     /**
@@ -2246,7 +2413,8 @@ declare namespace usbManager {
      *
      * @type { USBDevicePipe }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     devPipe: USBDevicePipe;
 
@@ -2255,52 +2423,58 @@ declare namespace usbManager {
      *
      * @type { UsbTransferFlags }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     flags: UsbTransferFlags;
 
     /**
      * Address of the endpoint where this transfer will be sent.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    endpoint: number;
+    endpoint: int;
 
     /**
      * Type of the transfer
      *
      * @type { UsbEndpointTransferType }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: UsbEndpointTransferType;
 
     /**
      * Timeout for this transfer in milliseconds. A value of 0 indicates no timeout.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    timeout: number;
+    timeout: int;
 
     /**
      * Length of the data buffer. Must be non-negative.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    length: number;
+    length: int;
 
     /**
      * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
      *
      * @type { AsyncCallback<SubmitTransferCallback> }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     callback: AsyncCallback<SubmitTransferCallback>;
 
@@ -2310,7 +2484,8 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userData: Uint8Array;
 
@@ -2319,18 +2494,20 @@ declare namespace usbManager {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     buffer: Uint8Array;
 
     /**
      * Count of isochronous packets. Only used for I/O with isochronous endpoints. Must be non-negative.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.USB.USBManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    isoPacketCount: number;
+    isoPacketCount: int;
   }
 
   /**
@@ -2340,15 +2517,13 @@ declare namespace usbManager {
    * submits it in order to request a transfer
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400007 - Resource busy. Possible causes:
-   * <br>1. The transfer has already been submitted.
-   * <br>2. The interface is claimed by another program or driver.
+   * @throws { BusinessError } 14400007 - Resource busy.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
-   * @throws { BusinessError } 14400009 - Insufficient memory. Possible causes:
-   * <br>1. Memory allocation failed.
+   * @throws { BusinessError } 14400009 - Insufficient memory.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
 
@@ -2363,7 +2538,8 @@ declare namespace usbManager {
    * <br>1.Unrecognized discard error code.
    * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
    * @syscap SystemCapability.USB.USBManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 
@@ -2373,24 +2549,20 @@ declare namespace usbManager {
    *
    * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
    * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Current function do not supporte due to the limitition of the device capabilities.
    * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in..
+   * @throws { BusinessError } 14400004 - USB Service connection exception. Possible causes: 1. No USB Device plugged in.
    * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    * <br>1.Unrecognized discard error code.
    * @throws { BusinessError } 14400013 - The USBDevicePipe validity check failed. Possible causes:
    * <br>1.The input parameters fail the validation check.
-   * <br>2.The call chain used to obtain the input parameters is not reasonable.
+   * <br>2.The call chain used to obtain the input parameters is not resonable.
    * @syscap SystemCapability.USB.USBManager
    * @since 20
+   * @arkts 1.1&1.2
    */
   function resetUsbDevice(pipe: USBDevicePipe): boolean;
-
-
-
-
-
 }
 
 export default usbManager;

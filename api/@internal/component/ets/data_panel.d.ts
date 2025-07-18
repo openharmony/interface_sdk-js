@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Length } from './units'
+import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common'
+/*** endif */
+
 /**
  * DataPanelType enum
  *
@@ -50,7 +55,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum DataPanelType {
   /**
@@ -81,7 +87,8 @@ declare enum DataPanelType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Line,
 
@@ -113,7 +120,8 @@ declare enum DataPanelType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Circle,
 }
@@ -130,7 +138,8 @@ declare enum DataPanelType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ColorStop {
   /**
@@ -146,7 +155,8 @@ declare interface ColorStop {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color: ResourceColor;
 
@@ -163,7 +173,8 @@ declare interface ColorStop {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset: Length;
 }
@@ -181,7 +192,8 @@ declare interface ColorStop {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LinearGradient {
   /**
@@ -199,7 +211,8 @@ declare class LinearGradient {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(colorStops: ColorStop[]);
 }
@@ -221,7 +234,8 @@ declare class LinearGradient {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DataPanelShadowOptions extends MultiShadowOptions {
   /**
@@ -241,7 +255,8 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colors?: Array<ResourceColor | LinearGradient>;
 }
@@ -278,7 +293,8 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DataPanelOptions {
   /**
@@ -313,7 +329,8 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values: number[];
 
@@ -349,7 +366,8 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   max?: number;
 
@@ -385,7 +403,8 @@ declare interface DataPanelOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: DataPanelType;
 }
@@ -422,7 +441,8 @@ declare interface DataPanelOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface DataPanelInterface {
   /**
@@ -461,7 +481,8 @@ interface DataPanelInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: DataPanelOptions): DataPanelAttribute;
 }
@@ -474,7 +495,8 @@ interface DataPanelInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
   /**
@@ -484,7 +506,8 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values: number[];
 
@@ -495,7 +518,8 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxValue: number;
 }
@@ -532,7 +556,8 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
@@ -571,7 +596,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   closeEffect(value: boolean): DataPanelAttribute;
 
@@ -592,7 +618,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   valueColors(value: Array<ResourceColor | LinearGradient>): DataPanelAttribute;
 
@@ -613,7 +640,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackBackgroundColor(value: ResourceColor): DataPanelAttribute;
 
@@ -634,7 +662,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth(value: Length): DataPanelAttribute;
 
@@ -655,7 +684,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
 
@@ -667,7 +697,8 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<DataPanelConfiguration>): DataPanelAttribute;
 }

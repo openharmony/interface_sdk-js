@@ -20,17 +20,15 @@ import sys
 
 INTEROP_POSTPROCESS_TOOL = "interface/sdk-js/build-tools/delete_label_noninterop.js"
 
-def delete_label_noninterop(source_root:str, input_dir:str, out_path:str, nodejs:str):
+
+def delete_label_noninterop(source_root: str, input_dir: str, out_path: str, nodejs: str):
     tool = os.path.join(source_root, INTEROP_POSTPROCESS_TOOL)
     tool = os.path.abspath(tool)
     nodejs = os.path.abspath(nodejs)
-    print("cmd=>", " ".join([nodejs, tool, "--input", input_dir, "--output",
-                            out_path]))
-
     p = subprocess.Popen([nodejs, tool, "--input", input_dir, "--output",
                         out_path], stdout=subprocess.PIPE)
-    
     p.wait()
+
 
 def main():
     parser = argparse.ArgumentParser()

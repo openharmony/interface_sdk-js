@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+/*** endif */
+
 /**
  * Define options used to construct a path.
  *
@@ -26,7 +30,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PathOptions {
   /**
@@ -358,7 +363,8 @@ interface PathInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
@@ -476,3 +482,30 @@ declare const Path: PathInterface;
  * @since 11
  */
 declare const PathInstance: PathAttribute;
+
+/**
+ * Provides the path drawing interface.
+ *
+ * @interface PathInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface PathInterface {
+  /**
+   * Called when drawing path.
+   *
+   * @param { PathOptions } [options] - path options
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: PathOptions): PathAttribute;
+}

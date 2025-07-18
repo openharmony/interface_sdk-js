@@ -33,7 +33,7 @@ declare namespace cloudData {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10
@@ -130,38 +130,38 @@ declare namespace cloudData {
     /**
      * Number of records to be inserted to the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12
      */
-    inserted: number;
+    inserted: int;
 
     /**
      * Number of inconsistent records between the local device and the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12
      */
-    updated: number;
+    updated: int;
 
     /**
      * Number of consistent records between the local device and the cloud.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12
      */
-    normal: number;
+    normal: int;
   }
 
   /**
    * Describes sync status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 18
@@ -407,7 +407,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - Indicates the extra data for
      * notification {@link ExtraData}.
-     * @param { number } [userId] - Indicates the user ID.
+     * @param { int } [userId] - Indicates the user ID.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -419,7 +419,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    static notifyDataChange(extInfo: ExtraData, userId?: number): Promise<void>;
+    static notifyDataChange(extInfo: ExtraData, userId?: int): Promise<void>;
 
     /**
      * Notifies changes of the cloud records.
@@ -447,7 +447,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - Indicates the extra data for
      * notification {@link ExtraData}.
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked
      * to return the data changes.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -460,7 +460,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    static notifyDataChange(extInfo: ExtraData, userId: number, callback: AsyncCallback<void>): void;
+    static notifyDataChange(extInfo: ExtraData, userId: int, callback: AsyncCallback<void>): void;
 
     /**
      * notifies changes of the cloud records
@@ -668,7 +668,7 @@ declare namespace cloudData {
   /**
    * Enumerates the strategy types of cloud sync.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12
    */
@@ -686,7 +686,7 @@ declare namespace cloudData {
   /**
    * Enumerates the types of cloud sync via the network.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12
    */
@@ -735,7 +735,7 @@ declare namespace cloudData {
     /**
      * Enumerates the roles.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -763,7 +763,7 @@ declare namespace cloudData {
     /**
      * Enumerates the states of sharing invitation.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -818,7 +818,7 @@ declare namespace cloudData {
     /**
      * Enumerates the error code of sharing invitation.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
@@ -963,12 +963,12 @@ declare namespace cloudData {
       /**
        * Error code.
        *
-       * @type { number }
+       * @type { int }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      code: number;
+      code: int;
 
       /**
        * Error code description.

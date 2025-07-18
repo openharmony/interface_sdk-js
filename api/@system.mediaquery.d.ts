@@ -31,7 +31,8 @@
  * @interface MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 export interface MediaQueryEvent {
   /**
@@ -47,7 +48,8 @@ export interface MediaQueryEvent {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   matches: boolean;
 }
@@ -65,7 +67,8 @@ export interface MediaQueryEvent {
  * @interface MediaQueryList
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts { '1.1':'11','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 export interface MediaQueryList {
   /**
@@ -83,7 +86,8 @@ export interface MediaQueryList {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   media?: string;
 
@@ -102,7 +106,8 @@ export interface MediaQueryList {
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   matches?: boolean;
 
@@ -119,7 +124,8 @@ export interface MediaQueryList {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   onchange?: (matches: boolean) => void;
 
@@ -138,7 +144,8 @@ export interface MediaQueryList {
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   addListener(callback: (event: MediaQueryEvent) => void): void;
 
@@ -155,7 +162,8 @@ export interface MediaQueryList {
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts { '1.1':'11','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
@@ -193,3 +201,29 @@ export default class MediaQuery {
    */
   static matchMedia(condition: string): MediaQueryList;
 }
+
+/**
+ * Defines the mediaquery interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare class MediaQuery {
+  /**
+   * Queries a media item and returns a MediaQueryList object.
+   *
+   * @param { string } condition
+   * @returns { MediaQueryList }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  static matchMedia(condition: string): MediaQueryList;
+}
+
+/*** if arkts 1.2 */
+export default MediaQuery;
+/*** endif */

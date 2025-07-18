@@ -44,7 +44,8 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TouchEventReceiver {
     /**
@@ -55,7 +56,8 @@ declare namespace inputMonitor {
      * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     (touchEvent: TouchEvent): Boolean;
   }

@@ -74,12 +74,12 @@ declare namespace cloudExtension {
   /**
    * Indicates possible cloud types.
    *
-   * @typedef { null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets } CloudType
+   * @typedef { null | long | double | string | boolean | Uint8Array | CloudAsset | CloudAssets } CloudType
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  type CloudType = null | number | string | boolean | Uint8Array | CloudAsset | CloudAssets;
+  type CloudType = null | long | double | string | boolean | Uint8Array | CloudAsset | CloudAssets;
 
   /**
    * Defines cloud information.
@@ -144,32 +144,32 @@ declare namespace cloudExtension {
     /**
      * Total space (in KB) of the account on the server.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    totalSpace: number;
+    totalSpace: long;
 
     /**
      * Available space (in KB) of the account on the server.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    remainingSpace: number;
+    remainingSpace: long;
 
     /**
      * Current user of the device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    user: number;
+    user: int;
   }
 
   /**
@@ -216,18 +216,18 @@ declare namespace cloudExtension {
     /**
      * Application instance ID.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    instanceId: number;
+    instanceId: int;
   }
 
   /**
    * Enumerates the field types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
@@ -469,12 +469,12 @@ declare namespace cloudExtension {
     /**
      * Schema version.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    version: number;
+    version: int;
 
     /**
      * Databases {@link Database} of the application.
@@ -540,12 +540,12 @@ declare namespace cloudExtension {
     /**
      * Subscription expiration time, in milliseconds.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    expirationTime: number;
+    expirationTime: long;
 
     /**
      * Data to be observed.
@@ -591,7 +591,7 @@ declare namespace cloudExtension {
   /**
    * Enumerates the operations that can be performed on the database.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
@@ -650,24 +650,24 @@ declare namespace cloudExtension {
     /**
      * Time when the row data was created.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    readonly createTime: number;
+    readonly createTime: long;
 
     /**
      * Time when the row data was last modified.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    readonly modifyTime: number;
+    readonly modifyTime: long
 
     /**
      * Database operation.
@@ -693,28 +693,28 @@ declare namespace cloudExtension {
     /**
      * Duration for which the cloud database is locked, in seconds.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    interval: number;
+    interval: int;
 
     /**
      * Lock ID for locking the cloud database.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    lockId: number;
+    lockId: int;
   }
 
   /**
    * Enumerates the error codes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
@@ -796,12 +796,12 @@ declare namespace cloudExtension {
     /**
      * Error code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    code: number;
+    code: int;
 
     /**
      * Error code description.
@@ -881,13 +881,13 @@ declare namespace cloudExtension {
      * Generates the IDs of the rows of data to be inserted to the cloud.
      * The IDs must be unique for each table.
      *
-     * @param { number } count - Indicates the number of IDs to generate.
+     * @param { int } count - Indicates the number of IDs to generate.
      * @returns { Promise<Result<Array<string>>> } Returns the IDs generated.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    generateId(count: number): Promise<Result<Array<string>>>;
+    generateId(count: int): Promise<Result<Array<string>>>;
 
     /**
      * Inserts data to the cloud.
@@ -946,7 +946,7 @@ declare namespace cloudExtension {
      *
      * @param { string } table - Indicates the table name.
      * @param { Array<string> } fields - Indicates the columns to query.
-     * @param { number } queryCount - Indicates the number of data records
+     * @param { int } queryCount - Indicates the number of data records
      * to query.
      * @param { string } queryCursor - Indicates the cursor.
      * @returns { Promise<Result<CloudData>> } Returns the query result.
@@ -954,7 +954,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    query(table: string, fields: Array<string>, queryCount: number, queryCursor: string): Promise<Result<CloudData>>;
+    query(table: string, fields: Array<string>, queryCount: int, queryCursor: string): Promise<Result<CloudData>>;
 
     /**
      * Locks the cloud database.
@@ -972,24 +972,24 @@ declare namespace cloudExtension {
     /**
      * Uses the heartbeat to extend the lock interval if it is not enough.
      *
-     * @param { number } lockId - Indicates the lock ID of the heartbeat.
+     * @param { int } lockId - Indicates the lock ID of the heartbeat.
      * @returns { Promise<Result<LockInfo>> } Returns the time.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    heartbeat(lockId: number): Promise<Result<LockInfo>>;
+    heartbeat(lockId: int): Promise<Result<LockInfo>>;
 
     /**
      * Unlocks the cloud database.
      *
-     * @param { number } lockId - Indicates the lock ID.
+     * @param { int } lockId - Indicates the lock ID.
      * @returns { Promise<Result<boolean>> } Returns the unlock result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    unlock(lockId: number): Promise<Result<boolean>>;
+    unlock(lockId: int): Promise<Result<boolean>>;
   }
 
   /**
@@ -1041,7 +1041,7 @@ declare namespace cloudExtension {
     /**
      * Shares data with specific participants.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
@@ -1051,7 +1051,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     share(
-      userId: number,
+      userId: int,
       bundleName: string,
       sharingResource: string,
       participants: Array<cloudData.sharing.Participant>
@@ -1060,7 +1060,7 @@ declare namespace cloudExtension {
     /**
      * UnShares data with specific participants.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
@@ -1070,7 +1070,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     unshare(
-      userId: number,
+      userId: int,
       bundleName: string,
       sharingResource: string,
       participants: Array<cloudData.sharing.Participant>
@@ -1079,7 +1079,7 @@ declare namespace cloudExtension {
     /**
      * Exits the sharing.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<void>> } Returns the exit result.
@@ -1087,12 +1087,12 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    exit(userId: number, bundleName: string, sharingResource: string): Promise<Result<void>>;
+    exit(userId: int, bundleName: string, sharingResource: string): Promise<Result<void>>;
 
     /**
      * Changes privilege of the specific participants.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
@@ -1102,7 +1102,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     changePrivilege(
-      userId: number,
+      userId: int,
       bundleName: string,
       sharingResource: string,
       participants: Array<cloudData.sharing.Participant>
@@ -1111,7 +1111,7 @@ declare namespace cloudExtension {
     /**
      * Queries participants of the specific sharing resource.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Returns the query result.
@@ -1120,7 +1120,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     queryParticipants(
-      userId: number,
+      userId: int,
       bundleName: string,
       sharingResource: string
     ): Promise<Result<Array<cloudData.sharing.Participant>>>;
@@ -1128,7 +1128,7 @@ declare namespace cloudExtension {
     /**
      * Queries participants based on the specified invitation code.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } invitationCode - Indicates the invitation code.
      * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Returns the query result.
@@ -1137,7 +1137,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     queryParticipantsByInvitation(
-      userId: number,
+      userId: int,
       bundleName: string,
       invitationCode: string
     ): Promise<Result<Array<cloudData.sharing.Participant>>>;
@@ -1145,7 +1145,7 @@ declare namespace cloudExtension {
     /**
      * Confirms invitation.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { cloudData.sharing.State } state - Indicates the state.
@@ -1155,7 +1155,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     confirmInvitation(
-      userId: number,
+      userId: int,
       bundleName: string,
       invitationCode: string,
       state: cloudData.sharing.State
@@ -1164,7 +1164,7 @@ declare namespace cloudExtension {
     /**
      * Changes confirmation.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
      * @param { cloudData.sharing.State } state - Indicates the state.
@@ -1174,7 +1174,7 @@ declare namespace cloudExtension {
      * @since 11
      */
     changeConfirmation(
-      userId: number,
+      userId: int,
       bundleName: string,
       sharingResource: string,
       state: cloudData.sharing.State
@@ -1231,7 +1231,7 @@ declare namespace cloudExtension {
      * @param { Record<string, Array<Database>> } subInfo - Indicates
      * the data to be subscribed to, that is, the key-value pairs corresponding
      * to an array of bundle names and databases.
-     * @param { number } expirationTime - Indicates the subscription expiration
+     * @param { long } expirationTime - Indicates the subscription expiration
      * time.
      * @returns { Promise<Result<SubscribeInfo>> } Returns <b>SubscribeInfo</b>.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
@@ -1240,7 +1240,7 @@ declare namespace cloudExtension {
      */
     subscribe(
       subInfo: Record<string, Array<Database>>,
-      expirationTime: number
+      expirationTime: long
     ): Promise<Result<SubscribeInfo>>;
 
     /**
@@ -1249,12 +1249,12 @@ declare namespace cloudExtension {
      * @param { Record<string, Array<string>> } unsubscribeInfo - Indicates
      * the data to be unsubscribe from, that is, the key-value pairs
      *  corresponding to an array of bundle names and databases.
-     * @returns { Promise<number> } Returns unsubscribeInfo result.
+     * @returns { Promise<int> } Returns unsubscribeInfo result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    unsubscribe(unsubscribeInfo: Record<string, Array<string>>): Promise<number>;
+    unsubscribe(unsubscribeInfo: Record<string, Array<string>>): Promise<int>;
 
     /**
      * Connects to a database.
@@ -1283,14 +1283,14 @@ declare namespace cloudExtension {
     /**
      * Connects to a share center.
      *
-     * @param { number } userId - Indicates the user ID.
+     * @param { int } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @returns { Promise<rpc.RemoteObject> } Returns shareCenter RemoteObject.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    connectShareCenter(userId: number, bundleName: string): Promise<rpc.RemoteObject>;
+    connectShareCenter(userId: int, bundleName: string): Promise<rpc.RemoteObject>;
   }
 }
 

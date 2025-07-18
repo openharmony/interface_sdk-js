@@ -694,82 +694,82 @@ declare namespace webview {
     /**
      * Number of the width.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Number of the height.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Number of the marginTop.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginTop: number;
+    marginTop: double;
 
     /**
      * Number of the marginBottom.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginBottom: number;
+    marginBottom: double;
 
     /**
      * Number of the marginRight.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginRight: number;
+    marginRight: double;
 
     /**
      * Number of the marginLeft.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginLeft: number;
+    marginLeft: double;
 
     /**
      * Number of the scaling.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale?: number;
+    scale?: double;
 
     /**
-     * Whether background should be printed when creating pdf. 
+     * Whether background should be printed when creating pdf.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
@@ -848,7 +848,7 @@ declare namespace webview {
     /**
      * Specify the amount of storage for the source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -856,14 +856,14 @@ declare namespace webview {
 	/**
      * Specify the amount of storage for the source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
   	 * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    usage: number;
+    usage: double;
     /**
      * the callback of getOriginUsage.
      *
@@ -873,7 +873,7 @@ declare namespace webview {
     /**
      * the callback of getOriginUsage.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
@@ -881,14 +881,14 @@ declare namespace webview {
 	/**
      * the callback of getOriginUsage.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    quota: number;
+    quota: double;
   }
 
   /**
@@ -945,23 +945,23 @@ declare namespace webview {
   interface ScrollOffset {
     /**
      * Get the horizontal offset.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'13', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x: number;
+    x: double;
 
     /**
      * Get the vertical offset.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'13', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y: number;
+    y: double;
   }
 
   /**
@@ -1104,7 +1104,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses a promise to return the result.
-     * 
+     *
      * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
      *                                                 For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1139,7 +1139,7 @@ declare namespace webview {
     /**
      * Obtains information about all origins that are currently using the Web SQL Database.
      * This API uses an asynchronous callback to return the result.
-     * 
+     *
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
      *                                                              origins. For details, see {@link WebStorageOrigin}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1156,7 +1156,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1165,7 +1165,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1176,7 +1176,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1186,12 +1186,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginQuota(origin: string): Promise<number>;
+    static getOriginQuota(origin: string): Promise<double>;
 
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1201,7 +1201,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1212,7 +1212,7 @@ declare namespace webview {
     /**
      * Get the web storage quota with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1222,12 +1222,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
+    static getOriginQuota(origin: string, callback: AsyncCallback<double>): void;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1237,7 +1237,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1248,7 +1248,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function
+     * @returns { Promise<double> } - the promise returned by the function
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1258,12 +1258,12 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginUsage(origin: string): Promise<number>;
+    static getOriginUsage(origin: string): Promise<double>;
 
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1273,7 +1273,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1284,7 +1284,7 @@ declare namespace webview {
     /**
      * Get the web amount of storage with the origin.
      * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
@@ -1294,7 +1294,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
+    static getOriginUsage(origin: string, callback: AsyncCallback<double>): void;
   }
 
   /**
@@ -1418,7 +1418,7 @@ declare namespace webview {
    * <p><strong>API Note</strong>:<br>
    * You must load the Web component before calling the APIs in GeolocationPermissions.
    * </p>
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -1449,7 +1449,7 @@ declare namespace webview {
     /**
      * Allows the specified origin to use the geolocation information.
      * @param { string } origin - Index of the origin.
-     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information 
+     * @param { boolean } incognito - Whether to allow the specified origin to use the geolocation information
      *                                in incognito mode. {@code true} means to allow the specified origin to use the
      *                                geolocation information in incognito mode; {@code false} means to allow the
      *                                specified origin to use the geolocation information in normal non-incognito mode.
@@ -1814,7 +1814,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
@@ -1833,7 +1833,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -1854,7 +1854,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'14', '1.2':'20'}
@@ -1871,7 +1871,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -1894,7 +1894,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'14', '1.2':'20'}
@@ -1911,7 +1911,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
-     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified 
+     * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3799,7 +3799,7 @@ declare namespace webview {
      */
     ERR_SIGNIFICANT_CHANGE = -5
   }
- 
+
   /**
    * Defines the blankless information.
    *
@@ -3935,7 +3935,7 @@ declare namespace webview {
     /**
      * Sets whether to enable web debugging. By default, web debugging is disabled.
      * For details, see Debugging Frontend Pages by Using DevTools.
-     * 
+     *
      * <p><strong>API Note</strong>:<br>
      * Enabling web debugging allows users to check and modify the internal status of the web page,
      * which poses security risks. Therefore, you are advised not to enable this function
@@ -4376,7 +4376,7 @@ declare namespace webview {
     /**
      * Let the Web zoom by.
      *
-     * @param { number } factor - The zoom factor.
+     * @param { double } factor - The zoom factor.
      *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4392,7 +4392,7 @@ declare namespace webview {
      * zoomAccess must be true.
      * </p>
      *
-     * @param { number } factor - The zoom factor.
+     * @param { double } factor - The zoom factor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4404,7 +4404,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    zoom(factor: number): void;
+    zoom(factor: double): void;
 
     /**
      * Let the Web zoom in.
@@ -4497,7 +4497,7 @@ declare namespace webview {
 
     /**
      * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4505,7 +4505,7 @@ declare namespace webview {
      */
     /**
      * Gets the id for the current Web.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4514,7 +4514,7 @@ declare namespace webview {
      */
     /**
      * Gets the index value of the current Web component for the management of multiple Web components.
-     * @returns { number } Returns the index value of the current Web component.
+     * @returns { int } Returns the index value of the current Web component.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4523,7 +4523,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getWebId(): number;
+    getWebId(): int;
 
     /**
      * Gets the default user agent.
@@ -4568,7 +4568,7 @@ declare namespace webview {
 
     /**
      * Gets the content height of current Web page.
-     * @returns { number } Returns the page height of the current page.
+     * @returns { int } Returns the page height of the current page.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4576,7 +4576,7 @@ declare namespace webview {
      */
     /**
      * Obtains the height of this web page.
-     * @returns { number } Height of the current web page. Unit: vp.
+     * @returns { int } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4585,7 +4585,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getPageHeight(): number;
+    getPageHeight(): int;
 
     /**
      * Goes forward or back backOrForward in the history of the web page.
@@ -4992,7 +4992,7 @@ declare namespace webview {
      * The state of JavaScript is no longer persisted across navigations like loadUrl.
      * For example, global variables and functions defined before calling loadUrl will not exist in the loaded page.<br>
      * It is recommended that applications use registerJavaScriptProxy to ensure that the JavaScript state can be persisted across page navigations.<br>
-     * If you cannot obtain the return value by executing the asynchronous method, 
+     * If you cannot obtain the return value by executing the asynchronous method,
      * you need to determine whether to use synchronous or asynchronous mode based on the specific situation.
      * <p>
      *
@@ -5511,8 +5511,8 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
+     * @param { double } x - the x of the position.
+     * @param { double } y - the y of the position.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5522,8 +5522,8 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { number } x - the x of the position.
-     * @param { number } y - the y of the position.
+     * @param { double } x - the x of the position.
+     * @param { double } y - the y of the position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5536,9 +5536,9 @@ declare namespace webview {
     /**
      * Scroll to the position.
      *
-     * @param { number } x - the x of the position.Unit: vp.
-     * @param { number } y - the y of the position.Unit: vp.
-     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @param { double } x - the x of the position.Unit: vp.
+     * @param { double } y - the y of the position.Unit: vp.
+     * @param { int } duration - the scroll animation duration. Unit: millisecond.
      *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5550,13 +5550,13 @@ declare namespace webview {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scrollTo(x: number, y: number, duration?: number): void;
+    scrollTo(x: double, y: double, duration?: int): void;
 
     /**
      * Scroll by the delta position.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { double } deltaX - the delta x of the position.
+     * @param { double } deltaY - the delta y of the position.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5566,8 +5566,8 @@ declare namespace webview {
     /**
      * Scroll by the delta position.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { double } deltaX - the delta x of the position.
+     * @param { double } deltaY - the delta y of the position.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5584,9 +5584,9 @@ declare namespace webview {
      * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
      * </p>
      *
-     * @param { number } deltaX - the delta x of the position.Unit: vp.
-     * @param { number } deltaY - the delta y of the position.Unit: vp.
-     * @param { number } duration - the scroll animation duration. Unit: millisecond.
+     * @param { double } deltaX - the delta x of the position.Unit: vp.
+     * @param { double } deltaY - the delta y of the position.Unit: vp.
+     * @param { int } duration - the scroll animation duration. Unit: millisecond.
      *                              If the value is not passed, or is negative or 0, there is no animation.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -5598,13 +5598,13 @@ declare namespace webview {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scrollBy(deltaX: number, deltaY: number, duration?: number): void;
+    scrollBy(deltaX: double, deltaY: double, duration?: int): void;
 
     /**
      * Slide by the speed.
      *
-     * @param { number } vx - the x speed of the speed.
-     * @param { number } vy - the y speed of the speed.
+     * @param { double } vx - the x speed of the speed.
+     * @param { double } vy - the y speed of the speed.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5614,8 +5614,8 @@ declare namespace webview {
     /**
      * Slide by the speed.
      *
-     * @param { number } vx - the x speed of the speed.
-     * @param { number } vy - the y speed of the speed.
+     * @param { double } vx - the x speed of the speed.
+     * @param { double } vy - the y speed of the speed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5625,7 +5625,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    slideScroll(vx: number, vy: number): void;
+    slideScroll(vx: double, vy: double): void;
 
     /**
      * Serialize the access stack of the web, that is, the history of access.
@@ -6379,7 +6379,7 @@ declare namespace webview {
     onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void;
 
     /**
-     * Enables the full drawing capability for the web page. 
+     * Enables the full drawing capability for the web page.
      * This API works only during Web component initialization.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -6420,7 +6420,7 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
      *    Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
      *    The unit is second. Default value is 300s.
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6433,7 +6433,7 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
-      cacheValidTime?: number): void;
+      cacheValidTime?: int): void;
 
     /**
     * Clears the cache of prefetched resources based on the specified cache key list.
@@ -6502,7 +6502,7 @@ declare namespace webview {
      * @param { string } url - Url of the javascript. Only support HTTP/HTTPS protocol and length no longer than 2048.
      * @param { string | Uint8Array } script - Javascript source code. script must not be empty.
      * @param { CacheOptions } cacheOptions - Generate code cache option.
-     * @returns { Promise<number> } - The promise returned by the function.
+     * @returns { Promise<int> } - The promise returned by the function.
      *    0 means generate code cache successfully, -1 means internal error.
      * @throws { BusinessError } 401 - Invalid input parameter.
      *    Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6513,7 +6513,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<number>;
+    precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise<int>;
 
     /**
      * Set IP address for host name.
@@ -6672,8 +6672,8 @@ declare namespace webview {
     /**
      * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
      * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-     * The behavior of {@link fileAccess} will be overwritten by that of this API. 
-     * 
+     * The behavior of {@link fileAccess} will be overwritten by that of this API.
+     *
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
      * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
@@ -6749,8 +6749,8 @@ declare namespace webview {
     /**
      * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { double } deltaX - the delta x of the position.
+     * @param { double } deltaY - the delta y of the position.
      * @returns { boolean } true if the scroll operation is successful, otherwise false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -6760,7 +6760,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scrollByWithResult(deltaX: number, deltaY: number): boolean;
+    scrollByWithResult(deltaX: double, deltaY: double): boolean;
 
     /**
      * Gets the last hit test value of HitTest.
@@ -6774,7 +6774,7 @@ declare namespace webview {
     getLastHitTest(): HitTestValue;
 
     /**
-     * Get the page offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.  
+     * Get the page offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
      * And the unit is virtual pixel.
      *
      * @returns { ScrollOffset } page offset
@@ -6822,7 +6822,7 @@ declare namespace webview {
      * @since 20
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
-  
+
     /**
      * Get whether webviewController is attached to a web component.
      * @returns { ControllerAttachState } the attach state of controller
@@ -8696,13 +8696,13 @@ declare namespace webview {
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - Current volume of native media player.
+     * @param { double } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleVolumeChanged(volume: number): void
+    handleVolumeChanged(volume: double): void
 
     /**
      * Handle native media player muted status.
@@ -8720,52 +8720,52 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - infinity]
      *
-     * @param { number } playbackRate - Current playback rate of native media player.
+     * @param { double } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handlePlaybackRateChanged(playbackRate: number): void
+    handlePlaybackRateChanged(playbackRate: double): void
 
     /**
      * Handle duration time of media.
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @param { number } duration - Duration time (in seconds) of media.
+     * @param { double } duration - Duration time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleDurationChanged(duration: number): void
+    handleDurationChanged(duration: double): void
 
     /**
      * Handle current playing time of media.
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } currentPlayTime - Current playing time (in seconds) of media.
+     * @param { double } currentPlayTime - Current playing time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleTimeUpdate(currentPlayTime: number): void
+    handleTimeUpdate(currentPlayTime: double): void
 
     /**
      * Handle buffered end time of media.
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } bufferedEndTime - Buffered end time (in seconds) of media.
+     * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleBufferedEndTimeChanged(bufferedEndTime: number): void
+    handleBufferedEndTimeChanged(bufferedEndTime: double): void
 
     /**
      * Handle native player ended event.
@@ -8845,14 +8845,14 @@ declare namespace webview {
     /**
      * Handle size of video.
      *
-     * @param { number } width - Width of video.
-     * @param { number } height - Height of video.
+     * @param { double } width - Width of video.
+     * @param { double } height - Height of video.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handleVideoSizeChanged(width: number, height: number): void
+    handleVideoSizeChanged(width: double, height: double): void
   }
 
   /**
@@ -8924,16 +8924,16 @@ declare namespace webview {
     /**
      * Notify native media player that the rect of video tag has changed.
      *
-     * @param { number } x - The x position of video tag in web component.
-     * @param { number } y - The y position of video tag in web component.
-     * @param { number } width - The width of video tag.
-     * @param { number } height - The height of video tag.
+     * @param { double } x - The x position of video tag in web component.
+     * @param { double } y - The y position of video tag in web component.
+     * @param { double } width - The width of video tag.
+     * @param { double } height - The height of video tag.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    updateRect(x: number, y: number, width: number, height: number): void
+    updateRect(x: double, y: double, width: double, height: double): void
 
     /**
      * Request to play.
@@ -8960,26 +8960,26 @@ declare namespace webview {
      *  targetTime: float
      *   value range: [0 - duration]
      *
-     * @param { number } targetTime - The target time (in seconds) to FF/BF to.
+     * @param { double } targetTime - The target time (in seconds) to FF/BF to.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    seek(targetTime: number): void
+    seek(targetTime: double): void
 
     /**
      * Request to change volume of native media player.
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @param { number } volume - The volume of native media player.
+     * @param { double } volume - The volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setVolume(volume: number): void
+    setVolume(volume: double): void
 
     /**
      * Request to mute native media player.
@@ -8997,13 +8997,13 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - 10.0]
      *
-     * @param { number } playbackRate - The playback rate of native media player.
+     * @param { double } playbackRate - The playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setPlaybackRate(playbackRate: number): void
+    setPlaybackRate(playbackRate: double): void
 
     /**
      * Request to release native media player.
@@ -9182,39 +9182,39 @@ declare namespace webview {
     /**
      * X coordinator of top left point.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x: number;
+    x: double;
     /**
      * Y coordinator of top left point.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y: number;
+    y: double;
     /**
      * Width of this rectangle.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
     /**
      * Height of this rectangle.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
   }
 
   /**
@@ -9570,7 +9570,7 @@ declare namespace webview {
 
   /**
    * This class is used to enable back forward cache supported features.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -9608,7 +9608,7 @@ declare namespace webview {
 
   /**
    * This class is used to set back forward cache options.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -9766,11 +9766,11 @@ declare namespace webview {
     /**
      * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
      * use the proxy rule if schemeFilter is null.
-     * 
+     *
      * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
      * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
      * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
-     * 
+     *
      * e.g. example.com host: example.com
      *      https://example.com  scheme: https  host: example.com
      *      example.com:8888     host: example.com  port: 8888
@@ -9778,7 +9778,7 @@ declare namespace webview {
      *      192.168.1.1  host: 192.168.1.1
      *      192.168.1.1:8888  host:192.168.1.1 port: 8888
      *      [10:20:30:40:50:60:70:80]
-     * 
+     *
      * @param { string } proxyRule - The proxy rule.
      * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -9789,11 +9789,11 @@ declare namespace webview {
     /**
      * Insert a proxy rule which indicates that requests matching the schemeFilter should use an override proxy, all requests will
      * use the proxy rule if schemeFilter is null.
-     * 
+     *
      * The format for proxy is [scheme://]host[:port]. Scheme is optional and must be HTTP, HTTPS, or SOCKS if present. Scheme defaults to HTTP.
      * Host is an IPv6 literal with brackets, an IPv4 literal or one or more labels seperated by a period. Port number is optional and defaults
      * to 80 for HTTP, 443 for HTTPS and 1080 for SOCKS.
-     * 
+     *
      * e.g. example.com host: example.com
      *      https://example.com  scheme: https  host: example.com
      *      example.com:8888     host: example.com  port: 8888
@@ -9801,7 +9801,7 @@ declare namespace webview {
      *      192.168.1.1  host: 192.168.1.1
      *      192.168.1.1:8888  host:192.168.1.1 port: 8888
      *      [10:20:30:40:50:60:70:80]
-     * 
+     *
      * @param { string } proxyRule - The proxy rule.
      * @param { ProxySchemeFilter } schemeFilter - The scheme filter for this rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -9816,14 +9816,14 @@ declare namespace webview {
     /**
      * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
      * Examples: "abc", "local", "some-domain".
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Hostnames without a period in them (and that are not IP literals) will skip the proxy and connect the server directly.
      * Examples: "abc", "local", "some-domain".
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'19', '1.2':'20'}
@@ -9835,7 +9835,7 @@ declare namespace webview {
      * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
      * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
      * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
@@ -9843,7 +9843,7 @@ declare namespace webview {
      * By default, certain hostnames implicitly bypass the proxy if they are link-local IPs, or localhost addresses. For instance
      * hostnames matching any of (non-exhaustive list): localhost *.localhost [::1] 127.0.0.1/8 169.254/16 [FE80::]/10
      * Call this function to override the default behavior and force localhost and link-local URLs to be sent through the proxy.
-     * 
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'19', '1.2':'20'}
@@ -9853,10 +9853,10 @@ declare namespace webview {
 
     /**
      * Reverse the bypass rules.
-     * 
+     *
      * If false all URLs will use proxy settings except URLs match the bypass rules.
      * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
-     * 
+     *
      * @param { boolean } reverse - If reverse the bypass rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -9865,10 +9865,10 @@ declare namespace webview {
      */
     /**
      * Reverse the bypass rules.
-     * 
+     *
      * If false all URLs will use proxy settings except URLs match the bypass rules.
      * If true only URLs in the bypass list will use proxy, and all other URLs will be connected to directly.
-     * 
+     *
      * @param { boolean } reverse - If reverse the bypass rule.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -9881,14 +9881,14 @@ declare namespace webview {
 
     /**
      * Returns the bypass rules.
-     * 
+     *
      * @returns { Array<string> } The bypass rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Returns the bypass rules.
-     * 
+     *
      * @returns { Array<string> } The bypass rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9899,14 +9899,14 @@ declare namespace webview {
 
     /**
      * Returns the proxy rules.
-     * 
+     *
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Returns the proxy rules.
-     * 
+     *
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9917,14 +9917,14 @@ declare namespace webview {
 
     /**
      * Returns if reverse bypass rules.
-     * 
+     *
      * @returns { boolean } If reverse bypass enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Returns if reverse bypass rules.
-     * 
+     *
      * @returns { boolean } If reverse bypass enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9936,13 +9936,13 @@ declare namespace webview {
 
   /**
    * The ProxyRule used by insertProxyRule.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
   /**
    * The ProxyRule used by insertProxyRule.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'19', '1.2':'20'}
@@ -9951,14 +9951,14 @@ declare namespace webview {
   class ProxyRule {
     /**
      * Returns the scheme filter used for this rule.
-     * 
+     *
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Returns the scheme filter used for this rule.
-     * 
+     *
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9969,14 +9969,14 @@ declare namespace webview {
 
     /**
      * Returns the proxy URL.
-     * 
+     *
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 15
      */
     /**
      * Returns the proxy URL.
-     * 
+     *
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9988,14 +9988,14 @@ declare namespace webview {
 
   /**
    * The callback for proxy changed.
-   * 
+   *
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
   /**
    * The callback for proxy changed.
-   * 
+   *
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10006,13 +10006,13 @@ declare namespace webview {
 
   /**
    * This class is used for set proxy for ArkWeb.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 15
    */
   /**
    * This class is used for set proxy for ArkWeb.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'19', '1.2':'20'}
@@ -10024,7 +10024,7 @@ declare namespace webview {
      * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
      * the listener before loading a page. This listener will be called on the UI thread.
      * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
-     * 
+     *
      * @param { ProxyConfig } proxyConfig - The proxy config.
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -10037,7 +10037,7 @@ declare namespace webview {
      * Instead, the request will use the proxy specified by the config. Requests are not guaranteed to use the new proxy immediately; wait for
      * the listener before loading a page. This listener will be called on the UI thread.
      * Note: calling applyProxyOverride will cause any existing system wide setting to be ignored.
-     * 
+     *
      * @param { ProxyConfig } proxyConfig - The proxy config.
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -10052,7 +10052,7 @@ declare namespace webview {
     /**
      * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
      * will be called on the UI thread.
-     * 
+     *
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -10062,7 +10062,7 @@ declare namespace webview {
     /**
      * Remove the proxy config. Requests are not guaranteed to not use the proxy; Wait for the listener before loading a page. This listener
      * will be called on the UI thread.
-     * 
+     *
      * @param { OnProxyConfigChangeCallback } callback - Called when the proxy has been changed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.

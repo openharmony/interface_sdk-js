@@ -16,8 +16,12 @@
 /**
  * @file Defines 3D scene related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
+/*** if arkts 1.2 */
+import { ResourceStr } from '../arkui/component/units';
+/*** endif */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
@@ -346,7 +350,7 @@ export interface RenderParameters {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export class Scene {
+export declare class Scene {
   /**
    * Get default render context
    *

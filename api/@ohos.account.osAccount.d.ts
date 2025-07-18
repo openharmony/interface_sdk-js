@@ -1786,25 +1786,25 @@ declare namespace osAccount {
      * Obtain localId according to serial number
      *
      * @param { number } serialNumber - Indicates serial number.
-     * @param { AsyncCallback<int> } callback - Returns localId.
+     * @param { AsyncCallback<number> } callback - Returns localId.
      * @syscap SystemCapability.Account.OsAccount
      * @since 8
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForSerialNumber
      */
-    getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<int>): void;
+    getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
 
     /**
      * Obtain localId according to serial number
      *
      * @param { number } serialNumber - Indicates serial number.
-     * @returns { Promise<int> } Returns localId.
+     * @returns { Promise<number> } Returns localId.
      * @syscap SystemCapability.Account.OsAccount
      * @since 8
      * @deprecated since 9
      * @useinstead osAccount.AccountManager#getOsAccountLocalIdForSerialNumber
      */
-    getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise<int>;
+    getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise<number>;
 
     /**
      * Gets the local ID of the OS account associated with the serial number.
@@ -2160,6 +2160,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     bindDomainAccount(localId: number, domainAccountInfo: DomainAccountInfo): Promise<void>;
   }
@@ -2401,6 +2402,26 @@ declare namespace osAccount {
      * @arkts 1.1&1.2
      */
     shortName: string;
+
+    /**
+     * Indicates the bundles are disallowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 19
+     */
+    disallowedPreinstalledBundles?: Array<string>;
+
+    /**
+     * Indicates the bundles are allowed to be preinstalled on the OS account.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 19
+     */
+    allowedPreinstalledBundles?: Array<string>;
   }
 
   /**
@@ -2721,7 +2742,24 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid remoteNetworkId.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Prepares remote authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { string } remoteNetworkId - Indicates the remote network identifier.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid remoteNetworkId.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
@@ -2783,7 +2821,41 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     auth(
@@ -2825,7 +2897,43 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { AuthOptions } options - Indicates authentication options.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType, authTrustLevel or options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     auth(
@@ -2896,7 +3004,43 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300211 - Server unreachable.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Executes user authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { int } userId - Indicates the user identification.
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300090 - Cross-device capability not supported.
+     * @throws { BusinessError } 12300091 - Cross-device communication failed.
+     * @throws { BusinessError } 12300101 - The credential is incorrect.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300105 - The trust level is not supported.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @throws { BusinessError } 12300109 - The authentication, enrollment, or update operation is canceled.
+     * @throws { BusinessError } 12300110 - The authentication is locked.
+     * @throws { BusinessError } 12300111 - The authentication timeout.
+     * @throws { BusinessError } 12300112 - The authentication service is busy.
+     * @throws { BusinessError } 12300113 - The authentication service does not exist.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300117 - PIN is expired.
+     * @throws { BusinessError } 12300119 - Multi-factor authentication failed.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     authUser(
@@ -4211,7 +4355,21 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @since 8
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
@@ -4231,7 +4389,23 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @since 8
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Indicates the callback to get all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
@@ -4250,7 +4424,23 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @since 8
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all registered credential information of
+     * the specified type for the current user.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
@@ -4270,7 +4460,24 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Gets authentication information.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { GetAuthInfoOptions } [options] - Indicates the options for getting the authentication information.
+     * @returns { Promise<Array<EnrolledCredInfo>> } Returns all enrolled credential information
+     * according to the options.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
@@ -4293,7 +4500,26 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - The authentication type is not supported.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Gets the credential enrolled identifier of the specified authentication type.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { int } [accountId] - Indicates the OS account identifier.
+     * @returns { Promise<Uint8Array> } Returns the enrolled identifier.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300020 - Device hardware abnormal.
+     * @throws { BusinessError } 12300102 - The credential does not exist.
+     * @throws { BusinessError } 12300106 - The authentication type is not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
@@ -4378,6 +4604,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     ABANDONED_PIN_AUTH = 4
   }
@@ -4791,6 +5018,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     credentialLength?: int;
   }
@@ -5020,6 +5248,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     isAbandoned?: boolean;
 
@@ -5030,6 +5259,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     validityPeriod?: long;
   }
@@ -5110,6 +5340,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     CREDENTIAL_LENGTH = 7
   }

@@ -129,7 +129,6 @@ declare namespace thermal {
    * @param { Callback<ThermalLevel> } callback Callback of thermal level changes.
    * this param is a function type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4800101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -152,7 +151,6 @@ declare namespace thermal {
    *
    * @param { Callback<void> } callback Callback of thermal level changes.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4800101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -174,7 +172,6 @@ declare namespace thermal {
    * Obtains the current thermal level.
    *
    * @returns { ThermalLevel } The thermal level.
-   * @throws { BusinessError } 4800101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2

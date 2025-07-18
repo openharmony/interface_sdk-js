@@ -32,7 +32,8 @@ import type { SystemToneOptions as _SystemToneOptions } from './multimedia/syste
  * @namespace systemSoundManager
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace systemSoundManager {
 
@@ -111,10 +112,11 @@ declare namespace systemSoundManager {
 
   /**
    * Enum for ringtone type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RingtoneType {
     /**
@@ -131,7 +133,8 @@ declare namespace systemSoundManager {
      * Ringtone type for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGTONE_TYPE_SIM_CARD_0 = 0,
 
@@ -149,24 +152,27 @@ declare namespace systemSoundManager {
      * Ringtone type for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RINGTONE_TYPE_SIM_CARD_1 = 1,
   }
 
   /**
    * Enum for system tone type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SystemToneType {
     /**
      * System tone type for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYSTEM_TONE_TYPE_SIM_CARD_0 = 0,
 
@@ -174,7 +180,8 @@ declare namespace systemSoundManager {
      * System tone type for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYSTEM_TONE_TYPE_SIM_CARD_1 = 1,
 
@@ -182,31 +189,35 @@ declare namespace systemSoundManager {
      * System tone type notification.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYSTEM_TONE_TYPE_NOTIFICATION = 32,
   }
 
   /**
    * Enum for tone customized type.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ToneCustomizedType {
     /**
      * Pre-installed tone type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRE_INSTALLED = 0,
     /**
      * Customized tone type.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CUSTOMIZED = 1,
   }
@@ -240,33 +251,37 @@ declare namespace systemSoundManager {
    * Define the ringtone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const TONE_CATEGORY_RINGTONE: number;
+  const TONE_CATEGORY_RINGTONE: long;
 
   /**
    * Define the text message tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const TONE_CATEGORY_TEXT_MESSAGE:number;
+  const TONE_CATEGORY_TEXT_MESSAGE: long;
 
   /**
    * Define the notification tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const TONE_CATEGORY_NOTIFICATION:number;
+  const TONE_CATEGORY_NOTIFICATION: long;
 
   /**
    * Define the alarm tone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const TONE_CATEGORY_ALARM:number;
+  const TONE_CATEGORY_ALARM: long;
 
   /**
    * Define the contact tone category.
@@ -282,7 +297,8 @@ declare namespace systemSoundManager {
    * @typedef ToneAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ToneAttrs {
     /**
@@ -406,7 +422,8 @@ declare namespace systemSoundManager {
    * @typedef {Array<ToneAttrs>} ToneAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ToneAttrsArray = Array<ToneAttrs>;
 
@@ -422,41 +439,46 @@ declare namespace systemSoundManager {
 
   /**
    * Definition of haptics feature in tone scenario.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ToneHapticsFeature {
     /**
      * Standard haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STANDARD = 0,
     /**
      * Gentle haptics feature.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GENTLE = 1,
   }
   /**
    * Enum for haptics in tone scenario.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ToneHapticsType {
     /**
      * Haptics in incoming call scenario for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_SIM_CARD_0 = 0,
 
@@ -464,7 +486,8 @@ declare namespace systemSoundManager {
      * Haptics in incoming call scenario for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_SIM_CARD_1 = 1,
 
@@ -472,7 +495,8 @@ declare namespace systemSoundManager {
      * Haptics in text message scenario for sim card 0.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT_MESSAGE_SIM_CARD_0 = 20,
 
@@ -480,7 +504,8 @@ declare namespace systemSoundManager {
      * Haptics in text message scenario for sim card 1.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT_MESSAGE_SIM_CARD_1 = 21,
 
@@ -488,31 +513,35 @@ declare namespace systemSoundManager {
      * Haptics in notification scenario.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION = 40,
   }
 
   /**
    * Enum for haptics mode in tone scenario.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ToneHapticsMode {
     /**
      * None haptics mode.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
     /**
      * Haptics is synchronized with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SYNC = 1,
 
@@ -520,7 +549,8 @@ declare namespace systemSoundManager {
      * Haptics is out of synchronize with tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NON_SYNC = 2,
   }
@@ -529,7 +559,8 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsSettings
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ToneHapticsSettings {
     /**
@@ -537,7 +568,8 @@ declare namespace systemSoundManager {
      * @type { ToneHapticsMode }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mode: ToneHapticsMode;
     /**
@@ -546,7 +578,8 @@ declare namespace systemSoundManager {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hapticsUri?: string;
   }
@@ -556,7 +589,8 @@ declare namespace systemSoundManager {
    * @typedef ToneHapticsAttrs
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ToneHapticsAttrs {
     /**
@@ -596,7 +630,8 @@ declare namespace systemSoundManager {
    * @typedef { Array<ToneHapticsAttrs> } ToneHapticsAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ToneHapticsAttrsArray = Array<ToneHapticsAttrs>;
 
@@ -606,7 +641,8 @@ declare namespace systemSoundManager {
    * @returns { SystemSoundManager } SystemSoundManager instance.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSystemSoundManager(): SystemSoundManager;
 
@@ -615,7 +651,8 @@ declare namespace systemSoundManager {
    * @typedef SystemSoundManager
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SystemSoundManager {
     /**
@@ -819,7 +856,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSystemToneUri(context: BaseContext, type: SystemToneType): Promise<string>;
 
@@ -867,7 +905,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
 
@@ -1028,10 +1067,10 @@ declare namespace systemSoundManager {
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { BaseContext } context - Current application context.
      * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
-     * @param { number } fd - File descriptor.
-     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     * @param { int } fd - File descriptor.
+     * @param { long } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
      * is zero.
-     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     * @param { long } [length] - The length in bytes of the data to be read. By default, the length is the rest of
      * bytes in the file from the offset.
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1203,7 +1242,8 @@ declare namespace systemSoundManager {
    * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type RingtonePlayer = _RingtonePlayer;
 
@@ -1212,7 +1252,8 @@ declare namespace systemSoundManager {
    * @typedef { _SystemTonePlayer } SystemTonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SystemTonePlayer = _SystemTonePlayer;
 
@@ -1221,7 +1262,8 @@ declare namespace systemSoundManager {
    * @typedef { _RingtoneOptions } RingtoneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type RingtoneOptions = _RingtoneOptions;
 
@@ -1230,7 +1272,8 @@ declare namespace systemSoundManager {
    * @typedef { _SystemToneOptions } SystemToneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SystemToneOptions = _SystemToneOptions;
 }

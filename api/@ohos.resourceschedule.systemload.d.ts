@@ -32,7 +32,7 @@ declare namespace systemLoad {
     /**
      * Enumerates the {@link SystemLoadLevel} types.
      *
-     * @enum {number}
+     * @enum {int}
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since arkts{ '1.1':'12', '1.2':'20' }
      * @arkts 1.1&1.2

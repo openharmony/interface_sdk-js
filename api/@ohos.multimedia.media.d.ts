@@ -43,7 +43,8 @@ import type drm from './@ohos.multimedia.drm';
  * @syscap SystemCapability.Multimedia.Media.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace media {
   /**
@@ -81,6 +82,25 @@ declare namespace media {
    * @since 12
    */
   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
+  /**
+   * Creates an **AVPlayer** instance. This API uses an asynchronous callback to return the result.
+   * <br>**NOTE:**<br>
+   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
+   * playback scenarios.
+   * 
+   * The actual number of instances that can be created may be different. 
+   * It depends on the specifications of the device chip in use.
+   * 
+   * @param { AsyncCallback<AVPlayer | undefined> } callback - used to return the result. If the operation is successful, an
+   * **AVPlayer** instance is returned; otherwise, **null** is returned. The instance can be used to play
+   * audio and video.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVPlayer(callback: AsyncCallback<AVPlayer | undefined>): void;
 
   /**
    * Creates an AVPlayer instance. This API uses a promise to return the result.
@@ -116,6 +136,25 @@ declare namespace media {
    * @since 12
    */
   function createAVPlayer(): Promise<AVPlayer>;
+  /**
+   * Creates an **AVPlayer** instance. This API uses a promise to return the result.
+   * <br>**NOTE:**<br>
+   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
+   * playback scenarios.
+   * 
+   * The actual number of instances that can be created may be different. It depends on the specifications of
+   * the device chip in use.
+   * 
+   * @returns { Promise<AVPlayer | undefined> } A Promise instance used to return the result. If the operation is successful, an
+   * **AVPlayer** instance is returned; **null** is returned otherwise. The instance can be used to play
+   * audio and video.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVPlayer(): Promise<AVPlayer | undefined>;
 
   /**
    * Creates an AVRecorder instance.
@@ -135,6 +174,18 @@ declare namespace media {
    * @since 12
    */
   function createAVRecorder(callback: AsyncCallback<AVRecorder>): void;
+  /**
+   * Creates an **AVRecorder** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVRecorder | undefined> } callback - Callback used to return the result.
+   * If the operation is successful, an **AVRecorder** instance is returned;
+   * otherwise, **null** is returned. The instance can be used to record audio and video.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVRecorder(callback: AsyncCallback<AVRecorder | undefined>): void;
 
   /**
    * Creates an AVRecorder instance.
@@ -155,6 +206,18 @@ declare namespace media {
    * @since 12
    */
   function createAVRecorder(): Promise<AVRecorder>;
+  /**
+   * Creates an **AVRecorder** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVRecorder | undefined> } Promise used to return the result. If the operation is successful,
+   * an **AVRecorder** instance is returned; otherwise, **null** is returned.
+   * The instance can be used to record audio and video.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVRecorder
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVRecorder(): Promise<AVRecorder | undefined>;
 
   /**
    * Creates an AudioPlayer instance.
@@ -201,6 +264,20 @@ declare namespace media {
    * @since 13
    */
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
+  /**
+   * Creates a media source for streaming media to be pre-downloaded.
+   * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
+   *  HTTP-FLV, DASH, and HTTPS.
+   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 5400101 - No memory.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource | undefined;
 
    /**
    * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate
@@ -213,6 +290,17 @@ declare namespace media {
    * @since 19
    */
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource;
+  /**
+   * Creates a multi-bitrate media source for streaming media. Currently, only the HTTP-FLV multi-bitrate
+   * media source is supported.
+   * @param { Array<MediaStream> } streams - Array of MediaStream objects.
+   * The supported streaming media format is HTTP-FLV.
+   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource | undefined;
 
   /**
    * Creates an VideoPlayer instance.
@@ -254,6 +342,18 @@ declare namespace media {
    * @since 12
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
+  /**
+   * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
+   * Creates an VideoRecorder instance.
+   * @param { AsyncCallback<VideoRecorder | undefined> } callback - used to return AudioPlayer instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  function createVideoRecorder(callback: AsyncCallback<VideoRecorder | undefined>): void;
 
   /**
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
@@ -275,6 +375,18 @@ declare namespace media {
    * @since 12
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
+  /**
+   * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder
+   * Creates an VideoRecorder instance.
+   * @returns { Promise<VideoRecorder | undefined> } A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  function createVideoRecorder(): Promise<VideoRecorder | undefined>;
 
   /**
    * Creates a **SoundPool** instance. This API uses an asynchronous callback to return the result.
@@ -303,6 +415,34 @@ declare namespace media {
     audioRenderInfo: audio.AudioRendererInfo,
     callback: AsyncCallback<SoundPool>
   ): void;
+  /**
+   * Creates a **SoundPool** instance. This API uses an asynchronous callback to return the result.
+   *
+   * **NOTE**
+   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
+   * mode. Therefore, an application process can create only one **SoundPool** instance.
+   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
+   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   *
+   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   * The value is an integer ranging from 1 to 32.
+   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters. When the **usage** parameter
+   * in **audioRenderInfo** is set to **STREAM_USAGE_UNKNOWN**, **STREAM_USAGE_MUSIC**, **STREAM_USAGE_MOVIE**, or
+   * **STREAM_USAGE_AUDIOBOOK**, the SoundPool uses the audio mixing mode when playing a short sound, without
+   * interrupting the playback of other audios.
+   * @param {AsyncCallback<SoundPool | undefined>} callback - Callback used to return the result. If the operation is successful, a
+   * **SoundPool** instance is returned; otherwise, **null** is returned.
+   * The instance is used for loading and playback.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   * @arkts 1.2
+   */
+  function createSoundPool(
+    maxStreams: number,
+    audioRenderInfo: audio.AudioRendererInfo,
+    callback: AsyncCallback<SoundPool | undefined>
+  ): void;
 
   /**
    * Creates a **SoundPool** instance. This API uses a promise to return the result.
@@ -324,6 +464,27 @@ declare namespace media {
    * @since 10
    */
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+  /**
+   * Creates a **SoundPool** instance. This API uses a promise to return the result.
+   *
+   * **NOTE**
+   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
+   * mode. Therefore, an application process can create only one **SoundPool** instance.
+   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
+   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   *
+   * @param {number} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
+   * The value is an integer ranging from 1 to 32.
+   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters.
+   * @returns {Promise<SoundPool | undefined>} Promise used to return the result. If the operation is successful,
+   * a **SoundPool** instance is returned; otherwise, **null** is returned.
+   * The instance is used for loading and playback.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 20
+   * @arkts 1.2
+   */
+  function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool | undefined>;
 
   /**
    * Creates a **SoundPool** instance. This API uses a promise to return the result.
@@ -369,6 +530,31 @@ declare namespace media {
    * });
    */
   function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>;
+  /**
+   * Creates an **AVScreenCaptureRecorder** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVScreenCaptureRecorder | undefined> } Promise used to return the result. If the operation is successful,
+   * an **AVScreenCaptureRecorder** instance is returned; otherwise, **null** is returned.
+   * The instance can be used for screen capture.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @since 20
+   * @example
+   * import { BusinessError } from '@kit.BasicServicesKit';
+   *
+   * let avScreenCaptureRecorder: media.AVScreenCaptureRecorder;
+   * media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+   *   if (captureRecorder != null) {
+   *     avScreenCaptureRecorder = captureRecorder;
+   *     console.info('Succeeded in createAVScreenCaptureRecorder');
+   *   } else {
+   *     console.error('Failed to createAVScreenCaptureRecorder');
+   *   }
+   * }).catch((error: BusinessError) => {
+   *   console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+   * });
+   * @arkts 1.2
+   */
+  function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder | undefined>;
 
   /**
    * Reports the user selection result in the screen capture privacy dialog box to the AVScreenCapture server to
@@ -386,7 +572,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @example
    * import { BusinessError } from '@kit.BasicServicesKit';
    * import { media } from '@kit.MediaKit';
@@ -408,6 +594,7 @@ declare namespace media {
    * } catch (error: BusinessError) {
    *   console.error(`reportAVScreenCaptureUserChoice error, error message: ${error.message}`);
    * }
+   * @arkts 1.1&1.2
    */
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
@@ -426,6 +613,23 @@ declare namespace media {
    * @since 12
    */
   function createAVTranscoder(): Promise<AVTranscoder>;
+
+  /**
+   * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
+   *
+   * **NOTE**
+   *
+   * A maximum of 2 **AVTranscoder** instances can be created.
+   *
+   * @returns {Promise<AVTranscoder | undefined>} Promise used to return the result. If the operation is successful, an
+   * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
+   * transcoding.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVTranscoder(): Promise<AVTranscoder | undefined>;
 
   /**
    * Obtains a **ScreenCaptureMonitor** instance. This API uses a promise to return the result.
@@ -447,6 +651,27 @@ declare namespace media {
    * }
    */
   function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor>;
+  /**
+   * Obtains a **ScreenCaptureMonitor** instance. This API uses a promise to return the result.
+   *
+   * @returns { Promise<ScreenCaptureMonitor | undefined> } Promise used to return the result. The instance can be used to query
+   * and monitor the status of the system screen recorder.<br>If the operation is successful,
+   * a **ScreenCaptureMonitor** instance is returned; otherwise, **null** is returned.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 20
+   * @example
+   * let screenCaptureMonitor: media.ScreenCaptureMonitor;
+   * try {
+   *   screenCaptureMonitor = await media.getScreenCaptureMonitor();
+   * } catch (err) {
+   *   console.error(`getScreenCaptureMonitor failed, error message:${err.message}`);
+   * }
+   * @arkts 1.2
+   */
+  function getScreenCaptureMonitor(): Promise<ScreenCaptureMonitor | undefined>;
 
   /**
    * Provides APIs for loading, unloading, playing, and stopping playing system sounds, setting the volume,
@@ -454,7 +679,8 @@ declare namespace media {
    *
    * @typedef { _SoundPool }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SoundPool = _SoundPool;
 
@@ -463,7 +689,8 @@ declare namespace media {
    *
    * @typedef { _PlayParameters }
    * @syscap SystemCapability.Multimedia.Media.SoundPool
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type PlayParameters = _PlayParameters;
 
@@ -490,7 +717,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum StateChangeReason {
     /**
@@ -509,7 +737,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER = 1,
 
@@ -530,7 +759,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BACKGROUND = 2,
   }
@@ -553,6 +783,17 @@ declare namespace media {
    * @since 12
    */
   function createAVMetadataExtractor(): Promise<AVMetadataExtractor>;
+  /**
+   * Creates an **AVMetadataExtractor** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVMetadataExtractor | undefined> } A Promise instance used to return AVMetadataExtractor instance
+   * if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Returned by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVMetadataExtractor(): Promise<AVMetadataExtractor | undefined>;
 
   /**
    * Creates an AVMetadataExtractor instance.
@@ -573,6 +814,18 @@ declare namespace media {
    * @since 12
    */
   function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor>): void;
+  /**
+   * Creates an **AVMetadataExtractor** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVMetadataExtractor | undefined> } callback - Callback used to return the result. If the operation is
+   * successful, **err** is **undefined** and **data** is the **AVMetadataExtractor** instance created;
+   * otherwise, **err** is an error object.
+   * @throws { BusinessError } 5400101 - No memory. Returned by callback.
+   * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor | undefined>): void;
 
   /**
    * Creates an **AVImageGenerator** instance. This API uses a promise to return the result.
@@ -584,6 +837,17 @@ declare namespace media {
    * @since 12
    */
   function createAVImageGenerator(): Promise<AVImageGenerator>;
+  /**
+   * Creates an **AVImageGenerator** instance. This API uses a promise to return the result.
+   * @returns { Promise<AVImageGenerator | undefined> } Promise used to return the result. If the operation is successful,
+   * an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
+   * The API can be used to obtain a video thumbnail.
+   * @throws { BusinessError } 5400101 - No memory. Returned by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVImageGenerator(): Promise<AVImageGenerator | undefined>;
 
   /**
    * Creates an **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
@@ -595,6 +859,17 @@ declare namespace media {
    * @since 12
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
+  /**
+   * Creates an **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
+   * @param { AsyncCallback<AVImageGenerator | undefined> } callback - Callback used to return the result.
+   * If the operation is successful, an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
+   * The API can be used to obtain a video thumbnail.
+   * @throws { BusinessError } 5400101 - No memory. Returned by callback.
+   * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+   * @since 20
+   * @arkts 1.2
+   */
+  function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator | undefined>): void;
 
   /**
    * Fetch media meta data or audio art picture from source. Before calling an AVMetadataExtractor method,
@@ -611,7 +886,8 @@ declare namespace media {
    * @typedef AVMetadataExtractor
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVMetadataExtractor {
     /**
@@ -638,7 +914,8 @@ declare namespace media {
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -657,7 +934,8 @@ declare namespace media {
      * @type { ?AVDataSrcDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataSrc ?: AVDataSrcDescriptor;
 
@@ -680,6 +958,18 @@ declare namespace media {
      * @since 12
      */
     fetchMetadata(callback: AsyncCallback<AVMetadata>): void;
+    /**
+     * Obtains media metadata. This API uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AVMetadata | undefined> } callback - Callback used to return the result,
+     * which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    fetchMetadata(callback: AsyncCallback<AVMetadata | undefined>): void;
 
     /**
      * It will extract the resource to fetch media meta data info.
@@ -699,6 +989,17 @@ declare namespace media {
      * @since 12
      */
     fetchMetadata(): Promise<AVMetadata>;
+    /**
+     * Obtains media metadata. This API uses a promise to return the result.
+     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result, which is an **AVMetadata** instance.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    fetchMetadata(): Promise<AVMetadata | undefined>;
 
     /**
      * It will extract the audio resource to fetch an album cover.
@@ -776,7 +1077,8 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTimeByFrameIndex(index: number): Promise<number>;
 
@@ -789,7 +1091,8 @@ declare namespace media {
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getFrameIndexByTime(timeUs: number): Promise<number>;
 
@@ -807,7 +1110,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -824,7 +1128,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -842,7 +1147,8 @@ declare namespace media {
    * @typedef AVMetadata
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVMetadata {
     /**
@@ -857,7 +1163,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     album?: string;
 
@@ -873,7 +1180,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     albumArtist?: string;
 
@@ -889,7 +1197,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     artist?: string;
 
@@ -905,7 +1214,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     author?: string;
 
@@ -921,7 +1231,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dateTime?: string;
 
@@ -938,7 +1249,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dateTimeFormat?: string;
 
@@ -954,7 +1266,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     composer?: string;
 
@@ -969,7 +1282,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration?: string;
 
@@ -985,7 +1299,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     genre?: string;
 
@@ -1000,7 +1315,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasAudio?: string;
 
@@ -1015,7 +1331,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasVideo?: string;
 
@@ -1032,7 +1349,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mimeType?: string;
 
@@ -1048,7 +1366,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     trackCount?: string;
 
@@ -1063,7 +1382,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sampleRate?: string;
 
@@ -1079,7 +1399,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title?: string;
 
@@ -1094,7 +1415,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoHeight?: string;
 
@@ -1109,7 +1431,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoWidth?: string;
 
@@ -1125,7 +1448,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoOrientation?: string;
 
@@ -1134,7 +1458,8 @@ declare namespace media {
      * @type { ?HdrType }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hdrType?: HdrType;
 
@@ -1142,7 +1467,8 @@ declare namespace media {
      * Geographical location of the media asset.
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     location?: Location;
 
@@ -1150,7 +1476,8 @@ declare namespace media {
      * Custom key-value mappings obtained from **moov.meta.list**.
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customInfo?: Record<string, string>;
   }
@@ -1189,14 +1516,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum HdrType {
     /**
      * This option is used to mark none HDR type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_HDR_TYPE_NONE = 0,
 
@@ -1204,7 +1533,8 @@ declare namespace media {
      * This option is used to mark HDR Vivid type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_HDR_TYPE_VIVID = 1,
   }
@@ -1215,7 +1545,8 @@ declare namespace media {
    *
    * @typedef AVImageGenerator
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVImageGenerator {
     /**
@@ -1234,7 +1565,8 @@ declare namespace media {
      * use the same resource handle to read and write files at the same time, resulting in errors in obtaining data.
      * @type { ?AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdSrc ?: AVFileDescriptor;
 
@@ -1288,7 +1620,8 @@ declare namespace media {
      * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -1297,7 +1630,8 @@ declare namespace media {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -1309,34 +1643,39 @@ declare namespace media {
    * the thumbnail is actually obtained. Therefore, you need to specify their relationship.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVImageQueryOptions {
     /**
      * The key frame at or next to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_IMAGE_QUERY_NEXT_SYNC,
 
     /**
      * The key frame at or prior to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_IMAGE_QUERY_PREVIOUS_SYNC,
 
     /**
      * The key frame closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_IMAGE_QUERY_CLOSEST_SYNC,
 
     /**
      * The frame (not necessarily a key frame) closest to the specified time is selected.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AV_IMAGE_QUERY_CLOSEST,
   }
@@ -1345,7 +1684,8 @@ declare namespace media {
    * Defines the format parameters of the video thumbnail to be obtained.
    * @typedef PixelMapParams
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PixelMapParams {
     /**
@@ -1353,7 +1693,8 @@ declare namespace media {
      * video. Otherwise, the returned thumbnail will not be scaled.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width?: number;
 
@@ -1362,7 +1703,8 @@ declare namespace media {
      * video. Otherwise, the returned thumbnail will not be scaled.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height?: number;
 
@@ -1373,7 +1715,8 @@ declare namespace media {
      * @type { ?PixelFormat }
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     colorFormat?: PixelFormat;
   }
@@ -1383,14 +1726,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PixelFormat {
     /**
      * RGB_565.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGB_565 = 2,
 
@@ -1398,7 +1743,8 @@ declare namespace media {
      * RGBA_8888.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGBA_8888 = 3,
 
@@ -1406,7 +1752,8 @@ declare namespace media {
      * RGB_888.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RGB_888 = 5,
   }
@@ -1433,7 +1780,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVErrorCode {
     /**
@@ -1452,7 +1800,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_OK = 0,
 
@@ -1472,7 +1821,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_NO_PERMISSION = 201,
 
@@ -1492,7 +1842,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_INVALID_PARAMETER = 401,
 
@@ -1512,7 +1863,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_UNSUPPORT_CAPABILITY = 801,
 
@@ -1532,7 +1884,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_NO_MEMORY = 5400101,
 
@@ -1552,7 +1905,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_OPERATE_NOT_PERMIT = 5400102,
 
@@ -1572,7 +1926,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO = 5400103,
 
@@ -1592,7 +1947,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_TIMEOUT = 5400104,
 
@@ -1612,7 +1968,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_SERVICE_DIED = 5400105,
 
@@ -1632,7 +1989,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_UNSUPPORT_FORMAT = 5400106,
 
@@ -1647,7 +2005,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
     /**
@@ -1655,7 +2014,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_HOST_NOT_FOUND = 5411001,
     /**
@@ -1663,7 +2023,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_CONNECTION_TIMEOUT = 5411002,
     /**
@@ -1671,7 +2032,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_NETWORK_ABNORMAL = 5411003,
     /**
@@ -1679,7 +2041,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_NETWORK_UNAVAILABLE = 5411004,
     /**
@@ -1687,7 +2050,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_NO_PERMISSION = 5411005,
     /**
@@ -1695,7 +2059,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_REQUEST_DENIED = 5411006,
     /**
@@ -1703,7 +2068,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_RESOURCE_NOT_FOUND = 5411007,
     /**
@@ -1712,7 +2078,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_SSL_CLIENT_CERT_NEEDED = 5411008,
     /**
@@ -1721,7 +2088,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_SSL_CONNECTION_FAILED = 5411009,
     /**
@@ -1729,7 +2097,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010,
     /**
@@ -1737,14 +2106,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_IO_UNSUPPORTED_REQUEST = 5411011,
     /**
      * Seek continuous unsupported.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_SEEK_CONTINUOUS_UNSUPPORTED = 5410002,
 
@@ -1752,7 +2123,8 @@ declare namespace media {
      * Super-resolution unsupported.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_SUPER_RESOLUTION_UNSUPPORTED = 5410003,
 
@@ -1760,7 +2132,8 @@ declare namespace media {
      * No PlaybackStrategy set to enable super-resolution feature.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004,
   }
@@ -1788,7 +2161,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
@@ -1799,7 +2173,8 @@ declare namespace media {
    * @param { boolean } isSelected - Status of the track, that is, whether the track is selected.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnTrackChangeHandler = (index: number, isSelected: boolean) => void;
 
@@ -1812,7 +2187,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void;
 
@@ -1825,7 +2201,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => void;
 
@@ -1838,7 +2215,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnVideoSizeChangeHandler = (width: number, height: number) => void;
 
@@ -1862,7 +2240,8 @@ declare namespace media {
    * and **false** means the opposite.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
@@ -1872,7 +2251,8 @@ declare namespace media {
    * @typedef SeiMessage
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SeiMessage {
     /**
@@ -1880,7 +2260,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     payloadType: number;
 
@@ -1889,7 +2270,8 @@ declare namespace media {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     payload: ArrayBuffer;
   }
@@ -1903,7 +2285,8 @@ declare namespace media {
    * @param { ?number } playbackPosition - playback position.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnSeiMessageHandle = (messages: Array<SeiMessage>, playbackPosition?: number) => void;
 
@@ -1951,7 +2334,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVPlayer {
     /**
@@ -1988,7 +2372,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(callback: AsyncCallback<void>): void;
 
@@ -2026,7 +2411,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(): Promise<void>;
 
@@ -2052,7 +2438,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     play(callback: AsyncCallback<void>): void;
 
@@ -2078,7 +2465,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     play(): Promise<void>;
 
@@ -2104,7 +2492,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -2130,7 +2519,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): Promise<void>;
 
@@ -2159,7 +2549,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -2188,7 +2579,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -2217,7 +2609,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -2246,7 +2639,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): Promise<void>;
 
@@ -2272,7 +2666,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -2298,7 +2693,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -2331,7 +2727,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     seek(timeMs: number, mode?: SeekMode): void;
 
@@ -2350,7 +2747,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setVolume(volume: number): void;
 
@@ -2380,7 +2778,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void;
 
@@ -2407,7 +2806,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
@@ -2418,7 +2818,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSelectedTracks(): Promise<Array<number>>;
 
@@ -2433,7 +2834,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     selectTrack(index: number, mode?: SwitchMode): Promise<void>;
 
@@ -2446,7 +2848,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deselectTrack(index: number): Promise<void>;
 
@@ -2462,7 +2865,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
@@ -2481,7 +2885,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
 
@@ -2495,7 +2900,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addSubtitleFromUrl(url: string): Promise<void>;
 
@@ -2504,7 +2910,8 @@ declare namespace media {
      * playing, or paused state.
      * @returns { Promise<PlaybackInfo> } Statistic infos of current player.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPlaybackInfo(): Promise<PlaybackInfo>;
 
@@ -2516,7 +2923,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>;
 
@@ -2530,7 +2938,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
@@ -2552,7 +2961,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>;
 
@@ -2566,7 +2976,8 @@ declare namespace media {
      * false: seek continuous is not supported or the support status is uncertain.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSeekContinuousSupported() : boolean;
 
@@ -2576,7 +2987,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPlaybackPosition() : number;
 
@@ -2593,7 +3005,8 @@ declare namespace media {
      *                                     Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSuperResolution(enabled: boolean) : Promise<void>;
 
@@ -2614,7 +3027,8 @@ declare namespace media {
      *                                     Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setVideoWindowSize(width: number, height: number) : Promise<void>;
 
@@ -2653,7 +3067,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     url?: string;
 
@@ -2681,7 +3096,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdSrc?: AVFileDescriptor;
 
@@ -2705,7 +3121,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dataSrc?: AVDataSrcDescriptor;
 
@@ -2722,7 +3139,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loop: boolean;
 
@@ -2795,7 +3213,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly currentTime: number;
 
@@ -2819,7 +3238,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly duration: number;
 
@@ -2835,7 +3255,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly state: AVPlayerState;
 
@@ -2860,7 +3281,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     surfaceId?: string;
 
@@ -2877,7 +3299,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly width: number;
 
@@ -2894,7 +3317,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly height: number;
 
@@ -2911,7 +3335,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoScaleType?: VideoScaleType;
 
@@ -2929,7 +3354,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSpeed(speed: PlaybackSpeed): void;
 
@@ -2970,7 +3396,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setBitrate(bitrate: number): void;
 
@@ -3072,7 +3499,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3095,7 +3523,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void;
     /**
@@ -3113,7 +3542,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'volumeChange', callback: Callback<number>): void;
     /**
@@ -3139,7 +3569,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'volumeChange', callback?: Callback<number>): void;
     /**
@@ -3159,7 +3590,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'endOfStream', callback: Callback<void>): void;
     /**
@@ -3183,7 +3615,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'endOfStream', callback?: Callback<void>): void;
     /**
@@ -3214,7 +3647,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'seekDone', callback: Callback<number>): void;
     /**
@@ -3242,7 +3676,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'seekDone', callback?: Callback<number>): void;
     /**
@@ -3261,7 +3696,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'speedDone', callback: Callback<number>): void;
     /**
@@ -3287,7 +3723,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'speedDone', callback?: Callback<number>): void;
     /**
@@ -3324,7 +3761,8 @@ declare namespace media {
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'bitrateDone', callback: Callback<number>): void;
     /**
@@ -3348,7 +3786,8 @@ declare namespace media {
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'bitrateDone', callback?: Callback<number>): void;
     /**
@@ -3375,7 +3814,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'timeUpdate', callback: Callback<number>): void;
     /**
@@ -3398,7 +3838,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'timeUpdate', callback?: Callback<number>): void;
     /**
@@ -3417,7 +3858,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'durationUpdate', callback: Callback<number>): void;
     /**
@@ -3441,7 +3883,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'durationUpdate', callback?: Callback<number>): void;
 
@@ -3462,7 +3905,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void;
 
@@ -3481,7 +3925,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void;
     /**
@@ -3500,7 +3945,8 @@ declare namespace media {
      * @param { Callback<void> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'startRenderFrame', callback: Callback<void>): void;
     /**
@@ -3522,7 +3968,8 @@ declare namespace media {
      * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'startRenderFrame', callback?: Callback<void>): void;
 
@@ -3542,7 +3989,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void;
     /**
@@ -3558,7 +4006,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void;
     /**
@@ -3614,7 +4063,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'availableBitrates', callback: Callback<Array<number>>): void;
     /**
@@ -3632,7 +4082,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'availableBitrates', callback?: Callback<Array<number>>): void;
     /**
@@ -3716,7 +4167,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
@@ -3739,7 +4191,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -3803,7 +4256,8 @@ declare namespace media {
      * @param { Callback<SubtitleInfo> } callback - Callback invoked when the subtitle is updated.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
 
@@ -3814,7 +4268,8 @@ declare namespace media {
      * update events.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
 
@@ -3827,7 +4282,8 @@ declare namespace media {
      * @param { OnTrackChangeHandler } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
@@ -3838,7 +4294,8 @@ declare namespace media {
      * @param { OnTrackChangeHandler } callback - Callback that has been registered to listen for track changes.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
@@ -3851,7 +4308,8 @@ declare namespace media {
      * @param { Callback<Array<MediaDescription>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
 
@@ -3863,7 +4321,8 @@ declare namespace media {
      * information updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
 
@@ -3874,7 +4333,8 @@ declare namespace media {
      * The event is triggered when the amplitude changes.
      * @param { Callback<Array<number>> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
@@ -3884,7 +4344,8 @@ declare namespace media {
      * The event is triggered when the amplitude changes.
      * @param { Callback<Array<number>> } callback - Callback that has been registered to listen for amplitude updates.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
 
@@ -3901,7 +4362,8 @@ declare namespace media {
      * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void;
 
@@ -3916,7 +4378,8 @@ declare namespace media {
      * subscribed-to payload types.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void;
 
@@ -3927,7 +4390,8 @@ declare namespace media {
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void;
 
@@ -3938,7 +4402,8 @@ declare namespace media {
      * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;    
   }
@@ -3960,45 +4425,61 @@ declare namespace media {
   }
 
   /**
+   * Provides the container definition for media description key-value pairs.
+   *
+   * @typedef { Record<string, Object> }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type PlaybackInfo = Record<string, Object>;
+
+  /**
    * Enumerates statistics info keys for player.
    *
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PlaybackInfoKey {
     /**
      * IP address of current network stream.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SERVER_IP_ADDRESS = 'server_ip_address',
 
     /**
      * Average download rate during playing except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AVG_DOWNLOAD_RATE = 'average_download_rate',
 
     /**
      * Current download rate of the last second except for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DOWNLOAD_RATE = 'download_rate',
 
     /**
      * Boolean value, true for current is downloading, false for suspend downloading.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IS_DOWNLOADING = 'is_downloading',
 
     /**
      * Cached duration in milliseconds.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUFFER_DURATION = 'buffer_duration',
   }
@@ -4118,7 +4599,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum BufferingInfoType {
     /**
@@ -4131,7 +4613,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUFFERING_START = 1,
 
@@ -4145,7 +4628,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUFFERING_END = 2,
 
@@ -4159,7 +4643,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUFFERING_PERCENT = 3,
 
@@ -4173,7 +4658,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CACHED_DURATION = 4,
   }
@@ -4194,7 +4680,8 @@ declare namespace media {
    *                     - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number;
 
@@ -4212,7 +4699,8 @@ declare namespace media {
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void;
 
@@ -4225,7 +4713,8 @@ declare namespace media {
    * @returns { void } - client should return immediately.
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SourceCloseCallback = (uuid: number) => void;
 
@@ -4234,7 +4723,8 @@ declare namespace media {
    * @typedef MediaSourceLoader
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MediaSourceLoader {
     /**
@@ -4242,7 +4732,8 @@ declare namespace media {
      * @type { SourceOpenCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     open: SourceOpenCallback;
 
@@ -4251,7 +4742,8 @@ declare namespace media {
      * @type { SourceReadCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     read: SourceReadCallback;
 
@@ -4260,7 +4752,8 @@ declare namespace media {
      * @type { SourceCloseCallback }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close: SourceCloseCallback;
   }
@@ -4270,14 +4763,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum LoadingRequestError {
     /**
      * If reach the resource end, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_SUCCESS = 0,
 
@@ -4285,7 +4780,8 @@ declare namespace media {
      * If resource not ready for access, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_NOT_READY = 1,
 
@@ -4293,7 +4789,8 @@ declare namespace media {
      * If resource url not exist, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_NO_RESOURCE = 2,
 
@@ -4301,7 +4798,8 @@ declare namespace media {
      * If the uuid of resource handle is valid, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
     */
     LOADING_ERROR_INVAID_HANDLE = 3,
 
@@ -4309,7 +4807,8 @@ declare namespace media {
      * If client has no right to request the resource, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_ACCESS_DENIED = 4,
 
@@ -4317,7 +4816,8 @@ declare namespace media {
      * If access time out, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_ACCESS_TIMEOUT = 5,
 
@@ -4325,7 +4825,8 @@ declare namespace media {
      * If authorization failed, client should return.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING_ERROR_AUTHORIZE_FAILED = 6,
   }
@@ -4336,7 +4837,8 @@ declare namespace media {
    * @typedef MediaSourceLoadingRequest
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MediaSourceLoadingRequest {
     /**
@@ -4344,7 +4846,8 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     url: string;
 
@@ -4354,7 +4857,8 @@ declare namespace media {
      * @type { ?Record<string, string> }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     header?: Record<string, string>;
 
@@ -4371,6 +4875,19 @@ declare namespace media {
      * @since 18
      */
     respondData(uuid: number, offset: number, buffer: ArrayBuffer): number;
+    /**
+     * The interface for application used to send requested data to AVPlayer.
+     * @param { number } uuid - ID for the resource handle.
+     * @param { number } offset - Offset of the current media data relative to the start of the resource.
+     * @param { ArrayBuffer } buffer - Media data sent to the player.
+     * @returns { number | undefined } - accept bytes for current read. The value less than zero means failed.
+     *                    -2, means player need current data any more, the client should stop current read process.
+     *                    -3, means player buffer is full, the client should wait for next read.
+     * @syscap  SystemCapability.Multimedia.Media.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    respondData(uuid: number, offset: number, buffer: ArrayBuffer): number | undefined;
 
     /**
      * The interface for application used to send respond header to AVPlayer
@@ -4382,7 +4899,8 @@ declare namespace media {
      * @param { ?string } [redirectUrl] - redirect url from the http response if exist.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void;
 
@@ -4394,7 +4912,8 @@ declare namespace media {
      * @param { LoadingRequestError } state - Request status.
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     finishLoading(uuid: number, state: LoadingRequestError): void;
   }
@@ -4404,7 +4923,8 @@ declare namespace media {
    * @typedef MediaStream
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MediaStream {	
     /**
@@ -4412,7 +4932,8 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     url: string;
  
@@ -4421,7 +4942,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
  
@@ -4430,7 +4952,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
  
@@ -4439,7 +4962,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bitrate: number;
   }
@@ -4450,7 +4974,8 @@ declare namespace media {
    * @typedef MediaSource
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MediaSource {
     /**
@@ -4458,7 +4983,8 @@ declare namespace media {
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMimeType(mimeType: AVMimeTypes): void;
 
@@ -4467,7 +4993,8 @@ declare namespace media {
      * @param { MediaSourceLoader } resourceLoader - callback function interface set for player use.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMediaResourceLoaderDelegate(resourceLoader: MediaSourceLoader): void;
   }
@@ -4477,14 +5004,16 @@ declare namespace media {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVMimeTypes {
     /**
      * Indicate current file is index file for hls Media.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APPLICATION_M3U8 = 'application/m3u8',
   }
@@ -4494,7 +5023,8 @@ declare namespace media {
    * @typedef PlaybackStrategy
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PlaybackStrategy {
     /**
@@ -4502,7 +5032,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredWidth?: number;
     /**
@@ -4510,7 +5041,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredHeight?: number;
     /**
@@ -4523,7 +5055,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredBufferDuration?: number;
 
@@ -4532,7 +5065,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredHdr?: boolean;
 
@@ -4540,7 +5074,8 @@ declare namespace media {
      * mute the specified media stream when playing.
      * @type { ?MediaType }
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mutedMediaType?: MediaType;
 
@@ -4549,7 +5084,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredAudioLanguage?: string;
 
@@ -4558,7 +5094,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredSubtitleLanguage?: string;
 
@@ -4567,7 +5104,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showFirstFrameOnPrepare?: boolean;
 
@@ -4576,7 +5114,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preferredBufferDurationForPlaying?: number;
 
@@ -4586,7 +5125,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableSuperResolution?: boolean;
 
@@ -4596,7 +5136,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     thresholdForAutoQuickPlay?: number
 
@@ -4637,7 +5178,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVFileDescriptor {
     /**
@@ -4660,7 +5202,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fd: number
 
@@ -4684,7 +5227,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset?: number
 
@@ -4708,7 +5252,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     length?: number
   }
@@ -4739,7 +5284,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVDataSrcDescriptor {
     /**
@@ -4762,7 +5308,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fileSize: number;
     /**
@@ -4798,7 +5345,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     callback: (buffer: ArrayBuffer, length: number, pos?: number) => number;
   }
@@ -4811,7 +5359,8 @@ declare namespace media {
    * @typedef SubtitleInfo
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SubtitleInfo {
     /**
@@ -4819,7 +5368,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration?: number;
     /**
@@ -4827,7 +5377,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startTime?: number;
     /**
@@ -4835,7 +5386,8 @@ declare namespace media {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     text?: string;
   }
@@ -5089,7 +5641,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error';
 
@@ -5102,7 +5655,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void;
 
@@ -5122,7 +5676,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVRecorder {
     /**
@@ -5152,7 +5707,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5185,6 +5740,7 @@ declare namespace media {
      *     console.info('Succeeded in preparing');
      *   }
      * })
+     * @arkts 1.1&1.2
      */
     prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void;
 
@@ -5214,7 +5770,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5245,6 +5801,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to prepare and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     prepare(config: AVRecorderConfig): Promise<void>;
 
@@ -5275,6 +5832,34 @@ declare namespace media {
      * });
      */
     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
+    /**
+     * Obtains the real-time configuration of this AVRecorder.
+     * This API uses an asynchronous callback to return the result.
+     * This API can be called only after prepare() is called.
+     * @param { AsyncCallback<AVRecorderConfig | undefined> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the real-time configuration obtained;
+     * otherwise, **err** is an error object.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let avConfig: media.AVRecorderConfig;
+     *
+     * avRecorder.getAVRecorderConfig((err: BusinessError, config: media.AVRecorderConfig) => {
+     *   if (err) {
+     *     console.error('Failed to get avConfig and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting AVRecorderConfig');
+     *     avConfig = config;
+     *   }
+     * });
+     * @arkts 1.2
+     */
+    getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig | undefined>): void;
 
     /**
      * Obtains the real-time configuration of this AVRecorder. This API uses a promise to return the result.
@@ -5298,6 +5883,29 @@ declare namespace media {
      * });
      */
     getAVRecorderConfig(): Promise<AVRecorderConfig>;
+    /**
+     * Obtains the real-time configuration of this AVRecorder. This API uses a promise to return the result.
+     * This API can be called only after prepare() is called.
+     * @returns { Promise<AVRecorderConfig | undefined> } Promise used to return the real-time configuration.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     *
+     * let avConfig: media.AVRecorderConfig;
+     *
+     * avRecorder.getAVRecorderConfig().then((config: media.AVRecorderConfig) => {
+     *   console.info('Succeeded in getting AVRecorderConfig');
+     *   avConfig = config;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get AVRecorderConfig and catch error is ' + err.message);
+     * });
+     * @arkts 1.2
+     */
+    getAVRecorderConfig(): Promise<AVRecorderConfig | undefined>;
 
     /**
      * Obtains the surface required for recording. This API uses an asynchronous callback to return the result.
@@ -5328,6 +5936,37 @@ declare namespace media {
      * });
      */
     getInputSurface(callback: AsyncCallback<string>): void;
+    /**
+     * Obtains the surface required for recording. This API uses an asynchronous callback to return the result.
+     * The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     *
+     * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp
+     * must be based on the system startup time.
+     *
+     * This API can be called only after the prepare() API is called.
+     * @param { AsyncCallback<string | undefined> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the surface ID obtained;
+     * otherwise, **err** is an error object.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
+     *
+     * avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
+     *   if (err) {
+     *     console.error('Failed to do getInputSurface and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in doing getInputSurface');
+     *     surfaceID = surfaceId;
+     *   }
+     * });
+     * @arkts 1.2
+     */
+    getInputSurface(callback: AsyncCallback<string | undefined>): void;
 
     /**
      * Obtains the surface required for recording. This API uses a promise to return the result.
@@ -5354,6 +5993,31 @@ declare namespace media {
      * });
      */
     getInputSurface(): Promise<string>;
+    /**
+     * Obtains the surface required for recording. This API uses a promise to return the result. The caller obtains the **surfaceBuffer** from this surface and fills in the corresponding video data.
+     *
+     * Note that the video data must carry the timestamp (in ns) and buffer size, and the start time of the timestamp must be based on the system startup time.
+     *
+     * This API can be called only after the prepare() API is called.
+     * @returns { Promise<string | undefined> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { BusinessError } from '@kit.BasicServicesKit';
+     * let surfaceID: string; // The surfaceID is transferred to the camera API to create a videoOutput instance.
+     *
+     * avRecorder.getInputSurface().then((surfaceId: string) => {
+     *   console.info('Succeeded in getting InputSurface');
+     *   surfaceID = surfaceId;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get InputSurface and catch error is ' + err.message);
+     * });
+     * @arkts 1.2
+     */
+    getInputSurface(): Promise<string | undefined>;
 
     /**
      * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
@@ -5370,6 +6034,22 @@ declare namespace media {
      * @since 12
      */
     getInputMetaSurface(type: MetaSourceType): Promise<string>;
+    /**
+     * Get input meta surface for specified meta source type. it must be called between prepare completed and start.
+     * @param { MetaSourceType } type - Meta source type.
+     * @returns { Promise<string | undefined> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    getInputMetaSurface(type: MetaSourceType): Promise<string | undefined>;
 
     /**
      * Checks whether the device supports the hardware digital watermark. This API uses a promise to return the result.
@@ -5454,7 +6134,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5465,6 +6145,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to updateRotation and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     updateRotation(rotation: number): Promise<void>;
 
@@ -5501,7 +6182,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5512,6 +6193,7 @@ declare namespace media {
      *     console.info('Succeeded in starting AVRecorder');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -5536,7 +6218,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5545,6 +6227,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to start AVRecorder and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -5568,7 +6251,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5579,6 +6262,7 @@ declare namespace media {
      *     console.info('Succeeded in pausing');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -5602,7 +6286,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5611,6 +6295,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to pause AVRecorder and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     pause(): Promise<void>;
 
@@ -5634,7 +6319,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5645,6 +6330,7 @@ declare namespace media {
      *     console.info('Succeeded in resuming AVRecorder');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     resume(callback: AsyncCallback<void>): void;
 
@@ -5668,7 +6354,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5677,6 +6363,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to resume  AVRecorder failed and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     resume(): Promise<void>;
 
@@ -5703,7 +6390,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5714,6 +6401,7 @@ declare namespace media {
      *     console.info('Succeeded in stopping AVRecorder');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -5741,7 +6429,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5750,6 +6438,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to stop AVRecorder and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
 
@@ -5773,7 +6462,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5784,6 +6473,7 @@ declare namespace media {
      *     console.info('Succeeded in resetting AVRecorder');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     reset(callback: AsyncCallback<void>): void;
 
@@ -5806,7 +6496,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5815,6 +6505,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to reset and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     reset(): Promise<void>;
 
@@ -5834,7 +6525,7 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5845,6 +6536,7 @@ declare namespace media {
      *     console.info('Succeeded in releasing AVRecorder');
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -5864,7 +6556,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5873,6 +6565,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to release AVRecorder and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -5947,7 +6640,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
      * @example
      * let maxAmplitude: number;
      *
@@ -5959,6 +6652,7 @@ declare namespace media {
      *     maxAmplitude = amplitude;
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void;
 
@@ -5976,7 +6670,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
      * @example
      * let maxAmplitude: number;
      *
@@ -5986,6 +6680,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to get AudioCapturerMaxAmplitude and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     getAudioCapturerMaxAmplitude(): Promise<number>;
 
@@ -5996,7 +6691,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
      * @example
      * let encoderInfo: media.EncoderInfo;
      *
@@ -6008,6 +6703,7 @@ declare namespace media {
      *     encoderInfo = info[0];
      *   }
      * });
+     * @arkts 1.1&1.2
      */
     getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
 
@@ -6017,7 +6713,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
      * @example
      * let encoderInfo: media.EncoderInfo;
      *
@@ -6027,6 +6723,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to get AvailableEncoder and catch error is ' + err.message);
      * });
+     * @arkts 1.1&1.2
      */
     getAvailableEncoder(): Promise<Array<EncoderInfo>>;
 
@@ -6042,7 +6739,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly state: AVRecorderState;
 
@@ -6073,7 +6771,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void;
     /**
@@ -6096,7 +6795,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void;
 
@@ -6157,7 +6857,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -6176,7 +6877,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void;
 
@@ -6196,7 +6898,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -6223,7 +6926,8 @@ declare namespace media {
      * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the **PhotoAsset** object
      * corresponding to the resource file created by the system.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void;
   }
@@ -6343,7 +7047,8 @@ declare namespace media {
    * @typedef Location
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Location {
     /**
@@ -6356,7 +7061,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     latitude: number;
 
@@ -6370,7 +7076,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longitude: number;
   }
@@ -6380,7 +7087,8 @@ declare namespace media {
    * @typedef WatermarkConfig
    * @syscap SystemCapability.Multimedia.Media.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WatermarkConfig {
     /**
@@ -6388,7 +7096,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
@@ -6396,7 +7105,8 @@ declare namespace media {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
   }
@@ -6617,7 +7327,8 @@ declare namespace media {
   * @typedef { 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error' }
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
   * @systemapi
-  * @since 9
+  * @since arkts {'1.1':'9','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
@@ -6629,7 +7340,8 @@ declare namespace media {
    * @typedef VideoRecorder
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VideoRecorder {
     /**
@@ -6659,7 +7371,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
@@ -6689,7 +7402,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(config: VideoRecorderConfig): Promise<void>;
     /**
@@ -6715,6 +7429,19 @@ declare namespace media {
      */
     getInputSurface(callback: AsyncCallback<string>): void;
     /**
+     * get input surface.it must be called between prepare completed and start.
+     * @param { AsyncCallback<string | undefined> } callback - Callback used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400103 - I/O error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    getInputSurface(callback: AsyncCallback<string | undefined>): void;
+    /**
      * get input surface. it must be called between prepare completed and start.
      * @returns { Promise<string> } A Promise instance used to return the input surface id in string.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -6737,6 +7464,19 @@ declare namespace media {
      */
     getInputSurface(): Promise<string>;
     /**
+     * get input surface. it must be called between prepare completed and start.
+     * @returns { Promise<string | undefined> } A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    getInputSurface(): Promise<string | undefined>;
+    /**
      * Starts video recording.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when start completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
@@ -6755,7 +7495,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -6777,7 +7518,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
     /**
@@ -6799,7 +7541,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(callback: AsyncCallback<void>): void;
     /**
@@ -6821,7 +7564,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): Promise<void>;
     /**
@@ -6843,7 +7587,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resume(callback: AsyncCallback<void>): void;
     /**
@@ -6865,7 +7610,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resume(): Promise<void>;
     /**
@@ -6887,7 +7633,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -6909,7 +7656,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): Promise<void>;
     /**
@@ -6927,7 +7675,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -6945,7 +7694,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
     /**
@@ -6969,7 +7719,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(callback: AsyncCallback<void>): void;
     /**
@@ -6993,7 +7744,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reset(): Promise<void>;
     /**
@@ -7016,7 +7768,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -7026,7 +7779,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly state: VideoRecordState;
   }
@@ -7055,7 +7809,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PlaybackSpeed {
     /**
@@ -7068,7 +7823,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_0_75_X = 0,
     /**
@@ -7081,7 +7837,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_1_00_X = 1,
     /**
@@ -7094,7 +7851,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_1_25_X = 2,
     /**
@@ -7107,7 +7865,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_1_75_X = 3,
     /**
@@ -7120,42 +7879,48 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_2_00_X = 4,
     /**
      * playback at 0.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_0_50_X = 5,
     /**
      * playback at 1.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_1_50_X = 6,
     /**
      * playback at 3.0x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_3_00_X = 7,
     /**
      * playback at 0.25x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_0_25_X = 8,
     /**
      * playback at 0.125x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SPEED_FORWARD_0_125_X = 9,
   }
@@ -7582,7 +8347,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VideoScaleType {
     /**
@@ -7599,7 +8365,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_SCALE_TYPE_FIT = 0,
 
@@ -7617,7 +8384,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_SCALE_TYPE_FIT_CROP = 1,
 
@@ -7647,7 +8415,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ContainerFormatType {
     /**
@@ -7659,7 +8428,8 @@ declare namespace media {
      * A video container format type mp4.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFT_MPEG_4 = 'mp4',
 
@@ -7673,26 +8443,30 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFT_MPEG_4A = 'm4a',
 
     /**
      * A audio container format type mp3.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFT_MP3 = 'mp3',
     /**
      * A audio container format type wav.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFT_WAV = 'wav',
     /**
      * A audio container format type amr.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CFT_AMR = 'amr',
     /**
@@ -7725,7 +8499,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MediaType {
     /**
@@ -7744,7 +8519,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA_TYPE_AUD = 0,
     /**
@@ -7763,14 +8539,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA_TYPE_VID = 1,
     /**
      * Track is subtitle.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MEDIA_TYPE_SUBTITLE = 2,
   }
@@ -7797,7 +8575,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MediaDescriptionKey {
     /**
@@ -7816,7 +8595,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_TRACK_INDEX = 'track_index',
 
@@ -7836,7 +8616,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_TRACK_TYPE = 'track_type',
 
@@ -7856,7 +8637,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_CODEC_MIME = 'codec_mime',
 
@@ -7876,7 +8658,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_DURATION = 'duration',
 
@@ -7896,7 +8679,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_BITRATE = 'bitrate',
 
@@ -7916,7 +8700,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_WIDTH = 'width',
 
@@ -7936,7 +8721,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_HEIGHT = 'height',
 
@@ -7956,7 +8742,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_FRAME_RATE = 'frame_rate',
 
@@ -7976,7 +8763,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
@@ -7996,7 +8784,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
 
@@ -8004,7 +8793,8 @@ declare namespace media {
      * key for audio bit depth, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_AUD_SAMPLE_DEPTH = 'sample_depth',
 
@@ -8012,7 +8802,8 @@ declare namespace media {
      * Key for language.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_LANGUAGE = 'language',
 
@@ -8020,7 +8811,8 @@ declare namespace media {
      * Key for track name, value is string.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_TRACK_NAME = 'track_name',
 
@@ -8028,7 +8820,8 @@ declare namespace media {
      * Key for video hdr type, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MD_KEY_HDR_TYPE = 'hdr_type',
   }
@@ -8039,7 +8832,8 @@ declare namespace media {
    * @typedef VideoRecorderProfile
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VideoRecorderProfile {
     /**
@@ -8048,7 +8842,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly audioBitrate: number;
 
@@ -8058,7 +8853,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly audioChannels: number;
 
@@ -8068,7 +8864,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly audioCodec: CodecMimeType;
 
@@ -8078,7 +8875,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly audioSampleRate: number;
 
@@ -8088,7 +8886,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fileFormat: ContainerFormatType;
 
@@ -8098,7 +8897,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly videoBitrate: number;
 
@@ -8108,7 +8908,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly videoCodec: CodecMimeType;
 
@@ -8118,7 +8919,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly videoFrameWidth: number;
 
@@ -8128,7 +8930,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly videoFrameHeight: number;
 
@@ -8138,7 +8941,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly videoFrameRate: number;
   }
@@ -8157,7 +8961,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AudioSourceType {
     /**
@@ -8169,7 +8974,8 @@ declare namespace media {
      * Default audio input source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_DEFAULT = 0,
     /**
@@ -8183,32 +8989,37 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_MIC = 1,
     /**
      * Audio source in speech recognition scenarios.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_VOICE_RECOGNITION = 2,
 
     /**
      * Voice communication source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_VOICE_COMMUNICATION = 7,
     /**
      * Voice message source.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_VOICE_MESSAGE = 10,
     /**
      * Audio source in camera recording scenarios.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_SOURCE_TYPE_CAMCORDER = 13,
   }
@@ -8226,7 +9037,8 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VideoSourceType {
     /**
@@ -8238,7 +9050,8 @@ declare namespace media {
      * The input surface carries raw data.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_SOURCE_TYPE_SURFACE_YUV = 0,
     /**
@@ -8250,7 +9063,8 @@ declare namespace media {
      * The input surface carries ES data.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_SOURCE_TYPE_SURFACE_ES = 1,
   }
@@ -8261,14 +9075,16 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MetaSourceType {
     /**
      * Maker info for video.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_MAKER_INFO = 0,
   }
@@ -8278,20 +9094,23 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum FileGenerationMode {
     /**
      * The application creates a media file in the sandbox.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     APP_CREATE = 0,
     /**
      * The system creates a media file. Currently, this mode takes effect only in camera recording scenarios.
      * The URL set by the application is ignored.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_CREATE_CAMERA_SCENE = 1,
   }
@@ -8302,7 +9121,8 @@ declare namespace media {
    * @typedef VideoRecorderConfig
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VideoRecorderConfig {
     /**
@@ -8310,7 +9130,8 @@ declare namespace media {
      * @type { ?AudioSourceType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioSourceType?: AudioSourceType;
     /**
@@ -8318,7 +9139,8 @@ declare namespace media {
      * @type { VideoSourceType }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoSourceType: VideoSourceType;
     /**
@@ -8326,7 +9148,8 @@ declare namespace media {
      * @type { VideoRecorderProfile }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     profile: VideoRecorderProfile;
     /**
@@ -8336,7 +9159,8 @@ declare namespace media {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     url: string;
     /**
@@ -8345,7 +9169,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rotation?: number;
     /**
@@ -8353,7 +9178,8 @@ declare namespace media {
      * @type { ?Location }
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     location?: Location;
   }
@@ -8363,14 +9189,16 @@ declare namespace media {
    *
    * @typedef EncoderInfo
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface EncoderInfo {
     /**
      * MIME type of the encoder.
      * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mimeType: CodecMimeType;
 
@@ -8378,7 +9206,8 @@ declare namespace media {
      * Encoder type. The value **audio** means an audio encoder, and **video** means a video encoder.
      * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: string;
 
@@ -8386,7 +9215,8 @@ declare namespace media {
      * Bit rate range of the encoder, with the minimum and maximum bit rates specified.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bitRate?: Range;
 
@@ -8395,7 +9225,8 @@ declare namespace media {
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frameRate?: Range;
 
@@ -8404,7 +9235,8 @@ declare namespace media {
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width?: Range;
 
@@ -8413,7 +9245,8 @@ declare namespace media {
      * This parameter is available only for video encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height?: Range;
 
@@ -8422,7 +9255,8 @@ declare namespace media {
      * This parameter is available only for audio encoders.
      * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     channels?: Range;
 
@@ -8431,7 +9265,8 @@ declare namespace media {
      * and this parameter is available only for audio encoders.
      * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sampleRate?: Array<number>;
   }
@@ -8441,14 +9276,16 @@ declare namespace media {
    *
    * @typedef Range
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Range {
     /**
      * Minimum value.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     min: number;
 
@@ -8456,7 +9293,8 @@ declare namespace media {
      * Maximum value.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     max: number;
   }
@@ -8475,7 +9313,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVRecorderProfile {
     /**
@@ -8498,7 +9337,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioBitrate?: number;
 
@@ -8516,7 +9356,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioChannels?: number;
 
@@ -8533,7 +9374,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioCodec?: CodecMimeType;
 
@@ -8553,7 +9395,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioSampleRate?: number;
 
@@ -8570,7 +9413,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fileFormat: ContainerFormatType;
 
@@ -8584,7 +9428,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoBitrate?: number;
 
@@ -8598,7 +9443,8 @@ declare namespace media {
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoCodec?: CodecMimeType;
 
@@ -8612,7 +9458,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoFrameWidth?: number;
 
@@ -8626,7 +9473,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoFrameHeight?: number;
 
@@ -8640,7 +9488,8 @@ declare namespace media {
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoFrameRate?: number;
 
@@ -8656,7 +9505,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHdr?: boolean;
 
@@ -8667,7 +9517,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableTemporalScale?: boolean;
 
@@ -8676,7 +9527,8 @@ declare namespace media {
      * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableStableQualityMode?: boolean
 
@@ -8708,7 +9560,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVRecorderConfig {
     /**
@@ -8723,7 +9576,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioSourceType?: AudioSourceType;
     /**
@@ -8736,7 +9590,8 @@ declare namespace media {
      * @type { ?VideoSourceType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoSourceType?: VideoSourceType;
     /**
@@ -8744,7 +9599,8 @@ declare namespace media {
      * @type { ?Array<MetaSourceType> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     metaSourceTypes?: Array<MetaSourceType>;
     /**
@@ -8759,7 +9615,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     profile: AVRecorderProfile;
     /**
@@ -8775,7 +9632,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     url: string;
 
@@ -8783,7 +9641,8 @@ declare namespace media {
      * Mode for creating the file, which is used together with on('photoAssetAvailable').
      * @type { ?FileGenerationMode }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fileGenerationMode?: FileGenerationMode;
     /**
@@ -8812,7 +9671,8 @@ declare namespace media {
      * Metadata. For details, see @AVMetadata.
      * @type { ?AVMetadata }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     metadata?: AVMetadata;
     /**
@@ -8822,7 +9682,8 @@ declare namespace media {
      * AVRecorderState = 'stopped', StateChangeReason = BACKGROUND.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxDuration?: number;
   }
@@ -8874,6 +9735,18 @@ declare namespace media {
   }
 
   /**
+   * Provides the container definition for media description key-value pairs.
+   *
+   * The media description consists of key-value pairs where keys reference @MediaDescriptionKey.
+   * @typedef { Record<string, Object> }
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  type MediaDescription = Record<string, Object>;
+
+  /**
    * Enumerates seek mode.
    *
    * @enum { number }
@@ -8895,7 +9768,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SeekMode {
     /**
@@ -8914,7 +9788,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_NEXT_SYNC = 0,
     /**
@@ -8933,14 +9808,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_PREV_SYNC = 1,
     /**
      * Seek to the closest frame of the given timestamp.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_CLOSEST = 2,
     /**
@@ -8952,7 +9829,8 @@ declare namespace media {
      * through the on error callback.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEEK_CONTINUOUS = 3,
   }
@@ -8964,7 +9842,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SwitchMode {
     /**
@@ -8972,7 +9851,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SMOOTH = 0,
     /**
@@ -8980,14 +9860,16 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SEGMENT = 1,
     /**
      * switch to the closest frame of the given timestamp.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CLOSEST = 2,
   }
@@ -9006,7 +9888,8 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CodecMimeType {
     /**
@@ -9018,7 +9901,8 @@ declare namespace media {
      * H.263 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_H263 = 'video/h263',
     /**
@@ -9030,7 +9914,8 @@ declare namespace media {
      * H.264 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_AVC = 'video/avc',
     /**
@@ -9042,7 +9927,8 @@ declare namespace media {
      * MPEG2 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_MPEG2 = 'video/mpeg2',
     /**
@@ -9054,7 +9940,8 @@ declare namespace media {
      * MPEG4 codec MIME type
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_MPEG4 = 'video/mp4v-es',
 
@@ -9067,7 +9954,8 @@ declare namespace media {
      * VP8 codec MIME type
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_VP8 = 'video/x-vnd.on2.vp8',
 
@@ -9081,7 +9969,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_AAC = 'audio/mp4a-latm',
 
@@ -9094,7 +9983,8 @@ declare namespace media {
      * vorbis codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_VORBIS = 'audio/vorbis',
 
@@ -9107,7 +9997,8 @@ declare namespace media {
      * flac codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_FLAC = 'audio/flac',
 
@@ -9120,31 +10011,36 @@ declare namespace media {
      * H.265 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO_HEVC = 'video/hevc',
     /**
      * mp3 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_MP3 = 'audio/mpeg',
     /**
      * G711-mulaw codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_G711MU = 'audio/g711mu',
     /**
      * AMR_NB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_AMR_NB = 'audio/3gpp',
     /**
      * AMR_WB codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_AMR_WB = 'audio/amr-wb',
   }
@@ -9154,19 +10050,22 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVScreenCaptureRecordPreset {
     /**
      * The H.264 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREEN_RECORD_PRESET_H264_AAC_MP4 = 0,
     /**
      * The H.265 video encoding format, AAC audio encoding format, and MP4 container format are used.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREEN_RECORD_PRESET_H265_AAC_MP4 = 1,
   }
@@ -9176,19 +10075,22 @@ declare namespace media {
    * 
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVScreenCaptureFillMode {
     /**
      * Keeps the original aspect ratio, matching the aspect ratio of the physical screen.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRESERVE_ASPECT_RATIO = 0,
     /**
      * Stretches the image to fit the specified dimensions.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCALE_TO_FILL = 1,
   }
@@ -9198,73 +10100,85 @@ declare namespace media {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AVScreenCaptureStateCode {
     /**
      * Screen capture is started.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_STARTED = 0,
     /**
      * Screen capture is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_CANCELED = 1,
     /**
      * Screen capture is manually stopped by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER = 2,
     /**
      * Screen capture is interrupted by another screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_INTERRUPTED_BY_OTHER = 3,
     /**
      * Screen capture is interrupted by an incoming call.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_STOPPED_BY_CALL = 4,
     /**
      * The microphone is unavailable during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_MIC_UNAVAILABLE = 5,
     /**
      * The microphone is muted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_MIC_MUTED_BY_USER = 6,
     /**
      * The microphone is unmuted by the user.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_MIC_UNMUTED_BY_USER = 7,
     /**
      * The system enters a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_ENTER_PRIVATE_SCENE = 8,
     /**
      * The system exits a privacy page during screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
     /**
      * Screen capture is interrupted by system user switchover.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
   }
@@ -9311,35 +10225,40 @@ declare namespace media {
    *
    * @typedef AVScreenCaptureRecordConfig
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVScreenCaptureRecordConfig {
     /**
      * FD of the file output.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fd: number;
     /**
      * Video width, in px. The default value varies according to the display in use.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frameWidth?: number;
     /**
      * Video height, in px. The default value varies according to the display in use.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     frameHeight?: number;
     /**
      * Video bit rate. The default value is **10000000**.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoBitrate?: number;
     /**
@@ -9347,7 +10266,8 @@ declare namespace media {
      * Only **48000** (default value) and **16000** are supported.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioSampleRate?: number;
     /**
@@ -9355,7 +10275,8 @@ declare namespace media {
      * Only **1** and **2** (default) are supported.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioChannelCount?: number;
     /**
@@ -9363,28 +10284,32 @@ declare namespace media {
      * The default value is **96000**.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioBitrate?: number;
     /**
      * Encoding and container format used. The default value is **SCREEN_RECORD_PRESET_H264_AAC_MP4**.
      * @type { ?AVScreenCaptureRecordPreset }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     preset?: AVScreenCaptureRecordPreset;
     /**
      * ID of the display used for screen capture. By default, the main screen is captured.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
     /**
      * Video fill mode during screen capture.
      * @type { ?AVScreenCaptureFillMode }
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fillMode?: AVScreenCaptureFillMode;
     /**
@@ -9403,7 +10328,8 @@ declare namespace media {
    *
    * @typedef AVScreenCaptureRecorder
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVScreenCaptureRecorder {
     /**
@@ -9415,7 +10341,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9431,6 +10357,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Failed to init avScreenCaptureRecorder, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     init(config: AVScreenCaptureRecordConfig): Promise<void>;
 
@@ -9440,7 +10367,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9449,6 +10376,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Failed to start avScreenCaptureRecorder, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     startRecording(): Promise<void>;
 
@@ -9458,7 +10386,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9467,6 +10395,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Failed to stop avScreenCaptureRecorder, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     stopRecording(): Promise<void>;
 
@@ -9481,7 +10410,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9491,6 +10420,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Failed to skip privacy mode, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     skipPrivacyMode(windowIDs: Array<number>): Promise<void>;
 
@@ -9502,7 +10432,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9511,6 +10441,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Failed to setMicEnabled avScreenCaptureRecorder, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     setMicEnabled(enable: boolean): Promise<void>;
 
@@ -9520,7 +10451,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -9529,6 +10460,7 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *     console.info('Faile to release avScreenCaptureRecorder, error: ' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -9540,11 +10472,12 @@ declare namespace media {
      * @param { Callback<AVScreenCaptureStateCode> } callback - Callback invoked when the event is triggered.
      * AVScreenCaptureStateCode indicates the new state.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * avScreenCaptureRecorder.on('stateChange', (state: media.AVScreenCaptureStateCode) => {
      *     console.info('avScreenCaptureRecorder stateChange to ' + state);
      * })
+     * @arkts 1.1&1.2
      */
     on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
 
@@ -9558,11 +10491,12 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by ErrorCallback.
      * @throws { BusinessError } 5400105 - Service died. Return by ErrorCallback.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * avScreenCaptureRecorder.on('error', (err: BusinessError) => {
      *     console.error('avScreenCaptureRecorder error:' + err.message);
      * })
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -9573,9 +10507,10 @@ declare namespace media {
      * AVScreenCaptureStateCode indicates the new state. If this parameter is not specified,
      * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * avScreenCaptureRecorder.off('stateChange');
+     * @arkts 1.1&1.2
      */
     off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void;
 
@@ -9586,9 +10521,10 @@ declare namespace media {
      * @param { ErrorCallback } callback - Callback used for unsubscription. If this parameter is not specified,
      * the last subscription is canceled.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @example
      * avScreenCaptureRecorder.off('error');
+     * @arkts 1.1&1.2
      */
     off(type: 'error', callback?: ErrorCallback): void;
   }
@@ -9598,14 +10534,16 @@ declare namespace media {
    *
    * @typedef AVTranscoderConfig
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVTranscoderConfig {
     /**
      * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioBitrate?: number;
 
@@ -9613,7 +10551,8 @@ declare namespace media {
      * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     audioCodec?: CodecMimeType;
 
@@ -9621,7 +10560,8 @@ declare namespace media {
      * Container format of the output video file. Currently, only MP4 is supported.
      * @type { ContainerFormatType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fileFormat: ContainerFormatType;
 
@@ -9631,7 +10571,8 @@ declare namespace media {
      * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoBitrate?: number;
 
@@ -9640,7 +10581,8 @@ declare namespace media {
      * If the source video is in HEVC format, the default value is **HEVC**. Otherwise, the default value is **AVC**.
      * @type { ?CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoCodec?: CodecMimeType;
 
@@ -9649,7 +10591,8 @@ declare namespace media {
      * The default value is the width of the source video frame.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoFrameWidth?: number;
  
@@ -9658,7 +10601,8 @@ declare namespace media {
      * The default value is the height of the source video frame.
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoFrameHeight?: number;
   }
@@ -9669,7 +10613,8 @@ declare namespace media {
    *
    * @typedef AVTranscoder
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AVTranscoder {
     /**
@@ -9688,7 +10633,8 @@ declare namespace media {
      * at the same time, resulting in errors in obtaining data.
      * @type { AVFileDescriptor }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdSrc: AVFileDescriptor;
 
@@ -9704,7 +10650,8 @@ declare namespace media {
      * at the same time, resulting in errors in obtaining data.
      * @type { number }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fdDst: number;
 
@@ -9718,7 +10665,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     prepare(config: AVTranscoderConfig): Promise<void>;
 
@@ -9731,7 +10679,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(): Promise<void>;
 
@@ -9745,7 +10694,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pause(): Promise<void>;
 
@@ -9758,7 +10708,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resume(): Promise<void>;
 
@@ -9771,7 +10722,8 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cancel(): Promise<void>;
 
@@ -9783,7 +10735,8 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
 
@@ -9799,7 +10752,8 @@ declare namespace media {
      * @param { Callback<void> } callback - Callback that has been registered to listen for
      * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type:'complete', callback: Callback<void>):void;
 
@@ -9822,7 +10776,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type:'error', callback: ErrorCallback):void;
 
@@ -9834,7 +10789,8 @@ declare namespace media {
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type:'progressUpdate', callback: Callback<number>):void;
 
@@ -9845,7 +10801,8 @@ declare namespace media {
      * @param { Callback<void> } callback - Callback that has been registered to listen for
      * transcoding completion events.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type:'complete', callback?: Callback<void>):void;
 
@@ -9857,7 +10814,8 @@ declare namespace media {
      * This event is triggered when an error occurs during transcoding.
      * @param { ErrorCallback } callback - Callback that has been registered to listen for AVTranscoder errors.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type:'error', callback?: ErrorCallback):void;
 
@@ -9869,7 +10827,8 @@ declare namespace media {
      * You are advised to use the default value because only the last registered callback is retained in the current
      * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type:'progressUpdate', callback?: Callback<number>):void;
   }
@@ -9880,21 +10839,24 @@ declare namespace media {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ScreenCaptureEvent {
     /**
      * The system screen recorder starts screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STARTED = 0,
     /**
      * The system screen recorder stops screen capture.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENCAPTURE_STOPPED = 1
   }
@@ -9906,7 +10868,8 @@ declare namespace media {
    * @typedef ScreenCaptureMonitor
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScreenCaptureMonitor {
     /**
@@ -9919,13 +10882,14 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
 	 * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      * @example
      * // This event is reported when the state of the system screen recorder changes.
      * screenCaptureMonitor.on('systemScreenRecorder', (event: media.ScreenCaptureEvent) => {
      *   // Set the 'systemScreenRecorder' event callback.
      *   console.info(`system ScreenRecorder event: ${event}`);
      * })
+     * @arkts 1.1&1.2
      */
     on(type: 'systemScreenRecorder', callback: Callback<ScreenCaptureEvent>): void;
 
@@ -9938,9 +10902,10 @@ declare namespace media {
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      * @example
      * screenCaptureMonitor.off('systemScreenRecorder');
+     * @arkts 1.1&1.2
      */
     off(type: 'systemScreenRecorder', callback?: Callback<ScreenCaptureEvent>): void;
 	
@@ -9950,7 +10915,8 @@ declare namespace media {
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly isSystemScreenRecorderWorking: boolean;
   }

@@ -26,14 +26,16 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum Action {
   /**
    * Cancel
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CANCEL = 0,
 
@@ -41,7 +43,8 @@ export declare enum Action {
    * Moving of the mouse pointer
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MOVE = 1,
 
@@ -49,7 +52,8 @@ export declare enum Action {
    * Pressing down of the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BUTTON_DOWN = 2,
 
@@ -57,7 +61,8 @@ export declare enum Action {
    * Lifting of the mouse button
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BUTTON_UP = 3,
 
@@ -65,7 +70,8 @@ export declare enum Action {
    * Beginning of the axis event associated with the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   AXIS_BEGIN = 4,
 
@@ -73,7 +79,8 @@ export declare enum Action {
    * Updating of the axis event associated with the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   AXIS_UPDATE = 5,
 
@@ -81,7 +88,8 @@ export declare enum Action {
    * Ending of the axis event associated with the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   AXIS_END = 6,
 
@@ -89,7 +97,8 @@ export declare enum Action {
    * Indicates a pointer action representing that a finger is pressed on touchpad.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ACTION_DOWN = 7,
 
@@ -97,7 +106,8 @@ export declare enum Action {
    * Indicates a pointer action representing that a finger leaves touchpad.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ACTION_UP = 8,
 }
@@ -107,14 +117,16 @@ export declare enum Action {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum Button {
   /**
    * Left button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LEFT = 0,
 
@@ -122,7 +134,8 @@ export declare enum Button {
    * Middle button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MIDDLE = 1,
 
@@ -130,7 +143,8 @@ export declare enum Button {
    * Right button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RIGHT = 2,
 
@@ -138,7 +152,8 @@ export declare enum Button {
    * Side button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SIDE = 3,
 
@@ -146,7 +161,8 @@ export declare enum Button {
    * Extended button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EXTRA = 4,
 
@@ -154,7 +170,8 @@ export declare enum Button {
    * Forward button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FORWARD = 5,
 
@@ -162,7 +179,8 @@ export declare enum Button {
    * Back button on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACK = 6,
 
@@ -170,7 +188,8 @@ export declare enum Button {
    * Task key on the mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TASK = 7
 }
@@ -180,14 +199,16 @@ export declare enum Button {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum Axis {
   /**
    * Vertical scroll axis
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SCROLL_VERTICAL = 0,
 
@@ -195,7 +216,8 @@ export declare enum Axis {
    * Horizontal scroll axis
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SCROLL_HORIZONTAL = 1,
 
@@ -203,7 +225,8 @@ export declare enum Axis {
    * Pinch axis
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   PINCH = 2
 }
@@ -213,24 +236,27 @@ export declare enum Axis {
  *
  * @interface AxisValue
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface AxisValue {
   /**
    * Axis type
    * @type { Axis }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   axis: Axis;
 
   /**
    * Axis value
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  value: number;
+  value: int;
 }
 
 /**
@@ -238,14 +264,16 @@ export declare interface AxisValue {
  *
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare enum ToolType {
   /**
    * Unknown type
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UNKNOWN = 0,
 
@@ -253,7 +281,8 @@ export declare enum ToolType {
    * Mouse
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MOUSE = 1,
 
@@ -261,7 +290,8 @@ export declare enum ToolType {
    * Joystick
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   JOYSTICK = 2,
 
@@ -269,7 +299,8 @@ export declare enum ToolType {
    * Touch pad
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TOUCHPAD = 3,
 }
@@ -280,71 +311,80 @@ export declare enum ToolType {
  * @extends InputEvent
  * @interface MouseEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export declare interface MouseEvent extends InputEvent {
   /**
    * Mouse event action
    * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   action: Action;
 
   /**
    * X coordinate of the mouse pointer on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  screenX: number;
+  screenX: int;
 
   /**
    * Y coordinate of the mouse pointer on the screen
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  screenY: number;
+  screenY: int;
 
   /**
    * X coordinate of the mouse pointer in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  windowX: number;
+  windowX: int;
 
   /**
    * Y coordinate of the mouse pointer in the window
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  windowY: number;
+  windowY: int;
 
   /**
    * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at
    * the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  rawDeltaX: number;
+  rawDeltaX: int;
 
   /**
    * Y axis offset relative to the previous reported mouse pointer position
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  rawDeltaY: number;
+  rawDeltaY: int;
 
   /**
    * Button that is currently pressed or released
    * @type { Button }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   button: Button;
 
@@ -352,7 +392,8 @@ export declare interface MouseEvent extends InputEvent {
    * Button that is being pressed
    * @type { Button[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressedButtons: Button[];
 
@@ -360,7 +401,8 @@ export declare interface MouseEvent extends InputEvent {
    * All axis data contained in the event
    * @type { AxisValue[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   axes: AxisValue[];
 
@@ -368,7 +410,8 @@ export declare interface MouseEvent extends InputEvent {
    * List of pressed keys
    * @type { KeyCode[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pressedKeys: KeyCode[];
 
@@ -376,7 +419,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether ctrlKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ctrlKey: boolean;
 
@@ -384,7 +428,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether altKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   altKey: boolean;
 
@@ -392,7 +437,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether shiftKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shiftKey: boolean;
 
@@ -400,7 +446,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether logoKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   logoKey: boolean;
 
@@ -408,7 +455,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether fnKey is being pressed
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fnKey: boolean;
 
@@ -416,7 +464,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether capsLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   capsLock: boolean;
 
@@ -424,7 +473,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether numLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   numLock: boolean;
 
@@ -432,7 +482,8 @@ export declare interface MouseEvent extends InputEvent {
    * Whether scrollLock is active
    * @type { boolean }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scrollLock: boolean;
 
@@ -441,7 +492,8 @@ export declare interface MouseEvent extends InputEvent {
    *
    * @type { ToolType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toolType: ToolType;
 }
