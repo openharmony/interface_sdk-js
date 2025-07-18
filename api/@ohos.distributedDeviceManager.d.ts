@@ -116,24 +116,24 @@ declare namespace distributedDeviceManager {
    * Device status change result.
    * @interface DeviceStateChangeResult
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceStateChangeResult {
     /**
      * The state of the nearby devices.
      * @type { DeviceStateChange }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     action: DeviceStateChange;
     /**
      * Basic description information of a distributed device.
      * @type { DeviceBasicInfo }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     device: DeviceBasicInfo;
   }
@@ -142,16 +142,16 @@ declare namespace distributedDeviceManager {
    * Device name change result.
    * @interface DeviceNameChangeResult
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceNameChangeResult {
     /**
      * Device name.
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceName: string;
   }
@@ -160,16 +160,16 @@ declare namespace distributedDeviceManager {
    * Discovery failure result.
    * @interface DiscoveryFailureResult
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DiscoveryFailureResult {
     /**
      * Discovery failure cause code.
      * @type { int }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: int;
   }
@@ -178,16 +178,16 @@ declare namespace distributedDeviceManager {
    * Discovery successful result.
    * @interface DiscoverySuccessResult
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DiscoverySuccessResult {
     /**
      * Basic description information of a distributed device.
      * @type { DeviceBasicInfo }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     device: DeviceBasicInfo;
   }
@@ -197,8 +197,8 @@ declare namespace distributedDeviceManager {
    * @interface ReplyResult
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ReplyResult {
     /**
@@ -206,8 +206,8 @@ declare namespace distributedDeviceManager {
      * @type { string }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     param: string;
   }
@@ -216,8 +216,8 @@ declare namespace distributedDeviceManager {
    * ServiceDie data.
    * @interface ServiceDieData
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ServiceDieData {}
 
@@ -1019,8 +1019,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void;
-
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
@@ -1031,9 +1029,14 @@ declare namespace distributedDeviceManager {
      * Indicates the device state callback to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'deviceStateChange', callback: Callback<DeviceStateChangeResult>): void;
 
@@ -1053,8 +1056,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void;
-
     /**
      * UnRegister device state callback based on the application bundle name.
      *
@@ -1064,9 +1065,14 @@ declare namespace distributedDeviceManager {
      * Indicates the device state callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'deviceStateChange', callback?: Callback<DeviceStateChangeResult>): void;
 
@@ -1085,8 +1091,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): void;
-
     /**
      * Register a device discovery result callback so that the application can be notified when discovery success.
      *
@@ -1095,9 +1099,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<DiscoverySuccessResult> } callback - Indicates the device discovery callback to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'discoverSuccess', callback: Callback<DiscoverySuccessResult>): void;
 
@@ -1116,8 +1125,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>): void;
-
     /**
      * UnRegister the device discovery result callback.
      *
@@ -1126,9 +1133,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<DiscoverySuccessResult> } [callback] - Indicates the device discovery callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'discoverSuccess', callback?: Callback<DiscoverySuccessResult>): void;
 
@@ -1147,8 +1159,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void;
-
     /**
      * Register a device name change callback so that the application can be notified when discovery success.
      *
@@ -1157,9 +1167,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<DeviceNameChangeResult> } callback - Indicates the device name change callback to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'deviceNameChange', callback: Callback<DeviceNameChangeResult>): void;
 
@@ -1178,8 +1193,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): void;
-
     /**
      * UnRegister the device name change result callback.
      *
@@ -1188,9 +1201,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<DeviceNameChangeResult> } [callback] - Indicates the device name change callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'deviceNameChange', callback?: Callback<DeviceNameChangeResult>): void;
 
@@ -1210,8 +1228,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void;
-
     /**
      * Register a device discovery result callback so that the application can be notified when discover failed.
      *
@@ -1221,9 +1237,14 @@ declare namespace distributedDeviceManager {
      * Indicates the device found result callback to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'discoverFailure', callback: Callback<DiscoveryFailureResult>): void;
 
@@ -1243,8 +1264,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void;
-
     /**
      * UnRegister the device discovery result callback.
      *
@@ -1254,9 +1273,14 @@ declare namespace distributedDeviceManager {
      * Indicates the device found result callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'discoverFailure', callback?: Callback<DiscoveryFailureResult>): void;
 
@@ -1275,8 +1299,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    on(type: 'serviceDie', callback?: Callback<{}>): void;
-
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
@@ -1285,9 +1307,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ServiceDieData> } [callback] - Indicates the service error callback to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'serviceDie', callback?: Callback<ServiceDieData>): void;
 
@@ -1306,8 +1333,6 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    off(type: 'serviceDie', callback?: Callback<{}>): void;
-
     /**
      * UnRegister the service error callback.
      *
@@ -1316,9 +1341,14 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ServiceDieData> } [callback] - Indicates the service error callback to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'serviceDie', callback?: Callback<ServiceDieData>): void;
 
@@ -1338,8 +1368,6 @@ declare namespace distributedDeviceManager {
      * @systemapi this method can be used only by system applications.
      * @since 10
      */
-    on(type: 'replyResult', callback: Callback<{ param: string; }>): void;
-
     /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when uiStateChanges.
      *
@@ -1348,11 +1376,16 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ReplyResult> } callback - Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'replyResult', callback: Callback<ReplyResult>): void;
 
@@ -1372,8 +1405,6 @@ declare namespace distributedDeviceManager {
       * @systemapi this method can be used only by system applications.
       * @since 10
       */
-    off(type: 'replyResult', callback?: Callback<{ param: string; }>): void;
-
     /**
      * Unregister uiStateChange, this interface can only be used by devicemanager ui.
      *
@@ -1382,11 +1413,16 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified type is greater than 255.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'replyResult', callback?: Callback<ReplyResult>): void;
 
