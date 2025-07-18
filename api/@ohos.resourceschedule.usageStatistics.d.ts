@@ -865,7 +865,6 @@ declare namespace usageStatistics {
    * Queries the last usage timestamp by bundleName and app index.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
    * @param { appInfo } bundle name and app index info for each application.
    * @returns { Promise<AppStatsMap> } the promise returned by queryLastUseTime.
    * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
