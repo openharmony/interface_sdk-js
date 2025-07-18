@@ -4813,7 +4813,7 @@ declare namespace webview {
      * @since 20
      * @arkts 1.1&1.2
      */
-    registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
+    registerJavaScriptProxy(jspObject: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
 
     /**
