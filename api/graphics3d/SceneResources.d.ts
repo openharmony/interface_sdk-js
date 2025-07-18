@@ -265,23 +265,23 @@ export interface RenderSort {
    * Sort layer used sorting submeshes in rendering in render slots.
    * Valid values are 0 - 63.
    * 
-   * @type { ?int }
+   * @type { ?number }
    * @default 32 Default render sort layer id.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  renderSortLayer?: int;
+  renderSortLayer?: number;
 
   /**
    * Sort layer order to describe fine order within sort layer.
    * Valid values are 0 - 255.
    * 
-   * @type { ?int }
+   * @type { ?number }
    * @default 0 Default render sort layer order.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  renderSortLayerOrder?: int;
+  renderSortLayerOrder?: number;
 }
 
 /**
@@ -333,11 +333,11 @@ export interface Material extends SceneResource {
   /**
    * Alpha cutoff value [0,1]. Enabled if < 1.
    * 
-   * @type { ?double }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  alphaCutoff?: double;
+  alphaCutoff?: number;
 
   /**
    * Render sorting priority for layers.
@@ -674,12 +674,12 @@ export interface Morpher {
   /**
    * Morph target names and weights
    * 
-   * @type { Record<string, double> }
+   * @type { Record<string, number> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  readonly targets: Record<string, double>;
+  readonly targets: Record<string, number>;
 }
 
 /**
@@ -755,11 +755,11 @@ export interface Animation extends SceneResource {
    * Animation speed factor
    * A negative value runs the animation in reverse using the given speed factor
    *
-   * @type { ?double }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */
-  speed?: double;
+  speed?: number;
 
   /**
    * The duration of the animation.
