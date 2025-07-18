@@ -7280,7 +7280,7 @@ declare interface JavaScriptProxy {
    * @since 20
    * @arkts 1.1&1.2
    */
-  jspObject: object;
+  jsObject: object;
 
   /**
    * The name of the registered object, which is consistent with the

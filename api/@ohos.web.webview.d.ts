@@ -4794,7 +4794,7 @@ declare namespace webview {
      * otherwise, this registration will fail.
      *  <p>
      *
-     * @param { object } jspObject - Application side JavaScript objects participating in registration.
+     * @param { object } jsObject - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
      *                          object name called in the window.
      * @param { Array<string> } methodList - The method of the application side JavaScript object participating
@@ -4813,7 +4813,7 @@ declare namespace webview {
      * @since 20
      * @arkts 1.1&1.2
      */
-    registerJavaScriptProxy(jspObject: object, name: string, methodList: Array<string>,
+    registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
 
     /**
