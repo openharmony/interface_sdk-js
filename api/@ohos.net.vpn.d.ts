@@ -88,6 +88,7 @@ declare namespace vpn {
    * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
    * @param { Callback<MultiVpnConnectState> } callback - The callback of the multi vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19900001 - Invalid parameter value.
    * @throws { BusinessError } 19900002 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -117,8 +118,9 @@ declare namespace vpn {
    * Unsubscribes from vpn connect state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
-   * @param { Callback<MultiVpnConnectState> } callback - The callback of the multi vpn connect state.
+   * @param { Callback<MultiVpnConnectState> } [callback] - The callback of the multi vpn connect state.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19900001 - Invalid parameter value.
    * @throws { BusinessError } 19900002 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -211,6 +213,7 @@ declare namespace vpn {
    * @permission ohos.permission.MANAGE_VPN
    * @returns { Promise<Array<string>> } The promise returned by the connected VPN App Info.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19900001 - Invalid parameter value.
    * @throws { BusinessError } 19900002 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -346,6 +349,7 @@ declare namespace vpn {
      * The uuid for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
      * @since 20
      */
     vpnId?: string;
