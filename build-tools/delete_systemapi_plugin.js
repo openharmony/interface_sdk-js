@@ -314,7 +314,7 @@ function tsTransform(utFiles, callback) {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     if (/\.static\.d\.ets$/.test(apiBaseName)) {
-      writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), content);
+      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), content);
       return;
     }
     writeFile(url, content);
