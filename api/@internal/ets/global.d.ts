@@ -19,7 +19,6 @@
  */
 
 
-
 /**
  * Defines the console info.
  *
@@ -79,10 +78,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints "debug" logs.
+   * Prints debugging information in formatted output mode.
    *
    * @param { string } message - Text to print.
-   * @param { any[] } arguments
+   * @param { any[] } arguments - Arguments in the message or other information to be printed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -119,10 +118,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints "log" logs.
+   * Prints log information in formatted output mode.
    *
    * @param { string } message - Text to print.
-   * @param { any[] } arguments
+   * @param { any[] } arguments - Arguments in the message or other information to be printed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -159,10 +158,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints "info" logs.
+   * Prints log information in formatted output mode. This API is the alias of console.log ().
    *
    * @param { string } message - Text to print.
-   * @param { any[] } arguments
+   * @param { any[] } arguments - Arguments in the message or other information to be printed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -199,10 +198,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints "warn" logs.
+   * Prints warning information in formatted output mode.
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments
+   * @param { string } message - Warning information to be printed.
+   * @param { any[] } arguments - Arguments in the message or other information to be printed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -239,10 +238,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints "error" logs.
+   * Prints error information in formatted output mode.
    *
-   * @param { string } message - Text to print.
-   * @param { any[] } arguments
+   * @param { string } message - Error information to be printed.
+   * @param { any[] } arguments - Arguments in the message or other information to be printed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -263,11 +262,14 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints a message if value is false or omitted.
+   * Prints assertion information.
    *
-   * @param { Object } [value] - The value tested for being truthy.
-   * @param { Object[] } arguments - Used as error message to print.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { Object } [value] - Result value. If value is false or left blank, the output starting with "Assertion failed" is printed. If value is true, no information is printed.
+   * @param { Object[] } arguments - Other information to be printed when value is false. If this parameter is left blank, other information is not printed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -288,11 +290,14 @@ export declare class console {
    * @since 10
    */
   /**
-   * Maintains an internal counter specific to label and print the number of times
-   * console.count() has been called with the given label.
+   * Maintains an internal counter. When this counter is invoked,
+   * its label name and the corresponding call count are printed.
    *
-   * @param { string } [label] - Counter name. Default: "default".
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { string } [label] - Counter label name. The default value is default.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -312,10 +317,13 @@ export declare class console {
    * @since 10
    */
   /**
-   * Reset the internal counter specific to label.
+   * Resets a counter based on the specified label name.
    *
-   * @param { string } [label] - Counter name. Default: "default".
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { string } [label] - Counter label name. The default value is default.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -334,9 +342,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints properties of the specified JavaScript object.
+   * Prints content of the specified object.
    *
-   * @param { Object } [dir] - A JavaScript object whose properties should be output.
+   * @param { Object } [dir] - Object whose content needs to be printed.
+   * If this parameter is left blank, no information is printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -356,10 +365,11 @@ export declare class console {
    * @since 10
    */
   /**
-   * This method calls console.log() passing it the arguments received.
-   * This method does not produce any XML formatting.
+   * Displays an interactive tree of the descendant elements of the specified XML element.
+   * This API is implemented by calling console.log() internally.
+   * It does not produce any XML elements. The usage method is the same as that of console.log().
    *
-   * @param { Object[] } arguments - Text to print.
+   * @param { Object[] } arguments - Information to be printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -378,9 +388,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Creates a new inline group, causing any subsequent console messages to be indented by an additional level.
+   * Increases the indentation of subsequent lines by two spaces.
+   * If the information to be printed is provided, the information is printed without extra indentation.
    *
-   * @param { Object[] } arguments - messages to print first.
+   * @param { Object[] } arguments - Information to be printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -399,9 +410,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Same as console.group()
+   * Creates a new inline group in collapsed mode.
+   * The usage and function of this API are the same as those of console.group().
    *
-   * @param { Object[] } arguments - messages to print first.
+   * @param { Object[] } arguments - Information to be printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -419,7 +431,7 @@ export declare class console {
    * @since 10
    */
   /**
-   * Exit current inline group.
+   * Reduces the indentation of subsequent lines by two spaces.
    *
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -439,9 +451,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints tabular data as a table.
+   * Prints data in a table.
    *
-   * @param { Object } [tableData] - tabular data.
+   * @param { Object } [tableData] - Data to be printed in a table.
+   * If this parameter is left blank, no information is printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -461,10 +474,14 @@ export declare class console {
    * @since 10
    */
   /**
-   * Start a timer.
+   * Starts a timer to track the duration of an operation.
+   * You can use console.timeEnd() to close the timer and print the elapsed time (in ms).
    *
-   * @param { string } [label] - Timer name. Default: "default".
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { string } [label] - Timer label. The default value is default.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -484,10 +501,13 @@ export declare class console {
    * @since 10
    */
   /**
-   * End a timer and print time duration.
+   * Stops the timer started by calling console.time() and prints the elapsed time (in ms).
    *
-   * @param { string } [label] - Timer name. Default: "default".
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { string } [label] - Timer label. The default value is default.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -508,11 +528,14 @@ export declare class console {
    * @since 10
    */
   /**
-   * Print the elapsed time and other data arguments.
+   * Prints the elapsed time and other data parameters for the timer started by console.time().
    *
-   * @param { string } [label] - Timer name. Default: "default".
-   * @param { Object[] } arguments - Text to print.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @param { string } [label] - Timer label. The default value is default.
+   * @param { Object[] } arguments - Logs to be printed.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -531,9 +554,10 @@ export declare class console {
    * @since 10
    */
   /**
-   * Prints stack information for the current code location.
+   * Creates a stack trace.
    *
-   * @param { Object[] } arguments - message to print.
+   * @param { Object[] } arguments - Logs to be printed. If this parameter is left blank,
+   * only stack information is printed.
    * @static
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -543,7 +567,7 @@ export declare class console {
   static trace(...arguments: Object[]): void;
 
   /**
-   * Prints hybrid stack information for the current code location.
+   * Prints information about the current hybrid stack of the calling thread in the main thread or worker thread.
    *
    * @static
    * @syscap SystemCapability.Utils.Lang
@@ -580,14 +604,15 @@ export declare class console {
  * @since 10
  */
 /**
- * Sets the interval for repeatedly calling a function.
+ * Sets a repeating timer for the system to repeatedly call a function at a fixed interval.
+ * The timer can only be manually deleted by calling the clearInterval API.
  *
- * @param { Function | string } handler - Indicates the function to be called after the timer goes off.
+ * @param { Function | string } handler - Function to be called repeatedly. If the type is string, error information is printed and no other processing is performed.
  * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
  * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
- * @param { number } delay - Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
- * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
- * @returns { number } Returns the timer ID.
+ * @param { number } delay - Number of milliseconds delayed before the execution.
+ * @param { any[] } arguments - Additional parameters to pass to the handler after the timer goes off.
+ * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in ascending order.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -623,15 +648,19 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @since 10
  */
 /**
- * Sets a timer after which a function will be executed.
+ * Sets a timer for the system to call a function after the timer goes off.
+ * The timer is automatically deleted after the callback is executed, and can be manually deleted by calling the clearTimeout API.
  *
- * @param { Function | string } handler - Indicates the function to be called after the timer goes off.
+ * @param { Function | string } handler - Function to be called after the timer goes off. If the type is string, error information is printed and no other processing is performed.
  * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
  * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
- * @param { number } [delay] - Indicates the delay (in milliseconds) after which the function will be called.
- * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
- * @param { any[] } [arguments] - Indicates additional arguments to pass to "handler" when the timer goes off.
- * @returns { number } Returns the timer ID.
+ * @param { number } [delay] - Number of milliseconds delayed before the execution. It is recommended that an integer be passed in. A decimal will be rounded down.
+ * If this parameter is not specified, the default value 0 is used, indicating that the function is executed immediately (in the next event loop).
+ * NOTE
+ * 1. In either case, the actual delay may be longer than expected.
+ * 2. If a value less than 1 is passed, the default value 0 is used.
+ * @param { any[] } [arguments] - Additional parameters to pass to the handler after the timer goes off.
+ * @returns { number } ID of the timer. The timer ID is shared by processes and is an integer starting from 0 in ascending order.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -655,9 +684,10 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @since 10
  */
 /**
- * Cancel the interval set by " setInterval()".
+ * Cancels the repeating timer set via setInterval().
+ * The timer object is stored in the thread that creates the timer and must be deleted in that thread.
  *
- * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
+ * @param { number } [intervalID] - ID of the repeating timer to cancel, which is returned by setInterval(). If this parameter is omitted, no timer is canceled.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -681,9 +711,10 @@ export declare function clearInterval(intervalID?: number): void;
  * @since 10
  */
 /**
- * Cancel the timer set by "setTimeout()".
+ * Cancels a timer set via setTimeout().
+ * The timer object is stored in the thread that creates the timer and must be deleted in that thread.
  *
- * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
+ * @param { number } [timeoutID] - ID of the timer to cancel, which is returned by setTimeout() If this parameter is omitted, no timer is canceled.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice

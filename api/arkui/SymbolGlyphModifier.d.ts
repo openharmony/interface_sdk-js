@@ -27,6 +27,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines SymbolGlyph Modifier
+ *
+ * @extends SymbolGlyphAttribute
+ * @implements AttributeModifier<SymbolGlyphAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
     /**
      * constructor
@@ -35,6 +45,15 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
+     */
+    /**
+     * constructor
+     * 
+     * @param { Resource } src
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     constructor(src?: Resource);
 
@@ -45,6 +64,15 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
+     */
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { SymbolGlyphAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
      */
     applyNormalAttribute?(instance: SymbolGlyphAttribute): void;
   }

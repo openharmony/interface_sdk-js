@@ -1,0 +1,50 @@
+{
+  "name": "@interface/sdk",
+  "description": "openharmony sdk",
+  "version": "3.1",
+  "license": "Apache License 2.0",
+  "homePage": "https://gitee.com/openharmony/interface_sdk-js",
+  "repository": "https://gitee.com/openharmony/interface_sdk-js",
+  "supplier": "Organization: OpenHarmony",
+  "publishAs": "code-segment",
+  "segment": {
+    "destPath": "interface/sdk-js"
+  },
+  "readmePath": {
+    "zh": "README_zh.md"
+  },
+  "dirs": {},
+  "scripts": {},
+  "component": {
+    "name": "sdk",
+    "description": "openharmony sdk",
+    "subsystem": "sdk",
+    "features": [],
+    "adapted_system_type": [
+      "mini",
+      "small",
+      "standard"
+    ],
+    "rom": "0KB",
+    "ram": "0KB",
+    "deps": {
+      "components": [],
+      "third_party": []
+    },
+    "build": {
+      "sub_component": [],
+      "inner_api": [
+        {
+          "name": "//interface/sdk-js:ohos_ets_api"
+        },
+        {
+          "name": "//interface/sdk-js:ohos_ets_arkts"
+        },
+        {
+          "name": "//interface/sdk-js:ohos_ets_kits"
+        }
+      ],
+      "test": []
+    }
+  }
+}

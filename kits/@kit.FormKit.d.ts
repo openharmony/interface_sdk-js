@@ -27,5 +27,9 @@ import formObserver from '@ohos.app.form.formObserver';
 import formProvider from '@ohos.app.form.formProvider';
 import formError from '@ohos.application.formError';
 import FormEditExtensionAbility from '@ohos.app.form.FormEditExtensionAbility';
+import LiveFormExtensionAbility, { LiveFormInfo } from '@ohos.app.form.LiveFormExtensionAbility';
 
-export { FormExtensionAbility, formAgent, formBindingData, formError, formHost, formInfo, formObserver, formProvider, FormEditExtensionAbility };
+export {
+  FormExtensionAbility, formAgent, formBindingData, formError, formHost, formInfo, formObserver, formProvider,
+  FormEditExtensionAbility, LiveFormExtensionAbility, LiveFormInfo
+};

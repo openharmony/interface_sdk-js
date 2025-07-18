@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Path Modifier
+ *
+ * @extends PathAttribute
+ * @implements AttributeModifier<PathAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class PathModifier extends PathAttribute implements AttributeModifier<PathAttribute> {
 
   /**

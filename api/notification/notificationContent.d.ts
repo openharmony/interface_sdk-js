@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Some notification types and content
+ * @file The NotificationContent module provides APIs for defining the notification content.
  * @kit NotificationKit
  */
 
@@ -22,6 +22,7 @@ import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
+import type { WantAgent } from '../@ohos.wantAgent';
 
 /**
  * Describes icon type.
@@ -50,14 +51,13 @@ type IconType = Resource | image.PixelMap;
  */
 export interface NotificationBasicContent {
   /**
-   * Title of the normal text notification.
-   *
+   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Title of the normal text notification.
+   * Notification title. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -67,14 +67,14 @@ export interface NotificationBasicContent {
   title: string;
 
   /**
-   * Content of the normal text notification.
+   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Content of the normal text notification.
+   * Notification content. It cannot be empty or exceed 3072 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -84,7 +84,7 @@ export interface NotificationBasicContent {
   text: string;
 
   /**
-   * Additional information of the normal text notification.
+   * Additional information of the notification. It cannot exceed 3072 bytes. Excess content will be truncated.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -93,7 +93,10 @@ export interface NotificationBasicContent {
   additionalText?: string;
 
   /**
-   * Data image of the lock screen.
+   * Picture of a notification displayed on the lock screen. Currently, only the live view notification is supported.
+   * The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber.
+   * The recommended icon size is 128 × 128 pixels.
+   * The display effect depends on the device capability and notification center UI style.
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
@@ -103,14 +106,14 @@ export interface NotificationBasicContent {
 }
 
 /**
- * Describes a long text notification.
+ * Describes the long text notification. This API is inherited from NotificationBasicContent.
  *
  * @typedef NotificationLongTextContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
 /**
- * Describes a long text notification.
+ * Describes the long text notification. This API is inherited from NotificationBasicContent.
  *
  * @extends NotificationBasicContent
  * @typedef NotificationLongTextContent
@@ -120,14 +123,14 @@ export interface NotificationBasicContent {
  */
 export interface NotificationLongTextContent extends NotificationBasicContent {
   /**
-   * Long text content of the notification.
+   * Long text of the notification. It cannot be an empty string and exceed 3072 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Long text content of the notification.
+   * Long text of the notification. It cannot be an empty string and exceed 3072 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -137,14 +140,14 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   longText: string;
 
   /**
-   * Brief text of the long text notification.
+   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Brief text of the long text notification.
+   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -154,14 +157,14 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title that will be displayed for the long text notification when it is expanded.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Title that will be displayed for the long text notification when it is expanded.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -313,14 +316,14 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
 }
 
 /**
- * Describes a multi-line text notification.
+ * Describes the multi-line text notification. This API is inherited from NotificationBasicContent.  
  *
  * @typedef NotificationMultiLineContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
 /**
- * Describes a multi-line text notification.
+ * Describes the multi-line text notification. This API is inherited from NotificationBasicContent.
  *
  * @extends NotificationBasicContent
  * @typedef NotificationMultiLineContent
@@ -330,14 +333,14 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
  */
 export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
-   * Brief text of the multi-line text notification.
+   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Brief text of the multi-line text notification.
+   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -347,14 +350,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Long title of the multi-line text notification.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Long title of the multi-line text notification.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -364,14 +367,14 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   longTitle: string;
 
   /**
-   * Multi-line content of the multi-line text notification.
+   * Multi-line text of the notification. It cannot exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Multi-line content of the multi-line text notification.
+   * Multi-line text of the notification. It cannot exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
@@ -379,10 +382,20 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @since 12
    */
   lines: Array<string>;
+  
+  /**
+   * Multi-line wantAgent of the multi-line text notification.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @type { ?Array<WantAgent> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  lineWantAgents?: Array<WantAgent>;
 }
 
 /**
- * Describes a picture-attached notification.
+ * Describes the picture-attached notification. This API is inherited from NotificationBasicContent.
  *
  * @extends NotificationBasicContent
  * @typedef NotificationPictureContent
@@ -391,7 +404,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  */
 export interface NotificationPictureContent extends NotificationBasicContent {
   /**
-   * Brief text of the multi-line text notification.
+   * Brief text of the notification. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -400,7 +413,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   briefText: string;
 
   /**
-   * Title that will be displayed for the picture-attached notification when it is expanded.
+   * Title of the notification in the expanded state. It cannot be empty or exceed 1024 bytes. Excess content will be truncated.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
@@ -409,7 +422,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * Picture to be included in a notification.
+   * Picture content of the notification. (The total number of bytes of image pixels cannot exceed 2 MB.)
    *
    * @type { image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
@@ -419,7 +432,9 @@ export interface NotificationPictureContent extends NotificationBasicContent {
 }
 
 /**
- * Describes a system live view notification.
+ * Describes the system live view notification. A third-party application cannot directly create a notification of this type.
+ * After the system proxy creates a system live view, the third-party application releases a notification with the same ID to update the specified content.
+ * This API is inherited from NotificationBasicContent.
  *
  * @extends NotificationBasicContent
  * @typedef NotificationSystemLiveViewContent
@@ -428,7 +443,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
  */
 export interface NotificationSystemLiveViewContent extends NotificationBasicContent {
   /**
-   * type code of a system live view notification.
+   * Type code, which identifies the type of the service that invokes the API.
    *
    * @type { number }
    * @syscap SystemCapability.Notification.Notification
@@ -437,7 +452,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   typeCode: number;
 
   /**
-   * capsule of a system live view notification.
+   * Capsule of the notification.
    *
    * @type { ?NotificationCapsule }
    * @syscap SystemCapability.Notification.Notification
@@ -446,7 +461,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   capsule?: NotificationCapsule;
 
   /**
-   * button of a system live view notification.
+   * Button in the notification.
    *
    * @type { ?NotificationButton }
    * @syscap SystemCapability.Notification.Notification
@@ -465,7 +480,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   cardButtons?: Array<NotificationIconButton>;
 
   /**
-   * type of a system live view notification.
+   * Time of the notification.
    *
    * @type { ?NotificationTime }
    * @syscap SystemCapability.Notification.Notification
@@ -474,7 +489,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   time?: NotificationTime;
 
   /**
-   * progress of a system live view notification.
+   * Progress of the notification.
    *
    * @type { ?NotificationProgress }
    * @syscap SystemCapability.Notification.Notification
@@ -494,7 +509,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
 }
 
 /**
- * Describes a system live view capsule type.
+ * Describe the notification capsule.
  *
  * @typedef NotificationCapsule
  * @syscap SystemCapability.Notification.Notification
@@ -502,7 +517,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
  */
 export interface NotificationCapsule {
   /**
-   * Title displayed in this capsule.
+   * Title of the capsule.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -511,7 +526,7 @@ export interface NotificationCapsule {
   title?: string;
 
   /**
-   * Icon displayed in this capsule.
+   * Icon of the capsule.
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
@@ -520,7 +535,7 @@ export interface NotificationCapsule {
   icon?: image.PixelMap;
 
   /**
-   * Background color of this capsule.
+   * Background color of the capsule.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -610,7 +625,7 @@ export interface NotificationIconButton {
 }
 
 /**
- * Describes a system live view button type.
+ * Describes the notification button.
  *
  * @typedef NotificationButton
  * @syscap SystemCapability.Notification.Notification
@@ -618,7 +633,7 @@ export interface NotificationIconButton {
  */
 export interface NotificationButton {
   /**
-   * array of button names.
+   * Button names. A maximum of three names are supported.
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
@@ -627,7 +642,7 @@ export interface NotificationButton {
   names?: Array<string>;
 
   /**
-   * array of button icons.
+   * Button icons. A maximum of three icons are supported.
    *
    * @type { ?Array<image.PixelMap> }
    * @syscap SystemCapability.Notification.Notification
@@ -636,7 +651,7 @@ export interface NotificationButton {
   icons?: Array<image.PixelMap>;
 
   /**
-   * array of button icons resource.
+   * Button icon resources. A maximum of three icon resources are supported.
    *
    * @type { ?Array<Resource> }
    * @syscap SystemCapability.Notification.Notification
@@ -646,7 +661,7 @@ export interface NotificationButton {
 }
 
 /**
- * Describes a system live view time type.
+ * Describes the notification timing information.
  *
  * @typedef NotificationTime
  * @syscap SystemCapability.Notification.Notification
@@ -654,7 +669,7 @@ export interface NotificationButton {
  */
 export interface NotificationTime {
   /**
-   * The initial time of this notification.
+   * Start time, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -663,8 +678,7 @@ export interface NotificationTime {
   initialTime?: number;
 
   /**
-   *
-   * Count down the time.
+   * Whether to count down.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -673,7 +687,7 @@ export interface NotificationTime {
   isCountDown?: boolean;
 
   /**
-   * The time is paused.
+   * Whether to pause the progress.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -682,7 +696,7 @@ export interface NotificationTime {
   isPaused?: boolean;
 
   /**
-   * The time should be displayed in title.
+   * Whether the time is displayed in the title.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -692,7 +706,7 @@ export interface NotificationTime {
 }
 
 /**
- * Describes a system live view progress type.
+ * Describes the notification progress.
  *
  * @typedef NotificationProgress
  * @syscap SystemCapability.Notification.Notification
@@ -700,7 +714,7 @@ export interface NotificationTime {
  */
 export interface NotificationProgress {
   /**
-   * Max value of this progress.
+   * Maximum progress value.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -709,7 +723,7 @@ export interface NotificationProgress {
   maxValue?: number;
 
   /**
-   * Current value of this progress.
+   * Current progress value.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -718,7 +732,7 @@ export interface NotificationProgress {
   currentValue?: number;
 
   /**
-   * Use percentage mode in this progress.
+   * Whether to show the progress in percentage.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
@@ -728,14 +742,14 @@ export interface NotificationProgress {
 }
 
 /**
- * Describes notification types.
+ * Describes the notification contents.
  *
  * @typedef NotificationContent
  * @syscap SystemCapability.Notification.Notification
  * @since 7
  */
 /**
- * Describes notification types.
+ * Describes the notification contents.
  *
  * @typedef NotificationContent
  * @syscap SystemCapability.Notification.Notification
@@ -772,14 +786,14 @@ export interface NotificationContent {
   notificationContentType?: notificationManager.ContentType;
 
   /**
-   * Normal text notification.
+   * Normal text.
    *
    * @type { ?NotificationBasicContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Normal text notification.
+   * Normal text.
    *
    * @type { ?NotificationBasicContent }
    * @syscap SystemCapability.Notification.Notification
@@ -789,14 +803,14 @@ export interface NotificationContent {
   normal?: NotificationBasicContent;
 
   /**
-   * Long text notification.
+   * Long text.
    *
    * @type { ?NotificationLongTextContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Long text notification.
+   * Long text.
    *
    * @type { ?NotificationLongTextContent }
    * @syscap SystemCapability.Notification.Notification
@@ -806,14 +820,14 @@ export interface NotificationContent {
   longText?: NotificationLongTextContent;
 
   /**
-   * Multi-line text notification.
+   * Multi-line text.
    *
    * @type { ?NotificationMultiLineContent }
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    */
   /**
-   * Multi-line text notification.
+   * Multi-line text.
    *
    * @type { ?NotificationMultiLineContent }
    * @syscap SystemCapability.Notification.Notification
@@ -823,7 +837,7 @@ export interface NotificationContent {
   multiLine?: NotificationMultiLineContent;
 
   /**
-   * Picture-attached notification.
+   * Picture-attached.
    *
    * @type { ?NotificationPictureContent }
    * @syscap SystemCapability.Notification.Notification
@@ -832,7 +846,8 @@ export interface NotificationContent {
   picture?: NotificationPictureContent;
 
   /**
-   * System-live-view notification.
+   * System live view. A third-party application cannot directly create a notification of this type. After the system proxy creates a system live view,
+   * the third-party application releases a notification with the same ID to update the specified content.
    *
    * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification

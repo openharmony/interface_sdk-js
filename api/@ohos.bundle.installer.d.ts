@@ -26,7 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace installer
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace installer {
   /**
@@ -37,7 +38,8 @@ declare namespace installer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
 
@@ -48,7 +50,8 @@ declare namespace installer {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInstaller(): Promise<BundleInstaller>;
 
@@ -59,7 +62,8 @@ declare namespace installer {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBundleInstallerSync(): BundleInstaller;
 
@@ -69,7 +73,8 @@ declare namespace installer {
    * @interface BundleInstaller
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BundleInstaller {
     /**
@@ -227,7 +232,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -272,7 +277,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -363,7 +368,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -470,7 +476,7 @@ declare namespace installer {
      * @systemapi
      * @since 11
      */
-     /**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -553,7 +559,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install HAPs for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -640,7 +646,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -650,7 +657,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -685,7 +692,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -725,7 +732,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -767,7 +774,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -810,7 +817,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -844,7 +851,7 @@ declare namespace installer {
      * @systemapi
      * @since 13
      */
-	/**
+    /**
      * Install haps for an application.
      * To install a non-enterprise application, you must have the permission ohos.permission.INSTALL_BUNDLE.
      * To install an enterprise application, you must have the permission ohos.permission.INSTALL_ENTERPRISE_BUNDLE.
@@ -855,7 +862,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -901,7 +908,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      * 'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -935,7 +942,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700077 - Failed to install the HAP and restore to preinstalled bundle.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     install(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -1019,7 +1027,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstall(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1075,7 +1084,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstall(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1085,7 +1095,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.UNINSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1098,13 +1108,13 @@ declare namespace installer {
      * @systemapi
      * @since 9
      */
-     /**
+    /**
      * Uninstall an application.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1124,7 +1134,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1145,7 +1155,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } [installParam] - Indicates other parameters required for the uninstallation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1159,7 +1169,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700067 - Failed to uninstall the HAP because uninstalling the native package failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstall(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1215,7 +1226,8 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1265,7 +1277,8 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1275,7 +1288,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1291,7 +1304,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1309,7 +1322,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or 'ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1321,7 +1334,8 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     recover(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1339,7 +1353,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstall(uninstallParam: UninstallParam, callback: AsyncCallback<void>): void;
 
@@ -1348,7 +1363,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Indicates parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1357,7 +1372,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700038 - The specified shared bundle does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstall(uninstallParam: UninstallParam): Promise<void>;
 
@@ -1429,7 +1445,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
@@ -1493,7 +1510,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateBundleForSelf(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1503,7 +1521,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1538,7 +1556,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - Indicates the path where the HAP of the application is stored.
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1565,7 +1583,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700051 - Failed to install the HAP because the distribution type of caller application is not enterprise_mdm.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateBundleForSelf(hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
@@ -1575,7 +1594,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1592,7 +1611,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled updates.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1605,7 +1624,8 @@ declare namespace installer {
      * <br>bundle name but different signature information exists on the device.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
@@ -1623,7 +1643,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700301 - AddExtResource failed due to parse file failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
     */
     addExtResource(bundleName: string, filePaths: Array<string>): Promise<void>;
 
@@ -1641,7 +1662,8 @@ declare namespace installer {
      * @throws { BusinessError } 17700302 - RemoveExtResource failed due to module does not exist.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeExtResource(bundleName: string, moduleNames: Array<string>): Promise<void>;
 
@@ -1661,9 +1683,10 @@ declare namespace installer {
      * @throws { BusinessError } 17700069 - The app does not support the creation of an appClone instance.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
+    createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
     /**
      * Destroy clone instance for an application.
@@ -1672,7 +1695,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
      * @param { number } appIndex - Indicates the clone application's index.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1683,7 +1706,7 @@ declare namespace installer {
      * @systemapi
      * @since 12
      */
-     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
 
     /**
      * Destroy clone instance for an application.
@@ -1692,7 +1715,7 @@ declare namespace installer {
      * @param { string } bundleName - Indicates the bundleName of clone app.
      * @param { number } appIndex - Indicates the clone application's index.
      * @param { DestroyAppCloneParam } [destroyAppCloneParam] - Indicates other parameters required for the uninstallation.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1704,7 +1727,28 @@ declare namespace installer {
      * @systemapi
      * @since 15
      */
-     destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, destroyAppCloneParam?: DestroyAppCloneParam): Promise<void>;
+
+    /**
+     * Destroy clone instance for an application.
+     *
+     * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
+     * @param { string } bundleName - Indicates the bundleName of clone app.
+     * @param { number } appIndex - Indicates the clone application's index.
+     * @param { number | DestroyAppCloneParam } [options] - Indicates other parameters required for the uninstallation.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+     * @throws { BusinessError } 17700062 - Failed to uninstall the app because the app is locked.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    destroyAppClone(bundleName: string, appIndex: number, options?: number | DestroyAppCloneParam): Promise<void>;
 
     /**
      * Install application by bundle name with specified user.
@@ -1712,7 +1756,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of application.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1729,7 +1773,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of application.
      * @param { number } [userId] - userId Indicates the user ID.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -1740,18 +1784,19 @@ declare namespace installer {
      * <br>from being installed on this device or by specified users.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-     installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
+    installPreexistingApp(bundleName: string, userId?: number): Promise<void>;
 
-     /**
+    /**
      * Install plugin for host application.
      *
      * @permission ohos.permission.INSTALL_PLUGIN_BUNDLE
      * @param { string } hostBundleName - Indicates the bundle name of host application.
      * @param { Array<string> } pluginFilePaths - Indicates the file paths of plugin.
      * @param { PluginParam } [pluginParam] - Indicates parameters required for install plugin.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified hostBundleName cannot be found or the bundle is not installed by the specified user.
@@ -1773,18 +1818,19 @@ declare namespace installer {
      * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-     installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
+    installPlugin(hostBundleName: string, pluginFilePaths: Array<string>, pluginParam?: PluginParam): Promise<void>;
 
-     /**
+    /**
      * Uninstall plugin for host application.
      *
      * @permission ohos.permission.UNINSTALL_PLUGIN_BUNDLE
      * @param { string } hostBundleName - Indicates the bundle name of host application.
      * @param { string } pluginBundleName - Indicates the bundle name of plugin application.
      * @param { PluginParam } [pluginParam] - Indicates parameters required for uninstall plugin.
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_PLUGIN_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -1792,9 +1838,10 @@ declare namespace installer {
      * @throws { BusinessError } 17700092 - Failed to uninstall the plugin because the specified plugin is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
+    uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
   }
 
   /**
@@ -1803,7 +1850,8 @@ declare namespace installer {
    * @typedef HashParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HashParam {
     /**
@@ -1812,7 +1860,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moduleName: string;
 
@@ -1822,7 +1871,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hashValue: string;
   }
@@ -1866,7 +1916,8 @@ declare namespace installer {
    * @typedef PGOParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PGOParam {
     /**
@@ -1875,7 +1926,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moduleName: string;
 
@@ -1885,7 +1937,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pgoFilePath: string;
   }
@@ -1896,7 +1949,8 @@ declare namespace installer {
    * @typedef Parameters
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Parameters {
     /**
@@ -1905,7 +1959,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     key: string;
 
@@ -1915,7 +1970,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: string;
   }
@@ -1926,7 +1982,8 @@ declare namespace installer {
    * @typedef InstallParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InstallParam {
     /**
@@ -1935,7 +1992,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userId?: number;
 
@@ -1945,7 +2003,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     installFlag?: number;
 
@@ -1955,7 +2014,8 @@ declare namespace installer {
      * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isKeepData?: boolean;
 
@@ -1965,7 +2025,8 @@ declare namespace installer {
      * @type { ?Array<HashParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hashParams?: Array<HashParam>;
 
@@ -1975,19 +2036,21 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crowdtestDeadline?: number;
 
     /**
      * Indicates the shared bundle dir paths.
      *
-     * @type { ?Array<String> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    sharedBundleDirPaths?: Array<String>;
+    sharedBundleDirPaths?: Array<string>;
 
     /**
      * Indicates the distribution type specified during bundle installation.
@@ -1995,7 +2058,8 @@ declare namespace installer {
      * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     specifiedDistributionType?: string;
 
@@ -2005,7 +2069,8 @@ declare namespace installer {
      * @type { ?string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     additionalInfo?: string;
 
@@ -2026,7 +2091,8 @@ declare namespace installer {
      * @type { ?Array<PGOParam> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pgoParams?: Array<PGOParam>;
 
@@ -2036,7 +2102,8 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Array<Parameters>;
   }
@@ -2047,7 +2114,8 @@ declare namespace installer {
    * @typedef UninstallParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface UninstallParam {
     /**
@@ -2056,7 +2124,8 @@ declare namespace installer {
      * @type { string }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -2066,7 +2135,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     versionCode?: number;
   }
@@ -2077,7 +2147,8 @@ declare namespace installer {
    * @typedef CreateAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
    export interface CreateAppCloneParam {
     /**
@@ -2086,7 +2157,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userId?: number;
     /**
@@ -2095,7 +2167,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appIndex?: number;
   }
@@ -2106,7 +2179,8 @@ declare namespace installer {
    * @typedef DestroyAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DestroyAppCloneParam {
     /**
@@ -2115,7 +2189,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userId?: number;
     /**
@@ -2124,7 +2199,8 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Array<Parameters>;
   }
@@ -2135,7 +2211,8 @@ declare namespace installer {
    * @typedef PluginParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PluginParam {
     /**
@@ -2144,7 +2221,8 @@ declare namespace installer {
      * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userId?: number;
 
@@ -2154,7 +2232,8 @@ declare namespace installer {
      * @type { ?Array<Parameters> }
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Array<Parameters>;
   }

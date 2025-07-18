@@ -398,6 +398,19 @@ declare namespace http {
     caPath?: string;
 
     /**
+     * A PEM representation of a certificate. The system will create an X.509 certificate object in the SSL process.
+     * If the caPath option is set, the caData option will be ignored.
+     * Certificate chain is not supported.
+     * Maxium length is 8000 Bytes.
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    caData?: string;
+
+    /**
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.

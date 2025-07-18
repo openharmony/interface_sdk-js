@@ -14,64 +14,68 @@
  */
 
 /**
- * @file The data of the commonEvent
+ * @file Common event data.
  * @kit BasicServicesKit
  */
 
 /**
- * the data of the commonEvent
+ * Common event data.
  *
  * @typedef CommonEventData
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 7
  */
 /**
- * the data of the commonEvent
+ * Common event data.
  *
  * @typedef CommonEventData
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface CommonEventData {
   /**
-   * event type
+   * Name of the common event that is being received.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * event type
+   * Name of the common event that is being received.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   event: string;
 
   /**
-   * bundle name
+   * Bundle name. This parameter is left empty by default.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * bundle name
+   * Bundle name. This parameter is left empty by default.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName?: string;
 
   /**
-   * The custom result code of the common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
    * @type { ?number }
    * @default 0
@@ -79,25 +83,29 @@ export interface CommonEventData {
    * @since 7
    */
   /**
-   * The custom result code of the common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the code field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event. The default value is 0.
    *
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   code?: number;
 
   /**
-   * The custom result data of the common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * The custom result data of the common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -105,25 +113,29 @@ export interface CommonEventData {
    * @since 11
    */
   /**
-   * The custom result data of the common event.
+   * Common event data received by the subscriber. The value of this field is the same as that of the data field in
+   * CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data?: string;
 
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event received by the subscriber. The value of this field is the same as
+   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
   /**
-   * The description of the parameters in a common event.
+   * Additional information about the common event received by the subscriber. The value of this field is the same as
+   * that of the parameters field in CommonEventPublishData when the publisher uses commonEventManager.publish to publish a common event.
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.CommonEvent
@@ -131,4 +143,14 @@ export interface CommonEventData {
    * @since 11
    */
   parameters?: { [key: string]: any };
+
+  /**
+   * The description of the parameters in a common event.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: Record<string, Object>;
 }

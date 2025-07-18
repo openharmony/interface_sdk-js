@@ -41,7 +41,7 @@ declare namespace uiExtension {
    */
   interface WindowProxy {
     /**
-     * Get the avoid area.
+     * Obtains the area where this window cannot be displayed, for example, the system bar area, notch, gesture area, and soft keyboard area.
      *
      * @param { window.AvoidAreaType } type - Type of the avoid area.
      * @returns { window.AvoidArea } Area where the window cannot be displayed.
@@ -56,9 +56,9 @@ declare namespace uiExtension {
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
     /**
-     * Register the callback of avoidAreaChange.
+     * Subscribes to the event indicating changes to the area where the window cannot be displayed.
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
      * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -71,9 +71,9 @@ declare namespace uiExtension {
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Unregister the callback of avoidAreaChange.
+     * Unsubscribes from the event indicating changes to the area where the window cannot be displayed.
      *
-     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
      * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -86,9 +86,9 @@ declare namespace uiExtension {
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Register the callback of windowSizeChange.
+     * Subscribes to the window size change event of the host application.
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -101,9 +101,9 @@ declare namespace uiExtension {
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
-     * Unregister the callback of windowSizeChange.
+     * Unsubscribes from the window size change event of the host application.
      *
-     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -116,9 +116,9 @@ declare namespace uiExtension {
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
-     * Register the callback of rectChange
+     * Subscribes to changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent). This API can be used only on 2-in-1 devices.
      *
-     * @param { 'rectChange' } type - The value is fixed at 'rectChange', indicating the component rect change event.
+     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange', indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
      * @param { 'number' } reasons - The reasons of component rect change.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
@@ -133,9 +133,9 @@ declare namespace uiExtension {
     on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void;
 
     /**
-     * Unregister the callback of rectChange
+     * Unsubscribes from changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent). This API can be used only on 2-in-1 devices.
      *
-     * @param { 'rectChange' } type - The value is fixed at 'rectChange', indicating the component rect change event.
+     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange', indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -149,11 +149,11 @@ declare namespace uiExtension {
     off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void;
 
     /**
-     * Hide the non-secure windows.
+     * Sets whether to hide insecure windows.
      * When called by modal UIExtension and shouldHide == false, the "ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS" permission is required.
      *
      * @permission ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS
-     * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
+     * @param { boolean } shouldHide - Whether to hide insecure windows. The value true means to hide insecure windows, and false means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
@@ -171,10 +171,10 @@ declare namespace uiExtension {
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Create sub window.
+     * Creates a subwindow for this window proxy. This API uses a promise to return the result.
      *
-     * @param { string } name - window name of sub window.
-     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation.
+     * @param { string } name - Name of the subwindow.
+     * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -182,7 +182,6 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300005 - This window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @StageModelOnly
      * @atomicservice
@@ -191,9 +190,9 @@ declare namespace uiExtension {
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
     /**
-     * Set the watermark flag on the UIExtension window
+     * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.
      *
-     * @param { boolean } enable - Add water mark flag to the UIExtension window if true, or remove flag if false
+     * @param { boolean } enable - Whether to add or delete the flag. The value true means to add the watermark flag, and false means to delete the watermark flag.
      * @returns { Promise<void> } - The promise returned by the function
      * @throws { BusinessError } 1300002 - The UIExtension window proxy is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -205,9 +204,9 @@ declare namespace uiExtension {
      setWaterMarkFlag(enable: boolean): Promise<void>;
 
      /**
-      * Set events that only need to be handled by the UIExtension provider
+      * Sets the events that the component (EmbeddedComponent or UIExtensionComponent) will occupy, preventing the host from responding to these events within the component's area.
       *
-      * @param { EventFlag } eventFlags - The events to be set.
+      * @param { EventFlag } eventFlags - Type of events to occupy. For details about the available values, see {@link uiExtension.EventFlag }.
       * @returns { Promise<void> } - The promise returned by the function
       * @throws { BusinessError } 401 - Parameter error. Possible cause: 
       * <br> 1. Mandatory parameters are left unspecified.
@@ -309,7 +308,7 @@ declare namespace uiExtension {
    */
   interface AvoidAreaInfo {
     /**
-     * Describes the type of avoid area.
+     * Type of the area where the window cannot be displayed.
      *
      * @type { window.AvoidAreaType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -319,7 +318,7 @@ declare namespace uiExtension {
     type: window.AvoidAreaType;
 
     /**
-     * Describes the position and size of avoid area.
+     * Area where the window cannot be displayed.
      *
      * @type { window.AvoidArea }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -340,7 +339,7 @@ declare namespace uiExtension {
    */
   interface WindowProxyProperties {
     /**
-     * The position and size of the UIExtension window
+     * Position and size of the component (EmbeddedComponent or UIExtensionComponent).
      *
      * @type { window.Rect } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -360,7 +359,7 @@ declare namespace uiExtension {
    */
   enum RectChangeReason {
     /**
-     * Host window rect change
+     * The rectangle of the host window containing the component changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -379,7 +378,7 @@ declare namespace uiExtension {
    */
   interface RectChangeOptions {
     /**
-     * Rect of UIExtension Component
+     * New values of the rectangle of the component after the change.
      *
      * @type { window.Rect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -389,7 +388,7 @@ declare namespace uiExtension {
     rect: window.Rect,
 
     /**
-     * Rect change reason
+     * Reason for the rectangle change.
      *
      * @type { RectChangeReason }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

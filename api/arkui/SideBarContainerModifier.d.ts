@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines SideBarContainer Modifier
+ *
+ * @extends SideBarContainerAttribute
+ * @implements AttributeModifier<SideBarContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SideBarContainerModifier extends SideBarContainerAttribute implements AttributeModifier<SideBarContainerAttribute> {
 
   /**

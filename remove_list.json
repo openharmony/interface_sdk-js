@@ -6,9 +6,7 @@
         ]
     },
     "ets_component": {
-        "global_remove": [
-            "inspector.d.ts"
-        ],
+        "global_remove": [],
         "sdk_build_public_remove": [
             "ability_component.d.ts",
             "animator.d.ts",

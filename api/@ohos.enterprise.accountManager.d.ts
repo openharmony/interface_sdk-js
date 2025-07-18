@@ -35,6 +35,7 @@ declare namespace accountManager {
    * 
    * @interface DomainAccountPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
    * @since 19
    */
   interface DomainAccountPolicy {
@@ -43,6 +44,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 19
      */
     authenticationValidityPeriod?: number;
@@ -52,6 +54,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 19
      */
     passwordValidityPeriod?: number;
@@ -61,6 +64,7 @@ declare namespace accountManager {
      * 
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
      * @since 19
      */
     passwordExpirationNotification?: number;

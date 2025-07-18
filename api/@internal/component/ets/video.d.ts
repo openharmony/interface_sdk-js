@@ -1374,7 +1374,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @atomicservice
    * @since 11
    */
-  onError(event: () => void): VideoAttribute;
+  /**
+   * Called when playback fails.
+   *
+   * @param { VoidCallback | import('../api/@ohos.base').ErrorCallback } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onError(event: VoidCallback | import('../api/@ohos.base').ErrorCallback): VideoAttribute;
 
   /**
    * Called when the video is stopped.

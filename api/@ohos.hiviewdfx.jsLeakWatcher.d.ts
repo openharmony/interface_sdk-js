@@ -64,5 +64,27 @@ declare namespace jsLeakWatcher {
    * @since 12
    */
   function dump(filePath: string): Array<string>;
+
+  /**
+   * Enables or disables jsLeakWatcher.
+   * 
+   * This interface can detect js object memory leaks in a single call, which is more concise than the previous method
+   * requiring four function (enable,watch,check dump) calls.If there is a memory leak, the leak file will be
+   * returned to the developer through the callback function.
+   * 
+   * @param { boolean } isEnabled - Whether to enable or disable jsLeankWatcher. The value true means to enable the feature, and false means the opposite.
+   * @param { Array<string> } configs - Array of types of objects to watch.
+   * @param { Callback<Array<string>> } callback - Callback invoked when an object-related memory leak is detected.
+   * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
+   * @throws { BusinessError } 10801002 - The parameter config is invalid.
+   * @throws { BusinessError } 10801003 - The parameter callback is invalid.
+   * Input parameter error. Possible causes:
+   *  1.Mandatory parameters are left unspecified;
+   *  2.Incorrect parameter types;
+   *  3.Parameter verification failed.
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @since 20
+   */
+  function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void
 }
 export default jsLeakWatcher;

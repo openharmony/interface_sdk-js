@@ -31,7 +31,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace sensor
  * @syscap SystemCapability.Sensors.Sensor
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace sensor {
   /**
@@ -567,6 +568,36 @@ declare namespace sensor {
     options?: Options): void;
 
   /**
+   * Subscribe to orientation sensor data.
+   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function on(type: 'ORIENTATION', callback: Callback<OrientationResponse>,
+    options?: Options): void;
+
+  /**
+   * Subscribe to orientation sensor data.
+   * @param { 'orientationChange' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, 
+   *     <br> {@code Options}.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 20
+   * @arkts 1.2
+   */
+  function on(type: 'orientationChange', callback: Callback<OrientationResponse>, options?: Options): void;
+
+  /**
    * Subscribe to pedometer sensor data.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
@@ -973,6 +1004,20 @@ declare namespace sensor {
   function off(type: SensorId.COLOR, callback?: Callback<ColorResponse>): void;
 
   /**
+   * Unsubscribe to color sensor data.
+   * @param { SensorId.COLOR } type - Indicate the sensor type to listen for, {@code SensorId.COLOR}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<ColorResponse> } [callback] - callback color data.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 19
+   */
+  function off(type: SensorId.COLOR, sensorInfoParam?: SensorInfoParam, callback?: Callback<ColorResponse>): void;
+
+  /**
    * Unsubscribe to sar sensor data.
    * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
    * @param { Callback<SarResponse> } callback - callback sar data.
@@ -994,6 +1039,20 @@ declare namespace sensor {
    * @since 11
    */
   function off(type: SensorId.SAR, callback?: Callback<SarResponse>): void;
+
+  /**
+   * Unsubscribe to sar sensor data.
+   * @param { SensorId.SAR } type - Indicate the sensor type to listen for, {@code SensorId.SAR}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<SarResponse> } [callback] - callback sar data.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @systemapi
+   * @since 19
+   */
+  function off(type: SensorId.SAR, sensorInfoParam?: SensorInfoParam, callback?: Callback<SarResponse>): void;
 
   /**
    * Unsubscribe to accelerometer sensor data.
@@ -1021,6 +1080,21 @@ declare namespace sensor {
   function off(type: SensorId.ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
 
   /**
+   * Unsubscribe to accelerometer sensor data.
+   * @permission ohos.permission.ACCELEROMETER
+   * @param { SensorId.ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.ACCELEROMETER}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AccelerometerResponse> } [callback] - callback accelerometer data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 19
+   */
+  function off(type: SensorId.ACCELEROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<AccelerometerResponse>): void;
+
+  /**
    * Unsubscribe to uncalibrated accelerometer sensor data.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
@@ -1035,6 +1109,21 @@ declare namespace sensor {
   function off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>): void;
 
   /**
+   * Unsubscribe to uncalibrated accelerometer sensor data.
+   * @permission ohos.permission.ACCELEROMETER
+   * @param { SensorId.ACCELEROMETER_UNCALIBRATED } type - Indicate the sensor type to listen for,
+   *        {@code SensorId.ACCELEROMETER_UNCALIBRATED}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AccelerometerUncalibratedResponse> } [callback] - callback uncalibrated accelerometer data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.ACCELEROMETER_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<AccelerometerUncalibratedResponse>): void;
+
+  /**
    * Unsubscribe to ambient light sensor data.
    * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
    * @param { Callback<LightResponse> } callback - callback ambient data.
@@ -1044,6 +1133,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
+
+  /**
+   * Unsubscribe to ambient light sensor data.
+   * @param { SensorId.AMBIENT_LIGHT } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_LIGHT}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<LightResponse> } [callback] - callback ambient data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.AMBIENT_LIGHT, sensorInfoParam?: SensorInfoParam, callback?: Callback<LightResponse>): void;
 
   /**
    * Unsubscribe to ambient temperature sensor data.
@@ -1057,6 +1158,18 @@ declare namespace sensor {
   function off(type: SensorId.AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
 
   /**
+   * Unsubscribe to ambient temperature sensor data.
+   * @param { SensorId.AMBIENT_TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.AMBIENT_TEMPERATURE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<AmbientTemperatureResponse> } [callback] - callback temperature data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.AMBIENT_TEMPERATURE, sensorInfoParam?: SensorInfoParam, callback?: Callback<AmbientTemperatureResponse>): void;
+
+  /**
    * Unsubscribe to barometer sensor data.
    * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
    * @param { Callback<BarometerResponse> } callback - callback barometer data.
@@ -1068,6 +1181,18 @@ declare namespace sensor {
   function off(type: SensorId.BAROMETER, callback?: Callback<BarometerResponse>): void;
 
   /**
+   * Unsubscribe to barometer sensor data.
+   * @param { SensorId.BAROMETER } type - Indicate the sensor type to listen for, {@code SensorId.BAROMETER}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<BarometerResponse> } [callback] - callback barometer data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.BAROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<BarometerResponse>): void;
+
+  /**
    * Unsubscribe to gravity sensor data.
    * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
    * @param { Callback<GravityResponse> } callback - callback gravity data.
@@ -1077,6 +1202,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.GRAVITY, callback?: Callback<GravityResponse>): void;
+
+  /**
+   * Unsubscribe to gravity sensor data.
+   * @param { SensorId.GRAVITY } type - Indicate the sensor type to listen for, {@code SensorId.GRAVITY}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GravityResponse> } [callback] - callback gravity data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.GRAVITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<GravityResponse>): void;
 
   /**
    * Unsubscribe to gyroscope sensor data.
@@ -1104,6 +1241,21 @@ declare namespace sensor {
   function off(type: SensorId.GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
 
   /**
+   * Unsubscribe to gyroscope sensor data.
+   * @permission ohos.permission.GYROSCOPE
+   * @param { SensorId.GYROSCOPE } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GyroscopeResponse> } [callback] - callback gyroscope data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 19
+   */
+  function off(type: SensorId.GYROSCOPE, sensorInfoParam?: SensorInfoParam, callback?: Callback<GyroscopeResponse>): void;
+
+  /**
    * Unsubscribe to uncalibrated gyroscope sensor data.
    * @permission ohos.permission.GYROSCOPE
    * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
@@ -1117,6 +1269,20 @@ declare namespace sensor {
   function off(type: SensorId.GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
 
   /**
+   * Unsubscribe to uncalibrated gyroscope sensor data.
+   * @permission ohos.permission.GYROSCOPE
+   * @param { SensorId.GYROSCOPE_UNCALIBRATED } type - Indicate the sensor type to listen for, {@code SensorId.GYROSCOPE_UNCALIBRATED}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<GyroscopeUncalibratedResponse> } [callback] - callback uncalibrated gyroscope data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.GYROSCOPE_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<GyroscopeUncalibratedResponse>): void;
+
+  /**
    * Unsubscribe to hall sensor data.
    * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
    * @param { Callback<HallResponse> } callback - callback uncalibrated gyroscope data.
@@ -1126,6 +1292,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.HALL, callback?: Callback<HallResponse>): void;
+
+  /**
+   * Unsubscribe to hall sensor data.
+   * @param { SensorId.HALL } type - Indicate the sensor type to listen for, {@code SensorId.HALL}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HallResponse> } [callback] - callback uncalibrated gyroscope data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.HALL, sensorInfoParam?: SensorInfoParam, callback?: Callback<HallResponse>): void;
 
   /**
    * Unsubscribe to heart rate sensor data.
@@ -1141,6 +1319,20 @@ declare namespace sensor {
   function off(type: SensorId.HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
   /**
+   * Unsubscribe to heart rate sensor data.
+   * @permission ohos.permission.READ_HEALTH_DATA
+   * @param { SensorId.HEART_RATE } type - Indicate the sensor type to listen for, {@code SensorId.HEART_RATE}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HeartRateResponse> } [callback] - callback heart rate data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.HEART_RATE, sensorInfoParam?: SensorInfoParam, callback?: Callback<HeartRateResponse>): void;
+
+  /**
    * Unsubscribe to humidity sensor data.
    * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
    * @param { Callback<HumidityResponse> } callback - callback humidity data.
@@ -1150,6 +1342,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.HUMIDITY, callback?: Callback<HumidityResponse>): void;
+
+  /**
+   * Unsubscribe to humidity sensor data.
+   * @param { SensorId.HUMIDITY } type - Indicate the sensor type to listen for, {@code SensorId.HUMIDITY}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<HumidityResponse> } [callback] - callback humidity data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.HUMIDITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<HumidityResponse>): void;
 
   /**
    * Unsubscribe to linear acceleration sensor data.
@@ -1165,6 +1369,20 @@ declare namespace sensor {
   function off(type: SensorId.LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
 
   /**
+   * Unsubscribe to linear acceleration sensor data.
+   * @permission ohos.permission.ACCELEROMETER
+   * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<LinearAccelerometerResponse> } [callback] - callback linear acceleration data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.LINEAR_ACCELEROMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<LinearAccelerometerResponse>): void;
+
+  /**
    * Unsubscribe to magnetic field sensor data.
    * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
    * @param { Callback<MagneticFieldResponse> } callback - callback magnetic field data.
@@ -1174,6 +1392,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
+
+  /**
+   * Unsubscribe to magnetic field sensor data.
+   * @param { SensorId.MAGNETIC_FIELD } type - Indicate the sensor type to listen for, {@code SensorId.MAGNETIC_FIELD}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<MagneticFieldResponse> } [callback] - callback magnetic field data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.MAGNETIC_FIELD, sensorInfoParam?: SensorInfoParam, callback?: Callback<MagneticFieldResponse>): void;
 
   /**
    * Unsubscribe to uncalibrated magnetic field sensor data.
@@ -1186,6 +1416,19 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
+
+  /**
+   * Unsubscribe to uncalibrated magnetic field sensor data.
+   * @param { SensorId.MAGNETIC_FIELD_UNCALIBRATED } type - Indicate the sensor type to listen for,
+   *        {@code SensorId.MAGNETIC_FIELD_UNCALIBRATED}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<MagneticFieldUncalibratedResponse> } [callback] - callback uncalibrated magnetic field data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
 
   /**
    * Unsubscribe to orientation sensor data.
@@ -1209,6 +1452,43 @@ declare namespace sensor {
   function off(type: SensorId.ORIENTATION, callback?: Callback<OrientationResponse>): void;
 
   /**
+   * Unsubscribe to orientation sensor data.
+   * @param { SensorId.ORIENTATION } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 19
+   */
+  function off(type: SensorId.ORIENTATION, sensorInfoParam?: SensorInfoParam, callback?: Callback<OrientationResponse>): void;
+
+  /**
+   * Unsubscribe to orientation sensor data.
+   * @param { 'orientationChange' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } [callback] - callback orientation data.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 20
+   * @arkts 1.2
+   */
+  function off(type: 'orientationChange', callback?: Callback<OrientationResponse>): void;
+
+  /**
+   * Unsubscribe to orientation sensor data.
+   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
+   * @param { Callback<OrientationResponse> } callback - callback orientation data.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function off(type: 'ORIENTATION', callback?: Callback<OrientationResponse>): void;
+
+  /**
    * Unsubscribe to pedometer sensor data.
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
@@ -1220,6 +1500,20 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.PEDOMETER, callback?: Callback<PedometerResponse>): void;
+
+  /**
+   * Unsubscribe to pedometer sensor data.
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @param { SensorId.PEDOMETER } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<PedometerResponse> } [callback] - callback pedometer data.
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.PEDOMETER, sensorInfoParam?: SensorInfoParam, callback?: Callback<PedometerResponse>): void;
 
   /**
    * Unsubscribe to pedometer detection sensor data.
@@ -1235,6 +1529,20 @@ declare namespace sensor {
   function off(type: SensorId.PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
 
   /**
+   * Unsubscribe to pedometer detection sensor data.
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @param { SensorId.PEDOMETER_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.PEDOMETER_DETECTION}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<PedometerDetectionResponse> } [callback] - callback pedometer detection data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.PEDOMETER_DETECTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<PedometerDetectionResponse>): void;
+
+  /**
    * Unsubscribe to proximity sensor data.
    * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
    * @param { Callback<ProximityResponse> } callback - callback proximity data.
@@ -1244,6 +1552,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.PROXIMITY, callback?: Callback<ProximityResponse>): void;
+  
+  /**
+   * Unsubscribe to proximity sensor data.
+   * @param { SensorId.PROXIMITY } type - Indicate the sensor type to listen for, {@code SensorId.PROXIMITY}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<ProximityResponse> } [callback] - callback proximity data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.PROXIMITY, sensorInfoParam?: SensorInfoParam, callback?: Callback<ProximityResponse>): void;
 
   /**
    * Unsubscribe to rotation vector sensor data.
@@ -1257,6 +1577,18 @@ declare namespace sensor {
   function off(type: SensorId.ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
 
   /**
+   * Unsubscribe to rotation vector sensor data.
+   * @param { SensorId.ROTATION_VECTOR } type - Indicate the sensor type to listen for, {@code SensorId.ROTATION_VECTOR}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<RotationVectorResponse> } [callback] - callback rotation vector data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.ROTATION_VECTOR, sensorInfoParam?: SensorInfoParam, callback?: Callback<RotationVectorResponse>): void;
+
+  /**
    * Unsubscribe to significant motion sensor data.
    * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
    * @param { Callback<SignificantMotionResponse> } callback - callback significant motion data.
@@ -1268,6 +1600,18 @@ declare namespace sensor {
   function off(type: SensorId.SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
 
   /**
+   * Unsubscribe to significant motion sensor data.
+   * @param { SensorId.SIGNIFICANT_MOTION } type - Indicate the sensor type to listen for, {@code SensorId.SIGNIFICANT_MOTION}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<SignificantMotionResponse> } [callback] - callback significant motion data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.SIGNIFICANT_MOTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<SignificantMotionResponse>): void;
+
+  /**
    * Unsubscribe to wear detection sensor data.
    * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
    * @param { Callback<WearDetectionResponse> } callback - callback wear detection data.
@@ -1277,6 +1621,18 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
+
+  /**
+   * Unsubscribe to wear detection sensor data.
+   * @param { SensorId.WEAR_DETECTION } type - Indicate the sensor type to listen for, {@code SensorId.WEAR_DETECTION}.
+   * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
+   * @param { Callback<WearDetectionResponse> } [callback] - callback wear detection data.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: SensorId.WEAR_DETECTION, sensorInfoParam?: SensorInfoParam, callback?: Callback<WearDetectionResponse>): void;
 
   /**
    * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
@@ -2186,6 +2542,39 @@ declare namespace sensor {
      * @since 9
      */
     power:number;
+
+    /**
+     * Index of sensors of the same type.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    sensorIndex?: number;
+
+    /**
+     * Device ID which the sensors attached.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    deviceId?: number;
+
+    /**
+     * Name of the device.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    deviceName?: string;
+
+    /**
+     * Is the device a local device or an external device
+     * @type { ?boolean }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    isLocalSensor?: boolean;
   }
 
   /**
@@ -2253,6 +2642,16 @@ declare namespace sensor {
   function getSingleSensorSync(type: SensorId): Sensor;
 
   /**
+   * Synchronously obtains the sensor information of the specified device and type.
+   * @param { SensorId } type - Indicate the sensor type, {@code SensorId}.
+   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @returns { Array<Sensor> } Returns sensor information.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function getSingleSensorByDeviceSync(type: SensorId, deviceId?: number): Array<Sensor>;
+
+  /**
    * Obtains all sensor information on the device.
    * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2285,6 +2684,15 @@ declare namespace sensor {
    * @since 12
    */
   function getSensorListSync(): Array<Sensor>;
+
+  /**
+   * Synchronously obtains all sensor information on the device.
+   * @param { number } [deviceId] - Device ID which the sensors attached. If not specified, the local device will be used.
+   * @returns { Array<Sensor> } Return a list of sensor information.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function getSensorListByDeviceSync(deviceId?: number): Array<Sensor>;
 
   /**
    * Indicates geomagnetic field data.
@@ -2899,7 +3307,8 @@ declare namespace sensor {
    * @typedef Options
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Options {
     /**
@@ -2913,9 +3322,19 @@ declare namespace sensor {
      * @type { ?(number | SensorFrequency) }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval?: number | SensorFrequency;
+
+    /**
+     * Parameters of sensor on the device.
+     * @type { ?SensorInfoParam }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 19
+     */
+    sensorInfoParam?: SensorInfoParam;
   }
 
   /**
@@ -2923,7 +3342,8 @@ declare namespace sensor {
    * @typedef {'game' | 'ui' | 'normal'}
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type SensorFrequency = 'game' | 'ui' | 'normal';
 
@@ -3110,14 +3530,16 @@ declare namespace sensor {
    * @enum { number }
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum SensorAccuracy {
     /**
      * The sensor data is unreliable. It is possible that the sensor does not contact with the device to measure.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_UNRELIABLE = 0,
 
@@ -3125,7 +3547,8 @@ declare namespace sensor {
      * The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being used.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_LOW = 1,
 
@@ -3133,7 +3556,8 @@ declare namespace sensor {
      * The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment before using it.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_MEDIUM = 2,
 
@@ -3141,7 +3565,8 @@ declare namespace sensor {
      * The sensor data is at a high accuracy level. The data can be used directly.
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY_HIGH = 3
   }
@@ -3157,7 +3582,8 @@ declare namespace sensor {
    * @typedef Response
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Response {
     /**
@@ -3171,7 +3597,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timestamp: number;
 
@@ -3180,7 +3607,8 @@ declare namespace sensor {
      * @type { SensorAccuracy }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accuracy: SensorAccuracy;
   }
@@ -3379,7 +3807,8 @@ declare namespace sensor {
    * @typedef OrientationResponse
    * @syscap SystemCapability.Sensors.Sensor
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface OrientationResponse extends Response {
     /**
@@ -3393,7 +3822,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     alpha: number;
 
@@ -3408,7 +3838,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beta: number;
 
@@ -3423,7 +3854,8 @@ declare namespace sensor {
      * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gamma: number;
   }
@@ -3910,6 +4342,115 @@ declare namespace sensor {
      */
     absorptionRatio: number;
   }
+
+  /**
+   * Start listening on device status changes.
+   * @param { 'sensorStatusChange' } type - event of the listening.
+   * @param { Callback<SensorStatusEvent> } callback - callback of sensor status.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function on(type: 'sensorStatusChange', callback: Callback<SensorStatusEvent>): void;
+
+  /**
+   * Stop listening on device status changes.
+   * @param { 'sensorStatusChange' } type - event of the listening
+   * @param { Callback<SensorStatusEvent> } [callback] - callback of sensor status.
+   * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
+   * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  function off(type: 'sensorStatusChange', callback?: Callback<SensorStatusEvent>): void;
+
+  /**
+   * Defines the data structure of the device status change event.
+   * @typedef SensorStatusEvent
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 19
+   */
+  interface SensorStatusEvent {
+    /**
+     * Indicates the timestamp of the status change.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    timestamp: number;
+
+    /**
+     * Sensor type id.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    sensorId: number;
+
+    /**
+     * Index of sensors of the same type.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    sensorIndex: number;
+
+    /**
+     * Whether the device is online, true indicates online, false indicates offline.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    isSensorOnline: boolean;
+
+    /**
+     * Device ID.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    deviceId: number;
+
+    /**
+     * Device name.
+     * @type { string }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 19
+     */
+    deviceName: string;
+  }
+
+  /**
+  * Parameters of sensor on the device.
+  * @typedef SensorInfoParam
+  * @syscap SystemCapability.Sensors.Sensor
+  * @atomicservice
+  * @since 19
+  */
+  interface SensorInfoParam {
+    /**
+     * Unique identifier for the device that contains one or multiple sensors.
+     * By default, deviceId may default to querying or controlling the local default sensor.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 19
+     */
+    deviceId?: number;
+
+    /**
+     * Index of sensors of the same type. By default, it controls default sensors of the sensor type.
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @atomicservice
+     * @since 19
+     */
+    sensorIndex?: number;
+  }
+
 }
 
 export default sensor;

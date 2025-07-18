@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Shape Modifier
+ *
+ * @extends ShapeAttribute
+ * @implements AttributeModifier<ShapeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ShapeModifier extends ShapeAttribute implements AttributeModifier<ShapeAttribute> {
 
   /**

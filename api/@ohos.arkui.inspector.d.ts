@@ -18,6 +18,8 @@
  * @kit ArkUI
  */
 
+import { Callback } from './@ohos.base';
+
 /**
  * Used to do observer layout and draw event for component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -42,7 +44,7 @@ declare namespace inspector {
    * @since 10
    */
   /**
-   * The ComponentObserver is used to listen for layout and draw events.
+   * The ComponentObserver is used to listen for layout, draw and drawChildren events.
    * 
    * @interface ComponentObserver
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,6 +137,30 @@ declare namespace inspector {
      * @since 12
      */
     off(type: 'draw', callback?: () => void): void;
+    
+    /**
+     * Registers a callback with the corresponding query condition by using the handle.
+     * This callback is triggered when the child of component draw complete.
+     * @param { 'drawChildren' } type - type of the listened event.
+     * @param { Callback<void> } callback - callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'drawChildren', callback: Callback<void>): void;
+    
+    /**
+     * Deregisters a callback with the corresponding query condition by using the handle.
+     * This callback is not triggered when the child of component draw complete.
+     * @param { 'drawChildren' } type - type of the listened event.
+     * @param { Callback<void> } callback - callback of the listened event.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'drawChildren', callback?: Callback<void>): void;
   }
 
   /**

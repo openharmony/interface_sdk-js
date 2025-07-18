@@ -21,7 +21,7 @@
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 /**
- * Global Key Event Injection
+ * The inputEventClient module implements the input event injection capability.
  *
  * @namespace inputEventClient
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -30,7 +30,7 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
  */
 declare namespace inputEventClient {
   /**
-   * Defines event of key that user want to inject.
+   * Defines the key event to inject.
    *
    * @interface KeyEvent
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -39,7 +39,8 @@ declare namespace inputEventClient {
    */
   interface KeyEvent {
     /**
-     * The status of key.
+     * Whether the key is pressed. 
+     * The value true indicates that the key is pressed, and the value false indicates the opposite.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -48,7 +49,7 @@ declare namespace inputEventClient {
     isPressed: boolean;
 
     /**
-     * The keyCode value of key.
+     * Keycode value. Currently, only the KEYCODE_BACK key is supported.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -57,7 +58,7 @@ declare namespace inputEventClient {
     keyCode: number;
 
     /**
-     * Key hold duration.
+     * Duration for pressing a key, in μs.
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -66,7 +67,8 @@ declare namespace inputEventClient {
     keyDownDuration: number;
 
     /**
-     * Whether the key is blocked.
+     * Whether the key event can be intercepted. 
+     * The value true indicates that the key event can be intercepted, and the value false indicates the opposite.
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -76,7 +78,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Defines event of mouse that user want to inject.
+   * Defines the mouse event data.
    *
    * @interface MouseEventData
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -85,7 +87,7 @@ declare namespace inputEventClient {
    */
   interface MouseEventData {
     /**
-     * Inject mouse event.
+     * Mouse event data.
      *
      * @type { MouseEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -93,10 +95,21 @@ declare namespace inputEventClient {
      * @since 11
      */
     mouseEvent: MouseEvent;
+
+    /**
+     * Whether to use global coordinate to calculate injected mouse event.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    useGlobalCoordinate? : boolean;
   }
 
   /**
-   * Defines event of touch that user want to inject.
+   * Defines the touchscreen event data.
    *
    * @interface TouchEventData
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -105,7 +118,7 @@ declare namespace inputEventClient {
    */
   interface TouchEventData {
     /**
-     * Inject touch event.
+     * Touchscreen event data.
      *
      * @type { TouchEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -113,10 +126,21 @@ declare namespace inputEventClient {
      * @since 11
      */
     touchEvent: TouchEvent;
+
+    /**
+     * Whether to use global coordinate to calculate injected touch event.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    useGlobalCoordinate?: boolean;
   }
 
   /**
-   * Defines event of key that user want to inject.
+   * Defines the key event to inject.
    *
    * @interface KeyEventData
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -125,7 +149,7 @@ declare namespace inputEventClient {
    */
   interface KeyEventData {
     /**
-     * Inject key event.
+     * Key event to inject.
      *
      * @type { KeyEvent }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -136,9 +160,9 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Inject system keys.
+   * Injects key events (for both single keys and combination keys).
    *
-   * @param { KeyEventData } keyEvent - the key event to be injected.
+   * @param { KeyEventData } keyEvent - Key event to inject.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -147,10 +171,10 @@ declare namespace inputEventClient {
    * @since 11
    */
   /**
-   * Inject system keys.
+   * Injects key events (for both single keys and combination keys).
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { KeyEventData } keyEvent - the key event to be injected.
+   * @param { KeyEventData } keyEvent - Key event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -162,9 +186,9 @@ declare namespace inputEventClient {
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
   /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    *
-   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -172,10 +196,10 @@ declare namespace inputEventClient {
    * @since 8
    */
   /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -187,9 +211,9 @@ declare namespace inputEventClient {
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
   /**
-   * Inject mouse event.
+   * Injects a mouse/touchpad event.
    *
-   * @param { MouseEventData } mouseEvent - the mouse event to be injected.
+   * @param { MouseEventData } mouseEvent - Mouse/touchpad event to inject.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -198,10 +222,10 @@ declare namespace inputEventClient {
    * @since 11
    */
   /**
-   * Inject mouse event.
+   * Injects a mouse/touchpad event.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { MouseEventData } mouseEvent - the mouse event to be injected.
+   * @param { MouseEventData } mouseEvent - Mouse/touchpad event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -213,9 +237,9 @@ declare namespace inputEventClient {
   function injectMouseEvent(mouseEvent: MouseEventData): void;
 
   /**
-   * Inject touch event.
+   * Injects a touchscreen event.
    *
-   * @param { TouchEventData } touchEvent - the touch event to be injected.
+   * @param { TouchEventData } touchEvent - Touchscreen event to inject.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -224,10 +248,10 @@ declare namespace inputEventClient {
    * @since 11
    */
   /**
-   * Inject touch event.
+   * Injects a touchscreen event.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { TouchEventData } touchEvent - the touch event to be injected.
+   * @param { TouchEventData } touchEvent - Touchscreen event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -239,10 +263,10 @@ declare namespace inputEventClient {
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
   /**
-   * Permit event injection permission.
+   * Specifies whether to authorize event injection.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { boolean } result - Authorization result.
+   * @param { boolean } result - Authorization result. The value true indicates that event injection is allowed, and the value false indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

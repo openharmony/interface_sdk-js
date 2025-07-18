@@ -155,7 +155,7 @@ declare class PatternLockController {
    * @since 10
    */
   /**
-   * constructor.
+   * A constructor used to create a PatternLockController instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -178,7 +178,7 @@ declare class PatternLockController {
    * @since 10
    */
   /**
-   * Reset pattern lock.
+   * Resets the component status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -195,8 +195,8 @@ declare class PatternLockController {
    * @since 11
    */
   /**
-   * Set challenge result.
-   * @param { PatternLockChallengeResult } result - The challenge result based on input pattern.
+   * Sets the authentication challenge result for the pattern password.
+   * @param { PatternLockChallengeResult } result - Authentication challenge result of the pattern password.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -303,9 +303,13 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The square side length of pattern lock component.
+   * Sets the width and height (same value) of the component.
    *
-   * @param { Length } value
+   * <p><strong>NOTE</strong>:
+   * <br>If this attribute is set to 0 or a negative number, the component is not displayed.
+   * </p>
+   *
+   * @param { Length } value - Width and height of the component, Default value is 288vp.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -332,9 +336,13 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * Circle radius.
+   * Sets the radius of the dots in a grid.
    *
-   * @param { Length } value
+   * <p><strong>NOTE</strong>:
+   * <br>If this attribute is set to 0 or a negative value, the default value is used.
+   * </p>
+   *
+   * @param { Length } value - Radius of the dots in a grid, Default value is 6vp.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -361,9 +369,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The background color.
+   * Sets the background color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -390,9 +398,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * Regular color.
+   * Sets the fill color of the grid dot in the unselected state.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Fill color of the grid dot in the unselected state, Default value is '#ff182431'.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -419,9 +427,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The color when cell is selected.
+   * Sets the fill color of the grid dot in the selected state.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Fill color of the grid dot in the selected state, Default value is '#ff182431'.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -448,9 +456,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The color when cell is active state.
+   * Sets the fill color of the grid dot in the activated state, which is when the dot is highlighted but not selected.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Fill color of the grid dot in the activated state, Default value is '#ff182431'.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -477,9 +485,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The path line color.
+   * Sets the path color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Path color, Default value is '#33182431'.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -506,9 +514,13 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * The path line stroke width.
+   * Sets the width of the path stroke.
    *
-   * @param { number | string } value
+   * <p><strong>NOTE</strong>:
+   * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
+   * </p>
+   *
+   * @param { number | string } value - Width of the path stroke, Default value is 12vp.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -535,7 +547,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * Called when the pattern input completed.
+   * Invoked when the pattern password input is complete.
    *
    * @param { function } callback
    * @returns { PatternLockAttribute }
@@ -564,9 +576,11 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 10
    */
   /**
-   * Called when judging whether the input state can be reset by touch pattern lock.
+   * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
+   * again after the input is complete.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to allow the user to reset the component status (that is, clear the input) by
+   * touching the component again after the input is complete, Default value is true.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -584,7 +598,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 11
    */
   /**
-   * Called when connecting to a grid dot.
+   * Invoked when a grid dot is connected during pattern password input.
+   *
    * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -595,9 +610,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
   
   /**
-   * The activate circle style.
+   * Sets the background circle style for the dots in a grid when they are in the activated state.
    *
-   * @param { Optional<CircleStyleOptions> } options - the circle style setting options
+   * @param { Optional<CircleStyleOptions> } options - Background circle style of the dots in the activated state.
    * @returns { PatternLockAttribute } PatternLockAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -607,9 +622,10 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 
   /**
-   * Skip unselected point that the path passes through.
+   * Sets whether unselected dots in the grid are automatically selected when the password path passes over them.
    *
-   * @param { boolean } skipped
+   * @param { boolean } skipped - Whether unselected dots in the grid are automatically selected when the password
+   * path passes over them, Default value is false.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

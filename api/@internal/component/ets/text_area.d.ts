@@ -57,7 +57,8 @@ declare class TextAreaController extends TextContentControllerBase {
    */
   /**
    * constructor.
-   *
+   * A constructor used to create a TextAreaController object.
+   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -83,7 +84,7 @@ declare class TextAreaController extends TextContentControllerBase {
   /**
    * Called when the position of the insertion cursor is set.
    *
-   * @param { number } value
+   * @param { number } value - Length from the start of the string to the position where the caret is located.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -112,10 +113,22 @@ declare class TextAreaController extends TextContentControllerBase {
    */
   /**
    * Text selection is achieved by specifying the start and end positions of the text.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If <em>selectionMenuHidden</em> is set to <em>true</em> or a 2-in-1 device is used,
+   * calling setTextSelection does not display the context menu even when options is set to <em>MenuPolicy.SHOW</em>.
+   * <br>If the selected text contains an emoji,
+   * the emoji is selected when its start position is within the text selection range.
+   * </p>
+   * 
    * @param { number } selectionStart - The start position of the selected text.
+   * The start position of text in the text box is 0.
+   * A value less than 0 is handled as 0.
+   * A value greater than the maximum text length is handled as the maximum text length.
    * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * A value less than 0 is handled as the value 0.
+   * A value greater than the maximum text length is handled as the maximum text length.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -183,7 +196,13 @@ declare interface TextAreaOptions {
    */
   /**
    * The place holder text string.
-   *
+   * Text displayed when there is no input.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>When only the placeholder attribute is set, the text selection handle is still available.
+   * <br>The caret stays at the beginning of the placeholder text when the handle is released.
+   * </p>
+   * 
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -209,7 +228,12 @@ declare interface TextAreaOptions {
    */
   /**
    * Sets the current value of TextArea.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>You are advised to bind the state variable to the text in real time through the onChange event, 
+   * so as to prevent display errors when the component is updated.
+   * </p>
+   * 
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -327,7 +351,7 @@ declare enum TextAreaType {
    */
   /**
    * Basic input mode.
-   *
+   * The value can contain digits, letters, underscores (_), spaces, and special characters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -361,7 +385,8 @@ declare enum TextAreaType {
    */
   /**
    * Phone number entry mode.
-   *
+   * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#).
+   * the length is not limited.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -378,7 +403,8 @@ declare enum TextAreaType {
    */
   /**
    * E-mail address input mode.
-   *
+   * This mode accepts only digits, letters, underscores (_), dots (.), 
+   * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -388,7 +414,7 @@ declare enum TextAreaType {
 
   /**
    * Number decimal entry mode.
-   *
+   * The value can contain digits and one decimal point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -410,7 +436,6 @@ declare enum TextAreaType {
    * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @atomicservice
    * @since 20
    */
@@ -422,6 +447,7 @@ declare enum TextAreaType {
  *
  * @typedef { function } TextAreaSubmitCallback
  * @param { EnterKeyType } enterKeyType - The enter key type of soft keyboard.
+ * If the type is EnterKeyType.NEW_LINE, onSubmit is not triggered.
  * @param { SubmitEvent } [event] - Provides the method of keeping textArea editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -474,8 +500,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the color of the placeholder is set.
-   *
-   * @param { ResourceColor } value
+   * 
+   * @param { ResourceColor } value - Default value follows the theme.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -503,7 +529,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the font property of the placeholder is set.
-   *
+   * The 'HarmonyOS Sans' font and registered custom fonts are supported.
+   * 
    * @param { Font } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -524,8 +551,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the type of soft keyboard input button is set.
-   *
-   * @param { EnterKeyType } value the type of soft keyboard
+   * 
+   * @param { EnterKeyType } value the type of soft keyboard - Default value is EnterKeyType.NEW_LINE.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -553,8 +580,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the alignment of the contents of a multiline text box is set.
-   *
-   * @param { TextAlign } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>To set vertical alignment for the text, use the align attribute.
+   * <br>The align attribute alone does not control the horizontal position of the text.
+   * <br>In other words, Alignment.TopStart, Alignment.Top, and Alignment.TopEnd produce the same effect,
+   * top-aligning the text; Alignment.Start, Alignment.Center, and Alignment.End produce the same effect,
+   * centered-aligning the text vertically; Alignment.BottomStart, Alignment.Bottom,
+   * and Alignment.BottomEnd produce the same effect, bottom-aligning the text.
+   * <br>When textAlign is set to TextAlign.JUSTIFY, the text in the last line is horizontally aligned with the start edge.
+   * <br>Since API version 11, textAlign can be set to TextAlign.JUSTIFY.
+   * </p>
+   * 
+   * @param { TextAlign } value - Default value is TextAlign.Start.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -582,8 +620,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the insertion cursor color is set.
-   *
-   * @param { ResourceColor } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Since API version 12, this API can be used to set the text handle color, which is the same as the caret color.
+   * </p>
+   * 
+   * @param { ResourceColor } value - Default value is '#007DFF'.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -641,7 +683,9 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the font size is set.
    *
-   * @param { Length } value
+   * @param { Length } value - Default value is 16fp.The default value on wearable devices is 18fp.
+   * If fontSize is of the number type, the unit fp is used. 
+   * This parameter cannot be set in percentage.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -670,7 +714,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the font style of a font is set.
    *
-   * @param { FontStyle } value
+   * @param { FontStyle } value - Default value is FontStyle.Normal.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -698,15 +742,33 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | string } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is too large, the text may be clipped depending on the font.
+   * <br>For the number type, the value range is [100, 900], at an interval of 100. The default value is 400.
+   * <br>A larger value indicates a heavier font weight.
+   * <br>For the string type, only strings that represent a number, for example, "400",
+   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
+   * </p>
+   * 
+   * @param { number | FontWeight | string } value - Default value is FontWeight.Normal.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  fontWeight(value: number | FontWeight | string): TextAreaAttribute;
+   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextAreaAttribute;
 
   /**
    * Called when the font list of text is set.
@@ -727,8 +789,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the font list of text is set.
-   *
-   * @param { ResourceStr } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported for applications.
+   * <br>Only the 'HarmonyOS Sans' font is supported for widgets.
+   * </p>
+   * 
+   * @param { ResourceStr } value - Default value is 'HarmonyOS Sans'.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -739,8 +806,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the overflow mode of the font is set.
-   *
-   * @param { TextOverflow } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>In inline style, the effect of truncating text according to maxLines only applies when textOverflow is set.
+   * <br>Text is clipped at the transition between words.
+   * <br>To clip text in the middle of a word, set wordBreak to WordBreak.BREAK_ALL.
+   * <br>If overflow is set to TextOverflow.None, TextOverflow.Clip, or TextOverflow.Ellipsis,
+   * this attribute must be used with maxLines for the settings to take effect.
+   * <br>TextOverflow.None produces the same effect as TextOverflow.Clip.
+   * </p>
+   * 
+   * @param { TextOverflow } value - Default value is TextOverflow.Clip.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -752,7 +828,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Specify the indentation of the first line in a text-block.
    *
-   * @param { Dimension } value - The length of text indent.
+   * @param { Dimension } value - The length of text indent.Default value is 0.
    * @returns { TextAreaAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -782,7 +858,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the inputFilter of text is set.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Only inputs that comply with the regular expression can be displayed.
+   * <br>Other inputs are filtered out.
+   * <br>The specified regular expression can match single characters, but not strings.
+   * </p>
+   * 
    * @param { ResourceStr } value
    * @param { function } error
    * @returns { TextAreaAttribute }
@@ -794,7 +876,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
   /**
-   * Define the caret style of the text input
+   * Define the caret style of the text input.
    *
    * @param { CaretStyle } value
    * @returns { TextAreaAttribute }
@@ -807,7 +889,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Define the text selected background color of the text input.
-   *
+   * If the opacity is not set, a 20% opacity will be used.
+   * 
    * @param { ResourceColor } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -829,7 +912,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { function } callback
+   * @param { function } callback - If it is EnterKeyType.NEW_LINE and the text box is in inline input style, onSubmit is not triggered.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -839,7 +922,9 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
   /**
    * Called when submitted.
-   *
+   * Triggered when the Enter key on the soft keyboard is pressed,
+   * providing methods to maintain the editing state of the TextArea component upon submission.
+   * 
    * @param { TextAreaSubmitCallback } callback - callback of the listened event.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -878,7 +963,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the input changes.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>In this callback, if cursor operations are performed,
+   * you need to adjust the cursor logic based on the previewText parameter
+   * to make sure it works seamlessly under the preview display scenario.
+   * </p>
+   * 
    * @param { EditableTextOnChangeCallback } callback
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -901,6 +992,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the text selection changes.
    *
    * @param { function } callback - callback of the listened event.
+   * { number } selectionStart - The start position of text is 0.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -922,6 +1014,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the content scrolls.
    *
    * @param { function } callback - callback of the listened event.
+   * { number } totalOffsetX - The unit is px.
+   * { number } totalOffsetY - The unit is px.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -942,7 +1036,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when judging whether the text editing change finished.
-   *
+   * The text box is in the editing state when it has the caret placed in it, and is in the non-editing state otherwise.
+   * 
    * @param { function } callback - Triggered when the text area status changes.
    * If the value of isEditing is true, text area is in progress.
    * @returns { TextAreaAttribute }
@@ -1062,8 +1157,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Called when the copy option is set.
-   *
-   * @param { CopyOptions } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If this attribute is set to CopyOptions.None, the text can only be pasted;
+   * all other actions, such as copying, cutting, and sharing, are disabled.
+   * <br>Dragging is not allowed when CopyOptions.None is set.
+   * </p>
+   * 
+   * @param { CopyOptions } value - Default value is CopyOptions.LocalDevice.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1084,7 +1185,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Sets whether request keyboard or not when on focus.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Default value is true.
    * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1103,7 +1204,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Define the max length content of the text area.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>By default, there is no maximum number of characters.
+   * <br>When the maximum number of characters is reached,
+   * no more characters can be entered, and the border turns red.
+   * </p>
+   * 
    * @param { number } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1123,7 +1230,25 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Define show counter of the text area.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>options can be set only when value is set to true,
+   * in which case a character counter is displayed below the text box.
+   * <br>This attribute must be used together with maxlength.
+   * <br>The character counter is displayed in this format: Number of characters entered/Character limit.
+   * <br>It is visible when the number of characters entered is greater than
+   * the character limit multiplied by the threshold percentage value.
+   * <br>If options is not set, the text box border and character counter subscript turn red
+   * when the number of characters entered reaches the limit.
+   * <br>If value is set to true and options is set,
+   * the text box border and character counter subscript turn red
+   * and the text box shakes when the number of characters entered reaches the limit,
+   * provided that the value of thresholdPercentage is valid.
+   * <br>If highlightBorder is set to false, the text box border does not turn red. 
+   * <br>By default, highlightBorder is set to true.
+   * <br>The character counter is not displayed for text boxes in inline input style.
+   * </p>
+   * 
    * @param { boolean } value - Set showcounter of the text area.
    * @param { InputCounterOptions } options - Set the percentage of counter.
    * @returns { TextAreaAttribute }
@@ -1144,8 +1269,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Define style of the text area.
-   *
-   * @param { TextContentStyle } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The inline input style is only available for the TextAreaType.Normal type.
+   * </p>
+   * 
+   * @param { TextContentStyle } value - Default value is TextContentStyle.DEFAULT.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1165,7 +1294,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Define bar state of the text area.
    *
-   * @param { BarState } value
+   * @param { BarState } value - Default value is BarState.Auto.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1184,8 +1313,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Controls whether the selection menu pops up.
-   *
-   * @param { boolean } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br><em>true</em>:
+   * <br>The system text selection menu does not appear under the following circumstances: clicking the text box cursor,
+   * long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking the text box.
+   * <br><em>false</em>:
+   * <br>The system text selection menu appears under the following circumstances: clicking the text box cursor,
+   * long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking the text box.
+   * </p>
+   * 
+   * @param { boolean } value - Default value is false.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1196,8 +1334,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the minimum font size of the font is set.
-   *
-   * @param { number | string | Resource } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
+   * <br>For the setting to take effect, this attribute must be used together with maxFontSize and maxLines,or layout constraint settings.
+   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
+   * </p>
+   * 
+   * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1208,8 +1352,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the maximum font size of the font is set.
-   *
-   * @param { number | string | Resource } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
+   * <br>For the setting to take effect, this attribute must be used together with minFontSize and maxLines, or layout constraint settings.
+   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
+   * </p>
+   * 
+   * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1220,30 +1370,97 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the minimum font scale of the font is set.
-   *
+   * Value range: [0, 1]
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The undefined type is supported.
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Called when the minimum font scale of the font is set.
+   * Value range: [0, 1]
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The undefined type is supported.
+   * <br>A value less than 0 is handled as 0.
+   * <br>A value greater than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   minFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
 
   /**
    * Called when the maximum font scale of the font is set.
-   *
+   * Value range: [1, +∞)
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>A value less than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
    * @param { Optional<number | Resource> } scale
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
    */
+  /**
+   * Called when the maximum font scale of the font is set.
+   * Value range: [1, +∞)
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>A value less than 1 is handled as 1.
+   * <br>Abnormal values are ineffective by default.
+   * </p>
+   * 
+   * @param { Optional<number | Resource> } scale
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   maxFontScale(scale: Optional<number | Resource>): TextAreaAttribute;
   
   /**
    * Called when the height adaptive policy is set.
-   *
-   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <ul>
+   * <li>When this attribute is set to TextHeightAdaptivePolicy.MAX_LINES_FIRST,
+   * the maxLines attribute takes precedence for adjusting the text height.
+   * <br>If the maxLines setting results in a layout beyond the layout constraints,
+   * the text will shrink to a font size between minFontSize and maxFontSize to allow for more content to be shown.
+   * <br>If the text box is in inline input style,
+   * the font size in the editing state is different from that in the non-editing state.</li>
+   * <li>If this attribute is set to TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST,
+   * the minFontSize attribute takes precedence for adjusting the text height.
+   * <br>If the text can fit in one line with the minFontSize setting,
+   * the text will enlarge to the largest possible font size between minFontSize and maxFontSize.</li>
+   * <li>If this attribute is set to TextHeightAdaptivePolicy.LAYOUT_CONSTRAINT_FIRST,
+   * the layout constraints take precedence for adjusting the text height.
+   * <br>If the resultant layout is beyond the layout constraints,
+   * the text will shrink to a font size between minFontSize and maxFontSize to respect the layout constraints.</li>
+   * </ul>
+   * </p>
+   * 
+   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1262,7 +1479,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Define max lines of the text area.
-   *
+   * Value range: (0, +∞)
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Sets the maximum number of lines that can be displayed.
+   * <br>When textOverflow is set, text is truncated if the content exceeds this limit.
+   * <br>When textOverflow is not set, in inline style,
+   * the text is scrollable if the content exceeds the limit while the text box is focused;
+   * maxLines does not apply when the text box is not focused.
+   * <br>In non-inline style, the text is truncated according to the number of lines.
+   * <br>Default value: 3 with the inline style; +∞ with the non-inline style,
+   * indicating that there is no maximum number of lines.
+   * </p>
+   * 
    * @param { number } value
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1273,9 +1502,40 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number): TextAreaAttribute;
 
   /**
+   * Define max lines of the text area, behavior can be displayed as the scrolling capability.
+   *
+   * @param { number } lines - Max lines of the node
+   * @param { MaxLinesOptions } [options] - max lines of setting options.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maxLines(lines: number, options?: MaxLinesOptions): TextAreaAttribute;
+
+  /**
+   * Define min lines of the text area.
+   *
+   * @param { Optional<number> } lines - Min lines of the node
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  minLines(lines: Optional<number>): TextAreaAttribute;
+
+  /**
    * Set the word break type.
    *
-   * @param { WordBreak } value - The word break type.
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect for the placeholder text.
+   * <br>The component does not support the clip attribute.
+   * <br>Therefore, setting this attribute does not affect text clipping.
+   * </p>
+   * 
+   * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1287,7 +1547,11 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Set the text line break strategy type.
    *
-   * @param { LineBreakStrategy } strategy - The text line break strategy type.
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute takes effect when wordBreak is not set to breakAll. Hyphens are not supported.
+   * </p>
+   * 
+   * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
    * @returns { TextAreaAttribute } The attribute of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1316,7 +1580,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   /**
    * Define custom keyboard of the text area.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
+   * instead of the system input method.
+   * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
+   * and its width is fixed at the default value.
+   * <br>The custom keyboard is presented by overlaying the original screen,
+   * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
+   * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
+   * <br>By default, the custom keyboard is closed when the input component loses the focus.
+   * <br>You can also use the TextAreaController.stopEditing API to close the keyboard.
+   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+   * </p>
+   * 
    * @param { CustomBuilder } value - Set up a custom keyboard of TextArea
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextArea
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
@@ -1330,7 +1608,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the text decoration of the text is set.
    *
-   * @param { TextDecorationOptions } value
+   * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1341,8 +1619,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the distance between text fonts is set.
-   *
-   * @param { number | string | Resource } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the value specified is a percentage or 0, the default value is used.
+   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
+   * <br>If the value specified is a negative value, the text is compressed.
+   * <br>A negative value too small may result in the text being compressed to 0 and no content being displayed.
+   * </p>
+   * 
+   * @param { number | string | Resource } value - The unit is fp.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1353,8 +1638,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Set font line spacing.
-   *
-   * @param { LengthMetrics } value
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the value specified is less than or equal to 0, the default value 0 is used.
+   * </p>
+   * 
+   * @param { LengthMetrics } value - Default value is 0.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1364,8 +1653,26 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
 
   /**
-   * Called when the line height of the font is set.
+   * Set font line spacing with options.
    *
+   * @param { LengthMetrics } value
+   * @param { LineSpacingOptions } options
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAreaAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is less than or equal to 0, the line height is not limited and the font size is adaptive.
+   * <br>If the value is of the number type, the unit fp is used.
+   * </p>
+   * 
    * @param { number | string | Resource } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1387,7 +1694,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the input type is set.
    *
-   * @param { TextAreaType } value
+   * @param { TextAreaType } value - Default value is TextAreaType.Normal.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1398,8 +1705,8 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Sets whether enable auto fill or not.
-   *
-   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   * 
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is true.True: enable, false: disable.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1436,7 +1743,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Get text value information when about to input.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>It returns true if the text is inserted; returns false otherwise.
+   * <br>This callback is not triggered for pre-edit or candidate word operations.
+   * <br>It is available only for system input methods.
+   * </p>
+   * 
    * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1448,7 +1761,11 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Get text value information when completed input.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>It is available only for system input methods.
+   * </p>
+   * 
    * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1460,7 +1777,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Get text value information when about to delete.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>It returns true if the text is deleted; returns false otherwise.
+   * <br>This callback is not called for text preview.
+   * <br>It is available only for system input methods.
+   * </p>
+   * 
    * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1472,7 +1795,11 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Get text value information when the deletion has been completed
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>It is available only for system input methods.
+   * </p>
+   * 
    * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1484,7 +1811,9 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Set the custom text menu.
-   *
+   * Sets the extended options of the custom context menu on selection,
+   * including the text content, icon, and callback.
+   * 
    * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1496,8 +1825,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Define the preview text mode of the text input.
-   *
-   * @param { boolean } enable - Indicates the preview text mode.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Preview text is in a temporary state and does not support text interception.
+   * <br>As such, it does not trigger onWillInsert, onDidInsert, onWillDelete, or onDidDelete callbacks.
+   * </p>
+   * 
+   * @param { boolean } enable - Indicates the preview text mode.Default value is true.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1508,7 +1842,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Enable or disable haptic feedback.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>To enable haptic feedback,
+   * <br>you must declare the ohos.permission.VIBRATE permission under requestPermissions in the module.json5 file of the project.
+   * <code>
+   * "requestPermissions": [
+   *   {
+   *      "name": "ohos.permission.VIBRATE",
+   *   }
+   * ]
+   * </code>
+   * </p>
+   * 
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1533,7 +1879,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Set the text with half leading.
    *
-   * @param { Optional<boolean> } halfLeading
+   * @param { Optional<boolean> } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1544,8 +1890,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   
   /**
    * Set the ellipsis mode.
-   *
-   * @param { EllipsisMode } mode - The ellipsis mode.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>For the settings to work, overflow must be set to TextOverflow.Ellipsis and maxLines must be specified.
+   * <br>Setting ellipsisMode alone does not take effect.
+   * <br>EllipsisMode.START and EllipsisMode.CENTER take effect only when maxLines is set to 1.
+   * </p>
+   * 
+   * @param { EllipsisMode } mode - The ellipsis mode.Default value is EllipsisMode.END.
    * @returns { TextAreaAttribute } The attribute of TextArea.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1567,8 +1919,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Get text value information when about to change.
-   *
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This callback is triggered after onWillInsert and onWillDelete, but before onDidInsert and onDidDelete.
+   * </p>
+   * 
    * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * Returning true allows the change to proceed, while returning false cancels the change.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1587,6 +1944,42 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 15
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+
+  /**
+   * Set the stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextAreaAttribute;
+
+  /**
+   * Set the stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  strokeColor(color: Optional<ResourceColor>): TextAreaAttribute;
+
+  /**
+   * Whether to enable automatic spacing between Chinese and Latin characters.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**

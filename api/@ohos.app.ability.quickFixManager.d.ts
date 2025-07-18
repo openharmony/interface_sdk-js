@@ -159,7 +159,7 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
+   * @throws { BusinessError } 18500002 - Invalid patch package.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi
@@ -178,7 +178,7 @@ declare namespace quickFixManager {
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
-   * @throws { BusinessError } 18500002 - The specified quick fix is invalid. It may not exist or inaccessible.
+   * @throws { BusinessError } 18500002 - Invalid patch package.
    * @throws { BusinessError } 18500008 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
    * @systemapi

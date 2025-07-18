@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,6 +23,851 @@ import type { Callback } from './@ohos.base';
 import { Resource } from './global/resource';
 
 /**
+ * Accessibility action that the ability can execute.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export enum AccessibilityAction {
+  /**
+   * AccessibilityFocus
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  ACCESSIBILITY_FOCUS = 0,
+
+  /**
+   * ClearAccessibilityFocus
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  CLEAR_ACCESSIBILITY_FOCUS = 1,
+
+  /**
+   * Focus
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  FOCUS = 2,
+
+  /**
+   * ClearFocus
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  CLEAR_FOCUS = 3,
+
+  /**
+   * Click
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  CLICK = 4,
+
+  /**
+   * LongClick
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  LONG_CLICK = 5,
+
+  /**
+   * Cut
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  CUT = 6,
+
+  /**
+   * Copy
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  COPY = 7,
+
+  /**
+   * Paste
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  PASTE = 8,
+
+  /**
+   * Select
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SELECT = 9,
+
+  /**
+   * SetText
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SET_TEXT = 10,
+
+  /**
+   * ScrollForward
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SCROLL_FORWARD = 11,
+
+  /**
+   * ScrollBackward
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SCROLL_BACKWARD = 12,
+
+  /**
+   * SetSelection
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SET_SELECTION = 13,
+
+  /**
+   * SetCursorPosition
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SET_CURSOR_POSITION = 14,
+
+  /**
+   * Home
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  HOME = 15,
+
+  /**
+   * Back
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  BACK = 16,
+
+  /**
+   * RecentTask
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  RECENT_TASK = 17,
+
+  /**
+   * NotificationCenter
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  NOTIFICATION_CENTER = 18,
+
+  /**
+   * ControlCenter
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  CONTROL_CENTER = 19,
+
+  /**
+   * Common
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  COMMON = 20,
+
+  /**
+   * SpanClick
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  SPAN_CLICK = 21
+}
+
+
+/**
+ * AccessibilityEvent type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export enum AccessibilityEventType {
+  //EventType
+  /**
+   * AccessibilityFocus type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_ACCESSIBILITY_FOCUS = 0,
+
+  /**
+   * AccessibilityFocusClear type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_ACCESSIBILITY_FOCUS_CLEAR = 1,
+
+  /**
+   * Click type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_CLICK = 2,
+
+  /**
+   * LongClick type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_LONG_CLICK = 3,
+
+  /**
+   * Select type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SELECT = 4,
+
+  /**
+   * HoverEnter type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_HOVER_ENTER = 5,
+
+  /**
+   * HoverExit type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_HOVER_EXIT = 6,
+
+  /**
+   * Focus type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOCUS = 7,
+
+  /**
+   * TextUpdate type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TEXT_UPDATE = 8,
+
+  /**
+   * TextSelectionUpdate type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TEXT_SELECTION_UPDATE = 9,
+
+  /**
+   * Scroll type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SCROLL = 10,
+
+  /**
+   * RequestFocusForAccessibility type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY = 11,
+
+  /**
+   * AnnounceForAccessibility type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_ANNOUNCE_FOR_ACCESSIBILITY = 12,
+
+  /**
+   * RequestFocusForAccessibilityNotInterrupt type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY_NOT_INTERRUPT = 13,
+
+  /**
+   * AnnounceForAccessibilityNotInterrupt type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_ANNOUNCE_FOR_ACCESSIBILITY_NOT_INTERRUPT = 14,
+
+  /**
+   * ElementInfoChange type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_ELEMENT_INFO_CHANGE = 15,
+
+  /**
+   * Scrolling type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SCROLLING = 16,
+
+  // WindowUpdateType
+  /**
+   * Window add type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_ADD = 17,
+
+  /**
+   * Window remove type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_REMOVE = 18,
+
+  /**
+   * Window bounds type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_BOUNDS = 19,
+
+  /**
+   * Window active type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_ACTIVE = 20,
+
+  /**
+   * Window focus type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_FOCUS = 21,
+
+  /**
+   * Window property type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_PROPERTY = 22,
+
+  /**
+   * Window layer type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_WINDOW_LAYER = 23,
+
+  //TouchGuideType
+  /**
+   * TouchBegin type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TOUCH_BEGIN = 24,
+
+  /**
+   * TouchEnd type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TOUCH_END = 25,
+
+  //PageUpdateType
+  /**
+   * PageContentUpdate type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_PAGE_CONTENT_UPDATE = 26,
+
+  /**
+   * PageStateUpdate type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_PAGE_STATE_UPDATE = 27,
+
+  /**
+   * PageOpen type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_PAGE_OPEN = 28,
+
+  /**
+   * PageClose type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_PAGE_CLOSE = 29,
+
+  //GestureType
+  /**
+   * left type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_LEFT = 30,
+
+  /**
+   * leftThenRight type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_LEFT_THEN_RIGHT = 31,
+
+  /**
+   * leftThenUp type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_LEFT_THEN_UP = 32,
+
+  /**
+   * leftThenDown type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_LEFT_THEN_DOWN = 33,
+
+  /**
+   * right type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_RIGHT = 34,
+
+  /**
+   * rightThenLeft type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_RIGHT_THEN_LEFT = 35,
+
+  /**
+   * rightThenUp type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_RIGHT_THEN_UP = 36,
+
+  /**
+   * rightThenDown type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_RIGHT_THEN_DOWN = 37,
+
+  /**
+   * up type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_UP = 38,
+
+  /**
+   * upThenLeft type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_UP_THEN_LEFT = 39,
+
+  /**
+   * upThenRight type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_UP_THEN_RIGHT = 40,
+
+  /**
+   * upThenDown type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_UP_THEN_DOWN = 41,
+
+  /**
+   * down type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_DOWN = 42,
+
+  /**
+   * downThenLeft type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_DOWN_THEN_LEFT = 43,
+
+  /**
+ * downThenRight type
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+  TYPE_SWIPE_DOWN_THEN_RIGHT = 44,
+
+  /**
+   * downThenUp type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_SWIPE_DOWN_THEN_UP = 45,
+
+  /**
+   * twoFingerSingleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TWO_FINGER_SINGLE_TAP = 46,
+
+  /**
+   * twoFingerDoubleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TWO_FINGER_DOUBLE_TAP = 47,
+
+  /**
+   * twoFingerDoubleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TWO_FINGER_DOUBLE_TAP_AND_HOLD = 48,
+
+  /**
+ * twoFingerTripleTap type
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+  TYPE_TWO_FINGER_TRIPLE_TAP = 49,
+
+  /**
+   * twoFingerTripleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_TWO_FINGER_TRIPLE_TAP_AND_HOLD = 50,
+
+  /**
+   * threeFingerSingleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_SINGLE_TAP = 51,
+
+  /**
+   * threeFingerDoubleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_DOUBLE_TAP = 52,
+
+  /**
+   * threeFingerDoubleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_DOUBLE_TAP_AND_HOLD = 53,
+
+  /**
+ * threeFingerTripleTap type
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+  TYPE_THREE_FINGER_TRIPLE_TAP = 54,
+
+  /**
+   * threeFingerTripleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_TRIPLE_TAP_AND_HOLD = 55,
+
+  /**
+   * fourFingerSingleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_SINGLE_TAP = 56,
+
+  /**
+   * fourFingerDoubleTap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_DOUBLE_TAP = 57,
+
+  /**
+   * fourFingerDoubleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_DOUBLE_TAP_AND_HOLD = 58,
+
+  /**
+ * fourFingerTripleTap type
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+  TYPE_FOUR_FINGER_TRIPLE_TAP = 59,
+
+  /**
+   * fourFingerTripleTapAndHold type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_TRIPLE_TAP_AND_HOLD = 60,
+
+  /**
+   * threeFingerSwipeUp type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_SWIPE_UP = 61,
+
+  /**
+   * threeFingerSwipeDown type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_SWIPE_DOWN = 62,
+
+  /**
+   * threeFingerSwipeLeft type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_SWIPE_LEFT = 63,
+
+  /**
+   * threeFingerSwipeRight type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_THREE_FINGER_SWIPE_RIGHT = 64,
+
+  /**
+   * fourFingerSwipeUp type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_SWIPE_UP = 65,
+
+  /**
+   * fourFingerSwipeDown type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_SWIPE_DOWN = 66,
+
+  /**
+ * fourFingerSwipeLeft type
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+  TYPE_FOUR_FINGER_SWIPE_LEFT = 67,
+
+  /**
+   * fourFingerSwipeRight type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  TYPE_FOUR_FINGER_SWIPE_RIGHT = 68
+}
+
+/**
  * Accessibility
  *
  * @namespace accessibility
@@ -36,6 +881,16 @@ import { Resource } from './global/resource';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @atomicservice
  * @since 11
+ */
+/**
+ * Accessibility
+ *
+ * @namespace accessibility
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace accessibility {
   /**
@@ -73,7 +928,8 @@ declare namespace accessibility {
    *
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' | 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
   'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
@@ -113,7 +969,8 @@ declare namespace accessibility {
    *
    * @typedef {'accessibilityFocus' | 'accessibilityFocusClear' | 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' | 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' | 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' | 'announceForAccessibilityNotInterrupt' | 'scrolling'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
@@ -127,7 +984,8 @@ declare namespace accessibility {
    *
    * @typedef {'add' | 'remove' | 'bounds' | 'active' | 'focus'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus';
 
@@ -160,7 +1018,8 @@ declare namespace accessibility {
    *
    * @typedef {'char' | 'word' | 'line' | 'page' | 'paragraph'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
 
@@ -201,6 +1060,16 @@ declare namespace accessibility {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Checks whether accessibility ability is enabled.
+   *
+   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function isOpenAccessibilitySync(): boolean;
 
   /**
@@ -238,7 +1107,8 @@ declare namespace accessibility {
    * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isOpenTouchGuideSync(): boolean;
 
@@ -246,6 +1116,7 @@ declare namespace accessibility {
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @atomicservice
    * @since 18
    */
   function isScreenReaderOpenSync(): boolean;
@@ -365,7 +1236,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
 
@@ -379,9 +1251,18 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendAccessibilityEvent(event: EventInfo): Promise<void>;
+
+  /**
+   * Gets touch mode type.
+   * @returns { string } Returns touch mode type, include 'singleTouchMode', 'doubleTouchMode', and 'none'.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function getTouchModeSync(): string;
 
   /**
    * Register the observe of the accessibility state changed.
@@ -395,6 +1276,20 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
+  /**
+   * Register the observe of the accessibility state changed.
+   *
+   * @param { 'accessibilityStateChange' } type state event type.
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
@@ -407,7 +1302,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
@@ -420,9 +1316,23 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the observe of the touch mode changed.
+   * @param { 'touchModeChange' } type touch mode change.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function on(type: 'touchModeChange', callback: Callback<string>): void;
 
   /**
    * Unregister the observe of the accessibility state changed.
@@ -436,6 +1346,20 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
+  /**
+   * Unregister the observe of the accessibility state changed.
+   *
+   * @param { 'accessibilityStateChange' } type state event type
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
   /**
@@ -448,7 +1372,8 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
@@ -461,9 +1386,23 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the touch mode changed.
+   * @param { 'touchModeChange' } type touch mode change.
+   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 Parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
   /**
    * Get the captions manager.
@@ -733,7 +1672,8 @@ declare namespace accessibility {
    * Indicates the info of events.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class EventInfo {
     /**
@@ -751,14 +1691,16 @@ declare namespace accessibility {
      * @param { string } bundleName - The name of the bundle.
      * @param { Action } triggerAction - The action that the ability can execute.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(type: EventType, bundleName: string, triggerAction: Action);
     /**
      * The type of an accessibility event.
      * @type { EventType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: EventType;
 
@@ -766,7 +1708,8 @@ declare namespace accessibility {
      * The type of the window change event.
      * @type { ?WindowUpdateType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowUpdateType?: WindowUpdateType;
 
@@ -774,7 +1717,8 @@ declare namespace accessibility {
      * The bundle name of the target application.
      * @type { string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -782,7 +1726,8 @@ declare namespace accessibility {
      * The type of the event source component,such as button, chart.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     componentType?: string;
 
@@ -790,7 +1735,8 @@ declare namespace accessibility {
      * The page id of the event source.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pageId?: number;
 
@@ -798,7 +1744,8 @@ declare namespace accessibility {
      * The accessibility event description.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     description?: string;
 
@@ -806,7 +1753,8 @@ declare namespace accessibility {
      * The action that triggers the accessibility event, for example, clicking or focusing a view.
      * @type { Action }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     triggerAction: Action;
 
@@ -814,7 +1762,8 @@ declare namespace accessibility {
      * The movement step used for reading texts.
      * @type { ?TextMoveUnit }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textMoveUnit?: TextMoveUnit;
 
@@ -822,7 +1771,8 @@ declare namespace accessibility {
      * The content list.
      * @type { ?Array<string> }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contents?: Array<string>;
 
@@ -830,7 +1780,8 @@ declare namespace accessibility {
      * The content changed before.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lastContent?: string;
 
@@ -838,7 +1789,8 @@ declare namespace accessibility {
      * The start index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginIndex?: number;
 
@@ -846,7 +1798,8 @@ declare namespace accessibility {
      * The index of the current item on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     currentIndex?: number;
 
@@ -854,7 +1807,8 @@ declare namespace accessibility {
      * The end index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endIndex?: number;
 
@@ -862,7 +1816,8 @@ declare namespace accessibility {
      * The total of the items, talkback used it when scroll.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     itemCount?: number;
 
@@ -870,7 +1825,8 @@ declare namespace accessibility {
      * The id of element.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     elementId?: number;
 
@@ -878,7 +1834,8 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textAnnouncedForAccessibility?: string;
 
@@ -894,7 +1851,8 @@ declare namespace accessibility {
      * The customized element id.
      * @type { ?string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     customId?: string;
   }

@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Progress Modifier
+ *
+ * @extends ProgressAttribute
+ * @implements AttributeModifier<ProgressAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ProgressModifier extends ProgressAttribute implements AttributeModifier<ProgressAttribute> {
 
   /**

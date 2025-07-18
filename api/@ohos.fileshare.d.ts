@@ -18,15 +18,21 @@
  * @kit CoreFileKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.ability.wantConstant';
-
+/*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback, Callback } from './@ohos.base';
+import type wantConstant from './@ohos.app.ability.wantConstant';
+/*** endif */
 /**
  * Provides fileshare APIS
  *
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace fileShare {
   /**
@@ -34,14 +40,16 @@ declare namespace fileShare {
    *
    * @enum { number } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum OperationMode {
     /**
      * Indicates read permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     READ_MODE = 0b1,
 
@@ -49,9 +57,34 @@ declare namespace fileShare {
      * Indicates write permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WRITE_MODE = 0b10,
+
+    /**
+     * Indicates creating permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    CREATE_MODE = 0b100,
+
+    /**
+     * Indicates deleting permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    DELETE_MODE = 0b1000,
+
+    /**
+     * Indicates renaming permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+     * @since 20
+     */
+    RENAME_MODE = 0b10000,
   }
 
   /**
@@ -136,7 +169,8 @@ declare namespace fileShare {
    *
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PolicyInfo {
     /**
@@ -144,7 +178,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -153,7 +188,8 @@ declare namespace fileShare {
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     operationMode: number;
   }
@@ -222,10 +258,11 @@ declare namespace fileShare {
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 143000001 - IPC error
+   * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function grantUriPermission(
     uri: string,
@@ -246,12 +283,32 @@ declare namespace fileShare {
    * @throws { BusinessError } 202 - The caller is not a system application
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 143000001 - IPC error
+   * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
+
+  /**
+   * Grant URI permissions for an application.
+   *
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @param { Array<PolicyInfo> } policies - Policy information for the user to grant permissions on URIs.
+   * @param { string } targetBundleName - Name of the target bundle to authorize.
+   * @param { number } appCloneIndex - Clone index of the target application.
+   * @returns { Promise<void> } Returns void.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted.
+   * @throws { BusinessError } 13900011 - Out of memory.
+   * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
+   * @systemapi
+   * @since 20
+   */
+  function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
   /**
    * Set persistence permissions for the URI

@@ -27,7 +27,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace config {
   /**
@@ -57,11 +58,13 @@ declare namespace config {
   /**
    * Indicates the configuration of high-contrast text.
    *
+   * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  var highContrastText: Config<boolean>;
+  let highContrastText: Config<boolean>;
   /**
    * Indicates the configuration of invert color.
    *
@@ -356,12 +359,28 @@ declare namespace config {
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
 
   /**
+   * Set display magnification state.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { boolean } state Indicates that whether trigger display magnification.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9300007 - Trigger magnification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  function setMagnificationState(state: boolean): void;
+
+  /**
    * Indicates setting, getting, and listening to changes in configuration.
    *
    * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Config<T> {
     /**
@@ -379,7 +398,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     set(value: T): Promise<void>;
 
@@ -398,7 +418,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     set(value: T, callback: AsyncCallback<void>): void;
 
@@ -411,7 +432,8 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(): Promise<T>;
 
@@ -422,7 +444,8 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     get(callback: AsyncCallback<T>): void;
 

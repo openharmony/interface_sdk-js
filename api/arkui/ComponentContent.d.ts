@@ -124,4 +124,26 @@ export class ComponentContent<T extends Object> extends Content{
    * @since 12
    */
   updateConfiguration(): void;
+
+  /**
+   * Set if the ComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   *
+   * @param { boolean } enabled - If the ComponentContent inherits the freezing policy of the parent CustomComponent, ComponentContent, or BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  inheritFreezeOptions(enabled: boolean): void;
+
+  /**
+   * Get if the ComponentContent is disposed.
+   * 
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
 }

@@ -1080,4 +1080,15 @@ export class RenderNode {
    * @since 12
    */
   get lengthMetricsUnit(): LengthMetricsUnit;
+
+  /**
+   * Get if the node is disposed.
+   * 
+   * @returns { boolean } - Returns true if the node is disposed, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  isDisposed(): boolean;
 }

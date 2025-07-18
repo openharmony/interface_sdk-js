@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class HashMap<K, V> {
   /**
@@ -59,13 +60,14 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * A constructor used to create a HashMap object.
+   * A constructor used to create a HashMap instance.
    *
    * @throws { BusinessError } 10200012 - The HashMap's constructor cannot be directly invoked.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -84,7 +86,7 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Gets the element number of the hashmap.
+   * Number of elements in a hash map.
    *
    * @type { number }
    * @syscap SystemCapability.Utils.Lang
@@ -93,6 +95,17 @@ declare class HashMap<K, V> {
    * @since 12
    */
   length: number;
+  /**
+   * Gets the number of elements in a hash map.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
   /**
    * Returns whether the Map object contains elements
    *
@@ -111,14 +124,15 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns whether the Map object contains elements
+   * Checks whether this container is empty (contains no element).
    *
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -141,15 +155,16 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns whether a key is contained in this map
+   * Checks whether this container contains the specified key.
    *
-   * @param { K } key - key key need to determine whether to include the key
+   * @param { K } key - Target key.
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasKey(key: K): boolean;
   /**
@@ -172,15 +187,16 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns whether a value is contained in this map
+   * Checks whether this container contains the specified value.
    *
-   * @param { V } value - value value need to determine whether to include the value
+   * @param { V } value - Target value.
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasValue(value: V): boolean;
   /**
@@ -203,9 +219,9 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns a specified element in a Map object, or undefined if there is no corresponding element
+   * Obtains the value of the specified key in this container. If nothing is obtained, undefined is returned.
    *
-   * @param { K } key - key key the index in HashMap
+   * @param { K } key - Target key.
    * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -214,6 +230,20 @@ declare class HashMap<K, V> {
    * @since 12
    */
   get(key: K): V;
+
+  /**
+   * Obtains the value of the specified key in this container. If nothing is obtained, undefined is returned.
+   *
+   * @param { K } key - Target key.
+   * @returns { V | undefined } value or undefined
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get(key: K): V | undefined;
+
   /**
    * Adds all element groups in one map to another map
    *
@@ -238,9 +268,9 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Adds all element groups in one map to another map
+   * Adds all elements in a HashMap instance to this container.
    *
-   * @param { HashMap<K, V> } map - map map the Map object to add members
+   * @param { HashMap<K, V> } map - HashMap instance whose elements are to be added to the current container.
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
    * @throws { BusinessError } 401 -  Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -248,7 +278,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAll(map: HashMap<K, V>): void;
   /**
@@ -277,10 +308,10 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Adds or updates a(new) key-value pair with a key and value specified for the Map object
+   * Adds or updates an element in this container.
    *
-   * @param { K } key - key key Added or updated targets
-   * @param { V } value - value value Added or updated value
+   * @param { K } key - Key of the target element.
+   * @param { V } value - Value of the target element.
    * @returns { Object } the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -288,7 +319,8 @@ declare class HashMap<K, V> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   set(key: K, value: V): Object;
   /**
@@ -311,9 +343,9 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Remove a specified element from a Map object
+   * Removes an element with the specified key from this container.
    *
-   * @param { K } key - key key Target to be deleted
+   * @param { K } key - Key of the target element.
    * @returns { V } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -322,6 +354,20 @@ declare class HashMap<K, V> {
    * @since 12
    */
   remove(key: K): V;
+
+  /**
+   * Removes an element with the specified key from this container.
+   *
+   * @param { K } key - Key of the target element.
+   * @returns { V | undefined } Tthe value associated with the key if it was removed, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  remove(key: K): V | undefined;
+
   /**
    * Clear all element groups in the map
    *
@@ -338,13 +384,14 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Clear all element groups in the map
+   * Clears this container and sets its length to 0.
    *
    * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -365,14 +412,15 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns a new Iterator object that contains the keys contained in this map
+   * Obtains an iterator that contains all the keys in this container.
    *
    * @returns { IterableIterator<K> }
    * @throws { BusinessError } 10200011 - The keys method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keys(): IterableIterator<K>;
   /**
@@ -393,14 +441,15 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns a new Iterator object that contains the values contained in this map
+   * Obtains an iterator that contains all the values in this container.
    *
    * @returns { IterableIterator<V> }
    * @throws { BusinessError } 10200011 - The values method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<V>;
   /**
@@ -425,16 +474,17 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Replace the old value by new value corresponding to the specified key
+   * Replaces an element in this container.
    *
-   * @param { K } key - key key Updated targets
-   * @param { V } newValue - newValue newValue Updated the target mapped value
+   * @param { K } key - Key of the target element.
+   * @param { V } newValue - New value of the element.
    * @returns { boolean } the boolean type(Is there a target pointed to by the key)
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   replace(key: K, newValue: V): boolean;
   /**
@@ -473,15 +523,10 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Executes the given callback function once for each real key in the map.
-   * It does not perform functions on deleted keys
+   * Uses a callback to traverse the elements in this container and obtain their position indexes.
    *
-   * @param { function } callbackFn - callbackFn
-   * callbackFn (required) A function that accepts up to three arguments.
-   * The function to be called for each element.
-   * @param { Object } [thisArg] - thisArg
-   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
-   * If thisArg is omitted, undefined is used as the this value.
+   * @param { function } callbackFn - Callback invoked to traverse the elements in the container.
+   * @param { Object } [thisArg] - Value of this to use when callbackFn is invoked. The default value is this instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -492,6 +537,19 @@ declare class HashMap<K, V> {
    * @since 12
    */
   forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void;
+
+  /**
+   * Uses a callback to traverse the elements in this container and obtain their position indexes.
+   *
+   * @param { HashMapCbFn<K, V> } callbackFn - Callback invoked to traverse the elements in the container.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: HashMapCbFn<K, V>): void;
+
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
    *
@@ -510,14 +568,15 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
+   * Obtains an iterator that contains all the elements in this container.
    *
    * @returns { IterableIterator<[K, V]> }
    * @throws { BusinessError } 10200011 - The entries method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[K, V]>;
   /**
@@ -538,7 +597,7 @@ declare class HashMap<K, V> {
    * @since 10
    */
   /**
-   * returns an iterator.Each item of the iterator is a Javascript Object
+   * Obtains an iterator, each item of which is a JavaScript object.
    *
    * @returns { IterableIterator<[K, V]> }
    * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -548,6 +607,33 @@ declare class HashMap<K, V> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
+
+  /**
+   * Obtains an iterator, each item of which is a JavaScript object.
+   *
+   * @returns { IterableIterator<[K, V]> } an iterator for the HashMap
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<[K, V]>;
 }
+
+  /**
+   * The type of HashMap callback function.
+   *
+   * @typedef { function } HashMapCbFn
+   * @param { V } value - The value of the current entry
+   * @param { K } key - The key of the current entry
+   * @param { HashMap<K, V> } map - The HashMap instance being traversed
+   * @returns { void } This callback does not return a value
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type HashMapCbFn<K, V> = (value: V, key: K, map: HashMap<K, V>) => void;
 
 export default HashMap;

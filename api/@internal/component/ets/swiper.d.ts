@@ -232,7 +232,7 @@ declare class Indicator<T> {
    * @since 10
    */
   /**
-   * Set the indicator to the left.
+   * Sets the position of the navigation indicator relative to the left edge of the Swiper component.
    *
    * @param { Length } value - the indicator to the left.
    * @returns { T }
@@ -255,7 +255,7 @@ declare class Indicator<T> {
    * @since 10
    */
   /**
-   * Set the indicator to the top.
+   * Sets the position of the navigation indicator relative to the top edge of the Swiper component.
    *
    * @param { Length } value - the indicator to the top.
    * @returns { T }
@@ -278,9 +278,10 @@ declare class Indicator<T> {
    * @since 10
    */
   /**
-   * Set the indicator to the right.
+   * Sets the position of the navigation indicator relative to the right edge of the Swiper component.
    *
-   * @param { Length } value - the indicator to the right.
+   * @param { Length } value - Position of the navigation indicator relative to the right edge of 
+   * the Swiper component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -301,9 +302,10 @@ declare class Indicator<T> {
    * @since 10
    */
   /**
-   * Set the indicator to the bottom.
+   * Sets the position of the navigation indicator relative to the bottom edge of the Swiper component.
    *
-   * @param { Length } value - the indicator to the bottom.
+   * @param { Length } value - Position of the navigation indicator relative to the bottom edge of 
+   * the Swiper component.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -314,7 +316,8 @@ declare class Indicator<T> {
   bottom(value: Length): T;
 
   /**
-   * Set the offset of indicator to the bottom.
+   * Sets the position of the navigation indicator relative to the bottom edge of the Swiper component.
+   * You can also choose to ignore the size of the navigation indicator using the ignoreSize property.
    *
    * @param { LengthMetrics | Length } bottom - the offset of indicator to the bottom.
    * @param { boolean } ignoreSize - ignore the size of the indicator.
@@ -323,13 +326,13 @@ declare class Indicator<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   bottom(bottom: LengthMetrics | Length, ignoreSize: boolean): T;
 
   /**
-   * Set the indicator to the left in LTR
-   * Set the indicator to the right in RTL
+   * Sets the distance between the navigation indicator and the right edge (in right-to-left scripts) 
+   * or the left edge (in left-to-right scripts) of the Swiper component.
    *
    * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
    * @returns { T }
@@ -342,8 +345,8 @@ declare class Indicator<T> {
   start(value: LengthMetrics): T;
 
   /**
-   * Set the indicator to the left in RTL 
-   * Set the indicator to the right in LTR
+   * Sets the distance between the navigation indicator and the left edge (in right-to-left scripts)
+   * or the right edge (in left-to-right scripts) of the Swiper component.
    *
    * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
    * @returns { T }
@@ -452,9 +455,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the indicator item width.
+   * Sets the width of the dot-style navigation indicator.
    *
-   * @param { Length } value - the indicator item width.
+   * @param { Length } value - Width of the dot-style navigation indicator. Default value is 6vp.
+   * This parameter cannot be set in percentage.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -475,9 +479,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the indicator item height.
+   * Sets the height of the dot-style navigation indicator.
    *
-   * @param { Length } value - the indicator item height.
+   * @param { Length } value - Height of the dot-style navigation indicator. Default value is 6vp.
+   * This parameter cannot be set in percentage.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -498,9 +503,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the indicator item width when selected.
+   * Sets the width of the selected dot in the dot-style navigation indicator.
    *
-   * @param { Length } value - the indicator item width when selected.
+   * @param { Length } value - Width of the selected dot in the dot-style navigation indicator.
+   * Default value is 12vp. This parameter cannot be set in percentage.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -521,9 +527,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the indicator item height when selected.
+   * Sets the height of the selected dot in the dot-style navigation indicator.
    *
-   * @param { Length } value - the indicator item height when selected.
+   * @param { Length } value - Height of the selected dot in the dot-style navigation indicator. 
+   * Default value is 6vp. This parameter cannot be set in percentage.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -544,9 +551,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Setting indicator style mask.
+   * Sets whether to enable the mask for the dot-style navigation indicator.
    *
-   * @param { boolean } value - the indicator item mask.
+   * @param { boolean } value - Whether to enable the mask for the dot-style navigation indicator.
+   * Default value is false.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -567,9 +575,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the indicator color.
+   * Sets the color of the dot-style navigation indicator.
    *
-   * @param { ResourceColor } value - the indicator item color.
+   * @param { ResourceColor } value - Color of the dot-style navigation indicator.
+   * Default value is #182431(10% opacity).
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -590,9 +599,10 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 10
    */
   /**
-   * Set the navigation point color.
+   * Sets the color of the selected dot in the dot-style navigation indicator.
    *
-   * @param { ResourceColor } value - the indicator item when selected.
+   * @param { ResourceColor } value - Color of the selected dot in the dot-style navigation indicator.
+   * Default value is #007DFF.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -603,9 +613,9 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   selectedColor(value: ResourceColor): DotIndicator;
 
   /**
-   * Set the Indicator maxDisplayCount when selected.
+   * Sets the maximum number of navigation dots in the dot-style navigation indicator.
    *
-   * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+   * @param { number } maxDisplayCount - Maximum number of navigation dots in the dot-style navigation indicator.
    * @returns { DotIndicator } return the DotIndicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -724,9 +734,9 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 10
    */
   /**
-   * Set font color of the digital indicator.
+   * Sets the font color of the digit-style navigation indicator.
    *
-   * @param { ResourceColor } value - the indicator font color.
+   * @param { ResourceColor } value - Font color of the digit-style navigation indicator. Default value is #ff182431.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -747,9 +757,10 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 10
    */
   /**
-   * Set font color of the digital indicator when selected.
+   * Sets the font color of the selected digit in the digit-style navigation indicator.
    *
-   * @param { ResourceColor } value - the indicator font color when selected.
+   * @param { ResourceColor } value - Font color of the selected digit in the digit-style navigation indicator.
+   * Default value is #ff182431.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -770,9 +781,15 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 10
    */
   /**
-   * Set the digital indicator font (just support font size and weight).
+   * Sets the font style of the digit-style navigation indicator.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Only the size and weight parameters in Font are adjustable.
+   * <brSetting family and style has no effect.
+   * </p>
    *
-   * @param { Font } value - the indicator font size and weight.
+   * @param { Font } value - Font style of the digit-style navigation indicator.
+   * Default value is { size: 14, weight: FontWeight.Normal }.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -793,9 +810,10 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 10
    */
   /**
-   * Set the digital indicator font (just support font size and weight).
+   * Sets the font style of the selected digit in the digit-style navigation indicator.
    *
-   * @param { Font } value - the indicator font size and weight when selected.
+   * @param { Font } value - Font style of the selected digit in the digit-style navigation indicator.
+   * Default value is { size: 14, weight: FontWeight.Normal }.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1271,7 +1289,7 @@ declare interface SwiperAnimationEvent {
 }
 
 /**
- * Define autoPlay related options.
+ * Defines the properties for controlling the autoplay behavior.
  *
  * @interface AutoPlayOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1282,7 +1300,7 @@ declare interface SwiperAnimationEvent {
  */
 declare interface AutoPlayOptions {
   /**
-   * Set whether to stop autoplay immediately on touch down event.
+   * Whether the autoplay stops immediately when the component is touched.
    *
    * @type { boolean }
    * @default true
@@ -1305,7 +1323,8 @@ declare interface AutoPlayOptions {
  */
 declare enum SwiperNestedScrollMode {
   /**
-   * Only Self response scrolling.
+   * The scrolling is contained within the Swiper component, and no scroll chaining occurs, that is,
+   * the parent container does not scroll when the component scrolling reaches the boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1314,7 +1333,7 @@ declare enum SwiperNestedScrollMode {
   SELF_ONLY = 0,
 
   /**
-   * Self priority response scrolling.
+   * The Swiper component scrolls first, and when it hits the boundary, the parent container scrolls.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1457,9 +1476,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when the index value of the displayed subcomponent is set in the container.
+   * Sets the index of the child component currently displayed in the container.
    *
-   * @param { number } value
+   * @param { number } value - Index of the child component currently displayed in the container. Default value is 0.
+   * If the value is less than 0 or greater than or equal to the number of child components,
+   * the default value 0 is used.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1488,9 +1509,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether the subcomponent plays automatically.
+   * Sets whether to enable automatic playback for child component switching.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If loop is set to false, the playback stops when the last page is reached.
+   * <br>The playback continues when the page is not the last page after a swipe gesture. 
+   * <br>If the Swiper component becomes invisible, the playback stops.
+   * </p>
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable automatic playback for child component switching.
+   * Default value is false.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1501,10 +1529,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   autoPlay(value: boolean): SwiperAttribute;
 
   /**
-   * Set whether the subcomponent plays automatically.
+   * Sets whether child components automatically play when the screen is pressed by fingers, a mouse device,
+   * or other input devices.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If loop is set to false, the playback stops when the last page is reached.
+   * <br>The playback continues when the page is not the last page after a swipe gesture. 
+   * <br>If the Swiper component becomes invisible, the playback stops.
+   * </p>
    *
-   * @param { boolean } autoPlay - whether the subcomponent plays automatically
-   * @param { AutoPlayOptions } options - autoPlay related options
+   * @param { boolean } autoPlay - Whether to enable automatic playback for child component switching.
+   * Default value is false.
+   * @param { AutoPlayOptions } options - Whether child components stop autoplay when the screen is pressed by fingers,
+   * a mouse device, or other input devices. Default value is { stopWhenTouched: true }.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1533,9 +1570,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when the time interval for automatic playback is set.
+   * Sets the interval for automatic playback.
    *
-   * @param { number } value
+   * @param { number } value - Interval for automatic playback. Default value is 3000, the unit is ms.
+   * Minimum value is 0ms. If a value less than 0 is set, the default value is used.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1564,9 +1602,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Set indicator is enabled, or set type style.
+   * Sets the style of the navigation indicator.
    *
-   * @param { DotIndicator | DigitIndicator | boolean } value - the style value or show indicator of the swiper indicator.
+   * @param { DotIndicator | DigitIndicator | boolean } value - Style of the navigation indicator.
+   * Default value is true, default style is DotIndicator.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1577,10 +1616,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
 
   /**
-   * Use indicator component controller.
+   * Sets the navigation indicator for the component.
    *
    * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean } indicator -
-   * the style value or show indicator of the swiper indicator.
+   * Style of the navigation indicator. Default value is true, default style is DotIndicator.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1600,10 +1639,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Set arrow is enabled, or set the arrow style.
+   * Sets the arrow style of the navigation indicator.
    *
-   * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style.
-   * @param { boolean } isHoverShow - arrow is display when mouse hover in indicator hotspot.
+   * @param { ArrowStyle | boolean } value - arrow is displayed or set the arrow style. Default value is false.
+   * @param { boolean } isHoverShow - Whether to show the arrow only when the mouse pointer hovers 
+   * over the navigation indicator. Default value is false.
    * @returns { SwiperAttribute } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1631,9 +1671,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether to turn on cyclic sliding.
+   * Sets whether to enable loop playback.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable loop playback. Default value is true.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1661,9 +1701,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when the animation duration of the switch is set.
+   * Sets the duration of the animation for child component switching.
    *
-   * @param { number } value
+   * @param { number } value - Duration of the autoplay for child component switching. Default value is 400,
+   * the unit is ms. Minimum value is 0ms. If a value less than 0 is set, the default value is used.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1691,9 +1732,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether to slide vertically.
+   * Sets whether vertical swiping is used.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether vertical swiping is used. Default value is false.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1723,8 +1764,15 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Sets the space between child components.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the type is number, the default unit is vp. 
+   * <br>If the type is string, the pixel unit must be explicitly specified, for example, '10px'; 
+   * if the unit is not specified, for example, '10', the default unit vp is used.
+   * </p>
    *
-   * @param { number | string } value
+   * @param { number | string } value - Space between child components. Default value is 0,
+   * Minimum value is 0. If a value less than 0 is set, the default value is used.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1753,9 +1801,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Called when setting the size of the swiper container on the spindle.
+   * Sets the mode in which elements are displayed along the main axis.
+   * This API takes effect only when displayCount is not set.
    *
-   * @param { SwiperDisplayMode } value
+   * @param { SwiperDisplayMode } value - Mode in which elements are displayed along the main axis.
+   * Default value is SwiperDisplayMode.STRETCH.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1785,8 +1835,14 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   /**
    * Sets the number of child components to be preloaded(cached).
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>Which are needed for the specific number of pages immediately before and after the current page.
+   * <br>If swipeByGroup in displayCount is set to true, child components are cached by group.
+   * </p>
    *
-   * @param { number } value
+   * @param { number } value - Number of child components to be preloaded (cached). Default value is 1. 
+   * Minimum value is 0. If a value less than 0 is set, the default value is used.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1799,8 +1855,10 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Sets the number of child components to be preloaded(cached).
    *
-   * @param { number } count - Number of child components to be preloaded (cached).
-   * @param { boolean } isShown - whether to show the nodes in the cache.
+   * @param { number } count - Number of child components to be preloaded (cached).Default value is 1.
+   * Minimum value is 0. If a value less than 0 is set, the default value is used.
+   * @param { boolean } isShown - Whether the cached nodes within the range rendered 
+   * without being added to the render tree. Default value is false.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1838,8 +1896,8 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * 4、Placeholder items do not display any content and are only used as placeholders.
    * 5、When turning pages, turn pages by group.
    *
-   * @param { number | string | SwiperAutoFill } value
-   * @param { boolean } [swipeByGroup] - if swipe by group.
+   * @param { number | string | SwiperAutoFill } value - Number of elements to display per page. Default value is 1.
+   * @param { boolean } [swipeByGroup] - Whether to turn pages by group. Default value is false.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1868,9 +1926,14 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Invoked when setting the sliding effect
+   * Sets the effect used when the component is at one of the edges.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute takes effect when loop is set to false.
+   * </p>
    *
-   * @param { EdgeEffect } value
+   * @param { EdgeEffect } value - Effect used when the component is at one of the edges.
+   * Default value is EdgeEffect.Spring.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1899,9 +1962,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Sets whether to disable the swipe feature
+   * Sets whether to disable the swipe feature.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to disable the swipe feature. Default value is false.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1932,11 +1995,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 10
    */
   /**
-   * Sets the animation curve
+   * Sets the animation curve.
    * Curve is an enumeration type for common curves
    * ICurve is a curve object
    *
-   * @param { Curve | string | ICurve } value
+   * @param { Curve | string | ICurve } value - Animation curve.
+   * Default value is interpolatingSpring(-1, 1, 328, 34).
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1976,7 +2040,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * Called when the index value changes.
+   * Triggered when the index of the currently displayed child component changes.
    * Anonymous Object Rectification
    *
    * @param { Callback<number> } event
@@ -2032,11 +2096,23 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * The previous margin which can be used to expose a small portion of the previous item.
+   * Sets the previous margin, used to reveal a small part of the previous item.
    * When the previous item is empty, do not display blank space.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is effective only when the layout mode of the child components in Swiper is set to stretch,
+   * which mainly includes two scenarios: 1. displayMode is set to SwiperDisplayMode.STRETCH;
+   * 2. displayCount is assigned a numeric value.
+   * <br>When the main axis runs horizontally and either the next margin or previous margin is greater than
+   * the measured width of the child component, neither the next margin nor previous margin is displayed.
+   * <br>When the main axis runs vertically and either the next margin or previous margin is greater than
+   * the measured height of the child component, neither the next margin nor previous margin is displayed.
+   * </p>
    *
-   * @param { Length } value - The length of previous margin.
+   * @param { Length } value - The length of previous margin.This attribute cannot be set in percentage.
+   * Default value is 0.
    * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
+   * Default value is false.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2064,11 +2140,23 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * The next margin which can be used to expose a small portion of the latter item. 
+   * Sets the next margin, used to reveal a small part of the next item.
    * When the next item is empty, do not display blank space.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute is effective only when the layout mode of the child components in Swiper is set to stretch,
+   * which mainly includes two scenarios: 1. displayMode is set to SwiperDisplayMode.STRETCH; 
+   * 2. displayCount is assigned a numeric value.
+   * <br>When the main axis runs horizontally and either the next margin or previous margin is greater than 
+   * the measured width of the child component, neither the next margin nor previous margin is displayed.
+   * <br>When the main axis runs vertically and either the next margin or previous margin is greater than
+   * the measured height of the child component, neither the next margin nor previous margin is displayed.
+   * </p>
    *
-   * @param { Length } value - The length of next margin.
+   * @param { Length } value - The length of next margin. This attribute cannot be set in percentage.
+   * Default value is 0.
    * @param { boolean } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
+   * Default value is false.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2089,6 +2177,19 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 18
    */
   onUnselected(event: Callback<number>): SwiperAttribute;
+
+  /**
+   * Called when the scroll state of the swiper changed.
+   *
+   * @param { Callback<ScrollState> } event - callback to notify the change of the scroll state.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onScrollStateChanged(event: Callback<ScrollState>): SwiperAttribute
 
   /**
    * Called when the swiper animation start.
@@ -2126,7 +2227,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * Called when the swiper animation start.
+   * Triggered when the switching animation starts.
    * Anonymous Object Rectification
    *
    * @param { OnSwiperAnimationStartCallback } event
@@ -2173,7 +2274,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * Called when the swiper animation end.
+   * Triggered when the switching animation ends.
    * Anonymous Object Rectification
    *
    * @param { OnSwiperAnimationEndCallback } event
@@ -2210,7 +2311,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    */
   /**
-   * Called when the swiper swipe with the gesture.
+   * Triggered on a frame-by-frame basis when the page is turned by a swipe.
    * Anonymous Object Rectification
    *
    * @param { OnSwiperGestureSwipeCallback } event
@@ -2223,9 +2324,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onGestureSwipe(event: OnSwiperGestureSwipeCallback): SwiperAttribute;
 
   /**
-   * Called to setting the nested scroll mode.
+   * Sets the nested scrolling mode of the Swiper component and its parent container. 
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>When loop is set to true, the Swiper component has no edge effect and does not trigger 
+   * nested scrolling of its parent container.
+   * </p>
+   * 
    *
    * @param { SwiperNestedScrollMode } value - mode for nested scrolling.
+   * Default value is SwiperNestedScrollMode.SELF_ONLY.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2235,7 +2343,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   nestedScroll(value: SwiperNestedScrollMode): SwiperAttribute;
 
   /**
-   * Custom swiper content transition animation.
+   * Defines a custom switching animation.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>1. This API does not work when prevMargin and nextMargin are set in such a way that
+   * the Swiper frontend and backend display the same page during loop playback.
+   * <br>2. During page scrolling, the ContentDidScrollCallback callback is invoked for all pages in the viewport
+   * on a frame-by-frame basis. 
+   * <br>3. When the swipeByGroup parameter of the displayCount attribute is set to true, 
+   * the callback is invoked for all pages in a group if any page in the group is within the viewport.
+   * </p>
    *
    * @param { SwiperContentAnimatedTransition } transition - custom content transition animation.
    * @returns { SwiperAttribute } the attribute of the swiper.
@@ -2247,7 +2364,16 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   customContentTransition(transition: SwiperContentAnimatedTransition): SwiperAttribute;
 
   /**
-   * Called when the swiper content did scroll.
+   * Triggered when content in the Swiper component scrolls.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>1. This API does not work when prevMargin and nextMargin are set in such a way that
+   * the Swiper frontend and backend display the same page during loop playback.
+   * <br>2. During page scrolling, the ContentDidScrollCallback callback is invoked for all pages in the viewport
+   * on a frame-by-frame basis. 
+   * <br>3. When the swipeByGroup parameter of the displayCount** attribute is set to true, 
+   * the callback is invoked for all pages in a group if any page in the group is within the viewport.
+   * </p>
    *
    * @param { ContentDidScrollCallback } handler - callback of scroll,
    * selectedIndex is the index value of the swiper content selected before animation start.
@@ -2263,9 +2389,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
 
   /**
-   * Setting whether the indicator is interactive.
+   * Sets whether the navigation indicator is interactive.
    *
-   * @param { boolean } value - Whether the indicator is interactive.
+   * @param { boolean } value - Whether the navigation indicator is interactive. Default value is true.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2299,6 +2425,20 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 15
    */
   onContentWillScroll(handler: ContentWillScrollCallback): SwiperAttribute;
+
+  /**
+   * Set maintain visible content position.
+   *
+   * @param { boolean } enabled - maintain visible content position.
+   * Default value is false.
+   * @returns { SwiperAttribute } the attribute of swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  maintainVisibleContentPosition(enabled: boolean): SwiperAttribute;
 }
 
 /**

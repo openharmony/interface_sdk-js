@@ -332,6 +332,32 @@ interface SegmentButtonIconTextItem {
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
+ * Defines the BorderRadiusMode type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum BorderRadiusMode {
+  /**
+  * Default mode, radius is auto calculated by framework.
+  * @crossplatform
+  * @atomicservice
+  * @since 20
+  */
+  DEFAULT = 0,
+
+  /**
+  * Custom mode, radius can be set by developers.
+  * @crossplatform
+  * @atomicservice
+  * @since 20
+  */
+  CUSTOM = 1
+}
+
+/**
  * Defines SegmentButton common options.
  *
  * @interface CommonSegmentButtonOptions
@@ -631,6 +657,42 @@ interface CommonSegmentButtonOptions {
    * @since 12
    */
   direction?: Direction;
+
+  /**
+   * The border radius mode of SegmentButton.
+   *
+   * @type { ?BorderRadiusMode }
+   * @default BorderRadiusMode.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  borderRadiusMode?: BorderRadiusMode;
+
+  /**
+   * The background border radius of SegmentButton.
+   * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundBorderRadius?: LengthMetrics;
+
+  /**
+   * The border radius of selected item in SegmentButton.
+   * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  itemBorderRadius?: LengthMetrics;
 }
 
 /**
@@ -1693,6 +1755,42 @@ declare class SegmentButtonOptions {
    * @since 12
    */
   direction?: Direction;
+
+  /**
+   * The border radius mode of SegmentButton.
+   *
+   * @type { ?BorderRadiusMode }
+   * @default BorderRadiusMode.Default
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  borderRadiusMode?: BorderRadiusMode;
+
+  /**
+   * The background border radius of SegmentButton.
+   * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  backgroundBorderRadius?: LengthMetrics;
+
+  /**
+   * The border radius of selected item in SegmentButton.
+   * Only takes effect when borderRadiusMode is set to BorderRadiusMode.Custom.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  itemBorderRadius?: LengthMetrics;
 }
 
 /**
@@ -1792,5 +1890,6 @@ export {
   SegmentButtonItemTuple,
   SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions,
-  SegmentButtonItemOptions
+  SegmentButtonItemOptions,
+  BorderRadiusMode
 };

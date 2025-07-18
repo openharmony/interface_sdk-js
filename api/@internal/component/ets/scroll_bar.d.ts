@@ -284,6 +284,18 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @since 14
      */
     enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
+
+    /**
+     * Color of the scrollbar.
+     *
+     * @param { Optional<ColorMetrics> } color - Color of the scrollbar.
+     * @returns { ScrollBarAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    scrollBarColor(color: Optional<ColorMetrics>): ScrollBarAttribute;
 }
 
 /**

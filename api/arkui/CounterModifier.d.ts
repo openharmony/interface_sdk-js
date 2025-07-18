@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Counter Modifier
+ *
+ * @extends CounterAttribute
+ * @implements AttributeModifier<CounterAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class CounterModifier extends CounterAttribute implements AttributeModifier<CounterAttribute> {
 
   /**

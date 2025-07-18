@@ -68,6 +68,13 @@ interface MarqueeOptions {
    * Control whether the running lamp enters the playing state.
    *
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br><em>true</em>: Start scrolling.
+   * <br><em>false</em>: Do not start scrolling.
+   * <br>This parameter cannot be used to restart scrolling that has been completed.
+   * </p>
+   * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -115,7 +122,13 @@ interface MarqueeOptions {
    * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
    *
    * Anonymous Object Rectification.
-   * @type { ?number }
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is greater than the text width of the marquee, the default value is used.
+   * </p>
+   * 
+   * @type { ?number } - The unit is vp.
+   * @default 6
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -162,7 +175,14 @@ interface MarqueeOptions {
    * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
    *
    * Anonymous Object Rectification.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is less than or equal to 0, the marquee will scroll continuously.
+   * <br>Regardless of the value, the marquee scrolls only once on an ArkTS widget.
+   * </p>
+   *
    * @type { ?number }
+   * @default -1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -210,6 +230,7 @@ interface MarqueeOptions {
    *
    * Anonymous Object Rectification.
    * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -459,6 +480,11 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font size.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>If fontSize is of the number type, the unit fp is used. The default font size is 16 fp.
+   * <br>This parameter cannot be set in percentage.
+   * </p>
+   *
    * @param { Length } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -499,7 +525,11 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee allow scale.
    *
-   * @param { boolean } value
+   * <p><strong>NOTE</strong>:
+   * <br>This parameter is effective only when fontSize is in fp units.
+   * </p>
+   *
+   * @param { boolean } value - Default value is false.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -539,7 +569,16 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font weight.
    *
-   * @param { number | FontWeight | string } value
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is too large, the text may be clipped depending on the font.
+   * <br>For the number type, the value range is [100, 900], at an interval of 100.
+   * <br>The default value is 400.
+   * <br>A larger value indicates a heavier font weight.
+   * <br>For the string type, only strings that represent a number, for example, "400",
+   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
+   * </p>
+   *
+   * @param { number | FontWeight | string } value - Default value is FontWeight.Normal.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -579,6 +618,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font family.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>Default font: 'HarmonyOS Sans'
+   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported for applications.
+   * <br>Only the 'HarmonyOS Sans' font is supported for widgets.
+   * </p>
+   *
    * @param { string | Resource } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -592,7 +637,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Marquee scrolling strategy after text update.
    *
-   * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute takes effect when the marquee is in the playing state
+   * and the text content width exceeds the width of the marquee component.
+   * </p>
+   *
+   * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.Default value is MarqueeUpdateStrategy.DEFAULT.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -671,6 +721,10 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Called when scrolling to the bottom.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>This event will be triggered for multiple times if the loop attribute is not set to 1.
+   * </p>
+   *
    * @param { function } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -745,7 +799,14 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  */
 /**
  * Defines Marquee Component.
- *
+ * 
+ * <p><strong>NOTE</strong>:
+ * <br>To ensure that scrolling frame rates are not affected,
+ * it is recommended that the number of Marquee components in a scroll container does not exceed four, or alternatively,
+ * use the Text component's TextOverflow.MARQUEE as a substitute.
+ * <br>The text is scrolled only when its width exceeds the width of the Marquee component.
+ * </p>
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form

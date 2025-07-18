@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Describes an action button displayed in a notification
+ * @file The NotificationActionButton module provides APIs for describing the button displayed in the notification.
  * @kit NotificationKit
  */
 
@@ -22,7 +22,7 @@ import { NotificationUserInput } from './notificationUserInput';
 import { WantAgent } from '../@ohos.wantAgent';
 
 /**
- * Describes an action button displayed in a notification.
+ * The NotificationActionButton module provides APIs for describing the button displayed in the notification.
  *
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
@@ -57,7 +57,7 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * User input
+   * User input object. ID entered by a subscriber.
    *
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification

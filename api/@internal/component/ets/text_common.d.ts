@@ -172,7 +172,17 @@ declare interface TextDataDetectorConfig {
    * @atomicservice
    * @since 12
    */
-  decoration?: DecorationStyleInterface
+  decoration?: DecorationStyleInterface;
+
+  /**
+   * Used to set whether the preview window will be displayed when long-presses and selects a word.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enablePreviewMenu?: boolean;
 }
 
 /**
@@ -272,6 +282,47 @@ declare enum TextDeleteDirection {
    * @since 12
    */
   FORWARD = 1,
+}
+
+/**
+ * Defines the superscript style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum SuperscriptStyle {
+  /**
+   * normal font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  NORMAL = 0,
+
+  /**
+   * Superscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUPERSCRIPT = 1,
+
+  /**
+   * Subscript font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SUBSCRIPT = 2,
 }
 
 /**
@@ -1050,6 +1101,80 @@ declare class TextMenuItemId {
    * @since 18
    */
   static readonly SHARE: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open url.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly url: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open email.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly email: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to call the phone number.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly phoneNumber: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open map.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly address: TextMenuItemId;
+
+  /**
+   * Indicates the TextMenuItemId to open calendar.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  static readonly dateTime: TextMenuItemId;
+
+
+  /**
+   * Indicates the TextMenuItemId for asking AI.
+   *
+   * @type { TextMenuItemId }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  static readonly askAI: TextMenuItemId;
 }
 
 /**
@@ -1105,6 +1230,19 @@ declare interface TextMenuItem {
 }
 
 /**
+ * Callback before displaying the menu when the selection range changes.
+ *
+ * @typedef { function } OnPrepareMenuCallback
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
@@ -1137,6 +1275,16 @@ declare interface EditMenuOptions {
    * @since 12
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+  /**
+   * Callback before displaying the menu when the selection range changes.
+   *
+   * @type { ?OnPrepareMenuCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onPrepareMenu?: OnPrepareMenuCallback;
 }
 
 /**
@@ -1181,6 +1329,17 @@ interface DecorationStyleResult {
    * @since 12
    */
   style?: TextDecorationStyle;
+
+  /**
+   * The thicknessScale value of the decoration property object.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  thicknessScale?: number;
 }
 
 /**
@@ -1402,4 +1561,605 @@ declare enum KeyboardAppearance {
    * @since 15
    */
   DARK_IMMERSIVE = 3,
+}
+
+/**
+ * Defines shader style class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ShaderStyle {
+}
+
+/**
+ * Defines linear gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class LinearGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { LinearGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: LinearGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * angle: Angle of linear gradient.
+   * direction: Direction of Linear Gradient.
+   * colors: Color description for gradients.
+   * repeating: if the gradient colors with repeated coloring.
+   *
+   * @type { LinearGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: LinearGradientOptions;
+}
+
+/**
+ * Defines radial gradient class.
+ *
+ * @extends ShaderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class RadialGradientStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { RadialGradientOptions } options - The options of the gradient.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options: RadialGradientOptions);
+  
+  /**
+   * The options of the gradient.
+   * center: Center point of radial gradient
+   * radius: Radius of Radial Gradient. value range [0, +∞)
+   * colors: Color description for gradients
+   * repeating: Refill. The default value is false
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  options: RadialGradientOptions;
+}
+
+/**
+ * Defines a shader with single color.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare class ColorShaderStyle extends ShaderStyle {
+  /**
+   * The constructor.
+   *
+   * @param { ResourceColor } color - The color used by shader.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  constructor(color: ResourceColor);
+  
+  /**
+   * The color of the shader.
+   *
+   * @type { RadialGradientOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  color: ResourceColor;
+}
+
+/**
+ * Defines the text content transition class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare class ContentTransition {}
+
+/**
+ * Defines the numeric text content transition class.
+ *
+ * @extends ContentTransition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare class NumericTextTransition extends ContentTransition {
+  /**
+   * constructor.
+   *
+   * @param { NumericTextTransitionOptions } [options] -  The options of numeric text transition.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  constructor(options?: NumericTextTransitionOptions);
+
+  /**
+   * The flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * The options of numeric text transition.
+ *
+ * @interface NumericTextTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare interface NumericTextTransitionOptions {
+  /**
+   * Define the flip direction of numeric text transition.
+   *
+   * @type { ?FlipDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  flipDirection?: FlipDirection;
+
+  /**
+   * Define whether enable blur effect.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  enableBlur?: boolean;
+}
+
+/**
+ * Defines the flip direction of numeric text transition.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare enum FlipDirection {
+  /**
+   * The flip direction is down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  DOWN = 0,
+
+  /**
+   * The flip direction is up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UP = 1,
+}
+
+/**
+ * Defines the line spacing options.
+ * @interface LineSpacingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface LineSpacingOptions {
+  /**
+   * Used to set whether it will only take effect between lines. 
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onlyBetweenLines?: boolean;
+}
+
+/**
+ * Defines the reason for text changes.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextChangeReason {
+  /**
+   * Default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNKNOWN = 0,
+
+  /**
+   * Reason for input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  INPUT = 1,
+
+  /**
+   * Reason for paste.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  PASTE = 2,
+
+  /**
+   * Reason for cut.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CUT = 3,
+
+  /**
+   * Reason for drag.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  DRAG = 4,
+
+  /**
+   * Reason for auto fill.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AUTO_FILL = 5,
+
+  /**
+   * Reason for ai write.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  AI_WRITE = 6,
+
+  /**
+   * Reason for redo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  REDO = 7,
+
+  /**
+   * Reason for undo.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  UNDO = 8,
+
+  /**
+   * Reason for controller methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  CONTROLLER = 9,
+
+  /**
+   * Reason for accessibilty methods.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  ACCESSIBILITY = 10,
+
+  /**
+   * Reason for collarboration input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  COLLABORATION = 11,
+ 
+  /**
+   * Reason for stylus input.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  STYLUS = 12
+}
+
+/**
+ * Vertical Alignment of text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextVerticalAlign {
+  /**
+   * Baseline alignment, the default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BASELINE = 0,
+
+  /**
+   * Bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM = 1,
+
+  /**
+   * Center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CENTER = 2,
+
+  /**
+   * Top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TOP = 3,
+}
+
+/**
+ * Defines the options of max lines.
+ * @interface MaxLinesOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface MaxLinesOptions {
+  /**
+   * The mode of max lines.
+   *
+   * @type { ?MaxLinesMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  overflowMode?: MaxLinesMode;
+}
+
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum MaxLinesMode {
+  /**
+   * Default maxlines mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLIP = 0,
+
+  /**
+   * Scroll mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SCROLL = 1,
+}
+
+/**
+ * Keyboard Gradient mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardGradientMode {
+  /**
+   * Disable gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Linear gradient mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  LINEAR_GRADIENT = 1,
+}
+
+/**
+ * Keyboard fluid light mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum KeyboardFluidLightMode {
+  /**
+   * Disable fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Background fluid light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  BACKGROUND_FLUID_LIGHT = 1,
+}
+
+/**
+ * Defines the keyboard appearance config.
+ *
+ * @interface KeyboardAppearanceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface KeyboardAppearanceConfig {
+/**
+  * Used to set keyboard gradient mode.
+  *
+  * @type { ?KeyboardGradientMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  gradientMode?: KeyboardGradientMode;
+
+/**
+  * Used to set keyboard fluid light mode..
+  *
+  * @type { ?KeyboardFluidLightMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @systemapi
+  * @since 20
+  */
+  fluidLightMode?: KeyboardFluidLightMode;
+}
+
+/**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  nodeId: number;
+}
+
+/**
+ * Defines text layout options. Use this to set constraints for measure text.
+ *
+ * @interface TextLayoutOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare interface TextLayoutOptions {
+  /**
+   * Text display area of width.
+   *
+   * @type { ?LengthMetrics } constraintWidth
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  constraintWidth?: LengthMetrics;
 }

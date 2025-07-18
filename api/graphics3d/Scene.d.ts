@@ -18,7 +18,7 @@
  * @kit ArkGraphics3D
  */
 
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
 
@@ -122,6 +122,7 @@ export interface RaycastResult {
 export interface RaycastParameters {
   /**
    * If defined, search only the nodes in the hierarchy under this node.
+   * If undefined, search all the nodes in the scene
    *
    * @type { ?Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -130,14 +131,76 @@ export interface RaycastParameters {
   rootNode?: Node;
 }
 
+/** 
+ * The render resource factory. RenderResourceFactory is used to create resources that can be shared
+ * across Scences that share a RenderContext
+ * 
+ * @interface RenderResourceFactory
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface RenderResourceFactory {
+  /**
+   * Create a shader.
+   *
+   * @param { SceneResourceParameters } params - the param of creating a shader
+   * @returns { Promise<Shader> } promise a shader
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  createShader(params: SceneResourceParameters): Promise<Shader>;
+
+  /**
+    * Create a image.
+    *
+    * @param { SceneResourceParameters } params - the param of creating a image
+    * @returns { Promise<Image> } promise a image
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @since 20
+    */
+  createImage(params: SceneResourceParameters): Promise<Image>;
+
+  /**
+   * Create a Mesh from an array of vertices.
+   * 
+   * @param { SceneResourceParameters } params - the param of creating a Mesh object
+   * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
+   * @returns { Promise<MeshResource> } promise a Mesh
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
+
+  /**
+   * create a Sampler
+   * 
+   * @param { SceneResourceParameters } params - the param of create a sampler
+   * @returns { Promise<Sampler> } - promise a scene
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  createSampler(params:SceneResourceParameters): Promise<Sampler>
+
+  /**
+   * Create a new scene from a Resource.
+   * 
+   * @param { ResourceStr } uri - the resource of creating a scene
+   * @returns { Promise<Scene> } promise a scene
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  createScene(uri?: ResourceStr): Promise<Scene>;
+}
+
 /**
  * The scene resource factory.
  *
+ * @extends RenderResourceFactory
  * @interface SceneResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export interface SceneResourceFactory {
+export interface SceneResourceFactory extends RenderResourceFactory {
   /**
    * Create a camera.
    *
@@ -181,26 +244,6 @@ export interface SceneResourceFactory {
   createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise<Material>;
 
   /**
-   * Create a shader.
-   *
-   * @param { SceneResourceParameters } params - the param of creating a shader
-   * @returns { Promise<Shader> } promise a shader
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
-   */
-  createShader(params: SceneResourceParameters): Promise<Shader>;
-
-  /**
-   * Create a image.
-   *
-   * @param { SceneResourceParameters } params - the param of creating a image
-   * @returns { Promise<Image> } promise a image
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
-   */
-  createImage(params: SceneResourceParameters): Promise<Image>;
-
-  /**
    * Create a environment.
    *
    * @param { SceneResourceParameters } params - the param of creating a Environment object
@@ -220,27 +263,74 @@ export interface SceneResourceFactory {
    * @since 18
    */
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
+}
+
+/**
+ * Define underlying scene component
+ * 
+ * @interface SceneComponent
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface SceneComponent {
+  /**
+   * Scene component name
+   * 
+   * @type { string }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  name: string;
 
   /**
-   * Create a Mesh from an array of vertices.
+   * Component properties
    * 
-   * @param { SceneResourceParameters } params - the param of creating a Mesh object
-   * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
-   * @returns { Promise<MeshResource> } promise a Mesh
+   * @type { Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
+   * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 20
    */
-  createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise<MeshResource>;
+  readonly property: Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
+}
+
+/** 
+ * Render context defines the context for all rendering resources. Resources within the same render context
+ * may be shared between scenes created within the same render context.
+ * 
+ * @interface RenderContext
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface RenderContext {
+  /**
+   * Get resource factory.
+   * 
+   * @returns { RenderResourceFactory } -- RenderResourceFactory instance
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  getRenderResourceFactory() : RenderResourceFactory;
 
   /**
-   * Create a new scene from a Resource.
+   * Load external plugin
    * 
-   * @param { Resource } uri - the resource of creating a scene
-   * @returns { Promise<Scene> } promise a scene
+   * @param {string} name - Name of the plugin
+   * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 20
    */
-  createScene(uri?: ResourceStr): Promise<Scene>;
+  loadPlugin(name: string): Promise<boolean>;
+
+  /**
+   * Register resource path
+   *
+   * @param { string } protocol - Protocol of the uri
+   * @param { string } uri - Path to register
+   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  registerResourcePath(protocol: string, uri: string): boolean;
 }
 
 /**
@@ -269,6 +359,16 @@ export interface RenderParameters {
  * @since 12
  */
 export class Scene {
+  /**
+   * Get default render context
+   *
+   * @returns { RenderContext | null } -- The default RenderContext instance
+   * @static
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  static getDefaultRenderContext(): RenderContext | null;
+
   /**
    * Create a new scene from a ResourceStr.
    *
@@ -372,4 +472,26 @@ export class Scene {
    * @since 15
    */
   renderFrame(params?: RenderParameters): boolean;
+
+  /**
+   * Create a new component.
+   * 
+   * @param { Node } node - The node the component is attached to
+   * @param { string } name - The name of the component to load. Valid names are defined by each plugin.
+   * @returns { Promise<SceneComponent> } - The newly added component.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20  
+   */
+  createComponent(node: Node, name: string): Promise<SceneComponent>;
+
+  /**
+    * Get component by name.
+    * 
+    * @param { Node } node - The node component is attached to. 
+    * @param { string } name - name of the component
+    * @returns { SceneComponent | null }
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @since 20
+    */
+  getComponent(node: Node, name: string): SceneComponent | null;
 }

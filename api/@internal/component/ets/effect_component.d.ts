@@ -37,6 +37,74 @@ interface EffectComponentInterface {
    * @since 10
    */
   (): EffectComponentAttribute;
+  
+  /**
+   * Return effectComponent.
+   *
+   * @param { EffectComponentOptions } [options] - EffectComponent constructor options.
+   * @returns { EffectComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  (options?: EffectComponentOptions): EffectComponentAttribute;
+}
+
+/**
+ * Effect layer enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare enum EffectLayer {
+  /**
+   * No layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Charge motion layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  CHARGE_MOTION = 1,
+
+  /**
+   * Charge text layer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  CHARGE_TEXT = 2
+}
+
+/**
+ * Defines the Effect Component constructor options.
+ *
+ * @interface EffectComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 20
+ */
+declare interface EffectComponentOptions {
+
+  /** Use this to determine the component layer 1evel. Default value is none.
+   *
+   * @type { ?EffectLayer }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
+  effectLayer?: EffectLayer;
 }
 
 /**
@@ -47,7 +115,19 @@ interface EffectComponentInterface {
  * @systemapi
  * @since 10
  */
-declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {}
+declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
+  /**
+   * Use snapshot when Effect Component have no visual effect.
+   *
+   * @param { boolean } enable
+   * @returns { EffectComponentAttribute }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 19
+   */
+  alwaysSnapshot(enable: boolean): EffectComponentAttribute;
+}
 
 /**
  * Defines Effect Component.

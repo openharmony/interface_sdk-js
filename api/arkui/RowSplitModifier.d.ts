@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines RowSplit Modifier
+ *
+ * @extends RowSplitAttribute
+ * @implements AttributeModifier<RowSplitAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class RowSplitModifier extends RowSplitAttribute implements AttributeModifier<RowSplitAttribute> {
 
   /**

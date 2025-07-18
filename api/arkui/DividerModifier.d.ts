@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Divider Modifier
+ *
+ * @extends DividerAttribute
+ * @implements AttributeModifier<DividerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class DividerModifier extends DividerAttribute implements AttributeModifier<DividerAttribute> {
 
   /**

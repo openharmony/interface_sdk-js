@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines GridItem Modifier
+ *
+ * @extends GridItemAttribute
+ * @implements AttributeModifier<GridItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class GridItemModifier extends GridItemAttribute implements AttributeModifier<GridItemAttribute> {
 
   /**

@@ -43,7 +43,7 @@
  * @since 10
  */
 /**
- * Defines the options of Flex.
+ * Describes the layout and alignment of child components within the Flex component.
  *
  * @interface FlexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -78,9 +78,10 @@ declare interface FlexOptions {
    * @since 10
    */
   /**
-   * Sets the horizontal layout of elements.
+   * Direction in which child components are arranged in the Flex component.
    *
    * @type { ?FlexDirection }
+   * @default FlexDirection.Row
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -114,9 +115,10 @@ declare interface FlexOptions {
    * @since 10
    */
   /**
-   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * Whether the Flex component has a single line or multiple lines.
    *
    * @type { ?FlexWrap }
+   * @default FlexWrap.NoWrap
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -150,9 +152,10 @@ declare interface FlexOptions {
    * @since 10
    */
   /**
-   * The alignment format of the subassembly on the Flex container spindle.
+   * Alignment mode of the child components in the Flex component along the main axis.
    *
    * @type { ?FlexAlign }
+   * @default FlexAlign.Start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -186,9 +189,10 @@ declare interface FlexOptions {
    * @since 10
    */
   /**
-   * Alignment Format for Subassembly on Flex Container Cross Axis.
+   * Alignment mode of the child components in the Flex component along the cross axis.
    *
    * @type { ?ItemAlign }
+   * @default ItemAlign.Start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -222,9 +226,11 @@ declare interface FlexOptions {
    * @since 10
    */
   /**
-   * The alignment of multiple lines of content when there is extra space in the cross axis.
+   * Alignment mode of the child components in a multi-row Flex component along the cross axis.
+   * This parameter is valid only when wrap is set to Wrap or WrapReverse.
    *
    * @type { ?FlexAlign }
+   * @default FlexAlign.Start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -234,10 +240,10 @@ declare interface FlexOptions {
   alignContent?: FlexAlign;
 
   /**
-   * The space to be inserted, either horizontally or vertically,
-   * between two adjacent components in the Flex container.
+   * Spacing between child components along the main axis or cross axis of the Flex component.
    *
    * @type { ?FlexSpaceOptions }
+   * @default {main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -247,8 +253,7 @@ declare interface FlexOptions {
 }
 
 /**
- * The space to be inserted, either horizontally or vertically,
- * between two adjacent components in the Flex container.
+ * Defines the spacing between child components along the main axis or cross axis of the Flex component.
  *
  * @interface FlexSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,7 +264,7 @@ declare interface FlexOptions {
 
 declare interface FlexSpaceOptions {
   /**
-   * Defines the main space property.
+   * Space on the main axis of the Flex component.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -270,7 +275,7 @@ declare interface FlexSpaceOptions {
   main?: LengthMetrics;
 
   /**
-   * Defines the cross space property.
+   * Space on the main axis of the Flex component.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -536,6 +536,21 @@ declare namespace connection {
   function getRemoteDeviceClass(deviceId: string): DeviceClass;
 
   /**
+   * Get the transport of the bluetooth device.
+   *
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @returns { BluetoothTransport } The transport of bluetooth device.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Get transport failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getRemoteDeviceTransport(deviceId: string): BluetoothTransport;
+
+  /**
    * Obtains the Bluetooth local name of a device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1774,7 +1789,23 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
-    TRANSPORT_LE = 1
+    TRANSPORT_LE = 1,
+    /**
+     * The value of bluetooth transport DUAL.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    TRANSPORT_DUAL = 2,
+    /**
+     * The unknown bluetooth transport.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    TRANSPORT_UNKNOWN = 3
   }
 
   /**

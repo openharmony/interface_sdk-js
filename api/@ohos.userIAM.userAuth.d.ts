@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,7 +28,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @since 6
  */
 /**
- * User authentication
+ * The userAuth module provides APIs for user authentication, which applies to scenarios such as device unlocking,
+ * payment, and application login.
  *
  * @namespace userAuth
  * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -37,7 +38,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace userAuth {
   /**
-   * Represents the maximum period for which the device unlocking result can be reused.
+   * Maximum reuse duration of the authentication result, in milliseconds. The value is 300000.
    *
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -688,7 +689,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Authentication type pin.
+     * PIN authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -703,7 +704,7 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication type face.
+     * Facial authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -718,7 +719,7 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication type fingerprint.
+     * Fingerprint authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -727,7 +728,7 @@ declare namespace userAuth {
     FINGERPRINT = 4,
 
     /**
-     * Authentication type private pin.
+     * Privacy password authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -745,6 +746,8 @@ declare namespace userAuth {
    */
   /**
    * Enumerates the trust levels of the authentication result.
+   * For details about typical scenarios and examples, see Principles for Classifying Biometric
+   * Authentication Trust Levels.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -759,7 +762,9 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication result trusted level 1.
+     * Authentication trust level 1. The authentication of this level can identify individual users and provides
+     * limited liveness detection capabilities. It is applicable to scenarios such as service risk control and
+     * access to common personal data.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -774,7 +779,9 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication result trusted level 2.
+     * Authentication trust level 2. The authentication of this level can accurately identify individual users and
+     * provides regular liveness detection capabilities. It is applicable to scenarios such as device unlocking
+     * and application login.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -789,7 +796,8 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication result trusted level 3.
+     * Authentication trust level 3. The authentication of this level can accurately identify individual users and
+     * provides strong liveness detection capabilities. It is applicable to scenarios such as device unlocking.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -804,7 +812,8 @@ declare namespace userAuth {
      * @since 8
      */
     /**
-     * Authentication result trusted level 4.
+     * Authentication trust level 4. The authentication of this level can accurately identify individual users and
+     * provides powerful liveness detection capabilities. It is applicable to scenarios such as small-amount payment.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1024,9 +1033,23 @@ declare namespace userAuth {
   /**
    * Checks whether the specified authentication capability is supported.
    *
+   * <p><strong>NOTE</strong>:
+   * <br>Error code 12500005 is returned if the authentication executor is not registered and the specified
+   * authentication capability is not supported.
+   * <br>Error code 12500006 is returned if the authentication executor has been registered, the authentication
+   * functionality is not disabled, but the authentication trust level is lower than that specified by the service.
+   * <br>Error code 12500010 is returned if the authentication executor has been registered, the authentication
+   * functionality is not disabled, but the user has not enrolled credential.
+   * <br>Error code 12500013 is returned if the authentication executor has been registered, the authentication
+   * functionality is not disabled, but the password has expired.
+   * <br>If getAvailableStatus is called to check whether lock screen password authentication at ATL4 is supported
+   * for a user who has enrolled a 4-digit PIN as the lock screen password (the authentication trust level is ATL3),
+   * error code 12500010 will be returned.
+   * </p>
+   *
    * @permission ohos.permission.ACCESS_BIOMETRIC
-   * @param { UserAuthType } authType - Credential type for authentication.
-   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+   * @param { UserAuthType } authType - Authentication type. PIN is supported since API version 11.
+   * @param { AuthTrustLevel } authTrustLevel - Authentication trust level.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
@@ -1042,7 +1065,7 @@ declare namespace userAuth {
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
   /**
-   * Represents information about the enrolled credentials.
+   * Represents the state of a credential enrolled.
    *
    * @typedef EnrolledState
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1051,7 +1074,7 @@ declare namespace userAuth {
    */
   interface EnrolledState {
     /**
-     * The credential digest.
+     * Credential digest, which is randomly generated when a credential is added.
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1061,7 +1084,7 @@ declare namespace userAuth {
     credentialDigest: number;
 
     /**
-     * The credential count.
+     * Number of enrolled credentials.
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1072,11 +1095,11 @@ declare namespace userAuth {
   }
 
   /**
-   * Obtains information about the credentials enrolled. With this API, you can obtain the change of the credentials.
+   * Obtains the credential state.
    *
    * @permission ohos.permission.ACCESS_BIOMETRIC
-   * @param { UserAuthType } authType - Credential type for authentication.
-   * @returns { EnrolledState } Returns the enrolled state.
+   * @param { UserAuthType } authType - Authentication type.
+   * @returns { EnrolledState } Credential state obtained if the operation is successful.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
@@ -1108,7 +1131,7 @@ declare namespace userAuth {
   function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
 
   /**
-   * Window mode type for user authentication widget.
+   * Enumerates the window types of the authentication widget.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1136,7 +1159,7 @@ declare namespace userAuth {
   }
 
   /**
-   * Represents the mode for reusing the device unlocking result.
+   * Enumerates the modes for reusing authentication results.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1145,8 +1168,8 @@ declare namespace userAuth {
    */
   enum ReuseMode {
     /**
-     * Authentication type relevant.The unlock authentication result can be reused only when the result is within
-     * valid duration as well as it comes from one of specified UserAuthTypes of the AuthParam.
+     * The device unlock authentication result can be reused within the validity period if the authentication type
+     * matches any of the authentication types specified for this authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1155,8 +1178,8 @@ declare namespace userAuth {
     AUTH_TYPE_RELEVANT = 1,
 
     /**
-     * Authentication type irrelevant.The unlock authentication result can be reused as long as the result is within
-     * valid duration.
+     * The device unlock authentication result can be reused within the validity period regardless of the
+     * authentication type.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1165,9 +1188,9 @@ declare namespace userAuth {
     AUTH_TYPE_IRRELEVANT = 2,
 
     /**
-     * Caller irrelevant authentication type relevant.The latest authentication result (not only unlock authentication
-     * result) can be reused only when the result is within valid duration as well as it comes from one of specified
-     * UserAuthTypes of the AuthParam.
+     * Any identity authentication result (including device unlock authentication result) can be reused within the
+     * validity period if the authentication type matches any of the authentication types specified for
+     * this authentication.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1176,8 +1199,8 @@ declare namespace userAuth {
     CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT = 3,
 
     /**
-     * Caller irrelevant authentication type irrelevant.The latest authentication result (not only unlock
-     * authentication result) can be reused as long as the result is within valid duration.
+     * Any identity authentication result (including device unlock authentication result) can be reused within the
+     * validity period regardless of the authentication type.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1187,7 +1210,18 @@ declare namespace userAuth {
   }
 
   /**
-   * Represents the device unlocking result.
+   * Represents information about the authentication result reuse.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If the credential changes within the reuse duration after a successful identity authentication
+   * (including device unlock authentication), the authentication result can still be reused and the actual
+   * EnrolledState is returned in the authentication result.
+   * <br>If the credential used for the previous authentication has been deleted when the authentication
+   * result is used:
+   * 1.If the deleted credential is face or fingerprint, the authentication result can still be reused, but
+   * credentialCount and credentialDigest in the EnrolledState returned are both 0.
+   * 2.If the deleted credential is a lock screen password, the reuse will fail.
+   * </p>
    *
    * @typedef ReuseUnlockResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1196,7 +1230,7 @@ declare namespace userAuth {
    */
   interface ReuseUnlockResult {
     /**
-     * The mode for reusing unlock authentication result.
+     * Authentication result reuse mode.
      *
      * @type { ReuseMode }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1206,7 +1240,8 @@ declare namespace userAuth {
     reuseMode: ReuseMode;
 
     /**
-     * The allowable reuse duration.The value of the duration should be between 0 and MAX_ALLOWABLE_REUSE_DURATION.
+     * Period for which the authentication result can be reused. The value must be greater than 0 and less
+     * than MAX_ALLOWABLE_REUSE_DURATION.
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1240,7 +1275,8 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Pass in challenge value.
+     * Random challenge value, which can be used to prevent replay attacks.
+     * It cannot exceed 32 bytes and can be passed in Uint8Array([]) format.
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1257,7 +1293,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Credential type for authentication.
+     * Authentication type list, which specifies the types of authentication provided on the user authentication page.
      *
      * @type { UserAuthType[] }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1274,7 +1310,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Trust level of authentication result.
+     * Authentication trust level. For details, see Principles for Classifying Biometric Authentication Trust Levels.
      *
      * @type { AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1284,7 +1320,7 @@ declare namespace userAuth {
     authTrustLevel: AuthTrustLevel;
 
     /**
-     * Reuse unlock authentication result.
+     * Information about the authentication result reuse.
      *
      * @type { ?ReuseUnlockResult }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1294,14 +1330,25 @@ declare namespace userAuth {
     reuseUnlockResult?: ReuseUnlockResult;
 
     /**
-     * The user id to authenticate.
+     * ID of the user to be authenticated.
      *
      * @type { ?number }
+     * @default The ID of the current user. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18
      */
     userId?: number;
+
+    /**
+     * Indicates whether to skip biometric authentication which has been locked by continuous failures.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    skipLockedBiometricAuth?: boolean;
   }
 
   /**
@@ -1328,7 +1375,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Title of widget.
+     * Title of the user authentication page. It cannot exceed 500 characters.
      *
      * @type { string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1345,7 +1392,9 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * The description text of navigation button.
+     * Text on the navigation button. It cannot exceed 60 characters. It is supported in single fingerprint or facial
+     * authentication before API version 18. Since API version 18, it is also supported in combined facial and
+     * fingerprint authentication.
      *
      * @type { ?string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1355,7 +1404,7 @@ declare namespace userAuth {
     navigationButtonText?: string;
 
     /**
-     * Display type of widget.
+     * Display format of the user authentication page.
      *
      * @type { ?WindowModeType }
      * @default WindowModeType.DIALOG_BOX
@@ -1366,8 +1415,9 @@ declare namespace userAuth {
     windowMode?: WindowModeType;
 
     /**
-     * Display the authentication dialog in modal application mode. This mode is supported only on PC. Without this
-     * parameter or on other kind of devices, the authentication dialog would be displayed in modal system mode.
+     * Whether to display the authentication dialog box in modal application mode. This mode is applicable only
+     * to 2-in-1 devices. If this mode is not used or other types of devices are used, the authentication dialog
+     * box is displayed in modal system mode.
      *
      * @type { ?Context }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1385,7 +1435,8 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Defines the user authentication result. If the authentication is successful, the authentication type and token information are returned.
+   * Represents the user authentication result. If the authentication is successful, the authentication type and token
+   * information are returned.
    *
    * @typedef UserAuthResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1401,7 +1452,8 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * The authentication result.
+     * User authentication result. If the authentication is successful, SUCCESS is returned. Otherwise, an error code
+     * is returned. For details, see UserAuthResultCode.
      *
      * @type { number }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1418,7 +1470,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * The authentication result if the authentication is passed.
+     * Authentication token information.
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1435,7 +1487,7 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Credential type for authentication succeed.
+     * Authentication type.
      *
      * @type { ?UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1445,8 +1497,7 @@ declare namespace userAuth {
     authType?: UserAuthType;
 
     /**
-     * The enrolled state for authentication succeed. EnrolledState would be returned when the authentication has
-     * passed.
+     * Credential state.
      *
      * @type { ?EnrolledState }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1481,7 +1532,8 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Called to return the authentication result. If the authentication is successful, the token information can be obtained from UserAuthResult.
+     * Called to return the authentication result. If the authentication is successful,
+     * UserAuthResult contains the token information.
      *
      * @param { UserAuthResult } result - Authentication result information.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1492,6 +1544,111 @@ declare namespace userAuth {
   }
 
   /**
+   * Authentication tip code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum UserAuthTipCode {
+    /**
+     * Authentication tip for authentication failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    COMPARE_FAILURE = 1,
+  
+    /**
+     * Authentication tip for authentication timeout.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TIMEOUT = 2,
+  
+    /**
+     * Authentication tip for authentication temporarily frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    TEMPORARILY_LOCKED = 3,
+  
+    /**
+     * Authentication tip for authentication permanent frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    PERMANENTLY_LOCKED = 4,
+  
+    /**
+     * Authentication tip for widget load success.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_LOADED = 5,
+  
+    /**
+     * Authentication tip for widget released.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    WIDGET_RELEASED = 6
+  }
+  
+  /**
+   * Authentication tip information.
+   *
+   * @typedef AuthTipInfo
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface AuthTipInfo {
+    /**
+     * Authentication tip type.
+     *
+     * @type { UserAuthType }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipType: UserAuthType;
+  
+    /**
+     * Authentication tip code.
+     *
+     * @type { UserAuthTipCode }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    tipCode: UserAuthTipCode;
+  }
+  
+  /**
+   * The authentication tip information is returned through the callback.
+   *
+   * @typedef { function } AuthTipCallback
+   * @param { AuthTipInfo } authTipInfo - Tips returned during authentication process.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   */
+  type AuthTipCallback = (authTipInfo: AuthTipInfo) => void;
+
+  /**
    * User authentication instance, used to initiate a complete authentication.
    *
    * @interface UserAuthInstance
@@ -1499,8 +1656,8 @@ declare namespace userAuth {
    * @since 10
    */
   /**
-   * Provides APIs for user authentication. The user authentication widget is supported.
-   * Before using the APIs, you need to obtain a UserAuthInstance instance by using getUserAuthInstance.
+   * Provides APIs for user authentication. The user authentication widget is supported. Before using the APIs
+   * of UserAuthInstance, you must obtain a UserAuthInstance instance by using getUserAuthInstance.
    *
    * @interface UserAuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1524,8 +1681,8 @@ declare namespace userAuth {
     /**
      * Subscribes to the user authentication result.
      *
-     * @param { 'result' } type - Indicates the type of event.
-     * @param { IAuthCallback } callback - Indicates the listener.
+     * @param { 'result' } type - Event type. The value is result, which indicates the authentication result.
+     * @param { IAuthCallback } callback - Callback used to return the user authentication result.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -1551,10 +1708,14 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Unsubscribes from the user authentication result. The UserAuthInstance instance used to invoke this API must be the one used to subscribe to the event.
+     * Unsubscribes from the user authentication result.
      *
-     * @param { 'result' } type - Indicates the type of event.
-     * @param { IAuthCallback } callback - Indicates the listener.
+     * <p><strong>NOTE</strong>:
+     * <br>The UserAuthInstance instance used to invoke this API must be the one used to subscribe to the event.
+     * </p>
+     *
+     * @param { 'result' } type - Event type. The value is result, which indicates the authentication result.
+     * @param { IAuthCallback } callback - Callback to unregister.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -1609,7 +1770,13 @@ declare namespace userAuth {
      * @since 12
      */
     /**
-     * Start this authentication, an instance can only perform authentication once.
+     * Starts authentication.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>Each UserAuthInstance can be used for authentication only once.
+     * <br>Starting from API version 20, only system applications can apply for the
+     * ohos.permission.USER_AUTH_FROM_BACKGROUND permission.
+     * </p>
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC or ohos.permission.USER_AUTH_FROM_BACKGROUND
      * @throws { BusinessError } 201 - Permission verification failed. Possible causes:
@@ -1646,7 +1813,11 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Cancel this authentication, userAuthInstance must be the instance being authenticated.
+     * Cancels this authentication.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>UserAuthInstance must be the instance being authenticated.
+     * </p>
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -1658,6 +1829,32 @@ declare namespace userAuth {
      * @since 12
      */
     cancel(): void;
+
+    /**
+     * Turn on authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } callback - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'authTip', callback: AuthTipCallback): void;
+
+    /**
+     * Turn off authentication tip event listening.
+     *
+     * @param { 'authTip' } type - Indicates the type of event.
+     * @param { AuthTipCallback } [callback] - Indicates the listener.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500008 - The parameter is out of range.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'authTip', callback?: AuthTipCallback): void;
   }
 
   /**
@@ -1678,7 +1875,10 @@ declare namespace userAuth {
    */
   /**
    * Obtains a UserAuthInstance instance for user authentication. The user authentication widget is also supported.
-   * A UserAuthInstance instance can be used for an authentication only once.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>Each UserAuthInstance can be used for authentication only once.
+   * </p>
    *
    * @param { AuthParam } authParam - Auth parameter.
    * @param { WidgetParam } widgetParam - Widget parameter.
@@ -1697,7 +1897,7 @@ declare namespace userAuth {
   function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
 
   /**
-   * Notice type for user authentication.
+   * Defines the type of the user authentication notification.
    *
    * @enum { number }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1706,7 +1906,7 @@ declare namespace userAuth {
    */
   enum NoticeType {
     /**
-     * Notice from widget.
+     * Notification from the user authentication widget.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1716,11 +1916,11 @@ declare namespace userAuth {
   }
 
   /**
-   * Send notice to user authentication.
+   * Sends a notification from the user authentication widget.
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { NoticeType } noticeType - Notice type for user authentication.
-   * @param { string } eventData - The event data from widget.
+   * @param { NoticeType } noticeType - Notification type.
+   * @param { string } eventData - Event data. The data cannot exceed 65536 bytes.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
@@ -1757,7 +1957,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that the result is success or ability is supported.
+     * The authentication is successful.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1772,7 +1972,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that the authentication result is failed.
+     * The authentication failed.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1787,7 +1987,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates other errors.
+     * A general operation error occurred.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1802,7 +2002,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that this operation is canceled.
+     * The authentication is canceled.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1817,7 +2017,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that this operation is time-out.
+     * The authentication has timed out.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1832,7 +2032,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that this authentication type is not supported.
+     * The authentication type is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1847,7 +2047,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that the authentication trust level is not supported.
+     * The authentication trust level is not supported.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1862,7 +2062,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+     * The system does not respond.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1871,13 +2071,22 @@ declare namespace userAuth {
     BUSY = 12500007,
 
     /**
+     * Indicates that the paramter is out of range.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    INVALID_PARAMETERS = 12500008,
+
+    /**
      * Indicates that the authenticator is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
     /**
-     * Indicates that the authenticator is locked.
+     * The authentication executor is locked.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1892,7 +2101,7 @@ declare namespace userAuth {
      * @since 9
      */
     /**
-     * Indicates that the user has not enrolled the authenticator.
+     * The user has not enrolled the specified system identity authentication credential.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1907,7 +2116,8 @@ declare namespace userAuth {
      * @since 10
      */
     /**
-     * Indicates that this operation is canceled from widget's navigation button.
+     * The user cancels the system authentication and selects a custom authentication of the application.
+     * The caller needs to launch the custom authentication page.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1916,7 +2126,7 @@ declare namespace userAuth {
     CANCELED_FROM_WIDGET = 12500011,
 
     /**
-     * Indicates that current operation failed because of PIN expired.
+     * The authentication failed because the lock screen password has expired.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
@@ -1925,7 +2135,7 @@ declare namespace userAuth {
     PIN_EXPIRED = 12500013,
 
     /**
-     * Indicates that current operation failed because of authToken integrity check failed.
+     * The AuthToken is invalid.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1934,17 +2144,28 @@ declare namespace userAuth {
     AUTH_TOKEN_CHECK_FAILED = 12500015,
 
     /**
-     * Indicates that current operation failed because of authToken has expired.
+     * The interval between the AuthToken issuance time and the AuthToken verification time exceeds
+     * the maximum validity period.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    AUTH_TOKEN_EXPIRED = 12500016
+    AUTH_TOKEN_EXPIRED = 12500016,
+
+    /**
+     * Indicates that reuse of last authentication result is failed.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    REUSE_AUTH_RESULT_FAILED = 12500017
   }
 
   /**
-   * User authentication widget's manager, used to manage widget's client.
+   * Provides APIs for managing the user authentication widget. You can use the APIs to register the user
+   * authentication widget with UserAuthWidgetMgr for management and scheduling.
    *
    * @interface UserAuthWidgetMgr
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1953,10 +2174,12 @@ declare namespace userAuth {
    */
   interface UserAuthWidgetMgr {
     /**
-     * Turn on authentication widget command event listening.
+     * Subscribes to commands from the user authentication framework for the user authentication widget.
      *
-     * @param { 'command' } type - Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback - Indicates the listener.
+     * @param { 'command' } type - Event type. The vlaue is command, which indicates the command sent from the user
+     * authentication framework to the user authentication widget.
+     * @param { IAuthWidgetCallback } callback - Callback used to return the command from the user authentication
+     * framework to the user authentication widget.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -1969,10 +2192,11 @@ declare namespace userAuth {
     on(type: 'command', callback: IAuthWidgetCallback): void;
 
     /**
-     * Turn off authentication widget command event listening.
+     * Unsubscribes from commands sent from the user authentication framework.
      *
-     * @param { 'command' } type - Indicates the type of event.
-     * @param { IAuthWidgetCallback } callback - Indicates the listener.
+     * @param { 'command' } type - Event type. The value is command, which indicates the command sent from the user
+     * authentication framework to the user authentication widget.
+     * @param { IAuthWidgetCallback } callback - Callback to unregister.
      * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -1986,11 +2210,15 @@ declare namespace userAuth {
   }
 
   /**
-   * Get authentication instance with widget.
+   * Obtains a UserAuthWidgetMgr instance for user authentication.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>A UserAuthInstance instance can be used for an authentication only once.
+   * </p>
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version - The version of widget.
-   * @returns { UserAuthWidgetMgr } Returns an authentication manager.
+   * @param { number } version - Version of the user authentication widget.
+   * @returns { UserAuthWidgetMgr } UserAuthWidgetMgr instance obtained.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
@@ -2004,7 +2232,8 @@ declare namespace userAuth {
   function getUserAuthWidgetMgr(version: number): UserAuthWidgetMgr;
 
   /**
-   * Asynchronous callback of authentication widget operation.
+   * Provides the callback for returning the commands sent from the user authentication framework
+   * to the user authentication widget.
    *
    * @interface IAuthWidgetCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -2013,15 +2242,33 @@ declare namespace userAuth {
    */
   interface IAuthWidgetCallback {
     /**
-     * The command data for authentication with widget is sent through the callback.
+     * Called to return the command sent from the user authentication framework to the user authentication widget.
      *
-     * @param { string } cmdData - The command data for authentication with widget.
+     * @param { string } cmdData - Command sent from the user authentication framework to the user
+     * authentication widget.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     sendCommand(cmdData: string): void;
   }
+
+  /**
+   * Obtains the reusable authentication result.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { AuthParam } authParam - Auth parameter.
+   * @returns { Uint8Array } The reuse authentication token.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500008 - The parameter is out of range.
+   * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
 }
 
 export default userAuth;

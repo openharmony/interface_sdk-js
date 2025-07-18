@@ -404,11 +404,13 @@ declare namespace curves {
      * @since 10
      */
     /**
-     * Get curve value by fraction.
+     * Implements calculation.
      *
-     * @param { number } fraction -Indicates the current normalized time parameter. Value range: [0, 1].
-     * Note: If the value is less than 0, it will be processed as 0. If the value is greater than 1, 1 is used.
-     * @returns { number }
+     * @param { number } fraction - Current normalized time.<br>Value range: [0, 1].
+     * <p>**NOTE**:
+     * <br>A value less than 0 is handed as **0**. A value greater than 1 is handed as **1**.
+     * </p>
+     * @returns { number } - Curve interpolation corresponding to the normalized time point.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -435,9 +437,10 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Initializes the interpolator curve when called.
+   * Implements initialization for the interpolation curve,
+   * which is used to create an interpolation curve based on the input parameter.
    *
-   * @param { Curve } [curve] The default value is Curve.Linear
+   * @param { Curve } [curve] - Curve type.<br>Default value: **Curve.Linear**.
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -478,11 +481,16 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a step curve when called.
+   * Creates a step curve.
    *
-   * @param { number } count -The number of steps. The range of this value is [1, +∞).
-   * @param { boolean } end -A step change occurs at the start or end of each interval.
-   * @returns { ICurve }
+   * @param { number } count - Number of steps. The value must be a positive integer.<br>Value range: [1, +∞).
+   * <p>**NOTE**:
+   * <br>A value less than 1 evaluates to the value **1**.
+   * </p>
+   * @param { boolean } end -Whether jumping occurs when the interpolation ends.
+   * **true**: Jumping occurs when the interpolation ends.
+   * *false**: Jumping occurs when the interpolation starts.
+   * @returns { ICurve } Interpolation curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -500,10 +508,17 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a custom curve when called.
+   * Creates a custom curve.
    *
-   * @param { function } interpolate - fraction range is [0,1], the return number must between [0,1].
-   * @returns { ICurve }
+   * @param { function } interpolate - Custom interpolation callback.fraction: input x value for interpolation.
+   * when the animation starts. Value range: [0, 1]The return value is the y value of the curve. Value range: [0, 1].
+   * <p>**NOTE**:
+   * <br>If fraction is 0, the return value 0 corresponds to the animation start point; any other return value means that
+   * <br>the animation jumps at the start point.If fraction is 1, the return value 1 corresponds to the animation
+   * <br>end point; any other return value means that the end value of the animation is not the value of the state
+   * <br>variable, which will result in an effect of transition from that end value to the value of the state variable.
+   * </p>
+   * @returns { ICurve } Interpolation curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -551,15 +566,19 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a third-order Bezier curve when called.
+   * Creates a cubic Bezier curve. The curve values must be between 0 and 1.
    *
-   * @param { number } x1 -Value range [0, 1].
-   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
-   * @param { number } y1 -Value range (-∞, +∞).
-   * @param { number } x2 -Value range [0, 1].
-   * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
-   * @param { number } y2 -Value range (-∞, +∞).
-   * @returns { ICurve }
+   * @param { number } x1 - X coordinate of the first point on the Bezier curve.<br>Value range: [0, 1].
+   * <p>**NOTE**:
+   * <br>A value less than 0 is handed as **0**. A value greater than 1 is handed as **1**.
+   * </p>
+   * @param { number } y1 - Y coordinate of the first point on the Bezier curve.<br>Value range: (-∞, +∞).
+   * @param { number } x2 - X coordinate of the second point on the Bezier curve.<br>Value range: [0, 1].
+   * <p>**NOTE**:
+   * <br>A value less than 0 is handed as **0**. A value greater than 1 is handed as **1**.
+   * </p>
+   * @param { number } y2 - Y coordinate of the second point on the Bezier curve.<br>Value range: (-∞, +∞).
+   * @returns { ICurve } Interpolation curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -568,7 +587,8 @@ declare namespace curves {
   function cubicBezierCurve(x1: number, y1: number, x2: number, y2: number): ICurve;
 
   /**
-   * Constructs a third-order Bezier curve when called.
+   * Creates a cubic Bezier curve. The curve value must range from 0 to 1. This API is deprecated since API version 9.
+   * You are advised to use cubicBezierCurve instead.
    *
    * @param { number } x1 -Value range [0, 1].
    * Note: If the value is less than 0, 0 is used. If the value is greater than 1, 1 is used.
@@ -608,13 +628,32 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a spring curve when called.
+   * Creates a spring curve. The curve shape is subject to the spring parameters, and the animation duration
+   * is subject to the **duration** parameter in **animation** and **animateTo**.
    *
-   * @param { number } velocity -Value range (-∞, +∞).
-   * @param { number } mass -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
-   * @param { number } stiffness -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
-   * @param { number } damping -Value range (0, +∞). Note: If the value is less than or equal to 0, 1 is used.
-   * @returns { ICurve }
+   * @param { number } velocity - Initial velocity. It is applied by external factors to the spring animation,
+   * designed to help ensure the smooth transition from the previous motion state. The velocity is the normalized
+   * velocity, and its value is equal to the actual velocity at the beginning of the animation divided by the
+   * animation attribute change value.Value range: (-∞, +∞).
+   * @param { number } mass - Mass, which influences the inertia in the spring system. The greater the mass,
+   * the greater the amplitude of the oscillation, and the slower the speed of restoring to the equilibrium position.
+   * Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value 1 is used.
+   * </p>
+   * @param { number } stiffness - Stiffness.It is the degree to which an object deforms by resisting the force 
+   * applied. In an elastic system, the greater the stiffness, the stronger the ability to resist deformation, 
+   * and the faster the speed of restoring to the equilibrium position.Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value 1 is used.
+   * </p>
+   * @param { number } damping -Damping. It is used to describe the oscillation and attenuation of the system 
+   * after being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion,
+   * and the smaller the oscillation amplitude.Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value 1 is used.
+   * </p>
+   * @returns { ICurve } Interpolation curve.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -667,14 +706,34 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a spring motion when called.
+   * Creates a spring animation curve. 
+   * If multiple spring animations are applied to the same attribute of an object,
+   * each animation replaces their predecessor and inherits the velocity.
    *
-   * @param { number } [response] The default value is 0.55. Unit: seconds. Value range: (0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.55 is used.
-   * @param { number } [dampingFraction] The default value is 0.825. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.825 is used.
-   * @param { number } [overlapDuration] The default value is 0. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0 is used.
+   * @param { number } [response] Duration of one complete oscillation.
+   * <br>Default value: **0.55**.<br>Unit: second<br>Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the default value **0.55** is used.
+   * </p>
+   * @param { number } [dampingFraction] Damping coefficient.
+   * **0**: undamped. In this case, the spring oscillates forever.<br>> 0 and < 1: underdamped. 
+   * In this case, the spring overshoots the equilibrium position.<br>**1**: critically damped.
+   * 1: overdamped. In this case, the spring approaches equilibrium gradually.<br>Default value: **0.825**.
+   * Unit: second.
+   * Value range: [0, +∞).
+   * <p>**NOTE**:
+   * <br>A value less than 0 evaluates to the default value **0.825**.
+   * </p>
+   * @param { number } [overlapDuration]  Duration for animations to overlap, in seconds.
+   * When animations overlap, the **response** values of these animations will transit smoothly over this duratio
+   * if they are different.<br>Default value: **0**<br>Unit: second<br>Value range: [0, +∞).
+   * <p>**NOTE**
+   * <br>A value less than 0 evaluates to the default value **0**.
+   * <br>The spring animation curve is physics-based. Its duration depends on the **springMotion** parameters and
+   * the previous velocity, rather than the **duration** parameter in animation, animateTo, or pageTransition. 
+   * The time cannot be normalized. Therefore, the interpolation cannot be obtained using
+   * the **interpolate** function of the curve.
+   * </p>
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -711,15 +770,29 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs a responsive spring motion when called.
-   * The parameters are interpreted as in springMotion.
+   * Creates a responsive spring animation curve. It is a special case of [springMotion](#curvesspringmotion9),
+   * with the only difference in the default values. It can be used together with **springMotion**.
    *
-   * @param { number } [response] The default value is 0.15. Unit: seconds. Value range: (0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.15 is used.
-   * @param { number } [dampingFraction] The default value is 0.86. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.86 is used.
-   * @param { number } [overlapDuration] The default value is 0.25. Unit: seconds. Value range: [0, +∞).
-   * Note: If a value is set to 0 or less, the default value of 0.25 is used.
+   * @param { number } [response] See **response** in **springMotion**.<br>Default value: **0.15**.
+   * Unit: second<br>Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the default value **0.15** is used.
+   * </p>
+   * @param { number } [dampingFraction] See **dampingFraction** in **springMotion**.<br>Default value: **0.86**.
+   * Unit: second<br>Value range: [0, +∞).
+   * <p>**NOTE**
+   * <br>A value less than 0 evaluates to the default value **0.86**.
+   * </p>
+   * @param { number } [overlapDuration] See **overlapDuration** in **springMotion**.<br>Default value: **0.25**.
+   * Unit: second<br>Value range: [0, +∞).
+   * <p>**NOTE**:
+   * <br>A value less than 0 evaluates to the default value **0.25**.
+   * <br>To apply custom settings for a spring animation, you are advised to use **springMotion**.
+   * <br>When using **responsiveSpringMotion**, you are advised to retain the default settings.
+   * <br>The duration of the responsive spring animation depends on the **responsiveSpringMotion** parameters and the
+   * previous velocity, rather than the duration parameter in animation, animateTo, or pageTransition.
+   * <br>In addition, the interpolation cannot be obtained using the **interpolate** function of the curve.
+   * </p>
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -747,18 +820,32 @@ declare namespace curves {
    * @since 10
    */
   /**
-   * Constructs an interpolating spring curve when called, the animation duration can not be specified manually,
-   * and is determined by parameters of the curve. It produces values change from 0 to 1, and then uses interpolator
-   * to calculate the actual animation values.
+   * Creates an interpolating spring curve animated from 0 to 1. The actual animation value is calculated based
+   * on the curve. The animation duration is subject to the curve parameters, rather than the **duration** parameter
+   * in **animation** or **animateTo**.
    *
-   * @param { number } velocity - the initial velocity of the spring, and is a normalized speed corresponding to the
-   * value changes from 0 to 1,specific value range (-∞, ∞).
-   * @param { number } mass - the mass of object in the mass-damper-spring system, value range (0, +∞).
-   * Note: If the value is less than or equal to 0, the value 1 is used.
-   * @param { number } stiffness - the stiffness of spring, value range (0, +∞).
-   * Note: If the value is less than or equal to 0, the value 1 is used.
-   * @param { number } damping - the damping value of spring, value range (0, +∞).
-   * Note: If the value is less than or equal to 0, the value 1 is used.
+   * @param { number } velocity - Initial velocity. It is applied by external factors to the spring animation,
+   * designed to help ensure the smooth transition from the previous motion state.
+   * The velocity is the normalized velocity, and its value is equal to the actual velocity at the beginning of
+   * the animation divided by the animation attribute change value.<br>Value range: (-∞, +∞).
+   * @param { number } mass - Mass, which influences the inertia in the spring system. The greater the mass,
+   * the greater the amplitude of the oscillation, and the slower the speed of restoring to the equilibrium position.
+   * <br>Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   * </p>
+   * @param { number } stiffness - Stiffness. It is the degree to which an object deforms by resisting
+   * the force applied. In an elastic system, the greater the stiffness, the stronger the ability to resist
+   * deformation, and the faster the speed of restoring to the equilibrium position.<br>Value range: (0, +∞).
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   * </p>
+   * @param { number } damping - Damping. It is used to describe the oscillation and attenuation of the system
+   * after being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion,
+   * and the smaller the oscillation amplitude.<br>Value range: (0, +∞)<br>
+   * <p>**NOTE**:
+   * <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   * </p>
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

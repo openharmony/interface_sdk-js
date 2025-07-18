@@ -34,7 +34,8 @@ import uri from './@ohos.uri';
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace fileUri {
   /**
@@ -50,7 +51,8 @@ declare namespace fileUri {
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class FileUri extends uri.URI {
     /**
@@ -74,7 +76,8 @@ declare namespace fileUri {
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(uriOrPath: string);
 
@@ -163,7 +166,8 @@ declare namespace fileUri {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUriFromPath(path: string): string;
 }

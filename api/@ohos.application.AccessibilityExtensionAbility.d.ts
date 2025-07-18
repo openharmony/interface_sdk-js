@@ -29,6 +29,7 @@ import type {
   Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+import { AccessibilityEventType } from './@ohos.accessibility';
 
 
 /**
@@ -96,6 +97,15 @@ export type WindowType = _WindowType;
 export type Rect = _Rect;
 
 /**
+ * Indicates the parameter of the AccessibiltyAction.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export { Parameter } from './application/AccessibilityExtensionContext';
+
+/**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
  * @typedef {_AccessibilityExtensionContext.default}
@@ -159,6 +169,108 @@ export default class AccessibilityExtensionAbility {
    * @deprecated since 12
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
+
+  /**
+   * Called when extension ability is connected.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  onAccessibilityConnect(): void;
+
+  /**
+   * Called when extension ability is disconnected.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  onAccessibilityDisconnect(): void;
+
+  /**
+   * Called when an accessibility event occurs, such as when the user touches the application interface.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { AccessibilityEventInfo } event Indicates an accessibility event.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
+
+  /**
+   * Called when a physical key is pressed, such as when the user presses the volume button .
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { KeyEvent } keyEvent Indicates the physical key event.
+   * @returns { boolean }
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
+}
+
+/**
+ * Indicates the accessibility event.
+ * It provides the event type and the target element of the event if any.
+ *
+ * @typedef AccessibilityEventInfo
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @since 20
+ */
+export declare interface AccessibilityEventInfo {
+  /**
+   * EventType
+   *
+   * @type { AccessibilityEventType }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  eventType: AccessibilityEventType;
+
+  /**
+   * Target
+   *
+   * @type { ?AccessibilityElement }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  target?: AccessibilityElement;
+
+  /**
+   * TimeStamp
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  timestamp?: number;
+
+  /**
+   * The content of add/remove accessibility extraInfo text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 20
+   */
+  extraInfo?: string;
 }
 
 /**
@@ -169,7 +281,7 @@ export default class AccessibilityExtensionAbility {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-declare interface AccessibilityEvent {
+export declare interface AccessibilityEvent {
   /**
    * EventType
    *
@@ -214,6 +326,15 @@ declare interface AccessibilityEvent {
    * @since 12
    */
   textAnnouncedForAccessibility?: string;
+
+  /**
+   * The content of add/remove accessibility extraInfo text.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   */
+  extraInfo?: string;
 }
 
 /**

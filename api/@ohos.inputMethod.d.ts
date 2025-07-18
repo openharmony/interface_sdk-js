@@ -64,7 +64,8 @@ declare namespace inputMethod {
    * Input method setting
    *
    * @returns { InputMethodSetting } the object of InputMethodSetting.
-   * @throws { BusinessError } 12800007 - setter error.
+   * @throws { BusinessError } 12800007 - input method setter error. Possible cause:
+   *     create InputmethodSetting object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -74,7 +75,8 @@ declare namespace inputMethod {
    * Input method controller
    *
    * @returns { InputMethodController } the object of InputMethodController.
-   * @throws { BusinessError } 12800006 - input method controller error.
+   * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
+   *     create InputmethodController object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -84,7 +86,8 @@ declare namespace inputMethod {
    * Get default input method
    *
    * @returns { InputMethodProperty } property of the default input method.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -94,7 +97,8 @@ declare namespace inputMethod {
    * Get system input method config ability
    *
    * @returns { ElementName } the information of system input method config ability.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -110,7 +114,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -122,7 +127,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -138,7 +144,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -150,7 +157,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -175,7 +183,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -189,7 +198,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -201,7 +211,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -217,7 +228,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -231,7 +243,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
@@ -243,7 +256,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -269,7 +283,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -282,7 +297,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -303,7 +319,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -316,7 +333,8 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
@@ -338,12 +356,22 @@ declare namespace inputMethod {
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
-   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+   *     a system error, such as null pointer, IPC exception.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @since 11
    */
   function switchInputMethod(bundleName: string, subtypeId?: string): Promise<void>;
+
+  /**
+   * Set simple keyboard mode.
+   *
+   * @param { boolean } enable - indicates enable simple keyboard or not.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 20
+   */
+  function setSimpleKeyboardEnabled(enable: boolean): void;
 
   /**
    * @interface InputMethodSetting
@@ -436,7 +464,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 202 - not system application.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 11
@@ -451,7 +480,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -468,7 +498,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -479,7 +510,8 @@ declare namespace inputMethod {
      *
      * @param { AsyncCallback<Array<InputMethodSubtype>> } callback - the callback of listCurrentInputMethodSubtype.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -490,7 +522,8 @@ declare namespace inputMethod {
      *
      * @returns { Promise<Array<InputMethodSubtype>> } the promise returned by the function.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -506,7 +539,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -522,7 +556,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *      1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -538,7 +573,8 @@ declare namespace inputMethod {
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -549,7 +585,8 @@ declare namespace inputMethod {
      *
      * @param { AsyncCallback<Array<InputMethodProperty>> } callback - the callback of getInputMethods.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -560,7 +597,8 @@ declare namespace inputMethod {
      *
      * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -571,7 +609,8 @@ declare namespace inputMethod {
      *
      * @returns { Array<InputMethodProperty> } the list of all inputmethod.
      * @throws { BusinessError } 12800001 - bundle manager error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
@@ -599,7 +638,8 @@ declare namespace inputMethod {
      * Show input method setting extension dialog
      *
      * @param { AsyncCallback<boolean> } callback - the callback of showOptionalInputMethods.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      * @deprecated since 18
@@ -610,7 +650,8 @@ declare namespace inputMethod {
      * Show input method setting extension dialog
      *
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      * @deprecated since 18
@@ -640,11 +681,33 @@ declare namespace inputMethod {
      *
      * @returns { Promise<EnabledState> } the promise returned by the function.
      * @throws { BusinessError } 12800004 - not an input method application.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15
      */
     getInputMethodState(): Promise<EnabledState>;
+	
+	/**
+     * 
+     * Change inputmethod enabled status.
+     *
+     * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { string } bundleName - Indicates the bundleName of the inputmethod.
+     * @param { string } extensionName - Indicates the extensionName of the inputmethod.
+     * @param { EnabledState } enabledState - Indicates the enabledState to be changed.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800018 - the input method is not found.
+     * @throws { BusinessError } 12800019 - current operation cannot be applied to the preconfigured default input method.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @since 20
+     */
+    enableInputMethod(bundleName: string, extensionName: string, enabledState: EnabledState): Promise<void>;
   }
 
   /**
@@ -661,8 +724,10 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of attach.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -675,8 +740,10 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -690,18 +757,36 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15
      */
     attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise<void>;
+
+    /**
+     * Discard the typing text
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800009 - input method client detached.
+     * @throws { BusinessError } 12800015 - the other side does not accept the request.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    discardTypingText(): Promise<void>;
+
     /**
      * Show the text input and start typing.
      *
      * @param { AsyncCallback<void> } callback - the callback of showTextInput.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -711,8 +796,10 @@ declare namespace inputMethod {
      * Show the text input and start typing.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -723,8 +810,10 @@ declare namespace inputMethod {
      *
      * @param { RequestKeyboardReason } requestKeyboardReason - requestKeyboardReason of show the keyboard .
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15
@@ -734,8 +823,10 @@ declare namespace inputMethod {
      * Hide the text input and stop typing.
      *
      * @param { AsyncCallback<void> } callback - the callback of hideTextInput.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -746,8 +837,10 @@ declare namespace inputMethod {
      * Hide the text input and stop typing.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -758,8 +851,10 @@ declare namespace inputMethod {
      * Detach the applications from the input method manager service.
      *
      * @param { AsyncCallback<void> } callback - the callback of detach.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -769,8 +864,10 @@ declare namespace inputMethod {
      * Detach the applications from the input method manager service.
      *
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -784,8 +881,10 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of setCallingWindow.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -800,8 +899,10 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -815,8 +916,10 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of updateCursor.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -830,8 +933,10 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -847,8 +952,10 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of changeSelection.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -864,8 +971,10 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -879,8 +988,10 @@ declare namespace inputMethod {
      * @param { AsyncCallback<void> } callback - the callback of updateAttribute.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -894,8 +1005,10 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -905,8 +1018,10 @@ declare namespace inputMethod {
      * Stop input session
      *
      * @param { AsyncCallback<boolean> } callback - the callback of stopInputSession.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -916,8 +1031,10 @@ declare namespace inputMethod {
      * Stop input session
      *
      * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -952,8 +1069,10 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - the callback of showSoftKeyboard.
      * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -966,8 +1085,10 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -980,8 +1101,10 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - the callback of hideSoftKeyboard.
      * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -994,8 +1117,10 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
+     *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1009,7 +1134,8 @@ declare namespace inputMethod {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     1. Incorrect parameter types. 2. Incorrect parameter length.
-     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800009 - input method client detached.
      * @throws { BusinessError } 12800014 - the input method is in basic mode.
      * @throws { BusinessError } 12800015 - the other side does not accept the request.
@@ -1475,6 +1601,16 @@ declare namespace inputMethod {
     readonly iconId?: number;
 
     /**
+     * The enabledState of input method
+     *
+     * @type { ?EnabledState }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    readonly enabledState?: EnabledState;
+
+    /**
      * The extra info of input method
      *
      * @type { object }
@@ -1663,7 +1799,47 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 11
      */
-    NUMBER_PASSWORD
+    NUMBER_PASSWORD,
+
+    /**
+     * The text input type is SCREEN_LOCK_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    SCREEN_LOCK_PASSWORD,
+
+    /**
+     * The text input type is USER_NAME.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    USER_NAME,
+
+    /**
+     * The text input type is NEW_PASSWORD.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NEW_PASSWORD,
+
+    /**
+     * The text input type is NUMBER_DECIMAL.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    NUMBER_DECIMAL,
+
+    /**
+     * The text input type is ONE_TIME_CODE.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    ONE_TIME_CODE
   }
 
   /**
@@ -1805,6 +1981,24 @@ declare namespace inputMethod {
      * @since 10
      */
     enterKeyType: EnterKeyType;
+
+    /**
+     * Placeholder text in the edit box.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    placeholder?: string;
+
+    /**
+     * The name of the ability where the edit box is located.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    abilityName?: string;
   }
 
   /**
@@ -1913,6 +2107,25 @@ declare namespace inputMethod {
      * @since 10
      */
     windowId?: number;
+
+    /**
+     *Indicates that this is a new edit box.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    newEditBox?: boolean;
+
+    /**
+     * Indicates the capitalize mode of the edit box.
+     *
+     * @type { ?CapitalizeMode }
+     * @default CapitalizeMode.NONE
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 20
+     */
+    capitalizeMode?: CapitalizeMode;
   }
 
   /**
@@ -2115,6 +2328,47 @@ declare namespace inputMethod {
    * @since 17
    */
   export type SetPreviewTextCallback = (text: string, range: Range) => void;
+
+ /**
+  * Enumerates the capitalization mode.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.MiscServices.InputMethodFramework
+  * @since 20
+  */
+  export enum CapitalizeMode {
+    /**
+      * Capitalize nothing.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    NONE = 0,
+
+    /**
+      * Capitalize the first letter of each sentence.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    SENTENCES,
+
+    /**
+      * Capitalize the first letter of each word.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    WORDS,
+
+    /**
+      * Capitalize each letter.
+      *
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @since 20
+      */
+    CHARACTERS
+  }
 }
 
 export default inputMethod;

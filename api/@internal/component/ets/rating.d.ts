@@ -168,7 +168,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  backgroundUri: string;
+  /**
+   * Background URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  backgroundUri: ResourceStr;
 
   /**
    * Foreground URI option.
@@ -204,7 +215,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  foregroundUri: string;
+  /**
+   * Foreground URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  foregroundUri: ResourceStr;
 
   /**
    * Secondary URI option.
@@ -240,7 +262,18 @@ declare interface StarStyleOptions {
    * @atomicservice
    * @since 11
    */
-  secondaryUri?: string
+  /**
+   * Secondary URI option.
+   * Anonymous Object Rectification.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  secondaryUri?: ResourceStr
 }
 
 /**

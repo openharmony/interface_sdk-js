@@ -644,10 +644,12 @@ declare namespace xml {
     convertToJSObject(xml: string, options?: ConvertOptions): Object;
 
     /**
-     * To convert XML text to JavaScript object with better performance.
+     * Converts an XML text into a JavaScript object.
      *
-     * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
+     * @param { string } xml - XML text to convert. If the XML text contains the ampersand (&), replace it with the
+     * entity reference &amp;.
+     * @param { ConvertOptions } [options] - Options for conversion. The default value is a ConvertOptions object,
+     * which consists of the default values of the attributes in the object.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;

@@ -37,13 +37,36 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @crossplatform
  * @since 12
  */
+/**
+ * This module provides data share services based on the ExtensionAbility.
+ *
+ * @namespace dataSharePredicates
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since arkts {'1.1':'20', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
 declare namespace dataSharePredicates {
   /**
-   * Manages relational database configurations.
+   * Provides a filter object to query data in a database by using DataShare APIs.
+   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
+   * at the same time in an application, use a lock for it.</strong>
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Provides a filter object to query data in a database by using DataShare APIs.
+   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
+   * at the same time in an application, use a lock for it.</strong>
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 12
    */
   /**
    * Manages relational database configurations.
@@ -51,7 +74,9 @@ declare namespace dataSharePredicates {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @atomicservice
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class DataSharePredicates {
     /**
@@ -81,6 +106,22 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
+     * to a specified value.
+     * This method is similar to = of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
+     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
@@ -95,7 +136,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -108,7 +150,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginWrap(): DataSharePredicates;
 
@@ -122,7 +165,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endWrap(): DataSharePredicates;
 
@@ -135,7 +179,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     or(): DataSharePredicates;
 
@@ -160,6 +205,19 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Adds an and condition to the DataSharePredicates.
+     * This method is similar to and of the SQL statement.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     and(): DataSharePredicates;
 
     /**
@@ -174,7 +232,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contains(field: string, value: string): DataSharePredicates;
 
@@ -251,7 +310,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     like(field: string, value: string): DataSharePredicates;
 
@@ -329,7 +389,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     greaterThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -343,7 +404,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lessThan(field: string, value: ValueType): DataSharePredicates;
 
@@ -357,7 +419,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
@@ -398,6 +461,20 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Restricts the ascending order of the return list. When there are several orders,
+     * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name for sorting the return list.
+     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     orderByAsc(field: string): DataSharePredicates;
 
     /**
@@ -422,6 +499,20 @@ declare namespace dataSharePredicates {
      * @StageModelOnly
      * @crossplatform
      * @since 12
+     */
+    /**
+     * Restricts the descending order of the return list. When there are several orders,
+     * the one close to the head has the highest priority.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name for sorting the return list.
+     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     orderByDesc(field: string): DataSharePredicates;
 
@@ -460,6 +551,20 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Construct a query object to specify the number of results and the starting position.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { number } total - Represents the specified number of results.
+     * @param { number } offset - Indicates the starting position.
+     * @returns { DataSharePredicates } Returns the query object.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     limit(total: number, offset: number): DataSharePredicates;
 
     /**
@@ -471,7 +576,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupBy(fields: Array<string>): DataSharePredicates;
 
@@ -514,6 +620,21 @@ declare namespace dataSharePredicates {
      * @crossplatform
      * @since 12
      */
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
+     * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
@@ -527,7 +648,8 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
 

@@ -31,7 +31,8 @@
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace wantConstant {
   /**
@@ -360,7 +361,25 @@ declare namespace wantConstant {
     * @atomicservice
     * @since 17
     */
-    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList'
+    APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
+
+    /**
+    * Indicates the unified data key used to share file uri.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 20
+    */
+    ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey',
+
+    /**
+    * Indicates the key of the page route upon sharing atomic service.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @atomicservice
+    * @since 20
+    */
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
   }
 
   /**
@@ -376,7 +395,8 @@ declare namespace wantConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum Flags {
     /**
@@ -390,7 +410,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -405,7 +426,8 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 

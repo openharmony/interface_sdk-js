@@ -23,6 +23,8 @@ import { Resource } from '../global/resource';
 
 /**
  * Size info.
+ * Returns the width and height of the component. The default unit is vp, but APIs that use the Size type may specify a
+ * different unit, in which case the unit specified by the API takes precedence.
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31,6 +33,8 @@ import { Resource } from '../global/resource';
  */
 /**
  * Size info.
+ * Returns the width and height of the component. The default unit is vp, but APIs that use the Size type may specify a
+ * different unit, in which case the unit specified by the API takes precedence.
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -41,6 +45,8 @@ import { Resource } from '../global/resource';
 export interface Size {
   /**
    * Get the width of the Size.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -49,6 +55,8 @@ export interface Size {
    */
   /**
    * Get the width of the Size.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -60,6 +68,8 @@ export interface Size {
 
   /**
    * Get the height of the Size.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -68,6 +78,8 @@ export interface Size {
    */
   /**
    * Get the height of the Size.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -87,6 +99,7 @@ export interface Size {
  */
 /**
  * Defines DrawContext.
+ * Graphics drawing context, which provides the canvas width and height required for drawing.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -165,6 +178,7 @@ export class DrawContext {
 interface Vector2 {
   /**
    * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -173,6 +187,7 @@ interface Vector2 {
    */
   /**
    * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -184,6 +199,7 @@ interface Vector2 {
 
   /**
    * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,6 +208,7 @@ interface Vector2 {
    */
   /**
    * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -256,6 +273,7 @@ interface Vector2 {
 interface Vector3 {
   /**
    * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -264,6 +282,7 @@ interface Vector3 {
    */
   /**
    * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,6 +294,7 @@ interface Vector3 {
 
   /**
    * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -283,6 +303,7 @@ interface Vector3 {
    */
   /**
    * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -294,6 +315,7 @@ interface Vector3 {
 
   /**
    * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -302,6 +324,7 @@ interface Vector3 {
    */
   /**
    * Value for z-axis of the vector.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -314,6 +337,7 @@ interface Vector3 {
 
 /**
  * It's a 4x4 matrix, represent by number[].
+ * Value range of each number: (-∞, +∞)
  *
  * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -322,6 +346,7 @@ interface Vector3 {
  */
 /**
  * It's a 4x4 matrix, represent by number[].
+ * Value range of each number: (-∞, +∞)
  *
  * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -350,6 +375,7 @@ export type Matrix4 = [
 
 /**
  * Offset info.
+ * Unit: vp.
  *
  * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -358,6 +384,7 @@ export type Matrix4 = [
  */
 /**
  * Offset info.
+ * Unit: vp.
  *
  * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -369,6 +396,7 @@ export type Offset = Vector2;
 
 /**
  * Position info.
+ * Unit: vp.
  *
  * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -377,6 +405,7 @@ export type Offset = Vector2;
  */
 /**
  * Position info.
+ * Unit: vp.
  *
  * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -388,6 +417,7 @@ export type Position = Vector2;
 
 /**
  * PositionT info.
+ * Unit: vp.
  * @typedef {Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -398,6 +428,8 @@ export type PositionT<T> = Vector2T<T>;
 
 /**
  * Pivot info.
+ * As the rotation or scaling center of the component, the pivot affects the rotation and scaling effects.
+ * The value is a floating point number in the range [0.0, 1.0], and the default value is 0.5.
  *
  * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -406,6 +438,8 @@ export type PositionT<T> = Vector2T<T>;
  */
 /**
  * Pivot info.
+ * As the rotation or scaling center of the component, the pivot affects the rotation and scaling effects.
+ * The value is a floating point number in the range [0.0, 1.0], and the default value is 0.5.
  *
  * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -417,6 +451,7 @@ export type Pivot = Vector2;
 
 /**
  * Scale info.
+ * The value is a floating point number, and the default value is 1.0.
  *
  * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -425,6 +460,7 @@ export type Pivot = Vector2;
  */
 /**
  * Scale info.
+ * The value is a floating point number, and the default value is 1.0.
  *
  * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -436,6 +472,7 @@ export type Scale = Vector2;
 
 /**
  * Translation info.
+ * Unit: px
  *
  * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,6 +481,7 @@ export type Scale = Vector2;
  */
 /**
  * Translation info.
+ * Unit: px
  *
  * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -455,6 +493,7 @@ export type Translation = Vector2;
 
 /**
  * Rotation info.
+ * Unit: degree
  *
  * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -463,6 +502,7 @@ export type Translation = Vector2;
  */
 /**
  * Rotation info.
+ * Unit: degree
  *
  * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -492,6 +532,8 @@ export type Rotation = Vector3;
 export declare interface Frame {
   /**
    * Position value for x-axis of the frame info.
+   * Unit: vp.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -500,6 +542,8 @@ export declare interface Frame {
    */
   /**
    * Position value for x-axis of the frame info.
+   * Unit: vp.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -511,6 +555,8 @@ export declare interface Frame {
 
   /**
    * Position value for y-axis of the frame info.
+   * Unit: vp.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -519,6 +565,8 @@ export declare interface Frame {
    */
   /**
    * Position value for y-axis of the frame info.
+   * Unit: vp.
+   * Value range: (-∞, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -530,6 +578,8 @@ export declare interface Frame {
 
   /**
    * Size value for width of the frame info.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -538,6 +588,8 @@ export declare interface Frame {
    */
   /**
    * Size value for width of the frame info.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -549,6 +601,8 @@ export declare interface Frame {
 
   /**
    * Size value for height of the frame info.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -557,6 +611,8 @@ export declare interface Frame {
    */
   /**
    * Size value for height of the frame info.
+   * Unit: vp.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -732,7 +788,7 @@ export interface SizeT<T> {
 export enum LengthMetricsUnit {
 
   /**
-   * The default length metrics unit.
+   * The default length metrics unit, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -754,6 +810,7 @@ export enum LengthMetricsUnit {
 
 /**
  * Defines the Length Metrics.
+ * When the length unit is PERCENT, the value 1 indicates 100%.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -763,9 +820,12 @@ export enum LengthMetricsUnit {
 declare class LengthMetrics {
   /**
    * Constructor.
+   * If the unit parameter is omitted or explicitly set to undefined, the default unit VP is used.
+   * If it is set to a value that is not of the LengthUnit type, the default value 0 VP is used.
    *
    * @param { number } value - The value of length.
    * @param { LengthUnit } [unit] - The length unit.
+   * The default value is VP.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -777,6 +837,7 @@ declare class LengthMetrics {
    * Init a lengthMetrics with px unit.
    *
    * @param { number } value - The value of the length metrics.
+   * Value range: (-∞, +∞).
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -790,6 +851,7 @@ declare class LengthMetrics {
    * Init a lengthMetrics with vp unit.
    *
    * @param { number } value - The value of the length metrics.
+   * Value range: (-∞, +∞).
    * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -803,6 +865,7 @@ declare class LengthMetrics {
    * Init a lengthMetrics with fp unit.
    *
    * @param { number } value - The value of the length metrics.
+   * Value range: (-∞, +∞).
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -814,8 +877,10 @@ declare class LengthMetrics {
 
   /**
    * Init a lengthMetrics with percent unit.
+   * The value 1 indicates 100%.
    *
    * @param { number } value - The value of the length metrics.
+   * Value range: [0, 1].
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -829,6 +894,7 @@ declare class LengthMetrics {
    * Init a lengthMetrics with lpx unit.
    *
    * @param { number } value - The value of the length metrics.
+   * Value range: (-∞, +∞).
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -889,7 +955,8 @@ declare class ColorMetrics {
   /**
    * Instantiate the ColorMetrics class using color number
    *
-   * @param { number } value - color number
+   * @param { number } value - color number, in HEX format
+   * RGB and ARGB color values are supported.
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -902,9 +969,13 @@ declare class ColorMetrics {
    * Instantiate the ColorMetrics class using color rgb
    *
    * @param { number } red - red value of rgba
+   * The value is an integer ranging from 0 to 255.
    * @param { number } green - green value of rgba
+   * The value is an integer ranging from 0 to 255.
    * @param { number } blue - blue value of rgba
+   * The value is an integer ranging from 0 to 255.
    * @param { number } alpha - opacity value of rgba
+   * The value is a floating point number ranging from 0.0 to 1.0. The default value is 1.0 (fully opaque).
    * @returns { ColorMetrics } ColorMetrics class
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -912,6 +983,24 @@ declare class ColorMetrics {
    * @since 12
    */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
+   * Instantiate the ColorMetrics class using colorSpace and rgba.
+   * Only some properties support setting color in display-p3 colorSpace.
+   *
+   * @param { ColorSpace } colorSpace - colorSpace of color.
+   * @param { number } red - red value of rgba. The range of the red channel is [0, 1].
+   * @param { number } green - green value of rgba. The range of the green channel is [0, 1].
+   * @param { number } blue - blue value of rgba. The range of the blue channel is [0, 1].
+   * @param { number } [alpha] - alpha value of rgba. The range of the alpha channel is [0, 1]. The default value is 1.
+   * @returns { ColorMetrics } ColorMetrics class
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
    * Instantiate the ColorMetrics class using ResourceColor
@@ -944,8 +1033,10 @@ declare class ColorMetrics {
 	
   /**
    * Get color of the ColorMetrics.
+   * The return value is a string indicating an RGBA color value.
    *
    * @returns { string } The color of the ColorMetrics.
+   * String indicating an RGBA color value. Example: 'rgba(255, 100, 255, 0.5)'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -957,6 +1048,7 @@ declare class ColorMetrics {
    * Get red value of the ColorMetrics.
    *
    * @returns { number } The red value of the ColorMetrics.
+   * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -968,6 +1060,7 @@ declare class ColorMetrics {
    * Get green value of the ColorMetrics.
    *
    * @returns { number } The green value of the ColorMetrics.
+   * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -979,6 +1072,7 @@ declare class ColorMetrics {
    * Get blue value of the ColorMetrics.
    *
    * @returns { number } The blue value of the ColorMetrics.
+   * The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -990,6 +1084,7 @@ declare class ColorMetrics {
    * Get opacity value of the ColorMetrics.
    *
    * @returns { number } The opacity value of the ColorMetrics.
+   * The value is an integer ranging from 0 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1130,7 +1225,7 @@ export interface RoundRect {
  */
 export interface Circle {
   /**
-   * The x-coordinate of the center of the Circle.
+   * The x-coordinate of the center of the Circle, in px.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1141,7 +1236,7 @@ export interface Circle {
   centerX: number,
 
   /**
-   * The y-coordinate of the center of the Circle.
+   * The y-coordinate of the center of the Circle, in px.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1152,7 +1247,8 @@ export interface Circle {
   centerY: number,
 
   /**
-   * The radius of the Circle.
+   * The radius of the Circle, in px.
+   * Value range: [0, +∞).
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1175,6 +1271,8 @@ export interface Circle {
 export interface CommandPath {
   /**
    * The commands of CommandPath.
+   * For details about how to convert the pixel unit, see Pixel Unit Conversion.
+   * Unit: px
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1260,7 +1358,8 @@ export declare class ShapeMask {
   setCommandPath(path: CommandPath): void;
 
   /**
-   * The fill color of the ShapeMask.
+   * The fill color of the ShapeMask, in ARGB format.
+   * The default value is 0XFF000000.
    *
    * @type { number }
    * @default 0XFF000000
@@ -1272,7 +1371,8 @@ export declare class ShapeMask {
   fillColor: number;
 
   /**
-   * The stroke color of the ShapeMask.
+   * The stroke color of the ShapeMask, in ARGB format.
+   * The default value is 0XFF000000.
    *
    * @type { number }
    * @default 0XFF000000
@@ -1284,7 +1384,8 @@ export declare class ShapeMask {
   strokeColor: number;
 
   /**
-   * The stroke width of the ShapeMask.
+   * The stroke width of the ShapeMask, in px.
+   * The default value is 0.
    *
    * @type { number }
    * @default 0
@@ -1375,7 +1476,8 @@ export declare class ShapeClip {
 /**
  * Obtain a object with all edges are set to the same color.
  *
- * @param { number } all - The edge color will be set.
+ * @param { number } all - The edge color will be set, in ARGB format, for example, 0xffff00ff.
+ * Value range: [0, 0xffffffff]
  * @returns { Edges<number> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1387,7 +1489,8 @@ export function edgeColors(all: number): Edges<number>;
 /**
  * Obtain a object with all edges are set to the same width.
  *
- * @param { number } all - The edge width will be set.
+ * @param { number } all - The edge width will be set, in vp.
+ * Value range: [0, +∞).
  * @returns { Edges<number> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1412,6 +1515,8 @@ export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * Obtain a BorderRadiuses object with all edges are set to the same radius.
  *
  * @param { number } all - The edge radius will be set.
+ * Unit: vp.
+ * Value range: [0, +∞).
  * @returns { BorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

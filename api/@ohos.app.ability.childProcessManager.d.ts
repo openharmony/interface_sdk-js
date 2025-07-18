@@ -106,7 +106,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
@@ -122,7 +122,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -141,7 +141,7 @@ declare namespace childProcessManager {
    *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000061 - Operation not supported. The API cannot be called in a child process.
+   * @throws { BusinessError } 16000061 - Operation not supported.
    * @throws { BusinessError } 16000062 - The number of child processes exceeds the upper limit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

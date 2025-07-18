@@ -5649,30 +5649,6 @@ declare namespace call {
      */
     MARK_TYPE_ENTERPRISE = 11
   }
-
-  /**
-   * send ussd response to network
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } accountId - account id.
-   * @param { string } content - content send to network.
-   * @returns { Promise<boolean> } Returns the result of send ussd.
-   * Returns {@code true} if the call request is successful; returns {@code false} otherwise.
-   * Note that the value {@code true} indicates only the successful processing of the request; it does not mean
-   * that the ussd is sendRequest to modem.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 16
-   */
-  function sendUssdResponse(accountId: number, content: string): Promise<boolean>;
 }
 
 export default call;

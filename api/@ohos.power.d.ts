@@ -105,7 +105,6 @@ declare namespace power {
    * The screen will be on if device is active, screen will be off otherwise.
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -135,7 +134,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function wakeup(detail: string): void;
 
@@ -171,7 +170,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -179,7 +178,6 @@ declare namespace power {
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -195,7 +193,6 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -212,7 +209,6 @@ declare namespace power {
    * @throws { BusinessError } 201 – Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @since 9
@@ -251,7 +247,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -277,7 +273,7 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 18
+   * @since 19
    */
   function setScreenOffTime(timeout: number): void;
 
@@ -316,7 +312,14 @@ declare namespace power {
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    MODE_EXTREME_POWER_SAVE
+    MODE_EXTREME_POWER_SAVE,
+    /**
+     * Custom power save mode.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 20
+     */
+    MODE_CUSTOM_POWER_SAVE = 650
   }
 }
 export default power;

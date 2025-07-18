@@ -15,10 +15,14 @@
 const path = require('path');
 const fs = require('fs');
 const ts = require('typescript');
+const commander = require('commander');
 
 let sourceFile = null;
 let lastNoteStr = '';
 let lastNodeName = '';
+let etsType = 'ets';
+let componentEtsFiles = [];
+let componentEtsDeleteFiles = [];
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
 const kitFileNeedDeleteMap = new Map();
@@ -37,20 +41,53 @@ const PATT = {
   REFERENCEURL_RIGHTSDK: /(..\/)(\S*)build-tools\/ets-loader\/declarations\/(\S*)/g,
   REFERENCEURL_SDK: /(..\/)(\S*)component\/(\S*)/g,
 };
-function collectDeclaration(url) {
+
+function start() {
+  const program = new commander.Command();
+  program
+    .name('deleteSystemApi')
+    .version('0.0.1');
+  program
+    .option('--input <string>', 'path name')
+    .option('--output <string>', 'output path')
+    .option('--type <string>', 'ets type')
+    .action((opts) => {
+      outputPath = opts.output;
+      inputDir = opts.input;
+      etsType = opts.type;
+      collectDeclaration(opts.input);
+    });
+  program.parse(process.argv);
+}
+
+function collectDeclaration(inputDir) {
   // 入口
   try {
-    const utPath = path.resolve(__dirname, url);
-    const arktsPath = path.resolve(utPath, '../arkts');
-    const kitPath = path.resolve(utPath, '../kits');
+    const arktsPath = path.resolve(inputDir, '../arkts');
+    const kitPath = path.resolve(inputDir, '../kits');
     const utFiles = [];
-    readFile(utPath, utFiles); // 读取文件
+    collectComponentEtsFiles();
+    readFile(inputDir, utFiles); // 读取文件
     readFile(arktsPath, utFiles); // 读取文件
     tsTransform(utFiles, deleteSystemApi);
     tsTransformKitFile(kitPath);
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
   }
+}
+
+function collectComponentEtsFiles() {
+  const ComponentDir = path.resolve(inputDir, '@internal', 'component', 'ets');
+  readFile(ComponentDir, componentEtsFiles); // 读取文件
+  const arkuiComponentDir = path.resolve(inputDir, 'arkui', 'component');
+  readFile(arkuiComponentDir, componentEtsFiles); // 读取文件
+  componentEtsFiles = componentEtsFiles.map(item => {
+    return getPureName(item);
+  });
+}
+
+function getPureName(name) {
+  return path.basename(name).replace('.d.ts', '').replace('.d.ets', '').replace(/_/g, '').toLowerCase();
 }
 
 /**
@@ -103,10 +140,10 @@ function getKitNewSourceFile(sourceFile, kitName) {
         copyrightMessage = sourceFile.getFullText().replace(sourceFile.getText(), '');
       }
     } else if (ts.isExportDeclaration(statement)) {
-      const exportSpecifiers = statement.exportClause.elements.filter((item) => {
+      const exportSpecifiers = statement.exportClause?.elements?.filter((item) => {
         return !needDeleteExportName.has(item.name.escapedText.toString());
       });
-      if (exportSpecifiers.length !== 0) {
+      if (exportSpecifiers && exportSpecifiers.length !== 0) {
         statement.exportClause = factory.updateNamedExports(statement.exportClause, exportSpecifiers);
         newStatements.push(statement);
       }
@@ -116,6 +153,21 @@ function getKitNewSourceFile(sourceFile, kitName) {
   return { sourceFile, copyrightMessage };
 }
 
+function addImportToNeedDeleteExportName(importClause, needDeleteExportName) {
+  if (importClause.name) {
+    needDeleteExportName.add(importClause.name.escapedText.toString());
+  }
+  const namedBindings = importClause.namedBindings;
+  if (namedBindings !== undefined && ts.isNamedImports(namedBindings)) {
+    const elements = namedBindings.elements;
+    elements.forEach((element) => {
+      const exportName = element.propertyName ?
+        element.propertyName.escapedText.toString() :
+        element.name.escapedText.toString();
+      needDeleteExportName.add(element.name.escapedText.toString());
+    });
+  }
+}
 /**
  * 根据节点和需要删除的节点数据生成新节点
  * @param { ts.ImportDeclaration } statement 需要处理的import节点
@@ -132,8 +184,12 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
   }
   const importPath = statement.moduleSpecifier.text.replace('../', '');
   if (kitFileNeedDeleteMap === undefined || !kitFileNeedDeleteMap.has(importPath)) {
-    const hasFilePath = hasFileByImportPath(importPath);
-    return hasFilePath ? statement : undefined;
+    const hasFilePath = hasFileByImportPath(inputDir, importPath);
+    if (hasFilePath) {
+      return statement;
+    }
+    addImportToNeedDeleteExportName(importClause, needDeleteExportName);
+    return undefined;
   }
   const currImportInfo = kitFileNeedDeleteMap.get(importPath);
   let defaultName = '';
@@ -177,19 +233,50 @@ function processKitImportDeclaration(statement, needDeleteExportName) {
 
 /**
  * 判断文件路径对应的文件是否存在
+ * @param {string} apiDir 引用接口所在目录
  * @param {string} importPath kit文件import
  * @returns {boolean} importPath是否存在
  */
-function hasFileByImportPath(importPath) {
-  let fileDir = path.resolve(apiSourcePath);
+function hasFileByImportPath(apiDir, importPath) {
+  let fileDir = path.resolve(apiDir);
   if (importPath.startsWith('@arkts')) {
-    fileDir = path.resolve(apiSourcePath, '../arkts');
+    fileDir = path.resolve(inputDir, '../arkts');
   }
-  const flag = ['.d.ts', '.d.ets'].some(ext => {
-    const filePath = path.resolve(fileDir, `${importPath}${ext}`);
-    return fs.existsSync(filePath);
+  return isExistImportFile(fileDir, importPath) ||
+    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath);
+}
+
+
+/**
+ * Arkui import路径特殊处理
+ * @param {string} resolvedPath 引用接口所在目录
+ * @param {string} importPath kit文件import
+ * @returns {boolean} importPath是否存在
+ */
+function isExistArkUIFile(resolvedPath, importPath) {
+  // TODO arkui 特殊处理import
+  if (importPath.startsWith('@ohos.arkui.')) {
+    resolvedPath = path.resolve(inputDir);
+  }
+  if (importPath.startsWith('arkui.component.') || importPath.startsWith('arkui.stateManagement.')) {
+    resolvedPath = path.resolve(inputDir);
+    importPath = importPath.replace(/\./g, '/');
+  }
+  const filePath = path.resolve(resolvedPath, importPath);
+  if (
+    filePath.includes(path.resolve(inputDir, '@internal', 'component', 'ets')) ||
+    filePath.includes(path.resolve(inputDir, 'arkui', 'component'))
+  ) {
+    const fileName = getPureName(filePath);
+    return componentEtsFiles.includes(fileName);
+  }
+  return isExistImportFile(resolvedPath, importPath);
+}
+
+function isExistImportFile(fileDir, importPath) {
+  return ['.d.ts', '.d.ets'].some(ext => {
+    return fs.existsSync(path.resolve(fileDir, `${importPath}${ext}`));
   });
-  return flag;
 }
 
 /**
@@ -213,6 +300,9 @@ function processFileNameWithoutExt(filePath) {
     .replace(/\.ets$/g, '');
 }
 
+function isArkTsSpecialSyntax(content) {
+  return /\@memo|(?<!\*\s*)\s*\@interface/.test(content);
+}
 /**
  * 遍历所有文件进行处理
  * @param {Array} utFiles 所有文件
@@ -221,30 +311,43 @@ function processFileNameWithoutExt(filePath) {
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
-    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
-      // 特殊类型文件处理
-      const content = fs.readFileSync(url, 'utf-8');
-      writeFile(url, content);
-    } else if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
-      // dts文件处理
-      let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-      const fileName = processFileName(url);
-      let references = content.match(PATT.GET_REFERENCE);
-      if (references) {
-        referencesMap.set(url, { references: references });
-        for (let index = 0; index < references.length; index++) {
-          const item = references[index];
-          content = content.replace(item, '');
-        }
+    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+    if (isArkTsSpecialSyntax(content)) {
+      if (!/\@systemapi/.test(content)) {
+        writeFile(url, content);
       }
-      ts.transpileModule(content, {
-        compilerOptions: {
-          target: ts.ScriptTarget.ES2017,
-        },
-        fileName: fileName,
-        transformers: { before: [callback(url)] },
-      });
+      return;
     }
+    let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
+    if (/\.json/.test(url) || apiBaseName === 'index-full.d.ts') {
+      isTransformer = false;
+    }
+    if (etsType === 'ets2') {
+      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
+        isTransformer = false;
+      }
+    }
+    if (!isTransformer) {
+      writeFile(url, content);
+      return;
+    }
+    // dts文件处理
+    const fileName = processFileName(url);
+    let references = content.match(PATT.GET_REFERENCE);
+    if (references) {
+      referencesMap.set(url, { references: references });
+      for (let index = 0; index < references.length; index++) {
+        const item = references[index];
+        content = content.replace(item, '');
+      }
+    }
+    ts.transpileModule(content, {
+      compilerOptions: {
+        target: ts.ScriptTarget.ES2017,
+      },
+      fileName: fileName,
+      transformers: { before: [callback(url)] },
+    });
   });
 }
 /**
@@ -334,10 +437,7 @@ function readFile(dir, utFiles) {
 }
 
 function writeFile(url, data, option) {
-  if (fs.existsSync(outputPath)) {
-    fs.rmdirSync(outputPath, { recursive: true });
-  }
-  const newFilePath = path.resolve(outputPath, path.relative(__dirname, url));
+  const newFilePath = path.resolve(outputPath, path.relative(inputDir.replace('api', ''), url));
   fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
@@ -526,9 +626,8 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
     }
   }
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-  const dtsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
-  const detsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ets`); // import 文件路径判断
-  let hasImportSpecifierFile = fs.existsSync(dtsImportSpecifierPath) || fs.existsSync(detsImportSpecifierPath);
+  const fileDir = path.dirname(url);
+  let hasImportSpecifierFile = hasFileByImportPath(fileDir, importSpecifier);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
   if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
     let currModule = [];
@@ -635,7 +734,7 @@ function deleteSystemApi(url) {
         kitName = RegExp.$1.replace(/\s/g, '');
       }
       sourceFile = node;
-      const deleteNode = processSourceFile(node, kitName); // 处理最外层节点
+      const deleteNode = processSourceFile(node, kitName, url); // 处理最外层节点
       node = processVisitEachChild(context, deleteNode.node);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
@@ -671,7 +770,7 @@ exports.deleteSystemApi = deleteSystemApi;
  * @param kitName 当前文件kitName
  * @returns
  */
-function processSourceFile(node, kitName) {
+function processSourceFile(node, kitName, url) {
   let isCopyrightDeleted = false;
   const newStatements = [];
   const newStatementsWithoutExport = [];
@@ -684,6 +783,15 @@ function processSourceFile(node, kitName) {
   isCopyrightDeleted = addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport);
   newStatements.forEach((statement) => {
     const names = getExportIdentifierName(statement);
+    if (ts.isExportDeclaration(statement) && statement.moduleSpecifier && statement.moduleSpecifier.text.startsWith('./arkui/component/')) {
+      const importPath = statement.moduleSpecifier.text.replace('./arkui/component/', '');
+      const isDeleteSystemFile = componentEtsDeleteFiles.includes(getPureName(importPath));
+      const hasEtsFile = componentEtsFiles.includes(getPureName(importPath));
+      const existFile = isExistImportFile(path.dirname(url), statement.moduleSpecifier.text.toString());
+      if (isDeleteSystemFile || !hasEtsFile && !existFile) {
+        return;
+      }
+    }
     if (names.length === 0) {
       newStatementsWithoutExport.push(statement);
       return;
@@ -1069,9 +1177,13 @@ function isEmptyFile(node) {
       break;
     }
   }
+  const fileName = getPureName(node.fileName.replace('.ts', '').replace('.ets', ''));
+  if (isEmpty && componentEtsFiles.includes(fileName)) {
+    componentEtsDeleteFiles.push(fileName);
+  }
   return isEmpty;
 }
 
-const apiSourcePath = '../api';
-const outputPath = path.resolve(__dirname, 'output');
-collectDeclaration(apiSourcePath); //入口
+let outputPath = '';
+let inputDir = '';
+start();

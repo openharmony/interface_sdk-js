@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,7 +35,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.Security.CryptoFramework
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cryptoFramework {
   /**
@@ -111,20 +112,20 @@ declare namespace cryptoFramework {
     ERR_OUT_OF_MEMORY = 17620001,
 
     /**
-     * Indicates that failed to convert paramters between arkts and c.
+     * Indicates that failed to convert parameters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
     /**
-     * Indicates that failed to convert paramters between arkts and c.
+     * Indicates that failed to convert parameters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Indicates that failed to convert paramters between arkts and c.
+     * Indicates that failed to convert parameters between arkts and c.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -132,6 +133,16 @@ declare namespace cryptoFramework {
      * @since 12
      */
     ERR_RUNTIME_ERROR = 17620002,
+
+    /**
+     * Indicates that parameter check failed.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    ERR_PARAMETER_CHECK_FAILED = 17620003,
 
     /**
      * Indicates that crypto operation error.
@@ -158,13 +169,14 @@ declare namespace cryptoFramework {
    * @since 9
    */
   /**
-   * Provides the data blob type.
+   * Defines a buffer array of the Binary Large Object (BLOB) type.
    *
    * @typedef DataBlob
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DataBlob {
     /**
@@ -181,7 +193,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Uint8Array;
   }
@@ -202,7 +215,8 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the ParamsSpec type, including the algorithm name.
+   * Encapsulates the parameters used for encryption or decryption.You need to construct its child class object and
+   * pass it to init for symmetric encryption or decryption.
    *
    * @typedef ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -256,7 +270,8 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the IvParamsSpec type, including the parameter iv.
+   * Defines the child class of ParamsSpec. It is a parameter of init for symmetric encryption or decryption.
+   * IvParamsSpec applies to the cipher modes such as CBC, CTR, OFB, and CFB, which use only the IV.
    *
    * @typedef IvParamsSpec
    * @extends ParamsSpec
@@ -282,7 +297,11 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Indicates the algorithm parameters such as iv.
+     * IV for encryption or decryption.
+     * Options:
+     * - AES CBC, CTR, OFB, or CFB mode: 16-byte IV
+     * - 3DES CBC, OFB, or CFB mode: 8-byte IV
+     * - SM4 CBC, CTR, OFB, or CFB mode: 16-byte IV
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -523,7 +542,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Enum for obtain the crypto operation.
+   * Enumerates the cryptographic operations.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -580,7 +599,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Asymmetric key encoding configuration.
+   * Represents the RSA private key encoding parameters. You can use it to generate an encoded private key string with the specified algorithm and password.
    *
    * @typedef KeyEncodingConfig
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -630,12 +649,14 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Key type, which is the common parent class of keys.
+   * Before performing cryptographic operations, you need to construct a child class object of Key and pass it to init of the Cipher instance.
    *
    * @typedef Key
    * @syscap SystemCapability.Security.CryptoFramework.Key
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Key {
     /**
@@ -661,6 +682,9 @@ declare namespace cryptoFramework {
      */
     /**
      * Encode the key object to binary data.
+     * The key can be a symmetric key, public key, or private key.
+     * The public key must be in DER encoding format and comply with the ASN.1 syntax and X.509 specifications.
+     * The private key must be in DER encoding format and comply with the ASN.1 syntax and PKCS#8 specifications.
      *
      * @returns { DataBlob } the binary data of the key object.
      * @throws { BusinessError } 801 - this operation is not supported.
@@ -720,7 +744,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Indicates the algorithm name of the key object.
+     * Indicates the algorithm name of the key object. This parameter contains the key length if the key is a symmetric key.
      *
      * @type { string }
      * @readonly
@@ -750,14 +774,16 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the SymKey type, which is used for symmetric cryptography.
+   * Provides APIs for symmetric key operations.
+   * Its objects need to be passed to init of the Cipher instance in symmetric encryption and decryption.
    *
    * @typedef SymKey
    * @extends Key
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SymKey extends Key {
     /**
@@ -774,7 +800,8 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Reset the key data to zero in the memory.
+     * Clears the keys in the memory. This API returns the result synchronously.
+     * You are advised to use this API when symmetric key instances are no longer used.
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
@@ -802,7 +829,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the private key type.
+   * Provides the private key type. It needs to be passed in during asymmetric encryption and decryption, signing, and key agreement.
    *
    * @typedef PriKey
    * @extends Key
@@ -843,7 +870,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -856,7 +883,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -870,7 +897,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -897,6 +924,7 @@ declare namespace cryptoFramework {
 
     /**
      * Encode the private key object to string in PEM format.
+     * The key can be an RSA public or private key. The private key must comply with PKCS8 or PKCS1 specifications and PEM encoding format.
      *
      * @param { string } format - indicates the encoding format.
      * @returns { string } the string of the key object in PEM format.
@@ -913,6 +941,7 @@ declare namespace cryptoFramework {
 
     /**
      * Encode the private key object to string in PEM format.
+     * The key can be an RSA public or private key. The private key must comply with PKCS8 or PKCS1 specifications and PEM encoding format.
      *
      * @param { string } format - indicates the encoding format.
      * @param { KeyEncodingConfig } config - indicates the encoding configuration.
@@ -920,7 +949,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -991,7 +1020,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -1002,6 +1031,7 @@ declare namespace cryptoFramework {
 
     /**
      * Encode the public key object to binary data in DER format.
+     * Currently, only compressed and uncompressed ECC public key data can be obtained.
      *
      * @param { string } format - indicates the encoding format.
      * @returns { DataBlob } the binary data of the key object in DER format.
@@ -1018,6 +1048,7 @@ declare namespace cryptoFramework {
 
     /**
      * Encode the public key object to string in PEM format.
+     * The public key must comply with the X.509 specifications, PKCS1 specifications, and PEM encoding format.
      *
      * @param { string } format - indicates the encoding format.
      * @returns { string } the string of the key object in PEM format.
@@ -1134,7 +1165,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the random interface.
+   * Provides APIs for computing random numbers and setting seeds.
    *
    * @typedef Random
    * @syscap SystemCapability.Security.CryptoFramework.Rand
@@ -1319,7 +1350,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Indicates the random generation algorithm name.
+     * Indicates the random generation algorithm name. Currently, only CTR_DRBG is supported.
      *
      * @type { string }
      * @readonly
@@ -1789,7 +1820,8 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface SymKeyGenerator {
     /**
@@ -1949,7 +1981,8 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     convertKeySync(key: DataBlob): SymKey;
 
@@ -2058,12 +2091,14 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
-   * Specifies the Mac parameters.
+   * Represents the message authentication code (MAC) parameters.
+   * You need to construct a child class object and use it as a parameter when generating a HMAC or CMAC.
    *
    * @typedef MacSpec
    * @syscap SystemCapability.Security.CryptoFramework.Mac
@@ -2085,7 +2120,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Specifies the HMAC parameters.
+   * Represents the child class of MacSpec. It is used as an input parameter for HMAC generation.
    *
    * @extends MacSpec
    * @typedef HmacSpec
@@ -2108,7 +2143,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Specifies the CMAC parameters.
+   * Represents the child class of MacSpec. It is used as an input parameter for CMAC generation.
    *
    * @extends MacSpec
    * @typedef CmacSpec
@@ -2147,12 +2182,14 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Mac type, which is used for Mac generation.
+   * Before using any API of the Mac class, you must create a Mac instance by using createMac.
    *
    * @typedef Mac
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Mac {
     /**
@@ -2162,7 +2199,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2174,7 +2211,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2182,12 +2219,14 @@ declare namespace cryptoFramework {
      */
     /**
      * Init mac with given SymKey.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @param { AsyncCallback<void> } callback - the callback of the init function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2203,7 +2242,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2215,7 +2254,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2223,12 +2262,14 @@ declare namespace cryptoFramework {
      */
     /**
      * Init mac with given SymKey.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2239,16 +2280,19 @@ declare namespace cryptoFramework {
 
     /**
      * Init mac with given SymKey.
+     * This API uses an asynchronous callback to return the result. init, update, and doFinal must be used together.
+     * init and doFinal are mandatory, and update is optional.
      *
      * @param { SymKey } key - indicates the SymKey.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     initSync(key: SymKey): void;
 
@@ -2259,7 +2303,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2271,7 +2315,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2284,7 +2328,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2300,7 +2344,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2312,7 +2356,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2325,7 +2369,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -2340,12 +2384,13 @@ declare namespace cryptoFramework {
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     updateSync(input: DataBlob): void;
 
@@ -2420,12 +2465,13 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     doFinalSync(): DataBlob;
 
@@ -2512,7 +2558,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the mac create func.
+   * Creates a Mac instance for MAC operations.
    *
    * @param { string } algName - indicates the mac algorithm name.
    * @returns { Mac } returns the created mac instance.
@@ -2522,19 +2568,20 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createMac(algName: string): Mac;
 
   /**
-   * Provides the mac create func.
+   * Creates a Mac instance for MAC operations.
    *
    * @param { MacSpec } macSpec - indicates the mac parameters.
    * @returns { Mac } returns the created mac instance.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17620001 - memory operation failed.
-   * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+   * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
    * @throws { BusinessError } 17630001 - crypto operation error.
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -2560,6 +2607,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Md type, which is used for Md generation.
+   * Before using any API of the Md class, you must create an Md instance by using createMd.
    *
    * @typedef Md
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
@@ -2575,7 +2623,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2587,7 +2635,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2600,7 +2648,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<void> } callback - the callback of the update function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2616,7 +2664,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -2628,7 +2676,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -2641,7 +2689,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2656,7 +2704,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } input - indicates the DataBlob.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17620001 - memory malloc failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2736,7 +2784,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @crossplatform
@@ -2828,7 +2876,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Provides the md create func.
+   * Creates an Md instance for MD operations.
    *
    * @param { string } algName - indicates the md algorithm name.
    * @returns { Md } returns the created md instance.
@@ -2859,6 +2907,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Enum for encryption specified parameters.
+   * You can use setCipherSpec to set cipher parameters, and use getCipherSpec to obtain cipher parameters.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -2994,6 +3043,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Enum for signature specified parameters, also used for verification.
+   * You can use setSignSpec and setVerifySpec to set these parameters, and use getSignSpec and getVerifySpec to obtain the parameters.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework.Signature
@@ -3173,7 +3223,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3188,7 +3238,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3196,6 +3246,7 @@ declare namespace cryptoFramework {
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
@@ -3204,7 +3255,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3223,7 +3274,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3238,7 +3289,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3246,6 +3297,7 @@ declare namespace cryptoFramework {
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
@@ -3254,7 +3306,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3273,7 +3325,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3288,7 +3340,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3296,6 +3348,7 @@ declare namespace cryptoFramework {
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
@@ -3304,7 +3357,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3323,7 +3376,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3338,7 +3391,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3346,6 +3399,7 @@ declare namespace cryptoFramework {
      */
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
@@ -3354,7 +3408,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3365,6 +3419,7 @@ declare namespace cryptoFramework {
 
     /**
      * Init the crypto operation with the given crypto mode, key and parameters.
+     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
      *
      * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
      * @param { Key } key - indicates the symmetric key or the asymmetric key.
@@ -3372,7 +3427,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3390,7 +3445,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3404,7 +3459,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3419,7 +3474,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3437,7 +3492,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3451,7 +3506,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3466,7 +3521,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3484,7 +3539,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3502,7 +3557,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3516,7 +3571,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3531,7 +3586,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3549,7 +3604,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3563,7 +3618,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3578,7 +3633,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3596,7 +3651,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3610,7 +3665,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3625,7 +3680,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3643,7 +3698,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -3657,7 +3712,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -3672,7 +3727,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3690,7 +3745,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -3888,6 +3943,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Sign type, which is used for generating signatures.
+   * Before using any API of the Sign class, you must create a Sign instance by using createSign.
    *
    * @typedef Sign
    * @syscap SystemCapability.Security.CryptoFramework.Signature
@@ -3904,7 +3960,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3917,21 +3973,22 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to init environment.
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
      *
      * @param { PriKey } priKey - the private key.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -3948,7 +4005,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -3961,21 +4018,22 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to init environment.
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
      *
      * @param { PriKey } priKey - the private key.
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -3985,13 +4043,14 @@ declare namespace cryptoFramework {
     init(priKey: PriKey): Promise<void>;
 
     /**
-     * Used to init environment.
+     * Initializes the Sign instance with a private key.
+     * init, update, and sign must be used together. init and sign are mandatory, and update is optional.
      *
      * @param { PriKey } priKey - the private key.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4008,7 +4067,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4021,7 +4080,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4029,13 +4088,14 @@ declare namespace cryptoFramework {
      */
     /**
      * Used to append the message need to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
      *
      * @param { DataBlob } data - the data need to be signed.
      * @param { AsyncCallback<void> } callback - the call back function return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4052,7 +4112,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4065,7 +4125,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4073,13 +4133,14 @@ declare namespace cryptoFramework {
      */
     /**
      * Used to append the message need to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
      *
      * @param { DataBlob } data - the data need to be signed.
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4090,12 +4151,13 @@ declare namespace cryptoFramework {
 
     /**
      * Used to append the message need to be signed.
+     * This API can be called only after the Sign instance is initialized by using init.
      *
      * @param { DataBlob } data - the data need to be signed.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4112,7 +4174,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4125,7 +4187,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4139,7 +4201,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4156,7 +4218,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4169,7 +4231,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4183,7 +4245,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4200,7 +4262,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4213,7 +4275,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4227,7 +4289,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4244,7 +4306,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4257,7 +4319,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4271,7 +4333,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4288,7 +4350,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4471,6 +4533,8 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides the Verify interface, which is used for verifying signatures.
+   * Before using any API of the Verify class, you must create a Verify instance by using createVerify.
+   * Invoke init, update, and sign in this class in sequence to complete the signature verification.
    *
    * @typedef Verify
    * @syscap SystemCapability.Security.CryptoFramework.Signature
@@ -4487,7 +4551,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4500,21 +4564,21 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to init environment.
+     * Initializes the Verify instance with a public key.
      *
      * @param { PubKey } pubKey - the public key.
      * @param { AsyncCallback<void> } callback - return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4531,7 +4595,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4544,21 +4608,21 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to init environment.
+     * Initializes the Verify instance with a public key.
      *
      * @param { PubKey } pubKey - the public key.
      * @returns { Promise<void> } return nothing.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4568,13 +4632,13 @@ declare namespace cryptoFramework {
     init(pubKey: PubKey): Promise<void>;
 
     /**
-     * Used to init environment.
+     * Initializes the Verify instance with a public key.
      *
      * @param { PubKey } pubKey - the public key.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4591,7 +4655,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4604,7 +4668,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4618,7 +4682,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4635,7 +4699,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4648,7 +4712,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4662,7 +4726,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4678,7 +4742,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4696,7 +4760,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4710,7 +4774,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4725,7 +4789,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4743,7 +4807,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4757,7 +4821,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4772,7 +4836,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4790,7 +4854,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -4804,7 +4868,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4819,7 +4883,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4837,7 +4901,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
@@ -4851,7 +4915,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -4866,7 +4930,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4884,7 +4948,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4902,7 +4966,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -4920,7 +4984,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -5185,6 +5249,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Provides key agreement function.
+   * Before using any API of the KeyAgreement class, you must create a KeyAgreement instance by using createKeyAgreement.
    *
    * @typedef KeyAgreement
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
@@ -5202,7 +5267,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -5216,14 +5281,14 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to generate secret.
+     * Generates a shared secret based on the given private key and public key.
      *
      * @param { PriKey } priKey - the private key.
      * @param { PubKey } pubKey - the public key.
@@ -5231,7 +5296,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -5249,7 +5314,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
@@ -5263,14 +5328,14 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
      */
     /**
-     * Used to generate secret.
+     * Generates a shared secret based on the given private key and public key.
      *
      * @param { PriKey } priKey - the private key.
      * @param { PubKey } pubKey - the public key.
@@ -5278,7 +5343,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -5288,7 +5353,7 @@ declare namespace cryptoFramework {
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
     /**
-     * Used to generate secret.
+     * Generates a shared secret based on the given private key and public key.
      *
      * @param { PriKey } priKey - the private key.
      * @param { PubKey } pubKey - the public key.
@@ -5296,7 +5361,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement
      * @crossplatform
@@ -6255,8 +6320,9 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Specifies the set of parameters used in the DSA algorithm.
-   *
+   * Specifies the set of parameters used in the DSA algorithm. It can be used to randomly generate a public or private key.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
+   * 
    * @typedef DSACommonParamsSpec
    * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -6363,6 +6429,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the DSA public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DSAPubKeySpec
    * @extends AsyKeySpec
@@ -6444,6 +6511,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the DSA keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DSAKeyPairSpec
    * @extends AsyKeySpec
@@ -6548,7 +6616,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Specifies an elliptic curve finite field.
+   * Specifies an elliptic curve finite field. Currently, only the Fp field is supported.
    *
    * @typedef ECField
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -6738,7 +6806,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Specifies the set of common parameters used in the ECC algorithm.
+   * Specifies the set of common parameters used in the ECC algorithm. It can be used to randomly generate a public or private key.
    *
    * @typedef ECCCommonParamsSpec
    * @extends AsyKeySpec
@@ -6924,6 +6992,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ECC private key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ECCPriKeySpec
    * @extends AsyKeySpec
@@ -7005,6 +7074,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ECC public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ECCPubKeySpec
    * @extends AsyKeySpec
@@ -7086,6 +7156,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ECC keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ECCKeyPairSpec
    * @extends AsyKeySpec
@@ -7182,7 +7253,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Key utilities for ECC Algorithm.
+   * Provides APIs for generating common parameters for an asymmetric key pair based on the elliptic curve name.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
@@ -7205,7 +7276,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Create the common parameter set based on the curve name.
+     * Generates common parameters for an asymmetric key pair based on the specified name identifier (NID) of an elliptic curve.
      *
      * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
      * @returns { ECCCommonParamsSpec } the ECC common params spec obj.
@@ -7269,7 +7340,8 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Specifies the set of common parameters used in the DH algorithm.
+   * Specifies the set of common parameters used in the DH algorithm. It can be used to randomly generate a public or private key.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DHCommonParamsSpec
    * @extends AsyKeySpec
@@ -7348,6 +7420,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the DH private key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DHPriKeySpec
    * @extends AsyKeySpec
@@ -7407,6 +7480,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the DH public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DHPubKeySpec
    * @extends AsyKeySpec
@@ -7466,6 +7540,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the DH keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef DHKeyPairSpec
    * @extends AsyKeySpec
@@ -7541,7 +7616,7 @@ declare namespace cryptoFramework {
    * @since 11
    */
   /**
-   * Key utilities for DH Algorithm.
+   * Provides APIs for generating common parameters for a DH key based on the prime p length and the private key length.
    *
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
@@ -7566,7 +7641,7 @@ declare namespace cryptoFramework {
      * @since 11
      */
     /**
-     * Create the common parameter set.
+     * Generates common parameters for a DH key based on the prime p length and the private key length.
      *
      * @param { number } pLen - indicates the byte length of the prime p.
      * @param { number } [skLen] - indicates the byte length of the private key.
@@ -7596,6 +7671,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ED25519 private key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ED25519PriKeySpec
    * @extends AsyKeySpec
@@ -7636,6 +7712,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ED25519 public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ED25519PubKeySpec
    * @extends AsyKeySpec
@@ -7676,6 +7753,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the ED25519 keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef ED25519KeyPairSpec
    * @extends AsyKeySpec
@@ -7735,6 +7813,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the X25519 private key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef X25519PriKeySpec
    * @extends AsyKeySpec
@@ -7775,6 +7854,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the X25519 public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef X25519PubKeySpec
    * @extends AsyKeySpec
@@ -7815,6 +7895,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the X25519 keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef X25519KeyPairSpec
    * @extends AsyKeySpec
@@ -7882,6 +7963,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the set of common parameters used in the RSA algorithm.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef RSACommonParamsSpec
    * @extends AsyKeySpec
@@ -7937,6 +8019,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the RSA public key with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef RSAPubKeySpec
    * @extends AsyKeySpec
@@ -8018,6 +8101,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the RSA keypair with its associated parameters.
+   * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
    *
    * @typedef RSAKeyPairSpec
    * @extends AsyKeySpec
@@ -8123,6 +8207,7 @@ declare namespace cryptoFramework {
    */
   /**
    * The AsyKeyGeneratorBySpec provides the ability to generate key with its associated parameters.
+   * Before using the APIs of this class, you need to use createAsyKeyGeneratorBySpec to create an AsyKeyGeneratorBySpec instance.
    *
    * @typedef AsyKeyGeneratorBySpec
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -8476,6 +8561,7 @@ declare namespace cryptoFramework {
    */
   /**
    * Specifies the key derivation function parameters.
+   * When the key derivation function is used to derive a key, you need to construct and pass in a child class object of KdfSpec.
    *
    * @typedef KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
@@ -8756,6 +8842,7 @@ declare namespace cryptoFramework {
    */
   /**
    * The key derivation function object provides the ability to derive key with its associated parameters.
+   * Before using APIs of this class, you need to create an instance of this class by using createKdf.
    *
    * @typedef Kdf
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
@@ -8830,7 +8917,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
-     * @throws { BusinessError } 17620002 - failed to convert paramters between arkts and c.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -8989,6 +9076,86 @@ declare namespace cryptoFramework {
      * @since 12
      */
     static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
+  }
+
+  /**
+   * Defines the ECC signature spec, also works with SM2 signature.
+   *
+   * @typedef EccSignatureSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Signature
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+
+  interface EccSignatureSpec {
+    /**
+     * Indicates the r value of the signature.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    r: bigint;
+
+    /**
+     * Indicates the s value of the signature.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    s: bigint;
+  }
+
+  /**
+   * Utilities for signature operations.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework.Signature
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class SignatureUtils {
+    /**
+     * Generates the ECC signature spec from the ECC signature in DER format.
+     *
+     * @param { Uint8Array } data - indicates the signature in DER format.
+     * @returns { EccSignatureSpec } the ECC signature spec.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The length of the data parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec;
+
+    /**
+     * Generates the ECC signature in DER format according to the ECC signature spec.
+     *
+     * @param { EccSignatureSpec } spec - indicates the ECC signature spec.
+     * @returns { Uint8Array } the signature in DER format.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
+     * <br>1. The r or s value of the spec parameter is 0 or too large.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static genEccSignature(spec: EccSignatureSpec): Uint8Array;
   }
 }
 

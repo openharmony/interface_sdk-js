@@ -39,15 +39,18 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @since 10
  */
 /**
- * The class of an ability stage.
+ * AbilityStage is a runtime class for HAP files.
+ * AbilityStage notifies you of when you can perform HAP initialization such as resource pre-loading and thread
+ * creation during the HAP loading.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AbilityStage {
+declare class AbilityStage {
   /**
    * Indicates configuration information about context.
    *
@@ -66,14 +69,16 @@ export default class AbilityStage {
    * @since 10
    */
   /**
-   * Indicates configuration information about context.
+   * Defines the context of AbilityStage.
+   * The context is obtained in the callback invoked when initialization is performed during ability startup.
    *
    * @type { AbilityStageContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AbilityStageContext;
 
@@ -93,13 +98,18 @@ export default class AbilityStage {
    * @since 10
    */
   /**
-   * Called back when an ability stage is started for initialization.
+   * Called when the application is created.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(): void;
 
@@ -115,12 +125,15 @@ export default class AbilityStage {
    * @since 9
    */
   /**
-   * Called back when start specified ability.
+   * Called when a specified ability is started.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
    *
-   * @param { Want } want - Indicates the want info of started ability.
-   * @returns { string } The user returns an ability string ID. If the ability of this ID has been started before,
-   *         do not create a new instance and pull it back to the top of the stack.
-   *         Otherwise, create a new instance and start it.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @returns { string } Ability ID. If the ability with this ID has been started, no new instance is created and the
+   * ability is placed at the top of the stack. Otherwise, a new instance is created and started.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -129,16 +142,61 @@ export default class AbilityStage {
   onAcceptWant(want: Want): string;
 
   /**
-   * Called back when start UIAbility in specified process.
+  * Called back asynchronously upon starting specified ability.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         do not create a new instance and pull it back to the top of the stack.
+  *         Otherwise, create a new instance and start it.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onAcceptWantAsync(want: Want): Promise<string>;
+
+  /**
+   * Called when the UIAbility is started in the specified process.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
    *
-   * @param { Want } want - Indicates the want info of started ability.
-   * @returns { string } The user returns an process string ID. If the process of this ID has been created before,
-   *         let the ability run in this process. Otherwise, create a new process.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @returns { string } Custom process identifier. If the process with this identifier has been created, the ability
+   * runs in the process. Otherwise, a new process is created and the ability runs in it.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Called when UIAbility or configured with the isolationProcess field UIExtensionAbility in the specified process is started.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
+   *
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @returns { string } Custom process identifier. If the process with this identifier has been created, the ability
+   * runs in the process. Otherwise, a new process is created and the ability runs in it.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   */
   onNewProcessRequest(want: Want): string;
+
+  /**
+  * Called back asynchronously upon starting UIAbility or UIExtensionAbility in specified process.
+  *
+  * @param { Want } want - Indicates the want info of the started ability.
+  * @returns { Promise<string> }  The user returns an ability string ID. If the ability of this ID has been started before,
+  *         let the ability run in this process. Otherwise, create a new process.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  */
+  onNewProcessRequestAsync(want: Want): Promise<string>;
 
   /**
    * Called when the system configuration is updated.
@@ -158,14 +216,21 @@ export default class AbilityStage {
    * @since 10
    */
   /**
-   * Called when the system configuration is updated.
+   * Called when the global configuration is updated.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
    *
-   * @param { Configuration } newConfig - Indicates the updated configuration.
+   * @param { Configuration } newConfig - Callback invoked when the global configuration is updated. The global
+   * configuration indicates the configuration of the environment where the application is running and includes
+   * the language and color mode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -179,10 +244,18 @@ export default class AbilityStage {
    * @since 9
    */
   /**
-   * Called when the system has determined to trim the memory, for example, when the ability is running in the
-   * background and there is no enough memory for running as many background processes as possible.
+   * Listens for changes in the system memory level status.
+   * When the system detects low memory resources, it will proactively invoke this callback.
+   * You can implement this callback to promptly release non-essential resources (such as cached data or temporary
+   * objects) upon receiving a memory shortage event, thereby preventing the application process from being forcibly
+   * terminated by the system.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
    *
-   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+   * @param { AbilityConstant.MemoryLevel } level - Memory level that indicates the memory usage status. When the
+   * specified memory level is reached, a callback will be invoked and the system will start adjustment.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -191,22 +264,35 @@ export default class AbilityStage {
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 
   /**
-   * Called back when an ability stage is Destroyed.
-   * Will not call the onDestroy function when killing a process or crashing abnormally.
+   * Called when the application is destroyed. This API is called during the normal lifecycle.
+   * If the application exits abnormally or is terminated, this API is not called.
    *
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * </p>
+   * 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 
   /**
-   * Called back before an ability stage is terminated.
+   * Called when the application is closed by the user, allowing the user to choose between immediate termination or
+   * cancellation.
+   * 
+   * <p>**NOTE**:
+   * <br>This API returns the result synchronously and does not support asynchronous callbacks.
+   * <br>Currently, this API takes effect only on 2-in-1 devices.
+   * <br>This API is called only when the application exits normally. It is not called if the application is forcibly
+   * closed.
+   * <br>This API is not executed when {@link AbilityStage.onPrepareTerminationAsync} is implemented.
+   * </p>
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
-   * @returns { AbilityConstant.PrepareTermination } The user returns an action indicating
-   *                                                 what the process should do prior to terminating.
+   * @returns { AbilityConstant.PrepareTermination } The user's choice.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -215,12 +301,20 @@ export default class AbilityStage {
   onPrepareTermination(): AbilityConstant.PrepareTermination;
 
   /**
-   * Called back asynchronously before an ability stage is terminated.
-   * If onPrepareTerminationAsync has been implemented then onPrepareTermination won't take effect
+   * Called when the application is closed by the user, allowing the user to choose between immediate termination or
+   * cancellation.
+   * This API uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>Currently, this API takes effect only on 2-in-1 devices.
+   * <br>This API is called only when the application exits normally. It is not called if the application is forcibly
+   * closed.
+   * <br>If an asynchronous callback crashes, it will be handled as a timeout. If the application does not respond
+   * within 10 seconds, it will be terminated forcibly.
+   * </p>
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
-   * @returns { Promise<AbilityConstant.PrepareTermination> } The user returns a promise of the action indicating
-   *                                                          what the process should do prior to terminating.
+   * @returns { Promise<AbilityConstant.PrepareTermination> } Promise used to return the user's choice.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -228,3 +322,6 @@ export default class AbilityStage {
    */
   onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>;
 }
+
+
+export default AbilityStage;

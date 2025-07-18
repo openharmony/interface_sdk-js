@@ -18,46 +18,56 @@
  * @kit InputKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
 import type image from './@ohos.multimedia.image';
+/*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback } from './@ohos.base';
+import image from './@ohos.multimedia.image';
+/*** endif */
 
 /**
- * Declares interfaces related to mouse pointer attributes.
+ * The pointer module provides APIs related to pointer attribute management, such as querying and setting pointer attributes.
  *
  * @namespace pointer
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @since 9
  */
 /**
- * Declares interfaces related to mouse pointer attributes.
+ * The pointer module provides APIs related to pointer attribute management, such as querying and setting pointer attributes.
  *
  * @namespace pointer
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace pointer {
   /**
-   * Pointer style.
+   * Enumerates mouse pointer styles.
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
   /**
-   * Pointer style.
+   * Enumerates mouse pointer styles.
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+
    */
   enum PointerStyle {
     /**
      * Default
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT,
 
@@ -65,7 +75,8 @@ declare namespace pointer {
      * East arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAST,
 
@@ -73,7 +84,8 @@ declare namespace pointer {
      * West arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WEST,
 
@@ -81,7 +93,8 @@ declare namespace pointer {
      * South arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH,
 
@@ -89,7 +102,8 @@ declare namespace pointer {
      * North arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH,
 
@@ -97,7 +111,8 @@ declare namespace pointer {
      * East-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WEST_EAST,
 
@@ -105,7 +120,8 @@ declare namespace pointer {
      * North-south arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_SOUTH,
 
@@ -113,7 +129,8 @@ declare namespace pointer {
      * North-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_EAST,
 
@@ -121,7 +138,8 @@ declare namespace pointer {
      * North-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_WEST,
 
@@ -129,7 +147,8 @@ declare namespace pointer {
      * South-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH_EAST,
 
@@ -137,7 +156,8 @@ declare namespace pointer {
      * South-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOUTH_WEST,
 
@@ -145,7 +165,8 @@ declare namespace pointer {
      * Northeast and southwest adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -153,7 +174,8 @@ declare namespace pointer {
      * Northwest and southeast adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -161,7 +183,8 @@ declare namespace pointer {
      * Cross (accurate selection)
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CROSS,
 
@@ -169,7 +192,8 @@ declare namespace pointer {
      * Copy
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_COPY,
 
@@ -177,7 +201,8 @@ declare namespace pointer {
      * Forbid
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_FORBID,
 
@@ -185,7 +210,8 @@ declare namespace pointer {
      * Sucker
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COLOR_SUCKER,
 
@@ -193,7 +219,8 @@ declare namespace pointer {
      * Grabbing hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_GRABBING,
 
@@ -201,7 +228,8 @@ declare namespace pointer {
      * Opening hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_OPEN,
 
@@ -209,7 +237,8 @@ declare namespace pointer {
      * Hand-shaped pointer
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HAND_POINTING,
 
@@ -217,7 +246,8 @@ declare namespace pointer {
      * Help
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HELP,
 
@@ -225,7 +255,8 @@ declare namespace pointer {
      * Move
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MOVE,
 
@@ -233,7 +264,8 @@ declare namespace pointer {
      * Left and right resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESIZE_LEFT_RIGHT,
 
@@ -241,7 +273,8 @@ declare namespace pointer {
      * Up and down resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESIZE_UP_DOWN,
 
@@ -249,7 +282,8 @@ declare namespace pointer {
      * Screenshot crosshair
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENSHOT_CHOOSE,
 
@@ -257,7 +291,8 @@ declare namespace pointer {
      * Screenshot
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREENSHOT_CURSOR,
 
@@ -265,7 +300,8 @@ declare namespace pointer {
      * Text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEXT_CURSOR,
 
@@ -273,7 +309,8 @@ declare namespace pointer {
      * Zoom in
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ZOOM_IN,
 
@@ -281,7 +318,8 @@ declare namespace pointer {
      * Zoom out
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ZOOM_OUT,
 
@@ -289,7 +327,8 @@ declare namespace pointer {
      * Scrolling east
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_EAST,
 
@@ -297,7 +336,8 @@ declare namespace pointer {
      * Scrolling west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_WEST,
 
@@ -305,7 +345,8 @@ declare namespace pointer {
      * Scrolling south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH,
 
@@ -313,7 +354,8 @@ declare namespace pointer {
      * Scrolling north
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH,
 
@@ -321,7 +363,8 @@ declare namespace pointer {
      * Scrolling north and south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -329,7 +372,8 @@ declare namespace pointer {
      * Scrolling northeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -337,7 +381,8 @@ declare namespace pointer {
      * Scrolling northwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -345,7 +390,8 @@ declare namespace pointer {
      * Scrolling southeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -353,7 +399,8 @@ declare namespace pointer {
      * Scrolling southwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -361,7 +408,8 @@ declare namespace pointer {
      * Moving as a cone in four directions
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -369,7 +417,8 @@ declare namespace pointer {
      * Horizontal text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -377,7 +426,8 @@ declare namespace pointer {
      * Precise selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_CROSS,
 
@@ -385,7 +435,8 @@ declare namespace pointer {
      * Cursor with circle style
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CURSOR_CIRCLE,
 
@@ -393,14 +444,16 @@ declare namespace pointer {
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOADING,
 
@@ -408,14 +461,16 @@ declare namespace pointer {
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RUNNING,
 
@@ -423,9 +478,19 @@ declare namespace pointer {
      * Scrolling east and west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MIDDLE_BTN_EAST_WEST
+    MIDDLE_BTN_EAST_WEST,
+
+    /**
+     * Screen recorder cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCREENRECORDER_CURSOR = 48
   }
 
   /**
@@ -453,7 +518,7 @@ declare namespace pointer {
   }
 
   /**
-   * Device right menu type.
+   * Enumerates shortcut menu triggering modes.
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -461,30 +526,45 @@ declare namespace pointer {
    */
   enum RightClickType {
     /**
-     * Touchpad right button
+     * Tapping the right-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
-     * Touchpad left button
+     * Tapping the left-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
-     * Touchpad two fingers tap
+     * Tapping or pressing the touchpad with two fingers.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
+    /**
+     * Touchpad two fingers tap or right button.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
+
+      /**
+     * Touchpad two fingers tap or left button.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 20
+     */
+    TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
 
   /**
-   * Defines a custom cursor.
+   * Pixel map resource.
    *
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -492,21 +572,26 @@ declare namespace pointer {
    */
   interface CustomCursor {
     /**
-     * pixelMap - Custom cursor. The size limit is 256 x 256.
+     * Defines a custom cursor. The minimum size is subject to the minimum limit of the image. The maximum size is 256 x 256 px.
+     * 
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15
      */
     pixelMap: image.PixelMap;
     /**
-     * focusX - Horizontal coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
+     * Horizontal coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
+     * The minimum value is 0, and the maximum value is the maximum width of the image. The default value is 0 if the parameter is left empty.
+     * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15
      */
     focusX?: number;
     /**
-     * focusY - Vertical coordinate of the focus of the custom cursor. It is subject to the size of the custom cursor.
+     * Vertical coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
+     * The minimum value is 0, and the maximum value is the maximum height of the image. The default value is 0 if the parameter is left empty.
+     * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15
@@ -515,7 +600,7 @@ declare namespace pointer {
   }
   
   /**
-   * Specifies custom cursor config.
+   * Defines the custom cursor configuration.
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -523,7 +608,10 @@ declare namespace pointer {
    */
   interface CursorConfig {
     /**
-     * followSystem - Whether to adjust the cursor size based on the system settings.
+     * Whether to adjust the cursor size based on system settings. 
+     * The value true means to adjust the cursor size based on system settings, and the value false means to use the custom cursor size. 
+     * The adjustment range is [size of the cursor image, 256 x 256].
+     * 
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15
@@ -532,9 +620,9 @@ declare namespace pointer {
   }
 
   /**
-   * Sets the pointer moving speed.
+   * Sets the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -543,9 +631,9 @@ declare namespace pointer {
    * @since 9
    */
   /**
-   * Sets the pointer moving speed.
+   * Sets the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -557,9 +645,9 @@ declare namespace pointer {
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the pointer moving speed.
+   * Sets the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -568,9 +656,9 @@ declare namespace pointer {
    * @since 9
    */
   /**
-   * Sets the pointer moving speed.
+   * Sets the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -582,9 +670,9 @@ declare namespace pointer {
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
-   * Sets the pointer moving speed through sync mode.
+   * Sets the moving speed of the mouse pointer. This API returns the result synchronously.
    *
-   * @param { number } speed - Pointer moving speed, which is any number.
+   * @param { number } speed - Moving speed of the mouse pointer. The value ranges from 1 to 20. The default value is 10.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -595,7 +683,7 @@ declare namespace pointer {
   function setPointerSpeedSync(speed: number): void;
 
   /**
-   * Queries the pointer moving speed.
+   * Obtains the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -605,7 +693,7 @@ declare namespace pointer {
    * @since 9
    */
   /**
-   * Queries the pointer moving speed.
+   * Obtains the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -618,17 +706,17 @@ declare namespace pointer {
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
-   * Queries the pointer moving speed.
+   * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @since 9
    */
   /**
-   * Queries the pointer moving speed.
+   * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -637,7 +725,8 @@ declare namespace pointer {
   function getPointerSpeed(): Promise<number>;
 
   /**
-   * Queries the pointer moving speed through sync mode.
+   * Obtains the moving speed of the mouse pointer. This API returns the result synchronously.
+   * 
    * @returns { number } Returns the pointer speed through sync mode.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -649,7 +738,7 @@ declare namespace pointer {
   function getPointerSpeedSync(): number;
 
   /**
-   * Sets the pointer style.
+   * Sets the mouse pointer style. This API uses an asynchronous callback to return the result.
    *
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -657,25 +746,27 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the pointer style.
+   * Sets the mouse pointer style. This API uses a promise to return the result.
    *
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
-   * Sets the pointer style through sync mode.
+   * Sets the mouse pointer style. This API returns the result synchronously.
    *
    * @param { number } windowId - Window ID.
    * @param { PointerStyle } pointerStyle - Pointer style.
@@ -687,10 +778,10 @@ declare namespace pointer {
   function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
 
   /**
-   * Queries the pointer style.
+   * Obtains the mouse pointer style. This API uses an asynchronous callback to return the result.
    *
    * @param { number } windowId - Window ID.
-   * @param { AsyncCallback<PointerStyle> } callback - Callback used to return the result.
+   * @param { AsyncCallback<PointerStyle> } callback - Callback used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -699,10 +790,11 @@ declare namespace pointer {
   function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
 
   /**
-   * Queries the pointer style.
+   * Obtains the mouse pointer style. This API uses a promise to return the result.
    *
-   * @param { number } windowId - Window ID.
-   * @returns { Promise<PointerStyle> } Returns the result through a promise.
+   * @param { number } windowId - Window ID. The value is an integer greater than or equal to -1. 
+   * The value -1 indicates the global window.
+   * @returns { Promise<PointerStyle> } Promise used to return the mouse pointer style.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -711,9 +803,10 @@ declare namespace pointer {
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
   /**
-   * Queries the pointer style through sync mode.
+   * Obtains the mouse pointer style, such as the east arrow, west arrow, south arrow, and north arrow. 
+   * This API returns the result synchronously.
    *
-   * @param { number } windowId - Window ID.
+   * @param { number } windowId - Window ID. The default value is -1, indicating the global mouse pointer style.
    * @returns { PointerStyle } Returns the pointerStyle.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -723,22 +816,22 @@ declare namespace pointer {
   function getPointerStyleSync(windowId: number): PointerStyle;
 
   /**
-   * Sets whether the pointer icon is visible.
+   * Sets the visible status of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * @param { boolean } visible Whether the mouse pointer is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
-   * @param { AsyncCallback<void> } callback - Callback for the input device event.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
   /**
-   * Sets whether the pointer icon is visible.
+   * Sets the visible status of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * @param { boolean } visible Whether the mouse pointer is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
-   * @param { AsyncCallback<void> } callback - Callback for the input device event.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
@@ -748,9 +841,9 @@ declare namespace pointer {
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether the pointer icon is visible.
+   * Sets the visible status of the mouse pointer. This API uses a promise to return the result.
    *
-   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * @param { boolean } visible Whether the mouse pointer is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -759,9 +852,9 @@ declare namespace pointer {
    * @since 9
    */
   /**
-   * Sets whether the pointer icon is visible.
+   * Sets the visible status of the mouse pointer. This API uses a promise to return the result.
    *
-   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * @param { boolean } visible Whether the mouse pointer is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -773,9 +866,9 @@ declare namespace pointer {
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
-   * Sets whether the pointer icon is visible through sync mode.
+   * Sets the visible status of the mouse pointer. This API returns the result synchronously.
    *
-   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * @param { boolean } visible Whether the mouse pointer is visible. The value true indicates that the pointer
    * icon is visible, and the value false indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -785,10 +878,10 @@ declare namespace pointer {
   function setPointerVisibleSync(visible: boolean): void;
 
   /**
-   * Checks whether the pointer icon is visible.
+   * Checks the visible status of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Returns <b>true</b> if the pointer icon is visible,
-   * returns <b>false</b> otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -797,28 +890,31 @@ declare namespace pointer {
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the pointer icon is visible.
+   * Obtains the visible status of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns { Promise<boolean> } Promise used to return the visible status of the mouse pointer. 
+   * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 9
    */
   function isPointerVisible(): Promise<boolean>;
 
   /**
-   * Checks whether the pointer icon is visible through sync mode.
+   * Obtains the visible status of the mouse pointer. This API returns the result synchronously.
    *
-   * @returns { boolean } Returns true if the pointer icon is visible, returns false otherwise.
+   * @returns { boolean } Visible status of the mouse pointer. 
+   * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @since 10
    */
   function isPointerVisibleSync(): boolean;
 
   /**
-   * Set the color of pointer.
+   * Sets the pointer color. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } color - Indicates the color of pointer.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } color - Pointer color. The default value is black (0x000000).
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -829,10 +925,10 @@ declare namespace pointer {
   function setPointerColor(color: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the color of pointer.
+   * Sets the pointer color. This API uses a promise to return the result.
    *
-   * @param { number } color - Indicates the color of pointer.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { number } color - Pointer color. The default value is black (0x000000).
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -843,9 +939,9 @@ declare namespace pointer {
   function setPointerColor(color: number): Promise<void>;
 
   /**
-   * Set the color of pointer.
+   * Sets the pointer color. This API returns the result synchronously.
    *
-   * @param { number } color - Indicates the color of pointer.
+   * @param { number } color - Pointer color. The default value is black (0x000000).
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -856,7 +952,7 @@ declare namespace pointer {
   function setPointerColorSync(color: number): void;
 
   /**
-   * Get the color of pointer.
+   * Obtains the pointer color. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -869,9 +965,9 @@ declare namespace pointer {
   function getPointerColor(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the color of pointer.
+   * Obtains the pointer color. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -880,9 +976,9 @@ declare namespace pointer {
   function getPointerColor(): Promise<number>;
 
   /**
-   * Get the color of pointer.
+   * Obtains the pointer color. This API returns the result synchronously.
    *
-   * @returns { number } Returns the pointer color through sync mode.
+   * @returns { number } Pointer color.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -891,10 +987,11 @@ declare namespace pointer {
   function getPointerColorSync(): number;
 
   /**
-   * Set the size of pointer.
+   * Sets the pointer size. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } size - Indicates the size of pointer.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -905,9 +1002,9 @@ declare namespace pointer {
   function setPointerSize(size: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the size of pointer.
+   * Sets the pointer size. This API uses a promise to return the result.
    *
-   * @param { number } size - Indicates the size of pointer.
+   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -919,9 +1016,9 @@ declare namespace pointer {
   function setPointerSize(size: number): Promise<void>;
 
   /**
-   * Set the size of pointer.
+   * Sets the pointer size. This API returns the result synchronously.
    *
-   * @param { number } size - Indicates the size of pointer.
+   * @param { number } size - Pointer size. The value ranges from 1 to 7. The default value is 1.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -932,7 +1029,7 @@ declare namespace pointer {
   function setPointerSizeSync(size: number): void;
 
   /**
-   * Get the size of pointer.
+   * Obtains the pointer size. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -945,9 +1042,9 @@ declare namespace pointer {
   function getPointerSize(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the size of pointer.
+   * Obtains the pointer size. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -956,9 +1053,9 @@ declare namespace pointer {
   function getPointerSize(): Promise<number>;
 
   /**
-   * Get the size of pointer.
+   * Obtains the pointer size. This API returns the result synchronously.
    *
-   * @returns { number } Returns the pointer size through sync mode.
+   * @returns { number } Pointer size.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
@@ -967,10 +1064,9 @@ declare namespace pointer {
   function getPointerSizeSync(): number;
 
   /**
-   * Sets mouse primary button.
+   * Sets the primary button of the mouse. This API uses an asynchronous callback to return the result.
    *
-   * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
-   * button is left button, and the value RIGHT indicates that mouse primary button is right button.
+   * @param { PrimaryButton } primary - ID of the primary mouse button.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -982,11 +1078,10 @@ declare namespace pointer {
   function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets mouse primary button.
+   * Sets the primary button of the mouse. This API uses a promise to return the result.
    *
-   * @param { PrimaryButton } primary - Indicates mouse primary button. The value LEFT indicates that mouse primary
-   * button is left button, and the value RIGHT indicates that mouse primary button is right button.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { PrimaryButton } primary - ID of the primary mouse button.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -997,7 +1092,7 @@ declare namespace pointer {
   function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
 
   /**
-   * Gets mouse primary button.
+   * Obtains the primary button of the mouse. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<PrimaryButton> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -1010,9 +1105,9 @@ declare namespace pointer {
   function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
 
   /**
-   * Gets mouse primary button.
+   * Obtains the primary button of the mouse. This API uses a promise to return the result.
    *
-   * @returns { Promise<PrimaryButton> } Returns the result through a promise.
+   * @returns { Promise<PrimaryButton> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1023,10 +1118,10 @@ declare namespace pointer {
   function getMousePrimaryButton(): Promise<PrimaryButton>;
 
   /**
-   * Sets whether the mouse hover scroll is enabled in inactive window.
+   * Sets the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
-   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1038,10 +1133,10 @@ declare namespace pointer {
   function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether mouse hover scroll is enabled in inactive window.
+   * Sets the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the mouse hover scroll is enabled in inactive window. The value true
-   * indicates that the mouse hover scroll is enabled, and the value false indicates the opposite.
+   * @param { boolean } state - Status of the mouse hover scroll switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1053,9 +1148,10 @@ declare namespace pointer {
   function setHoverScrollState(state: boolean): Promise<void>;
 
   /**
-   * Gets a status whether the mouse hover scroll is enabled in inactive window.
+   * Obtains the status of the mouse hover scroll switch. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Obtains the status of the mouse hover scroll switch. 
+   * This API uses an asynchronous callback to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1066,9 +1162,10 @@ declare namespace pointer {
   function getHoverScrollState(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Gets a status whether mouse hover scroll is enabled in inactive window.
+   * Obtains the status of the mouse hover scroll switch. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1079,9 +1176,9 @@ declare namespace pointer {
   function getHoverScrollState(): Promise<boolean>;
 
   /**
-   * Set the number of mouse scrolling rows.
+   * Sets the number of mouse scroll rows. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @param { number } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1093,9 +1190,9 @@ declare namespace pointer {
   function setMouseScrollRows(rows: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the number of mouse scrolling rows.
+   * Sets the number of mouse scroll rows. This API uses a promise to return the result.
    *
-   * @param { number } rows - Indicates the number of mouse scrolling rows.
+   * @param { number } rows - Number of mouse scroll rows. The value ranges from 1 to 100. The default value is 3.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1107,7 +1204,7 @@ declare namespace pointer {
   function setMouseScrollRows(rows: number): Promise<void>;
 
   /**
-   * Get the number of mouse scrolling rows.
+   * Obtains the number of mouse scroll rows. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -1120,9 +1217,9 @@ declare namespace pointer {
   function getMouseScrollRows(callback: AsyncCallback<number>): void;
 
   /**
-   * Get the number of mouse scrolling rows.
+   * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1133,9 +1230,10 @@ declare namespace pointer {
   function getMouseScrollRows(): Promise<number>;
 
   /**
-   * Set touchpad scroll switch.
+   * Sets the scroll switch of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
+   * @param { boolean } state - Scroll switch status. The value true indicates that the switch is enabled, 
+   * and the value false indicates the opposite. The default value is true.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1147,10 +1245,11 @@ declare namespace pointer {
   function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad scroll switch.
+   * Sets the scroll switch of the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll switch is enabled
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { boolean } state - Scroll switch status. The value true indicates that the switch is enabled, 
+   * and the value false indicates the opposite. The default value is true.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1161,9 +1260,10 @@ declare namespace pointer {
   function setTouchpadScrollSwitch(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad scroll switch state.
+   * Obtains the scroll switch status of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1174,9 +1274,10 @@ declare namespace pointer {
   function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad scroll switch state.
+   * Obtains the scroll switch status of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1187,9 +1288,11 @@ declare namespace pointer {
   function getTouchpadScrollSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad scroll direction.
+   * Sets the scroll direction of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
+   * @param { boolean } state - Scroll direction of the touchpad. 
+   * The value true indicates that the scroll direction is the same as the finger moving direction, and the value false indicates the opposite.
+   * The default value is true.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1201,10 +1304,12 @@ declare namespace pointer {
   function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad scroll direction.
+   * Sets the scroll direction of the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad scroll direction is forward or reverse
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { boolean } state - Scroll direction of the touchpad. 
+   * The value true indicates that the scroll direction is the same as the finger moving direction, and the value false indicates the opposite.
+   * The default value is true.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1215,9 +1320,11 @@ declare namespace pointer {
   function setTouchpadScrollDirection(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad scroll direction.
+   * Obtains the scroll direction of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the scroll direction is the same as the finger moving direction, and the value false indicates the opposite. 
+   * The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1228,9 +1335,11 @@ declare namespace pointer {
   function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad scroll direction.
+   * Obtains the scroll direction of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the scroll direction is the same as the finger moving direction, and the value false indicates the opposite. 
+   * The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1241,9 +1350,10 @@ declare namespace pointer {
   function getTouchpadScrollDirection(): Promise<boolean>;
 
   /**
-   * Set touchpad tap switch.
+   * Sets the tap switch of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
+   * @param { boolean } state - Tap switch status of the touchpad The value true indicates that the switch is enabled, 
+   * and the value false indicates the opposite. The default value is true.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1255,9 +1365,10 @@ declare namespace pointer {
   function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad tap switch.
+   * Sets the tap switch of the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad tap switch is enabled
+   * @param { boolean } state - Tap switch status of the touchpad. The value true indicates that the switch is enabled, 
+   * and the value false indicates the opposite. The default value is true.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1269,9 +1380,10 @@ declare namespace pointer {
   function setTouchpadTapSwitch(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad tap switch state.
+   * Obtains the tap switch status of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1282,9 +1394,10 @@ declare namespace pointer {
   function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad tap switch state.
+   * Obtains the tap switch status of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1295,9 +1408,9 @@ declare namespace pointer {
   function getTouchpadTapSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad pointer speed.
+   * Sets the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } speed - Indicates the number of touchpad pointer speed.
+   * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1309,9 +1422,9 @@ declare namespace pointer {
   function setTouchpadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad pointer speed.
+   * Sets the mouse pointer moving speed of the touchpad. This API uses a promise to return the result.
    *
-   * @param { number } speed - Indicates the number of touchpad pointer speed.
+   * @param { number } speed - Mouse pointer moving speed of the touchpad. The value range is [1,11]. The default value is 6.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1323,7 +1436,7 @@ declare namespace pointer {
   function setTouchpadPointerSpeed(speed: number): Promise<void>;
 
   /**
-   * Get touchpad pointer speed.
+   * Obtains the mouse pointer moving speed of the touchpad. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -1336,9 +1449,9 @@ declare namespace pointer {
   function getTouchpadPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
-   * Get touchpad pointer speed.
+   * Obtains the mouse pointer moving speed of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Returns the result through a promise.
+   * @returns { Promise<number> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1349,9 +1462,10 @@ declare namespace pointer {
   function getTouchpadPointerSpeed(): Promise<number>;
 
   /**
-   * Set touchpad pinch switch.
+   * Sets the pinch switch of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
+   * @param { boolean } state - Pinch switch status of the touchpad. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1363,10 +1477,11 @@ declare namespace pointer {
   function setTouchpadPinchSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad pinch switch.
+   * Sets the pinch switch of the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad pinch switch is enabled
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { boolean } state - Pinch switch status of the touchpad. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1377,9 +1492,10 @@ declare namespace pointer {
   function setTouchpadPinchSwitch(state: boolean): Promise<void>;
 
   /**
-   * Get touchpad pinch switch state.
+   * Obtains the pinch switch status of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1390,9 +1506,10 @@ declare namespace pointer {
   function getTouchpadPinchSwitch(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad pinch switch state.
+   * Obtains the pinch switch status of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1403,9 +1520,10 @@ declare namespace pointer {
   function getTouchpadPinchSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad swipe switch.
+   * Sets the multi-finger swipe switch of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
+   * @param { boolean } state - Swipe switch status of the touchpad. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1417,10 +1535,11 @@ declare namespace pointer {
   function setTouchpadSwipeSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad swipe switch.
+   * Sets the swipe switch of the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } state - Indicates whether the touchpad swipe switch is enabled
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { boolean } state - Swipe switch status of the touchpad. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1431,9 +1550,10 @@ declare namespace pointer {
   function setTouchpadSwipeSwitch(state: boolean): Promise<void>;
  
   /**
-   * Get touchpad swipe switch state.
+   * Obtains the multi-finger swipe switch status of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1444,9 +1564,10 @@ declare namespace pointer {
   function getTouchpadSwipeSwitch(callback: AsyncCallback<boolean>): void;
  
   /**
-   * Get touchpad swipe switch state.
+   * Obtains the multi-finger swipe switch status of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the result. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite. The default value is true.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1457,9 +1578,15 @@ declare namespace pointer {
   function getTouchpadSwipeSwitch(): Promise<boolean>;
 
   /**
-   * Set touchpad right click type.
+   * Sets the shortcut menu type of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { RightClickType } type - Indicates the type of touchpad right button menu.
+   * @param { RightClickType } type - Shortcut menu type of the touchpad.
+    - TOUCHPAD_RIGHT_BUTTON: Tapping the right-button area of the touchpad.
+    - TOUCHPAD_LEFT_BUTTON: Tapping the left-button area of the touchpad.
+    - TOUCHPAD_TWO_FINGER_TAP: Tapping or pressing the touchpad with two fingers.
+    - TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON: Tapping or pressing the touchpad with two fingers, or tapping the right-button area of the touchpad.
+    - TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON: Tapping or pressing the touchpad with two fingers, or tapping the left-button area of the touchpad.
+   * The default value is TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1471,10 +1598,16 @@ declare namespace pointer {
   function setTouchpadRightClickType(type: RightClickType, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad right click type.
+   * Sets the shortcut menu type of the touchpad. This API uses a promise to return the result.
    *
-   * @param { RightClickType } type - Indicates the type of touchpad right click.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { RightClickType } type - Shortcut menu type of the touchpad.
+    - TOUCHPAD_RIGHT_BUTTON: Tapping the right-button area of the touchpad.
+    - TOUCHPAD_LEFT_BUTTON: Tapping the left-button area of the touchpad.
+    - TOUCHPAD_TWO_FINGER_TAP: Tapping or pressing the touchpad with two fingers.
+    - TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON: Tapping or pressing the touchpad with two fingers, or tapping the right-button area of the touchpad.
+    - TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON: Tapping or pressing the touchpad with two fingers, or tapping the left-button area of the touchpad.
+   * The default value is TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1485,9 +1618,9 @@ declare namespace pointer {
   function setTouchpadRightClickType(type: RightClickType): Promise<void>;
 
   /**
-   * Get touchpad right click type.
+   * Obtains the shortcut menu type of the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<RightClickType> } callback - Callback used to return the result of right click type.
+   * @param { AsyncCallback<RightClickType> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1498,9 +1631,9 @@ declare namespace pointer {
   function getTouchpadRightClickType(callback: AsyncCallback<RightClickType>): void;
 
   /**
-   * Get touchpad right click type.
+   * Obtains the shortcut menu type of the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<RightClickType> } Returns the result of right click type through a promise.
+   * @returns { Promise<RightClickType> } Promise used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1511,13 +1644,13 @@ declare namespace pointer {
   function getTouchpadRightClickType(): Promise<RightClickType>;
 
   /**
-   * Sets the custom cursor.
+   * Sets the custom cursor style. This API uses a promise to return the result.
    *
    * @param { number } windowId - Window ID.
-   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
-   * @param { number } focusX - focus x.
-   * @param { number } focusY - focus y.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { image.PixelMap } pixelMap - Pixel map resource.
+   * @param { number } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { number } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -1526,12 +1659,12 @@ declare namespace pointer {
   function setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
 
   /**
-   * Sets the custom cursor through sync mode.
+   * Sets a custom cursor. This API returns the result synchronously.
    *
-   * @param { number } windowId - Window ID.
-   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
-   * @param { number } focusX - focus x.
-   * @param { number } focusY - focus y.
+   * @param { number } windowId - Window ID. The value must be an integer greater than 0.
+   * @param { image.PixelMap } pixelMap - Pixel map resource.
+   * @param { number } focusX - Focus x of the custom cursor. The value is greater than or equal to 0. The default value is 0.
+   * @param { number } focusY - Focus y of the custom cursor. The value is greater than or equal to 0. The default value is 0.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -1540,12 +1673,16 @@ declare namespace pointer {
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
   /**
-   * Sets the custom cursor. You can set whether to adjust the cursor size based on the system settings.
+   * Sets the custom cursor style. This API uses a promise to return the result. 
+   * The cursor may be switched back to the system style in the following cases: application window layout change, hot zone switching, 
+   * page redirection, moving of the cursor out of the window and then back to the window, or moving of the cursor in different areas of the window. 
+   * In this case, you need to reset the cursor style.
    *
    * @param { number } windowId - Window ID.
-   * @param { CustomCursor } cursor - Custom cursor, including the custom cursor resource and focus position.
-   * @param { CursorConfig } config - Custom cursor config.
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @param { CustomCursor } cursor - Pixel map resource.
+   * @param { CursorConfig } config - Custom cursor configuration, which specifies whether to adjust the cursor size based on system settings. 
+   * If followSystem in CursorConfig is set to true, the supported adjustment range is [size of the cursor image, 256 x 256].
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Abnormal windowId parameter passed in;
    * <br>2. Abnormal pixelMap parameter passed in; 3. Abnormal focusX parameter passed in;
    * <br>4. Abnormal focusY parameter passed in.
@@ -1556,9 +1693,10 @@ declare namespace pointer {
   function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>;
 
   /**
-   * Set touchpad double tap and drag state.
+   * Sets the double-tap and drag switch for the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1570,9 +1708,10 @@ declare namespace pointer {
   function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set touchpad double tap and drag state.
+   * Sets the double-tap and drag switch for the touchpad. This API uses a promise to return the result.
    *
-   * @param { boolean } isOpen - Indicates whether the touchpad double tap and drag is enabled
+   * @param { boolean } isOpen - Status of the double-tap and drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1584,9 +1723,10 @@ declare namespace pointer {
   function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
 
   /**
-   * Get touchpad double tap and drag state.
+   * Obtains the status of the double-tap and drag switch for the touchpad. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the status of the double-tap drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1597,9 +1737,10 @@ declare namespace pointer {
   function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get touchpad double tap and drag state.
+   * Obtains the status of the double-tap and drag switch for the touchpad. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns the result through a promise.
+   * @returns { Promise<boolean> } Promise used to return the status of the touchpad double-tap drag switch. 
+   * The value true indicates that the switch is enabled, and the value false indicates the opposite.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.

@@ -63,11 +63,14 @@ declare namespace huks {
   function generateKey(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Generate Key.
-   *
+   * Generates a key. This API uses an asynchronous callback to return the result.
+   * 
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -79,19 +82,22 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Generate Key.
+   * Generates a key. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -103,21 +109,53 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Generates a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * this API does not return the key content because the key is always protected in a TEE. If an exception occurs in
+   * the generation process, an error is captured.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Generate Key.
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -130,18 +168,21 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Generate Key.
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -154,13 +195,42 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   * and key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -186,13 +256,44 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
+   */
+  /**
+   * Generate Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 20
    */
   function generateKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
@@ -223,11 +324,15 @@ declare namespace huks {
   function deleteKey(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Delete Key.
+   * Deletes a key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -236,17 +341,21 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Delete Key.
+   * Deletes a key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Properties of the key to delete. For example, you can pass in HuksAuthStorageLevel
+   * to specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -255,7 +364,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -264,10 +373,13 @@ declare namespace huks {
   function deleteKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Delete Key.
+   * Deletes a key. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -277,16 +389,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Delete Key.
+   * Deletes a key. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { string } keyAlias - Alias of the key to delete. It must be the key alias passed in when the key
+   * was generated.
+   * @param { HuksOptions } options - Options for deleting the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to delete. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -296,7 +411,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -323,7 +438,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -358,11 +473,13 @@ declare namespace huks {
   function importKey(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Import Key.
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -375,19 +492,21 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Import Key.
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -400,20 +519,22 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
    */
   /**
-   * Import Key.
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -426,21 +547,50 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
+  /**
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   * error value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
+   */
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Import Key.
+   * Imports a key in plaintext. This API uses a promise to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -454,18 +604,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Import Key.
+   * Imports a key in plaintext. This API uses a promise to return the result.
    *
    * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -479,13 +630,40 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Imports a key in plaintext. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   * key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -512,23 +690,25 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
    */
-  function importKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
-
   /**
-   * Import Wrapped Key.
+   * Import Key As User.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importWrappedKeyItem.
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - userId indicates the userId of the owner of the key.
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -541,20 +721,54 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 20
+   */
+  function importKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+
+  /**
+   * Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   * The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Import Wrapped Key.
+   * Imports a wrapped key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<void> } callback - the callback of importWrappedKeyItem.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   * The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -567,13 +781,43 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   * The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
    */
   function importWrappedKeyItem(
     keyAlias: string,
@@ -606,23 +850,26 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 12
    */
-  function importWrappedKeyItemAsUser(userId: number, keyAlias: string, wrappingKeyAlias: string, huksOptions: HuksOptions): Promise<void>;
-
   /**
-   * Import Wrapped Key.
+   * Import Wrapped Key As User.
    *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - userId indicates the userId of the owner of the key.
    * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
    * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { HuksOptions } huksOptions - huksOptions indicates the properties of the key.
    * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to use key as user forbidden by permission:
+   * <br>ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+   * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -635,20 +882,52 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 20
+   */
+  function importWrappedKeyItemAsUser(userId: number, keyAlias: string, wrappingKeyAlias: string, huksOptions: HuksOptions): Promise<void>;
+
+  /**
+   * Imports a wrapped key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   * purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Import Wrapped Key.
+   * Imports a wrapped key. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the name of key to be imported.
-   * @param { string } wrappingKeyAlias - wrappingKeyAlias indicates the name of key for wrapping the key to be imported.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   * purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -661,13 +940,42 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Imports a wrapped key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   * purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -698,11 +1006,13 @@ declare namespace huks {
   function exportKey(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Export Key.
+   * Exports a key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of exportKeyItem.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and outData contains the public key exported. Otherwise,
+   * an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -715,17 +1025,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Export Key.
+   * Exports a key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of exportKeyItem.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and outData contains the public key exported. Otherwise,
+   * an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -738,7 +1050,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -769,7 +1081,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -778,11 +1090,12 @@ declare namespace huks {
   function exportKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Export Key.
+   * Exports a key. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   * in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -795,17 +1108,18 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Export Key.
+   * Exports a key. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   * in HuksReturnResult is the public key exported.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -818,7 +1132,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -853,11 +1167,13 @@ declare namespace huks {
   function getKeyProperties(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Get properties of the key.
+   * Obtains key properties. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of getKeyItemProperties.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
+   * operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -870,17 +1186,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Get properties of the key.
+   * Obtains key properties. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of getKeyItemProperties.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned and properties contains the parameters required for generating the key. If the
+   * operation fails, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -893,7 +1211,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -928,7 +1246,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -937,11 +1255,12 @@ declare namespace huks {
   function getKeyItemPropertiesAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Get properties of the key.
+   * Obtains key properties. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -954,17 +1273,18 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Get properties of the key.
+   * Obtains key properties. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * properties in HuksReturnResult holds the parameters required for generating the key.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -977,7 +1297,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1012,11 +1332,14 @@ declare namespace huks {
   function isKeyExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
   /**
-   * Check whether the key exists.
+   * Checks whether a key exists. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1028,7 +1351,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
@@ -1036,11 +1359,13 @@ declare namespace huks {
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Check whether the key exists.
+   * Checks whether a key exists. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, then() performs subsequent
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1052,7 +1377,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1060,11 +1385,14 @@ declare namespace huks {
   function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
   /**
-   * Check whether the key exists.
+   * Checks whether a key exists. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
+   * Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1075,7 +1403,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1104,7 +1432,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1113,11 +1441,14 @@ declare namespace huks {
   function hasKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
 
   /**
-   * Check whether the key exists.
+   * Checks whether a key exists. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key to check.
+   * @param { HuksOptions } options - Options for checking the key. For example, you can pass in HuksAuthStorageLevel to
+   * specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
+   * value HUKS_AUTH_STORAGE_LEVEL_DE is used.
+   * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
+   * does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1128,7 +1459,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1163,11 +1494,13 @@ declare namespace huks {
   function init(keyAlias: string, options: HuksOptions): Promise<HuksHandle>;
 
   /**
-   * Init Operation.
+   * Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   * operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1181,17 +1514,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Init Operation.
+   * Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   * operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1205,7 +1540,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1214,11 +1549,12 @@ declare namespace huks {
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
 
   /**
-   * Init Operation.
+   * Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1232,17 +1568,18 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Init Operation.
+   * Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1256,7 +1593,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1288,7 +1625,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1325,11 +1662,12 @@ declare namespace huks {
   function update(handle: number, token?: Uint8Array, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1345,17 +1683,18 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1371,7 +1710,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1380,12 +1719,13 @@ declare namespace huks {
   function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1401,18 +1741,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1428,7 +1769,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1442,12 +1783,14 @@ declare namespace huks {
   ): void;
 
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1463,18 +1806,20 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Update Operation.
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the update operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { number } handle - Handle for the updateSession operation.
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1490,7 +1835,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1525,11 +1870,12 @@ declare namespace huks {
   function finish(handle: number, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1545,17 +1891,18 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1571,21 +1918,49 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
    */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
+   */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1601,18 +1976,19 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1628,11 +2004,39 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function finishSession(
     handle: number,
@@ -1642,12 +2046,14 @@ declare namespace huks {
   ): void;
 
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1663,18 +2069,20 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Finish Operation.
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the finish operation.
-   * @param { Uint8Array } token - token indicates the value of auth token from USER IAM service.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1690,11 +2098,40 @@ declare namespace huks {
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   * refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *                                 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types.
+   *                                 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 20
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -1725,11 +2162,11 @@ declare namespace huks {
   function abort(handle: number, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * Abort Operation.
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @param { AsyncCallback<void> } callback - the callback of abortSession.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1738,17 +2175,17 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Abort Operation.
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @param { AsyncCallback<void> } callback - the callback of abortSession.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1757,7 +2194,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
@@ -1766,11 +2203,11 @@ declare namespace huks {
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Abort Operation.
+   * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1779,17 +2216,17 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Abort Operation.
+   * Aborts a key operation. This API uses a promise to return the result.
    *
-   * @param { number } handle - indicates the handle of the init operation.
-   * @param { HuksOptions } options - options indicates the properties of the abort operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { number } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1798,7 +2235,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1807,12 +2244,13 @@ declare namespace huks {
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
   /**
-   * Key Attestation. This API can be called only by system applications.
+   * Obtains the certificate used to attest a key. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ATTEST_KEY
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1826,7 +2264,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1856,7 +2294,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1865,12 +2303,13 @@ declare namespace huks {
   function attestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Key Attestation. This API can be called only by system applications.
+   * Obtains the certificate used to attest a key. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ATTEST_KEY
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
@@ -1884,7 +2323,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
@@ -1892,11 +2331,15 @@ declare namespace huks {
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Key Attestation with anonymous certificate.
+   * Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Try again later.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1909,17 +2352,21 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
   /**
-   * Key Attestation with anonymous certificate.
+   * Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Try again later.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   * successful, no err value is returned; otherwise, an error code is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1932,7 +2379,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -1963,7 +2410,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
@@ -1972,11 +2419,15 @@ declare namespace huks {
   function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Key Attestation with anonymous certificate.
+   * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Try again later.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -1989,17 +2440,21 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
   /**
-   * Key Attestation with anonymous certificate.
+   * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Try again later.
    *
-   * @param { string } keyAlias - keyAlias indicates the key's name.
-   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
-   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   * certChains in HuksReturnResult is the certificate chain obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
@@ -2012,7 +2467,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
    * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2021,10 +2476,10 @@ declare namespace huks {
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
-   * Get the sdk version.
+   * Obtains the SDK version of the current system.
    *
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { string } the character string of the sdk version.
+   * @param { HuksOptions } options - Empty object, which is used to hold the SDK version.
+   * @returns { string } SDK version obtained.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    * @deprecated since 11
@@ -2032,17 +2487,17 @@ declare namespace huks {
   function getSdkVersion(options: HuksOptions): string;
 
   /**
-   * list the key aliases.
+   * Lists key aliases. This API uses a promise to return the result.
    *
-   * @param { HuksOptions } options - options indicates the properties of the key.
-   * @returns { Promise<HuksListAliasesReturnResult> } the promise returned by the function.
+   * @param { HuksOptions } options - Parameters for listing key aliases.
+   * @returns { Promise<HuksListAliasesReturnResult> } Promise used to return the key aliases obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1. Mandatory parameters are left unspecified.
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -2051,14 +2506,59 @@ declare namespace huks {
   function listAliases(options: HuksOptions): Promise<HuksListAliasesReturnResult>;
 
   /**
-   * Interface of huks param.
+   * Export the wrapped key protected by a specific key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the export properties.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @since 20
+   */
+  function wrapKeyItem(keyAlias: string, params: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * Import the wrapped key protected by a specific key
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the import properties.
+   * @param { Uint8Array } wrappedKey -indicates the wrapped key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @syscap SystemCapability.Security.Huks.Core
+   * @since 20
+   */
+  function unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
+
+  /**
+   * Defines the param field in the properties array of options used in the APIs.
    *
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Interface of huks param.
+   * Defines the param field in the properties array of options used in the APIs.
    *
    * @typedef HuksParam
    * @syscap SystemCapability.Security.Huks.Core
@@ -2124,14 +2624,14 @@ declare namespace huks {
   }
 
   /**
-   * Interface of huks handle.
+   * Defines the struct for a HUKS handle.
    *
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Interface of huks handle.
+   * Defines the struct for a HUKS handle.
    *
    * @typedef HuksSessionHandle
    * @syscap SystemCapability.Security.Huks.Core
@@ -2164,14 +2664,14 @@ declare namespace huks {
   }
 
   /**
-   * Interface of huks option.
+   * Defines options used in the APIs.
    *
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Interface of huks option.
+   * Defines options used in the APIs.
    *
    * @typedef HuksOptions
    * @syscap SystemCapability.Security.Huks.Core
@@ -2244,14 +2744,14 @@ declare namespace huks {
   }
 
   /**
-   * Interface of huks result.
+   * Represents the result returned.
    *
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Interface of huks result.
+   * Represents the result returned.
    *
    * @typedef HuksReturnResult
    * @syscap SystemCapability.Security.Huks.Core
@@ -2295,7 +2795,7 @@ declare namespace huks {
   }
 
     /**
-   * Interface of huks ListAliases result.
+   * Represents an array of key aliases.
    *
    * @typedef HuksListAliasesReturnResult
    * @syscap SystemCapability.Security.Huks.Extension
@@ -2730,14 +3230,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks exception error code.
+   * Enumerates the error codes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
   /**
-   * Enum for huks exception error code.
+   * Enumerates the error codes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -2746,217 +3246,311 @@ declare namespace huks {
    */
   export enum HuksExceptionErrCode {
     /**
+     * Permission verification failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Permission verification failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_PERMISSION_FAIL = 201,
     /**
-     * Non-system applications are not allowed to use system APIs.
+     * The caller is not a system application and cannot call the system API.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 12
      */
     HUKS_ERR_CODE_NOT_SYSTEM_APP = 202,
     /**
+     * Invalid parameters are detected. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Invalid parameters are detected. Possible causes:
+     * 1. Mandatory parameters are left unspecified.
+     * 2. Incorrect parameter types.
+     * 3. Parameter verification failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401,
     /**
+     * The API is not supported.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The API is not supported.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
     /**
+     * The feature is not supported.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The feature is not supported.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
     /**
+     * Key algorithm parameters are missing.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Key algorithm parameters are missing.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
     /**
+     * Invalid key algorithm parameters are detected.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Invalid key algorithm parameters are detected.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
     /**
+     * The file operation failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The file operation failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
     /**
+     * The communication failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The communication failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
     /**
+     * Failed to operate the algorithm library.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Failed to operate the algorithm library.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
     /**
+     * Failed to access the key because the key has expired.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Failed to access the key because the key has expired.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
     /**
+     * Failed to access the key because the authentication has failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Failed to access the key because the authentication has failed.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
     /**
+     * Key access timed out.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Key access timed out.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
     /**
+     * The number of key operation sessions has reached the limit.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The number of key operation sessions has reached the limit.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
     /**
+     * The target object does not exist.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The target object does not exist.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
     /**
+     * An external error occurs.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * An external error occurs.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
     /**
+     * The credential does not exist.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The credential does not exist.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
     /**
+     * The memory is insufficient.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * The memory is insufficient.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
     /**
+     * Failed to call other system services.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
      */
     /**
+     * Failed to call other system services.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
     /**
-     * A device password is required but not set.
+     * The required lock screen password is not set.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * A device password is required but not set.
+     * The required lock screen password is not set.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
-    HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016
+    HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016,
+    /**
+     * The key with same alias is already exist.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
+    /**
+     * The input parameter is invalid.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018,
   }
 
   /**
-   * Enum for huks key purpose.
+   * Enumerates the key purposes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks key purpose.
+   * Enumerates the key purposes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -2965,13 +3559,13 @@ declare namespace huks {
    */
   export enum HuksKeyPurpose {
     /**
-     * Usable with RSA, EC and AES keys.
+     * Used to encrypt the plaintext.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * Usable with RSA, EC and AES keys.
+     * Used to encrypt the plaintext.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -2979,13 +3573,13 @@ declare namespace huks {
      */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
     /**
-     * Usable with RSA, EC and AES keys.
+     * Used to decrypt the cipher text.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * Usable with RSA, EC and AES keys.
+     * Used to decrypt the cipher text.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -2993,84 +3587,98 @@ declare namespace huks {
      */
     HUKS_KEY_PURPOSE_DECRYPT = 2,
     /**
-     * Usable with RSA, EC keys.
+     * Used for signing.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with RSA, EC keys.
+     * Used for signing.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_SIGN = 4,
     /**
-     * Usable with RSA, EC keys.
+     * Used to verify the signature.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with RSA, EC keys.
+     * Used to verify the signature.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_VERIFY = 8,
     /**
-     * Usable with EC keys.
+     * Used to derive a key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with EC keys.
+     * Used to derive a key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_DERIVE = 16,
     /**
-     * Usable with wrap key.
+     * Used for an encrypted export.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with wrap key.
+     * Used for an encrypted export.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_WRAP = 32,
     /**
-     * Usable with unwrap key.
+     * Used for an encrypted import.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with unwrap key.
+     * Used for an encrypted import.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_UNWRAP = 64,
     /**
-     * Usable with mac.
+     * Used to generate a message authentication code (MAC).
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with mac.
+     * Used to generate a message authentication code (MAC).
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_PURPOSE_MAC = 128,
     /**
-     * Usable with agree.
+     * Used for key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
-     * Usable with agree.
+     * Used for key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3079,96 +3687,130 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key digest.
+   * Enumerates the digest algorithms.
    *
    * @enum { number }
+   *
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    */
   /**
-   * Enum for huks key digest.
+   * Enumerates the digest algorithms.
    *
    * @enum { number }
+   *
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 12
    */
   export enum HuksKeyDigest {
     /**
+     * No digest algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * No digest algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_NONE = 0,
     /**
+     * MD5.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * MD5.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_MD5 = 1,
     /**
+     * SM3.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * SM3.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_SM3 = 2,
     /**
+     * SHA-1.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * SHA-1.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_SHA1 = 10,
     /**
+     * SHA-224.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * SHA-224.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_SHA224 = 11,
     /**
+     * SHA-256.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * SHA-256.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_SHA256 = 12,
     /**
+     * SHA-384.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * SHA-384.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DIGEST_SHA384 = 13,
     /**
+     * SHA-512.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * SHA-512.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3177,14 +3819,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key padding.
+   * Enumerates the padding algorithms.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks key padding.
+   * Enumerates the padding algorithms.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3193,72 +3835,100 @@ declare namespace huks {
    */
   export enum HuksKeyPadding {
     /**
+     * No padding algorithm is used.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * No padding algorithm is used.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_PADDING_NONE = 0,
     /**
+     * Optimal Asymmetric Encryption Padding (OAEP).
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Optimal Asymmetric Encryption Padding (OAEP).
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_OAEP = 1,
     /**
+     * Probabilistic Signature Scheme (PSS).
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Probabilistic Signature Scheme (PSS).
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_PSS = 2,
     /**
+     * Public Key Cryptography Standards (PKCS) #1 v1.5.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Public Key Cryptography Standards (PKCS) #1 v1.5.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_PKCS1_V1_5 = 3,
     /**
+     * PKCS #5.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * PKCS #5.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_PKCS5 = 4,
     /**
+     * PKCS #7.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * PKCS #7.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_PKCS7 = 5,
     /**
+     * ISO_IEC_9796_2.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_PADDING_ISO_IEC_9796_2 = 6,
     /**
+     * ISO_IEC_9797_1.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3267,14 +3937,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks cipher mode.
+   * Enumerates the cipher modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks cipher mode.
+   * Enumerates the cipher modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3283,47 +3953,63 @@ declare namespace huks {
    */
   export enum HuksCipherMode {
     /**
+     * Electronic Code Block (ECB) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Electronic Code Block (ECB) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_MODE_ECB = 1,
     /**
+     * Cipher Block Chaining (CBC) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Cipher Block Chaining (CBC) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_MODE_CBC = 2,
     /**
+     * Counter (CTR) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Counter (CTR) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_MODE_CTR = 3,
     /**
+     * Output Feedback (OFB) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Output Feedback (OFB) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_MODE_OFB = 4,
     /**
-     * Cipher Feedback (CFB) mode
+     * Ciphertext Feedback (CFB) mode.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -3331,10 +4017,14 @@ declare namespace huks {
      */
     HUKS_MODE_CFB = 5,
     /**
+     * Counter with CBC-MAC (CCM) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Counter with CBC-MAC (CCM) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3342,10 +4032,14 @@ declare namespace huks {
     HUKS_MODE_CCM = 31,
 
     /**
+     * Galois/Counter (GCM) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Galois/Counter (GCM) mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -3354,14 +4048,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key size.
+   * Enumerates the key sizes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks key size.
+   * Enumerates the key sizes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3370,60 +4064,83 @@ declare namespace huks {
    */
   export enum HuksKeySize {
     /**
+     * Rivest-Shamir-Adleman (RSA) key of 512 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Rivest-Shamir-Adleman (RSA) key of 512 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_RSA_KEY_SIZE_512 = 512,
     /**
+     * RSA key of 768 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA key of 768 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_RSA_KEY_SIZE_768 = 768,
     /**
+     * RSA key of 1024 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA key of 1024 bits.
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_RSA_KEY_SIZE_1024 = 1024,
     /**
+     * RSA key of 2048 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA key of 2048 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_RSA_KEY_SIZE_2048 = 2048,
     /**
+     * RSA key of 3072 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA key of 3072 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_RSA_KEY_SIZE_3072 = 3072,
     /**
+     * RSA key of 4096 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA key of 4096 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3431,40 +4148,56 @@ declare namespace huks {
     HUKS_RSA_KEY_SIZE_4096 = 4096,
 
     /**
+     * Elliptic Curve Cryptography (ECC) key of 224 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Elliptic Curve Cryptography (ECC) key of 224 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ECC_KEY_SIZE_224 = 224,
     /**
+     * ECC key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ECC key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ECC_KEY_SIZE_256 = 256,
     /**
+     * ECC key of 384 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ECC key of 384 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ECC_KEY_SIZE_384 = 384,
     /**
+     * ECC key of 521 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ECC key of 521 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3472,30 +4205,42 @@ declare namespace huks {
     HUKS_ECC_KEY_SIZE_521 = 521,
 
     /**
+     * Advanced Encryption Standard (AES) key of 128 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Advanced Encryption Standard (AES) key of 128 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_AES_KEY_SIZE_128 = 128,
     /**
+     * AES key of 192 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * AES key of 192 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_AES_KEY_SIZE_192 = 192,
     /**
+     * AES key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * AES key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -3503,6 +4248,8 @@ declare namespace huks {
     HUKS_AES_KEY_SIZE_256 = 256,
 
     /**
+     * AES key of 512 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 11
@@ -3510,10 +4257,14 @@ declare namespace huks {
     HUKS_AES_KEY_SIZE_512 = 512,
 
     /**
+     * Curve25519 key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Curve25519 key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3521,30 +4272,42 @@ declare namespace huks {
     HUKS_CURVE25519_KEY_SIZE_256 = 256,
 
     /**
+     * Diffie-Hellman (DH) key of 2048 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Diffie-Hellman (DH) key of 2048 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DH_KEY_SIZE_2048 = 2048,
     /**
+     * DH key of 3072 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * DH key of 3072 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DH_KEY_SIZE_3072 = 3072,
     /**
+     * DH key of 4096 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * DH key of 4096 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3552,38 +4315,52 @@ declare namespace huks {
     HUKS_DH_KEY_SIZE_4096 = 4096,
 
     /**
+     * ShangMi2 (SM2) key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * ShangMi2 (SM2) key of 256 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_SM2_KEY_SIZE_256 = 256,
     /**
+     * ShangMi4 (SM4) key of 128 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * ShangMi4 (SM4) key of 128 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_SM4_KEY_SIZE_128 = 128,
     /**
+     * DES key of 64 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_DES_KEY_SIZE_64 = 64,
     /**
+     * 3DES key of 128 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_3DES_KEY_SIZE_128 = 128,
     /**
+     * 3DES key of 192 bits.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3592,14 +4369,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key algorithm.
+   * Enumerates the key algorithms.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
     /**
-   * Enum for huks key algorithm.
+   * Enumerates the key algorithms.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3608,30 +4385,42 @@ declare namespace huks {
    */
   export enum HuksKeyAlg {
     /**
+     * RSA.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * RSA.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_RSA = 1,
     /**
+     * ECC.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ECC.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_ECC = 2,
     /**
+     * DSA.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * DSA.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3639,40 +4428,56 @@ declare namespace huks {
     HUKS_ALG_DSA = 3,
 
     /**
+     * AES.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * AES.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_ALG_AES = 20,
     /**
+     * HMAC.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * HMAC.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_HMAC = 50,
     /**
+     * HKDF.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * HKDF.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_HKDF = 51,
     /**
+     * PBKDF2.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * PBKDF2.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3680,40 +4485,56 @@ declare namespace huks {
     HUKS_ALG_PBKDF2 = 52,
 
     /**
+     * ECDH.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ECDH.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_ECDH = 100,
     /**
+     * X25519.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * X25519.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_X25519 = 101,
     /**
+     * Ed25519.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Ed25519.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_ED25519 = 102,
     /**
+     * DH.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * DH.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3721,48 +4542,66 @@ declare namespace huks {
     HUKS_ALG_DH = 103,
 
     /**
+     * SM2.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * SM2.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_SM2 = 150,
     /**
+     * SM3.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * SM3.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_SM3 = 151,
     /**
+     * SM4.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * SM4.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_SM4 = 152,
     /**
+     * DES.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_DES = 160,
     /**
+     * 3DES.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_ALG_3DES = 161,
     /**
+     * CMAC.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3771,14 +4610,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks unwrap suite.
+   * Enumerates the algorithm suites that can be used for importing a key in ciphertext.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks unwrap suite.
+   * Enumerates the algorithm suites that can be used for importing a key in ciphertext.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3787,20 +4626,28 @@ declare namespace huks {
    */
   export enum HuksUnwrapSuite {
     /**
+     * Use X25519 for key agreement and then use AES-256 GCM to encrypt the key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Use X25519 for key agreement and then use AES-256 GCM to encrypt the key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
     /**
+     * Use ECDH for key agreement and then use AES-256 GCM to encrypt the key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Use ECDH for key agreement and then use AES-256 GCM to encrypt the key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3809,14 +4656,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key generate type.
+   * Enumerates the key generation types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    */
   /**
-   * Enum for huks key generate type.
+   * Enumerates the key generation types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3825,30 +4672,42 @@ declare namespace huks {
    */
   export enum HuksKeyGenerateType {
     /**
+     * Key generated by default.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Key generated by default.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_GENERATE_TYPE_DEFAULT = 0,
     /**
+     * Derived key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Derived key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_GENERATE_TYPE_DERIVE = 1,
     /**
+     * Key generated by agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Key generated by agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3857,14 +4716,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key flag.
+   * Enumerates the key generation modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks key flag.
+   * Enumerates the key generation modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3873,40 +4732,56 @@ declare namespace huks {
    */
   export enum HuksKeyFlag {
     /**
+     * Import a key using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Import a key using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
     /**
+     * Generate a key by using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Generate a key by using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
     /**
+     * Generate a key by using a key agreement API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Generate a key by using a key agreement API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
     /**
+     * Derive a key by using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Derive a key by using an API.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -3915,14 +4790,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks key storage type.
+   * Enumerates the key storage modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks key storage type.
+   * Enumerates the key storage modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3931,25 +4806,33 @@ declare namespace huks {
    */
   export enum HuksKeyStorageType {
     /**
+     * The key is managed locally. NOTE: This tag is deprecated since API version 10. No substitute is
+     * provided because this tag is not used in key management. In key derivation scenarios, use
+     * HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
      */
     HUKS_STORAGE_TEMP = 0,
     /**
+     * The key is managed by the HUKS service. NOTE: This tag is deprecated since API version 10. No
+     * substitute is provided because this tag is not used in key management. In key derivation scenarios, use
+     * HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      * @deprecated since 10
      */
     HUKS_STORAGE_PERSISTENT = 1,
     /**
-     * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * The key derived from the master key is stored in the HUKS and managed by the HUKS.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * The key is stored and used only in HUKS. It is mutually exclusive with HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * The key derived from the master key is stored in the HUKS and managed by the HUKS.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -3957,13 +4840,13 @@ declare namespace huks {
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
     /**
-     * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
+     * The key derived from the master key is exported to the service, and not managed by the HUKS.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * The key can be exported. It is mutually exclusive with HUKS_STORAGE_ONLY_USED_IN_HUKS.
+     * The key derived from the master key is exported to the service, and not managed by the HUKS.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -3973,14 +4856,16 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks import key type.
+   * Enumerates the types of keys to import. By default, a public key is imported. This field is not
+   * required when a symmetric key is imported.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks import key type.
+   * Enumerates the types of keys to import. By default, a public key is imported. This field is not
+   * required when a symmetric key is imported.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -3989,30 +4874,42 @@ declare namespace huks {
    */
   export enum HuksImportKeyType {
     /**
+     * Public key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Public key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_TYPE_PUBLIC_KEY = 0,
     /**
+     * Private key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Private key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_KEY_TYPE_PRIVATE_KEY = 1,
     /**
+     * Public and private key pair.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Public and private key pair.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4021,14 +4918,16 @@ declare namespace huks {
   }
 
   /**
-   * Enum for rsa salt len type.
+   * Enumerates the salt_len types to set when PSS padding is used in RSA signing or signature
+   * verification.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 10
    */
   /**
-   * Enum for rsa salt len type.
+   * Enumerates the salt_len types to set when PSS padding is used in RSA signing or signature
+   * verification.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4037,13 +4936,13 @@ declare namespace huks {
    */
   export enum HuksRsaPssSaltLenType {
     /**
-     * Salt length that matches the digest length.
+     * salt_len is set to the digest length.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * Salt length that matches the digest length.
+     * salt_len is set to the digest length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4052,13 +4951,13 @@ declare namespace huks {
     HUKS_RSA_PSS_SALT_LEN_DIGEST = 0,
 
     /**
-     * Maximum salt length.
+     * salt_len is set to the maximum length.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * Maximum salt length.
+     * salt_len is set to the maximum length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4068,14 +4967,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks user auth type.
+   * Enumerates the user authentication types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks user auth type.
+   * Enumerates the user authentication types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4084,46 +4983,65 @@ declare namespace huks {
    */
   export enum HuksUserAuthType {
     /**
+     * Fingerprint authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Fingerprint authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_USER_AUTH_TYPE_FINGERPRINT = 1 << 0,
     /**
+     * Facial authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Facial authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_USER_AUTH_TYPE_FACE = 1 << 1,
     /**
+     * PIN authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * PIN authentication.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
-    HUKS_USER_AUTH_TYPE_PIN = 1 << 2
+    HUKS_USER_AUTH_TYPE_PIN = 1 << 2,
+    /**
+     * Tui pin auth type.
+     *
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 20
+     */
+    HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5
   }
 
   /**
-   * Enum for huks auth access type.
+   * Enumerates the access control types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks auth access type.
+   * Enumerates the access control types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4132,33 +5050,41 @@ declare namespace huks {
    */
   export enum HuksAuthAccessType {
     /**
+     * The key becomes invalid after the password is cleared.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * The key becomes invalid after the password is cleared.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
     /**
+     * The key becomes invalid after a new biometric feature is added.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * The key becomes invalid after a new biometric feature is added.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
     /**
-     * Auth type for always valid.
+     * The key is always valid.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Auth type for always valid.
+     * The key is always valid.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -4168,7 +5094,7 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks user auth mode.
+   * Enumerates the user authentication modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4177,7 +5103,7 @@ declare namespace huks {
    */
   export enum HuksUserAuthMode {
     /**
-     * Auth mode for local scenarios.
+     * Local authentication.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -4185,7 +5111,7 @@ declare namespace huks {
      */
     HUKS_USER_AUTH_MODE_LOCAL = 0,
     /**
-     * Auth mode for co-auth scenarios.
+     * Cross-device collaborative authentication.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -4194,14 +5120,14 @@ declare namespace huks {
     HUKS_USER_AUTH_MODE_COAUTH = 1,
   }
   /**
-   * Enum for huks key file storage authentication level.
+   * Enumerates the storage security levels of a key.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
-    /**
-   * Enum for huks key file storage authentication level.
+  /**
+   * Enumerates the storage security levels of a key.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4210,36 +5136,42 @@ declare namespace huks {
    */
   export enum HuksAuthStorageLevel {
     /**
-     * Key file storage security level for device encryption standard.
+     * The key can be accessed only after the device is started.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Key file storage security level for device encryption standard.
+     * The key can be accessed only after the device is started.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_AUTH_STORAGE_LEVEL_DE = 0,
     /**
-     * Key file storage security level for credential encryption standard.
+     * The key can be accessed only after the first unlock of the device.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Key file storage security level for credential encryption standard.
+     * The key can be accessed only after the first unlock of the device.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_AUTH_STORAGE_LEVEL_CE = 1,
     /**
-     * Key file storage security level for enhanced credential encryption standard.
+     * The key can be accessed only when the device is unlocked.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Key file storage security level for enhanced credential encryption standard.
+     * The key can be accessed only when the device is unlocked.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4248,14 +5180,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks auth access challenge type.
+   * Enumerates the types of the challenges generated when a key is used.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks auth access challenge type.
+   * Enumerates the types of the challenges generated when a key is used.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4264,30 +5196,42 @@ declare namespace huks {
    */
   export enum HuksChallengeType {
     /**
+     * Normal challenge, which is of 32 bytes by default.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Normal challenge, which is of 32 bytes by default.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_TYPE_NORMAL = 0,
     /**
+     * Custom challenge, which supports only one authentication for multiple keys.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Custom challenge, which supports only one authentication for multiple keys.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_TYPE_CUSTOM = 1,
     /**
+     * Challenge is not required.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Challenge is not required.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4296,14 +5240,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks challenge position.
+   * Enumerates the positions of the 8-byte valid value in a custom challenge generated.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks challenge position.
+   * Enumerates the positions of the 8-byte valid value in a custom challenge generated.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4312,40 +5256,56 @@ declare namespace huks {
    */
   export enum HuksChallengePosition {
     /**
+     * Bytes 0 to 7.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Bytes 0 to 7.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_0 = 0,
     /**
+     * Bytes 8 to 15.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Bytes 8 to 15.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_1,
     /**
+     * Bytes 16 to 23.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Bytes 16 to 23.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_CHALLENGE_POS_2,
     /**
+     * Bytes 24 to 31.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Bytes 24 to 31.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4354,14 +5314,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks secure sign type.
+   * Enumerates the signature types of the key generated or imported.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
   /**
-   * Enum for huks secure sign type.
+   * Enumerates the signature types of the key generated or imported.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
@@ -4370,10 +5330,18 @@ declare namespace huks {
    */
   export enum HuksSecureSignType {
     /**
+     * The signature carries authentication information. This field is specified when a key is generated or
+     * imported. When the key is used for signing, the data will be added with the authentication information and then
+     * be signed.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * The signature carries authentication information. This field is specified when a key is generated or
+     * imported. When the key is used for signing, the data will be added with the authentication information and then
+     * be signed.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4382,14 +5350,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks ipc send type.
+   * Enumerates the tag transfer modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
    */
   /**
-   * Enum for huks ipc send type.
+   * Enumerates the tag transfer modes.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4398,20 +5366,28 @@ declare namespace huks {
    */
   export enum HuksSendType {
     /**
+     * The tag is sent asynchronously.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * The tag is sent asynchronously.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_SEND_TYPE_ASYNC = 0,
     /**
+     * The tag is sent synchronously.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * The tag is sent synchronously.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4420,14 +5396,33 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks base tag type.
+   * Enum for key wrap type
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 20
+   */
+  export enum HuksKeyWrapType {
+    /**
+     * The hardware unique key wrap type
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_KEY_WRAP_TYPE_HUK_BASED = 2,
+  }
+
+  /**
+   * Enumerates the tag data types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks base tag type.
+   * Enumerates the tag data types.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4436,60 +5431,84 @@ declare namespace huks {
    */
   export enum HuksTagType {
     /**
+     * Invalid tag type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Invalid tag type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_TYPE_INVALID = 0 << 28,
     /**
+     * Number of the int type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Number of the int type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_TYPE_INT = 1 << 28,
     /**
+     * Number of the uint type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Number of the uint type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_TYPE_UINT = 2 << 28,
     /**
+     * BigInt.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * BigInt.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_TYPE_ULONG = 3 << 28,
     /**
+     * Boolean.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Boolean.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_TYPE_BOOL = 4 << 28,
     /**
+     * Uint8Array.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Uint8Array.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -4498,14 +5517,14 @@ declare namespace huks {
   }
 
   /**
-   * Enum for huks tag.
+   * Enumerates the tags used to invoke parameters.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
   /**
-   * Enum for huks tag.
+   * Enumerates the tags used to invoke parameters.
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
@@ -4524,30 +5543,42 @@ declare namespace huks {
 
     /* Base algorithm TAG: 1 - 200 */
     /**
+     * Algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_ALGORITHM = HuksTagType.HUKS_TAG_TYPE_UINT | 1,
     /**
+     * Purpose of the key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Purpose of the key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
     /**
+     * Key size.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Key size.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -4555,50 +5586,70 @@ declare namespace huks {
     HUKS_TAG_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 3,
 
     /**
+     * Digest algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Digest algorithm.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_DIGEST = HuksTagType.HUKS_TAG_TYPE_UINT | 4,
     /**
+     * Padding mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Padding mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_PADDING = HuksTagType.HUKS_TAG_TYPE_UINT | 5,
     /**
+     * Cipher mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Cipher mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
     /**
+     * Key type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Key type.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
     /**
+     * Associated authentication data.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Associated authentication data.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -4606,20 +5657,28 @@ declare namespace huks {
     HUKS_TAG_ASSOCIATED_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 8,
 
     /**
+     * Nonce for key encryption and decryption.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Nonce for key encryption and decryption.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
     /**
+     * IV.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * IV.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4627,13 +5686,13 @@ declare namespace huks {
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
     /**
-     * Key derivation TAG.
+     * Information generated during key derivation.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * Key derivation TAG.
+     * Information generated during key derivation.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4641,10 +5700,14 @@ declare namespace huks {
      */
     HUKS_TAG_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 11,
     /**
+     * Salt value used for key derivation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Salt value used for key derivation.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4657,10 +5720,14 @@ declare namespace huks {
      */
     HUKS_TAG_PWD = HuksTagType.HUKS_TAG_TYPE_BYTES | 13,
     /**
+     * Number of iterations for key derivation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Number of iterations for key derivation.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4668,13 +5735,13 @@ declare namespace huks {
     HUKS_TAG_ITERATION = HuksTagType.HUKS_TAG_TYPE_UINT | 14,
 
     /**
-     * choose from enum HuksKeyGenerateType.
+     * Key generation type.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * choose from enum HuksKeyGenerateType.
+     * Key generation type.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4701,60 +5768,84 @@ declare namespace huks {
      */
     HUKS_TAG_DERIVE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 18,
     /**
+     * Type of the algorithm used for key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Type of the algorithm used for key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_AGREE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 19,
     /**
+     * Public key alias used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Public key alias used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_AGREE_PUBLIC_KEY_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 20,
     /**
+     * Private key alias used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Private key alias used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 21,
     /**
+     * Public key used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Public key used in key agreement.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_AGREE_PUBLIC_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 22,
     /**
+     * Key alias.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Key alias.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
      */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
     /**
+     * Size of the derived key.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Size of the derived key.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4762,13 +5853,13 @@ declare namespace huks {
     HUKS_TAG_DERIVE_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 24,
 
     /**
-     * Choose from enum HuksImportKeyType
+     * Type of the imported key.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
-     * Choose from enum HuksImportKeyType
+     * Type of the imported key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4777,10 +5868,14 @@ declare namespace huks {
     HUKS_TAG_IMPORT_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 25,
 
     /**
+     * Algorithm suite required for encrypted imports.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Algorithm suite required for encrypted imports.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -4788,13 +5883,13 @@ declare namespace huks {
     HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
     /**
-     * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * Storage type of the derived key or agreed key.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * Key storage type, which can be HUKS_STORAGE_ONLY_USED_IN_HUKS or HUKS_STORAGE_KEY_EXPORT_ALLOWED.
+     * Storage type of the derived key or agreed key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4803,13 +5898,13 @@ declare namespace huks {
     HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 29,
 
     /**
-     * RSA salt length type. For details, see HuksRsaPssSaltLenType.
+     * Type of the rsa_pss_salt_length.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * RSA salt length type. For details, see HuksRsaPssSaltLenType.
+     * Type of the rsa_pss_salt_length.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -4855,60 +5950,92 @@ declare namespace huks {
 
     /* Other authentication related TAG: 301 - 500 */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_ALL_USERS = HuksTagType.HUKS_TAG_TYPE_BOOL | 301,
     /**
+     * ID of the user to which the key belongs.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * ID of the user to which the key belongs.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_USER_ID = HuksTagType.HUKS_TAG_TYPE_UINT | 302,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_NO_AUTH_REQUIRED = HuksTagType.HUKS_TAG_TYPE_BOOL | 303,
     /**
+     * User authentication type. For details, see HuksUserAuthType. This parameter must be set together with
+     * HuksAuthAccessType. You can set a maximum of two user authentication types at a time. For example, if
+     * HuksAuthAccessType is HUKS_SECURE_ACCESS_INVALID_NEW_BIO_ENROLL, you can set the user authentication type to
+     * HUKS_USER_AUTH_TYPE_FACE, HUKS_USER_AUTH_TYPE_FINGERPRINT or
+     * HUKS_USER_AUTH_TYPE_FACE | HUKS_USER_AUTH_TYPE_FINGERPRINT.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * User authentication type. For details, see HuksUserAuthType. This parameter must be set together with
+     * HuksAuthAccessType. You can set a maximum of two user authentication types at a time. For example, if
+     * HuksAuthAccessType is HUKS_SECURE_ACCESS_INVALID_NEW_BIO_ENROLL, you can set the user authentication type to
+     * HUKS_USER_AUTH_TYPE_FACE, HUKS_USER_AUTH_TYPE_FINGERPRINT or
+     * HUKS_USER_AUTH_TYPE_FACE | HUKS_USER_AUTH_TYPE_FINGERPRINT.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
     /**
+     * One-time validity period of the authentication token.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * One-time validity period of the authentication token.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_AUTH_TIMEOUT = HuksTagType.HUKS_TAG_TYPE_UINT | 305,
     /**
+     * Authentication token.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Authentication token.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4917,10 +6044,16 @@ declare namespace huks {
 
     /* Key secure access control and user auth TAG */
     /**
+     * Access control type. For details, see HuksAuthAccessType. This parameter must be set together with
+     * HuksUserAuthType.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Access control type. For details, see HuksAuthAccessType. This parameter must be set together with
+     * HuksUserAuthType.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4928,10 +6061,14 @@ declare namespace huks {
     HUKS_TAG_KEY_AUTH_ACCESS_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 307,
 
     /**
+     * Signature type of the key generated or imported.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Signature type of the key generated or imported.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4939,10 +6076,14 @@ declare namespace huks {
     HUKS_TAG_KEY_SECURE_SIGN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 308,
 
     /**
+     * Type of the challenge generated for a key. For details, see HuksChallengeType.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Type of the challenge generated for a key. For details, see HuksChallengeType.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4950,10 +6091,14 @@ declare namespace huks {
     HUKS_TAG_CHALLENGE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 309,
 
     /**
+     * Position of the 8-byte valid value in a custom challenge. For details, see HuksChallengePosition.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     /**
+     * Position of the 8-byte valid value in a custom challenge. For details, see HuksChallengePosition.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -4961,13 +6106,13 @@ declare namespace huks {
     HUKS_TAG_CHALLENGE_POS = HuksTagType.HUKS_TAG_TYPE_UINT | 310,
 
     /**
-     * Supported key secure access control purpose tag, the value from enum HuksKeyPurpose.
+     * Key authentication purpose.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 10
      */
     /**
-     * Supported key secure access control purpose tag, the value from enum HuksKeyPurpose.
+     * Key authentication purpose.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -4976,13 +6121,13 @@ declare namespace huks {
     HUKS_TAG_KEY_AUTH_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 311,
 
     /**
-     * Security level of access control for key file storage, whose optional values are from enum HuksAuthStorageLevel.
+     * Key storage security level, which is a value of HuksAuthStorageLevel.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Security level of access control for key file storage, whose optional values are from enum HuksAuthStorageLevel.
+     * Key storage security level, which is a value of HuksAuthStorageLevel.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -4991,7 +6136,8 @@ declare namespace huks {
     HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
 
     /**
-     * Authentication mode of the user authtoken, whose optional values are from enum HuksUserAuthMode.
+     * User authentication mode, which is a value of HuksUserAuthMode.
+     * 
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -5000,20 +6146,28 @@ declare namespace huks {
 
     /* Attestation related TAG: 501 - 600 */
     /**
+     * Challenge value used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Challenge value used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_ATTESTATION_CHALLENGE = HuksTagType.HUKS_TAG_TYPE_BYTES | 501,
     /**
+     * Application ID used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Application ID used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -5068,10 +6222,14 @@ declare namespace huks {
      */
     HUKS_TAG_ATTESTATION_ID_MODEL = HuksTagType.HUKS_TAG_TYPE_BYTES | 510,
     /**
+     * Key alias used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Key alias used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
@@ -5090,25 +6248,41 @@ declare namespace huks {
      */
     HUKS_TAG_ATTESTATION_ID_UDID = HuksTagType.HUKS_TAG_TYPE_BYTES | 513,
     /**
+     * Security level used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Security level used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 514,
     /**
+     * Version information used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Version information used in the attestation.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
+    /**
+     * The tag indicates wheather to override the key with same alias.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 20
+     */
+    HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
 
     /*
      * Other reserved TAG: 601 - 1000
@@ -5117,23 +6291,27 @@ declare namespace huks {
      */
 
     /**
+     * Whether to use the alias passed in during key generation.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Whether to use the alias passed in during key generation.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
     /**
-     * choose from enum HuksKeyStorageType.
+     * Key storage mode.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * choose from enum HuksKeyStorageType.
+     * Key storage mode.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -5141,53 +6319,69 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_IS_ALLOWED_WRAP = HuksTagType.HUKS_TAG_TYPE_BOOL | 1003,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_KEY_WRAP_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 1004,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_KEY_AUTH_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1005,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_KEY_ROLE = HuksTagType.HUKS_TAG_TYPE_UINT | 1006,
     /**
-     * choose from enum HuksKeyFlag.
+     * Flag of the key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
-     * choose from enum HuksKeyFlag.
+     * Flag of the key.
      *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -5195,10 +6389,14 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -5217,10 +6415,14 @@ declare namespace huks {
      */
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -5228,13 +6430,13 @@ declare namespace huks {
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
     /**
-     * Key access control based on device password setting status. True means the key can only be generated and used when the password is set.
+     * Whether the key is accessible only when the user sets a lock screen password.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
     /**
-     * Key access control based on device password setting status. True means the key can only be generated and used when the password is set.
+     * Whether the key is accessible only when the user sets a lock screen password.
      *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
@@ -5275,10 +6477,14 @@ declare namespace huks {
      */
     HUKS_TAG_CRYPTO_CTX = HuksTagType.HUKS_TAG_TYPE_ULONG | 10005,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
@@ -5298,10 +6504,14 @@ declare namespace huks {
     HUKS_TAG_PAYLOAD_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 10008,
 
     /**
+     * Used to pass in the AEAD in GCM mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Used to pass in the AEAD in GCM mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 11
@@ -5338,30 +6548,42 @@ declare namespace huks {
      */
 
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_SYMMETRIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20001,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20002,
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
      */
     /**
+     * Reserved.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 12

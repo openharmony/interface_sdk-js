@@ -936,6 +936,16 @@ declare namespace update {
      * @since 9
      */
     descriptionInfo: DescriptionInfo;
+
+    /**
+     * Ota mode
+     *
+     * @type { ?OtaMode }
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 20
+     */
+    otaMode?: OtaMode;
   }
 
   /**
@@ -1619,6 +1629,52 @@ declare namespace update {
      * @since 9
      */
     LIVE_AND_COLD = 3
+  }
+
+  /**
+   * Enumerates ota mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Update.UpdateService
+   * @systemapi hide for inner use.
+   * @since 20
+   */
+  export enum OtaMode {
+    /**
+     * Regular update.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 20
+     */
+    REGULAR_OTA = 0,
+
+    /**
+     * Stream update.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 20
+     */
+    STREAM_OTA = 1,
+
+    /**
+     * AB regular update.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 20
+     */
+    AB_REGULAR_OTA = 2,
+
+    /**
+     * AB stream update.
+     *
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
+     * @since 20
+     */
+    AB_STREAM_OTA = 3
   }
 
   /**

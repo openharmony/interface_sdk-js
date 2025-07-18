@@ -150,7 +150,7 @@ declare namespace sendableRelationalStore {
    * @returns { NonSendableBucket } a non-sendable <b>valuesBucket</b> object. For details,
    *   see {@link NonSendableBucket}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -163,7 +163,7 @@ declare namespace sendableRelationalStore {
    * @param { NonSendableBucket } valuesBucket - Indicates the non-sendable <b>valuesBucket</b> object to convert.
    * @returns { ValuesBucket } a sendable <b>valuesBucket</b> object. For details, see {@link ValuesBucket}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -176,7 +176,7 @@ declare namespace sendableRelationalStore {
    * @param { Asset } asset - Indicates the sendable <b>asset</b> object to convert.
    * @returns { NonSendableAsset } a non-sendable <b>asset</b> object. For details, see {@link NonSendableAsset}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
@@ -189,12 +189,44 @@ declare namespace sendableRelationalStore {
    * @param { NonSendableAsset } asset - Indicates the non-sendable <b>asset</b> object to convert.
    * @returns { Asset } a sendable <b>asset</b> object. For details, see {@link Asset}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types;3. Parameter verification failed.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 12
    */
   function toSendableAsset(asset: NonSendableAsset): Asset;
+
+  /**
+   * Defines NonSendableValues for convenience.
+   *
+   * @typedef { Array<relationalStore.ValueType> } NonSendableValues
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 20
+   */
+  type NonSendableValues = Array<relationalStore.ValueType>;
+
+  /**
+   * Converts a sendable collections.Array<ValueType> to a non-sendable Array<relationalStore.ValueType>.
+   *
+   * @param { collections.Array<ValueType> } values - Indicates the sendable collections.Array<ValueType> to convert.
+   * @returns { NonSendableValues } a non-sendable Array<relationalStore.ValueType>. For details,
+   *   see {@link NonSendableValues}.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 20
+   */
+  function fromSendableValues(values: collections.Array<ValueType>): NonSendableValues;
+
+  /**
+   * Converts a non-sendable Array<relationalStore.ValueType> to a collections.Array<ValueType>t.
+   *
+   * @param { NonSendableValues } values - Indicates the non-sendable Array<relationalStore.ValueType> to convert.
+   * @returns { collections.Array<ValueType> } a sendable collections.Array<ValueType>.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 20
+   */
+  function toSendableValues(values: NonSendableValues): collections.Array<ValueType>;
 }
 
 export default sendableRelationalStore;

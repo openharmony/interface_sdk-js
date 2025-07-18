@@ -90,9 +90,9 @@ declare namespace sendablePreferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates information about the preferences file. For details, see {@link Options}.
    * @returns { Promise<Preferences> } Promise used to return the {@link Preferences}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -112,9 +112,9 @@ declare namespace sendablePreferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates information about the preferences file. For details, see {@link Options}.
    * @returns { Preferences } return the {@link Preferences}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -136,9 +136,9 @@ declare namespace sendablePreferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates information about the preferences file. For details, see {@link Options}.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15500010 - Failed to delete the user preferences persistence file.
@@ -160,9 +160,9 @@ declare namespace sendablePreferences {
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates information about the preferences file. For details, see {@link Options}.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -182,9 +182,9 @@ declare namespace sendablePreferences {
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { Options } options - Indicates information about the preferences file. For details, see {@link Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                                                   2. Incorrect parameter types;
-   *                                                                   3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+   * <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 15500000 - Inner error.
    * @throws { BusinessError } 15501001 - The operations is supported in stage mode only.
@@ -213,13 +213,13 @@ declare namespace sendablePreferences {
      * <p>If the value is {@code null} or not in the lang.ISendable format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { lang.ISendable } defValue - Indicates the default value to return.
-     * @returns { Promise<lang.ISendable> } Promise used to return the result. If a value matching the specified key 
+     * @returns { Promise<lang.ISendable> } Promise used to return the result. If a value matching the specified key
      * is found, the value is returned. Otherwise, the default value is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -232,13 +232,13 @@ declare namespace sendablePreferences {
      * <p>If the value is {@code null} or not in the lang.ISendable format, the default value is returned.
      *
      * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { lang.ISendable } defValue - Indicates the default value to return.
      * @returns { lang.ISendable } If a value matching the specified key is found, the value is returned. Otherwise,
      * the default value is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -272,12 +272,12 @@ declare namespace sendablePreferences {
      * Checks whether the {@link Preferences} instance contains a value matching the specified key.
      *
      * @param { string } key - Indicates the key of the value to check. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<boolean> } Promise used to return the result. {@code true} is returned if the
      * {@link Preferences} object contains a value matching the specified key; {@code false} is returned otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -290,12 +290,12 @@ declare namespace sendablePreferences {
      * This API returns the result synchronously.
      *
      * @param { string } key - Indicates the key of the value to check. It cannot be {@code null} or empty.
-     *         <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { boolean } {@code true} is returned if the {@link Preferences} object contains a value matching
      * the specified key; {@code false} is returned otherwise.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -308,13 +308,13 @@ declare namespace sendablePreferences {
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to set. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { lang.ISendable } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * <tt>MAX_VALUE_LENGTH</tt>.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -324,16 +324,16 @@ declare namespace sendablePreferences {
 
     /**
      * Sets an lang.ISendable value for the key in the {@link Preferences} object.
-     * This API returns the result synchronously. 
+     * This API returns the result synchronously.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to set. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @param { lang.ISendable } value - Indicates the value of the preferences.
-     *        <tt>MAX_VALUE_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_VALUE_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -346,11 +346,11 @@ declare namespace sendablePreferences {
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
+     * <tt>MAX_KEY_LENGTH</tt>.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -364,10 +364,10 @@ declare namespace sendablePreferences {
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
-     *        <tt>MAX_KEY_LENGTH</tt>.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -388,7 +388,7 @@ declare namespace sendablePreferences {
     clear(): Promise<void>;
 
     /**
-     * Clears all preferences from the {@link Preferences} object. This API returns the result synchronously. 
+     * Clears all preferences from the {@link Preferences} object. This API returns the result synchronously.
      * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
      *
      * @throws { BusinessError } 15500000 - Inner error.
@@ -424,9 +424,9 @@ declare namespace sendablePreferences {
      *
      * @param { 'change' } type - Indicates the type of the event to observe.
      * @param { Callback<string> } callback - Indicates the callback used to return the preferences changes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -440,9 +440,9 @@ declare namespace sendablePreferences {
      * @param { 'multiProcessChange' } type - Indicates the type of the event to observe.
      * @param { Callback<string> } callback - Indicates the callback used to return the preferences changed
      * in multiple processes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -457,9 +457,9 @@ declare namespace sendablePreferences {
      * @param { 'dataChange' } type - Indicates the type of the event to observe.
      * @param { Array<string> } keys - Indicates one or more keys to listen for.
      * @param { Callback<lang.ISendable> } callback - Indicates the callback used to return the data change.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -472,9 +472,9 @@ declare namespace sendablePreferences {
      *
      * @param { 'change' } type - Indicates the event type.
      * @param { Callback<string> } callback - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -487,9 +487,9 @@ declare namespace sendablePreferences {
      *
      * @param { 'multiProcessChange' } type - Indicates the event type.
      * @param { Callback<string> } callback - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -503,9 +503,9 @@ declare namespace sendablePreferences {
      * @param { 'dataChange' } type - Indicates the event type.
      * @param { Array<string> } keys - Indicates the data whose changes are not observed.
      * @param { Callback<lang.ISendable> } callback - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * <br>1. Mandatory parameters are left unspecified; <br>2. Incorrect parameter types;
+     * <br>3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice

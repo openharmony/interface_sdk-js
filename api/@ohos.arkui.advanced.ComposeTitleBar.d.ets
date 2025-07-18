@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,6 +33,13 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Declaration of the menu item on the right side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class ComposeTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
@@ -47,6 +54,14 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Icon resource for this menu item.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   value: ResourceStr;
 
   /**
@@ -56,6 +71,14 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Symbol resource for this menu item.
+   * @type { ?SymbolGlyphModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
@@ -64,6 +87,14 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 13
+   */
+  /**
+   * Icon label for this menu item.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   label?: ResourceStr;
 
@@ -80,6 +111,14 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Whether to enable this menu item.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   isEnabled?: boolean;
 
   /**
@@ -95,6 +134,14 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Callback function when click on this menu item.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   action?: () => void;
 
   /**
@@ -104,6 +151,14 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * The accessibilityText of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   accessibilityText?: ResourceStr;
 
   /**
@@ -112,6 +167,14 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * The accessibilityDescription of this menu item.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   accessibilityDescription?: ResourceStr;
 
@@ -128,6 +191,20 @@ export declare class ComposeTitleBarMenuItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * The accessibilityLevel of this menu item.
+   * @type { ?string }
+   * @default "auto".The options are as follows:<br/>
+   *     "auto":The value is converted to "yes" or "no" based on the component.
+   *     "yes": the current component is selectable for the accessibility service.
+   *     "no": The current component is not selectable for the accessibility service.
+   *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
+   *     for the accessibility service.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   accessibilityLevel?: string;
 }
 
@@ -141,6 +218,13 @@ export declare class ComposeTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declaration of the composable title bar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
  */
 @Component
 export declare struct ComposeTitleBar {
@@ -157,6 +241,14 @@ export declare struct ComposeTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Avatar resource and event callback of this title bar.
+   * @type { ?ComposeTitleBarMenuItem }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   item?: ComposeTitleBarMenuItem;
 
   /**
@@ -171,6 +263,14 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Title of this title bar.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   title: ResourceStr;
 
@@ -187,6 +287,14 @@ export declare struct ComposeTitleBar {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sub-title of this title bar.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   subtitle?: ResourceStr;
 
   /**
@@ -201,6 +309,14 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Menu items on the right side.
+   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
 }

@@ -43,7 +43,7 @@
  * @since 10
  */
 /**
- * Declare sliderstyle
+ * Style of the slider thumb and track.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -75,7 +75,7 @@ declare enum SliderStyle {
    * @since 10
    */
   /**
-   * The slider is on the slide rail.
+   * The thumb is on the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -107,7 +107,7 @@ declare enum SliderStyle {
    * @since 10
    */
   /**
-   * The slider is in the slide rail.
+   * The thumb is in the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -117,7 +117,7 @@ declare enum SliderStyle {
    */
   InSet,
   /**
-   * No slider.
+   * There is no thumb.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -153,7 +153,7 @@ declare enum SliderStyle {
  * @since 10
  */
 /**
- * Declare SliderChangeMode
+ * State triggered by the event.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -185,7 +185,7 @@ declare enum SliderChangeMode {
    * @since 10
    */
   /**
-   * Start dragging the slider.
+   * The user touches or clicks the thumb.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -217,7 +217,7 @@ declare enum SliderChangeMode {
    * @since 10
    */
   /**
-   * Drag the slider.
+   * The user is dragging the slider.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -249,7 +249,11 @@ declare enum SliderChangeMode {
    * @since 10
    */
   /**
-   * End dragging the slider.
+   * The user stops dragging the slider by lifting their finger or releasing the mouse device.
+   * <p><strong>NOTE</strong>:
+   * <br>The trigger occurs when an invalid value is restored to the default value, that is, when the value is set to
+   * less than min or greater than max.
+   * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -281,7 +285,7 @@ declare enum SliderChangeMode {
    * @since 10
    */
   /**
-   * Click the slider.
+   * The user moves the thumb by touching or clicking the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -293,7 +297,7 @@ declare enum SliderChangeMode {
 }
 
 /**
- * Declare SliderInteraction
+ * Interaction mode between the user and the slider.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -303,7 +307,8 @@ declare enum SliderChangeMode {
  */
 declare enum SliderInteraction {
   /**
-   * Allow user to slide the block and click track to move the block
+   * Users can drag the slider or touch the track to move the slider. The slider moves as soon as the mouse or
+   * finger is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -313,7 +318,7 @@ declare enum SliderInteraction {
   SLIDE_AND_CLICK,
 
   /**
-   * Only allow user to slide the block
+   * Users are not allowed to move the slider by touching the slider.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -323,8 +328,9 @@ declare enum SliderInteraction {
   SLIDE_ONLY,
 
   /**
-   * Allow user to slide the block and click track to move the block, but click value only change when touch up.
-   * 
+   * Users can drag the slider or touch the track to move the slider. The slider moves when the mouse is released or
+   * finger is lifted, if the release/lift position coincides with the screen press position.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -334,7 +340,17 @@ declare enum SliderInteraction {
 }
 
 /**
- * Defines the valid slidable range. If and only if MIN <= from <= to <= MAX, sliding range can be set successfully.
+ * Defines the callback type used in SlideRange.
+ * <p><strong>NOTE</strong>:
+ * <br>Currently, this API takes effect only when MIN ≤ from ≤ to ≤ MAX (the values of MIN and MAX do not depend on
+ * the values set, but on the actual values that take effect). You can set either from or to, or you can set both from
+ * and to. When the API is effective, if the set from value is between the adjacent multiples of step, then from takes
+ * the value of the left interval multiple of step or MIN as the corrected value. When the API is effective, if the set
+ * to value is between the adjacent multiples of step, then to takes the value of the right interval multiple of step
+ * or MAX as the corrected value. After from and to have taken their corrected values, when value is undefined or null,
+ * it takes the same value as from; when value is a number type, and if value ≤ from, then it takes from;
+ * if value > to, then it takes to.
+ * </p>
  *
  * @interface SlideRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -344,7 +360,7 @@ declare enum SliderInteraction {
  */
 declare interface SlideRange {
   /**
-   * Set the start point of sliding range.
+   * Start of the slide range.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -355,7 +371,7 @@ declare interface SlideRange {
   from?: number;
 
   /**
-   * Set the end point of sliding range.
+   * End of the slide range.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -391,7 +407,7 @@ declare interface SlideRange {
  * @since 10
  */
 /**
- * Defines the options of Slider.
+ * Parameters of the slider.
  *
  * @interface SliderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -426,9 +442,10 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Current value of Slider.
+   * Current progress.
    *
    * @type { ?number }
+   * @default same as the value of min
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -462,9 +479,10 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Sets the min value of Slider.
+   * Minimum value.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -498,9 +516,15 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Sets the max value of Slider.
+   * Maximum value.
+   * <p><strong>NOTE</strong>:
+   * <br>If the value of min is greater than or equal to the value of max, the min value defaults to 0, and the max
+   * value defaults to 100. If the value is not within the [min, max] range, the value of min or max is used, whichever
+   * is closer.
+   * </p>
    *
    * @type { ?number }
+   * @default 100
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -534,9 +558,13 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Sets the step of each slide value.
+   * Step of the slider.
+   * <p><strong>NOTE</strong>:
+   * <br>If this parameter is set to a value less than 0 or greater than the value of max, the default value is used.
+   * </p>
    *
    * @type { ?number }
+   * @default 1 - Value range: [0.01, max - min]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -570,9 +598,10 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Sets the slider style.
+   * Style of the slider thumb and track.
    *
    * @type { ?SliderStyle }
+   * @default SliderStyle.OutSet
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -606,9 +635,10 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Sets the slider direction style.
+   * Whether the slider moves horizontally or vertically.
    *
    * @type { ?Axis }
+   * @default Axis.Horizontal
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -642,9 +672,11 @@ declare interface SliderOptions {
    * @since 10
    */
   /**
-   * Set whether the direction of the slider needs to be reversed.
+   * Whether the slider values are reversed. By default, the values increase from left to right for a horizontal
+   * slider and from top to bottom for a vertical slider.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -663,7 +695,7 @@ declare interface SliderOptions {
  * @since 10
  */
 /**
- * Declare SliderBlockType
+ * Enumerates the types of the slider in the block direction.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -680,7 +712,7 @@ declare enum SliderBlockType {
    * @since 10
    */
   /**
-   * Use the default block.
+   * Round slider.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -697,7 +729,7 @@ declare enum SliderBlockType {
    * @since 10
    */
   /**
-   * Use an image as the slider block.
+   * Slider with an image background.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -714,7 +746,7 @@ declare enum SliderBlockType {
    * @since 10
    */
   /**
-   * Use a shape as the slider block.
+   * Slider in a custom shape.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -733,7 +765,7 @@ declare enum SliderBlockType {
  * @since 10
  */
 /**
- * Defines the style of slider block.
+ * Describes the style of the slider in the block direction.
  *
  * @interface SliderBlockStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -751,9 +783,10 @@ declare interface SliderBlockStyle {
    * @since 10
    */
   /**
-   * Sets the type of slider block.
+   * Type of the slider in the block direction.
    *
    * @type { SliderBlockType }
+   * @default SliderBlockType.DEFAULT - indicating the round slider.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -770,7 +803,8 @@ declare interface SliderBlockStyle {
    * @since 10
    */
   /**
-   * Sets the image of slider block while the type is set to SliderBlockType.Image.
+   * Image resource of the slider. The area size for displaying the image is subject to the blockSize attribute.
+   * Be mindful of the image size when selecting an image.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -789,7 +823,7 @@ declare interface SliderBlockStyle {
    * @since 10
    */
   /**
-   * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
+   * Custom shape of the slider.
    *
    * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -804,8 +838,8 @@ declare interface SliderBlockStyle {
  * Defines the callback type used in SliderConfiguration.
  *
  * @typedef {function} SliderTriggerChangeCallback 
- * @param { number } value - The value of slider.
- * @param { SliderChangeMode } mode - The changeMode of slider.
+ * @param { number } value - Current progress.
+ * @param { SliderChangeMode } mode - State triggered by the event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -814,7 +848,7 @@ declare interface SliderBlockStyle {
 declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMode) => void;
 
 /**
- * SliderConfiguration used by slider content modifier
+ * You need a custom class to implement the ContentModifier API.
  *
  * @extends CommonConfiguration<SliderConfiguration>
  * @interface SliderConfiguration
@@ -825,7 +859,7 @@ declare type SliderTriggerChangeCallback = (value: number, mode: SliderChangeMod
  */
 declare interface SliderConfiguration extends CommonConfiguration<SliderConfiguration> {
   /**
-   * Current progress value.
+   * Current progress.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -858,7 +892,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
   max: number;
 
   /**
-   * The sliding step size of Slider.
+   * Step of the slider.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -869,7 +903,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
   step: number;
 
   /**
-   * Trigger slider change
+   * Triggers slider changes.
    *
    * @type { SliderTriggerChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -954,6 +988,137 @@ interface SliderInterface {
    * @since 11
    */
   (options?: SliderOptions): SliderAttribute;
+}
+
+/**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderStepItemAccessibility
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface SliderStepItemAccessibility {
+  /**
+   * Set the accessibility of the slider step point.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  text?: ResourceStr;
+}
+
+/**
+ * Defines the accessibility information of slider step point.
+ *
+ * @interface SliderShowStepOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface SliderShowStepOptions {
+  /**
+   * Set the accessibility of the slider step points.
+   *
+   * @type { ?Map<number, SliderStepItemAccessibility> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  stepsAccessibility?: Map<number, SliderStepItemAccessibility>;
+}
+
+/**
+ * Defines the options for customizing the accessibility of content within a slider.
+ * These options can be used to enhance the user experience for assistive technologies.
+ *
+ * @interface SliderCustomContentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderCustomContentOptions {
+  /**
+   * The text used for accessibility purposes. This text will be read by screen readers
+   * to provide a more descriptive label for the slider content. 
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityText?: ResourceStr;
+
+  /**
+   * A more detailed description for accessibility. This can provide additional context
+   * about the slider content for users relying on assistive technologies. 
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityDescription?: ResourceStr;
+   
+  /**
+   * The accessibility level of the slider content. This could be used to indicate the importance
+   * or priority of the content for assistive technologies. 
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityLevel?: string;
+  
+  /**
+   * Indicates whether the slider content should be treated as an accessibility group.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  accessibilityGroup?: boolean;
+}
+
+/**
+ * Options used for customizing the prefix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderPrefixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderPrefixOptions extends SliderCustomContentOptions {
+}
+
+/**
+ * Options used for customizing the suffix part of the slider.
+ * It extends the SliderCustomContentOptions to inherit accessibility customization options.
+ *
+ * @extends SliderCustomContentOptions
+ * @interface SliderSuffixOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+interface SliderSuffixOptions extends SliderCustomContentOptions {
 }
 
 /**
@@ -1199,6 +1364,20 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   showSteps(value: boolean): SliderAttribute;
 
   /**
+   * Called when setting whether to display step size.
+   *
+   * @param { boolean } value
+   * @param { SliderShowStepOptions } [options]
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  showSteps(value: boolean, options?: SliderShowStepOptions): SliderAttribute;
+
+  /**
    * Called when the percentage of bubble prompt is set when sliding.
    *
    * @param { boolean } value
@@ -1310,7 +1489,12 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 10
    */
   /**
-   * Called when the selection value changes.
+   * Triggered when the slider is dragged or clicked.
+   * <p><strong>NOTE</strong>:
+   * <br>The Begin and End states are triggered when the slider is clicked with a gesture. The Moving and Click states
+   * are triggered when the value of value changes. If the coherent action is a drag action, the Click state will
+   * not be triggered.
+   * </p>
    *
    * @param { function } callback
    * @returns { SliderAttribute }
@@ -1449,9 +1633,10 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 10
    */
   /**
-   * Called when the style of block is set.
+   * Sets the style of the slider in the block direction.
    *
-   * @param { SliderBlockStyle } value - the style of block.
+   * @param { SliderBlockStyle } value - Style of the slider in the block direction.
+   * <br>Default value is SliderBlockType.DEFAULT, indicating the round slider.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1482,9 +1667,10 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   stepSize(value: Length): SliderAttribute;
 
   /**
-   * Sets the interaction mode of the slider.
+   * Sets the interaction mode between the user and the slider.
    *
-   * @param { SliderInteraction } value
+   * @param { SliderInteraction } value - Interaction mode between the user and the slider.
+   * <br>Default value is SliderInteraction.SLIDE_AND_CLICK.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1506,9 +1692,10 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   minResponsiveDistance(value: number): SliderAttribute;
 
   /**
-   * Set the content modifier of slider.
+   * Creates a content modifier.
    *
-   * @param { ContentModifier<SliderConfiguration> } modifier - The content modifier of slider.
+   * @param { ContentModifier<SliderConfiguration> } modifier - Content modifier to apply to the slider.
+   * modifier: content modifier. You need a custom class to implement the ContentModifier API.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1551,6 +1738,38 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 18
    */
   enableHapticFeedback(enabled: boolean): SliderAttribute;
+
+  /**
+   * Sets the prefix part of the slider.
+   * The prefix is the content that appears before the main slider component.
+   *
+   * @param { ComponentContent } content - Custom components that will be displayed as the prefix.
+   *                                       This can be any valid custom UI component structure.
+   * @param { SliderPrefixOptions } [options] - Optional options for customizing the prefix.
+   *                                            These options can include accessibility settings.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  prefix(content: ComponentContent, options?: SliderPrefixOptions): SliderAttribute;
+
+  /**
+   * Sets the suffix part of the slider.
+   * The suffix is the content that appears after the main slider component.
+   *
+   * @param { ComponentContent } content - Custom components that will be displayed as the suffix.
+   *                                       This can be any valid custom UI component structure.
+   * @param { SliderSuffixOptions } [options] - Optional options for customizing the suffix.
+   *                                            These options can include accessibility settings.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  suffix(content: ComponentContent, options?: SliderSuffixOptions): SliderAttribute;
 }
 
 /**

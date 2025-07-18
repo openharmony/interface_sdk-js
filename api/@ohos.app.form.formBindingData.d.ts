@@ -16,9 +16,8 @@
 /**
  * @file
  * @kit FormKit
+ * @arkts 1.1&1.2
  */
-
-import { BusinessError } from './@ohos.base';
 
 /**
  * Interface of formBindingData.
@@ -33,7 +32,8 @@ import { BusinessError } from './@ohos.base';
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace formBindingData {
   /**
@@ -55,7 +55,8 @@ declare namespace formBindingData {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
@@ -72,7 +73,8 @@ declare namespace formBindingData {
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface FormBindingData {
     /**
@@ -88,7 +90,8 @@ declare namespace formBindingData {
      * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: Object;
 
@@ -107,7 +110,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     proxies?: Array<ProxyData>;
   }
@@ -127,7 +131,8 @@ declare namespace formBindingData {
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ProxyData {
     /**
@@ -145,7 +150,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     key: string;
 
@@ -164,7 +170,8 @@ declare namespace formBindingData {
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subscriberId?: string;
   }

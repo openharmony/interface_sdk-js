@@ -266,7 +266,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Limit the max speed when fling.
    *
-   * @param { Optional<number> } speed - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   * @param { Optional<number> } speed - Max fling speed, the value needs to be a positive number, the maximum value is not limited.
    *                             The unit is vp/s.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -425,6 +425,15 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @atomicservice
  * @since 18
  */
+/**
+ * Defines ArcList Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 20
+ */
 export declare const ArcList: ArcListInterface;
 
 /**
@@ -434,5 +443,14 @@ export declare const ArcList: ArcListInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ */
+/**
+ * Defines ArcListItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @uicomponent
+ * @since 20
  */
 export declare const ArcListItem: ArcListItemInterface;

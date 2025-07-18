@@ -81,7 +81,8 @@ interface BlankInterface {
    * @since 10
    */
   /**
-   * The minimum size of the blank fill assembly on the container spindle.
+   * Minimum size of the Blank component in the container along the main axis.<br>
+   * Default value: **0**.
    *
    * @param { number | string } min
    * @returns { BlankAttribute }
@@ -157,7 +158,8 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * @since 10
    */
   /**
-   * color: set color.
+   * Sets the color to fill the blank.<br>
+   * Default value: **Color.Transparent**.
    *
    * @param { ResourceColor } value
    * @returns { BlankAttribute }

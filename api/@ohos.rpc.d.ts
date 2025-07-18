@@ -18,14 +18,17 @@
  * @kit IPCKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides inter process communication capability.
  *
  * @namespace rpc
  * @syscap SystemCapability.Communication.IPC.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace rpc {
   /**
@@ -1169,7 +1172,8 @@ declare namespace rpc {
    * {@link Parcelable}, and ParcelableArray.
    *
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class MessageSequence {
     /**
@@ -1235,7 +1239,8 @@ declare namespace rpc {
      * @returns { string } Return a string value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readInterfaceToken(): string;
 
@@ -1495,7 +1500,8 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     writeString(val: string): void;
 
@@ -1787,7 +1793,8 @@ declare namespace rpc {
      * @returns { string } Return a string value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readString(): string;
 
@@ -2303,7 +2310,8 @@ declare namespace rpc {
    * 
    * @typedef Parcelable
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Parcelable {
     /**
@@ -2442,7 +2450,8 @@ declare namespace rpc {
    * a specific file, and send messages.
    * 
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abstract class IRemoteObject {
     /**
@@ -2682,7 +2691,8 @@ declare namespace rpc {
      * @returns { string } Return the interface descriptor.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDescriptor(): string;
 
@@ -2757,7 +2767,8 @@ declare namespace rpc {
    * Public Message Option, using the specified flag type, constructs the specified MessageOption object.
    * 
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class MessageOption {
     /**
@@ -2818,7 +2829,8 @@ declare namespace rpc {
      * @param { number } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
      * @param { number } waitTime - Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(syncFlags?: number, waitTime?: number);
 
@@ -2830,6 +2842,16 @@ declare namespace rpc {
      * @since 9
      */
     constructor(async?: boolean);
+
+    /**
+     * A constructor used to create a MessageOption instance.
+     *
+     * @param { boolean } isAsync - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(isAsync: boolean);
 
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
@@ -2897,7 +2919,8 @@ declare namespace rpc {
    * 
    * @extends IRemoteObject
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class RemoteObject extends IRemoteObject {
     /**
@@ -2905,7 +2928,8 @@ declare namespace rpc {
      *
      * @param { string } descriptor - Specifies interface descriptor.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(descriptor: string);
 
@@ -2955,7 +2979,8 @@ declare namespace rpc {
      * @returns { string } Return the interface descriptor.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDescriptor(): string;
 
@@ -2974,7 +2999,8 @@ declare namespace rpc {
      * {{@code false} otherwise} when the function call is synchronous.
      * Return a promise object with a boolean when the function call is asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onRemoteMessageRequest(
       code: number,
@@ -3180,7 +3206,8 @@ declare namespace rpc {
    * 
    * @extends IRemoteObject
    * @syscap SystemCapability.Communication.IPC.Core
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class RemoteProxy extends IRemoteObject {
     /**
@@ -3344,7 +3371,8 @@ declare namespace rpc {
      * @throws { BusinessError } 1900007 - communication failed.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDescriptor(): string;
 

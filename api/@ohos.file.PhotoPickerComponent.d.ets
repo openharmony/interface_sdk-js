@@ -352,6 +352,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   photoBrowserMargin?: Margin;
 
   /**
+   * Support to set offset between first grid item and the top of the grid
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  gridStartOffset?: number;
+
+  /**
+   * Support to set offset between last grid item and the bottom of the grid
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  gridEndOffset?: number;
+
+  /**
    * Support repeat select
    *
    * @type { ?boolean }
@@ -450,6 +470,26 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @since 13
    */
   photoBrowserCheckboxPosition?: [number, number];
+
+  /**
+   * Single-line display mode for the PhotoPickerComponent.
+   *
+   * @type { ?SingleLineConfig }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  singleLineConfig?: SingleLineConfig;
+
+  /**
+   * Support to set UIComponent color mode.
+   *
+   * @type { ?PickerColorMode }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  uiComponentColorMode?: PickerColorMode;
 }
 
 /**
@@ -606,6 +646,46 @@ export declare class MaxSelected {
    * @since 12
    */
   data?: Map<MaxCountType, number>;
+}
+
+
+/**
+ * Single-Line display mode.
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 20
+ */
+export declare class SingleLineConfig {
+  /**
+   * item display ratio
+   *
+   * @type { ?ItemDisplayRatio }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemDisplayRatio?: ItemDisplayRatio;
+
+  /**
+   * Rounded corner radius of grid items.
+   *
+   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemBorderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
+
+  /**
+   * item gap
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  itemGap?: Length;  
 }
 
 /**
@@ -996,4 +1076,32 @@ export declare enum VideoPlayerState {
    * @since 14
    */
   SEEK_FINISH = 4
+}
+
+/**
+ * Enumerates the aspect ratios of the grid item display, including 1:1 and the original image's aspect ratio.
+ *
+ * @enum { number } Grid item display aspect ratio.
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 20
+ */
+export declare enum ItemDisplayRatio {
+  /**
+   * Square ratio item
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  SQUARE_RATIO = 0,
+
+  /**
+   * original size ratio item
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  ORIGINAL_SIZE_RATIO = 1
 }

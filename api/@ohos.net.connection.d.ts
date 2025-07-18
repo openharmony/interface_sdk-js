@@ -19,8 +19,11 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+
+/*** if arkts 1.1 */
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
+/*** endif */
 
 /**
  * Provides interfaces to manage and use data networks.
@@ -41,7 +44,8 @@ import type socket from './@ohos.net.socket';
  * @syscap SystemCapability.Communication.NetManager.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace connection {
   /**
@@ -75,6 +79,7 @@ declare namespace connection {
    * @typedef { socket.TCPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   type TCPSocket = socket.TCPSocket;
@@ -89,6 +94,7 @@ declare namespace connection {
    * @typedef { socket.UDPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   type UDPSocket = socket.UDPSocket;
@@ -148,7 +154,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
@@ -174,7 +181,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultNet(): Promise<NetHandle>;
 
@@ -200,7 +208,8 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -389,16 +398,15 @@ declare namespace connection {
    * Set the network extended attribute for a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the network to be set. See {@link NetHandle}.
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>;
  
@@ -406,15 +414,14 @@ declare namespace connection {
    * Set the network extended attribute for a {@link NetHandle} object.
    * To invoke this method, you must have the {@code ohos.permission.SET_NET_EXT_ATTRIBUTE} permission.
    * @permission ohos.permission.SET_NET_EXT_ATTRIBUTE
-   * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
+   * @param { NetHandle } netHandle - Indicates the network to be set. See {@link NetHandle}.
    * @param { string } netExtAttribute - Indicates the extended attribute of the network.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void;
      
@@ -425,12 +432,11 @@ declare namespace connection {
    * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
    * @returns { Promise<string> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function getNetExtAttribute(netHandle: NetHandle): Promise<string>;
      
@@ -441,12 +447,11 @@ declare namespace connection {
    * @param { NetHandle } netHandle - Indicates the network to be queried. See {@link NetHandle}.
    * @returns { string } The netExtAttribute string returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 18
+   * @since 20
    */
   function getNetExtAttributeSync(netHandle: NetHandle): string;
     
@@ -1425,7 +1430,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NetHandle {
     /**
@@ -1447,7 +1453,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     netId: number;
 
@@ -1854,6 +1861,7 @@ declare namespace connection {
      * Indicates that the network is based on a bluetooth network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 12
      */
     BEARER_BLUETOOTH = 2,
@@ -1979,6 +1987,14 @@ declare namespace connection {
      * @since 8
      */
     isDefaultRoute: boolean;
+
+    /**
+     * Whether the route is the excluded route.
+     * @type { ?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 20
+     */
+    isExcludedRoute?: boolean;
   }
 
   /**

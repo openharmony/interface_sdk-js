@@ -47,6 +47,7 @@ antialiasing
 apdu
 apecified
 apertures
+approximates
 appselect
 arcs
 arfcn

@@ -43,7 +43,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class Queue<T> {
   /**
@@ -68,7 +69,8 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -96,6 +98,19 @@ declare class Queue<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the Queue.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Inserting specified element at the end of a queue if it is possible to do
    * so immediately without violating capacity restrictions.
@@ -127,7 +142,8 @@ declare class Queue<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(element: T): boolean;
   /**
@@ -158,6 +174,19 @@ declare class Queue<T> {
    * @since 12
    */
   getFirst(): T;
+
+  /**
+   * Obtains the header element of a queue.
+   *
+   * @returns { T | undefined } the first element of the queue if it exists, otherwise returns undefined.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFirst(): T | undefined;
+
   /**
    * Retrieves and removes the head of this queue
    *
@@ -186,6 +215,19 @@ declare class Queue<T> {
    * @since 12
    */
   pop(): T;
+
+  /**
+   * Retrieves and removes the head of this queue
+   *
+   * @returns { T | undefined } the deleted element of the deque if it exists, otherwise returns undefined.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  pop(): T | undefined;
+
   /**
    * Executes a provided function once for each value in the queue object.
    *
@@ -238,6 +280,19 @@ declare class Queue<T> {
    * @since 12
    */
   forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes a provided function once for each value in the queue object.
+   *
+   * @param { QueueForEachCb } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackfn: QueueForEachCb<T>): void;
+
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
    *
@@ -266,6 +321,34 @@ declare class Queue<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an iterator. Each item of the iterator is a ArkTS Object
+   *
+   * @returns { IterableIterator<T> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
 }
+
+/**
+ * The type of Queue callback function.
+ *
+ * @typedef { function } QueueForEachCb
+ * @param { T } value - The value of current element
+ * @param { number } index - The key of current element
+ * @param { Queue<T> } queue - The Queue instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type QueueForEachCb<T> = (value: T, index: number, queue: Queue<T>) => void
 
 export default Queue;

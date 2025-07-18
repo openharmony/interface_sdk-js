@@ -18,8 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
+/*** endif */
 
 /**
  * The class of an ability.
@@ -34,7 +36,8 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class Ability {
   /**

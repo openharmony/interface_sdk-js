@@ -23,10 +23,12 @@ import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 import hardwareManager from '@ohos.distributedHardware.hardwareManager';
 import abilityConnectionManager from '@ohos.distributedsched.abilityConnectionManager';
+import linkEnhance from '@ohos.distributedsched.linkEnhance';
 import DistributedExtensionAbility from '@ohos.application.DistributedExtensionAbility';
 import DistributedExtensionContext from '@ohos.application.DistributedExtensionContext';
+import proxyChannelManager from '@ohos.distributedsched.proxyChannelManager';
 
 export { 
   cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager,
-  DistributedExtensionAbility, DistributedExtensionContext
+  linkEnhance, DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager
 };

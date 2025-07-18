@@ -1263,6 +1263,16 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @atomicservice
    * @since 18
    */
+  /**
+   * Sets the minimum zoom-out ratio of the button text.
+   *
+   * @param { number | Resource } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
   minFontScale(scale: number | Resource): ButtonAttribute;
 
   /**
@@ -1273,6 +1283,16 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
+   */
+  /**
+   * Sets the maximum magnification of the button text.
+   *
+   * @param { number | Resource  } scale
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    */
   maxFontScale(scale: number | Resource): ButtonAttribute;
 }

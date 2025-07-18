@@ -38,7 +38,6 @@ export declare class FormComponentModifier extends FormComponentAttribute implem
    * @param { FormComponentAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @crossplatform
    * @since 12
    */
   applyNormalAttribute?(instance: FormComponentAttribute): void;

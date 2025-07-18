@@ -93,7 +93,7 @@ declare namespace PiPWindow {
    * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
    * the context and componentController in config should not be null. If templateType is specified, make sure
    * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
-   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation. 
+   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation.
    * Indicates the node which display the content of pip window.
    * @returns { Promise<PiPController> } - The promise returned by the function
    * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -497,13 +497,13 @@ declare namespace PiPWindow {
     ABOUT_TO_RESTORE = 5,
 
     /**
-     * Error message during start/stop.
+     * Error occurs during the lifecycle of PiP window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
-     * Error message during start/stop.
+     * Error occurs during the lifecycle of PiP window.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -513,7 +513,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Describe PiP window custom controls.
+   * Describe optional component groups of PiP window.
    *
    * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
    * @syscap SystemCapability.Window.SessionManager
@@ -523,7 +523,7 @@ declare namespace PiPWindow {
   type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
 
   /**
-   * Enum for video play PiP window custom controls.
+   * Enum for video play component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -551,7 +551,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enum for video call PiP window custom controls.
+   * Enum for video call component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -597,7 +597,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enum for video meeting PiP window custom controls.
+   * Enum for video meeting component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -643,7 +643,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enum for video Live PiP window custom controls.
+   * Enum for video Live component groups of PiP window.
    *
    * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
@@ -1059,7 +1059,7 @@ declare namespace PiPWindow {
      * @since 18
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
-    
+
     /**
      * Set Dashboard control enable status.
      * @param { PiPControlType } controlType - Describe picture-in-picture control type.
@@ -1083,6 +1083,17 @@ declare namespace PiPWindow {
      * @since 15
      */
      getPiPWindowInfo(): Promise<PiPWindowInfo>;
+
+     /**
+     * Get the PiP switch status of system setting.
+     * @returns { Promise<boolean> } - The promise used to return the PIP switch status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+     getPiPSettingSwitch(): Promise<boolean>;
 
     /**
      * Register picture-in-picture control event listener.
@@ -1197,7 +1208,6 @@ declare namespace PiPWindow {
      *                                                                2. Incorrect parameter types.
      *                                                                3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15

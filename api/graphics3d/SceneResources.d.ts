@@ -184,6 +184,100 @@ export enum MaterialType {
    * @since 12
    */
   SHADER = 1,
+  
+  /**
+   * The material is a physically-based metallic roughness material.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  METALLIC_ROUGHNESS = 2,
+}
+
+/**
+ * The enum of PBR material cull mode.
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export enum CullMode {
+  /**
+   * Disable culling.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  NONE = 0,
+
+  /**
+   * Front face culling.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  FRONT = 1,
+
+  /**
+   * Back face culling.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  BACK = 2
+}
+
+/**
+ * Blend interface.
+ * 
+ * @interface Blend
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface Blend {
+  /**
+   * Control whether blending is enabled
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  enabled: boolean;
+}
+
+/**
+ * Render sort Layer. Within a render slot a layer can define a sort layer order.
+ * There are 0-63 values available (0 first, 63 last). Default id value is 32.
+ * 1. Typical use case is to set render sort layer to objects which render with depth test without depth write.
+ * 2. Typical use case is to always render character and/or camera object first to cull large parts of the view.
+ * 3. Sort e.g. plane layers.
+ * 
+ * @interface RenderSort
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface RenderSort {
+  /**
+   * Sort layer used sorting submeshes in rendering in render slots.
+   * Valid values are 0 - 63.
+   * 
+   * @type { ?number }
+   * @default 32 Default render sort layer id.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  renderSortLayer?: number;
+
+  /**
+   * Sort layer order to describe fine order within sort layer.
+   * Valid values are 0 - 255.
+   * 
+   * @type { ?number }
+   * @default 0 Default render sort layer order.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  renderSortLayerOrder?: number;
 }
 
 /**
@@ -204,6 +298,199 @@ export interface Material extends SceneResource {
    * @since 12
    */
   readonly materialType: MaterialType;
+  
+  /**
+   * Defines if the material can receive shadows.
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  shadowReceiver?: boolean;
+
+  /**
+   * Culling mode.
+   * 
+   * @type { ?CullMode }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  cullMode?: CullMode;
+
+  /**
+   * Control whether the blend is enabled
+   * 
+   * @type { ?Blend }
+   * @default undefined, which means that blending is disabled.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  blend?: Blend;
+
+  /**
+   * Alpha cutoff value [0,1]. Enabled if < 1.
+   * 
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  alphaCutoff?: number;
+
+  /**
+   * Render sorting priority for layers.
+   * 
+   * @type { ?RenderSort }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  renderSort?: RenderSort;
+}
+
+/**
+ * Material property interface.
+ * 
+ * @interface MaterialProperty
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface MaterialProperty {
+  /**
+   * Texture to use. If undefined, factor defines the diffuse color.
+   * 
+   * @type { Image | null }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  image: Image | null;
+
+  /**
+   * Texture coefficient. Default is {1,1,1,1}, meaning no effect.
+   * 
+   * @type { Vec4 }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  factor: Vec4;
+
+  /**
+   * Texture Sampler.
+   * 
+   * @type { ?Sampler }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  sampler?: Sampler;
+}
+
+/**
+ * Physically-based metallic roughness material resource.
+ * 
+ * @extends Material
+ * @interface MetallicRoughnessMaterial
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface MetallicRoughnessMaterial extends Material {
+  /**
+   * Base color factor of PBR material.
+   * Value of factor.xyzw defines rgba color.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  baseColor: MaterialProperty;
+
+  /**
+   * Normal factor of PBR material.
+   * Value of factor.x defines normal scale.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  normal: MaterialProperty;
+
+  /**
+   * Metallic roughness material parameters.
+   * Value of factor.y defines roughness, factor.z defines metallic and factor.a defines reflectance.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  material: MaterialProperty;
+
+  /**
+   * Ambient occlusion of PBR material.
+   * Value of factor.x defines ambient occlusion factor.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  ambientOcclusion: MaterialProperty;
+
+  /**
+   * Emissive property of PBR material.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  emissive: MaterialProperty;
+
+  /**
+   * Clearcoat intensity.
+   * Value of factor.x defines clearcoat layer intensity.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  clearCoat: MaterialProperty;
+
+  /**
+   * Clearcoat roughness.
+   * Value of factor.y defines clearcoat layer roughness.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  clearCoatRoughness: MaterialProperty;
+  
+  /**
+   * Clearcoat normal.
+   * Value of factor.xyz defines RGB clearcoat normal scale.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  clearCoatNormal: MaterialProperty;
+
+  /**
+   * Sheen color of PBR material.
+   * Value of factor.xyz defines RGB sheen color,
+   * Value of factor.w defines sheen roughness.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  sheen: MaterialProperty;
+
+  /**
+   * Specular color of PBR material.
+   * Value of factor.xyz defines RGB specular color,
+   * Value of factor.w defines specular intensity.
+   * 
+   * @type { MaterialProperty }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  specular: MaterialProperty;
 }
 
 /**
@@ -223,6 +510,117 @@ export interface ShaderMaterial extends Material {
    * @since 12
    */
   colorShader?: Shader;
+}
+
+/**
+ * Sampler filter Mode
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export enum SamplerFilter {
+  /**
+   * Use nearest filtering
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  NEAREST = 0,
+  /**
+   * Use linear filtering
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  LINEAR = 1,
+}
+
+/**
+ * Addressing mode for Sampler
+ * 
+ * @enum { number }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export enum SamplerAddressMode {
+  /**
+   * Repeat
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  REPEAT = 0,
+
+  /**
+   * Mirrored repeat
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  MIRRORED_REPEAT = 1,
+
+  /**
+   * clamp to edge
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  CLAMP_TO_EDGE = 2,
+}
+
+/**
+ * Sampler interface
+ * 
+ * @interface { Sampler }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface Sampler {
+  /**
+   * Mag filiter
+   * 
+   * @type { ?SamplerFilter }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  magFilter?: SamplerFilter;
+
+  /**
+   * Min filiter
+   * 
+   * @type { ?SamplerFilter }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  minFilter?: SamplerFilter;
+
+  /**
+   * Mip-map mode
+   * 
+   * @type { ?SamplerFilter }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  mipMapMode?: SamplerFilter;
+
+  /**
+   * U addressing mode
+   * 
+   * @type { ?SamplerAddressMode }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  addressModeU?: SamplerAddressMode;
+
+  /**
+   * V addressing mode
+   * 
+   * @type { ?SamplerAddressMode }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  addressModeV?: SamplerAddressMode;
 }
 
 /**
@@ -260,6 +658,25 @@ export interface SubMesh {
    * @since 12
    */
   readonly aabb: Aabb;
+}
+
+/**
+ * Defines Morpher interface for specifying morph targets for Node's geometry.
+ * 
+ * @interface Morpher
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+export interface Morpher {
+  /**
+   * Morph target names and weights
+   * 
+   * @type { Record<string, number> }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  readonly targets: Record<string, number>;
 }
 
 /**
@@ -330,6 +747,16 @@ export interface Animation extends SceneResource {
    * @since 12
    */
   enabled: boolean;
+
+  /**
+   * Animation speed factor
+   * A negative value runs the animation in reverse using the given speed factor
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  speed?: number;
 
   /**
    * The duration of the animation.

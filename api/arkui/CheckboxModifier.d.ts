@@ -28,6 +28,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Checkbox Modifier
+ *
+ * @extends CheckboxAttribute
+ * @implements AttributeModifier<CheckboxAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class CheckboxModifier extends CheckboxAttribute implements AttributeModifier<CheckboxAttribute> {
 
   /**

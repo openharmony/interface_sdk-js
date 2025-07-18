@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Row Modifier
+ *
+ * @extends RowAttribute
+ * @implements AttributeModifier<RowAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class RowModifier extends RowAttribute implements AttributeModifier<RowAttribute> {
 
   /**

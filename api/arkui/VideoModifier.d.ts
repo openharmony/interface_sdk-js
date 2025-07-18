@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Video Modifier
+ *
+ * @extends VideoAttribute
+ * @implements AttributeModifier<VideoAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class VideoModifier extends VideoAttribute implements AttributeModifier<VideoAttribute> {
 
   /**

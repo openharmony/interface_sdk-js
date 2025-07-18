@@ -968,7 +968,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
@@ -986,7 +986,7 @@ declare namespace usbManager {
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Permission denied. Call requestAccessoryRight to get the right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    * <br>1. No accessory is plugged in.
    * @throws { BusinessError } 14401001 - The target USBAccessory not matched.
@@ -2345,7 +2345,7 @@ declare namespace usbManager {
    * <br>2. The interface is claimed by another program or driver.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
    * @throws { BusinessError } 14400009 - Insufficient memory. Possible causes:
-   * <br>1. Malloc memory failed.
+   * <br>1. Memory allocation failed.
    * @throws { BusinessError } 14400012 - Transmission I/O error.
    * @syscap SystemCapability.USB.USBManager
    * @since 18
@@ -2367,6 +2367,25 @@ declare namespace usbManager {
    */
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 
+  /**
+   * Perform a USB port reset to reinitialize a usb device. The operation will attempt to restore the previous configuration
+   * and alternate interface settings after the reset has completed.
+   *
+   * @param { USBDevicePipe } pipe - Represents a USB device,which is the target object to be restarted.It cannot be empty.
+   * @returns { boolean } If the restart operation is successful, return {@code true}; if the restart operation fails, return {@code false}.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in..
+   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
+   * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
+   * <br>1.Unrecognized discard error code.
+   * @throws { BusinessError } 14400013 - The USBDevicePipe validity check failed. Possible causes:
+   * <br>1.The input parameters fail the validation check.
+   * <br>2.The call chain used to obtain the input parameters is not reasonable.
+   * @syscap SystemCapability.USB.USBManager
+   * @since 20
+   */
+  function resetUsbDevice(pipe: USBDevicePipe): boolean;
 
 
 

@@ -27,6 +27,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
  * @since 6
+ * @deprecated since 9
  */
 declare namespace systemParameter {
   /**
@@ -88,6 +89,7 @@ declare namespace systemParameter {
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6
+   * @deprecated since 9
    */
   function setSync(key: string, value: string): void;
 

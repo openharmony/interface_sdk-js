@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines TextPicker Modifier
+ *
+ * @extends TextPickerAttribute
+ * @implements AttributeModifier<TextPickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class TextPickerModifier extends TextPickerAttribute implements AttributeModifier<TextPickerAttribute> {
 
   /**

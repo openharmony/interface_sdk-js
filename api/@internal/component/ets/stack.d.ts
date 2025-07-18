@@ -64,10 +64,11 @@ declare interface StackOptions {
    * @since 11
    */
   /**
-   * Set the alignment of sub components within the container.
+   * Alignment of child components in the container.
    *
    * Anonymous Object Rectification
    * @type { ?Alignment }
+   * @default Alignment.Center
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -233,7 +234,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
   alignContent(value: Alignment): StackAttribute;
 
   /**
-   * Defines the PointLight
+   * Sets the point light style.
    *
    * @param { PointLightStyle } value - The point light style.
    * @returns { StackAttribute } The attribute of the stack.

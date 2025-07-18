@@ -214,7 +214,8 @@ declare namespace cameraPicker {
   }
 
   /**
-   * Pick function to get a photo or video result.
+   * Launch the camera picker and configure it to photo or video mode base on the incoming media type.
+   * The photo or video result will be returned via a Promise upon completion of the operation.
    *
    * @param { Context } context - From UIExtensionAbility.
    * @param { Array<PickerMediaType> } mediaTypes - Pick media type.
@@ -229,7 +230,8 @@ declare namespace cameraPicker {
    * @param { Context } context - From UIExtensionAbility.
    * @param { Array<PickerMediaType> } mediaTypes - Pick media type.
    * @param { PickerProfile } pickerProfile - Picker input Profile.
-   * @returns { Promise<PickerResult> } pick result.
+   * @returns { Promise<PickerResult> } Get the processed result of the camera picker using the Promise
+   * method. The return value is PickerResult.
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 12

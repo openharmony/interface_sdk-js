@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines type to operation data source.
+ * Enumerates the data operation types.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29,7 +29,7 @@
  */
 declare enum DataOperationType {
   /**
-   * Add data.
+   * Data addition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -39,7 +39,7 @@ declare enum DataOperationType {
   ADD = 'add',
 
   /**
-   * Delete data.
+   * Data deletion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -49,7 +49,7 @@ declare enum DataOperationType {
   DELETE = 'delete',
 
   /**
-   * Exchange data.
+   * Data exchange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -59,7 +59,7 @@ declare enum DataOperationType {
   EXCHANGE = 'exchange',
 
   /**
-   * Move data.
+   * Data movement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -69,7 +69,7 @@ declare enum DataOperationType {
   MOVE = 'move',
 
   /**
-   * Change data.
+   * Data change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -79,7 +79,7 @@ declare enum DataOperationType {
   CHANGE = 'change',
 
   /**
-   * Reload data.
+   * Data reloading.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -90,7 +90,7 @@ declare enum DataOperationType {
 }
 
 /**
- * Defines add operation.
+ * Represents an operation for adding data.
  *
  * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -100,7 +100,7 @@ declare enum DataOperationType {
  */
 interface DataAddOperation {
   /**
-   * How to operate added data.
+   * Type of data addition.
    *
    * @type { DataOperationType.ADD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -111,7 +111,7 @@ interface DataAddOperation {
   type: DataOperationType.ADD,
 
   /**
-   * Index of added data.
+   * Index at which to insert the data record.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -122,8 +122,7 @@ interface DataAddOperation {
   index: number,
 
   /**
-   * Count of added data in one operation
-   * Only validate for ADD and DELETE.
+   * Number of data records to insert. Default value: 1.
    *
    * @type { ?number }
    * @default 1
@@ -135,7 +134,7 @@ interface DataAddOperation {
   count?: number,
 
   /**
-   * Key of added data.
+   * Keys to assign to the inserted data records.
    *
    * @type { ?(string | Array<string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -147,7 +146,7 @@ interface DataAddOperation {
 }
 
 /**
- * Defines delete operation.
+ * Represents an operation for deleting data.
  *
  * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -157,7 +156,7 @@ interface DataAddOperation {
  */
 interface DataDeleteOperation {
   /**
-   * How to operate deleted data.
+   * Type of data deletion.
    *
    * @type { DataOperationType.DELETE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -168,7 +167,7 @@ interface DataDeleteOperation {
   type: DataOperationType.DELETE,
 
   /**
-   * Index of deleted data.
+   * Index at which to start deleting data.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -179,8 +178,7 @@ interface DataDeleteOperation {
   index: number,
 
   /**
-   * Count of deleted data in one operation
-   * Only validate for ADD and DELETE.
+   * Number of data records to delete. Default value: 1.
    *
    * @type { ?number }
    * @default 1
@@ -193,7 +191,7 @@ interface DataDeleteOperation {
 }
 
 /**
- * Defines change operation.
+ * Represents an operation for changing data.
  *
  * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -203,7 +201,7 @@ interface DataDeleteOperation {
  */
 interface DataChangeOperation {
   /**
-   * How to operate changed data.
+   * Type of data change.
    *
    * @type { DataOperationType.CHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -214,7 +212,7 @@ interface DataChangeOperation {
   type: DataOperationType.CHANGE,
 
   /**
-   * Index of changed data.
+   * Index of the data to be changed.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -225,7 +223,7 @@ interface DataChangeOperation {
   index: number,
 
   /**
-   * Key of changed data.
+   * New key to assign to the changed data. The original key is used by default.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -247,7 +245,7 @@ interface DataChangeOperation {
  */
 interface MoveIndex {
   /**
-   * Index of moved data.
+   * Start position for the movement.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -257,7 +255,7 @@ interface MoveIndex {
    */
   from: number;
   /**
-   * Destination of moved data.
+   * End position for the movement.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,7 +277,7 @@ interface MoveIndex {
  */
 interface ExchangeIndex {
   /**
-   * Index of the first exchange data.
+   * First position for the exchange.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -289,7 +287,7 @@ interface ExchangeIndex {
    */
   start: number;
   /**
-   * Index of the second exchange data.
+   * Second position for the exchange.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -311,7 +309,7 @@ interface ExchangeIndex {
  */
 interface ExchangeKey {
   /**
-   * Key of the first exchange data.
+   * New key to assign to the first position in the exchange. The original key is used by default.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -321,7 +319,7 @@ interface ExchangeKey {
    */
   start: string;
   /**
-   * Key of the second exchange data.
+   * New key to assign to the second position in the exchange. The original key is used by default.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -333,7 +331,7 @@ interface ExchangeKey {
 }
 
 /**
- * Defines move&exchange operation.
+ * Represents an operation for moving data.
  *
  * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -343,7 +341,7 @@ interface ExchangeKey {
  */
 interface DataMoveOperation {
   /**
-   * How to operate moved data.
+   * Type of data movement.
    *
    * @type { DataOperationType.MOVE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -354,7 +352,7 @@ interface DataMoveOperation {
   type: DataOperationType.MOVE,
 
   /**
-   * Index of moved data.
+   * Positions for the movement.
    *
    * @type { MoveIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -365,7 +363,7 @@ interface DataMoveOperation {
   index: MoveIndex,
 
   /**
-   * Key of moved data.
+   * New key to assign to the moved data. The original key is used by default.
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -377,7 +375,7 @@ interface DataMoveOperation {
 }
 
 /**
- * Defines exchange operation.
+ * Represents an operation for exchanging data.
  *
  * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -387,7 +385,7 @@ interface DataMoveOperation {
  */
  interface DataExchangeOperation {
   /**
-   * How to operate exchange data.
+   * Type of data exchange.
    *
    * @type { DataOperationType.EXCHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -398,7 +396,7 @@ interface DataMoveOperation {
   type: DataOperationType.EXCHANGE,
 
   /**
-   * Index of exchange data.
+   * Positions for the exchange.
    *
    * @type { ExchangeIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -409,7 +407,7 @@ interface DataMoveOperation {
   index: ExchangeIndex,
 
   /**
-   * Key of exchange data.
+   * New keys to assign to the exchanged data. The original keys are used by default.
    *
    * @type { ?ExchangeKey }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -421,7 +419,10 @@ interface DataMoveOperation {
 }
 
 /**
- * Defines reload operation.
+ * Represents an operation for reloading data.
+ * If the onDatasetChange event contains a DataOperationType.RELOAD operation,
+ * all other operations in the event are ineffective.In such cases, the framework will
+ * call keygenerator to perform a comparison of keys with their corresponding values.
  *
  * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -431,7 +432,7 @@ interface DataMoveOperation {
  */
 interface DataReloadOperation {
   /**
-   * How to operate reload data.
+   * Type of data reloading.
    *
    * @type { DataOperationType.RELOAD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -455,14 +456,14 @@ declare type DataOperation =
   DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
- * Data Change Listener.
+ * Listener for data changes.
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * Data Change Listener.
+ * Listener for data changes.
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -470,7 +471,7 @@ declare type DataOperation =
  * @since 10
  */
 /**
- * Data Change Listener.
+ * Listener for data changes.
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -480,20 +481,23 @@ declare type DataOperation =
  */
 declare interface DataChangeListener {
   /**
-   * Data ready.
+   * Invoked when all data is reloaded. For data items whose key remains unchanged,
+   * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Data ready.
+   * Invoked when all data is reloaded. For data items whose key remains unchanged,
+   * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Data ready.
+   * Invoked when all data is reloaded. For data items whose key remains unchanged,
+   * the original child component is used. For data items whose key changes, a new child component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -503,7 +507,7 @@ declare interface DataChangeListener {
   onDataReloaded(): void;
 
   /**
-   * Data added.
+   * Invoked when data is added to the position indicated by the specified index.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -514,14 +518,14 @@ declare interface DataChangeListener {
   onDataAdded(index: number): void;
 
   /**
-   * Data added.
+   * Invoked when data is added to the position indicated by the specified index.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Data added.
+   * Invoked when data is added to the position indicated by the specified index.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -529,7 +533,7 @@ declare interface DataChangeListener {
    * @since 10
    */
   /**
-   * Data added.
+   * Invoked when data is added to the position indicated by the specified index.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -540,7 +544,7 @@ declare interface DataChangeListener {
   onDataAdd(index: number): void;
 
   /**
-   * Data moved.
+   * Invoked when data is moved, that is, when data is swapped between the from and to positions.
    *
    * @param { number } from
    * @param { number } to
@@ -552,7 +556,7 @@ declare interface DataChangeListener {
   onDataMoved(from: number, to: number): void;
 
   /**
-   * Data moved.
+   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
    * @param { number } from
    * @param { number } to
@@ -560,7 +564,7 @@ declare interface DataChangeListener {
    * @since 8
    */
   /**
-   * Data moved.
+   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
    * @param { number } from
    * @param { number } to
@@ -569,7 +573,7 @@ declare interface DataChangeListener {
    * @since 10
    */
   /**
-   * Data moved.
+   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
    *
    * @param { number } from
    * @param { number } to
@@ -581,7 +585,8 @@ declare interface DataChangeListener {
   onDataMove(from: number, to: number): void;
 
   /**
-   * Data deleted.
+   * Invoked when data is deleted from the position indicated by the specified index.
+   * LazyForEach will update the displayed content accordingly.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -592,14 +597,16 @@ declare interface DataChangeListener {
   onDataDeleted(index: number): void;
 
   /**
-   * Data deleted.
+   * Invoked when data is deleted from the position indicated by the specified index.
+   * LazyForEach will update the displayed content accordingly.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Data deleted.
+   * Invoked when data is deleted from the position indicated by the specified index.
+   * LazyForEach will update the displayed content accordingly.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -607,7 +614,8 @@ declare interface DataChangeListener {
    * @since 10
    */
   /**
-   * Data deleted.
+   * Invoked when data is deleted from the position indicated by the specified index.
+   * LazyForEach will update the displayed content accordingly.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -618,7 +626,7 @@ declare interface DataChangeListener {
   onDataDelete(index: number): void;
 
   /**
-   * Call when has data change.
+   * Invoked when data in the position indicated by the specified index is changed.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -629,14 +637,14 @@ declare interface DataChangeListener {
   onDataChanged(index: number): void;
 
   /**
-   * Call when has data change.
+   * Invoked when data in the position indicated by the specified index is changed.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Call when has data change.
+   * Invoked when data in the position indicated by the specified index is changed.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -644,7 +652,7 @@ declare interface DataChangeListener {
    * @since 10
    */
   /**
-   * Call when has data change.
+   * Invoked when data in the position indicated by the specified index is changed.
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -655,7 +663,7 @@ declare interface DataChangeListener {
   onDataChange(index: number): void;
 
   /**
-   * Call when multiple data change.
+   * Invoked when data is processed in batches to notify the component of refreshing.
    *
    * @param { DataOperation[] } dataOperations
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -692,14 +700,14 @@ declare interface DataChangeListener {
  */
 declare interface IDataSource {
   /**
-   * Total data count.
+   * Obtains the total number of data items.
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Total data count.
+   * Obtains the total number of data items.
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -707,7 +715,7 @@ declare interface IDataSource {
    * @since 10
    */
   /**
-   * Total data count.
+   * Obtains the total number of data items.
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -718,7 +726,7 @@ declare interface IDataSource {
   totalCount(): number;
 
   /**
-   * Return the data of index.
+   * Obtains the data item that matches the specified index.
    *
    * @param { number } index
    * @returns { any }
@@ -726,7 +734,7 @@ declare interface IDataSource {
    * @since 7
    */
   /**
-   * Return the data of index.
+   * Obtains the data item that matches the specified index.
    *
    * @param { number } index
    * @returns { any }
@@ -735,7 +743,7 @@ declare interface IDataSource {
    * @since 10
    */
   /**
-   * Return the data of index.
+   * Obtains the data item that matches the specified index.
    *
    * @param { number } index
    * @returns { any }
@@ -747,14 +755,14 @@ declare interface IDataSource {
   getData(index: number): any;
 
   /**
-   * Register data change listener.
+   * Registers a listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Register data change listener.
+   * Registers a listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -762,7 +770,7 @@ declare interface IDataSource {
    * @since 10
    */
   /**
-   * Register data change listener.
+   * Registers a listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -773,14 +781,14 @@ declare interface IDataSource {
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
-   * Unregister data change listener.
+   * Unregisters the listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Unregister data change listener.
+   * Unregisters the listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -788,7 +796,7 @@ declare interface IDataSource {
    * @since 10
    */
   /**
-   * Unregister data change listener.
+   * Unregisters the listener for data changes.
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -883,7 +891,7 @@ interface LazyForEachInterface {
   (
     dataSource: IDataSource,
     itemGenerator: (item: any, index: number) => void,
-    keyGenerator?: (item: any, index: number) => string,
+    keyGenerator?: (item: any, index: number) => string
   ): LazyForEachAttribute;
 }
 

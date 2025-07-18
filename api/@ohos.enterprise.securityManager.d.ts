@@ -82,6 +82,48 @@ declare namespace securityManager {
     alias: string;
   }
 
+    /**
+     * Application instance data.
+     *
+     * @typedef ApplicationInstance
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    export interface ApplicationInstance {
+      /**
+       * Globally unique identifier of an application, which is allocated by the cloud.
+       * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
+       * public and private key changes, and application transfer.
+       *
+       * @type { string }
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      appIdentifier: string;
+
+      /**
+       * Indicates the OS account identifier.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      accountId: number;
+  
+      /**
+       * Indicates the index of clone app.
+       *
+       * @type { number }
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      appIndex: number;
+    }
+
   /**
    * Gets device security patch tag.
    * This function can be called by a super administrator.
@@ -344,6 +386,43 @@ declare namespace securityManager {
   function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
 
   /**
+   * Sets the application's permission managed state of the device.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USER_GRANT_PERMISSION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { ApplicationInstance } applicationInstance - Application instance data.
+   * @param { Array<string> } permissions - permissions indicates the list of permission names that need to manage.
+   * @param { PermissionManagedState } managedState - the managed state of application permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+    function setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissions: Array<string>, managedState: PermissionManagedState): void;
+
+  /**
+   * Gets the permission managed state of an application instance.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USER_GRANT_PERMISSION
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { ApplicationInstance } applicationInstance - applicationInstance indicates an application instance.
+   * @param { string } permission - permission indicates the permission name which need to get state.
+   * @returns { PermissionManagedState } the managed state of application permission.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+    function getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permission: string): PermissionManagedState;
+
+  /**
    * Sets the watermark image displayed during the application running.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
@@ -465,6 +544,44 @@ declare namespace securityManager {
      */
     CROSS_DEVICE = 3,
   }
+
+  /**
+   * Managed State.
+   * 
+   * @enum { number } PermissionManagedState
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+    export enum PermissionManagedState {
+      /**
+       * PermissionManagedState default
+       * 
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      DEFAULT = 1,
+  
+      /**
+       * PermissionManagedState granted, Users do not need to authorize a second time.
+       * 
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      GRANTED = 0,
+  
+      /**
+       * PermissionManagedState DENIED, Users need to authorize a second time.
+       * 
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 20
+       */
+      DENIED = -1
+    }
+
 }
 
 export default securityManager;

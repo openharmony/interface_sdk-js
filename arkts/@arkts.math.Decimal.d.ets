@@ -36,6 +36,17 @@
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 /**
+ * The type uesd to set rounding
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type Rounding = number;
+
+/**
  * The type uesd to set modulo
  *
  * @syscap SystemCapability.Utils.Lang

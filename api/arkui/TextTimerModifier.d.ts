@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines TextTimer Modifier
+ *
+ * @extends TextTimerAttribute
+ * @implements AttributeModifier<TextTimerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {
 
   /**

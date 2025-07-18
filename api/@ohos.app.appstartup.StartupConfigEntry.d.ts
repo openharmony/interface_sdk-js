@@ -19,6 +19,7 @@
  */
 
 import StartupConfig from './@ohos.app.appstartup.StartupConfig';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * The configuration entry for running startup tasks.
@@ -37,4 +38,18 @@ export default class StartupConfigEntry {
    * @since 12
    */
   onConfig?(): StartupConfig;
+
+  /**
+   * Called when a custom match rule is requested.
+   * The custom match rule returned will be matched against the match rules defined in the appStartup profile.
+   * If any of the specified tasks meets the custom match rule, that task will be initiated;
+   * otherwise, the default automatic startup tasks will be initiated.
+   *
+   * @param { Want } want Want information of the started ability.
+   * @returns { string } Custom match rule
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 20
+   */
+  onRequestCustomMatchRule(want: Want): string;
 }

@@ -19,7 +19,7 @@
  */
 
 /**
- * Declares the APIs for configuring attributes of the IR emitter.
+ * The infraredEmitter module generates IR signals of the specified frequency and size, and queries the frequency range supported by the device.
  *
  * @namespace infraredEmitter
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -27,7 +27,7 @@
  */
 declare namespace infraredEmitter {
   /**
-   * Infrared frequency range supported by the IR emitter.
+   * Defines the frequency range of IR signals.
    *
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -35,7 +35,7 @@ declare namespace infraredEmitter {
    * @since 12
    */
   /**
-   * Infrared frequency range supported by the IR emitter.
+   * Defines the frequency range of IR signals.
    *
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -43,7 +43,7 @@ declare namespace infraredEmitter {
    */
   interface InfraredFrequency {
     /**
-     * Maximum frequency.
+     * Maximum frequency, in Hz.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -51,7 +51,7 @@ declare namespace infraredEmitter {
      * @since 12
      */
     /**
-     * Maximum frequency.
+     * Maximum frequency, in Hz.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -60,7 +60,7 @@ declare namespace infraredEmitter {
     max: number;
 
     /**
-     * Minimum frequency.
+     * Minimum frequency, in Hz.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -68,7 +68,7 @@ declare namespace infraredEmitter {
      * @since 12
      */
     /**
-     * Minimum frequency.
+     * Minimum frequency, in Hz.
      *
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -78,11 +78,13 @@ declare namespace infraredEmitter {
   }
 
   /**
-   * Transmitted IR signal.
+   * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @param { number} infraredFrequency - IR infrared frequency, in Hz.
-   * @param { Array<number>} pattern - Pattern of signal transmission in alternate on/off mode, in microseconds.
+   * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
+   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
+   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -92,11 +94,13 @@ declare namespace infraredEmitter {
    * @since 12
    */
   /**
-   * Transmitted IR signal.
+   * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @param { number} infraredFrequency - IR infrared frequency, in Hz.
-   * @param { Array<number>} pattern - Pattern of signal transmission in alternate on/off mode, in microseconds.
+   * @param { Array<number>} pattern - IR level signal, in μs. The value must be an even number within the value range of [0,1024]. 
+   * For example, in the IR level signal array [100,200,300,400], 100 μs is a high-level signal, 
+   * 200 μs is a low-level signal, 300 μs is a high-level signal, and 400 μs is a low-level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -106,10 +110,10 @@ declare namespace infraredEmitter {
   function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
 
   /**
-   * Obtains the infrared frequency supported by the IR emitter.
+   * Queries the frequency range of IR signals supported by the mobile phone.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
+   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -117,10 +121,10 @@ declare namespace infraredEmitter {
    * @since 12
    */
   /**
-   * Obtains the infrared frequency supported by the IR emitter.
+   * Queries the frequency range of IR signals supported by the mobile phone.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
+   * @returns { Array<InfraredFrequency> } Frequency range, including multiple groups of maximum and minimum frequencies.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15

@@ -19,6 +19,7 @@
  */
 
 import StartupConfig from './@ohos.app.appstartup.StartupConfig';
+import common from './@ohos.app.ability.common';
 
 /**
  * Startup task manager.
@@ -48,6 +49,24 @@ declare namespace startupManager {
    * @since 12
    */
   function run(startupTasks: Array<string>, config?: StartupConfig): Promise<void>;
+
+  /**
+   * Runs the startup tasks with the specified ability stage context.
+   *
+   * @param { Array<string> } startupTasks - Indicates all tasks ready to run.
+   * @param { common.AbilityStageContext } context - Indicates the ability stage context, which is used to initialize the startup tasks.
+   * @param { StartupConfig } config - Indicates the configuration of startup tasks.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 28800001 - Startup task or its dependency not found.
+   * @throws { BusinessError } 28800002 - The startup tasks have circular dependencies.
+   * @throws { BusinessError } 28800003 - An error occurred while running the startup tasks.
+   * @throws { BusinessError } 28800004 - Running startup tasks timeout.
+   * @syscap SystemCapability.Ability.AppStartup
+   * @stagemodelonly
+   * @since 20
+   */
+  function run(startupTasks: Array<string>, context: common.AbilityStageContext, config: StartupConfig): Promise<void>;
 
   /**
    * Removes all startup tasks result.

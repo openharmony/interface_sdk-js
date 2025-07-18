@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Span Modifier
+ *
+ * @extends SpanAttribute
+ * @implements AttributeModifier<SpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SpanModifier extends SpanAttribute implements AttributeModifier<SpanAttribute> {
 
   /**

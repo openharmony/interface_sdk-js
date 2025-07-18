@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines PatternLock Modifier
+ *
+ * @extends PatternLockAttribute
+ * @implements AttributeModifier<PatternLockAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {
 
   /**

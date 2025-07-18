@@ -42,52 +42,54 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.Notification.Emitter
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace emitter {
   /**
-   * Subscribe to a certain event in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Subscribe to a certain event in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Subscribe to a certain event in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -96,10 +98,10 @@ declare namespace emitter {
   function on(eventId: string, callback: Callback<EventData>): void;
 
   /**
-   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to.
-   * @param { Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -108,30 +110,40 @@ declare namespace emitter {
   function on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * Subscribe to a certain event in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribe to a event by specific id in persistent manner and receives the event callback.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to in one shot.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - indicate ID of the event to subscribe to.
+   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function on<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+
+  /**
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+   *
+   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Subscribe to a certain event in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to in one shot.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Subscribe to a certain event in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { InnerEvent } event - indicate event to subscribe to in one shot.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -140,21 +152,19 @@ declare namespace emitter {
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to in one shot.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to in one shot.
-   * @param { Callback<EventData> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -163,11 +173,10 @@ declare namespace emitter {
   function once(eventId: string, callback: Callback<EventData>): void;
 
   /**
-   * Subscribe to a event by specific id in one-shot manner and unsubscribe from it
-   * after the event callback is received.
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to in one shot.
-   * @param { Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -176,43 +185,44 @@ declare namespace emitter {
   function once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from all events with the specified event ID.
    *
-   * @param { number } eventId - indicate ID of the event to unsubscribe from.
+   * @param { number } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from all events with the specified event ID.
    *
-   * @param { number } eventId - indicate ID of the event to unsubscribe from.
+   * @param { number } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from all events with the specified event ID.
    *
-   * @param { number } eventId - indicate ID of the event to unsubscribe from.
+   * @param { number } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventId: number): void;
 
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from all events with the specified event ID.
    *
-   * @param { string } eventId - indicate ID of the event to unsubscribe from.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from all events with the specified event ID.
    *
-   * @param { string } eventId - indicate ID of the event to unsubscribe from.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -221,48 +231,59 @@ declare namespace emitter {
   function off(eventId: string): void;
 
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { number } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @param { number } eventId - Event ID.
+   * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @since 10
    */
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { number } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @param { number } eventId - Event ID.
+   * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { number } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @param { number } eventId - Event ID.
+   * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventId: number, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribe from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { string } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { string } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -271,10 +292,12 @@ declare namespace emitter {
   function off(eventId: string, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
+   * Otherwise, no processing is performed.
    *
-   * @param { string } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<GenericEventData<T>> } callback - indicates callback used to receive the event.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -283,48 +306,62 @@ declare namespace emitter {
   function off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * Emits an event to the event queue.
+   * Unsubscribe specified callback function  from an event.
    *
-   * @param { InnerEvent } event - indicate event to emit.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function off<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+
+  /**
+   * Emits the specified event.
+   *
+   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Emits an event to the event queue.
+   * Emits the specified event.
    *
-   * @param { InnerEvent } event - indicate event to emit.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Emits an event to the event queue.
+   * Emits the specified event.
    *
-   * @param { InnerEvent } event - indicate event to emit.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function emit(event: InnerEvent, data?: EventData): void;
 
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits the specified event.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits the specified event.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -333,10 +370,10 @@ declare namespace emitter {
   function emit(eventId: string, data?: EventData): void;
 
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits the specified event.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { GenericEventData<T> } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -348,18 +385,31 @@ declare namespace emitter {
    * Emits an event by specific id to the event queue.
    *
    * @param { string } eventId - indicate ID of the event to emit.
-   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { EventData | GenericEventData<T> } [data] - indicate data carried by the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function emit<T>(eventId: string, data?: EventData | GenericEventData<T>): void;
+
+  /**
+   * Emits an event of a specified priority.
+   *
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Options } options - Event emit priority.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits an event of a specified priority.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
-   * @param { EventData } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Options } options - Event emit priority.
+   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -368,11 +418,11 @@ declare namespace emitter {
   function emit(eventId: string, options: Options, data?: EventData): void;
 
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits an event of a specified priority.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { Options } options - Indicates the {@link Options} option of the emit priority of the event.
-   * @param { GenericEventData<T> } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Options } options - Event emit priority.
+   * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -381,23 +431,24 @@ declare namespace emitter {
   function emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
 
   /**
-   * Obtains the number of subscribe listener count.
+   * Obtains the number of subscriptions to a specified event.
    *
-   * @param { number | string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
    * @returns { number } Returns the number of listener count.
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
    * @since 11
    */
   /**
-   * Obtains the number of subscribe listener count.
+   * Obtains the number of subscriptions to a specified event.
    *
-   * @param { number | string } eventId - indicates ID of the event to unsubscribe from.
+   * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
    * @returns { number } Returns the number of listener count.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getListenerCount(eventId: number | string): number;
 
@@ -423,18 +474,19 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface EventData {
     /**
-     * Data carried by the event.
+     * Data passed in the event.
      *
      * @type { ?object }
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Data carried by the event.
+     * Data passed in the event.
      *
      * @type { ?object }
      * @syscap SystemCapability.Notification.Emitter
@@ -442,7 +494,7 @@ declare namespace emitter {
      * @since 11
      */
     /**
-     * Data carried by the event.
+     * Data passed in the event.
      *
      * @type { ?object }
      * @syscap SystemCapability.Notification.Emitter
@@ -451,17 +503,28 @@ declare namespace emitter {
      * @since 12
      */
     data?: { [key: string]: any };
+
+    /**
+     * Data carried by the event.
+     *
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Notification.Emitter
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    data?: Record<string, Object>;
   }
 
   /**
-   * Describes an intra-process event.
+   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
    *
    * @typedef InnerEvent
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Describes an intra-process event.
+   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
    *
    * @typedef InnerEvent
    * @syscap SystemCapability.Notification.Emitter
@@ -469,24 +532,25 @@ declare namespace emitter {
    * @since 11
    */
   /**
-   * Describes an intra-process event.
+   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
    *
    * @typedef InnerEvent
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface InnerEvent {
     /**
-     * Event ID, which is used to identify an event.
+     * Event ID.
      *
      * @type { number }
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Event ID, which is used to identify an event.
+     * Event ID.
      *
      * @type { number }
      * @syscap SystemCapability.Notification.Emitter
@@ -494,25 +558,26 @@ declare namespace emitter {
      * @since 11
      */
     /**
-     * Event ID, which is used to identify an event.
+     * Event ID.
      *
      * @type { number }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventId: number;
 
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Event priority. The default value is EventPriority.LOW.
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Event priority. The default value is EventPriority.LOW.
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
@@ -520,26 +585,27 @@ declare namespace emitter {
      * @since 11
      */
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Event priority. The default value is EventPriority.LOW.
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: EventPriority;
   }
 
   /**
-   * Indicates the emit priority of the event.
+   * Enumerates the event priorities.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Emitter
    * @since 7
    */
   /**
-   * Indicates the emit priority of the event.
+   * Enumerates the event priorities.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Emitter
@@ -547,127 +613,133 @@ declare namespace emitter {
    * @since 11
    */
   /**
-   * Indicates the emit priority of the event.
+   * Enumerates the event priorities.
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum EventPriority {
     /**
-     * Indicates that the event will be emitted immediately.
+     * The event will be emitted immediately.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Indicates that the event will be emitted immediately.
+     * The event will be emitted immediately.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 11
      */
     /**
-     * Indicates that the event will be emitted immediately.
+     * The event will be emitted immediately.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMMEDIATE = 0,
 
     /**
-     * Indicates that the event will be emitted before low-priority events.
+     * The event will be emitted before low-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Indicates that the event will be emitted before low-priority events.
+     * The event will be emitted before low-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 11
      */
     /**
-     * Indicates that the event will be emitted before low-priority events.
+     * The event will be emitted before low-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HIGH,
 
     /**
-     * Indicates that the event will be emitted before idle-priority events. By default, an event is in LOW priority.
+     * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Indicates that the event will be emitted before idle-priority events. By default, an event is in LOW priority.
+     * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 11
      */
     /**
-     * Indicates that the event will be emitted before idle-priority events. By default, an event is in LOW priority.
+     * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW,
 
     /**
-     * Indicates that the event will be emitted after all the other events.
+     * The event will be emitted after all the other events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @since 7
      */
     /**
-     * Indicates that the event will be emitted after all the other events.
+     * The event will be emitted after all the other events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 11
      */
     /**
-     * Indicates that the event will be emitted after all the other events.
+     * The event will be emitted after all the other events.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IDLE,
   }
 
   /**
-   * Describe the optional arguments of emit operation.
+   * Describes the event emit priority.
    *
    * @typedef Options
    * @syscap SystemCapability.Notification.Emitter
    * @since 11
    */
   /**
-   * Describe the optional arguments of emit operation.
+   * Describes the event emit priority.
    *
    * @typedef Options
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Options {
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Event priority. The default value is EventPriority.LOW.
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
@@ -675,35 +747,38 @@ declare namespace emitter {
      * @since 11
      */
     /**
-     * Emit priority of the event. The default priority is {@link EventPriority.LOW}.
+     * Event priority. The default value is EventPriority.LOW.
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: EventPriority;
   }
 
   /**
-   * Describes data passed in the event.
+   * Describes the generic data passed in the event.
    *
    * @typedef GenericEventData<T>
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface GenericEventData<T> {
     /**
-     * Data carried by the event.
+     * Data passed in the event. T: generic type.
      *
      * @type { ?T }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data?: T;
   }

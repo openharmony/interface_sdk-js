@@ -188,3 +188,47 @@ export interface WantAgentInfo {
    */
   extraInfos?: Record<string, Object>;
 }
+
+/**
+ * Provides the information required to create a local WantAgent.
+ *
+ * @typedef LocalWantAgentInfo
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 20
+ */
+export interface LocalWantAgentInfo {
+  /**
+   * An array of all Wants for starting abilities or sending common events.
+   *
+   * @type { Array<Want> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  wants: Array<Want>;
+
+  /**
+   * Type of the action specified in a Want.
+   *
+   * @type { ?abilityWantAgent.OperationType }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  operationType?: abilityWantAgent.OperationType;
+
+  /**
+   * Request code defined by the user.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  requestCode: number;
+}

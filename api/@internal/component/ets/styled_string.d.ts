@@ -24,8 +24,6 @@
  * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
@@ -39,8 +37,6 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
@@ -53,8 +49,6 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @crossplatform
- * @atomicservice
  * @since 19
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
@@ -159,6 +153,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -203,6 +198,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 19
@@ -229,6 +225,7 @@ declare class StyledString {
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 13
@@ -427,6 +424,42 @@ declare class TextStyle {
      * @since 12
      */
     readonly fontStyle?: FontStyle;
+
+    /**
+     * Get the stroke width of the StyledString with the unit 'vp'.
+     *
+     * @type { ?number } - the stroke width of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeWidth?: number;
+
+    /**
+     * Get the stroke color of the StyledString.
+     *
+     * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly strokeColor?: ResourceColor;
+
+    /**
+     * Get the superscript style of the StyledString.
+     *
+     * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly superscript?: SuperscriptStyle;
 }
 
 /**
@@ -493,6 +526,61 @@ declare interface TextStyleInterface {
      * @since 12
      */
     fontStyle?: FontStyle;
+
+    /**
+     * The stroke width of the text.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeWidth?: LengthMetrics;
+
+    /**
+     * The stroke color of the text.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    strokeColor?: ResourceColor;
+
+    /**
+     * The superscript value of the font property object.
+     *
+     * @type { ?SuperscriptStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    superscript?: SuperscriptStyle;
+}
+
+/**
+ * Defines DecorationOptions for Decoration.
+ *
+ * @interface DecorationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface DecorationOptions {
+    /**
+     * Enable to show multi TextDecorationType at a time.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    enableMultiType?: boolean;
 }
 
 /**
@@ -515,6 +603,18 @@ declare class DecorationStyle {
      * @since 12
      */
     constructor(value: DecorationStyleInterface);
+
+    /**
+     * constructor.
+     *
+     * @param { DecorationStyleInterface } value - text decoration value.
+     * @param { DecorationOptions } [options] - decoration options.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
     /**
      * Get the text decoration type of the StyledString.
@@ -551,6 +651,30 @@ declare class DecorationStyle {
      * @since 12
      */
     readonly style?: TextDecorationStyle;
+
+    /**
+     * Get the thickness scale of the StyledString.
+     *
+     * @type { ?number } - the thickness scale of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly thicknessScale?: number;
+
+    /**
+     * Get the DecorationOptions of the StyledString.
+     *
+     * @type { ?DecorationOptions } - the decorationOptions of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly options?: DecorationOptions;
 }
 
 /**
@@ -595,6 +719,17 @@ declare interface DecorationStyleInterface {
      * @since 12
      */
     style?: TextDecorationStyle;
+
+    /**
+     * The thickness scale of the decoration
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    thicknessScale?: number;
 }
 
 /**
@@ -788,6 +923,17 @@ declare interface GestureStyleInterface {
      * @since 12
      */
     onLongPress?: Callback<GestureEvent>;
+
+    /**
+     * Trigger a touch event when touched.
+     *
+     * @type { ?Callback<TouchEvent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onTouch?: Callback<TouchEvent>;
 }
 
 /**
@@ -822,6 +968,18 @@ declare class ParagraphStyle {
      * @since 12
      */
     readonly textAlign?: TextAlign;
+
+    /**
+     * Get the text vertical alignment of the StyledString.
+     *
+     * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    readonly textVerticalAlign?: TextVerticalAlign;
 
     /**
      * Get the first line indentation of the StyledString.
@@ -886,6 +1044,7 @@ declare class ParagraphStyle {
 
     /**
      * Get the paragraph spacing of the StyledString.
+     * The unit is vp.
      *
      * @type { ?number }
      * @readonly
@@ -917,6 +1076,17 @@ declare interface ParagraphStyleInterface {
      * @since 12
      */
     textAlign?: TextAlign;
+
+    /**
+     * Vertical alignment of text.
+     *
+     * @type { ?TextVerticalAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    textVerticalAlign?: TextVerticalAlign;
 
     /**
      * Set the first line indentation.

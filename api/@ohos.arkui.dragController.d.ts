@@ -460,6 +460,20 @@ declare namespace dragController {
      * @since 18
      */
     previewOptions?: DragPreviewOptions;
+    
+    /**
+     * Provide a data representation to the system instead of providing a complete data
+     * object directly. When the user releases the drag over the target application, the system will use this data
+     * representation to request the actual data from drag source. This approach significantly improves the
+     * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
+     * reception. It is recommended to use this instead of the data field.
+     *
+     * @type { ?unifiedDataChannel.DataLoadParams }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    dataLoadParams?: unifiedDataChannel.DataLoadParams;
   }
 
   /**
@@ -865,6 +879,213 @@ declare namespace dragController {
      * @since 18
      */
     READY = 1,
+  }
+
+  /**
+   * Defines the drag spring loading state.
+   * Under default system configuration, if no CANCEL occurs, the state reporting is as follows:
+   *     Hover still--500ms-->BEGIN-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->UPDATE-->100ms-->END
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  const enum DragSpringLoadingState {
+    /**
+     * The user has remained stationary for a period, initiating the spring loading process.
+     * This state allows for some preparatory operations during spring loading.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    BEGIN,
+    /**
+     * Already in the spring loading state. The system periodically checks the user's hover status.
+     * If the user remains stationary, it triggers an UPDATE state notification at regular intervals.
+     * This state allows for UI effect refreshes to emphasize the hover state.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    UPDATE,
+    /**
+     * The entire spring loading state ends. The application can perform cleanup operations
+     * and execute navigation or view switching actions when this state occurs.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    END,
+    /**
+     * After entering the BEGIN state, if the user moves out of the component range, exceeds the displacement
+     * threshold, lifts the finger, or switches windows (pull out), the CANCEL state is triggered.
+     * The application should restore the UI style and cancel any pending navigation or view switching actions.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    CANCEL
+   }
+
+  /**
+   * Defines parameters affecting spring loading detection. Typically, default system configurations suffice.
+   * Customization can be done by specifying the config when binding onDragSpringLoading or dynamically modifying it
+   * using the updateConfiguration method during the BEGIN state.
+   *
+   * @typedef { DragSpringLoadingConfiguration }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  interface DragSpringLoadingConfiguration {
+    /**
+     * Time interval to maintain a stationary state before entering spring loading. Default: 500 ms.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    stillTimeLimit?: number;
+
+    /**
+     * Interval between update notifications after entering the spring loading state. Default: 100ms.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    updateInterval?: number;
+
+    /**
+     * Maximum number of update notifications to report while in the spring loading state. Default: 3.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    updateNotifyCount?: number;
+
+    /**
+     * Maximum wait time from the last UPDATE state to the end of spring loading. Default: 100ms.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    updateToFinishInterval?: number;
+  }
+
+  /**
+   * Defines drag-related information when triggering spring loading callbacks.
+   * This interface provides drag data summaries and additional drag information, useful for applications
+   * needing to dynamically determine whether to respond to spring loading callbacks based on drag data.
+   *
+   * @typedef { SpringLoadingDragInfos }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+   interface SpringLoadingDragInfos {
+    /**
+     * Summary of the dragged data. This field is absent if the source application did not configure data.
+     *
+     * @type { ?unifiedDataChannel.Summary }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    dataSummary?: unifiedDataChannel.Summary;
+    
+    /**
+     * Additional information provided by the source application when initiating the drag operation.
+     * This field is absent if the source application did not configure it.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    extraInfos?: string;
+   }
+
+  /**
+   * Context information for the current spring loading trigger. This object is passed to the application
+   * in the spring loading callback, allowing it to obtain the current state, dynamically refresh UI effects,
+   * and access drag data to determine whether to handle the drag operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  class SpringLoadingContext {
+    /**
+     * Current spring loading state. Refer to the DragSpringLoadingState enum for details.
+     *
+     * @type { DragSpringLoadingState }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    state: DragSpringLoadingState;
+    /**
+     * Sequence number of the current spring loading state notification. Begins at 0 for BEGIN and increments
+     * with each callback.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    currentNotifySequence: number;
+    /**
+     * Drag-related information. Absent when the state is CANCEL.
+     *
+     * @type { ?SpringLoadingDragInfos }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    dragInfos?: SpringLoadingDragInfos;
+    /**
+     * Current spring loading configuration. Absent when the state is CANCEL.
+     *
+     * @type { ?DragSpringLoadingConfiguration }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    currentConfig?: DragSpringLoadingConfiguration;
+    /**
+     * Aborts subsequent spring loading triggers.
+     * Note: Aborting does not trigger a CANCEL notification, the application must handle state cleanup when aborting.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    abort(): void;
+    /**
+     * Updates the spring loading configuration for the current trigger. Only effective during the BEGIN state.
+     * This method does not modify the original configuration set during onDragSpringLoading binding.
+     * It provides an opportunity for dynamic configuration updates during the current trigger.
+     * Typically, applications should use default configurations or set them once during binding.
+     * Use this method sparingly, e.g., for different drag data types requiring varied UX timing.
+     *
+     * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    updateConfiguration(config: DragSpringLoadingConfiguration): void;
   }
 }
 

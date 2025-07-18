@@ -41,7 +41,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -54,7 +54,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -70,7 +70,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @systemapi
    * @since 19
@@ -84,7 +84,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 14400005 Database operation exception.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -96,7 +96,7 @@ declare namespace serialManager {
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
    * @throws { BusinessError } 31400002 Access denied. Call requestSerialRight to request user authorization first.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400004 The serial port device is occupied.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
@@ -108,7 +108,7 @@ declare namespace serialManager {
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
@@ -121,7 +121,7 @@ declare namespace serialManager {
    * @returns { Readonly<SerialAttribute>} Communication parameters obtained, which are read-only.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
@@ -134,7 +134,7 @@ declare namespace serialManager {
    * @param { SerialAttribute} attribute Communication parameters to set.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
@@ -149,12 +149,12 @@ declare namespace serialManager {
    * @returns { Promise<number> } Promise used to return the length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
    * <br>1. The transfer was canceled.
-   * <br>2. The device offered more data.
+   * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -168,12 +168,12 @@ declare namespace serialManager {
    * @returns {number} Length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
    * <br>1. The transfer was canceled.
-   * <br>2. The device offered more data.
+   * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -187,12 +187,12 @@ declare namespace serialManager {
    * @returns { Promise<number> } Promise used to return the length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
    * <br>1. The transfer was canceled.
-   * <br>2. The device offered more data.
+   * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */
@@ -206,12 +206,12 @@ declare namespace serialManager {
    * @returns { number } Length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 31400001 Serial port management exception.
-   * @throws { BusinessError } 31400003 Device does not exist.
+   * @throws { BusinessError } 31400003 PortId does not exist.
    * @throws { BusinessError } 31400005 The serial port device is not opened. Call the open API first.
    * @throws { BusinessError } 31400006 Data transfer timed out.
    * @throws { BusinessError } 31400007 I/O exception. Possible causes:
    * <br>1. The transfer was canceled.
-   * <br>2. The device offered more data.
+   * <br>2. The device offered more data than allowed.
    * @syscap SystemCapability.USB.USBManager.Serial
    * @since 19
    */

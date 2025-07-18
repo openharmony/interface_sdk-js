@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BackgroundTasksKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -64,6 +63,32 @@ declare namespace backgroundTaskManager {
      * @since 9
      */
     actualDelayTime: number;
+  }
+
+  /**
+   * The callback info of transient task.
+   *
+   * @interface TransientTaskInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 20
+   */
+  interface TransientTaskInfo {
+    /**
+     * Total remaining quota of an application in one day.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @since 20
+     */
+    remainingQuota: number;
+    /**
+     * The info list of delay suspend.
+     *
+     * @type { DelaySuspendInfo[] }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @since 20
+     */
+    transientTasks: DelaySuspendInfo[];
   }
 
   /**
@@ -139,6 +164,235 @@ declare namespace backgroundTaskManager {
   }
 
   /**
+   * The continuous task active info.
+   *
+   * @interface ContinuousTaskActiveInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  interface ContinuousTaskActiveInfo {
+    /**
+     * The id of active continuous task.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    id: number;
+  }
+
+  /**
+   * The continuous task info.
+   *
+   * @interface ContinuousTaskInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  interface ContinuousTaskInfo {
+    /**
+     * The ability name of apply continuous task.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    abilityName: string;
+   /**
+     * The uid of apply continuous task.
+     *
+     * @type { number}
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    uid: number;
+   /**
+     * The pid of apply continuous task.
+     *
+     * @type { number}
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    pid: number;
+    /**
+     * Is apply continuous task from webview.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    isFromWebView: boolean;
+    /**
+     * Background modes of apply continuous task.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    backgroundModes: string[];
+    /**
+     * Background sub modes of apply continuous task.
+     *
+     * @type { string[] }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    backgroundSubModes: string[];
+    /**
+     * The notification id of apply continuous task.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    notificationId: number;
+    /**
+     * The continuous task id of apply continuous task.
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    continuousTaskId: number;
+   /**
+     * The ability id of apply continuous task.
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    abilityId: number;
+    /**
+     * The wantAgent bundle name of apply continuous task.
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    wantAgentBundleName: string;
+    /**
+     * The wantAgent ability name of apply continuous task.
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    wantAgentAbilityName: string;
+    /**
+     * The suspend state of apply continuous task.
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    suspendState: boolean;
+  }
+
+  /**
+   * The continuous task suspend info.
+   *
+   * @interface ContinuousTaskSuspendInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  interface ContinuousTaskSuspendInfo {
+    /**
+     * The id of suspended continuous task.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    continuousTaskId: number;
+
+    /**
+     * The suspend state of continuous task.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    suspendState: boolean;
+
+    /**
+     * The suspend reason of continuous task.
+     *
+     * @type { ContinuousTaskSuspendReason }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    suspendReason: ContinuousTaskSuspendReason;
+  }
+
+  /**
+   * Efficiency Resources information.
+   *
+   * @interface EfficiencyResourcesInfo
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface EfficiencyResourcesInfo {
+    /**
+     * The set of resource types that app wants to apply.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    resourceTypes: number;
+    /**
+     * The duration that the resource can be used most.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    timeout: number;
+    /**
+     * True if the apply action is persistent, else false. Default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isPersistent: boolean;
+    /**
+     * True if apply action is for process, false is for package. Default value is false.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isForProcess: boolean;
+    /**
+     * The apply reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    reason: string;
+   /**
+     * The uid of apply efficiency resources.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    uid: number;
+   /**
+     * The pid of apply efficiency resources.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    pid: number;
+  }
+
+  /**
    * Cancels delayed transition to the suspended state.
    *
    * @param { number } requestId - The identifier of the delay request.
@@ -148,7 +402,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -167,7 +421,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -186,7 +440,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -206,13 +460,26 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900002 - Transient task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
+
+  /**
+   * Obtains transient task info before an application enters the suspended state.
+   *
+   * @returns { Promise<TransientTaskInfo> } The promise returns the transient task info.
+   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
+   * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9900004 - System service operation failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+   * @since 20
+   */
+  function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
   /**
    * Service ability uses this method to request start running in background.
@@ -254,7 +521,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -304,7 +571,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -330,7 +597,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -354,7 +621,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
@@ -409,13 +676,13 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since 17
+   * @since 19
    */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
@@ -464,15 +731,49 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
-   * @since 17
+   * @since 19
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
+
+  /**
+   * Obtains all the continuous tasks before an application enters the suspended state,
+   *     including continuous tasks in suspended state.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Obtains all the continuous tasks before an application enters the suspended state.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { boolean } includeSuspended - Return the suspended continuous tasks.
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
 
   /**
    * Apply or unapply efficiency resources.
@@ -486,7 +787,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -504,13 +805,28 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - Failed to get bgtask manager service, necessary system service is not ready.
+   * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function resetAllEfficiencyResources(): void;
+
+  /**
+   * Obtains all the efficiency resources of current application.
+   *
+   * @returns { Promise<EfficiencyResourcesInfo[]> } The promise returns the efficiency resources info.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
+   * @throws { BusinessError } 18700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 18700004 - System service operation failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+   * @systemapi
+   * @since 20
+   */
+  function getAllEfficiencyResources(): Promise<EfficiencyResourcesInfo[]>;
 
   /**
    * Register continuous task cancel callback.
@@ -539,6 +855,58 @@ declare namespace backgroundTaskManager {
    * @since 15
    */
   function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
+
+  /**
+   * Register continuous task suspend callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
+   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function on(type: 'continuousTaskSuspend', callback: Callback<ContinuousTaskSuspendInfo>): void;
+
+  /**
+   * Unregister continuous task suspend callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
+   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function off(type: 'continuousTaskSuspend', callback?: Callback<ContinuousTaskSuspendInfo>): void;
+
+  /**
+   * Register continuous task active callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskActive' } type - The type of continuous task active.
+   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function on(type: 'continuousTaskActive', callback: Callback<ContinuousTaskActiveInfo>): void;
+
+  /**
+   * Unregister continuous task suspend callback.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskActive' } type - The type of continuous task active.
+   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function off(type: 'continuousTaskActive', callback?: Callback<ContinuousTaskActiveInfo>): void;
 
   /**
    * Supported background mode.
@@ -933,6 +1301,87 @@ declare namespace backgroundTaskManager {
      * @since 16
      */
     SUB_MODE = 'subMode'
+  }
+
+  /**
+   * Type of continuous task suspend reason.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  export enum ContinuousTaskSuspendReason {
+    /**
+     * Low network speed when request data transfer mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_DATA_TRANSFER_LOW_SPEED = 4,
+  
+    /**
+     *  Not use avsession when request audio playback mode.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
+  
+    /**
+     * Audio is not running when request audio playback mode.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_RUNNING = 6,
+  
+    /**
+     * Audio is not running when request audio recording mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_AUDIO_RECORDING_NOT_RUNNING = 7,
+  
+    /**
+     * Not use location when request location mode.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_LOCATION_NOT_USED = 8,
+  
+    /**
+     * Not use bluetooth when request bluetooth interaction mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_BLUETOOTH_NOT_USED = 9,
+  
+    /**
+     * Not use multi device when request multi-device connection mode.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_MULTI_DEVICE_NOT_USED = 10,
+  
+    /**
+     * Use some mode illegally.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_USED_ILLEGALLY = 11,
+
+    /**
+     * System load warning.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
   }
 }
 

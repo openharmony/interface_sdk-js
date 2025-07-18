@@ -35,7 +35,8 @@ import lang from './@arkts.lang'
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace collections {
   /**
@@ -50,11 +51,11 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in the typed Array's 'from' function.
+   * Describes the mapping function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayFromMapFn
-   * @param { FromElementType } value - The value in the original array.
-   * @param { number } index - The index in the original array.
+   * @param { FromElementType } value - Element that is currently traversed and used to construct an ArkTS typed array.
+   * @param { number } index - Index of the element.
    * @returns { ToElementType } The transformed value.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -76,13 +77,12 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in typed Array functions which needs to determine
-   * whether some element satisfies the specified predicate test
+   * Describes the assertion function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayPredicateFn
-   * @param { ElementType } value - The value of the element.
-   * @param { number } index - The index of the element.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { ElementType } value - Element that is being traversed in the ArkTS typed array.
+   * @param { number } index - Index of the element.
+   * @param { ArrayType } array - ArkTS typed array that is being traversed.
    * @returns { boolean } True if the value meets the predicate, otherwise false.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -103,12 +103,12 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in typed Array functions that perform specific action for each element.
+   * Describes the traversal function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayForEachCallback
-   * @param { ElementType } value - The value of the element.
-   * @param { number } index - The index of the element.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { ElementType } value - Element that is being traversed in the ArkTS typed array.
+   * @param { number } index - Index of the element.
+   * @param { ArrayType } array - ArkTS typed array that is being traversed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -130,13 +130,12 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in typed Array functions that perform specific action for each element and
-   *    produce corresponding new element.
+   * Describes the conversion mapping function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayMapCallback
-   * @param { ElementType } value - The value of the element.
-   * @param { number } index - The index of the element.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { ElementType } value - Element that is being mapped in the ArkTS typed array.
+   * @param { number } index - Index of the element.
+   * @param { ArrayType } array - ArkTS typed array that is being mapped.
    * @returns { ElementType } The result of the mapping.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -159,13 +158,13 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in typed Array functions that require a reduction.
+   * Describes the reduce function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayReduceCallback
-   * @param { AccType } previousValue - The accumulator value.
-   * @param { ElementType } currentValue - The current element being processed in the array.
-   * @param { number } currentIndex - The index of the current element being processed in the array.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { AccType } previousValue - Accumulated value of the current traversal.
+   * @param { ElementType } currentValue - Element that is being traversed in the ArkTS typed array.
+   * @param { number } currentIndex - Index of the element.
+   * @param { ArrayType } array - ArkTS typed array that is being traversed.
    * @returns { AccType } The result of the reduction.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -186,11 +185,11 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Callback function used in the typed Array's 'sort' function.
+   * Describes the sort function of the ArkTS typed array.
    * 
    * @typedef { function } TypedArrayCompareFn
-   * @param { ElementType } first - The first element of the comparison.
-   * @param { ElementType } second - The second element of the comparison.
+   * @param { ElementType } first - First element to be compared.
+   * @param { ElementType } second - Second element to be compared.
    * @returns { number } The result of the comparison.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -199,11 +198,11 @@ declare namespace collections {
    */
   type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number;
   /**
-   * Callback function used in the Array's 'from' function.
+   * Defines the ArkTS Array reduction function, which is used by the 'from' API of the Array class.
    *
    * @typedef { function } ArrayFromMapFn
-   * @param { FromElementType } value - The value in the original array.
-   * @param { number } index - The index in the original array.
+   * @param { FromElementType } value - Element that is being processed.
+   * @param { number } index - Index of the element in the ArkTS array.
    * @returns { ToElementType } The transformed value.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -212,13 +211,13 @@ declare namespace collections {
   type ArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
 
   /**
-   * Callback function used in Array functions which needs to determine
-   * whether some element satisfies the specified predicate test
+   * Defines the ArkTS Array reduction function, which is used by the 'some' and 'every'
+   * APIs of the Array class to determine whether array elements meet certain test conditions.
    *
    * @typedef { function } ArrayPredicateFn
-   * @param { ElementType } value - The value of the element.
-   * @param { number } index - The index of the element.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { ElementType } value - Element that is being processed.
+   * @param { number } index - Index of the element in the ArkTS array.
+   * @param { ArrayType } array - ArkTS array that is being traversed.
    * @returns { boolean } True if the value meets the predicate, otherwise false.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -228,13 +227,13 @@ declare namespace collections {
     (value: ElementType, index: number, array: ArrayType) => boolean;
 
   /**
-   * Callback function used in Array functions that require a reduction.
+   * Defines the ArkTS Array reduction function, which is used by the 'reduceRight' API of the Array class.
    *
    * @typedef { function } ArrayReduceCallback
-   * @param { AccType } previousValue - The accumulator value.
-   * @param { ElementType } currentValue - The current element being processed in the array.
-   * @param { number } currentIndex - The index of the current element being processed in the array.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { AccType } previousValue - Accumulated value of the current traversal.
+   * @param { ElementType } currentValue - Element that is being traversed in the ArkTS array.
+   * @param { number } currentIndex - Index of the element in the ArkTS array.
+   * @param { ArrayType } array - ArkTS array that is being traversed.
    * @returns { AccType } The result of the reduction.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
@@ -251,7 +250,8 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Redefines ISendable for convenience.
+   * 'ISendable' is the parent type of all sendable types except null and undefined.
+   * It does not have any necessary methods or properties.
    *
    * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Utils.Lang
@@ -270,7 +270,7 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Represents an array-like object that can be concatenated.
+   * An array-like object that can be concatenated. This API extends 'ISendable'.
    * 
    * @interface ConcatArray
    * @extends ISendable
@@ -313,10 +313,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the item at that index.
+     * Returns the element at a given index in this ConcatArray.
      * 
-     * @param { number } index - The zero-based index of the desired code unit.
-     *     Throws error if index < 0 or index >= array.length.
+     * @param { number } index - Index of the element. The index starts from zero.
+     *     If the passed-in index is less than 0 or greater than or equal to the value of 'length', an error is thrown.
      * @returns { T } The element in the ConcatArray matching the given index.
      * @readonly
      * @throws { BusinessError } 401 - Parameter error. Illegal index.
@@ -339,10 +339,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Adds all the elements of an ArkTS ConcatArray into a string, separated by the specified separator string.
+     * Concatenates all elements in this array into a string, with a given separator.
      * 
-     * @param { string } [separator] - A string used to separate one element of the array from
-     *     the next in the resulting string. If omitted, the array elements are separated with a comma.
+     * @param { string } [separator] - Separator to be used. If no value is passed in,
+     *     a comma (,) is used as the separator.
      * @returns { string } A string with all array elements joined.
      *     If ConcatArray.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error. Invalid separator.
@@ -367,13 +367,12 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns a copy of a section of an ArkTS ConcatArray.
+     * Selects a range of elements in this array to create an array.
      *
-     * @param { number } [start] - The beginning index of the specified portion of the array.
-     *     If start is undefined, then the slice begins at index 0.
-     * @param { number } [end] - The end index of the specified portion of the array.
-     *     This is exclusive of the element at the index 'end'.
-     *     If end is undefined, then the slice extends to the end of the array.
+     * @param { number } [start] - Start index of the range. If a negative number is passed in,
+     *     it refers to the index of 'start + array.length' The default value is '0'.
+     * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
+     *     it refers to the index of 'end + array.length'. The default value is the length of the ArkTS array.
      * @returns { ConcatArray<T> } A new ConcatArray containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error. Invalid `start` or `end` parameters.
      * @syscap SystemCapability.Utils.Lang
@@ -395,10 +394,10 @@ declare namespace collections {
    * @since 12
    */
   /**
-   * Array is a data structure that stores a collection of elements. 
-   * If multiple threads access a Array instance concurrently, 
-   * and at least one of the threads modifies the array structurally,
-   * it must be synchronized externally.
+   * A linear data structure that is implemented on arrays and can be passed between ArkTS concurrent instances.
+   * Pass-by-reference is recommended for better transfer performance.
+   * This section uses the following to identify the use of generics:
+   * T: type, which can be any of the sendable data types.
    * 
    * @implements ConcatArray<T>
    * @syscap SystemCapability.Utils.Lang
@@ -441,10 +440,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an ArkTS Array with arrayLength elements initialized to initialValue.
+     * Creates an ArkTS array of a fixed length, with each element set to a given initial value.
      *
-     * @param { number } arrayLength - The length of the array.
-     * @param { T } initialValue - Element initial value that will be filled into the Array.
+     * @param { number } arrayLength - Length of the ArkTS array.
+     * @param { T } initialValue - Initial value of each element in the ArkTS array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The create method cannot be bound.
@@ -467,9 +466,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an ArkTS array from an array-like object.
      * 
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayLike<T> } arrayLike - Array-like object.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The from method cannot be bound.
@@ -493,11 +492,12 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an ArkTS Array from an iterable object.
+     * Creates an ArkTS array from an iterable object.
      * 
-     * @param { Iterable<T> } iterable - An iterable object to convert to an ArkTS Array.
+     * @param { Iterable<T> } iterable - Array-like object.
      * @returns { Array<T> } A new Array instance
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -507,12 +507,13 @@ declare namespace collections {
      */
     static from<T>(iterable: Iterable<T>): Array<T>;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an ArkTS array from an array-like object, and uses a custom function to process each array element.
      *
-     * @param { ArrayLike<T> | Iterable<T> } arrayLike - An object to convert to an ArkTS Array.
-     * @param { ArrayFromMapFn<T, T> } mapFn - A mapping function to call on every element of the array.
+     * @param { ArrayLike<T> | Iterable<T> } arrayLike - Array-like object.
+     * @param { ArrayFromMapFn<T, T> } mapFn - Functions used to process the array elements.
      * @returns { Array<T> } A new Array instance
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -521,12 +522,14 @@ declare namespace collections {
      */
     static from<T>(arrayLike: ArrayLike<T> | Iterable<T>, mapFn: ArrayFromMapFn<T, T>): Array<T>;
     /**
-     * Creates an ArkTS Array from an array-like object.
+     * Creates an ArkTS array from an array-like object, and uses a custom function to process each array element.
+     * The type of the elements in the array-like object can be different from that of the array elements.
      *
-     * @param  { ArrayLike<U> | Iterable<U> } arrayLike - An object to convert to an ArkTS Array.
-     * @param  { ArrayFromMapFn<U, T> } mapFn - A mapping function to call on every element of the object.
+     * @param  { ArrayLike<U> | Iterable<U> } arrayLike - Array-like object.
+     * @param  { ArrayFromMapFn<U, T> } mapFn - Functions used to process the array elements.
      * @returns { Array<T> } A new Array instance
-     * @throws  { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws  { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -543,7 +546,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an ArkTS Array.
+     * A constructor used to create an empty ArkTS array.
      *
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -564,10 +567,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an ArkTS Array.
+     * A constructor used to create an ArkTS array with the given elements.
      *
-     * @param { T } first - First element when initializing an ArkTS Array.
-     * @param { T[] } left - Left elements when initializing an ArkTS Array.
+     * @param { T } first - First element to be included in the ArkTS array.
+     * @param { T[] } left - Remaining elements to be included in the ArkTS array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -587,9 +590,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an ArkTS Array.
+     * A constructor used to create an ArkTS array with the given elements.
      *
-     * @param { T[] } items - Elements when initializing an ArkTS Array.
+     * @param { T[] } items - Elements to be included in the ArkTS array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200012 - The Array's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -610,8 +613,8 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Removes the last element from an ArkTS array and returns it.
-     * If the array is empty, undefined is returned and the array is not modified.
+     * Removes the last element from this ArkTS array and returns that element.
+     * If the array is empty, undefined is returned and the array does not change.
      * 
      * @returns { T | undefined } - The removed element from the array; undefined if the array is empty.
      * @throws { BusinessError } 10200011 - The pop method cannot be bound.
@@ -635,9 +638,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Appends new elements to the end of an ArkTS Array, and returns the new length of the array.
+     * Adds one or more elements to the end of this ArkTS array and returns the new length of the array.
      * 
-     * @param { T[] } items - New elements to add to the ArkTS array.
+     * @param { T[] } items - Elements to add.
      * @returns { number } - The new length property of the object upon which the method was called.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The push method cannot be bound.
@@ -662,10 +665,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Adds all the elements of an ArkTS Array into a string, separated by the specified separator string.
+     * Concatenates all elements in this ArkTS array into a string, with a given separator.
      * 
-     * @param { string } [separator] - A string used to separate one element of the array from
-     *     the next in the resulting string. If omitted, the array elements are separated with a comma.
+     * @param { string } [separator] - Separator to be used. If no value is passed in,
+     *     a comma (,) is used as the separator.
      * @returns { string } A string with all array elements joined. If Array.length is 0, the empty string is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The join method cannot be bound.
@@ -688,8 +691,8 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Removes the first element from an ArkTS Array and returns it.
-     * If the array is empty, undefined is returned and the array is not modified.
+     * Removes the first element from this ArkTS array and returns that element.
+     * If the array is empty, undefined is returned and the array does not change.
      * 
      * @returns { T | undefined } The removed element from the array; undefined if the array is empty
      * @throws { BusinessError } 10200011 - The shift method cannot be bound.
@@ -713,9 +716,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Inserts new elements at the start of an array, and returns the new length of the array.
+     * Adds one or more elements to the beginning of this ArkTS array and returns the new length of the array.
      *
-     * @param { T[] } items - Elements to insert at the start of the array.
+     * @param { T[] } items - Elements to add.
      * @returns { number } The new length property of the object upon which the method was called.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The unshift method cannot be bound.
@@ -749,11 +752,10 @@ declare namespace collections {
      * For both start and end, a negative index can be used to indicate an offset from the end of the array.
      * For example, -2 refers to the second to last element of the array.
      *
-     * @param { number } [start] - The beginning index of the specified portion of the array.
-     *     If start is undefined, then the slice begins at index 0.
-     * @param { number } [end] - The end index of the specified portion of the array.
-     *     This is exclusive of the element at the index 'end'.
-     *     If end is undefined, then the slice extends to the end of the array.
+     * @param { number } [start] - Start index of the range. If a negative number is passed in,
+     *     it refers to the index of start + array.length. The default value is 0.
+     * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
+     *     it refers to the index of end + array.length. The default value is the length of the ArkTS array.
      * @returns { Array<T> } A new array containing the extracted elements.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The slice method cannot be bound.
@@ -779,7 +781,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Sorts an array in place. This method mutates the array and returns a reference to the same array.
+     * Sorts elements in this ArkTS array and returns a new array.
      *
      * @param { function } [compareFn] - Function used to determine the order of the elements. It is expected to return
      *     a negative value if the first argument is less than the second argument, zero if they're equal,
@@ -809,11 +811,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the index of the first occurrence of a value in an ArkTS Array, or -1 if it is not present.
+     * Returns the index of the first occurrence of a value in this ArkTS Array.
+     * If the value is not found, -1 is returned.
      * 
-     * @param { T } searchElement - The value to locate in the array.
-     * @param { number } [fromIndex] - The array index at which to begin the search.
-     *     If fromIndex is omitted, the search starts at index 0.
+     * @param { T } searchElement - Value to search for.
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is 0.
      * @returns { number } The first index of searchElement in the array; -1 if not found.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The indexOf method cannot be bound.
@@ -837,10 +839,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Executes a provided function once for each value in the Array object.
+     * Calls a callback function for each element in this ArkTS Array.
      *
-     * @param { function } callbackFn - A function that accepts up to three arguments.
-     *     The function to be called for each element.
+     * @param { function } callbackFn - Callback function to run for each element.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -865,11 +866,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Calls a defined callback function on each element of an ArkTS Array,
-     * and returns an array that contains the results.
+     * Calls a callback function for each element in this ArkTS Array and returns a new array that 
+     * contains the result of the callback function.
      * 
-     * @param { function } callbackFn - A function that accepts up to three arguments.
-     *     The map method calls the callbackFn function one time for each element in the array.
+     * @param { function } callbackFn - Callback function to run for each element.
      * @returns { Array<U> } A new array with each element being the result of the callback function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The map method cannot be bound.
@@ -895,10 +895,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the elements of an ArkTS Array that meet the condition specified in a callback function.
+     * Returns a new array containing all elements that pass a test provided by a callback function.
      * 
-     * @param { function } predicate - A function that accepts up to three arguments.
-     *     The filter method calls the predicate function one time for each element in the array.
+     * @param { function } predicate - Function that takes three arguments. It is used to filter elements.
+     *     The value true means that the current element passes the test and should be retained in the new array. 
+     *     The value false means that the current element fails the test and should be excluded from the new array.
      * @returns { Array<T> } A shallow copy of the given containing just the elements that pass the test.
      *     If no elements pass the test, an empty array is returned.
      * @throws { BusinessError } 401 - Parameter error.
@@ -931,8 +932,8 @@ declare namespace collections {
      * The return value of the callback function is the accumulated result,
      * and is provided as an argument in the next call to the callback function.
      * 
-     * @param { function } callbackFn - A function that accepts up to four arguments.
-     *     The reduce method calls the callbackFn function one time for each element in the array.
+     * @param { function } callbackFn - Function that takes four arguments.
+     *     It performs an operation on each element and passes the result as an accumulated value to the next element.
      * @returns { T } The value that results from running the "reducer" callback function to
      *     completion over the entire array.
      * @throws { BusinessError } 401 - Parameter error.
@@ -968,11 +969,9 @@ declare namespace collections {
      * The return value of the callback function is the accumulated result,
      * and is provided as an argument in the next call to the callback function.
      * 
-     * @param { function } callbackFn - A function that accepts up to four arguments.
-     *     The reduce method calls the callbackFn function one time for each element in the array.
-     * @param { U } initialValue - If initialValue is specified,
-     *     it is used as the initial value to start the accumulation.
-     *     The first call to the callbackFn function provides this value as an argument instead of an array value.
+     * @param { function } callbackFn - Function that takes four arguments.
+     *     It performs an operation on each element and passes the result as an accumulated value to the next element.
+     * @param { U } initialValue - Initial value of the accumulator.
      * @returns { U } The value that results from running the "reducer" callback function to
      *     completion over the entire array.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1003,10 +1002,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the item located at the specified index.
+     * Returns the element at a given index in this ArkTS array.
      *
-     * @param { number } index - The zero-based index of the desired code unit.
-     *     A negative index will count back from the last item.
+     * @param { number } index - Index of the element. The index in an array always starts from 0 and is an integer.
+     *     If a negative number is passed in, it refers to the index of index + array.length.
      * @returns { T | undefined } The element in the array matching the given index.
      *     Always returns undefined if index < -array.length or index >= array.length without
      *     attempting to access the corresponding property.
@@ -1029,7 +1028,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns an iterator that can be used to iterate over elements of type T.
+     * Obtains an iterator, each item of which is a JavaScript object.
      *
      * @returns { IterableIterator<T> } Iterator object.
      * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
@@ -1050,7 +1049,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns an iterable of key, value pairs for every entry in the array
+     * Returns an iterator object that contains the key-value pair of each element in this ArkTS array.
      * 
      * @returns { IterableIterator<[number, T]> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The entries method cannot be bound.
@@ -1072,7 +1071,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns an iterable of keys in the array
+     * Returns an iterator object that contains the key of each element in this ArkTS array.
      * 
      * @returns { IterableIterator<number> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The keys method cannot be bound.
@@ -1094,7 +1093,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns an iterable of values in the array
+     * Returns an iterator object that contains the value of each element in this ArkTS array.
      * 
      * @returns { IterableIterator<T> } A new iterable iterator object.
      * @throws { BusinessError } 10200011 - The values method cannot be bound.
@@ -1122,12 +1121,14 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the value of the first element in the array where predicate is true, and undefined
-     * otherwise.
+     * Returns the value of the first element that passes a test provided by a callback function.
+     * If none of the elements pass the test, undefined is returned.
      * 
-     * @param { function } predicate - Find calls predicate once for each element of the array, in ascending
-     *     order, until it finds one where predicate returns true.
-     *     If such an element is found, find immediately returns that element value. Otherwise, find returns undefined.
+     * @param { function } predicate - Function that takes three arguments. It is used to filter elements.
+     *     The value true means that the current element meets the conditions, the traversal stops,
+     *     and that element is returned. The value false means that the current element does not meet the condition,
+     *     and the traversal continues until the element that meets the condition is found
+     *     or the entire array is traversed.
      * @returns { T | undefined } The first element in the array that satisfies the provided testing function.
      *     Otherwise, undefined is returned.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1154,10 +1155,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Determines whether an array includes a certain element, returning true or false as appropriate.
+     * Checks whether this ArkTS array contains an element and returns a Boolean value.
      *
-     * @param { T } searchElement - The element to search for.
-     * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
+     * @param { T } searchElement - Element to search for.
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is 0.
      * @returns { boolean } A boolean value which is true if the value searchElement is found within
      *     the array (or the part of the array indicated by the index fromIndex, if specified).
      * @throws { BusinessError } 401 - Parameter error.
@@ -1185,12 +1186,14 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the index of the first element in the array where predicate is true, and -1
-     * otherwise.
+     * Returns the index of the first element that passes a test provided by a callback function.
+     * If none of the elements pass the test, -1 is returned.
      *
-     * @param { function } predicate - Find calls predicate once for each element of the array, in ascending
-     *     order, until it finds one where predicate returns true. If such an element is found,
-     *     findIndex immediately returns that element index. Otherwise, findIndex returns -1.
+     * @param { function } predicate - Function that takes three arguments. It is used to filter elements.
+     *     The value true means that the current element meets the conditions, the traversal stops,
+     *     and the index of that element is returned. The value false means that the current element does not
+     *     meet the condition, and the traversal continues until the element that meets the condition is found
+     *     or the entire array is traversed.
      * @returns { number } The index of the first element in the array that passes the test. Otherwise, -1;
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The findIndex method cannot be bound.
@@ -1218,13 +1221,12 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the this object after filling the section identified by start and end with value
+     * Fills elements in the specified range of this ArkTS array with a given value.
      * 
-     * @param { T } value - Value to fill array section with
-     * @param { number } [start] - Index to start filling the array at. If start is negative, it is treated as
-     *     length+start where length is the length of the array.
-     * @param { number } [end] - Index to stop filling the array at. If end is negative, it is treated as
-     *     length+end.
+     * @param { T } value - Value to fill in.
+     * @param { number } [start] - Start index of the range. The default value is 0.
+     * @param { number } [end] - End index of the range (exclusive). If no value is passed in,
+     *     it refers to the last element of the array.
      * @returns { Array<T> } The modified array, filled with value.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
@@ -1249,11 +1251,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Shrinks the ArkTS array to the given arrayLength.
+     * Shrinks this ArkTS array to a given length.
      * 
-     * @param { number } arrayLength - The new Array length.
-     *     Throws error when arrayLength < 0 or arrayLength > 2^32.
-     *     If arrayLength > array.length, array remains unchanged.
+     * @param { number } arrayLength - New length of the array.
+     *     If a value greater than or equal to the current array length is passed in, the array does not change.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The shrinkTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1279,13 +1280,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Extends the ArkTS array to the given arrayLength,
-     * and appends new elements with given initialValue up to the arrayLength.
+     * Extends this array to a given length by adding elements with the specified initial value.
      * 
-     * @param { number } arrayLength - The new Array length.
-     *     Throws error when arrayLength < 0 or arrayLength > 2^32.
-     *     If arrayLength < array.length, array remains unchanged.
-     * @param { T } initialValue - Element initial value that will be appended to the array.
+     * @param { number } arrayLength - New length of the array.
+     *     If a value less than or equal to the current array length is passed in, the array does not change.
+     * @param { T } initialValue - Initial value of the elements to be added.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The extendTo method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -1308,10 +1307,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the item at that index.
+     * Returns the element at a given index in this array.
      * 
-     * @param { number } index - The zero-based index of the desired code unit.
-     *     Throws error if index < 0 or index >= array.length.
+     * @param { number } index - Index of the element. The index starts from zero.
+     *     If the passed-in index is less than 0 or greater than or equal to the value of length, an error is thrown.
      * @returns { T } The element in the array matching the given index. 
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -1334,9 +1333,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Concatenates two or more arrays.
+     * Concatenates this ArkTS array with one or more arrays.
      *
-     * @param { ConcatArray<T>[] } items - The arrays to concatenate.
+     * @param { ConcatArray<T>[] } items - Arrays to concatenate.
      * @returns { Array<T> } A new array containing the elements of the concatenated arrays.
      * @throws { BusinessError } 401 - Parameter error. Not a valid array.
      * @throws { BusinessError } 10200011 - The concat method cannot be bound.
@@ -1363,10 +1362,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Removes elements from the array at the specified position.
+     * Removes elements from a specified position in an array.
      *
-     * @param { number } start - The zero-based index at which to start changing the contents of the array.
-     *    All the elements from start to the end of the array will be deleted.
+     * @param { number } start - Index from which the removal starts. If -array.length =< start < 0,
+     *     the removal starts from start + array.length. If start < -array.length, the removal starts from 0.
      * @returns { Array<T> } An array containing the deleted elements.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -1398,13 +1397,13 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     * Removes elements from a specified position in an array, and inserts new elements from the same position.
      *
-     * @param { number } start - The zero-based index at which to start changing the contents of the array.
-     * @param { number } deleteCount - The number of elements to remove from the array,
-     *    starting at the index specified by the start parameter.
-     * @param { T[] } items - An array of elements to insert into the array,
-     *    starting at the index specified by the start parameter.
+     * @param { number } start - Index from which the removal starts. If -array.length =< start < 0,
+     *     the removal starts from start + array.length. If start < -array.length, the removal starts from 0.
+     * @param { number } deleteCount - Number of elements to remove.
+     * @param { T[] } items - New elements to insert from the start position.
+     *     If no value is passed in, only the elements in the array are removed.
      * @returns { Array<T> } An array containing the deleted elements.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.
@@ -1418,12 +1417,14 @@ declare namespace collections {
      */
     splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
     /**
-     * Check whether the value is an ArkTs Array.
+     * Check whether the input parameter is an ArkTS array.
      *
-     * @param { Object|undefined|null } value - The value to be checked..
+     * @param { Object|undefined|null } value - Value to check.
      * @returns { boolean } Returns true if the value is an array; otherwise, returns false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                     1. Mandatory parameters are left unspecified.
+     *                                     2. Incorrect parameter types.
+     *                                     3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
@@ -1431,12 +1432,15 @@ declare namespace collections {
      */
     static isArray(value: Object | undefined | null): boolean;
     /**
-     * Create an ArkTs Array containing these parameters.
+     * Creates an ArkTS array with a variable number of parameters.
      *
-     * @param { T[] } items - A variable number of arguments that will be used as the elements of the new array.
+     * @param { T[] } items - Array of elements used to create the array.
+     *     The number of elements can be zero, one, or more.
      * @returns { Array<T> } Returns a new Array instance containing the specified elements.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                     1. Mandatory parameters are left unspecified.
+     *                                     2. Incorrect parameter types.
+     *                                     3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
@@ -1444,14 +1448,18 @@ declare namespace collections {
      */
     static of<T>(...items: T[]): Array<T>;
     /**
-     * Copy elements inside an ArkTs Array and move them to another location.
+     * Copies elements within a given range from this ArkTS array to another position in sequence.
      *
-     * @param { number } target - The index at which to copy the elements.
-     * @param { number } start - The index to start copying elements from (default is 0).
-     * @param { number } end - The index to stop copying elements (default is the array's length).
+     * @param { number } target - Index to copy the elements to.
+     * @param { number } start - Start index of the range. If a negative number is passed in,
+     *     it refers to the index of start + array.length.
+     * @param { number } end - End index of the range. If a negative number is passed in,
+     *     it refers to the index of end + array.length. The default value is the length of the ArkTS array.
      * @returns { Array<T> } Returns the modified array after the copy operation.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                     1. Mandatory parameters are left unspecified.
+     *                                     2. Incorrect parameter types.
+     *                                     3. Parameter verification failed.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -1460,7 +1468,7 @@ declare namespace collections {
      */
     copyWithin(target: number, start: number, end?: number): Array<T>;
     /**
-     * Reverses the elements in an Array.
+     * Reverses elements in this ArkTS array and returns a reference to the same array.
      *
      * @returns { Array<T> } The reference to the original typed array, now reversed.
      *     <br>Note that the typed array is reversed in place, and no copy is made.
@@ -1472,11 +1480,12 @@ declare namespace collections {
      */
     reverse(): Array<T>;
     /**
-     * Find the last occurrence of a specified element in an ArkTs Array.
+     * Obtains the index of the last occurrence of the specified value in in this ArkTS array.
      *
-     * @param { T } searchElement - Element to search for in the array..
-     * @param { number } fromIndex - The index at which to start the search. The default is the last 
-     * index of the array. <br>If this index is negative, it is treated as array.length + fromIndex.
+     * @param { T } searchElement - Value to search for.
+     * @param { number } fromIndex - Index from which the search starts. The default value is 0.
+     *     If the index is greater than or equal to the length of the ArkTS array, -1 is returned.
+     *     If a negative number is passed in, it refers to the index of fromIndex + array.length.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
      * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -1487,9 +1496,9 @@ declare namespace collections {
      */
     lastIndexOf(searchElement: T, fromIndex?: number): number;
     /**
-     * Tests whether all elements in an ArkTs Array  meets a specified condition.
+     * Checks whether all elements in this ArkTS array meet a given condition.
      *
-     * @param { ArrayPredicateFn<T, Array<T>> } predicate - A function that is called for each element in the array.
+     * @param { ArrayPredicateFn<T, Array<T>> } predicate - Assertion function used for the test.
      * @returns { boolean } Returns true if the callback function returns a truthy value for every element;
      *	   <br>otherwise, it returns false. If the array is empty, it returns true.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
@@ -1500,9 +1509,9 @@ declare namespace collections {
      */
     every(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
     /**
-     * Test whether at least one element in an ArkTs Array meets a specified condition.
+     * Checks whether this ArkTS array contains an element that meets certain conditions.
      *
-     * @param { ArrayPredicateFn<T, Array<T> } predicate - A function that is called for each element in the array.
+     * @param { ArrayPredicateFn<T, Array<T> } predicate - Assertion function used for the test.
      * @returns { boolean } Returns true if the callback function returns a truthy value for any element;
      *	   <br>otherwise, it returns false. If the array is empty, it returns false.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
@@ -1513,7 +1522,7 @@ declare namespace collections {
      */
     some(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
     /**
-     * Convert an ArkTs Array to a string.
+     * Converts an ArkTS array into a string.
      *
      * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
      * @throws { BusinessError } 10200011 - The toString method cannot be bound.
@@ -1524,7 +1533,9 @@ declare namespace collections {
      */
     toString(): string;
     /**
-     * Convert an ArkTs Array to a string, The elements are converted to string using their toLocaleString methods.
+     * Generates a string that matches the cultural conversions of the current system locale.
+     * Each element converts itself to a string via its toLocaleString API, and these strings are then joined
+     * together in sequence with commas (,).
      *
      * @returns { string } Returns a string representing the specified array and its elements, separated by commas.
      * @throws { BusinessError } 10200011 - The toLocaleString method cannot be bound.
@@ -1537,8 +1548,8 @@ declare namespace collections {
     /**
      * Reduce elements in an ArkTs Array from right to left.
      *
-     * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - A function that is called for each element
-     * in the array.
+     * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - Function that takes four arguments.
+     *     It performs an operation on each element and passes the result as an accumulated value to the next element.
      * @param { U } initialValue - A value to use as the first argument to the first call of the callback.
      *     <br>If no initial value is provided, the last element of the array will be used,
      *     <br>and the callback will start with the second-to-last element.
@@ -1556,8 +1567,8 @@ declare namespace collections {
     /**
      * Reduce elements in an ArkTs Array from right to left.
      *
-     * @param { ArrayReduceCallback<T, T, Array<T>> } callbackFn - A function that is called for each element
-     * in the array.
+     * @param { ArrayReduceCallback<T, T, Array<T>> } callbackFn - Function that takes four arguments.
+     *     It performs an operation on each element and passes the result as an accumulated value to the next element.
      * @returns { T } Returns the single value that results from the reduction.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                    1.Mandatory parameters are left unspecified.

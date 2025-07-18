@@ -20,15 +20,19 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
+/*** if arkts 1.1 */
+import AbilityConstant from './@ohos.app.ability.AbilityConstant';
+/*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
-import { StartOptions } from './@ohos.app.ability.StartOptions';
+import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * Launcher bundle manager.
  *
  * @namespace launcherBundleManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace launcherBundleManager {
   /**
@@ -46,7 +50,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string,
     userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
@@ -66,7 +71,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -82,7 +88,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfoSync(bundleName: string, userId: number): Array<LauncherAbilityInfo>;
 
@@ -99,7 +106,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
@@ -116,14 +124,15 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { AsyncCallback<Array<ShortcutInfo>> } callback -The callback of the ShortcutInfo object result.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -133,14 +142,15 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -150,14 +160,15 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
 
   /**
    * Obtains shortcut info based on a given bundleName.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -167,7 +178,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
 
@@ -175,7 +187,7 @@ declare namespace launcherBundleManager {
   /**
    * Obtains shortcut info based on bundleName and userId.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { number } userId - Indicates the user ID.
    * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
@@ -187,9 +199,29 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfoSync(bundleName: string, userId: number): Array<ShortcutInfo>;
+
+  /**
+   * Obtains shortcut info based on bundleName and appIndex.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the application bundle name to be queried.
+   * @param { number } appIndex - Indicates the index of clone app.
+   * @returns { Array<ShortcutInfo> } the ShortcutInfo object.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
 
   /**
    * Starts shortcut.
@@ -205,16 +237,36 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
+
+  /**
+   * Starts shortcut with start reason.
+   *
+   * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
+   * @param { ShortcutInfo } shortcutInfo - Indicates the shortcut info which contains shortcut want.
+   * @param { string } startReason {@link AbilityConstant} - Indicates the start reason.
+   * @param { StartOptions } [options] - Indicates the start options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700065 - The specified shortcut want in shortcut info is not supported to be started.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 20
+   */
+  function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
    *
    * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
@@ -226,6 +278,14 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Provides information about a shortcut, including the shortcut ID and label.
+   *
+   * @typedef { _ShortcutInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   export type ShortcutInfo = _ShortcutInfo;
   /**
    * Obtains information about the ability that a shortcut will start.
@@ -235,6 +295,14 @@ declare namespace launcherBundleManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Obtains information about the ability that a shortcut will start.
+   *
+   * @typedef { _ShortcutWant }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   export type ShortcutWant = _ShortcutWant;
   /**
    * Indicates the custom parameters in shortcut want.
@@ -243,6 +311,14 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 12
+   */
+  /**
+   * Indicates the custom parameters in shortcut want.
+   *
+   * @typedef { _ParameterItem }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @since 20
+   * @arkts 1.1&1.2
    */
   export type ParameterItem = _ParameterItem;
 }

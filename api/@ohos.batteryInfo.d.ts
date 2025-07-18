@@ -48,7 +48,7 @@ declare namespace batteryInfo {
    * @returns { number } Return to set the charging configuration result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -63,7 +63,7 @@ declare namespace batteryInfo {
    * @returns { string } Returns the battery charging configuration, returns "" otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -78,7 +78,7 @@ declare namespace batteryInfo {
    * @returns { boolean } Returns true if the device supports the charging scene, returns false otherwise.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11

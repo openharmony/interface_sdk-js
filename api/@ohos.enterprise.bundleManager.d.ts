@@ -70,6 +70,530 @@ declare namespace bundleManager {
   }
 
   /**
+   * Contains resource descriptor information.
+   *
+   * @typedef Resource
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  interface Resource {
+    /**
+     * Bundle name in hap
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    bundleName: string;
+
+    /**
+     * Module name in hap
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    moduleName: string;
+
+    /**
+     * Resource id in hap
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    id: number;
+  }
+
+  /**
+   * Obtains configuration information about a bundle
+   *
+   * @typedef BundleInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  interface BundleInfo {
+    /**
+     * Indicates the name of this bundle
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly name: string;
+
+    /**
+     * Indicates the bundle vendor
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly vendor: string;
+
+    /**
+     * Indicates the version code of the bundle
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly versionCode: number;
+
+    /**
+     * Indicates the version name of the bundle
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly versionName: string;
+
+    /**
+     * Indicates the minimum version compatible with the bundle
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly minCompatibleVersionCode: number;
+
+    /**
+     * Indicates the target version number of the bundle
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly targetVersion: number;
+
+    /**
+     * Obtains configuration information about an application
+     *
+     * @type { ApplicationInfo }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appInfo: ApplicationInfo;
+
+    /**
+     * Indicates the SignatureInfo of the bundle
+     *
+     * @type { SignatureInfo }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly signatureInfo: SignatureInfo;
+
+    /**
+     * Indicates the hap install time
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly installTime: number;
+
+    /**
+     * Indicates the hap update time
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly updateTime: number;
+
+    /**
+     * Indicates the appIndex of application, only work in appClone mode
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appIndex: number;
+
+    /**
+     * Indicates the hap first install time
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly firstInstallTime?: number;
+  }
+
+  /**
+   * Indicates SignatureInfo
+   *
+   * @typedef SignatureInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  interface SignatureInfo {
+    /**
+     * Indicates the ID of the application to which this bundle belongs
+     * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appId: string;
+
+    /**
+     * Indicates the fingerprint of the certificate
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly fingerprint: string;
+
+    /**
+     * Globally unique identifier of an application, which is allocated by the cloud.
+     * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
+     * public and private key changes, and application transfer.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appIdentifier: string;
+
+    /**
+     * Indicates the certificate
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly certificate?: string;
+  }
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @typedef ApplicationInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  interface ApplicationInfo {
+    /**
+     * Indicates the application name, which is the same as {@code bundleName}
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly name: string;
+
+    /**
+     * Description of application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly description: string;
+
+    /**
+     * Indicates the description id of the application
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly descriptionId: number;
+
+    /**
+     * Indicates whether or not this application may be instantiated
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly enabled: boolean;
+
+    /**
+     * Indicates the label of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly label: string;
+
+    /**
+     * Indicates the label id of the application
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly labelId: number;
+
+    /**
+     * Indicates the icon of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly icon: string;
+
+    /**
+     * Indicates the icon id of the application
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly iconId: number;
+
+    /**
+     * Process of application, if user do not set it ,the value equal bundleName
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly process: string;
+
+    /**
+     * Indicates the application source code path
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly codePath: string;
+
+    /**
+     * Indicates whether or not this application may be removable
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly removable: boolean;
+
+    /**
+     * Indicates the access token of the application
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly accessTokenId: number;
+
+    /**
+     * Indicates the uid of the application
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly uid: number;
+
+    /**
+     * Indicates icon resource of the application
+     *
+     * @type { Resource }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly iconResource: Resource;
+
+    /**
+     * Indicates label resource of the application
+     *
+     * @type { Resource }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly labelResource: Resource;
+
+    /**
+     * Indicates description resource of the application
+     *
+     * @type { Resource }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly descriptionResource: Resource;
+
+    /**
+     * Indicates the appDistributionType of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appDistributionType: string;
+
+    /**
+     * Indicates the appProvisionType of the application
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appProvisionType: string;
+
+    /**
+     * Indicates whether the application is a system application
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly systemApp: boolean;
+
+    /**
+     * Indicates whether the application is in debug mode.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly debug: boolean;
+
+    /**
+     * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+     *
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly dataUnclearable: boolean;
+
+    /**
+     * Indicates native library path.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly nativeLibraryPath: string;
+
+    /**
+     * Indicates the index of the bundle
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly appIndex: number;
+
+    /**
+     * Indicates sources to install the app
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly installSource: string;
+
+    /**
+     * Indicates the release type of the app
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    readonly releaseType: string;
+  }
+
+  /**
    * Add appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -1054,6 +1578,135 @@ declare namespace bundleManager {
    * @since 12
    */
   function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
+
+  /**
+   * Get the list of install bundles in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * @returns { Promise<Array<BundleInfo>> } The result of getting the bundle info.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
+  
+  /**
+   * Add the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
+  
+  /**
+   * Remove the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
+  
+  /**
+   * Get the list of app distribution types can be installed in the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @returns { Array<AppDistributionType> } the result of app distribution types can be installed in the device.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+  
+  /**
+   * App distribution type.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  enum AppDistributionType {
+	/**
+     * App distribution type of app gallery
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	APP_GALLERY = 1,
+	
+	/**
+     * App distribution type of enterprise
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE = 2,
+	
+	/**
+     * App distribution type of enterprise normal
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE_NORMAL = 3,
+	
+	/**
+     * App distribution type of enterprise MDM
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	ENTERPRISE_MDM = 4,
+	
+	/**
+     * App distribution type of enterprise internal testing
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	INTERNALTESTING = 5,
+	
+	/**
+     * App distribution type of enterprise crowd testing
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+	CROWDTESTING = 6,
+  }
 }
 
 export default bundleManager;

@@ -34,7 +34,7 @@
  * @since 10
  */
 /**
- * Content scroll direction.
+ * Enumerates the scrolling directions.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -57,7 +57,7 @@ declare enum ScrollDirection {
    * @since 10
    */
   /**
-   * Vertical scrolling is supported.
+   * Only vertical scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -80,7 +80,7 @@ declare enum ScrollDirection {
    * @since 10
    */
   /**
-   * Horizontal scrolling is supported.
+   * Only horizontal scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -90,7 +90,7 @@ declare enum ScrollDirection {
   Horizontal,
 
   /**
-   * Free scrolling is supported.
+   * Vertical or horizontal scrolling is supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -112,7 +112,7 @@ declare enum ScrollDirection {
    * @since 10
    */
   /**
-   * Non-scrollable.
+   * Scrolling is disabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -120,6 +120,16 @@ declare enum ScrollDirection {
    * @since 11
    */
   None,
+
+  /**
+   * Free scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  FREE = 4,
 }
 
 /**
@@ -131,7 +141,7 @@ declare enum ScrollDirection {
  * @since 10
  */
 /**
- * ScrollAlign.
+ * Enumerates alignment modes.
  *
  * @enum { number } ScrollAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,7 +158,7 @@ declare enum ScrollAlign {
    * @since 10
    */
   /**
-   * Start position alignment.
+   * The start edge of the list item is flush with the start edge of the list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -165,7 +175,7 @@ declare enum ScrollAlign {
    * @since 10
    */
   /**
-   * Center alignment.
+   * The list item is centered along the main axis of the list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -182,7 +192,7 @@ declare enum ScrollAlign {
    * @since 10
    */
   /**
-   * End position alignment.
+   * The end edge of the list item is flush with the end edge of the list.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -199,7 +209,7 @@ declare enum ScrollAlign {
    * @since 10
    */
   /**
-   * Scroll the minimum distance to fully display the specified item.
+   * The list item is automatically aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -210,7 +220,7 @@ declare enum ScrollAlign {
 }
 
 /**
- * OffsetResult info.
+ * Represents the offset values resulting from a scroll operation.
  *
  * @interface OffsetResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -220,7 +230,7 @@ declare enum ScrollAlign {
  */
 declare interface OffsetResult {
   /**
-   * The X-axis offset.
+   * Horizontal scrolling offset.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -231,7 +241,7 @@ declare interface OffsetResult {
   xOffset: number;
 
   /**
-   * The y-axis offset.
+   * Vertical scrolling offset.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -243,7 +253,7 @@ declare interface OffsetResult {
 }
 
 /**
- * Define scroll edge options
+ * Provides parameters for scrolling to the edge of a scrollable container.
  *
  * @interface ScrollEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -253,9 +263,11 @@ declare interface OffsetResult {
  */
 declare interface ScrollEdgeOptions {
   /**
-   * The fasten speed of scrolling to the edge, unit is vp/s.
+   * Fixed velocity for scrolling to the edge of the container.
+   * If the value specified is less than or equal to 0, the parameter will not take effect.
    *
    * @type { ?number }
+   * @default 0vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -265,7 +277,7 @@ declare interface ScrollEdgeOptions {
 }
 
 /**
- * Define scrollToIndex options
+ * Provides parameters for scrolling to a specific index.
  *
  * @interface ScrollToIndexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,7 +287,7 @@ declare interface ScrollEdgeOptions {
  */
 declare interface ScrollToIndexOptions {
   /**
-   * The extra offset of scrolling to the index, unit is vp.
+   * Extra offset for scrolling to a specified index.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -287,7 +299,7 @@ declare interface ScrollToIndexOptions {
 }
 
 /**
- * Provides custom animation parameters.
+ * Provides parameters for customizing scroll animations.
  *
  * @interface ScrollAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -297,9 +309,14 @@ declare interface ScrollToIndexOptions {
  */
 declare interface ScrollAnimationOptions {
   /**
-   * Set the duration of the animation.
+   * Scrolling duration.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>A value less than 0 evaluates to the default value.
+   * </p>
    *
    * @type { ?number }
+   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -308,9 +325,10 @@ declare interface ScrollAnimationOptions {
   duration?: number;
 
   /**
-   * Set the curve of the animation.
+   * Scrolling curve.
    *
    * @type { ?(Curve | ICurve) }
+   * @default Curve.Ease
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -319,7 +337,12 @@ declare interface ScrollAnimationOptions {
   curve?: Curve | ICurve;
 
   /**
-   * Set whether the animation can over the boundary.
+   * Whether to enable overscroll.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br> Scrolling can exceed the boundary and initiate a bounce animation when this parameter is set to <em>true</em>,
+   * and the component's <em>edgeEffect</em> attribute is set to EdgeEffect.Spring.
+   * </p>
    *
    * @type { ?boolean }
    * @default false
@@ -332,7 +355,7 @@ declare interface ScrollAnimationOptions {
 }
 
 /**
- * OffsetOptions info.
+ * Provides parameters for setting the initial scrolling offset.
  *
  * @interface OffsetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -342,9 +365,10 @@ declare interface ScrollAnimationOptions {
  */
 declare interface OffsetOptions {
   /**
-   * The X-axis offset.
+   * Horizontal scrolling offset.
    *
    * @type { ?Dimension }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -353,9 +377,10 @@ declare interface OffsetOptions {
   xOffset?: Dimension;
 
   /**
-   * The y-axis offset.
+   * Vertical scrolling offset.
    *
    * @type { ?Dimension }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -372,7 +397,7 @@ declare interface OffsetOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIScrollEvent extends UIScrollableCommonEvent {
   /**
@@ -383,7 +408,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnWillScroll(callback: ScrollOnWillScrollCallback | undefined): void;
 
@@ -394,7 +419,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnDidScroll(callback: ScrollOnScrollCallback | undefined): void;
 }
@@ -413,7 +438,18 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  * @since 10
  */
 /**
- * Scroller
+ * Defines a controller for scrollable container components.
+ * 
+ * <p><strong>NOTE</strong>
+ * <br>1. The binding of a <em>Scroller</em> instance to a scrollable container component occurs during the component creation phase.
+ * <br>2. <em>Scroller</em> APIs can only be effectively called after the <em>Scroller</em> instance is bound to a scrollable container component.
+ * Otherwise, depending on the API called, it may have no effect or throw an exception.
+ * <br>3. For example, with aboutToAppear, this callback is executed after a new instance of a custom component is
+ * created and before its <em>build()</em> method is called.
+ * Therefore, if a scrollable component is defined within the <em>build</em> method of a custom component,
+ * the internal scrollable component has not yet been created during the <em>aboutToAppear</em> callback
+ * of that custom component, and therefore the <em>Scroller</em> APIs cannot be called effectively.
+ * </p>
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -435,7 +471,7 @@ declare class Scroller {
    * @since 10
    */
   /**
-   * constructor.
+   * A constructor used to create a <em>Scroller</em> object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -469,10 +505,10 @@ declare class Scroller {
    * @since 11
    */
   /**
-   * Called when the setting slides to the specified position.
+   * Scrolls to the specified position.
    * Anonymous Object Rectification.
    *
-   * @param { ScrollOptions } options - scroll options
+   * @param { ScrollOptions } options - Parameters for scrolling to the specified position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -505,10 +541,12 @@ declare class Scroller {
    * @since 11
    */
   /**
-   * Called when scrolling to the edge of the container.
+   * Scrolls to the edge of the container, regardless of the scroll axis direction.
    *
-   * @param { Edge } value - Edge type of the container.
-   * @param { ScrollEdgeOptions } [options] - Options of scrolling to edge.
+   * @param { Edge } value - Edge position to scroll to.
+   * <br><em>Atomic service API</em>: This API can be used in atomic services since API version 11.
+   * @param { ScrollEdgeOptions } [options] - Mode of scrolling to the edge position.
+   * <br><em>Atomic service API</em>: This API can be used in atomic services since API version 12.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -517,10 +555,13 @@ declare class Scroller {
   scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
   /**
-   * Fling the scroll view.
+   * Performs inertial scrolling based on the initial velocity passed in.
    *
-   * @param { number } velocity - initial velocity of fling, in vp/s.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @param { number } velocity - Initial velocity of inertial scrolling. Unit: vp/s
+   * <br><em>NOTE</em>
+   * <br>If the value specified is 0, it is considered as invalid, and the scrolling for this instance will not take effect.
+   * A positive value indicates scrolling towards the top, while a negative value indicates scrolling towards the bottom.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -557,9 +598,9 @@ declare class Scroller {
    * @since 11
    */
   /**
-   * Called when page turning mode is set.
+   * Scrolls to the next or previous page.
    *
-   * @param { ScrollPageOptions } value
+   * @param { ScrollPageOptions } value - Page turning mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -568,9 +609,11 @@ declare class Scroller {
   scrollPage(value: ScrollPageOptions);
 
   /**
-   * Called when page turning mode is set.
+   * Scrolls to the next or previous page.
    *
-   * @param { object } value
+   * @param { boolean } next - Whether to turn to the next page.
+   * The value <em>true</em> means to scroll to the next page, and <em>false</em> means to scroll to the previous page.
+   * @param { Axis } direction - Scrolling direction: horizontal or vertical.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
@@ -591,7 +634,7 @@ declare class Scroller {
    * @since 10
    */
   /**
-   * Called when viewing the scroll offset.
+   * Obtains the current scrolling offset.
    *
    * @returns { OffsetResult } Returns the current scrolling offset. If the scroller not bound to a component, the return value is void.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -632,12 +675,25 @@ declare class Scroller {
    * @since 11
    */
   /**
-   * Scroll to the specified index.
+   * Scrolls to a specified index, with support for setting an extra offset for the scroll.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>This API only works for the <em>ArcList</em>, <em>Grid</em>, <em>List</em>, and <em>WaterFlow</em> components.
+   * </p>
    *
-   * @param { number } value - Index to jump to.
-   * @param { boolean } [smooth] - If true, scroll to index item with animation. If false, scroll to index item without animation.
-   * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
-   * @param { ScrollToIndexOptions } [options] - Sets the options of a specified index, such as extra offset.
+   * @param { number } value - Index of the item to be scrolled to in the container.
+   * <br><em>NOTE</em>
+   * <br>If the value set is a negative value or greater than the maximum index of the items in the container,
+   * the value is deemed abnormal, and no scrolling will be performed.
+   * @param { boolean } [smooth] - Whether to enable the smooth animation for scrolling to the item with the specified index.
+   * The value <em>true</em> means to enable that the smooth animation, and <em>false</em> means the opposite.<br>Default value: <em>false</em>
+   * @param { ScrollAlign } [align] - How the list item to scroll to is aligned with the container.
+   * <br> Default value when the container is <em>List</em>: <em>ScrollAlign.START</em>
+   * <br> Default value when the container is <em>Grid</em>: <em>ScrollAlign.AUTO</em>
+   * <br> Default value when the container is <em>WaterFlow</em>: <em>ScrollAlign.START</em>
+   * <br><em>NOTE</em>
+   * <br>This parameter is only available for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components.
+   * @param { ScrollToIndexOptions } [options] - Options for scrolling to a specified index, for example, an extra offset for the scroll.<br>Default value: <em>0</em>, in vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -663,10 +719,14 @@ declare class Scroller {
    * @since 10
    */
   /**
-   * Called when the setting slides by offset.
+   * Scrolls by the specified amount.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>This API is available for the <em>ArcList</em>, <em>Scroll</em>, <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components.
+   * </p>
    *
-   * @param { Length } dx
-   * @param { Length } dy
+   * @param { Length } dx - Amount to scroll by in the horizontal direction. The percentage format is not supported.
+   * @param { Length } dy - Amount to scroll by in the vertical direction. The percentage format is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -683,7 +743,11 @@ declare class Scroller {
    * @since 10
    */
   /**
-   * Indicates whether the component scrolls to the end position.
+   * Checks whether the component has scrolled to the bottom.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>This API is available for the <em>ArcList</em>, <em>Scroll</em>, <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components.
+   * </p>
    *
    * @returns { boolean } Returns whether the component scrolls to the end position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -698,7 +762,7 @@ declare class Scroller {
    *
    * @param { number } index - Index of the item.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -708,11 +772,18 @@ declare class Scroller {
    * @since 11
    */
   /**
-   * Get child item size and position.
+   * Obtains the size and position of a child component relative to its container.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>- The value of <em>index</em> must be the index of a child component visible in the display area.
+   * Otherwise, the value is considered invalid.
+   * <br>- The value of <em>index</em> must be the index of a child component visible in the display area. Otherwise,
+   * the value is considered invalid.
+   * </p>
    *
-   * @param { number } index - Index of the item.
+   * @param { number } index - Index of the target child component.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -725,10 +796,14 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 
   /**
-   * Get item index by position.
+   * Obtains the index of a child component based on coordinates.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>The returned index is <em>-1</em> for invalid coordinates.
+   * </p>
    *
-   * @param { number } x - X coordinate relative to the upper left corner of the current component's original area, in vp.
-   * @param { number } y - Y coordinate relative to the upper left corner of the current component's original area, in vp.
+   * @param { number } x - X-coordinate, in vp.
+   * @param { number } y - Y-coordinate, in vp.
    * @returns { number } Index of the item.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -744,7 +819,7 @@ declare class Scroller {
 }
 
 /**
- * Define scroll options.
+ * Provides parameters for scrolling to a specific position in a scrollable container.
  *
  * @interface ScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -771,8 +846,16 @@ declare interface ScrollOptions {
    * @since 11
    */
   /**
-   * The X-axis offset.
+   * Horizontal scrolling offset.
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>This parameter cannot be set in percentage.
+   * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
+   * Animated scrolling stops at the starting position by default.
+   * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling goes beyond the boundary.
+   * <br>This parameter takes effect only when the scroll axis is the x-axis.
+   * </p>
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -800,8 +883,16 @@ declare interface ScrollOptions {
    * @since 11
    */
   /**
-   * The Y-axis offset.
+   * Vertical scrolling offset.
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>This parameter cannot be set in percentage.
+   * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
+   * Animated scrolling stops at the starting position by default.
+   * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling goes beyond the boundary.
+   * <br>This parameter takes effect only when the scroll axis is the y-axis.
+   * </p>
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -841,21 +932,38 @@ declare interface ScrollOptions {
    * @since 12
    */
   /**
-   * Descriptive animation.
+   * Animation configuration
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>Currently, the <em>List</em>, <em>Scroll</em>, <em>Grid</em>, and <em>WaterFlow</em> support the <em>Boolean</em> type and <em>ICurve</em>.
+   * </p>
    *
    * @type { ?( ScrollAnimationOptions | boolean) } The ScrollAnimationOptions type provides custom animation parameters
    * and the boolean type enables default spring animation.
+   * @default ScrollAnimationOptions: { duration: 1000, curve: Curve.Ease, canOverScroll: false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 18
    */
   animation?: ScrollAnimationOptions | boolean;
+
+  /**
+   * Set whether the scroll target position can over the boundary.
+   *
+   * @type { ?boolean } whether the scroll target position can over the boundary.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  canOverScroll?: boolean;
 }
 
 /**
- * Define scroll page options
+ * Provides parameters for page scrolling behavior.
+ * 
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
@@ -863,7 +971,8 @@ declare interface ScrollOptions {
  */
 declare interface ScrollPageOptions {
   /**
-   * Control whether to scroll to the next page or the previous page.
+   * Whether to turn to the next page.The value true means to scroll to the next page,
+   * and false means to scroll to the previous page.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -874,7 +983,8 @@ declare interface ScrollPageOptions {
   next: boolean;
 
   /**
-   * Set whether the scrollPage have animate.
+   * Whether to enable the page-turning animation.The value true means to enable the page-turning animation,
+   * and false means the opposite.
    *
    * @type { ?boolean }
    * @default false
@@ -894,7 +1004,7 @@ declare interface ScrollPageOptions {
  * @since 10
  */
 /**
- * Define scroll snap options
+ * Defines a scroll snapping mode object.
  * 
  * @interface ScrollSnapOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -910,9 +1020,10 @@ declare interface ScrollSnapOptions {
    * @since 10
    */
   /**
-   * Set scroll snap alignment.
+   * Alignment mode for the scroll snap position.
    *
    * @type { ScrollSnapAlign }
+   * @default ScrollSnapAlign.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -930,9 +1041,16 @@ declare interface ScrollSnapOptions {
    * @since 10
    */
   /**
-   * Set snap positions. When the type of snapPositions is Dimension, Scroll content is paginated by an integer
-   * multiple of snapPositions. When the type of snapPositions is Array<number>, Scroll content is paginated based
-   * on the array of snapPositions.
+   * Pagination points for scroll snapping.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. If the value is of the Dimension type, it indicates the size of each page, and the system will paginate based on this size.
+   * <br>2. If the value is of the Array\<Dimension\> type, each <em>Dimension</em> represents a pagination point,
+   * and the system will paginate accordingly. Each <em>Dimension</em> value must be within the [0, scrollable distance] range.
+   * <br>3. If this parameter is not set or <em>Dimension</em> is set to a value less than or equal to 0, the value is regarded as an invalid value.
+   * In this case, there is no scroll snapping. When the value is of the Array\<Dimension\> type, the items in the array must be monotonically increasing.
+   * <br>4. When the value is a percentage, the actual size is the product of the viewport of the <em>Scroll</em> component and the percentage value.
+   * </p>
    *
    * @type { ?(Dimension | Array<Dimension>) }
    * @default 100%
@@ -951,7 +1069,13 @@ declare interface ScrollSnapOptions {
    * @since 10
    */
   /**
-   * Set whether the beginning of the Scroll content counts an a snap.
+   * Whether to enable the snap to start feature. When scroll snapping is defined for the <em>Scroll</em> component,
+   * setting this parameter to <em>false</em> enables the component to scroll between the start and the first page.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>2. This attribute takes effect only when <em>snapPagination</em> is set to a value of the <em>Array\<Dimension\></em> type;
+   * it does not work with values of the <em>Dimension</em> type.
+   * </p>
    *
    * @type { ?boolean }
    * @default true
@@ -970,7 +1094,13 @@ declare interface ScrollSnapOptions {
    * @since 10
    */
   /**
-   * Set whether the end of the Scroll content counts an a snap.
+   * Whether to enable the snap to end feature. When scroll snapping is defined for the <em>Scroll</em> component,
+   * setting this parameter to <em>false</em> enables the component to scroll between the end and the last page.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>2. This attribute takes effect only when <em>snapPagination</em> is set to a value of the <em>Array\<Dimension\></em> type;
+   * it does not work with values of the <em>Dimension</em> type.
+   * </p>
    *
    * @type { ?boolean }
    * @default true
@@ -1037,10 +1167,10 @@ interface ScrollInterface {
 }
 
 /**
- * Defines a Scroll onScrollEdge callback.
+ * Represents the callback triggered when scrolling reaches an edge.
  *
  * @typedef { function } OnScrollEdgeCallback
- * @param { Edge } side - the edge position scrolled to
+ * @param { Edge } side - Edge position to scroll to.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1083,7 +1213,7 @@ interface OnScrollFrameBeginHandlerResult {
    * @since 11
    */
   /**
-   * Actual sliding amount, unit vp.
+   * Actual scroll offset.
    * Anonymous Object Rectification.
    *
    * @type { number }
@@ -1096,11 +1226,11 @@ interface OnScrollFrameBeginHandlerResult {
 }
 
 /**
- * Defines a Scroll onScrollFrameBegin callback.
+ * Represents the callback triggered before each frame scrolling starts.
  *
  * @typedef { function } OnScrollFrameBeginCallback
- * @param { number } offset - The upcoming sliding amount, unit vp
- * @param { ScrollState } state - current sliding status
+ * @param { number } offset - Amount to scroll by, in vp.
+ * @param { ScrollState } state - Current scroll state.
  * @returns { OnScrollFrameBeginHandlerResult } data - the scroll data return by handler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1152,9 +1282,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the scroll method is slid.
+   * Sets the scrolling direction.
    *
-   * @param { ScrollDirection } value
+   * @param { ScrollDirection } value - Scrolling direction.<br>Default value: <em>ScrollDirection.Vertical</em>
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1162,6 +1292,63 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   scrollable(value: ScrollDirection): ScrollAttribute;
+
+  /**
+   * Set maximum zoom scale.
+   *
+   * @param { number } scale - Set maximum zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, +∞).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  maxZoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Set minimum zoom scale.
+   *
+   * @param { number } scale - Set minimum zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, maxZoomScale).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  minZoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Current zoom scale.
+   * This parameter supports !! for two-way binding of variables.
+   *
+   * @param { number } scale - Current zoom scale.
+   * <br>Default value: **1**.
+   * <br>Value range: (0, +∞).
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  zoomScale(scale: number): ScrollAttribute;
+
+  /**
+   * Enable bounces zoom scale.
+   * This parameter supports !! for two-way binding of variables.
+   *
+   * @param { boolean } enable - Enable bounces zoom scale.
+   * <br>Default value: **true**.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enableBouncesZoom(enable: boolean): ScrollAttribute;
 
   /**
    * Called when the setting slides to the specified position.
@@ -1181,7 +1368,14 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the setting slides to the specified position.
+   * Triggered to return the horizontal and vertical offsets, in vp, during scrolling when the specified scroll event occurs.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings,
+   * such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called.
+   * <br>3. This event supports the out-of-bounds bounce effect.
+   * </p>
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1196,9 +1390,16 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
 
   /**
-   * Called when the Scroll will scroll.
+   * Triggered before scrolling.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings,
+   * such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called.
+   * <br>3. This event supports the out-of-bounds bounce effect.
+   * </p>
    *
-   * @param { ScrollOnWillScrollCallback } handler - callback of Scroll
+   * @param { ScrollOnWillScrollCallback } handler - Callback triggered before scrolling.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1208,10 +1409,16 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   onWillScroll(handler: ScrollOnWillScrollCallback): ScrollAttribute;
 
   /**
-   * Called when the Scroll did scroll.
+   * Triggered when the Scroll component scrolls.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings,
+   * such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called.
+   * <br>3. This event supports the out-of-bounds bounce effect.
+   * </p>
    *
-   * @param { ScrollOnScrollCallback } handler - callback of Scroll,
-   * xOffset and yOffset are offsets this frame did scroll, scrollState is current scroll state.
+   * @param { ScrollOnScrollCallback } handler - Callback triggered when the <em>Scroll</em> component scrolls.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1248,10 +1455,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   /**
-   * Called when scrolling to the edge of the container.
+   * Triggered when scrolling reaches the edge.
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling reaches the edge after being started by the <em>Scroll</em> component or other input settings, 
+   * such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called.
+   * <br>3. This event supports the out-of-bounds bounce effect.
+   * </p>
    *
-   * @param { OnScrollEdgeCallback } event
+   * @param { OnScrollEdgeCallback } event - Edge position to scroll to.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1290,8 +1504,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling start.
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is started by the <em>Scroll</em> component or other input settings, such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called, accompanied by a transition animation.
+   * </p>
    *
-   * @param { VoidCallback } event
+   * @param { VoidCallback } event - Callback triggered when scrolling starts.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1301,7 +1520,12 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   onScrollStart(event: VoidCallback): ScrollAttribute;
 
   /**
-   * Called when scrolling has stopped.
+   * Triggered when scrolling stops.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is stopped by the <em>Scroll</em> component or other input settings, such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called, accompanied by a transition animation.
+   * </p>
    *
    * @param { function } event
    * @returns { ScrollAttribute }
@@ -1342,8 +1566,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when scrolling has stopped.
    * Anonymous Object Rectification.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>1. This event is triggered when scrolling is stopped by the <em>Scroll</em> component or other input settings, such as keyboard and mouse operations.
+   * <br>2. This event is triggered when the controller API is called, accompanied by a transition animation.
+   * </p>
    *
-   * @param { VoidCallback } event
+   * @param { VoidCallback } event - Callback triggered when scrolling stops.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1351,6 +1580,42 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 18
    */
   onScrollStop(event: VoidCallback): ScrollAttribute;
+
+  /**
+   * Called when the Scroll did zoom.
+   *
+   * @param { ScrollOnDidZoomCallback } event - callback of zoom.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onDidZoom(event: ScrollOnDidZoomCallback): ScrollAttribute;
+
+  /**
+   * Called when zooming has stated.
+   *
+   * @param { VoidCallback } event - Zoom start callback.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onZoomStart(event: VoidCallback): ScrollAttribute;
+
+  /**
+   * Called when zooming has stopped.
+   *
+   * @param { VoidCallback } event - Zoom stop callback.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onZoomStop(event: VoidCallback): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
@@ -1370,9 +1635,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the status of the scroll bar is set.
+   * Sets the scrollbar state.
    *
-   * @param { BarState } barState
+   * @param { BarState } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em>
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1399,9 +1664,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the color of the scroll bar is set.
+   * Sets the scrollbar color.
    *
-   * @param { Color | number | string } color
+   * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1428,9 +1693,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the width of the scroll bar is set.
+   * Sets the scrollbar width.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1457,10 +1722,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the sliding effect is set.
+   * Sets the effect used when the scroll boundary is reached.
    *
-   * @param { EdgeEffect } edgeEffect
-   * @param { EdgeEffectOptions } options
+   * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
+   * <br>Default value: <em>EdgeEffect.None</em>
+   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
+   * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
+   * <br>Default value: <em>{ alwaysEnabled: true }</em>
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1497,10 +1765,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   /**
-   * Called when scrolling begin each frame.
+   * Triggered when each frame scrolling starts.
    * Anonymous Object Rectification.
    *
-   * @param { OnScrollFrameBeginCallback } event
+   * @param { OnScrollFrameBeginCallback } event - Callback triggered when each frame scrolling starts.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1518,9 +1786,11 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the nested scroll options.
+   * Sets the nested scrolling options. You can set the nested scrolling mode in the forward and backward directions
+   * to implement scrolling linkage with the parent component.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @param { NestedScrollOptions } value - Nested scrolling options.
+   * <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1539,9 +1809,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Sets whether to support scroll gestures. When this attribute is set to <em>false</em>,
+   * scrolling by finger or mouse is not supported, but the scroll controller API is not affected.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { ScrollAttribute } The attribute of the scroll
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1560,9 +1831,14 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the friction.
+   * Sets the friction coefficient. It applies only to gestures in the scrolling area, and
+   * it affects only indirectly the scroll chaining during the inertial scrolling process.
+   * If this attribute is set to a value less than or equal to 0, the default value is used.
    *
-   * @param { number | Resource } value - options for scrolling friction.
+   * @param { number | Resource } value - Friction coefficient.
+   * <br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices
+   * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
+   * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1580,9 +1856,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the scroll snap options.
+   * Sets the scroll snapping mode.
    *
-   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @param { ScrollSnapOptions } value - Scroll snapping mode.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -1600,9 +1876,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 11
    */
   /**
-   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   * Sets whether to enable the swipe-to-turn-pages feature.
    *
-   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @param { boolean } value - Whether to enable the swipe-to-turn-pages feature.
+   * The value <em>true</em> means to enable the swipe-to-turn-pages feature, and <em>false</em> means the opposite.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1612,9 +1889,11 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   enablePaging(value: boolean): ScrollAttribute;
   
   /**
-   * Called to setting the initial offset
+   * Sets the initial scrolling offset.
    *
-   * @param { OffsetOptions } value - options for scroll initial offset.
+   * @param { OffsetOptions } value - Initial scrolling offset. When the value specified is a percentage,
+   * the initial scrolling offset is calculated as the product of the <em>Scroll</em> component's size
+   * in the main axis direction and the percentage value.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1625,12 +1904,22 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 }
 
 /**
- * callback of Scroll, using in onDidScroll.
+ * Represents the callback triggered when the <em>Scroll</em> component scrolls.
+ * 
+ * <p><strong>NOTE</strong>
+ * <br>If the <em>onScrollFrameBegin</em> event and <em>scrollBy</em> method are used to implement nested scrolling,
+ * set the <em>edgeEffect</em> attribute of the scrollable child component to <em>None</em>. For example,
+ * if a <em>List</em> is nested in the <em>Scroll</em> component, <em>edgeEffect</em> of the <em>List</em> must be set to <em>EdgeEffect.None</em>.
+ * </p>
  * 
  * @typedef { function } ScrollOnScrollCallback
- * @param { number } xOffset - horizontal offset this frame did scroll.
- * @param { number } yOffset - vertical offset this frame did scroll.
- * @param { ScrollState } scrollState - current scroll state.
+ * @param { number } xOffset - Horizontal offset per frame during scrolling. A positive offset indicates scrolling to the left,
+ * and a negative offset indicates scrolling to the right.
+ * <br>Unit: vp
+ * @param { number } yOffset - Vertical offset per frame during scrolling.
+ * A positive offset indicates scrolling upward, and a negative offset indicates scrolling downward.
+ * <br>Unit: vp
+ * @param { ScrollState } scrollState - Current scrolling state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -1642,11 +1931,15 @@ declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollS
   * Called before scroll to allow developer to control real offset the Scroll can scroll.
   *
   * @typedef { function } ScrollOnWillScrollCallback
-  * @param { number } xOffset - horizontal offset this frame will scroll, which may or may not be reached.
-  * @param { number } yOffset - vertical offset this frame will scroll, which may or may not be reached.
-  * @param { ScrollState } scrollState - current scroll state.
-  * @param { ScrollSource } scrollSource - source of current scroll.
-  * @returns { void | OffsetResult } the remain offset for the Scroll, 
+  * @param { number } xOffset - Horizontal offset per frame during scrolling.
+  * A positive offset indicates scrolling to the left, and a negative offset indicates scrolling to the right.
+  * <br>Unit: vp
+  * @param { number } yOffset - offset per frame during scrolling.
+  * A positive offset indicates scrolling upward, and a negative offset indicates scrolling downward.
+  * <br>Unit: vp
+  * @param { ScrollState } scrollState - Current scrolling state.
+  * @param { ScrollSource } scrollSource - Source of the current scrolling operation.
+  * @returns { void | OffsetResult } the remain offset for the Scroll,
   *     same as (xOffset, yOffset) when no OffsetResult is returned.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -1655,6 +1948,18 @@ declare type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollS
   */
 declare type ScrollOnWillScrollCallback =
  (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | OffsetResult;
+
+/**
+ * callback of Scroll, using in onDidZoom.
+ *
+ * @typedef { function } ScrollOnDidZoomCallback
+ * @param { number } scale - current zoom scale.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare type ScrollOnDidZoomCallback = (scale: number) => void;
 
 /**
  * Defines Scroll Component.

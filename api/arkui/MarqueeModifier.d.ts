@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Marquee Modifier
+ *
+ * @extends MarqueeAttribute
+ * @implements AttributeModifier<MarqueeAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class MarqueeModifier extends MarqueeAttribute implements AttributeModifier<MarqueeAttribute> {
 
   /**

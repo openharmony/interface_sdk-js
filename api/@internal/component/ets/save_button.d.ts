@@ -482,6 +482,67 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    * @since 18
    */
   onClick(event: SaveButtonCallback): SaveButtonAttribute;
+
+  /**
+   * Sets the icon of the save button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { Resource } icon - Source of the icon.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  setIcon(icon: Resource): SaveButtonAttribute;
+
+  /**
+   * Sets the text of the save button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { string | Resource } text - Content of text.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  setText(text: string | Resource): SaveButtonAttribute;
+
+  /**
+   * Sets the size of the icon.
+   *
+   * @param { Dimension | SizeOptions } size - Dimensions of the icon to set.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  iconSize(size: Dimension | SizeOptions): SaveButtonAttribute;
+
+  /**
+   * Sets the border radius of the icon.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { Dimension | BorderRadiuses } radius - Border radius of the icon to set.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  iconBorderRadius(radius: Dimension | BorderRadiuses): SaveButtonAttribute;
+
+  /**
+   * Enables the press effect of the button.
+   *
+   * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
+   * @param { boolean } enabled - Whether to enable the press effect. The value true means to enable the press effect;
+   * the value false means the opposite.
+   * @returns { SaveButtonAttribute} Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  stateEffect(enabled: boolean): SaveButtonAttribute;
+
 }
 
 /**

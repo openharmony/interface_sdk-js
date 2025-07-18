@@ -392,7 +392,7 @@ declare interface ComputedBarAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare interface UIGridEvent extends UIScrollableCommonEvent {
   /**
@@ -402,7 +402,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
@@ -413,7 +413,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
@@ -425,7 +425,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 19
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
 }
@@ -439,7 +439,7 @@ declare interface UIGridEvent extends UIScrollableCommonEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 19
  */
 declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
 
@@ -1222,6 +1222,31 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 12
    */
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
+
+    /**
+     * Sets the focus wrap mode of the grid.
+     *
+     * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the grid.
+     * <br>Default value: **FocusWrapMode.DEFAULT**.
+     * @returns { GridAttribute } the attribute of the grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    focusWrapMode(mode: Optional<FocusWrapMode>): GridAttribute;
+
+  /**
+   * Set whether to synchronously load child nodes within one frame.
+   *
+   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  syncLoad(enable: boolean): GridAttribute;
 
   /**
    * Called When sliding the grid.

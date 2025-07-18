@@ -19,8 +19,12 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+/*** if arkts 1.1 */
 import { WantAgent } from './@ohos.wantAgent';
+/*** endif */
+/*** if arkts 1.1 */
 import { NotificationRequest } from './notification/notificationRequest';
+/*** endif */
 
 /**
  * Provides interfaces for acquiring location information, managing location switches,
@@ -36,7 +40,8 @@ import { NotificationRequest } from './notification/notificationRequest';
  * @namespace geoLocationManager
  * @syscap SystemCapability.Location.Location.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace geoLocationManager {
   /**
@@ -478,7 +483,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } callback - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @syscap SystemCapability.Location.Location.Core
@@ -494,7 +499,7 @@ declare namespace geoLocationManager {
    * @param { Callback<BluetoothScanResult> } [callback] - Indicates the callback for reporting Bluetooth scan info.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.on('locatingRequiredDataChange')} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.off('bluetoothScanResultChange')} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 16
@@ -546,7 +551,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentLocation(request: CurrentLocationRequest | SingleLocationRequest,
   callback: AsyncCallback<Location>): void;
@@ -578,7 +584,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
@@ -627,7 +634,8 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentLocation(request?: CurrentLocationRequest | SingleLocationRequest):
   Promise<Location>;
@@ -1291,6 +1299,44 @@ declare namespace geoLocationManager {
    * @since 14
    */
   function getCurrentWifiBssidForLocating(): string;
+
+  /**
+   * Obtains the distance between two locations.
+   *
+   * @param { Location } location1 - Indicates first location.
+   * @param { Location } location2 - Indicates second location.
+   * @returns { number } Returns the distance between two locations.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getDistanceBetweenLocations(location1: Location, location2: Location): number;
+
+  /**
+   * Check whether the POI service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if POI service is available, returns {@code false} otherwise.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function isPoiServiceSupported(): boolean;
+
+  /**
+   * Obtaining POI Information.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Promise<PoiInfo> } The promise returned by the function, for reporting POI info.
+   * 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.getPoiInfo} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 20
+   */
+  function getPoiInfo(): Promise<PoiInfo>;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -2022,7 +2068,8 @@ declare namespace geoLocationManager {
    * @typedef CurrentLocationRequest
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CurrentLocationRequest {
     /**
@@ -2038,7 +2085,8 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     priority?: LocationRequestPriority;
 
@@ -2055,7 +2103,8 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestScenario }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scenario?: LocationRequestScenario;
 
@@ -2072,7 +2121,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxAccuracy?: number;
 
@@ -2089,7 +2139,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timeoutMs?: number;
   }
@@ -2179,7 +2230,8 @@ declare namespace geoLocationManager {
    * @typedef SingleLocationRequest
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SingleLocationRequest {
     /**
@@ -2188,7 +2240,8 @@ declare namespace geoLocationManager {
      * @type { LocatingPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locatingPriority: LocatingPriority;
 
@@ -2198,7 +2251,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locatingTimeoutMs: number;
 
@@ -2226,7 +2280,8 @@ declare namespace geoLocationManager {
    * @typedef Location
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface Location {
     /**
@@ -2246,7 +2301,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     latitude: number;
 
@@ -2267,7 +2323,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     longitude: number;
 
@@ -2284,7 +2341,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     altitude: number;
 
@@ -2301,7 +2359,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accuracy: number;
 
@@ -2318,7 +2377,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     speed: number;
 
@@ -2335,7 +2395,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timeStamp: number;
 
@@ -2352,7 +2413,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     direction: number;
 
@@ -2369,7 +2431,8 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     timeSinceBoot: number;
 
@@ -2386,7 +2449,8 @@ declare namespace geoLocationManager {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     additions?: Array<string>;
 
@@ -2396,7 +2460,8 @@ declare namespace geoLocationManager {
      * @type { ?Map<string, string> }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     additionsMap?: Map<string, string>;
 
@@ -2413,7 +2478,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     additionSize?: number;
 
@@ -2423,7 +2489,8 @@ declare namespace geoLocationManager {
      * @type { ?Boolean }
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isFromMock?: Boolean;
 
@@ -2433,7 +2500,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     altitudeAccuracy?: number;
 
@@ -2443,7 +2511,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     speedAccuracy?: number;
 
@@ -2453,7 +2522,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     directionAccuracy?: number;
 
@@ -2463,7 +2533,8 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uncertaintyOfTimeSinceBoot?: number;
 
@@ -2473,7 +2544,8 @@ declare namespace geoLocationManager {
      * @type { ?LocationSourceType }
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sourceType?: LocationSourceType;
 
@@ -2878,7 +2950,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationSourceType {
     /**
@@ -2886,7 +2959,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GNSS = 1,
 
@@ -2895,7 +2969,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK = 2,
 
@@ -2904,7 +2979,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INDOOR = 3,
 
@@ -2913,7 +2989,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RTK = 4
   }
@@ -3242,7 +3319,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocatingPriority {
     /**
@@ -3250,7 +3328,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIORITY_ACCURACY = 0x501,
 
@@ -3259,7 +3338,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIORITY_LOCATING_SPEED = 0x502
   }
@@ -3277,7 +3357,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationRequestPriority {
     /**
@@ -3291,7 +3372,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSET = 0x200,
 
@@ -3306,7 +3388,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACCURACY,
 
@@ -3321,7 +3404,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOW_POWER,
 
@@ -3336,7 +3420,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FIRST_FIX
   }
@@ -3354,7 +3439,8 @@ declare namespace geoLocationManager {
    * @enum { number }
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum LocationRequestScenario {
     /**
@@ -3368,7 +3454,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNSET = 0x300,
 
@@ -3383,7 +3470,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NAVIGATION,
 
@@ -3398,7 +3486,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRAJECTORY_TRACKING,
 
@@ -3413,7 +3502,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAR_HAILING,
 
@@ -3428,7 +3518,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DAILY_LIFE_SERVICE,
 
@@ -3443,7 +3534,8 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NO_POWER
   }

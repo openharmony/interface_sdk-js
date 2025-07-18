@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines DatePicker Modifier
+ *
+ * @extends DatePickerAttribute
+ * @implements AttributeModifier<DatePickerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
 
   /**

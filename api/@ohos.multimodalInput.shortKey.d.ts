@@ -20,7 +20,8 @@
 
 import type { AsyncCallback } from './@ohos.base';
 /**
- * Declares interfaces related to short key attributes.
+ * The shortKey module provides APIs to set the delay for starting an ability using a shortcut key. 
+ * For example, you can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut key for 3 seconds.
  *
  * @namespace shortKey
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
@@ -30,10 +31,14 @@ import type { AsyncCallback } from './@ohos.base';
 
 declare namespace shortKey {
   /**
-   * Sets short key down duration.
-   * @param { string } businessKey - The key for business which should be applied to MMI.
-   * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * Sets the delay for starting an ability using shortcut keys. 
+   * This API uses an asynchronous callback to return the result.
+   * 
+   * @param { string } businessKey - Unique service ID registered on the multimodal side. 
+   * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
+   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+   * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -44,9 +49,12 @@ declare namespace shortKey {
   function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets short key down duration.
-   * @param { string } businessKey - The key for business which should be applied to MMI.
-   * @param { number } delay - Duration of short key press which should be limited to 0-4000ms.
+   * Sets the delay for starting an ability using shortcut keys. 
+   * This API uses a promise to return the result.
+   * 
+   * @param { string } businessKey - Unique service ID registered on the multimodal side. 
+   * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
+   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -70,7 +78,7 @@ export default shortKey;
  */
 export declare enum FingerprintAction {
   /**
-   * Key touching.
+   * Pressing down.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -79,7 +87,7 @@ export declare enum FingerprintAction {
   DOWN = 0,
 
   /**
-   * Finger lifting.
+   * Lifting up.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -88,7 +96,7 @@ export declare enum FingerprintAction {
   UP = 1,
 
   /**
-   * Sliding on the fingerprint key.
+   * Sliding.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -97,7 +105,7 @@ export declare enum FingerprintAction {
   SLIDE = 2,
 
   /**
-   *  Second touch during the double-click process.
+   * Retouching.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -106,7 +114,7 @@ export declare enum FingerprintAction {
   RETOUCH = 3,
 
   /**
-   * Double-click event.
+   * Clicking.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -116,7 +124,7 @@ export declare enum FingerprintAction {
 }
 
 /**
- * Fingerprint key event.
+ * Defines the key event type and the offset position relative to the key.
  *
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core

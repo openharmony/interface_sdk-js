@@ -31,7 +31,7 @@ import type { AbilityResult } from '../ability/abilityResult';
  * @stagemodelonly
  * @since 18
  */
-export default class FormEditExtensionContext extends UIExtensionContext {
+declare class FormEditExtensionContext extends UIExtensionContext {
 	/**
      * Start second editor extension ability.
      * 
@@ -47,3 +47,4 @@ export default class FormEditExtensionContext extends UIExtensionContext {
      */
 	startSecondPage(want: Want): Promise<AbilityResult>;
 }
+export default FormEditExtensionContext;

@@ -33,7 +33,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace contextConstant {
   /**
@@ -51,7 +52,8 @@ declare namespace contextConstant {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum AreaMode {
     /**
@@ -67,7 +69,8 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL1 = 0,
 
@@ -84,7 +87,8 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL2 = 1,
 
@@ -95,7 +99,8 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL3 = 2,
 
@@ -107,7 +112,8 @@ declare namespace contextConstant {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EL4 = 3,
 
@@ -130,7 +136,8 @@ declare namespace contextConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ProcessMode {
     /**
@@ -139,7 +146,8 @@ declare namespace contextConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEW_PROCESS_ATTACH_TO_PARENT = 1,
 
@@ -150,7 +158,8 @@ declare namespace contextConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM = 2,
 
@@ -161,7 +170,8 @@ declare namespace contextConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATTACH_TO_STATUS_BAR_ITEM = 3
   }
@@ -172,7 +182,8 @@ declare namespace contextConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum StartupVisibility {
     /**
@@ -180,7 +191,8 @@ declare namespace contextConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STARTUP_HIDE = 0,
 
@@ -189,9 +201,58 @@ declare namespace contextConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STARTUP_SHOW = 1
+  }
+
+  /**
+   * Scenario values for disabling the onNewWant lifecycle callback.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export enum Scenarios {
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the missionManager.moveMissionToFront invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_MOVE_MISSION_TO_FRONT = 0x00000001,
+
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the UIAbilityContext.showAbility invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_SHOW_ABILITY = 0x00000002,
+
+    /**
+     * Indicates the scenario where a UIAbility is brought to the foreground through
+     * the UIAbilityContext.backToCallerAbilityWithResult invocation.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    SCENARIO_BACK_TO_CALLER_ABILITY_WITH_RESULT = 0x00000004
   }
 }
 

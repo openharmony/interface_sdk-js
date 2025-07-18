@@ -29,9 +29,10 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class ServiceExtensionAbility {
+declare class ServiceExtensionAbility {
   /**
    * Indicates service extension ability context.
    *
@@ -39,7 +40,8 @@ export default class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: ServiceExtensionContext;
 
@@ -50,7 +52,8 @@ export default class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want): void;
 
@@ -60,7 +63,8 @@ export default class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 
@@ -74,7 +78,8 @@ export default class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRequest(want: Want, startId: number): void;
 
@@ -87,7 +92,8 @@ export default class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
@@ -102,6 +108,33 @@ export default class ServiceExtensionAbility {
    * @since 9
    */
   onDisconnect(want: Want): void | Promise<void>;
+
+  /**
+   * Called back when all abilities connected to a service extension are disconnected.
+   *
+   * @param { Want } want - Indicates disconnection information about the service extension.
+   * @returns { void } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  onDisconnect(want: Want): void;
+
+  /**
+   * Asynchronous callback when all abilities connected to a service extension are disconnected.
+   * The next lifecycle callback onDestroy() will be triggered when the returned Promise object resolves.
+   *
+   * @param { Want } want - Indicates disconnection information about the service extension.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  onDisconnectAsync(want: Want): Promise<void>;
 
   /**
    * Called when a new client attempts to connect to a service extension after all previous client connections to it
@@ -139,3 +172,5 @@ export default class ServiceExtensionAbility {
    */
   onDump(params: Array<string>): Array<string>;
 }
+
+export default ServiceExtensionAbility;

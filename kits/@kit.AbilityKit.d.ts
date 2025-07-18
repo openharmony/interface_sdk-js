@@ -55,6 +55,9 @@ import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
+import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,
+  InsightIntentEntry, LinkParamCategory, InsightIntentForm, InsightIntentEntity } from '@ohos.app.ability.InsightIntentDecorator';
+import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExecutor';
 import missionManager from '@ohos.app.ability.missionManager';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
@@ -106,6 +109,9 @@ import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbili
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
+import CompletionHandler from '@ohos.app.ability.CompletionHandler';
+import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
+import kioskManager from '@ohos.app.ability.kioskManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -123,6 +129,23 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify
-
+  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
+  InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager
 };
+
+/*** if arkts 1.2 */
+import bundleManager from '@ohos.bundle.bundleManager';
+import bundleMonitor from '@ohos.bundle.bundleMonitor';
+import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import freeInstall from '@ohos.bundle.freeInstall';
+import installer from '@ohos.bundle.installer';
+import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import overlay from '@ohos.bundle.overlay';
+import shortcutManager from '@ohos.bundle.shortcutManager';
+
+export {
+  bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
+  shortcutManager
+};
+/*** endif */

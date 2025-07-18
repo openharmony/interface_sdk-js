@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Swiper Modifier
+ *
+ * @extends SwiperAttribute
+ * @implements AttributeModifier<SwiperAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SwiperModifier extends SwiperAttribute implements AttributeModifier<SwiperAttribute> {
 
   /**

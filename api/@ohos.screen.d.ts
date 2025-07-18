@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screen
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screen {
   /**
@@ -65,7 +66,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
 
@@ -81,7 +83,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 
@@ -99,6 +102,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
+   * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<number>): void;
 
@@ -115,6 +119,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
+   * @deprecated since 20
    */
   function makeExpand(options: Array<ExpandOption>): Promise<number>;
 
@@ -131,6 +136,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<number>, callback: AsyncCallback<void>): void;
 
@@ -147,6 +153,7 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
+   * @deprecated since 20
    */
   function stopExpand(expandScreen: Array<number>): Promise<void>;
 
@@ -782,7 +789,7 @@ declare namespace screen {
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * Active the mode
+     * Set the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
@@ -797,7 +804,7 @@ declare namespace screen {
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Active the mode
+     * Sets the active mode of the screen.
      *
      * @param { number } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
@@ -898,7 +905,7 @@ declare namespace screen {
   }
 
   /**
-   * The information of the screen
+   * The information of the screen mode
    *
    * @interface ScreenModeInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -907,7 +914,7 @@ declare namespace screen {
    */
   interface ScreenModeInfo {
     /**
-     * Screen id
+     * Mode id
      *
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core

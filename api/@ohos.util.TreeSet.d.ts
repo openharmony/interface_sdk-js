@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TreeSet<T> {
   /**
@@ -89,6 +90,20 @@ declare class TreeSet<T> {
    * @since 12
    */
   constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
+
+  /**
+   * A constructor used to create a TreeSet object.
+   *
+   * @param { TreeSetComparator<T> } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  constructor(comparator?: TreeSetComparator<T>);
+
   /**
    * Gets the element number of the TreeSet.
    *
@@ -114,6 +129,19 @@ declare class TreeSet<T> {
    * @since 12
    */
   length: number;
+
+  /**
+   * Gets the element number of the TreeSet.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get length(): number;
+
   /**
    * Returns whether the Set object contains elements
    *
@@ -139,7 +167,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEmpty(): boolean;
   /**
@@ -170,7 +199,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   has(value: T): boolean;
   /**
@@ -213,7 +243,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   add(value: T): boolean;
   /**
@@ -244,7 +275,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   remove(value: T): boolean;
   /**
@@ -269,7 +301,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
   /**
@@ -476,6 +509,83 @@ declare class TreeSet<T> {
    * @since 12
    */
   popLast(): T;
+
+  /**
+   * Gets the first elements in a set
+   *
+   * @returns { T | undefined } the value of the first element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getFirstValue(): T | undefined;
+
+  /**
+   * Gets the last elements in a set
+   *
+   * @returns { T | undefined } the value of the last element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLastValue(): T | undefined;
+
+  /**
+   * Returns the greatest element smaller than or equal to the specified key
+   * if the key does not exist, undefined is returned
+   *
+   * @param { T } key - key key Objective of comparison
+   * @returns { T | undefined } the lower value of the given key's element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getLowerValue(key: T): T | undefined;
+
+  /**
+   * Returns the least element greater than or equal to the specified key
+   * if the key does not exist, undefined is returned
+   *
+   * @param { T } key - key key Objective of comparison
+   * @returns { T | undefined } the higher value of the given key's element if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getHigherValue(key: T): T | undefined;
+
+  /**
+   * Return and delete the first element, returns undefined if tree set is empty
+   *
+   * @returns { T | undefined} the value of the first element in the TreeSet if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  popFirst(): T | undefined;
+
+  /**
+   * Return and delete the last element, returns undefined if tree set is empty
+   *
+   * @returns { T | undefined } the value of the last element in the TreeSet if exists, undefined otherwise
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  popLast(): T | undefined;
+
   /**
    * Executes a provided function once for each value in the Set object.
    *
@@ -528,6 +638,19 @@ declare class TreeSet<T> {
    * @since 12
    */
   forEach(callbackFn: (value?: T, key?: T, set?: TreeSet<T>) => void, thisArg?: Object): void;
+
+  /**
+   * Executes a provided function once for each value in the Set object.
+   *
+   * @param { TreeSetForEachCb<T> } callbackFn - callbackFn
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  forEach(callbackFn: TreeSetForEachCb<T>): void;
+
   /**
    * Returns a new Iterator object that contains the values contained in this set
    *
@@ -553,7 +676,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   values(): IterableIterator<T>;
   /**
@@ -581,7 +705,8 @@ declare class TreeSet<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   entries(): IterableIterator<[T, T]>;
   /**
@@ -612,6 +737,48 @@ declare class TreeSet<T> {
    * @since 12
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   *
+   * @returns { IterableIterator<T> } an iterator for the TreeSet
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  $_iterator(): IterableIterator<T>;
+
 }
+
+/**
+ * The type of TreeSet callback function.
+ *
+ * @typedef { function } TreeSetForEachCb
+ * @param { T } value - The value of current element
+ * @param { T } key - The key of current element(same as value)
+ * @param { TreeSet<T> } set - The TreeSet instance being traversed
+ * @returns { void } This callback does not return a value
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
+
+/**
+ * The type of TreeSet comparator.
+ *
+ * @typedef { function } TreeSetComparator
+ * @param { T } firstValue - The first value compared
+ * @param { T } secondValue - The second value compared
+ * @returns { number } - Comparison results
+ * @syscap SystemCapability.Utils.Lang
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
 
 export default TreeSet;

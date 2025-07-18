@@ -586,7 +586,8 @@ declare namespace distributedKVStore {
      * <p>Add a child node to makes this node a non-leaf node and field value will be ignored if it has a child node.
      *
      * @param { FieldNode } child - The field node to append.
-     * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode} and false otherwise.
+     * @returns { boolean } Returns true if the child node is successfully added to this {@code FieldNode}
+     * and false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
@@ -694,11 +695,11 @@ declare namespace distributedKVStore {
     /**
      * Moves the read position by a relative offset to the current position.
      *
-     * @param { number } offset - Indicates the relative offset to the current position. A negative offset indicates moving
-     * backwards, and a positive offset indicates moving forwards. For example, if the current position is entry 1 and
-     * this offset is 2, the destination position will be entry 3; if the current position is entry 3 and this offset is -2,
-     * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
-     * final position is invalid, false will be returned.
+     * @param { number } offset - Indicates the relative offset to the current position. A negative offset indicates
+     * moving backwards, and a positive offset indicates moving forwards. For example, if the current position is entry
+     * 1 and this offset is 2, the destination position will be entry 3; if the current position is entry 3 and this
+     * offset is -2, the destination position will be entry 1. The valid final position after moving forwards starts
+     * with 0. If the final position is invalid, false will be returned.
      * @returns { boolean } Returns true if the operation succeeds; return false otherwise.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -793,7 +794,8 @@ declare namespace distributedKVStore {
     reset(): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the
+     * specified long value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
@@ -807,7 +809,8 @@ declare namespace distributedKVStore {
     equalTo(field: string, value: number | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the
+     * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
@@ -821,8 +824,8 @@ declare namespace distributedKVStore {
     notEqualTo(field: string, value: number | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
-     * specified int value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
+     * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string | boolean } value - Indicates the value to be compared.
@@ -836,7 +839,8 @@ declare namespace distributedKVStore {
     greaterThan(field: string, value: number | string | boolean): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is less than the
+     * specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
@@ -865,8 +869,8 @@ declare namespace distributedKVStore {
     greaterThanOrEqualTo(field: string, value: number | string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is less than or equal to the
-     * specified int value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is less than or
+     * equal to the specified int value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number | string } value - Indicates the value to be compared.
@@ -893,7 +897,8 @@ declare namespace distributedKVStore {
     isNull(field: string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified int value list.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
+     * int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
@@ -907,7 +912,8 @@ declare namespace distributedKVStore {
     inNumber(field: string, valueList: number[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified string value list.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified
+     * string value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
@@ -921,7 +927,8 @@ declare namespace distributedKVStore {
     inString(field: string, valueList: string[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified int value list.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
+     * specified int value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { number[] } valueList - Indicates the int value list.
@@ -935,7 +942,8 @@ declare namespace distributedKVStore {
     notInNumber(field: string, valueList: number[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified string value list.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is not within the
+     * specified string value list.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string[] } valueList - Indicates the string value list.
@@ -949,7 +957,8 @@ declare namespace distributedKVStore {
     notInString(field: string, valueList: string[]): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the specified string value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the
+     * specified string value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string } value - Indicates the string value.
@@ -963,7 +972,8 @@ declare namespace distributedKVStore {
     like(field: string, value: string): Query;
 
     /**
-     * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the specified string value.
+     * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the
+     * specified string value.
      *
      * @param { string } field - Indicates the field, which cannot contain ^.
      * @param { string } value - Indicates the string value.
@@ -1025,8 +1035,12 @@ declare namespace distributedKVStore {
     /**
      * Constructs a {@code Query} object to specify the number of results and the start position.
      *
-     * @param { number } total - Indicates the number of results.
-     * @param { number } offset - Indicates the start position.
+     * @param { number } total - Maximum number of results to query. The value must be a non-negative integer.
+     * If the input value is less than 0, the number of results is not limited.
+     * @param { number } offset - Start position of the query result. By default,
+     * the start position is the beginning of the result set. If **offset** is a negative number,
+     * the start position is the beginning of the result set. If **offset** exceeds the end of the result set,
+     * the query result is empty.
      * @returns { Query } Returns the {@coed Query} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
@@ -1049,8 +1063,8 @@ declare namespace distributedKVStore {
 
     /**
      * Creates a query condition group with a left bracket.
-     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can be used as a
-     * whole to combine with other query conditions.
+     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can
+     * beused as a whole to combine with other query conditions.
      *
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1060,8 +1074,8 @@ declare namespace distributedKVStore {
 
     /**
      * Creates a query condition group with a right bracket.
-     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can be used as a
-     * whole to combine with other query conditions.
+     * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can
+     * be used as a whole to combine with other query conditions.
      *
      * @returns { Query } Returns the {@coed Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1134,7 +1148,8 @@ declare namespace distributedKVStore {
   interface SingleKVStore {
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
+     * database.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
@@ -1150,7 +1165,8 @@ declare namespace distributedKVStore {
      */
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
+     * database.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
@@ -1169,7 +1185,8 @@ declare namespace distributedKVStore {
 
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
+     * database.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
@@ -1185,7 +1202,8 @@ declare namespace distributedKVStore {
      */
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
+     * database.
      *
      * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
      * Spaces before and after the key will be cleared.
@@ -1263,7 +1281,8 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1278,7 +1297,8 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1296,7 +1316,8 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1311,7 +1332,8 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1391,7 +1413,8 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1406,7 +1429,8 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1424,7 +1448,8 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1439,7 +1464,8 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1513,7 +1539,8 @@ declare namespace distributedKVStore {
      * synchronized from remote devices. This operation does not synchronize data to other databases or affect
      * subsequent data synchronization.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the current device ID.
+     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the
+     * current device ID.
      * @param { AsyncCallback<void> } callback - the callback of removeDeviceData.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -1528,7 +1555,8 @@ declare namespace distributedKVStore {
      * synchronized from remote devices. This operation does not synchronize data to other databases or affect
      * subsequent data synchronization.
      *
-     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the current device ID.
+     * @param { string } deviceId - Identifies the device whose data is to be removed and the value cannot be the
+     * current device ID.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -1633,7 +1661,8 @@ declare namespace distributedKVStore {
     getEntries(query: Query): Promise<Entry[]>;
 
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
+     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
+     * The {@code KVStoreResultSet}
      * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
      * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
      * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
@@ -1650,7 +1679,8 @@ declare namespace distributedKVStore {
      * @since 9
      */
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
+     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
+     * The {@code KVStoreResultSet}
      * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
      * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
      * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
@@ -1670,7 +1700,8 @@ declare namespace distributedKVStore {
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
+     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
+     * The {@code KVStoreResultSet}
      * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
      * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
      * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
@@ -1687,7 +1718,8 @@ declare namespace distributedKVStore {
      * @since 9
      */
     /**
-     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
+     * Obtains the result set with a specified prefix from a {@code SingleKVStore} database.
+     * The {@code KVStoreResultSet}
      * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
      * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
      * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
@@ -1772,7 +1804,8 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1788,7 +1821,8 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -1807,7 +1841,8 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1823,7 +1858,8 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2208,7 +2244,8 @@ declare namespace distributedKVStore {
      * Register a databases synchronization callback to the database.
      * <p> Sync result is returned through asynchronous callback.
      *
-     * @param { 'syncComplete' } event - Subscribed event name, fixed as 'syncComplete', indicates the synchronization completion event.
+     * @param { 'syncComplete' } event - Subscribed event name, fixed as 'syncComplete', indicates the synchronization
+     * completion event.
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
@@ -2222,7 +2259,8 @@ declare namespace distributedKVStore {
     /**
      * Unsubscribe from the SingleKVStore database based on the specified subscribeType and listener.
      *
-     * @param { 'dataChange' } event - The unsubscribe event name, fixed as 'dataChange', indicates the data change event.
+     * @param { 'dataChange' } event - The unsubscribe event name, fixed as 'dataChange', indicates the data change
+     * event.
      * @param { Callback<ChangeNotification> } listener - {ChangeNotification}: the {@code ChangeNotification}
      * object indicates the data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2236,7 +2274,8 @@ declare namespace distributedKVStore {
     /**
      * Unregister the database synchronization callback.
      *
-     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the synchronization completion event.
+     * @param { 'syncComplete' } event - The unsubscribe event name, fixed as 'syncComplete', indicates the
+     * synchronization completion event.
      * @param { Callback<Array<[string, number]>> } syncCallback - {Array<[string, number]>}: the
      * deviceId and it's corresponding synchronization result which 0 means synchronization success
      * and otherwise failed.
@@ -2272,9 +2311,12 @@ declare namespace distributedKVStore {
 
   /**
    * Provides methods related to device-collaboration distributed databases.
-   * <p>To create a {@code DeviceKVStore} database, you can use the {@link data.distributed.common.KVManager.getKVStore(Options, String)}
-   * method with {@code KVStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options. This database manages distributed
-   * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
+   * <p>To create a {@code DeviceKVStore} database, you can use the
+   * {@link data.distributed.common.KVManager.getKVStore(Options, String)}
+   * method with {@code KVStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options.
+   * This database manages distributed
+   * data by device, and cannot modify data synchronized from remote devices. When an application writes a
+   * key-value pair entry
    * into the database, the system automatically adds the ID of the device running the application to the key.
    *
    * @extends SingleKVStore
@@ -2321,7 +2363,8 @@ declare namespace distributedKVStore {
      * Obtains the value matching a specified device ID and key.
      *
      * @param { string } deviceId - Indicates the device to be queried.
-     * @param { string } key - Indicates the key of the value to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
+     * @param { string } key - Indicates the key of the value to be queried. The length must be less than
+     * {@code MAX_KEY_LENGTH}.
      * @param { AsyncCallback<boolean | string | number | Uint8Array> } callback -
      * {boolean | string | number | Uint8Array}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2339,7 +2382,8 @@ declare namespace distributedKVStore {
      * Obtains the value matching a specified device ID and key.
      *
      * @param { string } deviceId - Indicates the device to be queried.
-     * @param { string } key - Indicates the key of the value to be queried. The length must be less than {@code MAX_KEY_LENGTH}.
+     * @param { string } key - Indicates the key of the value to be queried. The length must be less than
+     * {@code MAX_KEY_LENGTH}.
      * @returns { Promise<boolean | string | number | Uint8Array> }
      * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
@@ -2480,7 +2524,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
      * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
+     * same time.
      * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
      * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
      *
@@ -2497,7 +2542,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
      * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
+     * same time.
      * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
      * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
      *
@@ -2517,7 +2563,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
      * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
+     * same time.
      * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
      * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
      *
@@ -2534,7 +2581,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
      * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+     * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the
+     * same time.
      * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
      * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
      *
@@ -2553,9 +2601,12 @@ declare namespace distributedKVStore {
 
     /**
      * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
+     * Each {@code DeviceKVStore}
+     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
+     * objects,
+     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
+     * unnecessary
      * {@code KVStoreResultSet} objects in a timely manner.
      *
      * @param { string } deviceId - Identifies the device whose data is to be queried.
@@ -2571,9 +2622,12 @@ declare namespace distributedKVStore {
      */
     /**
      * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
+     * Each {@code DeviceKVStore}
+     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
+     * objects,
+     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
+     * unnecessary
      * {@code KVStoreResultSet} objects in a timely manner.
      *
      * @param { string } deviceId - Identifies the device whose data is to be queried.
@@ -2592,9 +2646,12 @@ declare namespace distributedKVStore {
 
     /**
      * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
+     * Each {@code DeviceKVStore}
+     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
+     * objects,
+     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
+     * unnecessary
      * {@code KVStoreResultSet} objects in a timely manner.
      *
      * @param { string } deviceId - Identifies the device whose data is to be queried.
@@ -2610,9 +2667,12 @@ declare namespace distributedKVStore {
      */
     /**
      * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
-     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
-     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
-     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+     * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
+     * Each {@code DeviceKVStore}
+     * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four
+     * objects,
+     * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close
+     * unnecessary
      * {@code KVStoreResultSet} objects in a timely manner.
      *
      * @param { string } deviceId - Identifies the device whose data is to be queried.
@@ -2690,7 +2750,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
+     * belongs.
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
@@ -2704,7 +2765,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
+     * belongs.
      * @param { Query } query - Indicates the {@code Query} object.
      * @param { AsyncCallback<KVStoreResultSet> } callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
@@ -2721,7 +2783,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
+     * belongs.
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
@@ -2735,7 +2798,8 @@ declare namespace distributedKVStore {
     /**
      * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
      *
-     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+     * @param { string } deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object
+     * belongs.
      * @param { Query } query - Indicates the {@code Query} object.
      * @returns { Promise<KVStoreResultSet> } {KVStoreResultSet}: the {@code KVStoreResultSet}
      * object matching the specified deviceId and {@code Query} object.
@@ -2757,7 +2821,8 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2773,7 +2838,8 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2792,7 +2858,8 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2808,7 +2875,8 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2828,7 +2896,8 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2845,7 +2914,8 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2869,7 +2939,8 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2886,7 +2957,8 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
+     * uses system API.
      * @throws { BusinessError } 15100001 - Over max limits.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
@@ -2977,7 +3049,8 @@ declare namespace distributedKVStore {
   function createKVManager(config: KVManagerConfig): KVManager;
 
   /**
-   * Provides interfaces to manage a {@code SingleKVStore} database, including obtaining, closing, and deleting the {@code SingleKVStore}.
+   * Provides interfaces to manage a {@code SingleKVStore} database, including obtaining, closing, and deleting the
+   * {@code SingleKVStore}.
    *
    * @interface KVManager
    * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2988,7 +3061,7 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist 
+     * for the same application, and different applications can share the same value. The storeId can consist
      * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
@@ -3007,7 +3080,7 @@ declare namespace distributedKVStore {
      * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
      *
      * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
-     * for the same application, and different applications can share the same value. The storeId can consist 
+     * for the same application, and different applications can share the same value. The storeId can consist
      * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
      * @param { Options } options - Indicates the {@code Options} object used for creating and
      * obtaining the KVStore database.
@@ -3024,15 +3097,16 @@ declare namespace distributedKVStore {
 
     /**
      * Closes the KVStore database.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running, your
-     * thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using this
-     * method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore, otherwise
-     * closing the database will fail.
+     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
+     * your thread may crash.
+     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
+     * this method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore,
+     * otherwise closing the database will fail.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
-     * and underscores (_), and cannot exceed 128 characters.
+     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
+     * characters.
+     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
+     * digits, and underscores (_), and cannot exceed 128 characters.
      * @param { AsyncCallback<void> } callback - the callback of closeKVStore.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3043,15 +3117,16 @@ declare namespace distributedKVStore {
 
     /**
      * Closes the KVStore database.
-     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running, your
-     * thread may crash.
-     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using this
-     * method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore, otherwise
-     * closing the database will fail.
+     * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running,
+     * your thread may crash.
+     * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using
+     * this method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore,
+     * otherwise closing the database will fail.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
-     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
-     * and underscores (_), and cannot exceed 128 characters.
+     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
+     * characters.
+     * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters,
+     * digits, and underscores (_), and cannot exceed 128 characters.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3063,12 +3138,13 @@ declare namespace distributedKVStore {
     /**
      * Deletes the KVStore database identified by storeId.
      * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
-     * lost.
+     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
+     * will be lost.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
-     * and underscores (_), and cannot exceed 128 characters.
+     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
+     * characters.
+     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
+     * digits, and underscores (_), and cannot exceed 128 characters.
      * @param { AsyncCallback<void> } callback - the callback of deleteKVStore.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3081,12 +3157,13 @@ declare namespace distributedKVStore {
     /**
      * Deletes the KVStore database identified by storeId.
      * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
-     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
-     * lost.
+     * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data
+     * will be lost.
      *
-     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256 characters.
-     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
-     * and underscores (_), and cannot exceed 128 characters.
+     * @param { string } appId - Identifies the application that the database belong to, and cannot exceed 256
+     * characters.
+     * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters,
+     * digits, and underscores (_), and cannot exceed 128 characters.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3097,10 +3174,11 @@ declare namespace distributedKVStore {
     deleteKVStore(appId: string, storeId: string): Promise<void>;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
-     * calling the {@code deleteKVStore} method.
+     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
+     * deleted by calling the {@code deleteKVStore} method.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
+     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
+     * characters.
      * @param { AsyncCallback<string[]> } callback - {string[]}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3110,10 +3188,11 @@ declare namespace distributedKVStore {
     getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
 
     /**
-     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
-     * calling the {@code deleteKVStore} method.
+     * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not
+     * deleted by calling the {@code deleteKVStore} method.
      *
-     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256 characters.
+     * @param { string } appId - Identifies the application that obtains the databases, and cannot exceed 256
+     * characters.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
@@ -3124,10 +3203,11 @@ declare namespace distributedKVStore {
 
     /**
      * Register a death callback to get notification when the data manager service is terminated.
-     * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and synchronization
-     * completion notifications, and calling the sync method will return a failure.
+     * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and
+     * synchronization completion notifications, and calling the sync method will return a failure.
      *
-     * @param { 'distributedDataServiceDie' } event - Subscribed event name, fixed as 'distributedDataServiceDie', as a service status change events.
+     * @param { 'distributedDataServiceDie' } event - Subscribed event name, fixed as 'distributedDataServiceDie',
+     * as a service status change events.
      * @param { Callback<void> } deathCallback - callback to be invoked when the data manager service is terminated.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
@@ -3139,11 +3219,13 @@ declare namespace distributedKVStore {
 
     /**
      * Unregister the death callback. Not notification will be received when the data manager service is terminated.
-     * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
-     * is passed, all database death callbacks will be unregistered.
+     * <p>The unregistered death callback must be a registered death callback of the database. If no death callback
+     * parameter is passed, all database death callbacks will be unregistered.
      *
-     * @param { 'distributedDataServiceDie' } event - Unsubscribe event name, fixed as 'distributedDataServiceDie', as a service status change events.
-     * @param { Callback<void> } deathCallback - the data manager service is terminated callback which has been registered.
+     * @param { 'distributedDataServiceDie' } event - Unsubscribe event name, fixed as 'distributedDataServiceDie',
+     * as a service status change events.
+     * @param { Callback<void> } deathCallback - the data manager service is terminated callback which has been
+     * registered.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types;
      * <br>3.Parameter verification failed.

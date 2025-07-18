@@ -35,6 +35,80 @@ import type { SystemToneOptions as _SystemToneOptions } from './multimedia/syste
  * @since 10
  */
 declare namespace systemSoundManager {
+
+  /**
+   * Error enum for system sound.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 20
+   */
+  enum SystemSoundError {
+    /**
+     * IO error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_IO = 5400103,
+
+    /**
+     * No error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_OK = 20700000,
+
+    /**
+     * Type mismatch.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_TYPE_MISMATCH = 20700001,
+
+    /**
+     * Unsupported operation.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_UNSUPPORTED_OPERATION = 20700003,
+
+    /**
+     * Data size exceeds the limit.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_DATA_TOO_LARGE = 20700004,
+
+    /**
+     * The number of files exceeds the limit.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_TOO_MANY_FILES = 20700005,
+
+    /**
+     * Insufficient ROM space.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_INSUFFICIENT_ROM = 20700006,
+
+    /**
+     * Invalid parameter.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    ERROR_INVALID_PARAM = 20700007
+  }
+
   /**
    * Enum for ringtone type.
    * @enum { number }
@@ -138,6 +212,31 @@ declare namespace systemSoundManager {
   }
 
   /**
+   * Enum for media type.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 20
+   */
+  enum MediaType {
+    /**
+     * Media type for audio.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    AUDIO = 0,
+
+    /**
+     * Media type for vide.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    VIDEO = 1,
+  }
+
+  /**
    * Define the ringtone category.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -168,6 +267,15 @@ declare namespace systemSoundManager {
    * @since 12
    */
   const TONE_CATEGORY_ALARM:number;
+
+  /**
+   * Define the contact tone category.
+   * @constant
+   * @syscap SystemCapability.Multimedia.SystemSound.Core
+   * @systemapi
+   * @since 20
+   */
+  const TONE_CATEGORY_CONTACTS:16;
 
   /**
    * Tone attributes.
@@ -269,6 +377,27 @@ declare namespace systemSoundManager {
      * @since 12
      */
     getCategory(): number;
+
+    /**
+     * Sets media type.
+     * @param { MediaType } type - Target media type.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    setMediaType(type: MediaType): void;
+
+    /**
+     * Gets media type. This function returns {@link MediaType#AUDIO} if the media type has not been changed
+     * by {@link setMediaType}.
+     * @returns { MediaType } Media type.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    getMediaType(): MediaType;
   }
 
   /**
@@ -577,6 +706,18 @@ declare namespace systemSoundManager {
     getRingtoneUri(context: BaseContext, type: RingtoneType): Promise<string>;
 
     /**
+     * Gets the ringtone attribute which is in use.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @returns { Promise<ToneAttrs> } Promise used to return the ringtone attribute in system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    getCurrentRingtoneAttribute(type: RingtoneType): Promise<ToneAttrs>;
+
+    /**
      * Gets attributes of the default ringtone.
      * @param { BaseContext } context - Current application context.
      * @param { RingtoneType } type - Ringtone type to get.
@@ -810,7 +951,21 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 12
      */
-    openAlarmTone(context: BaseContext, uri: string): Promise<number>
+    openAlarmTone(context: BaseContext, uri: string): Promise<number>;
+
+    /**
+     * Open tone list in batch.
+     * @param { Array<string> } uriList - List of uri to open. The length must be no more than 1024.
+     * @returns { Promise<Array<[string, number, SystemSoundError]>> } Promise used to return results of this operation.
+     * In each returned array number, the first item is uri of tone, the second item is fd, and the third item is error
+     * code. If the uri open failed, the fd will be -1, and the reason is indicated by the error code.
+     * @throws { BusinessError } 202 - Calleris not a system application.
+     * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    openToneList(uriList: Array<string>): Promise<Array<[string, number, SystemSoundError]>>;
 
     /**
      * Close fd.
@@ -845,6 +1000,27 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 12
      */
+    /**
+     * Add customized tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
+     * @param { string } externalUri - Tone uri in external storage.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700004 - Data size exceeds the limit.
+     * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
+     * @throws { BusinessError } 20700006 - Insufficient ROM space.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string): Promise<string>;
 
     /**
@@ -869,6 +1045,31 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 12
      */
+    /**
+     * Add customized tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
+     * @param { number } fd - File descriptor.
+     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     * is zero.
+     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     * bytes in the file from the offset.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters are left unspecified;
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone to add is not customized.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700004 - Data size exceeds the limit.
+     * @throws { BusinessError } 20700005 - The number of files exceeds the limit.
+     * @throws { BusinessError } 20700006 - Insufficient ROM space.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: number, offset?: number, length?: number)
       : Promise<string>;
 
@@ -890,6 +1091,21 @@ declare namespace systemSoundManager {
      * @since 12
      */
     removeCustomizedTone(context: BaseContext, uri:string): Promise<void>;
+
+    /**
+     * Remove customized tone list in batch.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { Array<string> } uriList - Uri list to remove. The length must be no more than 1024.
+     * @returns { Promise<Array<[string, SystemSoundError]>> } Promise used to return removing result array. In each
+     * array memeber, the first item is the tone uri, and the second item is the error code.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 20700007 - Prameter is invalid, e.g. the length of uriList is too long.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 20
+     */
+    removeCustomizedToneList(uriList: Array<string>): Promise<Array<[string, SystemSoundError]>>;
 
     /**
      * Get haptics settings.

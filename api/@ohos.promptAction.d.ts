@@ -768,7 +768,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -779,7 +779,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundEffect?: BackgroundEffectOptions;
 
@@ -911,6 +911,77 @@ declare namespace promptAction {
   }
 
   /**
+   * Enum for state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum CommonState {
+    /**
+     * Indicates it is uninitialized.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    UNINITIALIZED = 0,
+
+    /**
+     * Indicates it is initialized.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    INITIALIZED = 1,
+
+    /**
+     * Indicates it is appearig.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    APPEARING = 2,
+
+    /**
+     * Indicates it is appeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    APPEARED = 3,
+
+    /**
+     * Indicates it is disappearing.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    DISAPPEARING = 4,
+
+    /**
+     * Indicates it is disappeared.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    DISAPPEARED = 5,
+  }
+
+  /**
    * The class used to control common dialog.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -938,6 +1009,17 @@ declare namespace promptAction {
      * @since 18
      */
     close(): void;
+
+    /**
+     * Get the state.
+     *
+     * @returns { CommonState } return the state.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getState(): CommonState;
   }
 
   /**
@@ -1096,7 +1178,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     dialogTransition?: TransitionEffect;
 
@@ -1107,7 +1189,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     maskTransition?: TransitionEffect;
     
@@ -1220,7 +1302,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -1231,7 +1313,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     backgroundEffect?: BackgroundEffectOptions;
 
@@ -1301,7 +1383,7 @@ declare namespace promptAction {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 19
      */
     focusable?: boolean;
   }
@@ -1810,6 +1892,50 @@ declare namespace promptAction {
      * @since 15
      */
     immersiveMode?: ImmersiveMode;
+
+    /**
+     * Callback function when the menu appears.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDidAppear?: Callback<void>;
+
+    /**
+     * Callback function when the menu disappears.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onDidDisappear?: Callback<void>;
+
+    /**
+     * Callback function before the menu openAnimation starts.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillAppear?: Callback<void>;
+
+    /**
+     * Callback function before the menu closeAnimation starts.
+     *
+     * @type { ?Callback<void> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    onWillDisappear?: Callback<void>;
   }
 
   /**
@@ -1881,6 +2007,7 @@ declare namespace promptAction {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

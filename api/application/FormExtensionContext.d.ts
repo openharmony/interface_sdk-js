@@ -18,10 +18,12 @@
  * @kit FormKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from '../@ohos.base';
 import type { ConnectOptions } from '../ability/connectOptions';
-import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
+/*** endif */
+import ExtensionContext from './ExtensionContext';
 
 /**
  * The context of form extension. It allows access to
@@ -40,9 +42,10 @@ import Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class FormExtensionContext extends ExtensionContext {
+declare class FormExtensionContext extends ExtensionContext {
   /**
    * Start an ability within the same bundle.
    *
@@ -178,3 +181,4 @@ export default class FormExtensionContext extends ExtensionContext {
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
 }
+export default FormExtensionContext;

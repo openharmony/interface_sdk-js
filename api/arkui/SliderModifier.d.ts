@@ -30,6 +30,16 @@
  * @atomicservice
  * @since 12
 */
+/**
+ * Defines Slider Modifier
+ *
+ * @extends SliderAttribute
+ * @implements AttributeModifier<SliderAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare class SliderModifier extends SliderAttribute implements AttributeModifier<SliderAttribute> {
 
   /**

@@ -111,6 +111,21 @@ declare namespace distributedAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Gets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
+     * ohos.permission.GET_DISTRIBUTED_ACCOUNTS)
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     */
     getOsAccountDistributedInfoByLocalId(localId: number, callback: AsyncCallback<DistributedInfo>): void;
 
     /**
@@ -128,6 +143,21 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Gets the distributed information of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
+     * ohos.permission.GET_DISTRIBUTED_ACCOUNTS)
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @returns { Promise<DistributedInfo> } The distributed information of the specified OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      */
     getOsAccountDistributedInfoByLocalId(localId: number): Promise<DistributedInfo>;
 

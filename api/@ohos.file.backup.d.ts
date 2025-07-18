@@ -662,6 +662,36 @@ declare namespace backup {
      * @since 18
      */
     cancel(bundleName: string): number;
+
+     /**
+     * Provides an interface for the tool to clear temporary directories
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application to be cleaned.
+     * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 
   /**
@@ -871,6 +901,36 @@ declare namespace backup {
      * @since 18
      */
     cancel(bundleName: string): number;
+
+    /**
+     * Provides an interface for the tool to clear temporary directories
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application to be cleaned.
+     * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 
   /**
@@ -1014,6 +1074,36 @@ declare namespace backup {
      * @since 18
      */
     cancel(bundleName: string): number;
+
+    /**
+     * Provides an interface for the tool to clear temporary directories
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application to be cleaned.
+     * @returns { Promise<boolean> } Return clean result, true is success, false is fail.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    cleanBundleTempDir(bundleName: string): Promise<boolean>;
+
+    /**
+     * Provides an interface for the tool to get compatibility info.
+     * @permission ohos.permission.BACKUP
+     * @param { string } bundleName - Set the bundleName of the application that need to get compatibilityInfo.
+     * @param { string } extInfo - Indicates the extension information of application.
+     * @returns { Promise<string> } Return compatibility info.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 20
+     */
+    getCompatibilityInfo(bundleName: string, extInfo: string): Promise<string>;
   }
 }
 export default backup;

@@ -61,6 +61,25 @@ declare namespace screenshot {
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
+   * Screen capture, supporting HDR screenshots when there is HDR content.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { HdrScreenshotOptions } [options] - Screenshot parameters.
+   * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
+   * return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available, only return one SDR PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
+
+  /**
    * Takes a screenshot and saves it as a PixelMap object.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
@@ -302,6 +321,53 @@ declare namespace screenshot {
      * @since 14
      */
     isNotificationNeeded?: boolean;
+    /**
+     * The capture action is need take screenshots of all displays on this screen.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isCaptureFullOfScreen?: boolean;
+  }
+
+  /**
+   * Describes hdr screenshot options.
+   *
+   * @interface HdrScreenshotOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  interface HdrScreenshotOptions {
+    /**
+     * ID of the screen to be captured.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    displayId?: number;
+    /**
+     * The capture action is need notification.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isNotificationNeeded?: boolean;
+    /**
+     * The capture action is need take screenshots of all displays on this screen.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    isCaptureFullOfScreen?: boolean;
   }
 }
 

@@ -315,6 +315,26 @@ declare namespace appManager {
        * @since 14
        */
       setter: KeepAliveSetter;
+
+      /**
+       * The user id of setter.
+       *
+       * @type { ?number }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 20
+       */
+      setterUserId?: number;
+
+      /**
+       * Weather allow user to cancel keep-alive status.
+       *
+       * @type { ?boolean }
+       * @syscap SystemCapability.Ability.AbilityRuntime.Core
+       * @systemapi
+       * @since 20
+       */
+      allowUserToCancel?: boolean;
     }
   
   /**
@@ -652,7 +672,7 @@ declare namespace appManager {
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - bundle name.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { number } [appIndex] - The application index.
+   * @param { number } [appIndex] - The index of clone app.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -1170,7 +1190,7 @@ declare namespace appManager {
    * @throws { BusinessError } 16300005 - The target bundle does not exist.
    * @throws { BusinessError } 16300008 - The target bundle has no MainAbility.
    * @throws { BusinessError } 16300009 - The target bundle has no status-bar ability.
-   * @throws { BusinessError } 16300010 - The target application is not attached to status bar.
+   * @throws { BusinessError } 16300010 - The target application is not attached to the status bar.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 14
@@ -1197,6 +1217,42 @@ declare namespace appManager {
   function getKeepAliveBundles(type: KeepAliveAppType, userId?: number): Promise<Array<KeepAliveBundleInfo>>;
 
   /**
+   * Set keep alive for the specified app service extension.
+   *
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
+   * @param { string } bundleName - bundle name.
+   * @param { boolean } enabled - True indicates to enable process keep-alive, while false indicates to disable it.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000081 - Failed to obtain the target application information.
+   * @throws { BusinessError } 16000202 - Invalid main element type.
+   * @throws { BusinessError } 16000203 - Cannot change the keep-alive status.
+   * @throws { BusinessError } 16000204 - The target bundle is not in u1.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   */
+  function setKeepAliveForAppServiceExtension(bundleName: string, enabled: boolean): Promise<void>;
+
+  /**
+   * Get keep-alive bundle information.
+   *
+   * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
+   * @returns { Promise<Array<KeepAliveBundleInfo>> } Returns the list of KeepAliveBundleInfo.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 20
+   */
+  function getKeepAliveAppServiceExtensions(): Promise<Array<KeepAliveBundleInfo>>;
+
+  /**
    * Kill processes in batch.
    *
    * @permission ohos.permission.KILL_APP_PROCESSES
@@ -1219,8 +1275,7 @@ declare namespace appManager {
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
 
@@ -1229,8 +1284,7 @@ declare namespace appManager {
    *
    * @typedef { _AppStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 14
    */
   export type AppStateData = _AppStateData.default;
 
@@ -1274,8 +1328,7 @@ declare namespace appManager {
    *
    * @typedef { _ProcessData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 10
+   * @since 14
    */
   export type ProcessData = _ProcessData.default;
 
