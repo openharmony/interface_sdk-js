@@ -1376,12 +1376,12 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ReplyResult> } callback - Indicates the devicemanager ui state to register.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified type is greater than 255.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since arkts {'1.1':'10','1.2':'20'}
@@ -1413,12 +1413,12 @@ declare namespace distributedDeviceManager {
      * @param { Callback<ReplyResult> } [callback] - Indicates the devicemanager ui state to unregister.
      * @throws { BusinessError } 201 - Permission verification failed. 
      *                                 The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
      *                                                  2. Incorrect parameter type;
      *                                                  3. Parameter verification failed;
      *                                                  4. The size of specified type is greater than 255.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since arkts {'1.1':'10','1.2':'20'}
