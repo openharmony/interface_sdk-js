@@ -4016,7 +4016,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } deviceType - The device.
-   * @param { int } status - The device status.
+   * @param { long } status - The device status.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -4027,7 +4027,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setTargetDeviceStatus(deviceType: string, status: int): Promise<void>;
+  function setTargetDeviceStatus(deviceType: string, status: long): Promise<void>;
 
   /**
    * Disabling notifications based on the application list.

@@ -342,7 +342,7 @@ export interface BadgeNumberCallbackData {
   /**
    * Application instance key.
    *
-   * @type { ?int }
+   * @type { ?number }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -350,7 +350,7 @@ export interface BadgeNumberCallbackData {
    * @deprecated since 15
    * @useinstead BadgeNumberCallbackData#appInstanceKey
    */
-  readonly instanceKey?: int;
+  readonly instanceKey?: number;
 
   /**
    * Application instance key.
