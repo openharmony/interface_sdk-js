@@ -2941,7 +2941,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     staticIpv6?: Ipv6Config;
 
@@ -3090,7 +3089,6 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface Ipv6Config {
     /**
@@ -3099,7 +3097,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     ipAddress: string;
  
@@ -3109,7 +3106,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     gateway: string;
  
@@ -3119,7 +3115,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     prefixLength: number;
  
@@ -3129,7 +3124,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     dnsServers: Array<string>;
  
@@ -3139,7 +3133,6 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 20
-     * @arkts 1.1&1.2
      */
     domains: Array<string>;
   }
