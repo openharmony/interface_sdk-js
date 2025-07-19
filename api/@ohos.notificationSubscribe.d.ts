@@ -52,13 +52,13 @@ declare namespace notificationSubscribe {
     /**
      * Notify ID.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * Notification label.
@@ -75,7 +75,7 @@ declare namespace notificationSubscribe {
   /**
    * Reason for remove a notification
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -415,7 +415,7 @@ declare namespace notificationSubscribe {
    * Remove all notifications under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { AsyncCallback<void> } callback - The callback of removeAll.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -430,13 +430,13 @@ declare namespace notificationSubscribe {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function removeAll(userId: number, callback: AsyncCallback<void>): void;
+  function removeAll(userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Remove all notifications under the specified user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -451,7 +451,7 @@ declare namespace notificationSubscribe {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function removeAll(userId: number): Promise<void>;
+  function removeAll(userId: int): Promise<void>;
 
   /**
    * RemoveAll all notifications.
@@ -529,24 +529,24 @@ declare namespace notificationSubscribe {
      /**
       * action operation type
       *
-      * @type { ?number }
+      * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 20
       * @arkts 1.1&1.2
       */
-     operationType?: number;
+     operationType?: int;
 
      /**
       * action button index
       *
-      * @type { ?number }
+      * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 20
       * @arkts 1.1&1.2
       */
-     buttonIndex?: number;
+     buttonIndex?: int;
    }
 
   /**
