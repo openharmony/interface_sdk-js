@@ -1348,7 +1348,6 @@ declare namespace appManager {
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @since 20
    * @arkts 1.2
    */
