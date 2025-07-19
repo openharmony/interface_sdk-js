@@ -33,7 +33,8 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace uiAppearance
  * @syscap SystemCapability.ArkUI.UiAppearance
- * @since 20
+ * @since arkts {'1.1':'20','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace uiAppearance {
   /**
@@ -49,7 +50,8 @@ declare namespace uiAppearance {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DarkMode {
     /**
@@ -63,7 +65,8 @@ declare namespace uiAppearance {
      * Always display with dark mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20
+     * @since arkts {'1.1':'20','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALWAYS_DARK = 0,
 
@@ -78,7 +81,8 @@ declare namespace uiAppearance {
      * Always display with light mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20
+     * @since arkts {'1.1':'20','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALWAYS_LIGHT = 1
   }
@@ -97,7 +101,8 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
@@ -115,7 +120,8 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDarkMode(mode: DarkMode): Promise<void>;
 
@@ -144,7 +150,8 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDarkMode(): DarkMode;
 
@@ -163,7 +170,8 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setFontScale(fontScale: number): Promise<void>;
 
@@ -193,7 +201,8 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFontScale(): number;
 
@@ -212,7 +221,8 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
@@ -242,7 +252,8 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getFontWeightScale(): number;
 }
