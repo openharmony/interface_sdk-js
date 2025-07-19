@@ -392,6 +392,8 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 18
+   * @deprecated since 20
+   * @useinstead getPublishedRunningFormInfoById
    */
   function getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>;
 
@@ -406,8 +408,41 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 18
+   * @deprecated since 20
+   * @useinstead getPublishedRunningFormInfos
    */
   function getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Get running form info by form id belonging to the current bundle. 
+   *
+   * @param { string } formId - Indicates the form ID.
+   * @returns { Promise<formInfo.RunningFormInfo> } Returns the running formInfo.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
+   
+  /**
+   * Get running form infos of all published forms belonging to current bundle.  
+   *
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns published running formInfo belongs to the caller
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
   /**
    * Open the view of forms belonging to current bundle.
