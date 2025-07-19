@@ -15,6 +15,12 @@
 
 import { JSDoc, JSDocTag } from "../../../utils/api_check_wrapper_typedef";
 
+/**
+ * 解析JSDoc字符串
+ * 
+ * @param { string } jsDocContent JSDoc字符串
+ * @returns { JSDoc[] } JSDoc数组
+ */
 export function parseJSDoc(jsDocContent: string): JSDoc[] {
   const jsdocReg: RegExp = /(\/\*\*\s)(.|\n)*?(\s\*\/)/g;
   const jsDocs: JSDoc[] = [];
@@ -33,6 +39,12 @@ export function parseJSDoc(jsDocContent: string): JSDoc[] {
   return jsDocs;
 }
 
+/**
+ * 匹配JSDoc整体内容
+ * 
+ * @param { string } jsDocContent 
+ * @returns { string }
+ */
 function collectDescription(jsDocContent: string): string {
   const jsDocDescriptionReg: RegExp = /(?<=\/\*\*\s)(.|\n)*?(?=(\s|\*)(\@|\s\*\/))/g;
   let description: string = '';
@@ -43,6 +55,12 @@ function collectDescription(jsDocContent: string): string {
   return description;
 }
 
+/**
+ * 匹配"@"符号后内容
+ * 
+ * @param { string } jsDocContent 
+ * @returns { JSDocTag[] }
+ */
 function collectJSDocTags(jsDocContent: string): JSDocTag[] {
   const jsdocTagReg: RegExp = /(?<=(\s|\*)\@)(.|\n)*?(?=(\@|\s\*\/))/g;
   const jsDocTags: JSDocTag[] = [];
@@ -59,20 +77,25 @@ function collectJSDocTags(jsDocContent: string): JSDocTag[] {
   return jsDocTags;
 }
 
+/**
+ * 将解析后的JSDoc内容组装成JSDocTag对象
+ * 
+ * @param { string } jsDocTagContent 
+ * @returns { JSDocTag | undefined }
+ */
 function collectJSDocTag(jsDocTagContent: string): JSDocTag | undefined {
   const jsDocTagTypeReg: RegExp = /(?<=\{).*?(?=\})/;
   let content: string = jsDocTagContent;
   const tagMatch: RegExpMatchArray | null = content.match(/\S+/);
+  const jsDocTag: JSDocTag = {
+    tag: '',
+    name: '',
+    description: '',
+    comment: ''
+  }
   if (tagMatch && tagMatch[0]) {
-    const jsDocTag: JSDocTag = {
-      tag: tagMatch[0]
-    };
+    jsDocTag.tag = tagMatch[0];
     content = content.replace(tagMatch[0], '').trim();
-    const tagTypeMatch: RegExpMatchArray | null = content.match(jsDocTagTypeReg);
-    if (tagTypeMatch && tagTypeMatch[0]) {
-      jsDocTag.type = tagTypeMatch[0].trim();
-      content = content.replace(`{${tagTypeMatch[0]}}`, '').trim();
-    }
     if (/\S+/g.test(content)) {
       jsDocTag.comment = content;
       const tagNameMatch: RegExpMatchArray | null = content.match(/\S+/);

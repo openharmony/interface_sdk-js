@@ -14,6 +14,6 @@
  */
 
 export enum DiagnosticCategory {
-  Warning = 0,
-  Error = 1
+  WARNING = 0,
+  ERROR = 1
 }

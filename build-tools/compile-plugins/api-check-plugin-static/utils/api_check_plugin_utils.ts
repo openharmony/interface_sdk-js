@@ -52,8 +52,9 @@ import { PermissionValidTokenState } from './api_check_plugin_enums';
 
 /**
  * 从 JSON 文件中提取所有 src 字段到数组
- * @param filePath JSON 文件的绝对路径
- * @returns 包含所有 src 字段的字符串数组
+ * 
+ * @param { string } filePath JSON 文件的绝对路径
+ * @returns { string[] } 包含所有 src 字段的字符串数组
  * @throws 文件不存在、JSON 解析错误或数据结构不符时抛出异常
  */
 export function extractSrcPaths(filePath: string): string[] {
@@ -98,6 +99,12 @@ export function extractSrcPaths(filePath: string): string[] {
   }
 }
 
+/**
+ * 判断当前ets文件是否是卡片文件
+ * 
+ * @param { string } file 当前ets文件路径
+ * @returns { boolean } 是否为卡片文件
+ */
 export function isCardFile(file: string): boolean {
   if (globalObject.projectConfig.cardPageSet.includes(file)) {
     return true;
@@ -108,9 +115,9 @@ export function isCardFile(file: string): boolean {
 /**
  * 校验since标签，当前api版本是否小于等于compatibleSdkVersion
  * 
- * @param { JSDoc[] } jsDocs 
- * @param config 
- * @returns 
+ * @param { JSDoc[] } jsDocs 当前api的JSDoc
+ * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
+ * @returns { boolean } 是否报错该since标签
  */
 export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
   if (jsDocs && jsDocs.length > 0) {
@@ -126,26 +133,25 @@ export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem)
 }
 
 /**
- * 获取版本号最小的JSDoc
+ * 获取最小的Since版本号
+ * 
  * @param { JSDoc[] } jsDocs 
  * @returns { number }
  */
 function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
   let minorVersion: number = 0;
   if (jsDocs && jsDocs.length > 0) {
-    for (let i = 0; i < jsDocs.length; i++) {
-      const jsdoc: JSDoc = jsDocs[i];
-      if (jsdoc.tags && jsdoc.tags.length > 0) {
-        for (let j = 0; j < jsdoc.tags.length; j++) {
-          const tag: JSDocTag = jsdoc.tags[j];
-          if (tag.tag === SINCE_TAG_NAME) {
-            const currentVersion: number = Number.parseInt(tag.name ?? '');
-            if (minorVersion === 0 ||
-              !Number.isNaN(currentVersion) && currentVersion > minorVersion) {
-              minorVersion = currentVersion;
-            }
-            break;
+    const jsdoc: JSDoc = jsDocs[0];
+    if (jsdoc.tags && jsdoc.tags.length > 0) {
+      for (let i = 0; i < jsdoc.tags.length; i++) {
+        const tag: JSDocTag = jsdoc.tags[i];
+        if (tag.tag === SINCE_TAG_NAME) {
+          const currentVersion: number = Number.parseInt(tag.name ?? '');
+          if (minorVersion === 0 ||
+            !Number.isNaN(currentVersion) && currentVersion > minorVersion) {
+            minorVersion = currentVersion;
           }
+          break;
         }
       }
     }
@@ -155,35 +161,18 @@ function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
 
 /**
  * 获取最新版本的JSDoc
+ * 
  * @param { JSDoc[] } jsDocs 
  * @returns { JSDoc }
  */
 function getCurrentJSDoc(jsDocs: JSDoc[]): JSDoc {
-  let minorVersion: number = 0;
-  let currentJsDoc: JSDoc = jsDocs[0];
-  if (jsDocs && jsDocs.length > 0) {
-    for (let i = 0; i < jsDocs.length; i++) {
-      const jsdoc: JSDoc = jsDocs[i];
-      if (jsdoc.tags && jsdoc.tags.length > 0) {
-        for (let j = 0; j < jsdoc.tags.length; j++) {
-          const tag: JSDocTag = jsdoc.tags[j];
-          if (tag.name === SINCE_TAG_NAME) {
-            const currentVersion: number = Number.parseInt(tag.name);
-            if (!Number.isNaN(currentVersion) && minorVersion > currentVersion) {
-              minorVersion = currentVersion;
-              currentJsDoc = jsdoc;
-            }
-            break;
-          }
-        }
-      }
-    }
-  }
+  let currentJsDoc: JSDoc = jsDocs[jsDocs.length - 1];
   return currentJsDoc;
 }
 
 /**
  * 获取最新版本的JSDoc
+ * 
  * @param { JSDoc } jsDoc
  * @param { string } tagName
  * @returns { JSDocTag | undefined }
@@ -196,8 +185,12 @@ function getJSDocTag(jsDoc: JSDoc, tagName: string): JSDocTag | undefined {
 }
 
 /**
- * STER1. Parse the permission information configured on the API
+ * STEP1. Parse the permission information configured on the API
  * STEP2. Recursive queue to obtain whether the current permission configuration supports it
+ * 
+ * @param { string } comment jsdoc中comment信息
+ * @param { string[] } permissionsArray 应用permission集合
+ * @returns { boolean }
  */
 function validPermission(comment: string, permissionsArray: string[]): boolean {
   const permissionsItem: string[] = getSplitsArrayWithDesignatedCharAndStr(comment ?? '', ' ')
@@ -206,13 +199,13 @@ function validPermission(comment: string, permissionsArray: string[]): boolean {
     });
   const permissionsQueue: string[] = [];
   permissionsItem.forEach((item: string) => {
-    //STEP1.1 Parse'('
+    // STEP1.1 Parse'('
     const leftParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr([item], '(');
-    //STEP1.2 Parse')'
+    // STEP1.2 Parse')'
     const rightParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr(leftParenthesisItem, ')');
     permissionsQueue.push(...rightParenthesisItem);
   });
-  //STEP2
+  // STEP2
   const calcValidResult: PermissionVaildCalcInfo = {
     valid: false,
     currentToken: PermissionValidTokenState.Init,
@@ -223,6 +216,13 @@ function validPermission(comment: string, permissionsArray: string[]): boolean {
   return calcValidResult.valid;
 }
 
+/**
+ * 检测数组中是否包含括号
+ * 
+ * @param { string[] } permissionsQueue 
+ * @param { string[] } permissions 
+ * @param { PermissionVaildCalcInfo } calcValidResult 
+ */
 function validPermissionRecursion(permissionsQueue: string[], permissions: string[],
   calcValidResult: PermissionVaildCalcInfo): void {
   if (permissionsQueue.some(item => ['(', ')'].includes(item))) {
@@ -234,10 +234,25 @@ function validPermissionRecursion(permissionsQueue: string[], permissions: strin
   }
 }
 
+/**
+ * 分割字符串
+ * 
+ * @param { string } permission 
+ * @param { string } designatedChar 
+ * @returns { string[] }
+ */
 function getSplitsArrayWithDesignatedCharAndStr(permission: string, designatedChar: string): string[] {
   return permission.split(designatedChar).map(item => item.trim());
 }
 
+/**
+ * 处理Permission项
+ * 
+ * @param { PermissionValidCalcGroup[] } groups 
+ * @param { PermissionVaildCalcInfo } calcValidResult 
+ * @param { string[] } permissions 
+ * @returns { string[] }
+ */
 function getGroupItemPermission(
   groups: PermissionValidCalcGroup[],
   calcValidResult: PermissionVaildCalcInfo,
@@ -262,6 +277,12 @@ function getGroupItemPermission(
   return groupJoin;
 }
 
+/**
+ * 使用计数器根据括号分组
+ * 
+ * @param { string[] } stack 
+ * @returns { PermissionValidCalcGroup[] }
+ */
 function groupWithParenthesis(stack: string[]): PermissionValidCalcGroup[] {
   let currentLeftParenthesisCount: number = 0;
   const groups: PermissionValidCalcGroup[] = [];
@@ -301,6 +322,14 @@ function groupWithParenthesis(stack: string[]): PermissionValidCalcGroup[] {
   return groups;
 }
 
+/**
+ * 深度优先遍历递归处理atomStacks
+ * 
+ * @param { string[] } atomStacks 
+ * @param { PermissionVaildCalcInfo } calcValidResult 
+ * @param { string[] } configPermissions 
+ * @returns 
+ */
 function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: PermissionVaildCalcInfo,
   configPermissions: string[]): void {
   if (calcValidResult.finish) {
@@ -344,6 +373,14 @@ function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: Permissi
   }
 }
 
+/**
+ * 处理Or
+ * 
+ * @param { string[] } atomStacks 
+ * @param { PermissionVaildCalcInfo } calcValidResult 
+ * @param { string[] } configPermissions 
+ * @returns 
+ */
 function inValidOrExpression(
   atomStacks: string[],
   calcValidResult: PermissionVaildCalcInfo,
@@ -359,6 +396,14 @@ function inValidOrExpression(
   return false;
 }
 
+/**
+ * 处理And
+ * 
+ * @param { string[] } atomStacks 
+ * @param { PermissionVaildCalcInfo } calcValidResult 
+ * @param { string[] } configPermissions 
+ * @returns 
+ */
 function inValidAndExpression(
   atomStacks: string[],
   calcValidResult: PermissionVaildCalcInfo,
@@ -375,10 +420,24 @@ function inValidAndExpression(
   return false;
 }
 
+/**
+ * 基础校验PermissionItem
+ * 
+ * @param { string } atomStackItem 
+ * @param { string[] } configPermissions 
+ * @returns { boolean }
+ */
 function validPermissionItem(atomStackItem: string, configPermissions: string[]): boolean {
   return atomStackItem === '' || configPermissions.includes(atomStackItem);
 }
 
+/**
+ * 递归分割leftParenthesisItems
+ * 
+ * @param { string[] } leftParenthesisItems 
+ * @param { string } designatedChar 
+ * @returns { string[] }
+ */
 function getSplitsArrayWithDesignatedCharAndArrayStr(
   leftParenthesisItems: string[],
   designatedChar: string
@@ -406,14 +465,14 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
 }
 
 /**
-* get jsDocNodeCheckConfigItem object
+* 获取jsDocNodeCheckConfigItem配置项
 *
-* @param {string[]} tagName - tag name
-* @param {string} message - error message
-* @param {DiagnosticCategory} type - error type
-* @param {boolean} tagNameShouldExisted - tag is required
-* @param {CheckValidCallbackInterface} checkValidCallback
-* @returns  {JsDocNodeCheckConfigItem}
+* @param { string[] } tagName - tag name
+* @param { string } message - error message
+* @param { DiagnosticCategory } type - error type
+* @param { boolean } tagNameShouldExisted - tag is required
+* @param { CheckValidCallbackInterface } checkValidCallback
+* @returns { JsDocNodeCheckConfigItem }
 */
 export function getJsDocNodeCheckConfigItem(tagName: string[], message: string, type: DiagnosticCategory,
   tagNameShouldExisted: boolean, checkValidCallback?: CheckValidCallbackInterface): JsDocNodeCheckConfigItem {
@@ -428,7 +487,7 @@ export function getJsDocNodeCheckConfigItem(tagName: string[], message: string, 
 
 /**
  * 创建/清空工程配置
- * @param { ProjectConfig } projectConfig 
+ * 
  * @returns { ProjectConfig }
  */
 export function createOrCleanProjectConfig(): ProjectConfig {
@@ -473,194 +532,11 @@ export function createOrCleanProjectConfig(): ProjectConfig {
 }
 
 /**
- * 初始化工程配置
- * @param { ProjectConfig } projectConfig 
+ * 递归读取目录下所有文件路径
+ * 
+ * @param { string } dir 
+ * @param { string[] } utFiles 
  */
-export function initProjectConfig(): void {
-  // 绑定cardPageSet
-  readCardPageSet();
-  // 绑定systemModules
-  readSystemModules();
-  // 绑定syscap
-  readSyscapInfo();
-  // 绑定permission
-  readPermissions();
-}
-
-/**
- * read permissionInfo to this.share.projectConfig
- */
-export function readPermissions(): void {
-  const permission: ConfigPermission = globalObject.projectConfig.permissions;
-  if (permission.requestPermissions) {
-    globalObject.projectConfig.requestPermissions = getPermissionFromConfig(permission.requestPermissions);
-  }
-  if (permission.definePermissions) {
-    globalObject.projectConfig.definePermissions = getPermissionFromConfig(permission.definePermissions);
-  }
-  globalObject.projectConfig.permissionsArray =
-    [...globalObject.projectConfig.requestPermissions, ...globalObject.projectConfig.definePermissions];
-}
-
-function getPermissionFromConfig(array: Array<{ name: string }>): string[] {
-  return array.map((item: { name: string }) => {
-    return String(item.name);
-  });
-}
-
-function readSystemModules() {
-  const apiDirPath = path.resolve(globalObject.projectConfig.buildSdkPath, './api');
-  const arktsDirPath = path.resolve(globalObject.projectConfig.buildSdkPath, './arkts');
-  const kitsDirPath = path.resolve(globalObject.projectConfig.buildSdkPath, './kits');
-  const systemModulePathArray = [apiDirPath, arktsDirPath, kitsDirPath];
-
-  systemModulePathArray.forEach(systemModulesPath => {
-    if (fs.existsSync(systemModulesPath)) {
-      const modulePaths = [];
-      readFile(systemModulesPath, modulePaths);
-      globalObject.projectConfig.systemModules.push(...fs.readdirSync(systemModulesPath));
-      modulePaths.filter(filePath => {
-        const dirName = path.dirname(filePath);
-        return !(dirName === apiDirPath || dirName === arktsDirPath || dirName === kitsDirPath);
-      }).map((filePath: string) => {
-        return filePath
-          .replace(apiDirPath, '')
-          .replace(arktsDirPath, '')
-          .replace(kitsDirPath, '')
-          .replace(/(^\\)|(.d.e?ts$)/g, '')
-          .replace(/\\/g, '/');
-      });
-      globalObject.projectConfig.allModulesPaths.push(...modulePaths);
-    }
-  });
-  const defaultSdkConfigs: SdkConfig[] = [
-    {
-      'apiPath': systemModulePathArray,
-      'prefix': '@ohos'
-    }, {
-      'apiPath': systemModulePathArray,
-      'prefix': '@system'
-    }, {
-      'apiPath': systemModulePathArray,
-      'prefix': '@arkts'
-    }
-  ];
-  const externalApiPathStr = globalObject.projectConfig.externalApiPaths || '';
-  const externalApiPaths = externalApiPathStr.split(path.delimiter);
-  globalObject.projectConfig.externalSdkPaths = [...externalApiPaths];
-  const extendSdkConfigs: SdkConfig[] = [];
-  collectExternalModules(externalApiPaths, extendSdkConfigs);
-  globalObject.projectConfig.sdkConfigs = [...defaultSdkConfigs, ...extendSdkConfigs];
-}
-
-function collectExternalModules(sdkPaths: string[], extendSdkConfigs: SdkConfig[]): void {
-  for (let i = 0; i < sdkPaths.length; i++) {
-    const sdkPath = sdkPaths[i];
-    const sdkConfigPath = path.resolve(sdkPath, 'sdkConfig.json');
-    if (!fs.existsSync(sdkConfigPath)) {
-      continue;
-    }
-    const sdkConfig: SdkConfig = JSON.parse(fs.readFileSync(sdkConfigPath, 'utf-8'));
-    if (!sdkConfig.apiPath) {
-      continue;
-    }
-    let externalApiPathArray: string[] = [];
-    if (Array.isArray(sdkConfig.apiPath)) {
-      externalApiPathArray = sdkConfig.apiPath;
-    } else {
-      externalApiPathArray.push(sdkConfig.apiPath);
-    }
-    const resolveApiPathArray: string[] = [];
-    externalApiPathArray.forEach((element: string) => {
-      const resolvePath: string = path.resolve(sdkPath, element);
-      resolveApiPathArray.push(resolvePath);
-      if (fs.existsSync(resolvePath)) {
-        const extrenalModulePaths = [];
-        globalObject.projectConfig.systemModules.push(...fs.readdirSync(resolvePath));
-        readFile(resolvePath, extrenalModulePaths);
-        globalObject.projectConfig.allModulesPaths.push(...extrenalModulePaths);
-      }
-    });
-    globalObject.projectConfig.sdkConfigPrefix += `|${sdkConfig.prefix.replace(/^@/, '')}`;
-    sdkConfig.apiPath = resolveApiPathArray;
-    extendSdkConfigs.push(sdkConfig);
-  }
-}
-
-/**
- * 根据配置读取卡片列表
- */
-function readCardPageSet(): void {
-  if (globalObject.projectConfig.aceModuleJsonPath && fs.existsSync(globalObject.projectConfig.aceModuleJsonPath)) {
-    globalObject.projectConfig.compileMode = STAGE_COMPILE_MODE;
-    const moduleJson: any = JSON.parse(fs.readFileSync(globalObject.projectConfig.aceModuleJsonPath).toString());
-    const extensionAbilities: any = moduleJson?.module?.extensionAbilities;
-    if (extensionAbilities && extensionAbilities.length > 0) {
-      setCardPages(extensionAbilities);
-    }
-  }
-}
-
-function setCardPages(extensionAbilities: any) {
-  if (extensionAbilities && extensionAbilities.length > 0) {
-    extensionAbilities.forEach((extensionAbility: any) => {
-      if (extensionAbility.type === 'form' && extensionAbility.metadata) {
-        extensionAbility.metadata.forEach((metadata: any) => {
-          if (metadata.resource) {
-            readCardResource(metadata.resource);
-          }
-        });
-      }
-    });
-  }
-}
-
-function readCardResource(resource: string) {
-  const cardJsonFileName: string = `${resource.replace(/\$profile\:/, '')}.json`;
-  const modulePagePath: string = path.resolve(globalObject.projectConfig.aceProfilePath, cardJsonFileName);
-  if (fs.existsSync(modulePagePath)) {
-    const cardConfig: any = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
-    if (cardConfig.forms) {
-      cardConfig.forms.forEach((form: any) => {
-        readCardForm(form);
-      });
-    }
-  }
-}
-
-function readCardForm(form: any) {
-  if ((form.type && form.type === 'eTS') || (form.uiSyntax && form.uiSyntax === 'arkts')) {
-    const cardPath = path.resolve(globalObject.projectConfig.projectPath, '..', form.src);
-    if (cardPath && fs.existsSync(cardPath) && !globalObject.projectConfig.cardPageSet.includes(cardPath)) {
-      globalObject.projectConfig.cardPageSet.push(cardPath);
-    }
-  }
-}
-
-/**
- * 更新工程配置
- * @param { ProjectConfig } targetProjectConfig 
- * @param { ProjectConfig } newProjectConfig 
- */
-export function updateProjectConfig(newProjectConfig: ProjectConfig): void {
-  Object.assign(globalObject.projectConfig, {
-    bundleName: newProjectConfig.bundleName,
-    moduleName: newProjectConfig.moduleName,
-    cachePath: newProjectConfig.cachePath,
-    permissions: newProjectConfig.permissions,
-    projectRootPath: newProjectConfig.projectRootPath,
-    isCrossplatform: newProjectConfig.isCrossplatform,
-    ignoreCrossplatformCheck: newProjectConfig.ignoreCrossplatformCheck,
-    bundleType: newProjectConfig.bundleType,
-    compileSdkVersion: newProjectConfig.compileSdkVersion,
-    compatibleSdkVersion: newProjectConfig.compatibleSdkVersion,
-    projectPath: newProjectConfig.projectPath,
-    aceProfilePath: newProjectConfig.aceProfilePath,
-    buildSdkPath: newProjectConfig.buildSdkPath,
-    deviceTypes: newProjectConfig.deviceTypes
-  });
-}
-
 export function readFile(dir: string, utFiles: string[]): void {
   try {
     const files: string[] = fs.readdirSync(dir);
@@ -679,7 +555,7 @@ export function readFile(dir: string, utFiles: string[]): void {
 }
 
 /**
-*  Determine the necessity of permission check
+*  确认是否校验permission
 *
 * @param { JSDoc[] } jsDocs
 * @param { JsDocNodeCheckConfigItem } config
@@ -693,49 +569,13 @@ export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfig
   }
   const permissionExpression: string = jsDocTag.comment ?? '';
   config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
-  return permissionExpression !== '' && !validPermission(permissionExpression, globalObject.projectConfig.permissionsArray);
+  return permissionExpression !== '' && 
+  !validPermission(permissionExpression, globalObject.projectConfig.permissionsArray);
 }
 
 /**
- * Confirm compliance since
- * Only major version can be passed in, such as "19";
- * major and minor version can be passed in, such as "19.1"; major minor and patch
- * patch version can be passed in, such as "19.1.2"
- * the major version be from 1-999
- * the minor version be from 0-999
- * the patch version be from 0-999
+ * 确定是否检查syscap
  * 
- * @param {string} since
- * @return {boolean}
- */
-function isCompliantSince(since: string): boolean {
-  return /^(?!0\d)[1-9]\d{0,2}(?:\.[1-9]\d{0,2}|\.0){0,2}$\d{0,2}$/.test(since);
-}
-
-/**
- * compare point version
- * @param { string } firstVersion 
- * @param { string } secondVersion 
- * @returns { number }
- */
-function comparePointVersion(firstVersion: string, secondVersion: string): number {
-  const firstPointVersion = firstVersion.split('.');
-  const secondPointVersion = secondVersion.split('.');
-  for (let i = 0; i < 3; i++) {
-    const part1 = parseInt(firstPointVersion[i] || '0', 10);
-    const part2 = parseInt(secondPointVersion[i] || '0', 10);
-    if (part1 < part2) {
-      return -1;
-    }
-    if (part1 > part2) {
-      return 1;
-    }
-  }
-  return 0;
-}
-
-/**
- * Determine the necessity of syscap check.
  * @param { JSDoc[] } jsDocs
  * @param { JsDocNodeCheckConfigItem } config 
  * @returns { boolean }
@@ -752,100 +592,23 @@ export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem
       }
     }
   }
-  return globalObject.projectConfig.syscapIntersectionSet && !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
+  return globalObject.projectConfig.syscapIntersectionSet && 
+  !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
 }
 
 /**
- * read syscapInfo to projectConfig
+ * 组装打印信息
+ * 
+ * @param { string } apiName 
+ * @param { string } currentFilePath 
+ * @param { CurrentAddress } currentAddress 
+ * @param { DiagnosticCategory } logLevel 
+ * @param { string } logMessage 
  */
-export function readSyscapInfo(): void {
-  globalObject.projectConfig.deviceTypesMessage = globalObject.projectConfig.deviceTypes.join(',');
-  const deviceDir: string = path.resolve(__dirname, '../../../../../api/device-define/');
-  const deviceInfoMap: Map<string, string[]> = new Map();
-  const syscaps: Array<string[]> = [];
-  let allSyscaps: string[] = [];
-  globalObject.projectConfig.deviceTypes.forEach((deviceType: string) => {
-    collectOhSyscapInfos(deviceType, deviceDir, deviceInfoMap);
-  });
-  if (globalObject.projectConfig.runtimeOS !== RUNTIME_OS_OH) {
-    collectExternalSyscapInfos(globalObject.projectConfig.externalSdkPaths, globalObject.projectConfig.deviceTypes,
-      deviceInfoMap);
-  }
-  deviceInfoMap.forEach((value: string[]) => {
-    syscaps.push(value);
-    allSyscaps = allSyscaps.concat(value);
-  });
-  const intersectNoRepeatTwice = (arrs: Array<string[]>) => {
-    return arrs.reduce(function (prev: string[], cur: string[]) {
-      return Array.from(new Set(cur.filter((item: string) => {
-        return prev.includes(item);
-      })));
-    });
-  };
-  let syscapIntersection: string[] = [];
-  if (globalObject.projectConfig.deviceTypes.length === 1 || syscaps.length === 1) {
-    syscapIntersection = syscaps[0];
-  } else if (syscaps.length > 1) {
-    syscapIntersection = intersectNoRepeatTwice(syscaps);
-  }
-  globalObject.projectConfig.syscapIntersectionSet = new Set(syscapIntersection);
-  globalObject.projectConfig.syscapUnionSet = new Set(allSyscaps);
-}
-
-function collectOhSyscapInfos(deviceType: string, deviceDir: string, deviceInfoMap: Map<string, string[]>) {
-  let syscapFilePath: string = '';
-  if (deviceType === 'phone') {
-    syscapFilePath = path.resolve(deviceDir, 'default.json');
-  } else {
-    syscapFilePath = path.resolve(deviceDir, deviceType + '.json');
-  }
-  if (fs.existsSync(syscapFilePath)) {
-    const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
-    if (deviceInfoMap.get(deviceType)) {
-      deviceInfoMap.set(deviceType, (deviceInfoMap.get(deviceType) as string[]).concat(content.SysCaps));
-    } else {
-      deviceInfoMap.set(deviceType, content.SysCaps);
-    }
-  }
-}
-
-function collectExternalSyscapInfos(
-  externalApiPaths: string[],
-  deviceTypes: string[],
-  deviceInfoMap: Map<string, string[]>
-) {
-  const externalDeviceDirs: string[] = [];
-  externalApiPaths.forEach((externalApiPath: string) => {
-    const externalDeviceDir: string = path.resolve(externalApiPath, './api/device-define');
-    if (fs.existsSync(externalDeviceDir)) {
-      externalDeviceDirs.push(externalDeviceDir);
-    }
-  });
-  externalDeviceDirs.forEach((externalDeviceDir: string) => {
-    deviceTypes.forEach((deviceType: string) => {
-      let syscapFilePath: string = '';
-      const files: string[] = fs.readdirSync(externalDeviceDir);
-      files.forEach((fileName: string) => {
-        if (fileName.startsWith(deviceType)) {
-          syscapFilePath = path.resolve(externalDeviceDir, fileName);
-          if (fs.existsSync(syscapFilePath)) {
-            const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
-            if (deviceInfoMap.get(deviceType)) {
-              deviceInfoMap.set(deviceType, (deviceInfoMap.get(deviceType) as string[]).concat(content.SysCaps));
-            } else {
-              deviceInfoMap.set(deviceType, content.SysCaps);
-            }
-          }
-        }
-      });
-    });
-  });
-}
-
 export function pushLog(apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
   logLevel: DiagnosticCategory, logMessage: string) {
   // 组装文件全路径
-  const fileFullPath: string = currentFilePath + `(${currentAddress.column}:${currentAddress.line}).`;
+  const fileFullPath: string = currentFilePath + `(${currentAddress.line}:${currentAddress.column}).`;
   // 替换api名称
   logMessage = logMessage.replace('{0}', apiName);
   // 打印日志信息
@@ -854,21 +617,29 @@ export function pushLog(apiName: string, currentFilePath: string, currentAddress
 
 /**
  * 日志打印
- * @param fileInfo 
- * @param message 
- * @param level 
+ * 
+ * @param { string } fileInfo 
+ * @param { string } message 
+ * @param { DiagnosticCategory } level 
  */
 function printMessage(fileInfo: string, message: string, level: DiagnosticCategory) {
   let messageHead: string = MESSAGE_CONFIG_HEADER_WARNING;
   let messageColor: string = MESSAGE_CONFIG_COLOR_WARNING;
-  if (level === DiagnosticCategory.Error) {
+  if (level === DiagnosticCategory.ERROR) {
     messageHead = MESSAGE_CONFIG_HEADER_ERROR;
     messageColor = MESSAGE_CONFIG_COLOR_ERROR;
   }
   // TODO: 待工具链日志输出方式确认后同步适配
-  console.log(`%c${messageHead}${fileInfo}\n ${message}`, messageColor);
+  console.info(`%c${messageHead}${fileInfo}\n ${message}`, messageColor);
 }
 
+/**
+ * 收集so模块依赖
+ * 
+ * @param { string[] } moduleName 
+ * @param { string } modulePath 
+ * @param { string } currentFilePath 
+ */
 export function collectInfo(moduleName: string[], modulePath: string, currentFilePath: string) {
   // 收集so模块依赖
   if (/lib(\S+)\.so/g.test(modulePath) && !globalObject.projectConfig.nativeDependencies.includes(currentFilePath)) {
@@ -876,6 +647,11 @@ export function collectInfo(moduleName: string[], modulePath: string, currentFil
   }
 }
 
+/**
+ * 写入预览文件
+ * 
+ * @param { string[] } useOSFiles 
+ */
 export function writeUseOSFiles(useOSFiles: string[]): void {
   let info: string = useOSFiles.join('\n');
   if (!fs.existsSync(globalObject.projectConfig.aceSoPath)) {
@@ -895,6 +671,11 @@ export function writeUseOSFiles(useOSFiles: string[]): void {
   fs.writeFileSync(globalObject.projectConfig.aceSoPath, info);
 }
 
+/**
+ * 根据路径创建文件
+ * 
+ * @param { string } path_ 
+ */
 function mkDir(path_: string): void {
   const parent: string = path.join(path_, '..');
   if (!(fs.existsSync(parent) && !fs.statSync(parent).isFile())) {

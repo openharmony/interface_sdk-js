@@ -16,12 +16,17 @@
 import { JSDoc, JsDocNodeCheckConfigItem } from "../api-check-wrapper";
 import { PermissionValidTokenState } from "./api_check_plugin_enums";
 
-// 定义 JSON 数据结构接口
+/**
+ * 定义与显示窗口相关的配置
+ */
 export interface WindowConfig {
   designWidth: number;
   autoDesignWidth: boolean;
 }
 
+/**
+ * 卡片form_config.json配置
+ */
 export interface FormConfig {
   name: string;
   displayName: string;
@@ -38,6 +43,7 @@ export interface FormConfig {
   defaultDimension: string;
   supportDimensions: string[];
 }
+
 
 export interface ConfigSchema {
   forms: FormConfig[];

@@ -68,9 +68,9 @@ const jsDocNodeCheckConfigCache: Map<string, Map<string, JsDocNodeCheckConfig>> 
 /**
  * 根据ProjectConfig对象存入JsDoc校验规则
  *
- * @param {string} fileName - 原始node文件路径
- * @param {string} sourceFileName - 目标api文件路径
- * @returns {JsDocNodeCheckConfig} - 返回校验规则对象
+ * @param { string } fileName - 原始node文件路径
+ * @param { string } sourceFileName - 目标api文件路径
+ * @returns { JsDocNodeCheckConfig } - 返回校验规则对象
  */
 function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDocNodeCheckConfig {
   let byFileName: Map<string, JsDocNodeCheckConfig> | undefined = jsDocNodeCheckConfigCache.get(fileName);
@@ -88,51 +88,51 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
   const apiName: string = path.basename(fileName);
   const sourceBaseName: string = path.basename(sourceFileName);
   if (/(?<!\.d)\.ts$/g.test(fileName)) {
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([], FIND_MODULE_WARNING, DiagnosticCategory.Warning, true));
+    checkConfigArray.push(getJsDocNodeCheckConfigItem([], FIND_MODULE_WARNING,
+      DiagnosticCategory.WARNING, true));
   }
   if (!globalObject.projectConfig.systemModules.includes(apiName) &&
     (globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName)))) {
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([DEPRECATED_TAG_CHECK_NAME], DEPRECATED_TAG_CHECK_WARNING,
-      DiagnosticCategory.Warning, false));
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSTEM_API_TAG_CHECK_NAME], SYSTEM_API_TAG_CHECK_WARNING,
-      DiagnosticCategory.Warning, false));
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([SINCE_TAG_NAME], SINCE_TAG_CHECK_ERROR,
-      DiagnosticCategory.Warning, false, checkSinceTag));
-    // TODO: the third param is to be opened
+    checkConfigArray.push(getJsDocNodeCheckConfigItem([DEPRECATED_TAG_CHECK_NAME],
+      DEPRECATED_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false));
+    checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSTEM_API_TAG_CHECK_NAME],
+      SYSTEM_API_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false));
+    checkConfigArray.push(getJsDocNodeCheckConfigItem([SINCE_TAG_NAME],
+      SINCE_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false, checkSinceTag));
+    // TODO: 预览文件 & CanIUse
     checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSCAP_TAG_CHECK_NAME],
-      SYSCAP_TAG_CHECK_WARNING, DiagnosticCategory.Warning, false, checkSyscapTag));
+      SYSCAP_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false, checkSyscapTag));
     if (globalObject.projectConfig.projectRootPath) {
       const ohosTestDir = path.resolve(globalObject.projectConfig.projectRootPath, 'entry', 'src', 'ohosTest');
-      // TODO:fix error type in the feature
       if (!path.resolve(fileName).startsWith(ohosTestDir)) {
-        checkConfigArray.push(getJsDocNodeCheckConfigItem([TEST_TAG_CHECK_NAME], TEST_TAG_CHECK_ERROR,
-          DiagnosticCategory.Warning, false));
+        checkConfigArray.push(getJsDocNodeCheckConfigItem([TEST_TAG_CHECK_NAME],
+          TEST_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false));
       }
     }
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([PERMISSION_TAG_CHECK_NAME], PERMISSION_TAG_CHECK_ERROR,
-      DiagnosticCategory.Warning, false, checkPermissionTag));
+    checkConfigArray.push(getJsDocNodeCheckConfigItem([PERMISSION_TAG_CHECK_NAME],
+      PERMISSION_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false, checkPermissionTag));
     if (isCardFile(fileName)) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([FORM_TAG_CHECK_NAME], FORM_TAG_CHECK_ERROR,
-        DiagnosticCategory.Error, true));
+      checkConfigArray.push(getJsDocNodeCheckConfigItem([FORM_TAG_CHECK_NAME],
+        FORM_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, true));
     }
     if (globalObject.projectConfig.isCrossplatform) {
       const logType: DiagnosticCategory =
-        globalObject.projectConfig.ignoreCrossplatformCheck !== true ? DiagnosticCategory.Error :
-          DiagnosticCategory.Warning;
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([CROSSPLATFORM_TAG_CHECK_NAME], CROSSPLATFORM_TAG_CHECK_ERROR,
-        logType, true));
+        globalObject.projectConfig.ignoreCrossplatformCheck !== true ? DiagnosticCategory.ERROR :
+          DiagnosticCategory.WARNING;
+      checkConfigArray.push(getJsDocNodeCheckConfigItem([CROSSPLATFORM_TAG_CHECK_NAME],
+        CROSSPLATFORM_TAG_CHECK_ERROR, logType, true));
     }
     if (globalObject.projectConfig.compileMode == STAGE_COMPILE_MODE) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([FA_TAG_CHECK_NAME, FA_TAG_HUMP_CHECK_NAME], FA_TAG_CHECK_ERROR,
-        DiagnosticCategory.Error, false));
+      checkConfigArray.push(getJsDocNodeCheckConfigItem([FA_TAG_CHECK_NAME, FA_TAG_HUMP_CHECK_NAME],
+        FA_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, false));
     } else if (globalObject.projectConfig.compileMode !== '') {
       checkConfigArray.push(getJsDocNodeCheckConfigItem([STAGE_TAG_CHECK_NAME, STAGE_TAG_HUMP_CHECK_NAME],
-        STAGE_TAG_CHECK_ERROR, DiagnosticCategory.Error, false));
+        STAGE_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, false));
     }
     if (globalObject.projectConfig.bundleType === ATOMICSERVICE_BUNDLE_TYPE &&
       globalObject.projectConfig.compileSdkVersion >= ATOMICSERVICE_TAG_CHECK_VERSION) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([ATOMICSERVICE_TAG_CHECK_NAME], ATOMICSERVICE_TAG_CHECK_ERROR,
-        DiagnosticCategory.Error, true));
+      checkConfigArray.push(getJsDocNodeCheckConfigItem([ATOMICSERVICE_TAG_CHECK_NAME],
+        ATOMICSERVICE_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, true));
     }
   } else {
     needCheckResult = false;
@@ -148,7 +148,8 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
 
 /**
  * 返回apiHost
- * @returns {ApiCheckWrapperServiceHost} - apiHost
+ * 
+ * @returns { ApiCheckWrapperServiceHost } - apiHost
  */
 export function getApiCheckWrapperServiceHost(): ApiCheckWrapperServiceHost {
   return {

@@ -22,7 +22,9 @@ import * as arkts from '@koalaui/libarkts';
 export interface ApiCheckWrapperServiceHost {
   getJsDocNodeCheckedConfig: (currentFileName: string, symbolSourceFilePath: string) => JsDocNodeCheckConfig;
   getFileCheckedModuleInfo: (containFilePath: string) => FileCheckModuleInfo;
-  pushLogInfo: (apiName: string, currentFilePath: string, currentAddress: CurrentAddress, logLevel: DiagnosticCategory, logMessage: string) => void;
+  pushLogInfo: (
+    apiName: string, currentFilePath: string,
+    currentAddress: CurrentAddress, logLevel: DiagnosticCategory, logMessage: string) => void;
   collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string) => void;
 }
 
@@ -64,17 +66,13 @@ export interface JSDocTag {
    */
   default?: string;
   /**
-   * 类型
-   */
-  type: string;
-  /**
-   * 是否可选
-   */
-  optional: boolean;
-  /**
    * 描述
    */
   description: string;
+  /**
+   * 完整内容
+   */
+  comment: string;
 }
 
 export interface CurrentAddress {

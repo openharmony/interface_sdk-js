@@ -15,7 +15,7 @@
 
 import { Plugins, PluginContext } from '../common/plugin-context';
 import { GlobalObject, ProjectConfig } from './utils/api_check_plugin_typedef';
-import { createOrCleanProjectConfig, updateProjectConfig, initProjectConfig } from './utils/api_check_plugin_utils';
+import { createOrCleanProjectConfig } from './utils/api_check_plugin_utils';
 import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
@@ -28,27 +28,16 @@ export const globalObject: GlobalObject = {
 }
 
 /**
- * 预留apiCheckProjectConfig对象
- */
-export class apiCheckProjectConfig {
-  constructor(projectConfig: ProjectConfig | undefined) {
-    if (projectConfig) {
-      updateProjectConfig(projectConfig);
-      initProjectConfig();
-    }
-  }
-}
-
-/**
  * 入口方法
- * @returns {Plugins}
+ * 
+ * @returns { Plugins }
  */
 export function apiCheckPlugin(): Plugins {
   return {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
     clean() {
-      console.log("[API_CHECK_PLUGIN] CLEAN")
+      console.info("[API_CHECK_PLUGIN] CLEAN");
       WrapperApi.arktsGlobal.clearContext();
     }
   };
@@ -56,17 +45,27 @@ export function apiCheckPlugin(): Plugins {
 
 /**
  * 入口回调
- * @param {this}
+ * 
+ * @param { PluginContext } this PluginContext对象
  */
 function apiCheckCallback(this: PluginContext): void {
-  console.log('[API_CHECK_PLUGIN] AFTER CHECKED ENTER');
-  const currentProjectConfig: ProjectConfig | undefined = this.getProjectConfig() as ProjectConfig | undefined;
-  if (currentProjectConfig) {
-    updateProjectConfig(currentProjectConfig);
-    initProjectConfig();
+  console.info('[API_CHECK_PLUGIN] AFTER CHECKED ENTER');
+  try {
+    const currentProjectConfig: ProjectConfig | undefined = this.getProjectConfig() as ProjectConfig | undefined;
+    if (currentProjectConfig) {
+      Object.assign(globalObject.projectConfig, currentProjectConfig);
+      const ContextPtr = this.getContextPtr();
+      const apiCheckHost: ApiCheckWrapperServiceHost = getApiCheckWrapperServiceHost();
+      checkApiExpression(apiCheckHost, ContextPtr);
+    }
+    else {
+      throw new Error('Get ProjectConfig Fail')
+    }
   }
-  const ContextPtr = this.getContextPtr();
-  const apiCheckHost: ApiCheckWrapperServiceHost = getApiCheckWrapperServiceHost();
-  checkApiExpression(apiCheckHost, ContextPtr);
-  console.log('[API_CHECK_PLUGIN] AFTER CHECKED EXIT');
+  catch (error) {
+    if (error) {
+      console.error(`[API_CHECK_PLUGIN] ${error}`)
+    }
+  }
+  console.info('[API_CHECK_PLUGIN] AFTER CHECKED EXIT');
 }

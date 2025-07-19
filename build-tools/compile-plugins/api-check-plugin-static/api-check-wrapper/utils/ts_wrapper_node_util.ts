@@ -1,5 +1,5 @@
 import * as arkts from '@koalaui/libarkts';
-import { checkIdentifier } from "../src/api_check_wrapper"
+import { checkIdentifier } from "../src/api_check_wrapper";
 
 export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: any, ...args: any[]) => void>([
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ASSIGNMENT_EXPRESSION, handleAssignmentExpression],
@@ -132,7 +132,8 @@ export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: a
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_QUALIFIED_NAME, handleTSQualifiedName],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_AWAIT_EXPRESSION, handleAwaitExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CONTINUE_STATEMENT, handleContinueStatement],
-  [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_NEW_MULTI_DIM_ARRAY_INSTANCE_EXPRESSION, handleETSNewMultiDimArrayInstanceExpression],
+  [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_NEW_MULTI_DIM_ARRAY_INSTANCE_EXPRESSION,
+    handleETSNewMultiDimArrayInstanceExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_NAMED_TUPLE_MEMBER, handleTSNamedTupleMember],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IMPORT_EXPRESSION, handleImportExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_NULL_TYPE, handleETSNullType],
@@ -161,40 +162,37 @@ type NodeTuple = [string, number];
 const items: NodeTuple[] = [];
 const isDebug = false;
 const nodeMap = new Map();
-let exporssionCount = 0
-
+let exporssionCount = 0;
 
 /**
  * 根节点处理
- * @param node 
+ * @param { arkts.AstNode } node 
  */
 export function traverseProgram(node: arkts.AstNode) {
   // 处理Identifier
   if (!!node.statements) {
-    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 /**
  * 获取Jsdoc信息
- * @param node 节点
- * @returns jsdoc 字符串
+ * @param { arkts.AstNode } node 节点
+ * @returns { string } jsdoc 字符串
  */
 export function getJSDocInformation(node: arkts.AstNode): string {
   return arkts.getJsdocStringFromDeclaration(node);
 }
 
 /**
+ * 解析AST
  * 
- * @param node 节点
- * @param func 实际方法
- * @param checkRepeat 
+ * @param { arkts.AstNode } node 节点
+ * @param { (node: any, ...args: any[]) => void } func 实际方法
  */
 function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) => void) {
   if (isDebug) {
     items.push([func.name, node.peer.toString()]);
-    console.log('[JSDOC_CHECK PLUGIN] ' + func.name);
-    console.log("path: " + console.log(JSON.stringify(items)));
   }
   // Expression 下的identifier才会提示告警
   if (node instanceof arkts.Expression) {
@@ -206,11 +204,11 @@ function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) =
   if (isDebug) {
     if (nodeMap.has(node.peer.toString())) {
       if (nodeMap.get(node.peer.toString()) > 2) {
-        console.error("[JSDOC_CHECK PLUGIN] repeat traverse")
+        console.error("[API_CHECK_PLUGIN] repeat traverse");
       }
-      nodeMap.set(node.peer.toString(), nodeMap.get(node.peer.toString()) + 1)
+      nodeMap.set(node.peer.toString(), nodeMap.get(node.peer.toString()) + 1);
     } else {
-      nodeMap.set(node.peer.toString(), 1)
+      nodeMap.set(node.peer.toString(), 1);
     }
     items.pop();
   }
@@ -221,26 +219,21 @@ function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) =
 
 export function handleAstNode(node: arkts.AstNode) {
   if (isDebug) {
-    console.log('[JSDOC_CHECK PLUGIN] handleAstNode');
+    console.info('[API_CHECK_PLUGIN] handleAstNode');
   }
   let kind: number = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer)
   if (nodeHandleFunctionMap.has(kind) && nodeHandleFunctionMap.get(kind) !== undefined) {
     handleFunction(node, nodeHandleFunctionMap.get(kind)!)
   } else {
-    console.log("[JSDOC_CHECK PLUGIN] debug handleAstNode " + node.constructor.name + " error!")
+    console.error(`[API_CHECK_PLUGIN] debug handleAstNode ${node.constructor.name} error!`)
   }
 }
 
 export function handleAnnotatedAstNode(node: arkts.AstNode) { }
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
+
 export function handleAnnotatedExpression(node: arkts.AstNode) {
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
@@ -248,71 +241,71 @@ export function handleAnnotatedStatement(node: arkts.AstNode) { }
 
 export function handleAnnotationDeclaration(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
   if (!!node.properties) {
-    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleAnnotationUsage(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
   if (!!node.properties) {
-    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleArrayExpression(node: arkts.AstNode) {
   if (!!node.elements) {
-    node.elements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.elements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.declarators) {
-    node.declarators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.declarators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleArrowFunctionExpression(node: arkts.AstNode) {
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction)
+    handleAstNode(node.scriptFunction);
   }
 }
 
 export function handleAssertStatement(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.second) {
-    handleAstNode(node.second)
+    handleAstNode(node.second);
   }
 }
 
 export function handleAssignmentExpression(node: arkts.AstNode) {
   if (!!node.left) {
-    handleAstNode(node.left)
+    handleAstNode(node.left);
   }
   if (!!node.right) {
-    handleAstNode(node.right)
+    handleAstNode(node.right);
   }
 }
 
 export function handleAstDumper(node: arkts.AstNode) {
-  return
+  return;
 }
 
 export function handleAwaitExpression(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
@@ -320,31 +313,25 @@ export function handleBigIntLiteral(node: arkts.AstNode) { }
 
 export function handleBinaryExpression(node: arkts.AstNode) {
   if (!!node.left) {
-    handleAstNode(node.left)
+    handleAstNode(node.left);
   }
   if (!!node.right) {
-    handleAstNode(node.right)
+    handleAstNode(node.right);
   }
   if (!!node.result) {
-    handleAstNode(node.result)
+    handleAstNode(node.result);
   }
 }
 
 export function handleBlockExpression(node: arkts.AstNode) {
   if (!!node.statements) {
-    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
 export function handleBlockStatement(node: arkts.AstNode) {
   if (!!node.statements) {
-    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -352,43 +339,43 @@ export function handleBooleanLiteral(node: arkts.AstNode) { }
 
 export function handleBreakStatement(node: arkts.AstNode) {
   if (!!node.ident) {
-    handleFunction(node.ident, handleIdentifier)
+    handleFunction(node.ident, handleIdentifier);
   }
   if (!!node.target) {
-    handleAstNode(node.target)
+    handleAstNode(node.target);
   }
 }
 
 export function handleCallExpression(node: arkts.AstNode) {
   if (!!node.trailingBlock) {
-    handleAstNode(node.trailingBlock)
+    handleAstNode(node.trailingBlock);
   }
   if (!!node.expression) {
-    handleAstNode(node.expression)
+    handleAstNode(node.expression);
   }
   if (!!node.typeArguments) {
-    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
   if (!!node.arguments) {
-    node.arguments.forEach((item: arkts.Expression) => handleAstNode(item))
+    node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
 }
 
 export function handleCatchClause(node: arkts.AstNode) {
   if (!!node.param) {
-    handleAstNode(node.param)
+    handleAstNode(node.param);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleChainExpression(node: arkts.AstNode) {
   if (!!node.getExpression) {
-    handleAstNode(node.getExpression)
+    handleAstNode(node.getExpression);
   }
 }
 
@@ -396,70 +383,64 @@ export function handleCharLiteral(node: arkts.AstNode) { }
 
 export function handleClassDeclaration(node: arkts.AstNode) {
   if (!!node.definition) {
-    handleFunction(node.definition, handleClassDefinition)
+    handleFunction(node.definition, handleClassDefinition);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
 }
 
 export function handleClassDefinition(node: arkts.AstNode) {
   if (!!node.ident) {
-    handleFunction(node.ident, handleIdentifier)
+    handleFunction(node.ident, handleIdentifier);
   }
   if (!!node.super) {
     handleAstNode(node.super);
   }
   if (!!node.body) {
-    node.body.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.body.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.implments) {
-    node.implments.forEach((item: arkts.AstNode) => handleFunction(item, handleTSClassImplements))
+    node.implments.forEach((item: arkts.AstNode) => handleFunction(item, handleTSClassImplements));
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.superTypeParams) {
-    handleFunction(node.superTypeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.superTypeParams, handleTSTypeParameterInstantiation);
   }
   if (!!node.origEnumDecl) {
-    handleFunction(node.origEnumDecl, handleTSEnumDeclaration)
+    handleFunction(node.origEnumDecl, handleTSEnumDeclaration);
   }
   if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass)
+    handleAstNode(node.getAnonClass);
   }
 }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
 export function handleClassElement(node: arkts.AstNode) {
   if (!!node.key) {
-    handleAstNode(node.key)
+    handleAstNode(node.key);
   }
   if (!!node.value) {
-    handleAstNode(node.value)
+    handleAstNode(node.value);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
 }
 
 export function handleClassExpression(node: arkts.AstNode) {
   if (!!node.definition) {
-    handleFunction(node.definition, handleClassDefinition)
+    handleFunction(node.definition, handleClassDefinition);
   }
 }
 
 export function handleClassProperty(node: arkts.AstNode) {
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
@@ -467,13 +448,13 @@ export function handleClassStaticBlock(node: arkts.AstNode) { }
 
 export function handleConditionalExpression(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.consequent) {
-    handleAstNode(node.consequent)
+    handleAstNode(node.consequent);
   }
   if (!!node.alternate) {
-    handleAstNode(node.alternate)
+    handleAstNode(node.alternate);
   }
 }
 
@@ -481,11 +462,11 @@ export function handleContext(node: arkts.AstNode) { }
 
 /**
  * target重复节点，不遍历
- * @param node 
+ * @param { arkts.AstNode } node 
  */
 export function handleContinueStatement(node: arkts.AstNode) {
   if (!!node.ident) {
-    handleFunction(node.ident, handleIdentifier)
+    handleFunction(node.ident, handleIdentifier);
   }
 }
 
@@ -493,76 +474,70 @@ export function handleDebuggerStatement(node: arkts.AstNode) { }
 
 export function handleDecorator(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
 }
 
 export function handleDirectEvalExpression(node: arkts.AstNode) {
   if (!!node.trailingBlock) {
-    handleAstNode(node.trailingBlock)
+    handleAstNode(node.trailingBlock);
   }
   if (!!node.expression) {
-    handleAstNode(node.expression)
+    handleAstNode(node.expression);
   }
   if (!!node.typeArguments) {
-    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.typeArguments.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
   if (!!node.arguments) {
-    node.arguments.forEach((item: arkts.Expression) => handleAstNode(item))
+    node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
 }
 
 export function handleDoWhileStatement(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleETSClassLiteral(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
 }
 
 export function handleETSDynamicFunctionType(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
   if (!!node.functionInterface) {
-    handleAstNode(node.functionInterface)
+    handleAstNode(node.functionInterface);
   }
 }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
 export function handleETSFunctionType(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
   if (!!node.functionInterface) {
-    handleAstNode(node.functionInterface)
+    handleAstNode(node.functionInterface);
   }
 }
 
@@ -570,40 +545,40 @@ export function handleETSImportDeclaration(node: arkts.AstNode) { }
 
 export function handleETSModule(node: arkts.AstNode) {
   if (!!node.ident) {
-    handleFunction(node.ident, handleIdentifier)
+    handleFunction(node.ident, handleIdentifier);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.statements) {
-    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleETSNewArrayInstanceExpression(node: arkts.AstNode) {
   if (!!node.typeReference) {
-    handleAstNode(node.typeReference)
+    handleAstNode(node.typeReference);
   }
   if (!!node.dimension) {
-    handleAstNode(node.dimension)
+    handleAstNode(node.dimension);
   }
 }
 
 export function handleETSNewClassInstanceExpression(node: arkts.AstNode) {
   if (!!node.getTypeRef) {
-    handleAstNode(node.getTypeRef)
+    handleAstNode(node.getTypeRef);
   }
   if (!!node.getArgments) {
-    node.getArgments.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.getArgments.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleETSNewMultiDimArrayInstanceExpression(node: arkts.AstNode) {
   if (!!node.dimensions) {
-    node.dimensions.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.dimensions.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.typeReference) {
-    handleAstNode(node.typeReference)
+    handleAstNode(node.typeReference);
   }
 }
 
@@ -613,16 +588,16 @@ export function handleETSPackageDeclaration(node: arkts.AstNode) { }
 
 export function handleETSParameterExpression(node: arkts.AstNode) {
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.type) {
-    handleAstNode(node.type)
+    handleAstNode(node.type);
   }
   if (!!node.initializer) {
-    handleAstNode(node.initializer)
+    handleAstNode(node.initializer);
   }
   if (!!node.identifier) {
-    handleFunction(node.identifier, handleIdentifier)
+    handleFunction(node.identifier, handleIdentifier);
   }
 }
 
@@ -631,40 +606,40 @@ export function handleETSPrimitiveType(node: arkts.AstNode) {
 
 export function handleETSReExportDeclaration(node: arkts.AstNode) {
   if (!!node.getETSImportDeclarations) {
-    handleFunction(node.getETSImportDeclarations, handleETSImportDeclaration)
+    handleFunction(node.getETSImportDeclarations, handleETSImportDeclaration);
   }
 }
 
 export function handleETSStructDeclaration(node: arkts.AstNode) {
   if (!!node.definition) {
-    handleFunction(node.definition, handleClassDefinition)
+    handleFunction(node.definition, handleClassDefinition);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
 }
 
 export function handleETSTuple(node: arkts.AstNode) {
   if (!!node.getTupleTypeAnnotationsList) {
-    node.getTupleTypeAnnotationsList.forEach((item: arkts.AstNde) => handleAstNode(item))
+    node.getTupleTypeAnnotationsList.forEach((item: arkts.AstNde) => handleAstNode(item));
   }
 }
 
 export function handleETSTypeReference(node: arkts.AstNode) {
   if (!!node.part) {
-    handleFunction(node.part, handleETSTypeReferencePart)
+    handleFunction(node.part, handleETSTypeReferencePart);
   }
 }
 
 export function handleETSTypeReferencePart(node: arkts.AstNode) {
   if (!!node.previous) {
-    handleFunction(node.previous, handleETSTypeReferencePart)
+    handleFunction(node.previous, handleETSTypeReferencePart);
   }
   if (!!node.name) {
-    handleAstNode(node.name)
+    handleAstNode(node.name);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
 }
 
@@ -672,13 +647,13 @@ export function handleETSUndefinedType(node: arkts.AstNode) { }
 
 export function handleETSUnionType(node: arkts.AstNode) {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNde) => handleAstNode(item))
+    node.types.forEach((item: arkts.AstNde) => handleAstNode(item));
   }
 }
 
 export function handleETSWildcardType(node: arkts.AstNode) {
   if (!!node.typeReference) {
-    handleFunction(node.typeReference, handleETSTypeReference)
+    handleFunction(node.typeReference, handleETSTypeReference);
   }
 }
 
@@ -686,156 +661,151 @@ export function handleEmptyStatement(node: arkts.AstNode) { }
 
 export function handleExportAllDeclaration(node: arkts.AstNode) {
   if (!!node.source) {
-    handleFunction(node.source, handleStringLiteral)
+    handleFunction(node.source, handleStringLiteral);
   }
   if (!!node.exported) {
-    handleFunction(node.exported, handleIdentifier)
+    handleFunction(node.exported, handleIdentifier);
   }
 }
 
 export function handleExportDefaultDeclaration(node: arkts.AstNode) {
   if (!!node.decl) {
-    handleAstNode(node.decl)
+    handleAstNode(node.decl);
   }
 }
 
 export function handleExportNamedDeclaration(node: arkts.AstNode) {
   if (!!node.decl) {
-    handleAstNode(node.decl)
+    handleAstNode(node.decl);
   }
   if (!!node.source) {
-    handleFunction(node.source, handleStringLiteral)
+    handleFunction(node.source, handleStringLiteral);
   }
   if (!!node.specifiers) {
-    node.specifiers.forEach((item: arkts.AstNode) => handleFunction(item, handleExportSpecifier))
+    node.specifiers.forEach((item: arkts.AstNode) => handleFunction(item, handleExportSpecifier));
   }
 }
 
 export function handleExportSpecifier(node: arkts.AstNode) {
   if (!!node.local) {
-    handleFunction(node.local, handleIdentifier)
+    handleFunction(node.local, handleIdentifier);
   }
   if (!!node.exported) {
-    handleFunction(node.exported, handleIdentifier)
+    handleFunction(node.exported, handleIdentifier);
   }
 }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- */
 export function handleExpression(node: arkts.AstNode) { }
 
 export function handleExpressionStatement(node: arkts.AstNode) {
   if (!!node.expression) {
-    handleAstNode(node.expression)
+    handleAstNode(node.expression);
   }
 }
 
 export function handleForInStatement(node: arkts.AstNode) {
   if (!!node.left) {
-    handleAstNode(node.left)
+    handleAstNode(node.left);
   }
   if (!!node.right) {
-    handleAstNode(node.right)
+    handleAstNode(node.right);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleForOfStatement(node: arkts.AstNode) {
   if (!!node.left) {
-    handleAstNode(node.left)
+    handleAstNode(node.left);
   }
   if (!!node.right) {
-    handleAstNode(node.right)
+    handleAstNode(node.right);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleForUpdateStatement(node: arkts.AstNode) {
   if (!!node.init) {
-    handleAstNode(node.init)
+    handleAstNode(node.init);
   }
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.update) {
-    handleAstNode(node.update)
+    handleAstNode(node.update);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleFunctionDecl(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnStatements) {
-    node.returnStatements.forEach((item: arkts.AstNode) => handleFunction(item, handleReturnStatement))
+    node.returnStatements.forEach((item: arkts.AstNode) => handleFunction(item, handleReturnStatement));
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
   if (!!node.returnTypeAnnotation) {
-    handleAstNode(node.returnTypeAnnotation)
+    handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleFunctionDeclaration(node: arkts.AstNode) {
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction)
+    handleAstNode(node.scriptFunction);
   }
   if (!!node.parameters) {
-    node.parameters.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.parameters.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.name) {
-    handleFunction(node.name, handleIdentifier)
+    handleFunction(node.name, handleIdentifier);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
   if (!!node.typeParamsDecl) {
-    handleFunction(node.typeParamsDecl, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParamsDecl, handleTSTypeParameterDeclaration);
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
 }
 
 export function handleFunctionExpression(node: arkts.AstNode) {
   if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction)
+    handleAstNode(node.scriptFunction);
   }
 
 }
 
 export function handleFunctionSignature(node: arkts.AstNode) {
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
 }
 
@@ -845,128 +815,113 @@ export function handleIdentifier(node: arkts.AstNode) {
   }
 
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleIfStatement(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.consequent) {
-    handleAstNode(node.consequent)
+    handleAstNode(node.consequent);
   }
   if (!!node.alternate) {
-    handleAstNode(node.alternate)
+    handleAstNode(node.alternate);
   }
 }
-/**
- * import节点 不处理Identifier
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
+
 export function handleImportDeclaration(node: arkts.AstNode) {
 }
 
 export function handleImportDefaultSpecifier(node: arkts.AstNode) {
   if (!!node.local) {
-    handleFunction(node.local, handleIdentifier)
+    handleFunction(node.local, handleIdentifier);
   }
 }
 
 export function handleImportExpression(node: arkts.AstNode) {
   if (!!node.source) {
-    handleFunction(node.source, handleStringLiteral)
+    handleFunction(node.source, handleStringLiteral);
   }
 }
 
 export function handleImportNamespaceSpecifier(node: arkts.AstNode) {
   if (!!node.local) {
-    handleFunction(node.local, handleIdentifier)
+    handleFunction(node.local, handleIdentifier);
   }
 
 }
 
 export function handleImportSource(node: arkts.AstNode) {
   if (!!node.source) {
-    handleFunction(node.source, handleStringLiteral)
+    handleFunction(node.source, handleStringLiteral);
   }
   if (!!node.resolvedSource) {
-    handleFunction(node.resolvedSource, handleStringLiteral)
+    handleFunction(node.resolvedSource, handleStringLiteral);
   }
 }
 
 export function handleImportSpecifier(node: arkts.AstNode) {
   if (!!node.imported) {
-    handleFunction(node.imported, handleIdentifier)
+    handleFunction(node.imported, handleIdentifier);
   }
   if (!!node.local) {
-    handleFunction(node.local, handleIdentifier)
+    handleFunction(node.local, handleIdentifier);
   }
 
 }
 
 export function handleInterfaceDecl(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.body) {
-    handleFunction(node.body, handleTSInterfaceBody)
+    handleFunction(node.body, handleTSInterfaceBody);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParam, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParam, handleTSTypeParameterDeclaration);
   }
   if (!!node.extends) {
-    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage))
+    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage));
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass)
+    handleAstNode(node.getAnonClass);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleLabelPair(node: arkts.AstNode) {
   if (!!node.ident) {
-    handleFunction(node.ident, handleIdentifier)
+    handleFunction(node.ident, handleIdentifier);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleLabelledStatement(node: arkts.AstNode) { }
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
+
 export function handleLiteral(node: arkts.AstNode) { }
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
+
 export function handleLoopStatement(node: arkts.AstNode) { }
 
 export function handleMaybeOptionalExpression(node: arkts.AstNode) { }
 
 export function handleMemberExpression(node: arkts.AstNode) {
   if (!!node.object) {
-    handleAstNode(node.object)
+    handleAstNode(node.object);
   }
   if (!!node.property) {
-    handleAstNode(node.property)
+    handleAstNode(node.property);
   }
 }
 
@@ -974,31 +929,31 @@ export function handleMetaProperty(node: arkts.AstNode) { }
 
 export function handleMethodDefinition(node: arkts.AstNode) {
   if (!!node.overloads) {
-    node.overloads.forEach((item: arkts.AstNode) => handleFunction(item, handleMethodDefinition))
+    node.overloads.forEach((item: arkts.AstNode) => handleFunction(item, handleMethodDefinition));
   }
   if (!!node.scriptFunction) {
-    handleAstNode(node.scriptFunction)
+    handleAstNode(node.scriptFunction);
   }
   if (!!node.name) {
-    handleFunction(node.name, handleIdentifier)
+    handleFunction(node.name, handleIdentifier);
   }
 }
 
 export function handleNamedType(node: arkts.AstNode) {
   if (!!node.name) {
-    handleFunction(node.name, handleIdentifier)
+    handleFunction(node.name, handleIdentifier);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
 }
 
 export function handleNewExpression(node: arkts.AstNode) {
   if (!!node.callee) {
-    handleAstNode(node.callee)
+    handleAstNode(node.callee);
   }
   if (!!node.arguments) {
-    node.arguments.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.arguments.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -1008,13 +963,13 @@ export function handleNumberLiteral(node: arkts.AstNode) { }
 
 export function handleObjectExpression(node: arkts.AstNode) {
   if (!!node.properties) {
-    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.properties.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
@@ -1024,19 +979,19 @@ export function handleOpaqueTypeNode(node: arkts.AstNode) { }
 
 export function handlePrefixAssertionExpression(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
   if (!!node.type) {
-    handleAstNode(node.type)
+    handleAstNode(node.type);
   }
 }
 
 export function handleProperty(node: arkts.AstNode) {
   if (!!node.key) {
-    handleAstNode(node.key)
+    handleAstNode(node.key);
   }
   if (!!node.value) {
-    handleAstNode(node.value)
+    handleAstNode(node.value);
   }
 }
 
@@ -1044,60 +999,56 @@ export function handleRegExpLiteral(node: arkts.AstNode) { }
 
 export function handleReturnStatement(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
 export function handleScriptFunction(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnStatements) {
-    node.returnStatements.forEach((item: arkts.AstNode) => handleFunction(item, handleReturnStatement))
+    node.returnStatements.forEach((item: arkts.AstNode) => handleFunction(item, handleReturnStatement));
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
   if (!!node.returnTypeAnnotation) {
-    handleAstNode(node.returnTypeAnnotation)
+    handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNde) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleSequenceExpression(node: arkts.AstNode) {
   if (!!node.sequence) {
-    node.sequence.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.sequence.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleSpreadElement(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleSrcDumper(node: arkts.AstNode) {
-  return
+  return;
 }
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- */
+
 export function handleStatement(node: arkts.AstNode) {
 }
 
@@ -1105,25 +1056,25 @@ export function handleStringLiteral(node: arkts.AstNode) { }
 
 export function handleSuperExpression(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
 }
 
 export function handleSwitchCaseStatement(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.consequent) {
-    node.consequent.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.consequent.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleSwitchStatement(node: arkts.AstNode) {
   if (!!node.discriminant) {
-    handleAstNode(node.discriminant)
+    handleAstNode(node.discriminant);
   }
   if (!!node.cases) {
-    node.cases.forEach((item: arkts.AstNode) => handleFunction(item, handleSwitchCaseStatement))
+    node.cases.forEach((item: arkts.AstNode) => handleFunction(item, handleSwitchCaseStatement));
   }
 }
 
@@ -1132,16 +1083,16 @@ export function handleTSAnyKeyword(node: arkts.AstNode) {
 
 export function handleTSArrayType(node: arkts.AstNode) {
   if (!!node.elementType) {
-    handleAstNode(node.elementType)
+    handleAstNode(node.elementType);
   }
 }
 
 export function handleTSAsExpression(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
@@ -1151,220 +1102,220 @@ export function handleTSBooleanKeyword(node: arkts.AstNode) { }
 
 export function handleTSClassImplements(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
   if (!!node.typeParameters) {
-    handleFunction(node.typeParameters, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParameters, handleTSTypeParameterInstantiation);
   }
 }
 
 export function handleTSConditionalType(node: arkts.AstNode) {
   if (!!node.checkType) {
-    handleAstNode(node.checkType)
+    handleAstNode(node.checkType);
   }
   if (!!node.extendsType) {
-    handleAstNode(node.extendsType)
+    handleAstNode(node.extendsType);
   }
   if (!!node.trueType) {
-    handleAstNode(node.trueType)
+    handleAstNode(node.trueType);
   }
   if (!!node.falseType) {
-    handleAstNode(node.falseType)
+    handleAstNode(node.falseType);
   }
 }
 
 export function handleTSConstructorType(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParameters, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParameters, handleTSTypeParameterInstantiation);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
 }
 
 export function handleTSEnumDeclaration(node: arkts.AstNode) {
   if (!!node.key) {
-    handleFunction(node.key, handleIdentifier)
+    handleFunction(node.key, handleIdentifier);
   }
   if (!!node.members) {
-    node.members.forEach((item: arkts.AstNde) => handleAstNode(item))
+    node.members.forEach((item: arkts.AstNde) => handleAstNode(item));
   }
   if (!!node.boxedClass) {
-    handleFunction(node.boxedClass, handleClassDefinition)
+    handleFunction(node.boxedClass, handleClassDefinition);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
 }
 
 export function handleTSEnumMember(node: arkts.AstNode) {
   if (!!node.key) {
-    handleAstNode(node.key)
+    handleAstNode(node.key);
   }
   if (!!node.init) {
-    handleAstNode(node.init)
+    handleAstNode(node.init);
   }
 }
 
 export function handleTSExternalModuleReference(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
 }
 
 export function handleTSFunctionType(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
   if (!!node.returnType) {
-    handleAstNode(node.returnType)
+    handleAstNode(node.returnType);
   }
 }
 
 export function handleTSImportEqualsDeclaration(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.moduleReference) {
-    handleAstNode(node.moduleReference)
+    handleAstNode(node.moduleReference);
   }
 }
 
 export function handleTSImportType(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
   if (!!node.params) {
-    handleAstNode(node.params)
+    handleAstNode(node.params);
   }
   if (!!node.qualifier) {
-    handleAstNode(node.qualifier)
+    handleAstNode(node.qualifier);
   }
 }
 
 export function handleTSIndexSignature(node: arkts.AstNode) {
   if (!!node.objectType) {
-    handleAstNode(node.objectType)
+    handleAstNode(node.objectType);
   }
   if (!!node.indexType) {
-    handleAstNode(node.indexType)
+    handleAstNode(node.indexType);
   }
 }
 
 export function handleTSIndexedAccessType(node: arkts.AstNode) {
   if (!!node.param) {
-    handleAstNode(node.param)
+    handleAstNode(node.param);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleTSInferType(node: arkts.AstNode) {
   if (!!node.typeParam) {
-    handleFunction(node.typeParam, handleTSTypeParameter)
+    handleFunction(node.typeParam, handleTSTypeParameter);
   }
 }
 
 export function handleTSInterfaceBody(node: arkts.AstNode) {
   if (!!node.body) {
-    node.body.forEach((item: arkts.TypeNode) => handleAstNode(item))
+    node.body.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
 }
 
 export function handleTSInterfaceDeclaration(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.body) {
-    handleFunction(node.body, handleTSInterfaceBody)
+    handleFunction(node.body, handleTSInterfaceBody);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParam, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParam, handleTSTypeParameterDeclaration);
   }
   if (!!node.extends) {
-    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage))
+    node.extends.forEach((item: arkts.TypeNode) => handleFunction(item, handleTSInterfaceHeritage));
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.getAnonClass) {
-    handleAstNode(node.getAnonClass)
+    handleAstNode(node.getAnonClass);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleTSInterfaceHeritage(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
 }
 
 export function handleTSIntersectionType(node: arkts.AstNode) {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.types.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleTSLiteralType(node: arkts.AstNode) {
   if (!!node.literal) {
-    handleAstNode(node.literal)
+    handleAstNode(node.literal);
   }
 }
 
 export function handleTSMappedType(node: arkts.AstNode) {
   if (!!node.typeParameter) {
-    handleFunction(node.typeParameter, handleTSTypeParameter)
+    handleFunction(node.typeParameter, handleTSTypeParameter);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleTSMethodSignature(node: arkts.AstNode) {
   if (!!node.key) {
-    handleAstNode(node.key)
+    handleAstNode(node.key);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnTypeAnnotation) {
-    handleAstNode(node.returnTypeAnnotation)
+    handleAstNode(node.returnTypeAnnotation);
   }
 }
 
 export function handleTSModuleBlock(node: arkts.AstNode) {
   if (!!node.statements) {
-    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleTSModuleDeclaration(node: arkts.AstNode) {
   if (!!node.name) {
-    handleAstNode(node.name)
+    handleAstNode(node.name);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleTSNamedTupleMember(node: arkts.AstNode) {
   if (!!node.label) {
-    handleAstNode(node.label)
+    handleAstNode(node.label);
   }
   if (!!node.elementType) {
-    handleAstNode(node.elementType)
+    handleAstNode(node.elementType);
   }
 }
 
@@ -1372,7 +1323,7 @@ export function handleTSNeverKeyword(node: arkts.AstNode) { }
 
 export function handleTSNonNullExpression(node: arkts.AstNode) {
   if (!!node.expr) {
-    handleAstNode(node.expr)
+    handleAstNode(node.expr);
   }
 }
 
@@ -1384,43 +1335,43 @@ export function handleTSObjectKeyword(node: arkts.AstNode) { }
 
 export function handleTSParameterProperty(node: arkts.AstNode) {
   if (!!node.parameter) {
-    handleAstNode(node.parameter)
+    handleAstNode(node.parameter);
   }
 }
 
 export function handleTSParenthesizedType(node: arkts.AstNode) {
   if (!!node.type) {
-    handleAstNode(node.type)
+    handleAstNode(node.type);
   }
 }
 
 export function handleTSPropertySignature(node: arkts.AstNode) {
   if (!!node.key) {
-    handleAstNode(node.key)
+    handleAstNode(node.key);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleTSQualifiedName(node: arkts.AstNode) {
   if (!!node.left) {
-    handleAstNode(node.left)
+    handleAstNode(node.left);
   }
   if (!!node.right) {
-    handleFunction(node.right, handleIdentifier)
+    handleFunction(node.right, handleIdentifier);
   }
 }
 
 export function handleTSSignatureDeclaration(node: arkts.AstNode) {
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.returnTypeAnnotation) {
-    handleAstNode(node.returnTypeAnnotation)
+    handleAstNode(node.returnTypeAnnotation);
   }
 }
 
@@ -1430,101 +1381,101 @@ export function handleTSThisType(node: arkts.AstNode) { }
 
 export function handleTSTupleType(node: arkts.AstNode) {
   if (!!node.elementType) {
-    node.elementType.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.elementType.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleTSTypeAliasDeclaration(node: arkts.AstNode) {
   if (!!node.id) {
-    handleFunction(node.id, handleIdentifier)
+    handleFunction(node.id, handleIdentifier);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterDeclaration)
+    handleFunction(node.typeParams, handleTSTypeParameterDeclaration);
   }
   if (!!node.decorators) {
-    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator))
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleTSTypeAssertion(node: arkts.AstNode) {
   if (!!node.getExpression) {
-    handleAstNode(node.getExpression)
+    handleAstNode(node.getExpression);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 
 }
 
 export function handleTSTypeLiteral(node: arkts.AstNode) {
   if (!!node.members) {
-    node.members.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.members.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.type) {
-    handleAstNode(node.type)
+    handleAstNode(node.type);
   }
 }
 
 export function handleTSTypeOperator(node: arkts.AstNode) {
   if (!!node.type) {
-    handleAstNode(node.type)
+    handleAstNode(node.type);
   }
 }
 
 export function handleTSTypeParameter(node: arkts.AstNode) {
   if (!!node.name) {
-    handleFunction(node.name, handleIdentifier)
+    handleFunction(node.name, handleIdentifier);
   }
   if (!!node.constraint) {
-    handleAstNode(node.constraint)
+    handleAstNode(node.constraint);
   }
   if (!!node.defaultType) {
-    handleAstNode(node.defaultType)
+    handleAstNode(node.defaultType);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
 }
 
 export function handleTSTypeParameterDeclaration(node: arkts.AstNode) {
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleFunction(item, handleTSTypeParameter))
+    node.params.forEach((item: arkts.AstNode) => handleFunction(item, handleTSTypeParameter));
   }
 }
 
 export function handleTSTypeParameterInstantiation(node: arkts.AstNode) {
   if (!!node.params) {
-    node.params.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.params.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
 export function handleTSTypePredicate(node: arkts.AstNode) {
   if (!!node.parameterName) {
-    handleAstNode(node.parameterName)
+    handleAstNode(node.parameterName);
   }
   if (!!node.typeAnnotation) {
-    handleAstNode(node.typeAnnotation)
+    handleAstNode(node.typeAnnotation);
   }
 }
 
 export function handleTSTypeQuery(node: arkts.AstNode) {
   if (!!node.exprName) {
-    handleAstNode(node.exprName)
+    handleAstNode(node.exprName);
   }
 }
 
 export function handleTSTypeReference(node: arkts.AstNode) {
   if (!!node.typeName) {
-    handleAstNode(node.typeName)
+    handleAstNode(node.typeName);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
 }
 
@@ -1532,7 +1483,7 @@ export function handleTSUndefinedKeyword(node: arkts.AstNode) { }
 
 export function handleTSUnionType(node: arkts.AstNode) {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNode) => traverseProgram(item))
+    node.types.forEach((item: arkts.AstNode) => traverseProgram(item));
   }
 }
 
@@ -1542,13 +1493,13 @@ export function handleTSVoidKeyword(node: arkts.AstNode) { }
 
 export function handleTaggedTemplateExpression(node: arkts.AstNode) {
   if (!!node.tag) {
-    handleAstNode(node.tag)
+    handleAstNode(node.tag);
   }
   if (!!node.quasi) {
-    handleFunction(node.quasi, handleTemplateLiteral)
+    handleFunction(node.quasi, handleTemplateLiteral);
   }
   if (!!node.typeParams) {
-    handleFunction(node.typeParams, handleTSTypeParameterInstantiation)
+    handleFunction(node.typeParams, handleTSTypeParameterInstantiation);
   }
 }
 
@@ -1556,10 +1507,10 @@ export function handleTemplateElement(node: arkts.AstNode) { }
 
 export function handleTemplateLiteral(node: arkts.AstNode) {
   if (!!node.quasis) {
-    node.quasis.forEach((item: arkts.AstNode) => handleFunction(item, handleTemplateLiteral))
+    node.quasis.forEach((item: arkts.AstNode) => handleFunction(item, handleTemplateLiteral));
   }
   if (!!node.expressions) {
-    node.expressions.forEach((item: arkts.AstNode) => handleAstNode(item))
+    node.expressions.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -1567,49 +1518,37 @@ export function handleThisExpression(node: arkts.AstNode) { }
 
 export function handleThrowStatement(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
 export function handleTryStatement(node: arkts.AstNode) {
   if (!!node.finallyBlock) {
-    handleAstNode(node.finallyBlock)
+    handleAstNode(node.finallyBlock);
   }
   if (!!node.block) {
-    handleAstNode(node.block)
+    handleAstNode(node.block);
   }
   if (!!node.catchClauses) {
-    node.catchClauses.forEach((item: arkts.AstNode) => handleFunction(item, handleCatchClause))
+    node.catchClauses.forEach((item: arkts.AstNode) => handleFunction(item, handleCatchClause));
   }
 }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
 export function handleTypeNode(node: arkts.AstNode) { }
 
 export function handleTypedAstNode(node: arkts.AstNode) { }
 
-/**
- * 
- * @param node 当前节点
- * @param isTypeConfirmed 是否已确认类型
- * @returns 
- */
 export function handleTypedStatement(node: arkts.AstNode) { }
 
 export function handleTypeofExpression(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
 export function handleUnaryExpression(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
@@ -1617,7 +1556,7 @@ export function handleUndefinedLiteral(node: arkts.AstNode) { }
 
 export function handleUpdateExpression(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
 
@@ -1625,33 +1564,33 @@ export function handleValidationInfo(node: arkts.AstNode) { }
 
 export function handleVariableDeclaration(node: arkts.AstNode) {
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage))
+    node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
   if (!!node.declarators) {
-    node.declarators.forEach((item: arkts.AstNode) => handleFunction(item, handleVariableDeclarator))
+    node.declarators.forEach((item: arkts.AstNode) => handleFunction(item, handleVariableDeclarator));
   }
 }
 
 export function handleVariableDeclarator(node: arkts.AstNode) {
   if (!!node.initializer) {
-    handleAstNode(node.initializer)
+    handleAstNode(node.initializer);
   }
   if (!!node.name) {
-    handleFunction(node.name, handleIdentifier)
+    handleFunction(node.name, handleIdentifier);
   }
 }
 
 export function handleWhileStatement(node: arkts.AstNode) {
   if (!!node.test) {
-    handleAstNode(node.test)
+    handleAstNode(node.test);
   }
   if (!!node.body) {
-    handleAstNode(node.body)
+    handleAstNode(node.body);
   }
 }
 
 export function handleYieldExpression(node: arkts.AstNode) {
   if (!!node.argument) {
-    handleAstNode(node.argument)
+    handleAstNode(node.argument);
   }
 }
