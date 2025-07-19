@@ -2918,6 +2918,15 @@ declare namespace wifiManager {
     ipType?: IpType;
 
     /**
+     * Static IP family: 0 - IPv4, 1 - Ipv6.
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    family?: number;
+
+    /**
      * IP config of static
      * @type { ?IpConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -2925,6 +2934,16 @@ declare namespace wifiManager {
      * @since 9
      */
     staticIp?: IpConfig;
+
+    /**
+     * IPv6 config of static
+     * @type { ?Ipv6Config }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    staticIpv6?: Ipv6Config;
 
     /**
      * EAP config info.
@@ -3061,6 +3080,66 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 9
+     */
+    domains: Array<string>;
+  }
+
+  /**
+   * Wi-Fi Ipv6 configuration information.
+   * @typedef Ipv6Config
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface Ipv6Config {
+    /**
+     * IPv6 address.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    ipAddress: string;
+ 
+    /**
+     * Gate way.
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    gateway: string;
+ 
+    /**
+     * Prefix length.
+     * @type { number }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    prefixLength: number;
+ 
+    /**
+     * DNS servers.
+     * @type { Array<string> }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    dnsServers: Array<string>;
+ 
+    /**
+     * Domains.
+     * @type { Array<string> }
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
      */
     domains: Array<string>;
   }
