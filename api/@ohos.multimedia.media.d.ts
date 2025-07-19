@@ -6309,6 +6309,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AMR_NB
      */
     AMR_NB = 1,
 
@@ -6317,6 +6318,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AMR_WB
      */
     AMR_WB = 2,
 
@@ -6325,6 +6327,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AAC
      */
     AAC_LC = 3,
 
@@ -6333,6 +6336,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AAC
      */
     HE_AAC = 4
   }
@@ -6360,6 +6364,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_MPEG_4
      */
     MPEG_4 = 2,
 
@@ -6368,6 +6373,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AMR
      */
     AMR_NB = 3,
 
@@ -6376,6 +6382,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AMR
      */
     AMR_WB = 4,
 
@@ -6384,6 +6391,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AAC
      */
     AAC_ADTS = 6
   }
@@ -6486,6 +6494,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioBitrate
      */
     audioEncodeBitRate?: number;
 
@@ -6495,6 +6504,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioSampleRate
      */
     audioSampleRate?: number;
 
@@ -6504,6 +6514,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioChannels
      */
     numberOfChannels?: number;
 
@@ -6527,6 +6538,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderConfig#url
      */
     uri: string;
 
@@ -6536,6 +6548,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVMetadata#location
      */
     location?: Location;
 
@@ -6545,6 +6558,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioCodec
      */
     audioEncoderMime?: CodecMimeType;
     /**
@@ -6553,6 +6567,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#fileFormat
      */
     fileFormat?: ContainerFormatType;
   }
