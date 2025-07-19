@@ -1312,7 +1312,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    *
    * @param { number } scale - Set minimum zoom scale.
    * <br>Default value: **1**.
-   * <br>Value range: (0, maxZoomScale).
+   * <br>Value range: (0, maxZoomScale].
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
