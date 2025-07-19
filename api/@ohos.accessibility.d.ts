@@ -218,7 +218,7 @@ export enum AccessibilityAction {
    * @systemapi
    * @since 20
    */
-  SPAN_CLICK = 21
+  SPAN_CLICK = 20
 }
 
 
