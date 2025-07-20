@@ -44,13 +44,13 @@ export interface NotificationSubscribeInfo {
   /**
    * Specify which user to subscribe to the notification from.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  userId?: number;
+  userId?: int;
 
   /**
    * Subscribing to Notifications Synchronized to Devices of a Specified Type.
@@ -77,11 +77,11 @@ export interface NotificationSubscribeInfo {
   /**
    * Filtered notification type range.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  filterLimit?: number;
+  filterLimit?: long;
 }
