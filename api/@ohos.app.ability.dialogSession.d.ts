@@ -80,46 +80,46 @@ declare namespace dialogSession {
     /**
      * The icon id of ability
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    abilityIconId: number;
+    abilityIconId: int;
 
     /**
      * The label id of ability
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    abilityLabelId: number;
+    abilityLabelId: int;
 
     /**
      * The icon id of bundle
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    bundleIconId: number;
+    bundleIconId: int;
 
     /**
      * The label id of bundle
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    bundleLabelId: number;
+    bundleLabelId: int;
 
     /**
      * The ability is visible
@@ -135,13 +135,13 @@ declare namespace dialogSession {
     /**
      * Index of an application clone. It takes effect only for cloned applications.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 12
      */
-    appIndex: number;
+    appIndex: int;
 
     /**
       * The mode of the multi-application.

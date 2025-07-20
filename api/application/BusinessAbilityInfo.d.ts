@@ -66,35 +66,35 @@ export interface BusinessAbilityInfo {
   /**
    * Indicates the label id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  readonly labelId: number;
+  readonly labelId: int;
 
   /**
    * Indicates the description id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  readonly descriptionId: number;
+  readonly descriptionId: int;
 
   /**
    * Indicates the icon id of the business ability info
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 10
    */
-  readonly iconId: number;
+  readonly iconId: int;
 
   /**
    * Enumerates types of the business ability info

@@ -828,7 +828,7 @@ declare class UIExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -847,12 +847,12 @@ declare class UIExtensionContext extends ExtensionContext {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -862,12 +862,12 @@ declare class UIExtensionContext extends ExtensionContext {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -877,7 +877,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Report to system when the extension is drawn completed.
@@ -1074,7 +1074,7 @@ declare class UIExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1096,7 +1096,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @stagemodelonly
    * @since 18
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Set the uiextension to either not allow being covered by the host page or allow it. 

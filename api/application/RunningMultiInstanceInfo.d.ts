@@ -42,22 +42,22 @@ export interface RunningMultiInstanceInfo {
     /**
      * The uid of current app instance.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    uid: number;
+    uid: int;
   
     /**
      * All pids of current app instance.
      *
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pids: Array<number>;
+    pids: Array<int>;
   }

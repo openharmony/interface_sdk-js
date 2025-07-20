@@ -500,7 +500,7 @@ export interface AbilityDelegator {
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { long } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
@@ -510,7 +510,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<UIAbility>): void;
+  waitAbilityMonitor(monitor: AbilityMonitor, timeout: long, callback: AsyncCallback<UIAbility>): void;
 
   /**
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
@@ -539,7 +539,7 @@ export interface AbilityDelegator {
    * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @param { long } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityMonitor failed.
@@ -549,7 +549,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility>;
+  waitAbilityMonitor(monitor: AbilityMonitor, timeout?: long): Promise<UIAbility>;
 
   /**
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
@@ -614,7 +614,7 @@ export interface AbilityDelegator {
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } timeout - Maximum wait time, in milliseconds.
+   * @param { long } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
@@ -624,7 +624,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void;
+  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: long, callback: AsyncCallback<AbilityStage>): void;
 
   /**
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
@@ -653,7 +653,7 @@ export interface AbilityDelegator {
    * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
-   * @param { number } [timeout] - Maximum wait time, in milliseconds.
+   * @param { long } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling WaitAbilityStageMonitor failed.
@@ -663,7 +663,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
+  waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: long): Promise<AbilityStage>;
 
   /**
    * Obtain the application context.
@@ -715,7 +715,7 @@ export interface AbilityDelegator {
    * Obtain the lifecycle state of a specified ability.
    *
    * @param { UIAbility } ability - The Ability object.
-   * @returns { number } Returns the state of the Ability object.
+   * @returns { int } Returns the state of the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -723,7 +723,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getAbilityState(ability: UIAbility): number;
+  getAbilityState(ability: UIAbility): int;
 
   /**
    * Obtain the ability that is currently being displayed in this process.
@@ -1216,14 +1216,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } timeoutSecs - Timeout, in seconds
+   * @param { long } timeoutSecs - Timeout, in seconds
    * @param { AsyncCallback<ShellCmdResult> } callback - The callback of executeShellCommand.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
+  executeShellCommand(cmd: string, timeoutSecs: long, callback: AsyncCallback<ShellCmdResult>): void;
 
   /**
    * Execute the given command in the aa tools side.
@@ -1238,14 +1238,14 @@ export interface AbilityDelegator {
    * Execute the given command in the aa tools side.
    *
    * @param { string } cmd - Shell command
-   * @param { number } [timeoutSecs] - Timeout, in seconds
+   * @param { long } [timeoutSecs] - Timeout, in seconds
    * @returns { Promise<ShellCmdResult> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
+  executeShellCommand(cmd: string, timeoutSecs?: long): Promise<ShellCmdResult>;
 
   /**
    * Finish the test and print log information to the unit testing console.
@@ -1277,7 +1277,7 @@ export interface AbilityDelegator {
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
    * @param { string } msg - Log information.
-   * @param { number } code - Result code.
+   * @param { long } code - Result code.
    * @param { AsyncCallback<void> } callback - The callback of finishTest.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
@@ -1287,7 +1287,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
+  finishTest(msg: string, code: long, callback: AsyncCallback<void>): void;
 
   /**
    * Finish the test and print log information to the unit testing console.
@@ -1319,7 +1319,7 @@ export interface AbilityDelegator {
    * The total length of the log information to be printed cannot exceed 1000 characters.
    *
    * @param { string } msg - Log information.
-   * @param { number } code - Result code.
+   * @param { long } code - Result code.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - Calling FinishTest failed.
@@ -1329,7 +1329,7 @@ export interface AbilityDelegator {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  finishTest(msg: string, code: number): Promise<void>;
+  finishTest(msg: string, code: long): Promise<void>;
 
   /**
    * Used to set a list of mock data.
