@@ -50,7 +50,7 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result code of an ordered common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -58,7 +58,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getCode(callback: AsyncCallback<number>): void;
+  getCode(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the result code of an ordered common event. This API uses a promise to return the result.
@@ -70,13 +70,13 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result code of an ordered common event. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getCode(): Promise<number>;
+  getCode(): Promise<int>;
 
   /**
    * Obtains the result code of an ordered common event.
@@ -88,13 +88,13 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result code of an ordered common event.
    *
-   * @returns { number } Common event code.
+   * @returns { int } Common event code.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getCodeSync(): number;
+  getCodeSync(): int;
 
   /**
    * Sets the result code of an ordered common event. This API uses an asynchronous callback to return the result.
@@ -109,7 +109,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of an ordered common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -118,7 +118,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCode(code: number, callback: AsyncCallback<void>): void;
+  setCode(code: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the result code of an ordered common event. This API uses a promise to return the result.
@@ -133,7 +133,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of an ordered common event. This API uses a promise to return the result.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -142,7 +142,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCode(code: number): Promise<void>;
+  setCode(code: int): Promise<void>;
 
   /**
    * Sets the result code of an ordered common event.
@@ -156,7 +156,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of an ordered common event.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -164,7 +164,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCodeSync(code: number): void;
+  setCodeSync(code: int): void;
 
   /**
    * Obtains the result data of an ordered common event. This API uses an asynchronous callback to return the result.
@@ -308,7 +308,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code and data of an ordered common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @param { string } data - Common event data.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -318,7 +318,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCodeAndData(code: number, data: string, callback: AsyncCallback<void>): void;
+  setCodeAndData(code: int, data: string, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the result code and data of an ordered common event. This API uses a promise to return the result.
@@ -334,7 +334,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code and data of an ordered common event. This API uses a promise to return the result.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @param { string } data - Common event data.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -344,7 +344,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCodeAndData(code: number, data: string): Promise<void>;
+  setCodeAndData(code: int, data: string): Promise<void>;
 
   /**
    * Sets the result code and data of an ordered common event.
@@ -359,7 +359,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code and data of an ordered common event.
    *
-   * @param { number } code - Common event code.
+   * @param { int } code - Common event code.
    * @param { string } data - Common event data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -368,7 +368,7 @@ export interface CommonEventSubscriber {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setCodeAndDataSync(code: number, data: string): void;
+  setCodeAndDataSync(code: int, data: string): void;
 
   /**
    * Checks whether the current common event is an ordered common event. This API uses an asynchronous callback to return the result.
