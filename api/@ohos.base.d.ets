@@ -73,7 +73,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor();
   /**
   * A constructor used to create a BusinessError object
-  * @params { number } code
+  * @params { int } code
   * @params { Error } error
   * @syscap SystemCapability.Base
   * @crossplatform
@@ -81,10 +81,10 @@ export declare class BusinessError<T = void> extends Error {
   * @atomicservice
   * @since 20
   */
-  constructor(code: number, error: Error);
+  constructor(code: int, error: Error);
   /**
   * A constructor used to create a BusinessError object
-  * @params { number } code
+  * @params { int } code
   * @params { T } data
   * @params { Error } error
   * @syscap SystemCapability.Base
@@ -93,7 +93,7 @@ export declare class BusinessError<T = void> extends Error {
   * @atomicservice
   * @since 20
   */
-  constructor(code: number, data: T, error: Error);
+  constructor(code: int, data: T, error: Error);
   /**
    * Defines the basic error code.
    * @type { number } code
@@ -126,14 +126,14 @@ export declare class BusinessError<T = void> extends Error {
    */
    /**
    * Defines the basic error code.
-   * @type { number } code
+   * @type { int } code
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
    * @atomicservice
    * @since 20
    */
-  code: number;
+  code: int;
   /**
    * Defines the additional information for business
    * @type { ?T } data
