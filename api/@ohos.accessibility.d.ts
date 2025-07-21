@@ -212,22 +212,13 @@ export enum AccessibilityAction {
   CONTROL_CENTER = 19,
 
   /**
-   * Common
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 20
-   */
-  COMMON = 20,
-
-  /**
    * SpanClick
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  SPAN_CLICK = 21
+  SPAN_CLICK = 20
 }
 
 
