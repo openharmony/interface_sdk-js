@@ -140,7 +140,7 @@ declare namespace inputConsumer {
     /**
      * Whether to report repeated key events. The value true means to report repeated key events, and the value false means the opposite.
      * The default value is true.
-     * 
+     *
      * @type { ?boolean }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since arkts {'1.1':'14', '1.2':'20'}
@@ -319,7 +319,7 @@ declare namespace inputConsumer {
    * 
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of hotkeyChange.
    * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return the application shortcut key change event.
+   * @param { Callback<HotkeyOptions> } callback - Callback used to return the application shortcut key change event. 
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
