@@ -45,7 +45,7 @@ import { ScrollState } from "./list";
 import { AccessibilityHoverType, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
-import { CustomBuilder, WrappedBuilder } from './builder';
+import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
@@ -9839,13 +9839,13 @@ export declare interface ContentModifier<T> {
     /**
      * Defining applyContent function.
      *
-     * @returns { WrappedBuilder<[T]> }
+     * @returns { WrappedBuilder<CustomBuilderT<T>> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    applyContent(): WrappedBuilder<Array<Object>>;
+    applyContent(): WrappedBuilder<CustomBuilderT<T>>;
 }
 /**
  * Defines the common configuration.
