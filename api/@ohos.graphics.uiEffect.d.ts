@@ -238,19 +238,20 @@ declare namespace uiEffect {
     variableRadiusBlur(radius: number, radiusMap: Mask): Filter;
 
     /**
-     * Generates lighting effects from height map and directional light.
+     * Generates lighting effects from mask and directional light.
      * 
      * @param { common2D.Point3d } direction - Direction of light
      * @param { Color } color - Color of light
      * @param { number } intensity - Intensity of light
-     * @param { Mask } [bumpMask] - Bump mask, as a displacement map that affects lighting effects
+     * @param { Mask } [mask] - Mask, as a displacement map that affects lighting effects
+     * @param { number } [factor] - Mask scale factor, used to scale the mask channel values
      * @returns { Filter } - Returns the Filter that the current effect have been added.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20
      */
-    directionLight(direction: common2D.Point3d, color: Color, intensity: number, bumpMask?: Mask): Filter;
+    directionLight(direction: common2D.Point3d, color: Color, intensity: number, mask?: Mask, factor?: number): Filter;
 
     /**
      * Applies Transition with alpha mask
