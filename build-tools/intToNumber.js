@@ -19,11 +19,17 @@ const path = require('path');
 const commander = require('commander');
 
 const typeArray = ['long', 'double', 'int'];
+// 并发处理时单次执行文件数量
+const SPLIT_LENGTH = 100;
 
 let inputDir = '';
 let outputDir = '';
+let index = '';
 let jsDocContent = '';
 let tagDataList = [];
+const apiTransformPath = '\\APITransformOutPath';
+const apiRemovalPath = '\\APIduplicateRemovalOutPath';
+const jsDocTransformPath = '\\jsDocTransformOutPath';
 
 function main() {
   const program = new commander.Command();
@@ -33,6 +39,7 @@ function main() {
   program
     .option('--path <string>', 'input path')
     .option('--output <string>', 'output path')
+    .option('--index <string>', 'split index')
     .action((opts) => {
       if (!opts.path || !opts.output) {
         console.error('Error: Must provide --path and --output parameters');
@@ -42,6 +49,7 @@ function main() {
       // 将相对路径解析为绝对路径
       inputDir = path.resolve(opts.path);
       outputDir = path.resolve(opts.output);
+      index = opts.index;
 
       // 检查输入目录是否存在
       if (!fs.existsSync(inputDir)) {
@@ -49,25 +57,32 @@ function main() {
         process.exit(1);
       }
 
-      const apiUtFiles1 = [];
+      let apiUtFiles1 = [];
       readFile(inputDir + '/api', apiUtFiles1);
       readFile(inputDir + '/arkts', apiUtFiles1);
-      tsTransform(apiUtFiles1, recursionAstCallback);
-      const apiUtFiles2 = [];
-      readFile(outputDir + '/api', apiUtFiles2);
-      readFile(outputDir + '/arkts', apiUtFiles2);
-      tsTransform(apiUtFiles2, recursionAstCallback2);
+      apiUtFiles1 = splitEntryArray(apiUtFiles1);
+      tsTransform(inputDir, apiTransformPath, apiUtFiles1, recursionAstCallback);
 
-      const jsDocUtFiles1 = [];
-      readFile(outputDir + '/api', jsDocUtFiles1);
-      readFile(outputDir + '/arkts', jsDocUtFiles1);
-      tsTransform(jsDocUtFiles1, parseJSDocCallback);
-      const jsDocUtFiles2 = [];
-      readFile(outputDir + '/api', jsDocUtFiles2);
-      readFile(outputDir + '/arkts', jsDocUtFiles2);
-      tsTransform(jsDocUtFiles2, parseJSDocCallback2);
+      tsTransform(inputDir + apiTransformPath, apiRemovalPath, apiUtFiles1, recursionAstCallback2);
+
+      tsTransform(inputDir + apiRemovalPath, jsDocTransformPath, apiUtFiles1, parseJSDocCallback);
+
+      tsTransform(inputDir + jsDocTransformPath, outputDir, apiUtFiles1, parseJSDocCallback2);
     });
   program.parse(process.argv);
+}
+
+function splitEntryArray(files) {
+  // 需要并发执行
+  if (index && index !== '') {
+    const splitNumber = Number.parseInt(index);
+    if (splitNumber < 9) {
+      files = files.splice(splitNumber * SPLIT_LENGTH, SPLIT_LENGTH);
+    } else {
+      files = files.splice(splitNumber * SPLIT_LENGTH, files.length - splitNumber * SPLIT_LENGTH);
+    }
+  }
+  return files;
 }
 
 /**
@@ -76,6 +91,9 @@ function main() {
  * @param {Array} utFiles 所有文件
  */
 function readFile(dir, utFiles) {
+  if (!fs.existsSync(dir)) {
+    return;
+  }
   try {
     const files = fs.readdirSync(dir);
     files.forEach((element) => {
@@ -87,7 +105,7 @@ function readFile(dir, utFiles) {
       if (status.isDirectory()) {
         readFile(filePath, utFiles);
       } else {
-        utFiles.push(filePath);
+        utFiles.push(filePath.replace(inputDir, ''));
       }
     });
   } catch (e) {
@@ -101,23 +119,24 @@ function readFile(dir, utFiles) {
  * @param {Array} utFiles 所有文件
  * @param {recursionAstCallback} callback 回调函数
  */
-function tsTransform(utFiles, callback) {
+function tsTransform(inputurl, outputPath, utFiles, callback) {
   utFiles.forEach((url) => {
-    let content = fs.readFileSync(url, 'utf-8');
-    jsDocContent = content;
     const apiBaseName = path.basename(url);
     tagDataList = [];
     if (/\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName)) {
-      const fileName = processFileName(url);
+      let content = fs.readFileSync(inputurl + url, 'utf-8');
+      jsDocContent = content;
+      const fileName = processFileName(inputurl + url);
       ts.transpileModule(content, {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
         },
         fileName: fileName,
-        transformers: { before: [callback(url)] }
+        transformers: { before: [callback(inputurl + url, outputPath)] }
       });
     } else {
-      const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
+      let content = fs.readFileSync(inputDir + url, 'utf-8');
+      const outputPath = replaceInputDirWithOutputDir(inputDir + url, inputDir, outputDir);
       ensureDirectoryExists(outputPath);
       fs.writeFileSync(outputPath, content);
     }
@@ -142,13 +161,13 @@ function processFileName(filePath) {
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function recursionAstCallback(url) {
+function recursionAstCallback(url, outputDir) {
   return (context) => {
     return (sourceFile) => {
       node = processVisitEachChild1(context, sourceFile);
       const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
       const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-      const outputPath = replaceInputDirWithOutputDir(url, inputDir, outputDir);
+      const outputPath = url.replace(inputDir, inputDir + outputDir);
       ensureDirectoryExists(outputPath);
       fs.writeFileSync(outputPath, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
@@ -162,13 +181,15 @@ function recursionAstCallback(url) {
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function recursionAstCallback2(url) {
+function recursionAstCallback2(url, outputDir) {
   return (context) => {
     return (sourceFile) => {
       node = processVisitEachChild2(context, sourceFile);
       const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
       const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-      fs.writeFileSync(url, result);
+      const outputPath = url.replace(inputDir + apiTransformPath, inputDir + outputDir);
+      ensureDirectoryExists(outputPath);
+      fs.writeFileSync(outputPath, result);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -180,12 +201,14 @@ function recursionAstCallback2(url) {
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function parseJSDocCallback(url) {
+function parseJSDocCallback(url, outputDir) {
   return (context) => {
     return (sourceFile) => {
       node = parseJSDocVisitEachChild1(context, sourceFile);
       changeContent(tagDataList);
-      fs.writeFileSync(url, jsDocContent);
+      const outputPath = url.replace(inputDir + apiRemovalPath, inputDir + outputDir);
+      ensureDirectoryExists(outputPath);
+      fs.writeFileSync(outputPath, jsDocContent);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -203,7 +226,9 @@ function parseJSDocCallback2(url) {
       const contents = fs.readFileSync(url, 'utf-8');
       node = parseJSDocVisitEachChild2(context, sourceFile, contents);
       changeContent(tagDataList);
-      fs.writeFileSync(url, jsDocContent);
+      const outputPath = replaceInputDirWithOutputDir(url, inputDir + jsDocTransformPath, outputDir);
+      ensureDirectoryExists(outputPath);
+      fs.writeFileSync(outputPath, jsDocContent);
       return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
     };
   };
@@ -230,7 +255,7 @@ function parseJSDocVisitEachChild1(context, node) {
       }
       const typeExpr = tag.typeExpression;
       const newTypeExpr = parseTypeExpr(typeExpr);
-      applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList);
+      applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList, true);
     });
   }
   function processAllNodesJSDoc(jsDocNode) {
@@ -273,10 +298,17 @@ function parseJSDocVisitEachChild1(context, node) {
  * @param {newTypeExpr} 新typeExpr 
  * @param {content} 文本内容 
  */
-function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList) {
+function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) {
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
   const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr);
-  if (finalContent.includes('number')) {
+  if (finalContent.includes('number') && typeExpr.kind === ts.SyntaxKind.JSDocNullableType && !finalContent.includes('?number') && isChange) {
+    const data = {
+      pos: typeExpr.pos,
+      end: typeExpr.end,
+      convertedText: '?' + finalContent
+    };
+    tagDataList.push(data);
+  } else if (finalContent.includes('number')) {
     const data = {
       pos: typeExpr.pos,
       end: typeExpr.end,
@@ -334,7 +366,7 @@ function parseJSDocVisitEachChild2(context, node) {
   function writeDataToFile(tag) {
     const typeExpr = tag.typeExpression;
     const newTypeExpr = parseTypeExpression(typeExpr.type);
-    applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList);
+    applJSDocTransformations(typeExpr.type, newTypeExpr, tagDataList, false);
   }
   function parseTypeExpression(node) {
     if (ts.isUnionTypeNode(node)) {
@@ -344,9 +376,7 @@ function parseJSDocVisitEachChild2(context, node) {
       types.forEach(type => {
         newTypes1.push(collectNewTypes(type));
       });
-      newTypes1.forEach(type => {
-        newTypes2 = duplicateRemoval(type);
-      });
+      newTypes2 = duplicateRemoval(newTypes1);
       node = ts.factory.updateUnionTypeNode(node, newTypes2);
     }
     return ts.visitEachChild(node, parseTypeExpression, context);
@@ -371,17 +401,20 @@ function collectNewTypes(type) {
  * @param {type} 解析过后的节点 
  * @returns 
  */
-function duplicateRemoval(type) {
+function duplicateRemoval(newTypesArr) {
   let newTypes2 = [];
   let hasNumberKeyWorld = false;
-  if (type.kind === ts.SyntaxKind.NumberKeyword) {
-    if (!hasNumberKeyWorld) {
+  newTypesArr.forEach(type => {
+    if (type.kind === ts.SyntaxKind.NumberKeyword) {
+      if (!hasNumberKeyWorld) {
+        newTypes2.push(type);
+        hasNumberKeyWorld = true;
+      }
+    } else {
       newTypes2.push(type);
-      hasNumberKeyWorld = true;
     }
-  } else {
-    newTypes2.push(type);
-  }
+  });
+
   return newTypes2;
 }
 
