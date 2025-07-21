@@ -1789,8 +1789,7 @@ declare namespace formInfo {
    * @typedef RunningFormInfo
    * @syscap SystemCapability.Ability.Form
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   /**
    * The class of a running form information.
@@ -1810,8 +1809,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the id of the this form.
@@ -1834,8 +1832,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the bundle name of the application to which this form belongs.
@@ -1871,8 +1868,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * The location of this form.
@@ -1908,8 +1904,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the name of the application module to which this form belongs.
@@ -1932,8 +1927,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the class name of the ability to which this form belongs.
@@ -1956,8 +1950,7 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the name of this form.
@@ -1980,8 +1973,7 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Obtains the grid style of this form.
