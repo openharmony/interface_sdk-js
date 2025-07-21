@@ -84,14 +84,14 @@ export interface Resource {
   /**
    * resource id in hap
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  id: number;
+  id: long;
 
   /**
    * Set params.
@@ -134,12 +134,12 @@ export interface Resource {
   /**
    * Set type.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type?: number;
+  type?: int;
 }
