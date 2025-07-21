@@ -177,7 +177,7 @@ declare namespace cloudSyncManager {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since arkts{ '1.1':'10','1.2':'20'}
@@ -245,7 +245,7 @@ declare namespace cloudSyncManager {
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -258,13 +258,13 @@ declare namespace cloudSyncManager {
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function notifyDataChange(userId: number, extraData: ExtraData): Promise<void>;
+  function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
   /**
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -277,7 +277,7 @@ declare namespace cloudSyncManager {
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function notifyDataChange(userId: number, extraData: ExtraData, callback: AsyncCallback<void>): void;
+  function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
   /**
    * The change info from push notification.
