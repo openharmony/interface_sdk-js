@@ -113,7 +113,7 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'abilityLifecycle' } type - Event type.
    * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
-   * @returns { double } Returns the number code of the callback.
+   * @returns { int } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -123,7 +123,7 @@ declare class ApplicationContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): double;
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): int;
 
   /**
    * Unregister ability lifecycle callback.
@@ -179,7 +179,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { double } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -191,7 +191,7 @@ declare class ApplicationContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-  off(type: 'abilityLifecycle', callbackId: double, callback: AsyncCallback<void>): void;
+  off(type: 'abilityLifecycle', callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -246,7 +246,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { double } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
@@ -257,7 +257,7 @@ declare class ApplicationContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-  off(type: 'abilityLifecycle', callbackId: double): Promise<void>;
+  off(type: 'abilityLifecycle', callbackId: int): Promise<void>;
 
   /**
    * Register environment callback.
