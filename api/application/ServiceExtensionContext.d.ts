@@ -19,12 +19,12 @@
  */
 
 /*** if arkts 1.1 */
-import { ConnectOptions } from '../ability/connectOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
 import { AsyncCallback } from '../@ohos.base';
+import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 import Want from '../@ohos.app.ability.Want';
@@ -1614,7 +1614,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -1662,7 +1663,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -1886,7 +1888,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -1962,7 +1965,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
@@ -1978,7 +1982,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
