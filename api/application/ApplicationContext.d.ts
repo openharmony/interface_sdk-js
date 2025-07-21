@@ -134,7 +134,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -180,7 +180,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
