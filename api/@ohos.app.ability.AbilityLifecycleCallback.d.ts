@@ -19,7 +19,9 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
+/*** if arkts 1.1 */
 import dataAbility from './@ohos.data.dataAbility';
+/*** endif */
 import window from './@ohos.window';
 
 /*** if arkts 1.1 */
