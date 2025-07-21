@@ -27,7 +27,7 @@ import { ComponentContent } from './ComponentContent';
 import { BusinessError } from '../@ohos.base';
 /*** if arkts 1.2 */
 import { UIContext } from '@ohos.arkui.UIContext';
-import { UICommonEvent, UIGestureEvent, CommonAttribute } from './component/common'
+import { UICommonEvent, UIGestureEvent, CommonAttribute, CustomProperty } from './component/common'
 import { SwiperAttribute, SwiperController } from './component/swiper';
 import { ScrollAttribute, Scroller } from './component/scroll';
 import { ListAttribute, ListOptions } from './component/list';
@@ -884,10 +884,22 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getCustomProperty(name: string): Object | undefined;
+
+  /**
+   * * Get the custom property of the component corresponding to this FrameNode.
+   *
+   * @param { string } name - the name of the custom property.
+   * @returns { CustomProperty } - Returns the value of the custom property.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getCustomProperty(name: string): CustomProperty;
 
   /**
    * Set commonEvent response to the current FrameNode.
