@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
  
-import contextConstant from '@ohos.app.ability.contextConstant'
+import contextConstant from '@ohos.app.ability.contextConstant';
 
 /**
  * Function that returns default creator.
@@ -318,10 +318,43 @@ export declare class UIUtils {
    */
    static enableV2Compatibility<T extends object>(source: T): T;
 
+  /**
+   * Dynamically add monitor for state variable change.
+   *
+   * @param { object } target class instance or custom component instance.
+   * @param { string | string[] } path  monitored change for state variable.
+   * @param { MonitorCallback } monitorCallback the function that triggers the callback when state variable change.
+   * @param { MonitorOptions} [options] the monitor configuration parameter.
+   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
+   * @throws { BusinessError } 130001 - The path is invalid.
+   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void;
+
+  /**
+   * Dynamically clear monitor callback for state variable change.
+   *
+   * @param { object } target class instance or custom component instance.
+   * @param { string | string[] } path  monitored change for state variable.
+   * @param { MonitorCallback } [monitorCallback] the function that triggers the callback when state variable change.
+   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
+   * @throws { BusinessError } 130001 - The path is invalid.
+   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback) : void;
+
    /**
    * Creates read-only data binding.
-   *
-   *
    * Example. UIUtils.makeBinding<number>(()=>this.num);
    *
    * Supports simple getters for read-only data.
@@ -359,41 +392,42 @@ export declare class UIUtils {
    * @since 20
    */
   static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
+}
 
+/**
+ * Function that returns monitor instance value when state variable is changed.
+ *
+ * @typedef { function } MonitorCallback
+ * @param { IMonitor} monitorValue monitor instance value when state variable is changed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type MonitorCallback = (monitorValue: IMonitor) => void;
+
+/**
+ * Define Monitor options.
+ *
+ * @interface MonitorOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export interface MonitorOptions {
   /**
-   * Dynamically add monitor for state variable change.
+   * Used to determine whether the state variable change is
+   * triggered synchronously or asynchronously. The default value is false.
    *
-   * @param { object } target class instance or custom component instance.
-   * @param { string | string[] } path  monitored change for state variable.
-   * @param { MonitorCallback } monitorCallback the function that triggers the callback when state variable change.
-   * @param { MonitorOptions} [options] the monitor configuration parameter.
-   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
-   * @throws { BusinessError } 130001 - The path is invalid.
-   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
-   * @static
+   * @type { ?boolean } isSynchronous parameter
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void;
-
-  /**
-   * Dynamically clear monitor callback for state variable change.
-   *
-   * @param { object } target class instance or custom component instance.
-   * @param { string | string[] } path  monitored change for state variable.
-   * @param { MonitorCallback } [monitorCallback] the function that triggers the callback when state variable change.
-   * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
-   * @throws { BusinessError } 130001 - The path is invalid.
-   * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback) : void;
+  isSynchronous?: boolean;
 }
 
 /**
@@ -466,40 +500,4 @@ export declare class MutableBinding<T> {
    * @since 20
    */
   set value(newValue: T): void;
-}
-
-/**
- * Function that returns monitor instance value when state variable is changed.
- *
- * @typedef { function } MonitorCallback
- * @param { IMonitor} monitorValue monitor instance value when state variable is changed.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-export declare type MonitorCallback = (monitorValue: IMonitor) => void;
-
-/**
- * Define Monitor options.
- *
- * @interface MonitorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-export interface MonitorOptions {
-  /**
-   * Used to determine whether the state variable change is
-   * triggered synchronously or asynchronously. The default value is false.
-   *
-   * @type { ?boolean } isSynchronous parameter
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  isSynchronous?: boolean;
 }
