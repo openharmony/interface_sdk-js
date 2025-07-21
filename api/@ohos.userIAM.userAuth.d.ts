@@ -2123,7 +2123,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'command', callback: IAuthWidgetCallback): void;
 
