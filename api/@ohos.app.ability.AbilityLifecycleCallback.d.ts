@@ -457,3 +457,7 @@ declare interface AbilityLifecycleCallback {
    */
   onAbilitySaveState?(ability: UIAbility): void;
 }
+
+/*** if arkts 1.2 */
+export default AbilityLifecycleCallback;
+/*** endif */
