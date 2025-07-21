@@ -2608,12 +2608,12 @@ declare namespace window {
     /**
      * Indicates window container zIndex.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20
      */
-    zIndex?: number;
+    zIndex?: int;
 
     /**
      * Indicates whether to use default density.
@@ -3644,8 +3644,8 @@ declare namespace window {
   /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
    *
-   * @param { number } sourceWindowId - Window id which the focus shift from.
-   * @param { number } targetWindowId - Window id which the focus shift to.
+   * @param { int } sourceWindowId - Window id which the focus shift from.
+   * @param { int } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -3660,8 +3660,8 @@ declare namespace window {
    * Shifts the window focus from the source window to the target window in the same application.
    * The window focus can be shifted between the main window and a child window.
    *
-   * @param { number } sourceWindowId - Window id which the focus shift from.
-   * @param { number } targetWindowId - Window id which the focus shift to.
+   * @param { int } sourceWindowId - Window id which the focus shift from.
+   * @param { int } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -3674,7 +3674,7 @@ declare namespace window {
    * @since 12 dynamic
    * @since 20 static
    */
-  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
@@ -9655,7 +9655,7 @@ declare namespace window {
     /**
      * Raise one app sub window above another.
      *
-     * @param { number } windowId - Indicates target window id.
+     * @param { int } windowId - Indicates target window id.
      * @param { AsyncCallback<void> } callback - The callback of raiseAboveTarget.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
@@ -9668,12 +9668,12 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    raiseAboveTarget(windowId: number, callback: AsyncCallback<void>): void;
+    raiseAboveTarget(windowId: int, callback: AsyncCallback<void>): void;
 
     /**
      * Raise one app sub window above another.
      *
-     * @param { number } windowId - Indicates target window id.
+     * @param { int } windowId - Indicates target window id.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
@@ -9686,7 +9686,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    raiseAboveTarget(windowId: number): Promise<void>;
+    raiseAboveTarget(windowId: int): Promise<void>;
 
     /**
      * Raise main window above another.
@@ -10940,7 +10940,7 @@ declare namespace window {
     /**
      * Set the zlevel of current sub window.
      *
-     * @param { number } zLevel - the zlevel of current sub window.
+     * @param { int } zLevel - the zlevel of current sub window.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10954,12 +10954,12 @@ declare namespace window {
      * @atomicservice
      * @since 18
      */
-    setSubWindowZLevel(zLevel: number): Promise<void>;
+    setSubWindowZLevel(zLevel: int): Promise<void>;
 
     /**
      * Get the zlevel of current sub window.
      *
-     * @returns { number } - the zlevel of current sub window.
+     * @returns { int } - the zlevel of current sub window.
      * @throws { BusinessError } 801 - Capability not supported. Function getSubWindowZLevel can not work correctly due to limited device capabilities. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -10967,7 +10967,7 @@ declare namespace window {
      * @atomicservice
      * @since 18
      */
-    getSubWindowZLevel(): number;
+    getSubWindowZLevel(): int;
 
     /**
      * Set the keyframe policy when dragging to resize.
@@ -11336,12 +11336,12 @@ declare namespace window {
     /**
      * Indicates zlevel of subwindow
      * 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18
      */
-    zLevel?: number;
+    zLevel?: int;
     /**
      * Indicates whether subwindow show outline
      * 
