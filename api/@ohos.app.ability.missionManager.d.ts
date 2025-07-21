@@ -20,9 +20,11 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
+/*** if arkts 1.1 */
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** endif */
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -30,7 +32,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @namespace missionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace missionManager {
   /**
@@ -99,7 +102,8 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
 
@@ -116,7 +120,8 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
@@ -339,7 +344,8 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -352,7 +358,8 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearAllMissions(): Promise<void>;
 
@@ -502,7 +509,8 @@ declare namespace missionManager {
    * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type MissionInfo = _MissionInfo;
 

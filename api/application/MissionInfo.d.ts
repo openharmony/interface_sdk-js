@@ -26,7 +26,8 @@ import Want from '../@ohos.app.ability.Want';
  * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface MissionInfo {
   /**
@@ -35,7 +36,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   missionId: int;
 
@@ -45,7 +47,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   runningState: int;
 
@@ -55,7 +58,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lockedState: boolean;
 
@@ -65,7 +69,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   timestamp: string;
 
@@ -75,7 +80,8 @@ export interface MissionInfo {
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   want: Want;
 
@@ -85,7 +91,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
    */
   label: string;
 
@@ -95,7 +102,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iconPath: string;
 
@@ -105,7 +113,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   continuable: boolean;
 
@@ -115,7 +124,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityState: int;
 
@@ -125,7 +135,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   unclearable: boolean;
 }
