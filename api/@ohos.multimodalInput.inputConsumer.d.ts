@@ -110,7 +110,8 @@ declare namespace inputConsumer {
    *
    * @typedef HotkeyOptions
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface HotkeyOptions {
     /**
@@ -153,7 +154,8 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface KeyPressedConfig {
     /**

@@ -1370,7 +1370,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the ability to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<Caller> } Returns the Caller interface.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1399,7 +1399,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityByCallWithAccount(want: Want, accountId: number): Promise<Caller>;
+  startAbilityByCallWithAccount(want: Want, accountId: int): Promise<Caller>;
 
   /**
    * Starts a new ability with account. If the caller application is in foreground,
@@ -1483,7 +1483,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -1517,7 +1517,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new ability with account.
@@ -1628,7 +1628,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1661,7 +1661,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+  startAbilityWithAccount(want: Want, accountId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new ability with account. If the caller application is in foreground,
@@ -1747,7 +1747,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -1782,7 +1782,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+  startAbilityWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<void>;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
@@ -2513,7 +2513,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -2547,7 +2547,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
+  startAbilityForResultWithAccount(want: Want, accountId: int, callback: AsyncCallback<AbilityResult>): void;
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed with account.
@@ -2658,7 +2658,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback is used to return the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -2693,7 +2693,7 @@ declare class UIAbilityContext extends Context {
    */
   startAbilityForResultWithAccount(
     want: Want,
-    accountId: number,
+    accountId: int,
     options: StartOptions,
     callback: AsyncCallback<void>
   ): void;
@@ -2801,7 +2801,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { StartOptions } [options] - Indicates the start options.
    * @returns { Promise<AbilityResult> } Returns the result of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
@@ -2836,7 +2836,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 14
    */
-  startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
+  startAbilityForResultWithAccount(want: Want, accountId: int, options?: StartOptions): Promise<AbilityResult>;
 
   /**
    * Starts a new service extension ability.
@@ -3062,7 +3062,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3084,7 +3084,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Starts a new service extension ability with account.
@@ -3148,7 +3148,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the account to start.
+   * @param { int } accountId - Indicates the account to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3170,7 +3170,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 12
    */
-  startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Stops other service extension ability.
@@ -3297,7 +3297,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3315,7 +3315,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 10
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Stops other service extension ability with account.
@@ -3348,7 +3348,7 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - Indicates the want info to start.
-   * @param { number } accountId - Indicates the accountId to start.
+   * @param { int } accountId - Indicates the accountId to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -3366,7 +3366,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 10
    */
-  stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+  stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
   /**
    * Destroys this Page ability.
@@ -3593,7 +3593,7 @@ declare class UIAbilityContext extends Context {
    *
    * @param { Want } want - The element name of the service ability
    * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -3611,7 +3611,7 @@ declare class UIAbilityContext extends Context {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Connects the current ability to an service extension ability with account.
@@ -3642,9 +3642,9 @@ declare class UIAbilityContext extends Context {
    *
    * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } want - The element name of the service ability
-   * @param { number } accountId - The account to connect
+   * @param { int } accountId - The account to connect
    * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
@@ -3663,26 +3663,27 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 10
    */
-  connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+  connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -3692,7 +3693,7 @@ declare class UIAbilityContext extends Context {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 
   /**
    * Set mission label of current ability.
@@ -4900,7 +4901,7 @@ declare class UIAbilityContext extends Context {
    *
    * @param { Want } want - The element name of the app service ability
    * @param { ConnectOptions } callback - The callback for obtaining the connection result
-   * @returns { number } Returns the number code of the ability connected
+   * @returns { long } Returns the number code of the ability connected
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -4915,12 +4916,12 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 20
    */
-  connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
+  connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
   /**
    * Disconnect current ability from an app service extension, in contrast to {@link connectAppServiceExtensionAbility}.
    *
-   * @param { number } connection - The number code of the ability connected
+   * @param { long } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -4929,7 +4930,7 @@ declare class UIAbilityContext extends Context {
    * @stagemodelonly
    * @since 20
    */
-  disconnectAppServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 }
 
 export default UIAbilityContext;

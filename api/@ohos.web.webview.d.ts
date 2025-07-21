@@ -694,79 +694,79 @@ declare namespace webview {
     /**
      * Number of the width.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Number of the height.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Number of the marginTop.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginTop: number;
+    marginTop: double;
 
     /**
      * Number of the marginBottom.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginBottom: number;
+    marginBottom: double;
 
     /**
      * Number of the marginRight.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginRight: number;
+    marginRight: double;
 
     /**
      * Number of the marginLeft.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    marginLeft: number;
+    marginLeft: double;
 
     /**
      * Number of the scaling.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    scale?: number;
+    scale?: double;
 
     /**
      * Whether background should be printed when creating pdf.
@@ -4568,7 +4568,7 @@ declare namespace webview {
 
     /**
      * Gets the content height of current Web page.
-     * @returns { number } Returns the page height of the current page.
+     * @returns { int } Returns the page height of the current page.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4576,7 +4576,7 @@ declare namespace webview {
      */
     /**
      * Obtains the height of this web page.
-     * @returns { number } Height of the current web page. Unit: vp.
+     * @returns { int } Height of the current web page. Unit: vp.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -4585,7 +4585,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getPageHeight(): number;
+    getPageHeight(): int;
 
     /**
      * Goes forward or back backOrForward in the history of the web page.

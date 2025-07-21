@@ -42,24 +42,24 @@ export interface ExtensionRunningInfo {
   extension: ElementName;
 
   /**
-   * @type { number }
+   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
-   * @type { number }
+   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid: number;
+  uid: int;
 
   /**
    * @type { string }
@@ -72,14 +72,14 @@ export interface ExtensionRunningInfo {
   processName: string;
 
   /**
-   * @type { number }
+   * @type { long }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  startTime: number;
+  startTime: long;
 
   /**
    * @type { Array<String> }

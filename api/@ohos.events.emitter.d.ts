@@ -205,14 +205,14 @@ declare namespace emitter {
   /**
    * Unsubscribes from all events with the specified event ID.
    *
-   * @param { number } eventId - Event ID.
+   * @param { long } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function off(eventId: number): void;
+  function off(eventId: long): void;
 
   /**
    * Unsubscribes from all events with the specified event ID.
@@ -254,7 +254,7 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
    *
-   * @param { number } eventId - Event ID.
+   * @param { long } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
@@ -262,7 +262,7 @@ declare namespace emitter {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function off(eventId: number, callback: Callback<EventData>): void;
+  function off(eventId: long, callback: Callback<EventData>): void;
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
@@ -439,15 +439,15 @@ declare namespace emitter {
   /**
    * Obtains the number of subscriptions to a specified event.
    *
-   * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { number } Returns the number of listener count.
+   * @param { long | string } eventId - Event ID. The value of the string type cannot be an empty string.
+   * @returns { long } Returns the number of listener count.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getListenerCount(eventId: number | string): number;
+  function getListenerCount(eventId: long | string): long;
 
   /**
    * Describes data passed in the event.
@@ -557,14 +557,14 @@ declare namespace emitter {
     /**
      * Event ID.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    eventId: number;
+    eventId: long;
 
     /**
      * Event priority. The default value is EventPriority.LOW.
@@ -612,7 +612,7 @@ declare namespace emitter {
   /**
    * Enumerates the event priorities.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice

@@ -169,7 +169,7 @@ declare namespace uriPermissionManager {
    *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { number } appCloneIndex - Indicates the clone index of target application.
+   * @param { int } appCloneIndex - Indicates the clone index of target application.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -187,7 +187,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Revoke URI from one application
@@ -320,7 +320,7 @@ declare namespace uriPermissionManager {
    *
    * @param { string } uri - File URI.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { number } appCloneIndex - Indicates the clone index of target application.
+   * @param { int } appCloneIndex - Indicates the clone index of target application.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
@@ -335,7 +335,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-    function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
+    function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Grant URIs in UDkey to another application
@@ -343,7 +343,7 @@ declare namespace uriPermissionManager {
    * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
    *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-   * @param { number } targetTokenId - Indicates the token id of target application.
+   * @param { int } targetTokenId - Indicates the token id of target application.
    * @returns { Promise<void> } - The promise returned by the function.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -357,7 +357,7 @@ declare namespace uriPermissionManager {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  function grantUriPermissionByKey(key: string, flag: wantConstant.Flags, targetTokenId: number): Promise<void>;
+  function grantUriPermissionByKey(key: string, flag: wantConstant.Flags, targetTokenId: int): Promise<void>;
 
   /**
    * Grant URIs in UDkey to another application
@@ -366,8 +366,8 @@ declare namespace uriPermissionManager {
    * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,
    *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
-   * @param { number } callerTokenId - Indicates the token id of caller application.
-   * @param { number } targetTokenId - Indicates the token id of target application.
+   * @param { int } callerTokenId - Indicates the token id of caller application.
+   * @param { int } targetTokenId - Indicates the token id of target application.
    * @returns { Promise<void> } - The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -383,7 +383,7 @@ declare namespace uriPermissionManager {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  function grantUriPermissionByKeyAsCaller(key: string, flag: wantConstant.Flags, callerTokenId: number, targetTokenId: number): Promise<void>;
+  function grantUriPermissionByKeyAsCaller(key: string, flag: wantConstant.Flags, callerTokenId: int, targetTokenId: int): Promise<void>;
 }
 
 export default uriPermissionManager;

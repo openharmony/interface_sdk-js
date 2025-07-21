@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,28 +13,20 @@
  * limitations under the License.
  */
 
-module.exports = function(api) {
-  api.cache(true);
+import { AttributeModifier } from './component/common';
+import { ButtonAttribute } from './component/button';
 
-  const presets = ['@babel/typescript'];
-  const plugins = [
-    '@babel/plugin-transform-modules-commonjs',
-    '@babel/plugin-proposal-class-properties',
-    [
-      '@babel/plugin-transform-arrow-functions',
-      {
-        spec: true
-      }
-    ]
-  ];
-  const ignore = [
-    '**/test/**', 
-    '**/node_modules/**'
-  ];
+/**
+ * @file
+ * @kit ArkUI
+ */
 
-  return {
-    presets,
-    plugins,
-    ignore
-  };
-};
+/**
+ * Defines Button Modifier
+ *
+ * @implements ButtonAttribute, AttributeModifier<ButtonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+*/
+export declare class ButtonModifier implements ButtonAttribute, AttributeModifier<ButtonAttribute> {}

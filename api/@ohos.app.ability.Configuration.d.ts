@@ -164,13 +164,13 @@ export interface Configuration {
   /**
    * Indicates the displayId of the current device.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  displayId?: number;
+  displayId?: long;
 
   /**
    * Indicates whether a pointer type device has connected.
@@ -211,25 +211,25 @@ export interface Configuration {
   /**
    * Indicates the font size scale.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  fontSizeScale?: number;
+  fontSizeScale?: double;
 
   /**
    * Indicates the font weight scale.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  fontWeightScale?: number;
+  fontWeightScale?: double;
 
   /**
    * Indicates the mobile country code.

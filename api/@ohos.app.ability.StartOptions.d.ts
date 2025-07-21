@@ -47,13 +47,13 @@ export default class StartOptions {
    * {@link ohos.app.ability.AbilityConstant#WindowMode.WINDOW_MODE_SPLIT_SECONDARY} are
    * valid only in intra-app redirection scenarios.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowMode?: number;
+  windowMode?: int;
 
   /**
    * The type of displayId
@@ -66,14 +66,14 @@ export default class StartOptions {
   /**
    * The type of displayId
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  displayId?: number;
+  displayId?: long;
 
   /**
    * The target ability with animation or without
@@ -89,46 +89,46 @@ export default class StartOptions {
   /**
    * The left position of window rectangle
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowLeft?: number;
+  windowLeft?: int;
 
   /**
    * The top position of window rectangle
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowTop?: number;
+  windowTop?: int;
 
   /**
    * The width of window rectangle
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowWidth?: number;
+  windowWidth?: int;
 
   /**
    * The height of window rectangle
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  windowHeight?: number;
+  windowHeight?: int;
 
   /**
    * Indicates the cold startup window is focused.
@@ -204,46 +204,46 @@ export default class StartOptions {
   /**
    * The min width of window rectangle.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minWindowWidth?: number;
+  minWindowWidth?: int;
 
   /**
    * The min height of window rectangle.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  minWindowHeight?: number;
+  minWindowHeight?: int;
 
   /**
    * The max width of window rectangle.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxWindowWidth?: number;
+  maxWindowWidth?: int;
 
   /**
    * The max height of window rectangle.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since arkts{ '1.1':'17','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxWindowHeight?: number;
+  maxWindowHeight?: int;
 
   /**
    * The completion handler of StartAbility.

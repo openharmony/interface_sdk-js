@@ -63,9 +63,11 @@ declare namespace mechanicManager {
 
     /**
      * Sets a user operation.
+     * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
      * @param { Operation } operation Operation type.
      * @param { string } mac MAC address.
      * @param { string } params Operation parameters.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
@@ -591,7 +593,7 @@ declare namespace mechanicManager {
 
     /**
      * Enumerates the rotation axis limit states.
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20
@@ -693,7 +695,7 @@ declare namespace mechanicManager {
 
     /**
      * Enumerates the user operations.
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20
@@ -718,7 +720,7 @@ declare namespace mechanicManager {
 
     /**
      * Enumerates the tracking events.
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
@@ -749,7 +751,7 @@ declare namespace mechanicManager {
     /**
      * Rotation execution results.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20
@@ -798,7 +800,7 @@ declare namespace mechanicManager {
 
     /**
      * Enumerates the mechanical device types.
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
@@ -816,7 +818,7 @@ declare namespace mechanicManager {
     /**
      * Device attach states.
      *
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
@@ -839,7 +841,7 @@ declare namespace mechanicManager {
 
     /**
      * Enumerates the camera tracking layouts.
-     * @enum { number }
+     * @enum { int }
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20

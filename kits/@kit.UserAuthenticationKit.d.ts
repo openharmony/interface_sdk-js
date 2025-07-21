@@ -17,7 +17,7 @@
  * @file
  * @kit UserAuthenticationKit
  */
-
+/*** if arkts 1.1 */
 import faceAuth from '@ohos.userIAM.faceAuth';
 import userAccessCtrl from '@ohos.userIAM.userAccessCtrl';
 import userAuth from '@ohos.userIAM.userAuth';
@@ -25,3 +25,12 @@ import UserAuthIcon from '@ohos.userIAM.userAuthIcon';
 import UserAuthExtensionAbility from '@ohos.app.ability.UserAuthExtensionAbility';
 
 export { faceAuth, userAccessCtrl, userAuth, UserAuthIcon, UserAuthExtensionAbility };
+/*** endif */
+/*** if arkts 1.2 */
+import faceAuth from '@ohos.userIAM.faceAuth';
+import userAccessCtrl from '@ohos.userIAM.userAccessCtrl';
+import userAuth from '@ohos.userIAM.userAuth';
+import UserAuthExtensionAbility from '@ohos.app.ability.UserAuthExtensionAbility';
+
+export { faceAuth, userAccessCtrl, userAuth, UserAuthExtensionAbility };
+/*** endif */

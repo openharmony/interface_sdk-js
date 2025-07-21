@@ -29,7 +29,7 @@
 /**
  * Enumerates the notification flag statuses.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Notification.Notification
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
@@ -118,12 +118,12 @@ export interface NotificationFlags {
   /**
    * Read-only the prompt entry information allowed by the current channel.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly reminderFlags?: number;
+  readonly reminderFlags?: long;
 }

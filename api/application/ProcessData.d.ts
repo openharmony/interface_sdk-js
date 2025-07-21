@@ -25,7 +25,7 @@
  * @since arkts {'1.1':'14', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class ProcessData {
+declare class ProcessData {
   /**
    * The bundle name.
    *
@@ -39,32 +39,32 @@ export default class ProcessData {
   /**
    * The pid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
    * The uid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid: number;
+  uid: int;
 
   /**
    * The process state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  state: number;
+  state: int;
 
   /**
    * Whether the process is continuous task.
@@ -86,3 +86,5 @@ export default class ProcessData {
    */
   isKeepAlive: boolean;
 }
+
+export default ProcessData;

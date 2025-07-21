@@ -60,13 +60,13 @@ export interface AbilityFirstFrameStateData {
   /**
    * The index of DLP sandbox.
    *
-   * @type { number }
+   * @type { int }
    * @default 0
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
    */
-  appIndex: number;
+  appIndex: int;
 
   /**
    * The entry ability of application is cold-start return true, others false.

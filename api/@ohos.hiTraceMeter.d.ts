@@ -121,7 +121,7 @@ declare namespace hiTraceMeter {
    * Enumerates the HiTrace output levels. The output level threshold system parameter determines
    * the minimum output trace.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -130,7 +130,7 @@ declare namespace hiTraceMeter {
    * Enumerates the HiTrace output levels. The output level threshold system parameter determines
    * the minimum output trace.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
@@ -238,7 +238,7 @@ declare namespace hiTraceMeter {
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8
    */
@@ -251,7 +251,7 @@ declare namespace hiTraceMeter {
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -265,14 +265,14 @@ declare namespace hiTraceMeter {
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function startTrace(name: string, taskId: number): void;
+  function startTrace(name: string, taskId: int): void;
 
   /**
    * Records a trace and marks it as the end of a task.
@@ -281,8 +281,8 @@ declare namespace hiTraceMeter {
    * is specified by {@code name}. This method must be invoked after the the startTrace.
    *
    * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { number } taskId The unique id used to distinguish the tasks and must be the same with the .
-   * {@code taskId} of startTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the .
+   *     {@code taskId} of startTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8
    */
@@ -293,8 +293,8 @@ declare namespace hiTraceMeter {
    * is specified by {@code name}. This method must be invoked after {@link #startTrace}.
    *
    * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { number } taskId The unique id used to distinguish the tasks and must be the same with the
-   * {@code taskId} of startTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the
+   *     {@code taskId} of startTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -306,21 +306,21 @@ declare namespace hiTraceMeter {
    * is specified by {@code name}. This method must be invoked after {@link #startTrace}.
    *
    * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { number } taskId The unique id used to distinguish the tasks and must be the same with the
-   * {@code taskId} of startTrace.
+   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the
+   *     {@code taskId} of startTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function finishTrace(name: string, taskId: number): void;
+  function finishTrace(name: string, taskId: int): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
+   * @param { long } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8
    */
@@ -328,7 +328,7 @@ declare namespace hiTraceMeter {
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
+   * @param { long } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -337,14 +337,14 @@ declare namespace hiTraceMeter {
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
+   * @param { long } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function traceByValue(name: string, count: number): void;
+  function traceByValue(name: string, count: long): void;
 
   /**
    * Records a trace marking it as the start of a task.
@@ -417,11 +417,11 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the task and match with the id of the
-   * corresponding finishAsyncTrace.
+   * @param { int } taskId The unique id used to distinguish the task and match with the id of the
+   *     corresponding finishAsyncTrace.
    * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
    * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   * as Separator.
+   *     as Separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -431,23 +431,23 @@ declare namespace hiTraceMeter {
    *
    * This method is invoked at the start of a transaction to indicate that a task has started, whose name
    * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by a
-   * corresponding {@link #finishAsyncTrace}, with the same level, name, and taskId.
+   *     corresponding {@link #finishAsyncTrace}, with the same level, name, and taskId.
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the task and match with the id of the
-   * corresponding finishAsyncTrace.
+   * @param { int } taskId The unique id used to distinguish the task and match with the id of the
+   *     corresponding finishAsyncTrace.
    * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
    * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   * as Separator.
+   *     as Separator.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function startAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: number, customCategory: string,
-      customArgs?: string): void;
+  function startAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int, customCategory: string,
+        customArgs?: string): void;
 
   /**
    * Records a trace and marks it as the end of a task.
@@ -458,8 +458,8 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the task and match with the id of the corresponding
-   * startAsyncTrace.
+   * @param { int } taskId The unique id used to distinguish the task and match with the id of the corresponding
+   *     startAsyncTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -473,22 +473,22 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the task name.
-   * @param { number } taskId The unique id used to distinguish the task and match with the id of the corresponding
-   * startAsyncTrace.
+   * @param { int } taskId The unique id used to distinguish the task and match with the id of the corresponding
+   *     startAsyncTrace.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function finishAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: number): void;
+  function finishAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
+   * @param { long } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @atomicservice
    * @since 19
@@ -498,14 +498,14 @@ declare namespace hiTraceMeter {
    *
    * @param { HiTraceOutputLevel } level Indicates trace output priority level.
    * @param { string } name Indicates the name used to identify the count.
-   * @param { number } count Indicates the number of the count.
+   * @param { long } count Indicates the number of the count.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
-  function traceByValue(level: HiTraceOutputLevel, name: string, count: number): void;
+  function traceByValue(level: HiTraceOutputLevel, name: string, count: long): void;
 
   /**
    * Return whether the current process is allowed to output trace.

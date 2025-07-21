@@ -16,6 +16,7 @@
 /**
  * @file Export 3D interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
 /**

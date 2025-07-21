@@ -27,11 +27,11 @@ export interface ProcessInfo {
   /**
    * The id of the current process
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 7
    */
-  pid: number;
+  pid: int;
 
   /**
    * The name of the current process

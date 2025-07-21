@@ -9970,7 +9970,8 @@ declare namespace audio {
      * @param { AsyncCallback<long> } callback - Callback used to return the audio timestamp based on the monotonic nanosecond system timer.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAudioTime(callback: AsyncCallback<long>): void;
     /**

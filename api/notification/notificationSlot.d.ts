@@ -109,12 +109,12 @@ export interface NotificationSlot {
   /**
    * Mode for displaying the notification on the lock screen.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  lockscreenVisibility?: number;
+  lockscreenVisibility?: int;
 
   /**
    * Whether to enable vibration for the notification.
@@ -149,22 +149,22 @@ export interface NotificationSlot {
   /**
    * Indicator color of the notification.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  lightColor?: number;
+  lightColor?: int;
 
   /**
    * Vibration mode of the notification.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<long> }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  vibrationValues?: Array<number>;
+  vibrationValues?: Array<long>;
 
   /**
    * Whether the notification slot is enabled. The value true means to enable the notification slot, and false means the opposite.
@@ -180,24 +180,24 @@ export interface NotificationSlot {
   /**
    * Obtains the notification reminder mode of the current notification entry.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly reminderMode?: number;
+  readonly reminderMode?: int;
 
   /**
    * Obtains channel information is authorized by the user.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly authorizedStatus?: number;
+  readonly authorizedStatus?: int;
 }

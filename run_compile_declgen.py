@@ -36,10 +36,10 @@ def ensure_dir_exists(target_path):
         return str(path)
     
 
-def traverse_function(source_root_dir: str, input_path: str, node_js: str):
+def traverse_function(source_root_dir: str, input_path: str, out_interop_path: str, node_js: str):
     source_root_dir = os.path.abspath(source_root_dir)
-    input_dir = os.path.abspath(os.path.join(input_path, 'ets1.1/sdk-js'))
-    out_path = os.path.abspath(os.path.join(input_path, 'ets1.1interop'))
+    input_dir = os.path.abspath(input_path)
+    out_path = os.path.abspath(os.path.join(out_interop_path, 'ets1.1interop'))
     package_path = os.path.abspath(os.path.join(source_root_dir, PACKAGE_PATH))
     nodejs = os.path.abspath(node_js)
     output_dir = ensure_dir_exists(out_path)
@@ -76,17 +76,19 @@ def run(args):
     parser.add_argument('--root-build-dir', required=True)
     parser.add_argument('--current-os-dir', required=True)
     parser.add_argument('--output-interface-sdk', required=True)
+    parser.add_argument('--output-interop-sdk', required=True)
     parser.add_argument('--tool-dir', required=True)
     parser.add_argument('--node-js', required=True)
     options = parser.parse_args()
     source_path = options.root_build_dir
     current_os = options.current_os_dir
     sdk_path = options.output_interface_sdk
+    out_interop_path = options.output_interop_sdk
     node_path = options.node_js
     declgen_path = options.tool_dir
     node_modules_path = os.path.join(source_path, TOOL_WAREHOURSE, "node_modules")
     extract(declgen_path, node_modules_path, 'declgen', current_os)
-    traverse_function(source_path, sdk_path, node_path)
+    traverse_function(source_path, sdk_path, out_interop_path, node_path)
 
 
 if __name__ == "__main__":

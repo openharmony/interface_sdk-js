@@ -45,13 +45,13 @@ export interface AbilityResult {
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  resultCode: number;
+  resultCode: int;
 
   /**
    * Indicates the data returned after the ability is destroyed. You can define the data returned.

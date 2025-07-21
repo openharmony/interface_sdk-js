@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screenshot {
   /**
@@ -56,7 +57,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -69,7 +71,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -85,7 +88,8 @@ declare namespace screenshot {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
@@ -124,7 +128,8 @@ declare namespace screenshot {
    * @interface PickInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface PickInfo {
     /**
@@ -154,7 +159,8 @@ declare namespace screenshot {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
@@ -163,7 +169,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: number;
 
@@ -173,7 +180,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: number;
 
@@ -183,7 +191,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -193,7 +202,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -204,7 +214,8 @@ declare namespace screenshot {
    * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Size {
     /**
@@ -213,7 +224,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -223,7 +235,8 @@ declare namespace screenshot {
      * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -254,7 +267,8 @@ declare namespace screenshot {
    * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScreenshotOptions {
     /**
@@ -263,7 +277,8 @@ declare namespace screenshot {
      * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     screenRect?: Rect;
     /**
@@ -272,7 +287,8 @@ declare namespace screenshot {
      * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     imageSize?: Size;
     /**
@@ -281,7 +297,8 @@ declare namespace screenshot {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rotation?: number;
     /**
@@ -290,7 +307,8 @@ declare namespace screenshot {
      * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: number;
     /**
@@ -299,7 +317,8 @@ declare namespace screenshot {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isNotificationNeeded?: boolean;
     /**

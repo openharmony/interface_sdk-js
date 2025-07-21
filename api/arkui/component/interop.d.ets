@@ -74,13 +74,15 @@ export type CompatibleUpdateCallback = (component: ESValue) => void;
  *
  * @param { CompatibleInitCallback } init - the callback for initializing compatible custom component
  * @param { CompatibleUpdateCallback } update - the callback for updating compatible custom component
+ * @param { ExtendableComponent } [component] - the custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
 @Builder
 export declare function compatibleComponent(
     init: CompatibleInitCallback,
-    update: CompatibleUpdateCallback
+    update: CompatibleUpdateCallback,
+    component?: ExtendableComponent
 ): void;
 
 /**

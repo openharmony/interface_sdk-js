@@ -634,7 +634,7 @@ declare namespace stream {
      * @param {  Uint8Array | string | null } chunk - Binary data to be stored in the buffer.
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
-     * data in the buffer does not reach the highWaterMark.
+     *     data in the buffer does not reach the highWaterMark.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -643,8 +643,6 @@ declare namespace stream {
      * @atomicservice
      * @since 12
      */
-    push(chunk: Uint8Array | string | null, encoding?: string): boolean;
-
     /**
      * Adds the generated data to the buffer. The return value indicates whether the data in the buffer has not
      * reached the highWaterMark (similar to Writable.write). If the chunk is null, all data has been generated.
@@ -652,15 +650,12 @@ declare namespace stream {
      * @param { Uint8Array | string | undefined | null } chunk - Binary data to be stored in the buffer.
      * @param { string } [encoding] - Binary data encoding type.
      * @returns { boolean } If true is returned, the data in the buffer reaches the highWaterMark. Otherwise, the
-     * data in the buffer does not reach the highWaterMark.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
+     *     data in the buffer does not reach the highWaterMark.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean;
 

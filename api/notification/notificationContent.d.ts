@@ -187,7 +187,7 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
 /**
    * Enum for live view notification option type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -235,7 +235,7 @@ export enum LiveViewStatus {
 /**
  * Enum for live view notification task type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since arkts {'1.1':'18', '1.2':'20'}
@@ -298,13 +298,13 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * the version number is not verified at the current operation of update or end. Otherwise, the
    * version number must be greater than the version number stored in the database.)
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  version?: number;
+  version?: int;
 
   /**
    * Additional information of the live view notification.
@@ -469,12 +469,12 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   /**
    * Type code, which identifies the type of the service that invokes the API.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  typeCode: number;
+  typeCode: int;
 
   /**
    * Capsule of the notification.
@@ -530,7 +530,7 @@ export interface NotificationSystemLiveViewContent extends NotificationBasicCont
   /**
    * task type of a system live view notification.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
@@ -592,13 +592,13 @@ export interface NotificationCapsule {
   /**
    * Display time of this capsule.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  time?: number;
+  time?: int;
 
   /**
    * Extended button of this capsule.
@@ -719,12 +719,12 @@ export interface NotificationTime {
   /**
    * Start time, in milliseconds.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  initialTime?: number;
+  initialTime?: int;
 
   /**
    * Whether to count down.
@@ -769,22 +769,22 @@ export interface NotificationProgress {
   /**
    * Maximum progress value.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  maxValue?: number;
+  maxValue?: int;
 
   /**
    * Current progress value.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  currentValue?: number;
+  currentValue?: int;
 
   /**
    * Whether to show the progress in percentage.

@@ -20,17 +20,7 @@
 
 import { AttributeModifier } from './component/common'
 
-/**
- * function that returns a default param of AttributeUpdater.
- *
- * @typedef { function } Initializer<T>
- * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-export type Initializer<T> = () => T;
+export type Initializer<T> = (...params:FixedArray<Object>) => T;
 
 /**
  * Defines a modifier which can update attributes to native side.
@@ -39,24 +29,20 @@ export type Initializer<T> = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 20
  */
-export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
-
+export declare class AttributeUpdater<T> implements AttributeModifier<T> {
+   
   /**
-   * Defines the normal update attribute function.
+   * Get attribute of the modifier.
    *
-   * @param { T } instance
+   * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
-  applyNormalAttribute: undefined | ((instance: T) => void);
-  applyPressedAttribute: undefined | ((instance: T) => void);
-  applyFocusedAttribute: undefined | ((instance: T) => void);
-  applyDisabledAttribute: undefined | ((instance: T) => void);
-  applySelectedAttribute: undefined | ((instance: T) => void);
+   get attribute(): T | undefined;
 
   /**
    * Defines a function for initialization.
@@ -65,40 +51,29 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
-  initializeModifier(instance: T): void;
-
-  /**
-   * Get attribute of the modifier.
-   *
-   * @returns { T | undefined } The attribute of the modifier.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  get attribute(): T | undefined;
+   initializeModifier(instaice:T):void;
 
   /**
    * Used to update constructor params.
    *
-   * @type { C }
+   * @type { Initializer<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
-  updateConstructorParams: C;
+   get updateConstructorParams(): Initializer<T>;
 
-  /**
+     /**
    * Defines a function executed when component changed.
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 20
    */
-  onComponentChanged(component: T): void;
+   onComponentChanged(component: T): void;
 }

@@ -92,35 +92,10 @@ declare class ServiceExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
-
-  /**
-   * Called back when a service extension is first connected to an ability.
-   *
-   * @param { Want } want - Indicates connection information about the Service ability.
-   * @returns { rpc.RemoteObject } A RemoteObject for communication between the client and server.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  onConnect(want: Want): rpc.RemoteObject;
-
-  /**
-   * Called back when a service extension is first connected to an ability.
-   *
-   * @param { Want } want - Indicates connection information about the Service ability.
-   * @returns { Promise<rpc.RemoteObject> } A RemoteObject for communication between the client and server.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
-   */
-  onConnectAsync(want: Want): Promise<rpc.RemoteObject>;
 
   /**
    * Called back when all abilities connected to a service extension are disconnected.

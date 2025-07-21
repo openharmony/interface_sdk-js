@@ -190,12 +190,12 @@ export default class Want {
    * For example, wantConstant.Flags.FLAG_ABILITY_CONTINUATION specifies whether to start the ability in cross-device
    * migration scenarios.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 11
    */
-  flags?: number;
+  flags?: int;
 
   /**
    * The description of an action in an want.
@@ -358,12 +358,12 @@ export default class Want {
    * You can obtain the FD from fs.open. When the FD is no longer needed, you must call fs.close to destroy the FD in a
    * timely manner to prevent FD leakage.
    *
-   * @type { ?Record<string, number> }
+   * @type { ?Record<string, int> }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly fds?: Record<string, number>;
+  readonly fds?: Record<string, int>;
 }

@@ -13,16 +13,30 @@
  * limitations under the License.
  */
 
-// import { Command } from "commander";
-// import { PackagingType } from "./model/Enums";
-// import { makePackagingOption } from "./utils/utils";
-import { packagingEntry } from "./src/PackagingEntry";
+/**
+ * @file
+ * @kit ArkUI
+ */
+/**
+ * Defines Stepper Modifier
+ *
+ * @extends StepperAttribute
+ * @implements AttributeModifier<StepperAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+*/
+export declare class StepperModifier extends StepperAttribute implements AttributeModifier<StepperAttribute> {
 
-function main(type: string, inputDir: string, outputDir?: string): void {
-  // const program: Command = makePackagingOption('package_tools', '1.0.0', packagingEntry);
-  // program.parse(process.argv);
-  packagingEntry(type, inputDir, outputDir);
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { StepperAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  applyNormalAttribute?(instance: StepperAttribute): void;
 }
-
-// node package_tools.js type inputDir outputDir
-main(process.argv[2], process.argv[3], process.argv[4]);
+  
