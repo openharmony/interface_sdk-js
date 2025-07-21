@@ -27,6 +27,7 @@ import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from
 import { AsyncCallback } from './@ohos.base';
 import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
 import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
+import bundleManager from './@ohos.bundle.bundleManager';
 /*** endif */
 
 /**
@@ -260,9 +261,9 @@ declare namespace bundleResourceManager {
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { bundleManager.ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
    * <br>Currently only supported ExtensionAbilityType::INPUTMETHOD,ExtensionAbilityType::SHARE,ExtensionAbilityType::ACTION.
-   * @param { number } resourceFlags - Indicates the flag used to specify information.
+   * @param { int } resourceFlags - Indicates the flag used to specify information.
    * <br>Contained in the ExtensionAbilityResourceInfo object that will be returned.
-   * @param { number } [appIndex] - Indicates the index of the bundle.
+   * @param { int } [appIndex] - Indicates the index of the bundle.
    * @returns { Array<LauncherAbilityResourceInfo> } Returns a list of LauncherAbilityResourceInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -271,8 +272,9 @@ declare namespace bundleResourceManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: number, appIndex?: number): Array<LauncherAbilityResourceInfo>;
+  function getExtensionAbilityResourceInfo(bundleName: string, extensionAbilityType: bundleManager.ExtensionAbilityType, resourceFlags: int, appIndex?: int): Array<LauncherAbilityResourceInfo>;
 
   /**
    * Obtains resource info of a bundle.
