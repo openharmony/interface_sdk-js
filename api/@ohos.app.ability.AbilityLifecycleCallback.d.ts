@@ -22,6 +22,7 @@ import UIAbility from './@ohos.app.ability.UIAbility';
 import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
 
+/*** if arkts 1.1 */
 /**
  * The ability lifecycle callback.
  *
@@ -44,10 +45,24 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export default class AbilityLifecycleCallback {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The ability lifecycle callback.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AbilityLifecycleCallback {
+/*** endif */
   /**
    * Called back when an ability is started for initialization.
    *
@@ -73,22 +88,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityCreate(ability: UIAbility): void;
-
-  /**
-   * Called back when an ability is started for initialization.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onAbilityCreate(ability: UIAbility): void {};
 
   /**
    * Called back before an ability is started for initialization.
@@ -129,23 +132,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
-
-  /**
-   * Called back when a window stage is created.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to create
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void {};
 
   /**
    * Called back before a window stage is created.
@@ -251,23 +241,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
-
-  /**
-   * Called back when a window stage is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @param { window.WindowStage } windowStage - window stage to destroy
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void {};
 
   /**
    * Called back before a window stage is destroyed.
@@ -306,22 +283,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityDestroy(ability: UIAbility): void;
-
-  /**
-   * Called back when an ability is destroyed.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onAbilityDestroy(ability: UIAbility): void {};
 
   /**
    * Called back before an ability is destroyed.
@@ -359,22 +324,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityForeground(ability: UIAbility): void;
-
-  /**
-   * Called back when the state of an ability changes to foreground.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onAbilityForeground(ability: UIAbility): void {};
 
   /**
    * Called back before the state of an ability changes to foreground.
@@ -412,22 +365,10 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityBackground(ability: UIAbility): void;
-
-  /**
-   * Called back when the state of an ability changes to background.
-   *
-   * @param { UIAbility } ability - Indicates the ability to register for listening.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onAbilityBackground(ability: UIAbility): void {};
 
   /**
    * Called back before the state of an ability changes to background.
