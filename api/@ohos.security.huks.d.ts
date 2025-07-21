@@ -2428,11 +2428,9 @@ declare namespace huks {
    * @param { HuksOptions } params - params indicates the export properties.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the input parameter is invalid
@@ -2449,14 +2447,8 @@ declare namespace huks {
    * @param { Uint8Array } wrappedKey -indicates the wrapped key.
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify auth token failed
-   * @throws { BusinessError } 12000009 - auth token is already timeout
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
