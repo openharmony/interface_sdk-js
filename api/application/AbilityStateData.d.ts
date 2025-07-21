@@ -59,42 +59,42 @@ declare class AbilityStateData {
   /**
    * The pid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
    * The uid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid: number;
+  uid: int;
 
   /**
    * The application state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  state: number;
+  state: int;
 
   /**
    * The ability type, page or service and so on.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  abilityType: number;
+  abilityType: int;
 
   /**
    * Indicates whether the application is atomic service.
@@ -108,12 +108,12 @@ declare class AbilityStateData {
 
   /**
    * The app clone index of ability instance.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
 }
 
 export default AbilityStateData;

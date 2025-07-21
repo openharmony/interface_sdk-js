@@ -295,7 +295,7 @@ declare namespace abilityManager {
    * obtain information about the current extension.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { number } upperLimit - Get the maximum limit of the number of messages.
+   * @param { int } upperLimit - Get the maximum limit of the number of messages.
    * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -305,14 +305,14 @@ declare namespace abilityManager {
    * @systemapi
    * @since 9
    */
-  function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
+  function getExtensionRunningInfos(upperLimit: int): Promise<Array<ExtensionRunningInfo>>;
 
   /**
    * If you apply for permission, you can obtain information about all extensions. If you do not apply, you can only
    * obtain information about the current extension.
    *
    * @permission ohos.permission.GET_RUNNING_INFO
-   * @param { number } upperLimit - Get the maximum limit of the number of messages.
+   * @param { int } upperLimit - Get the maximum limit of the number of messages.
    * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of
    *                                                                  ExtensionRunningInfo.
    * @throws { BusinessError } 202 - Not system application.
@@ -323,7 +323,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 9
    */
-  function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
+  function getExtensionRunningInfos(upperLimit: int, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
   /**
    * Get the top ability information of the display.
@@ -370,7 +370,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @param { AsyncCallback<Record<string, Object>> } callback - The callback is used to return the params of sharing
    *                                                             data and result code.
    * @throws { BusinessError } 202 - Not system application.
@@ -381,7 +381,7 @@ declare namespace abilityManager {
    * @systemapi
    * @since 11
    */
-  function acquireShareData(missionId: number, callback: AsyncCallback<Record<string, Object>>): void;
+  function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
    * Acquire the shared data from target ability.
@@ -399,7 +399,7 @@ declare namespace abilityManager {
   /**
    * Acquire the shared data from target ability.
    *
-   * @param { number } missionId - The missionId of target ability.
+   * @param { int } missionId - The missionId of target ability.
    * @returns { Promise<Record<string, Object>> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -409,12 +409,12 @@ declare namespace abilityManager {
    * @systemapi
    * @since 11
    */
-  function acquireShareData(missionId: number): Promise<Record<string, Object>>;
+  function acquireShareData(missionId: int): Promise<Record<string, Object>>;
 
   /**
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
-   * @param { number } requestCode - Request code defined by the user.
+   * @param { int } requestCode - Request code defined by the user.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -426,12 +426,12 @@ declare namespace abilityManager {
    * @StageModelOnly
    * @since 10
    */
-  function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: int, callback: AsyncCallback<void>): void;
 
   /**
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
-   * @param { number } requestCode - Request code defined by the user.
+   * @param { int } requestCode - Request code defined by the user.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -443,7 +443,7 @@ declare namespace abilityManager {
    * @StageModelOnly
    * @since 10
    */
-  function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
+  function notifySaveAsResult(parameter: AbilityResult, requestCode: int): Promise<void>;
 
   /**
    * Get the foreground ui abilities.

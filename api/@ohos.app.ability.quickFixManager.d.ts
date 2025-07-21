@@ -95,13 +95,13 @@ declare namespace quickFixManager {
     /**
      * The version number of the bundle.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
      */
-    readonly bundleVersionCode: number;
+    readonly bundleVersionCode: long;
 
     /**
      * The version name of the bundle.
@@ -117,13 +117,13 @@ declare namespace quickFixManager {
     /**
      * The version number of the quick fix.
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
      * @systemapi
      * @since 9
      */
-    readonly quickFixVersionCode: number;
+    readonly quickFixVersionCode: long;
 
     /**
      * The version name of the quick fix.

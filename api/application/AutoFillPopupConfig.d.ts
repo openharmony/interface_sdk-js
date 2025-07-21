@@ -64,24 +64,24 @@
   /**
    * The width of the popup.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  width: number;
+  width: double;
 
   /**
    * The height of the popup.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  height: number;
+  height: double;
 }
 
 /**

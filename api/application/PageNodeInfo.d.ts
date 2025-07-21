@@ -34,24 +34,24 @@ export default interface PageNodeInfo {
   /**
    * The id of page node.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11
    */
-  id: number;
+  id: int;
 
   /**
    * The depth of page node.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11
    */
-  depth: number;
+  depth: int;
 
   /**
    * The auto fill type of page node.

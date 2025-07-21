@@ -41,10 +41,10 @@ export interface ChildProcessArgs {
   /**
    * Indicates file descriptors that use to communicate between two processes.
    *
-   * @type { ?Record<string, number> }
+   * @type { ?Record<string, int> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 12
    */
-  fds?: Record<string, number>;
+  fds?: Record<string, int>;
 }
