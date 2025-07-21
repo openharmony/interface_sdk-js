@@ -69,7 +69,7 @@ declare namespace resourceManager {
   /**
    * Enumerates screen directions.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -144,7 +144,7 @@ declare namespace resourceManager {
   /**
    * Enumerates device types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -321,7 +321,7 @@ declare namespace resourceManager {
   /**
    * Enumerates screen density types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -477,7 +477,7 @@ declare namespace resourceManager {
   /**
    * Enumerates color mode types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -637,26 +637,26 @@ declare namespace resourceManager {
     /**
      * Indicates the mcc.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    mcc: number;
+    mcc: int;
 
     /**
      * Indicates the mnc.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    mnc: number;
+    mnc: int;
   }
 
   /**
@@ -2043,7 +2043,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource name in callback mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
@@ -2056,7 +2056,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaByName(resName: string, density: number, callback: _AsyncCallback<Uint8Array>): void;
+    getMediaByName(resName: string, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource name in Promise mode.
@@ -2115,7 +2115,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource name in Promise mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the
      *                 specified resource name.
@@ -2128,7 +2128,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaByName(resName: string, density: number): Promise<Uint8Array>;
+    getMediaByName(resName: string, density: int): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in callback mode.
@@ -2190,7 +2190,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource name in callback mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
@@ -2203,7 +2203,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback<string>): void;
+    getMediaBase64ByName(resName: string, density: int, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in Promise mode.
@@ -2261,7 +2261,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource name in Promise mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } The Base64 code of the specified screen density image resource corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -2273,7 +2273,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaBase64ByName(resName: string, density: number): Promise<string>;
+    getMediaBase64ByName(resName: string, density: int): Promise<string>;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to the
@@ -2407,7 +2407,7 @@ declare namespace resourceManager {
     /**
      * Obtains string resources associated with a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2419,7 +2419,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringSync(resId: number): string;
+    getStringSync(resId: long): string;
 
     /**
      * Obtains string resources associated with a specified resource ID.
@@ -2457,8 +2457,8 @@ declare namespace resourceManager {
     /**
      * Obtains string resources associated with a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { long } resId - Indicates the resource ID.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2471,7 +2471,7 @@ declare namespace resourceManager {
      * @arkts 1.2
 
      */
-    getStringSync(resId: number, ...args: (string | number)[]): string;
+    getStringSync(resId: long, ...args: (string | double)[]): string;
 
     /**
      * Obtains string resources associated with a specified resource object.
@@ -2633,7 +2633,7 @@ declare namespace resourceManager {
      * Obtains string resources associated with a specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The character string corresponding to the resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -2645,7 +2645,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getStringByNameSync(resName: string, ...args: (string | number)[]): string;
+    getStringByNameSync(resName: string, ...args: (string | double)[]): string;
 
     /**
      * Obtains the boolean result with a specified resource ID.
@@ -2675,7 +2675,7 @@ declare namespace resourceManager {
     /**
      * Obtains the boolean result with a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { boolean } The boolean resource corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2687,7 +2687,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getBoolean(resId: number): boolean;
+    getBoolean(resId: long): boolean;
 
     /**
      * Obtains the boolean result with a specified resource object.
@@ -2814,10 +2814,41 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getNumber(resId: number): number;
+
+    /**
+     * Obtains the number result with a specified resource ID.
+     *
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { int } The number resource corresponding to the resource ID.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getInt(resId: long): int;
+
+    /**
+     * Obtains the number result with a specified resource ID.
+     *
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { double } The number resource corresponding to the resource ID.
+     * @throws { BusinessError } 9001001 - Invalid resource ID.
+     * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getDouble(resId: long): double;
 
     /**
      * Obtains the number result with a specified resource object.
@@ -2902,10 +2933,42 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getNumberByName(resName: string): number;
+
+    /**
+     * Obtains the number result with a specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { int } The number resource corresponding to the resource name.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getIntByName(resName: string): int;
+
+
+    /**
+     * Obtains the number result with a specified resource name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @returns { double } The number resource corresponding to the resource name.
+     * @throws { BusinessError } 9001003 - Invalid resource name.
+     * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
+     * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    getDoubleByName(resName: string): double;
 
     /**
      * Obtains release resourceManager.
@@ -2959,7 +3022,7 @@ declare namespace resourceManager {
     /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -2971,7 +3034,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringValue(resId: number, callback: _AsyncCallback<string>): void;
+    getStringValue(resId: long, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
@@ -3001,7 +3064,7 @@ declare namespace resourceManager {
     /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3013,7 +3076,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringValue(resId: number): Promise<string>;
+    getStringValue(resId: long): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
@@ -3043,7 +3106,7 @@ declare namespace resourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3055,7 +3118,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringArrayValue(resId: number, callback: _AsyncCallback<Array<string>>): void;
+    getStringArrayValue(resId: long, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
@@ -3085,7 +3148,7 @@ declare namespace resourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3097,7 +3160,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringArrayValue(resId: number): Promise<Array<string>>;
+    getStringArrayValue(resId: long): Promise<Array<string>>;
 
     /**
      * Obtains the singular-plural character string represented by the ID string corresponding to the
@@ -3227,9 +3290,9 @@ declare namespace resourceManager {
      * Obtains the singular-plural character string represented by the ID string corresponding to
      * the specified number.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } num - An integer used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } num - An integer used to get the correct string for the current plural rules.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3242,7 +3305,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getIntPluralStringValueSync(resId: number, num: number, ...args: (string | number)[]): string;
+    getIntPluralStringValueSync(resId: long, num: int, ...args: (string | double)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to the
@@ -3290,8 +3353,8 @@ declare namespace resourceManager {
      * the specified number.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } num - An integer used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { int } num - An integer used to get the correct string for the current plural rules.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 9001003 - Invalid resource name.
@@ -3304,7 +3367,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getIntPluralStringByNameSync(resName: string, num: number, ...args: (string | number)[]): string;
+    getIntPluralStringByNameSync(resName: string, num: int, ...args: (string | double)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the ID string corresponding to
@@ -3330,9 +3393,9 @@ declare namespace resourceManager {
      * Obtains the singular-plural character string represented by the ID string corresponding to
      * the specified number.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { long } resId - Indicates the resource ID.
+     * @param { double } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3345,7 +3408,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getDoublePluralStringValueSync(resId: number, num: number, ...args: (string | number)[]): string;
+    getDoublePluralStringValueSync(resId: long, num: double, ...args: (string | double)[]): string;
 
     /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to the
@@ -3393,8 +3456,8 @@ declare namespace resourceManager {
      * the specified number.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } num - A double parameter used to get the correct string for the current plural rules.
-     * @param { (string | number)[] } args - Indicates the formatting string resource parameters.
+     * @param { double } num - A double parameter used to get the correct string for the current plural rules.
+     * @param { (string | double)[] } args - Indicates the formatting string resource parameters.
      * @returns { string } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
      * @throws { BusinessError } 9001003 - Invalid resource name.
@@ -3407,7 +3470,7 @@ declare namespace resourceManager {
      * @since 20
      * @arkts 1.2
      */
-    getDoublePluralStringByNameSync(resName: string, num: number, ...args: (string | number)[]): string;
+    getDoublePluralStringByNameSync(resName: string, num: double, ...args: (string | double)[]): string;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
@@ -3435,7 +3498,7 @@ declare namespace resourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3446,7 +3509,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContent(resId: number, callback: _AsyncCallback<Uint8Array>): void;
+    getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID in callback mode.
@@ -3465,8 +3528,8 @@ declare namespace resourceManager {
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @param { _AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained
      *                 specified screen density media file content.
@@ -3479,7 +3542,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContent(resId: number, density: number, callback: _AsyncCallback<Uint8Array>): void;
+    getMediaContent(resId: long, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
@@ -3507,7 +3570,7 @@ declare namespace resourceManager {
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3518,7 +3581,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContent(resId: number): Promise<Uint8Array>;
+    getMediaContent(resId: long): Promise<Uint8Array>;
 
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID in Promise mode.
@@ -3536,8 +3599,8 @@ declare namespace resourceManager {
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Promise<Uint8Array> } The content of the specified screen density media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -3549,7 +3612,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContent(resId: number, density: number): Promise<Uint8Array>;
+    getMediaContent(resId: long, density: int): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
@@ -3579,7 +3642,7 @@ declare namespace resourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
@@ -3591,7 +3654,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentBase64(resId: number, callback: _AsyncCallback<string>): void;
+    getMediaContentBase64(resId: long, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in callback mode.
@@ -3610,8 +3673,8 @@ declare namespace resourceManager {
     /**
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @param { _AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the
      *                 specified screen density image resource.
@@ -3624,7 +3687,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback<string>): void;
+    getMediaContentBase64(resId: long, density: int, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
@@ -3652,7 +3715,7 @@ declare namespace resourceManager {
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { Promise<string> } the Base64 code of the image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -3663,7 +3726,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentBase64(resId: number): Promise<string>;
+    getMediaContentBase64(resId: long): Promise<string>;
 
     /**
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in Promise mode.
@@ -3681,8 +3744,8 @@ declare namespace resourceManager {
     /**
      * Obtains the Base64 code of the specified screen density image resource corresponding to the specified resource ID in Promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Promise<string> } the Base64 code of the specified screen density image resource corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -3694,7 +3757,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentBase64(resId: number, density: number): Promise<string>;
+    getMediaContentBase64(resId: long, density: int): Promise<string>;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
@@ -3944,10 +4007,10 @@ declare namespace resourceManager {
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     * @param { int } [type] - The optional parameter means the media type, the default value 0 means
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -3959,7 +4022,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor;
+    getDrawableDescriptor(resId: long, density?: int, type?: int): DrawableDescriptor;
 
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
@@ -3994,9 +4057,9 @@ declare namespace resourceManager {
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *             to use the density of current system dpi.
-     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     * @param { int } [type] - The optional parameter means the media type, the default value 0 means
      *             the normal media.
      * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -4008,7 +4071,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor;
+    getDrawableDescriptorByName(resName: string, density?: int, type?: int): DrawableDescriptor;
 
     /**
      * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
@@ -4129,8 +4192,8 @@ declare namespace resourceManager {
     /**
      * Obtains the color resource corresponding to the specified resource ID in callback mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
+     * @param { long } resId - Indicates the resource ID.
+     * @param { _AsyncCallback<long> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -4142,7 +4205,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColor(resId: number, callback: _AsyncCallback<number>): void;
+    getColor(resId: long, callback: _AsyncCallback<long>): void;
 
     /**
      * Obtains the color resource corresponding to the specified resource ID in promise mode.
@@ -4159,8 +4222,8 @@ declare namespace resourceManager {
     /**
      * Obtains the color resource corresponding to the specified resource ID in promise mode.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { Promise<long> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -4171,7 +4234,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColor(resId: number): Promise<number>;
+    getColor(resId: long): Promise<long>;
 
     /**
      * Obtains the color resource corresponding to the specified resource object in callback mode.
@@ -4256,7 +4319,7 @@ declare namespace resourceManager {
      * Obtains the color resource corresponding to the specified resource object in callback mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { _AsyncCallback<number> } callback - Indicates the asynchronous callback used to
+     * @param { _AsyncCallback<long> } callback - Indicates the asynchronous callback used to
      *     return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
@@ -4268,7 +4331,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColorByName(resName: string, callback: _AsyncCallback<number>): void;
+    getColorByName(resName: string, callback: _AsyncCallback<long>): void;
 
     /**
      * Obtains the color resource corresponding to the specified resource object in promise mode.
@@ -4286,7 +4349,7 @@ declare namespace resourceManager {
      * Obtains the color resource corresponding to the specified resource object in promise mode.
      *
      * @param { string } resName - Indicates the resource name.
-     * @returns { Promise<number> } Indicates return the integer reference value representing the color data.
+     * @returns { Promise<long> } Indicates return the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -4297,7 +4360,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColorByName(resName: string): Promise<number>;
+    getColorByName(resName: string): Promise<long>;
 
     /**
      * Obtains the color resource corresponding to the specified resource ID.
@@ -4314,8 +4377,8 @@ declare namespace resourceManager {
     /**
      * Obtains the color resource corresponding to the specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @returns { number } Indicates the integer reference value representing the color data.
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { long } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -4326,7 +4389,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColorSync(resId: number) : number;
+    getColorSync(resId: long) : long;
 
     /**
      * Obtains the color resource corresponding to the specified resource object.
@@ -4376,7 +4439,7 @@ declare namespace resourceManager {
      * Obtains the color resource corresponding to the specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @returns { number } Indicates the integer reference value representing the color data.
+     * @returns { long } Indicates the integer reference value representing the color data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -4387,7 +4450,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColorByNameSync(resName: string) : number;
+    getColorByNameSync(resName: string) : long;
 
     /**
      * Add overlay resources during application runtime.
@@ -4549,8 +4612,8 @@ declare namespace resourceManager {
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Uint8Array } Indicates the obtained media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -4562,7 +4625,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentSync(resId: number, density?: number): Uint8Array;
+    getMediaContentSync(resId: long, density?: int): Uint8Array;
 
     /**
      * Obtains the content of the specified screen density media file corresponding to a specified resource object.
@@ -4614,8 +4677,8 @@ declare namespace resourceManager {
     /**
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { long } resId - Indicates the resource ID.
+     * @param { int } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { string } Indicates the obtained Base64 code of the media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -4627,7 +4690,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaContentBase64Sync(resId: number, density?: number): string;
+    getMediaContentBase64Sync(resId: long, density?: int): string;
 
     /**
      * Obtains the content of the specified screen density media file corresponding to the specified resource object.
@@ -4752,7 +4815,7 @@ declare namespace resourceManager {
     /**
      * Obtains the array of character strings corresponding to a specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
+     * @param { long } resId - Indicates the resource ID.
      * @returns { Array<string> } The array of character strings corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -4764,7 +4827,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringArrayValueSync(resId: number): Array<string>;
+    getStringArrayValueSync(resId: long): Array<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource object.
@@ -4851,7 +4914,7 @@ declare namespace resourceManager {
      * Obtains the content of the specified screen density media file corresponding to a specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Uint8Array } The obtained specified screen density media file content.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -4863,7 +4926,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaByNameSync(resName: string, density?: number): Uint8Array;
+    getMediaByNameSync(resName: string, density?: int): Uint8Array;
 
     /**
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource name.
@@ -4882,7 +4945,7 @@ declare namespace resourceManager {
      * Obtains the Base64 code of the specified screen density media file corresponding to the specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @param { number } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     * @param { int } [density] - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { string } The obtained Base64 code of the specified screen density media file.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
@@ -4894,7 +4957,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMediaBase64ByNameSync(resName: string, density?: number): string;
+    getMediaBase64ByNameSync(resName: string, density?: int): string;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name.
@@ -4981,8 +5044,8 @@ declare namespace resourceManager {
     /**
      * Obtains the symbol resource corresponding to the specified resource ID.
      *
-     * @param { number } resId - Indicates the resource ID.
-     * @returns { number } Indicates the integer reference value representing the symbol data.
+     * @param { long } resId - Indicates the resource ID.
+     * @returns { long } Indicates the integer reference value representing the symbol data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -4993,7 +5056,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getSymbol(resId: number) : number;
+    getSymbol(resId: long) : long;
 
     /**
      * Obtains the symbol resource corresponding to the specified resource object.
@@ -5018,7 +5081,7 @@ declare namespace resourceManager {
      * Obtains the symbol resource corresponding to the specified resource name.
      *
      * @param { string } resName - Indicates the resource name.
-     * @returns { number } Indicates the integer reference value representing the symbol data.
+     * @returns { long } Indicates the integer reference value representing the symbol data.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -5029,7 +5092,7 @@ declare namespace resourceManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getSymbolByName(resName: string) : number;
+    getSymbolByName(resName: string) : long;
 
     /**
      * Whether the rawfile resource is a directory or not.
