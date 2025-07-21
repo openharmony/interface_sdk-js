@@ -25,9 +25,7 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
-/*** if arkts 1.1 */
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
-/*** endif */
 
 /**
  * The context of an application. It allows access to application-specific resources.
