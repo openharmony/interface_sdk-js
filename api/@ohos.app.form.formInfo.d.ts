@@ -1789,9 +1789,17 @@ declare namespace formInfo {
    * @typedef RunningFormInfo
    * @syscap SystemCapability.Ability.Form
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
+  /**
+   * The class of a running form information.
+   *
+   * @typedef RunningFormInfo
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */  
   interface RunningFormInfo {
     /**
      * Obtains the id of the this form.
@@ -1801,7 +1809,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the id of the this form.
+     *
+     * @type { string }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly formId: string;
@@ -1814,7 +1832,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the bundle name of the application to which this form belongs.
+     *
+     * @type { string }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly bundleName: string;
@@ -1840,7 +1868,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * The location of this form.
+     *
+     * @type { FormLocation }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly formLocation: FormLocation;
@@ -1866,7 +1904,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the name of the application module to which this form belongs.
+     *
+     * @type { string }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly moduleName: string;
@@ -1879,7 +1927,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the class name of the ability to which this form belongs.
+     *
+     * @type { string }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly abilityName: string;
@@ -1892,7 +1950,17 @@ declare namespace formInfo {
      * @default -
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the name of this form.
+     *
+     * @type { string }
+     * @readonly
+     * @default -
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly formName: string;
@@ -1905,7 +1973,17 @@ declare namespace formInfo {
      * @readonly
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Obtains the grid style of this form.
+     *
+     * @type { int }
+     * @default -
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     readonly dimension: number;
