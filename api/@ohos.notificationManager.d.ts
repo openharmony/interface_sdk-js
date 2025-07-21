@@ -2747,6 +2747,27 @@ declare namespace notificationManager {
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
   /**
+   * Sets whether applications supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DistributedBundleEnableInfo> } bundleEnableInfos - The enable bundles.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  function setDistributedEnableByBundles(bundleEnableInfos: Array<DistributedBundleEnableInfo>, deviceType: string): Promise<void>;
+
+  /**
    * Sets whether an application supports smart reminders across devices.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -4716,6 +4737,46 @@ declare namespace notificationManager {
      * @since 9
      */
     end: Date;
+  }
+  
+  /**
+   * Describes a DistributedBundleEnableInfo instance.
+   *
+   * @typedef DistributedBundleEnableInfo
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   */
+  export interface DistributedBundleEnableInfo {
+    /**
+     * The bundle name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     */
+    bundleName: string;
+	
+	/**
+     * The uid.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     */
+    uid: number;
+
+    /**
+     * Indicates whether application is enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20
+     */
+    enable?: boolean;
   }
 
   /**
