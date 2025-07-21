@@ -87,7 +87,14 @@ function collectComponentEtsFiles() {
 }
 
 function getPureName(name) {
-  return path.basename(name).replace('.d.ts', '').replace('.static.ets', '').replace('.d.ets', '').replace(/_/g, '').toLowerCase();
+  return path
+    .basename(name)
+    .replace('.static.ets', '')
+    .replace('.static.d.ets', '')
+    .replace('.d.ts', '')
+    .replace('.d.ets', '')
+    .replace(/_/g, '')
+    .toLowerCase();
 }
 
 /**
@@ -104,8 +111,6 @@ function tsTransformKitFile(kitPath) {
   kitFiles.forEach((kitFile) => {
     const kitName = processFileNameWithoutExt(kitFile).replace('@kit.', '');
     const content = fs.readFileSync(kitFile, 'utf-8');
-    writeFile(kitFile, content);
-    return;
     const fileName = processFileName(kitFile);
     let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.ES2017, true);
     const sourceInfo = getKitNewSourceFile(sourceFile, kitName);
@@ -117,6 +122,7 @@ function tsTransformKitFile(kitPath) {
     if (sourceInfo.copyrightMessage !== '') {
       result = sourceInfo.copyrightMessage + result;
     }
+    writeFile(kitFile, result);
   });
 }
 
@@ -275,7 +281,7 @@ function isExistArkUIFile(resolvedPath, importPath) {
 }
 
 function isExistImportFile(fileDir, importPath) {
-  return ['.d.ts', '.d.ets'].some(ext => {
+  return ['.d.ts', '.d.ets', '.static.d.ets'].some(ext => {
     return fs.existsSync(path.resolve(fileDir, `${importPath}${ext}`));
   });
 }
@@ -314,11 +320,9 @@ function tsTransform(utFiles, callback) {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     if (/\.static\.d\.ets$/.test(apiBaseName)) {
-      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), content);
+      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), processStaticFile(content));
       return;
     }
-    writeFile(url, content);
-    return;
     if (isArkTsSpecialSyntax(content)) {
       if (!/\@systemapi/.test(content)) {
         writeFile(url, content);
@@ -358,6 +362,29 @@ function tsTransform(utFiles, callback) {
     });
   });
 }
+
+function processStaticFile(content) {
+  const regJSDOCStr = `\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?`;
+  const regNodeList = [
+    { start: 'declare enum TransitionHierarchyStrategy', end: 'ADAPTIVE = 1' },
+    { start: 'declare interface PixelMapMock', end: 'release\\(\\): void' },
+    { start: 'declare interface PointLightStyle', end: 'bloom\\?: number' },
+    { start: 'declare interface LightSource', end: 'color\\?: ResourceColor' }
+  ];
+  regNodeList.forEach(regNode => {
+    const replaceDeclareNode = `${regJSDOCStr}${regNode.start}.*${regNode.end}.*?\\n}.*?\\n`;
+    const regJSDOC = new RegExp(replaceDeclareNode, 'sg');
+    content = content.replace(regJSDOC, '\n');
+  });
+  const replaceSignNode = new RegExp(
+    '\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?@systemapi[\\s\\S]*?\\*\\/.*?\\r?\\n.*?\\r?\\n',
+    'g'
+  );
+  content = content.replace(replaceSignNode, '\n');
+  content = content.replace(/(import\s*\{.*)IlluminatedType(,\s)?(.*from.*enums)/g, '$1$3');
+  return content;
+}
+
 /**
  * 切换references或者references中path的格式
  * @param {string} references references或者references中的path
