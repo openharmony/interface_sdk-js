@@ -622,12 +622,22 @@ declare namespace distributedKVStore {
 
     /**
      * Indicates the default value of field node.
-     *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @arkts 1.1
      * @since 9
      */
     default: string;
+
+    /**
+     * Indicates the default value of field node.
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    defaultValue: string;
 
     /**
      * Indicates the nullable of database field.
