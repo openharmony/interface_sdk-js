@@ -2804,6 +2804,7 @@ function truncate(file: string | int, callback: AsyncCallback<void>): void;
 /**
  * Truncate file.
  *
+ * @param { string | int } file - path or file descriptor.
  * @param { long } [len = 0] - len.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -3948,7 +3949,7 @@ interface Stat {
   readonly ino: bigint;
 
   /**
-   * @type { int }
+   * @type { long }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -3957,10 +3958,10 @@ interface Stat {
    * @atomicservice
    * @since 20
    */
-  readonly mode: int;
+  readonly mode: long;
 
   /**
-   * @type { int }
+   * @type { long }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -3970,10 +3971,10 @@ interface Stat {
    * @crossplatform
    * @since 20
    */
-  readonly uid: int;
+  readonly uid: long;
 
   /**
-   * @type { int }
+   * @type { long }
    * @readonly
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
@@ -3981,7 +3982,7 @@ interface Stat {
    * @crossplatform
    * @since 20
    */
-  readonly gid: int;
+  readonly gid: long;
 
   /**
    * @type { long }
@@ -4976,12 +4977,12 @@ export interface ListFileOptions {
   /**
    * The number of files listed.
    * 
-   * @type { ?int }
+   * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
    * @since 20
    */
-  listNum?: int;
+  listNum?: long;
 
   /**
    * The filter of listing files.

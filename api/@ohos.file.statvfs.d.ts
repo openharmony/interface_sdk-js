@@ -41,7 +41,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path.
    *
    * @param { string } path - path
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -87,7 +87,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path.
    *
    * @param { string } path - path
-   * @param { AsyncCallback<long> } [callback] - callback
+   * @param { AsyncCallback<number> } [callback] - callback
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -133,7 +133,7 @@ declare namespace statfs {
    * Get the number of free bytes on the specified path with sync interface.
    *
    * @param { string } path - path
-   * @returns { long } return the number of free bytes on the specified path
+   * @returns { number } return the number of free bytes on the specified path
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -179,7 +179,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path.
    *
    * @param { string } path - path
-   * @returns { Promise<long> } return Promise
+   * @returns { Promise<number> } return Promise
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -225,7 +225,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path.
    *
    * @param { string } path - path
-   * @param { AsyncCallback<long> } [callback] - callback
+   * @param { AsyncCallback<number> } [callback] - callback
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -271,7 +271,7 @@ declare namespace statfs {
    * Get the number of total bytes on the specified path with sync interface.
    *
    * @param { string } path - path
-   * @returns { long } return the number of total bytes
+   * @returns { number } return the number of total bytes
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
