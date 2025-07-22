@@ -837,6 +837,19 @@ declare namespace unifiedDataChannel {
      * @crossplatform
      * @atomicservice
      * @since 14
+     * @arkts 1.1
+     */
+    abstract?: string;
+
+    /**
+     * Indicates the abstract of text
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
      */
     textAbstract?: string;
 

@@ -59,6 +59,16 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
+     * @arkts 1.1
+     */
+    abstract?: string;
+
+    /**
+     * Indicates the abstract of the PlainText.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
      */
     textAbstract?: string;
     /**
