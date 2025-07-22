@@ -50,3 +50,11 @@ export { AttributeUpdater } from './arkui/AttributeUpdater';
  * @since 20
  */
 export { ButtonModifier } from './arkui/ButtonModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
