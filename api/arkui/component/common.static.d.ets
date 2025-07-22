@@ -10328,6 +10328,16 @@ export declare interface BackgroundOptions {
      */
     align?: Alignment;
 }
+/**
+ * Defines the value of the custom property..
+ *
+ * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
 export declare interface CommonMethod {
     /**
      * Sets the width of the component or its horizontal layout policy. By default, the
@@ -10377,14 +10387,14 @@ export declare interface CommonMethod {
      * This API does not work for custom components.
      *
      * @param { string } name - the name of the custom property.
-     * @param { Optional<Object> } value - the value of the custom property.
+     * @param { CustomProperty } value - the value of the custom property.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    default customProperty(name: string | undefined, value: Object | undefined): this;
+    default customProperty(name: string, value: CustomProperty): this;
     /**
      * Sets the safe area to be expanded to.
      * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
