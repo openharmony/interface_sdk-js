@@ -663,8 +663,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextStyle {
   /**
@@ -674,8 +673,31 @@ declare interface TextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  wordBreak?: WordBreak;
+}
+
+/**
+ * Defines TextStyle in the AlertDialog.
+ *
+ * @interface AlertDialogTextStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AlertDialogTextStyleOptions {
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
    */
   wordBreak?: WordBreak;
 }
@@ -1179,10 +1201,21 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textStyle?: TextStyle;
+
+  /**
+   * Set the alertDialog's textStyle.
+   *
+   * @type { ?AlertDialogTextStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  textStyle?: AlertDialogTextStyleOptions;
 
   /**
    * Defines whether to respond to the hover mode.
