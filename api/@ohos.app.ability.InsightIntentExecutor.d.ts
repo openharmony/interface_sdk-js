@@ -106,4 +106,4 @@ declare class InsightIntentExecutor {
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }
 
-export default InsightIntentContext;
+export default InsightIntentExecutor;
