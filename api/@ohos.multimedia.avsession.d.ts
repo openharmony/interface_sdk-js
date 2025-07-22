@@ -4235,7 +4235,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 19
      */
-    OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
+    OH_AVCODEC_MIMETYPE_VIDEO_AVC = 'video/avc',
 
     /**
      * Defination of hevc codec type.
@@ -4243,7 +4243,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 19
      */
-    OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
+    OH_AVCODEC_MIMETYPE_VIDEO_HEVC = 'video/hevc',
 
     /**
      * Defination of audio vivid codec type.
@@ -4251,7 +4251,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 19
      */
-    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a",
+    OH_AVCODEC_MIMETYPE_AUDIO_VIVID = 'audio/av3a',
   }
 
   /**
