@@ -86,35 +86,14 @@ export declare function compatibleComponent(
 ): void;
 
 /**
- * Binds the callback for obtaining the provide's compatible state with compatible custom component.
- *
- * @param { ExtendableComponent } component - the custom component
- * @param { ESValue } createCompatibleState - the callback for creating compatible state
- * @param { ESValue } setCallback - set the callback for binding the provide's compatible state
- * @param { ESValue } [compatibleComponent] - the compatible custom component
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export declare function bindCompatibleProvideCallback(
-    component: ExtendableComponent,
-    createCompatibleState: ESValue,
-    setCallback: ESValue,
-    compatibleComponent?: ESValue
-): void;
-
-/**
  * Obtains the compatible state.
  *
  * @param { IDecoratedV1Variable<T> } state - the source state
- * @param { ESValue } createCompatibleState - the callback for creating compatible state
  * @returns { ESValue } the compatible state
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare function getCompatibleState<T>(
-    state: IDecoratedV1Variable<T>,
-    createCompatibleState: ESValue
-): ESValue;
+export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): ESValue;
 
 /**
  * Obtains the compatible WrappedBuilder.
@@ -126,3 +105,13 @@ export declare function getCompatibleState<T>(
  */
 @Builder
 export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArray<ESValue>): void;
+
+/**
+ * Transfer compatible Builder
+ * 
+ * @param { T } builder - the source builder
+ * @returns { ESValue } the comaptible builder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare function transferCompatibleBuilder<T extends Function>(@Builder builder: T): ESValue;
