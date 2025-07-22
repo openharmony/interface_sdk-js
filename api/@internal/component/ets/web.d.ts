@@ -7278,7 +7278,6 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1
    */
   object: object;
 

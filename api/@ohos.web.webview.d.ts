@@ -4811,7 +4811,6 @@ declare namespace webview {
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1
      */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
