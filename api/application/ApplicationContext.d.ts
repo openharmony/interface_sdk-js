@@ -24,10 +24,14 @@ import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
-import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** if arkts 1.1 */
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
+/*** if arkts 1.2 */
+import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
+/*** endif */
+
 
 /**
  * The context of an application. It allows access to application-specific resources.
