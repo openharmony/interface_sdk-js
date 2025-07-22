@@ -153,8 +153,8 @@ declare namespace avSession {
   /**
    * Get history play list information records.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
-   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxAppSize - Specifies the maximum app size of the returned value array.
    * @param { AsyncCallback<Array<Readonly<AVQueueInfo>>> } callback - async callback for an array of AVQueueInfo.
    * If provided '0' or not provided, the maximum value is determined by the system.
    * @throws { BusinessError } 201 - permission denied
@@ -164,22 +164,24 @@ declare namespace avSession {
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getHistoricalAVQueueInfos(maxSize: number, maxAppSize: number, callback: AsyncCallback<Array<Readonly<AVQueueInfo>>>): void;
+  function getHistoricalAVQueueInfos(maxSize: int, maxAppSize: int, callback: AsyncCallback<Array<Readonly<AVQueueInfo>>>): void;
 
   /**
    * Get history play list information records.
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { number } maxSize - Specifies the maximum size of the returned value array.
-   * @param { number } maxAppSize - Specifies the maximum app size of the returned value array.
+   * @param { int } maxSize - Specifies the maximum size of the returned value array.
+   * @param { int } maxAppSize - Specifies the maximum app size of the returned value array.
    * @returns { Promise<Array<Readonly<AVQueueInfo>>> } Promise for an array of AVQueueInfo
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi Hide this for inner system use
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getHistoricalAVQueueInfos(maxSize: int, maxAppSize: int): Promise<Array<Readonly<AVQueueInfo>>>;
 
@@ -292,7 +294,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600109 - The remote connection is not established.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
 
@@ -499,7 +502,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
 
@@ -516,7 +520,8 @@ declare namespace avSession {
    * @throws { BusinessError } 6600105 - Invalid session command.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendSystemAVKeyEvent(event: KeyEvent): Promise<void>;
 
@@ -879,7 +884,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startCasting(session: SessionToken, device: OutputDeviceInfo, callback: AsyncCallback<void>): void;
 
@@ -897,7 +903,8 @@ declare namespace avSession {
    * @throws {BusinessError} 6600108 - Device connecting failed
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startCasting(session: SessionToken, device: OutputDeviceInfo): Promise<void>;
 
@@ -935,7 +942,7 @@ declare namespace avSession {
    * Begin to write device logs into a file descriptor for the purpose of problem locating.
    * If the logs exceed max file size, no logs will be written and DEVICE_LOG_FULL event will be omitted.
    * @param { string } url - The file descriptor to be written.
-   * @param { number } maxSize - The max size to be written in kilobyte.
+   * @param { int } maxSize - The max size to be written in kilobyte.
    * if not set, then written process will exit when there is no space to write.
    * @returns { Promise<void> } Promise for the result
    * @throws { BusinessError } 202 - Not System App.
@@ -945,9 +952,10 @@ declare namespace avSession {
    * @throws { BusinessError } 6600102 - The session does not exist.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function startDeviceLogging(url: string, maxSize?: number): Promise<void>;
+  function startDeviceLogging(url: string, maxSize?: int): Promise<void>;
 
   /**
    * Stop the current device written even the discovery is ongoing.
