@@ -20,6 +20,7 @@
  */
  
 export * from './arkui/stateManagement/decorator';
+export * from './arkui/stateManagement/remember';
 export * from './arkui/stateManagement/runtime';
 export * from './arkui/stateManagement/storage/appStorage';
 export * from './arkui/stateManagement/storage/localStorage';
