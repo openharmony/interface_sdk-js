@@ -2215,7 +2215,141 @@ declare namespace sim {
    * @systemapi Hide this for inner system use.
    * @since 14
    */
-  function getSimAuthentication(slotId: number, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>
+  function getSimAuthentication(slotId: number, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>;
+
+  /**
+   * Get the list of all SIM card account information.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
+   * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
+   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getAllSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
+
+  /**
+   * Get the list of all SIM card account information.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
+   * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getAllSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
+
+  /**
+   * Obtains the SIM card label.
+   * @param { number } slotId SIM card slot ID.
+   * @param { AsyncCallback<SimLabel> } callback Callback used to return the SIM card label.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void;
+
+  /**
+   * Obtains the SIM card label.
+   * @param { number } slotId SIM card slot ID.
+   * @returns { Promise<SimLabel> } Promise used to return the SIM card label.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getSimLabel(slotId: number): Promise<SimLabel>;
+
+  /**
+   * Obtains the SIM card label synchronously.
+   * @param { number } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
+   * by the device.
+   * @returns { SimLabel } SIM card label.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getSimLabelSync(slotId: number): SimLabel;
+
+  /**
+   * Indicates the SIM card type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export enum SimType {
+    /**
+     * Indicates psim type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PSIM = 0,
+
+    /**
+     * Indicates esim type.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    ESIM = 1
+  }
+
+  /**
+   * Defines the SIM card label.
+   * @interface SimLabel
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export interface SimLabel {
+    /**
+     * Represents the SIM card type.
+     * @type { SimType }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    simType: SimType;
+
+    /**
+     * Represents the SIM card index.
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    index: number;
+  }
 
   /**
    * Defines the carrier configuration.
@@ -2495,7 +2629,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FDN_LOCK = 2,
+    FDN_LOCK = 2
   }
 
   /**
@@ -2601,7 +2735,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_UNKNOWN,
+    SIM_STATE_UNKNOWN = 0,
 
     /**
      * Indicates that the SIM card is in the <b>not present</b> state, that is,
@@ -2610,7 +2744,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_NOT_PRESENT,
+    SIM_STATE_NOT_PRESENT = 1,
 
     /**
      * Indicates that the SIM card is in the <b>locked</b> state, that is, the
@@ -2620,7 +2754,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_LOCKED,
+    SIM_STATE_LOCKED = 2,
 
     /**
      * Indicates that the SIM card is in the <b>not ready</b> state, that is,
@@ -2629,7 +2763,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_NOT_READY,
+    SIM_STATE_NOT_READY = 3,
 
     /**
      * Indicates that the SIM card is in the <b>ready</b> state, that is, the
@@ -2638,7 +2772,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_READY,
+    SIM_STATE_READY = 4,
 
     /**
      * Indicates that the SIM card is in the <b>loaded</b> state, that is, the
@@ -2647,7 +2781,7 @@ declare namespace sim {
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6
      */
-    SIM_STATE_LOADED
+    SIM_STATE_LOADED = 5
   }
 
   /**
@@ -2675,7 +2809,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    LOCK_ON = 1,
+    LOCK_ON = 1
   }
 
   /**
@@ -2703,7 +2837,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FIXED_DIALING = 2,
+    FIXED_DIALING = 2
   }
 
   /**
@@ -2722,7 +2856,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PN_PIN_LOCK,
+    PN_PIN_LOCK = 0,
 
     /**
      * Indicates network personalization of PUK lock(refer 3GPP TS 22.022 [33]).
@@ -2731,7 +2865,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PN_PUK_LOCK,
+    PN_PUK_LOCK = 1,
 
     /**
      * Indicates network subset personalization of PIN lock(refer 3GPP TS 22.022 [33]).
@@ -2740,7 +2874,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PU_PIN_LOCK,
+    PU_PIN_LOCK = 2,
 
     /**
      * Indicates network subset personalization of PUK lock(refer 3GPP TS 22.022 [33]).
@@ -2749,7 +2883,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PU_PUK_LOCK,
+    PU_PUK_LOCK = 3,
 
     /**
      * Indicates service provider personalization of PIN lock(refer 3GPP TS 22.022 [33]).
@@ -2758,7 +2892,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PP_PIN_LOCK,
+    PP_PIN_LOCK = 4,
 
     /**
      * Indicates service provider personalization of PUK lock(refer 3GPP TS 22.022 [33]).
@@ -2767,7 +2901,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PP_PUK_LOCK,
+    PP_PUK_LOCK = 5,
 
     /**
      * Indicates corporate personalization of PIN lock(refer 3GPP TS 22.022 [33]).
@@ -2776,7 +2910,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PC_PIN_LOCK,
+    PC_PIN_LOCK = 6,
 
     /**
      * Indicates corporate personalization of PUK lock(refer 3GPP TS 22.022 [33]).
@@ -2785,7 +2919,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    PC_PUK_LOCK,
+    PC_PUK_LOCK = 7,
 
     /**
      * Indicates SIM/USIM personalization of PIN lock(refer 3GPP TS 22.022 [33]).
@@ -2794,7 +2928,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    SIM_PIN_LOCK,
+    SIM_PIN_LOCK = 8,
 
     /**
      * Indicates SIM/USIM personalization of PUK lock(refer 3GPP TS 22.022 [33]).
@@ -2803,7 +2937,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    SIM_PUK_LOCK,
+    SIM_PUK_LOCK = 9
   }
 
   /**
@@ -2815,6 +2949,7 @@ declare namespace sim {
    * @since 9
    */
   export enum OperatorConfigKey {
+
     /**
      * Indicates the voice mail number.
      *
@@ -2994,7 +3129,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array',
+    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array'
   }
 
   /**
@@ -3040,7 +3175,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    DSDS_MODE_V5_DSDA = 3,
+    DSDS_MODE_V5_DSDA = 3
   }
 
   /**
@@ -3059,7 +3194,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    CHINA_TELECOM_CARD = 'china_telecom_card',
+    CHINA_TELECOM_CARD = 'china_telecom_card'
   }
 
   /**
@@ -3069,11 +3204,11 @@ declare namespace sim {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14
-  */
+   */
   export enum AuthType {
     /**
      * Authentication type is EAP-SIM. See RFC 4186
-     * 
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14
@@ -3081,17 +3216,17 @@ declare namespace sim {
     SIM_AUTH_EAP_SIM_TYPE = 128,
     /**
      * Authentication type is EAP-AKA. See RFC 4187
-     * 
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14
      */
-    SIM_AUTH_EAP_AKA_TYPE = 129,
+    SIM_AUTH_EAP_AKA_TYPE = 129
   }
 
   /**
    * Defines the SIM card authentication response.
-   * 
+   *
    * @interface SimAuthenticationResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
@@ -3107,7 +3242,7 @@ declare namespace sim {
      * @since 14
      */
     simStatusWord1: number;
-  
+
     /**
      * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
      *
