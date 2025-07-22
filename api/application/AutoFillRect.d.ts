@@ -31,44 +31,44 @@ export default interface AutoFillRect {
   /**
    * The left of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  left: number;
+  left: double;
 
   /**
    * The top of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  top: number;
+  top: double;
 
   /**
    * The width of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  width: number;
+  width: double;
 
   /**
    * The height of the rect.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  height: number;
+  height: double;
 }

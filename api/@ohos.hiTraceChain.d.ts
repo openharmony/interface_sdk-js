@@ -33,7 +33,7 @@ declare namespace hiTraceChain {
   /**
    * Enumerate trace flag
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
@@ -115,7 +115,7 @@ declare namespace hiTraceChain {
   /**
    * Enumerate trace point type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
@@ -170,7 +170,7 @@ declare namespace hiTraceChain {
   /**
    * Enumerate trace communication mode
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
@@ -223,7 +223,7 @@ declare namespace hiTraceChain {
    */
   interface HiTraceId {
     /**
-     * Chain id.
+     * Chain id. The lower 60 bits are valid.
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiTrace
@@ -233,47 +233,47 @@ declare namespace hiTraceChain {
     chainId: bigint;
 
     /**
-     * Span id.
+     * Span id. The lower 26 bits are valid.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since arkts {'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    spanId?: number;
+    spanId?: int;
 
     /**
-     * Parent span id.
+     * Parent span id. The lower 26 bits are valid.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since arkts {'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    parentSpanId?: number;
+    parentSpanId?: int;
 
     /**
-     * Trace flag.
+     * Trace flag. The lower 16 bits are valid.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since arkts {'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    flags?: number;
+    flags?: int;
   }
 
   /**
    * Start tracing a process impl.
    *
    * @param { string } name Process name.
-   * @param { number } flags Trace function flag.
+   * @param { int } flags Trace function flag.
    * @returns { HiTraceId } Valid if first call, otherwise invalid.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function begin(name: string, flags?: number): HiTraceId;
+  function begin(name: string, flags?: int): HiTraceId;
 
   /**
    * Stop process tracing and clear trace id of current thread if the given trace

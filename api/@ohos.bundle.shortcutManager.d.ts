@@ -103,6 +103,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>;
 
@@ -112,6 +113,7 @@ declare namespace shortcutManager {
    * @returns { Promise<Array<ShortcutInfo>> } The LauncherShortcutInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>;
 

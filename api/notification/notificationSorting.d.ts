@@ -57,12 +57,12 @@ export interface NotificationSorting {
   /**
    * Notify the sort number.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly ranking: number;
+  readonly ranking: long;
 }

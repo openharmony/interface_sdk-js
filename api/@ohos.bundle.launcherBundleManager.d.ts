@@ -209,7 +209,7 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appIndex - Indicates the index of clone app.
+   * @param { int } appIndex - Indicates the index of clone app.
    * @returns { Array<ShortcutInfo> } the ShortcutInfo object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -221,7 +221,7 @@ declare namespace launcherBundleManager {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
+  function getShortcutInfoByAppIndex(bundleName: string, appIndex: int): Array<ShortcutInfo>;
 
   /**
    * Starts shortcut.
@@ -257,6 +257,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 

@@ -126,9 +126,8 @@ export interface TriggerInfo {
   /**
    * Custom extra data you want to add for triggering a WantAgent.
    *
-   * @type { ?object }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */

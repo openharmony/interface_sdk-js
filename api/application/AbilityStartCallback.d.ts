@@ -18,8 +18,23 @@
  * @kit AbilityKit
  */
 
-
+/*** if arkts 1.1 */
+import type { AbilityResult } from '../ability/abilityResult';
+/*** endif */
+/*** if arkts 1.2 */
 import { AbilityResult } from '../ability/abilityResult';
+/*** endif */
+
+/**
+ * Defines a onResult function.
+ * 
+ * @typedef { function } OnResultFn
+ * @param { AbilityResult } parameter - The Parameter returned if the UIExtensionAbility call terminateSelfWithResult.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
+ * @arkts 1.2
+ */
+type OnResultFn = (parameter: AbilityResult) => void;
 
 /*** if arkts 1.1 */
 /**
@@ -73,14 +88,13 @@ declare interface AbilityStartCallback {
   /**
    * Called when UIExtensionAbility terminate with result.
    *
-   * @param { AbilityResult } parameter - The parameter returned if the UIExtensionAbility call terminateSelfWithResult.
+   * @type { ?OnResultFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  onResult(parameter: AbilityResult): void;
+  onResult?: OnResultFn;
 }
 
 /*** if arkts 1.2 */

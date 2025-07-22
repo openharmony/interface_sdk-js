@@ -320,6 +320,7 @@ export interface ShortcutInfo {
    * @type { ?boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20
+   * @arkts 1.1&1.2
    */
   visible?: boolean;
 }

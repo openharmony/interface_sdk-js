@@ -402,7 +402,7 @@ export declare @interface Monitor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare interface IMonitor {
+export declare interface IMonitor {
   /**
    * Array of changed paths(keys)
    *
@@ -430,7 +430,7 @@ declare interface IMonitor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare interface IMonitorValue<T> {
+export declare interface IMonitorValue<T> {
   /**
    * Get the previous value.
    *
@@ -1102,6 +1102,28 @@ export declare interface IStateMgmtFactory {
    * @since 20
    */
   makeConsumer<T>(owningView: ExtendableComponent, varName: string, providerAlias: string, defaultValue: T): IConsumerDecoratedVariable<T>;      
+
+  /**
+   * Create a computed variable instance.
+   * 
+   * @param { ComputedCallback<T> } computedCallback - computed callback function
+   * @param { string } computeName - name of the computed function
+   * @returns { IComputedDecoratedVariable<T> } Computed instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeComputed<T>(computedCallback: ComputedCallback<T>, computeName: string): IComputedDecoratedVariable<T>;
+
+  /**
+   * Create a monitored variable instance.
+   * 
+   * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
+   * @param { MonitorCallback } monitorCallback - callback when monitor triggers
+   * @returns { IMonitorDecoratedVariable } Monitor variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback): IMonitorDecoratedVariable;
 }
 
 
@@ -1134,6 +1156,35 @@ export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutabl
  * @since 20
  */
 export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable {}
+
+/**
+ * Defines computed callback function
+ * @typedef { function } ComputedCallback
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type ComputedCallback<T> = () => T;
+
+/**
+ * Defines IMonitor callback function
+ *
+ * @typedef { function } MonitorCallback
+ * @param { IMonitor } iMonitor MonitorValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type MonitorCallback = (iMonitor: IMonitor) => void;
+
+/**
+ * Defines IMonitor value callback function
+ *
+ * @typedef { function } MonitorValueCallback
+ * @returns { Any }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type MonitorValueCallback = () => Any;
 
 /**
  * Defines the callback that is called when state variable is change
@@ -1204,4 +1255,57 @@ export declare interface AbstractProperty<T> extends IDecoratedMutableVariable<T
 
 export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
     aboutToBeDeleted(): void;
+}
+
+/**
+ * Defines Computed decoration variable interface.
+ *
+ * @interface IComputedDecoratedVariable<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IComputedDecoratedVariable<T> {
+    /**
+     * Get the computed variable.
+     *
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    get(): T;
+}
+
+/**
+ * Defines @Monitor decorated variable interface.
+ *
+ * @interface IMonitorDecoratedVariable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IMonitorDecoratedVariable {}
+
+/**
+ * Defines Monitor path with its accessor interface.
+ *
+ * @interface IMonitorPathInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface IMonitorPathInfo {
+    /**
+     * Changed paths(keys)
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    path: string;
+    /**
+     * Callback function to access monitored value.
+     *
+     * @type { MonitorValueCallback }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    valueCallback: MonitorValueCallback;
 }

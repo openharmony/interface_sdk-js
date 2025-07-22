@@ -158,8 +158,8 @@ declare namespace buffer {
   /**
    * Creates and initializes a Buffer instance of the specified length.
    *
-   * @param { number } size - Size of the Buffer instance to create, in bytes.
-   * @param { string | Buffer | number } [fill] - Value to be filled in the buffer. The default value is 0.
+   * @param { int } size - Size of the Buffer instance to create, in bytes.
+   * @param { string | Buffer | double | long } [fill] - Value to be filled in the buffer. The default value is 0.
    * @param { BufferEncoding } [encoding] - Encoding format (valid only when fill is a string). The default value is 'utf8'.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -172,7 +172,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function alloc(size: number, fill?: string | Buffer | number, encoding?: BufferEncoding): Buffer;
+  function alloc(size: int, fill?: string | Buffer | double | long, encoding?: BufferEncoding): Buffer;
 
   /**
    * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
@@ -204,7 +204,7 @@ declare namespace buffer {
    * Creates a Buffer instance of the specified size from the buffer pool, without initializing it.
    * You need to use fill() to initialize the Buffer instance created.   
    *
-   * @param { number } size - Size of the Buffer instance to create, in bytes.
+   * @param { int } size - Size of the Buffer instance to create, in bytes.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -216,7 +216,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function allocUninitializedFromPool(size: number): Buffer;
+  function allocUninitializedFromPool(size: int): Buffer;
 
   /**
    * Allocates a new un-pooled Buffer for a fixed size bytes. The Buffer will not be initially filled.
@@ -246,7 +246,7 @@ declare namespace buffer {
   /**
    * Creates a Buffer instance of the specified size, without initializing it. 
    *
-   * @param { number } size - Size of the Buffer instance to create, in bytes.
+   * @param { int } size - Size of the Buffer instance to create, in bytes.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -258,7 +258,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function allocUninitialized(size: number): Buffer;
+  function allocUninitialized(size: int): Buffer;
 
   /**
    * Returns the byte length of a string when encoded using `encoding`.
@@ -313,7 +313,7 @@ declare namespace buffer {
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - Target string.
    * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
-   * @returns { number } The number of bytes contained within `string`
+   * @returns { int } The number of bytes contained within `string`
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -323,7 +323,7 @@ declare namespace buffer {
   function byteLength(
     doc: string | Buffer | TypedArray | DataView | ArrayBuffer,
     encoding?: BufferEncoding
-  ): number;
+  ): int;
 
   /**
    * Returns a new `Buffer` which is the result of concatenating all the `Buffer`instances in the `list` together.
@@ -358,7 +358,7 @@ declare namespace buffer {
    * Concatenates an array of Buffer instances of the specified length into a new instance.
    *
    * @param { Buffer[] | Uint8Array[] } list - Array of instances to concatenate.
-   * @param { number } [totalLength] - Total length of bytes to be copied. The default value is 0.
+   * @param { int } [totalLength] - Total length of bytes to be copied. The default value is 0.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -371,7 +371,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function concat(list: Buffer[] | Uint8Array[], totalLength?: number): Buffer;
+  function concat(list: Buffer[] | Uint8Array[], totalLength?: int): Buffer;
 
   /**
    * Allocates a new Buffer using an array of bytes in the range 0 – 255. Array entries outside that range will be truncated to fit into it.
@@ -399,7 +399,7 @@ declare namespace buffer {
   /**
    * Creates a Buffer instance with the specified array.
    *
-   * @param { number[] } array - Array to create a Buffer instance.
+   * @param { double[] } array - Array to create a Buffer instance.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -410,7 +410,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function from(array: number[]): Buffer;
+  function from(array: double[]): Buffer;
 
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
@@ -469,8 +469,8 @@ declare namespace buffer {
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
    * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * @param { number } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { number } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
    * @returns { Buffer } Return a view of the ArrayBuffer
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
    * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
@@ -480,7 +480,7 @@ declare namespace buffer {
    * @since 20
    * @arkts 1.2
    */
-  function from(arrayBuffer: ArrayBuffer, byteOffset?: number, length?: number): Buffer;
+  function from(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
 
   /**
    * Copies the passed buffer data onto a new Buffer instance.
@@ -553,8 +553,8 @@ declare namespace buffer {
    * Creates a Buffer instance based on the specified object.
    *
    * @param { Object } object - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { number | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { number } length - Length of the Buffer instance to create, in bytes.
+   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
+   * @param { int } length - Length of the Buffer instance to create, in bytes.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1.Mandatory parameters are left unspecified;
@@ -562,10 +562,24 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  function from(object: Object, offsetOrEncoding: number | string, length: number): Buffer;
+  function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
+
+  /**
+   * Creates a Buffer instance based on the specified object.
+   *
+   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
+   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
+   * @param { int } length - Length of the Buffer instance to create, in bytes.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function from(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
   /**
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
@@ -722,7 +736,7 @@ declare namespace buffer {
    *
    * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
    * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
-   * @returns { number } 0 is returned if target is the same as buf
+   * @returns { int } 0 is returned if target is the same as buf
    *         1 is returned if target should come before buf when sorted.
    *        -1 is returned if target should come after buf when sorted.
    * @syscap SystemCapability.Utils.Lang
@@ -731,7 +745,7 @@ declare namespace buffer {
    * @since 20
    * @arkts 1.2
    */
-  function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): number;
+  function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): int;
 
   /**
    * Re-encodes the given Buffer or Uint8Array instance from one character encoding to another.
@@ -834,14 +848,14 @@ declare namespace buffer {
     /**
      * Gets the element number of the buffer.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    get length(): number;
+    get length(): int;
 
     /**
      * The underlying ArrayBuffer object based on which this Buffer object is created.
@@ -917,7 +931,7 @@ declare namespace buffer {
     /**
      * The byteOffset of the Buffers underlying ArrayBuffer object
      *
-     * @type { number }
+     * @type { int }
      * @throws { BusinessError } 10200013 - ByteOffset  cannot be set for the buffer that has only a getter.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -925,7 +939,7 @@ declare namespace buffer {
      * @since 20
      * @arkts 1.2
      */
-    get byteOffset(): number;
+    get byteOffset(): int;
 
     /**
      * Fills buf with the specified value. If the offset and end are not given, the entire buf will be filled.
@@ -961,9 +975,9 @@ declare namespace buffer {
     /**
      * Fills this Buffer instance at the specified position. By default, data is filled cyclically.
      *
-     * @param { string | Buffer | Uint8Array | number } value - Value to fill.
-     * @param { number } [offset] - Offset to the start position in this Buffer instance where data is filled. The default value is 0.
-     * @param { number } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
+     * @param { string | Buffer | Uint8Array | double | long } value - Value to fill.
+     * @param { int } [offset] - Offset to the start position in this Buffer instance where data is filled. The default value is 0.
+     * @param { int } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
      * @returns { Buffer } A reference to buf
      * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
@@ -977,9 +991,9 @@ declare namespace buffer {
      * @arkts 1.1&1.2
      */
     fill(
-      value: string | Buffer | Uint8Array | number,
-      offset?: number,
-      end?: number,
+      value: string | Buffer | Uint8Array | double | long,
+      offset?: int,
+      end?: int,
       encoding?: BufferEncoding
     ): Buffer;
 
@@ -1059,11 +1073,11 @@ declare namespace buffer {
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
      * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
-     * @param { number } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
-     * @param { number } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
-     * @param { number } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
-     * @param { number } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
-     * @returns { number } number is returned if target is the same as buf
+     * @param { int } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin comparison
+     * @param { int } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
+     * @param { int } [sourceStart] - sourceStart [sourceStart = 0] The offset within buf at which to begin comparison
+     * @param { int } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
+     * @returns { int } number is returned if target is the same as buf
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1077,11 +1091,11 @@ declare namespace buffer {
      */
     compare(
       target: Buffer | Uint8Array,
-      targetStart?: number,
-      targetEnd?: number,
-      sourceStart?: number,
-      sourceEnd?: number
-    ): number;
+      targetStart?: int,
+      targetEnd?: int,
+      sourceStart?: int,
+      sourceEnd?: int
+    ): int;
 
     /**
      * Copies data from a region of buf to a region in target, even if the target memory region overlaps with buf.
@@ -1122,11 +1136,11 @@ declare namespace buffer {
      * Copies data at the specified position in this Buffer instance to the specified position in another Buffer instance.
      *
      * @param { Buffer | Uint8Array } target - Instance to which data is copied.
-     * @param { number } [targetStart] - Offset to the start position in the target instance where data is copied. The default value is 0.
-     * @param { number } [sourceStart] - Offset to the start position in this Buffer instance where data is copied. The default value is 0.
-     * @param { number } [sourceEnd] - Offset to the end position in this Buffer instance (not inclusive).
+     * @param { int } [targetStart] - Offset to the start position in the target instance where data is copied. The default value is 0.
+     * @param { int } [sourceStart] - Offset to the start position in this Buffer instance where data is copied. The default value is 0.
+     * @param { int } [sourceEnd] - Offset to the end position in this Buffer instance (not inclusive).
      * The default value is the length of this Buffer instance.
-     * @returns { number } The number of bytes copied
+     * @returns { int } The number of bytes copied
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1138,7 +1152,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    copy(target: Buffer | Uint8Array, targetStart?: number, sourceStart?: number, sourceEnd?: number): number;
+    copy(target: Buffer | Uint8Array, targetStart?: int, sourceStart?: int, sourceEnd?: int): int;
 
     /**
      * Returns true if both buf and otherBuffer have exactly the same bytes, false otherwise
@@ -1205,8 +1219,8 @@ declare namespace buffer {
     /**
      * Checks whether this Buffer instance contains the specified value.
      *
-     * @param { string | number | Buffer | Uint8Array } value - Value to match.
-     * @param { number } [byteOffset] - Number of bytes to skip before starting to check data.
+     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * Number of bytes to skip before starting to check data. If the offset is a negative number,
      * data is checked from the end of the Buffer instance. The default value is 0.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
@@ -1220,7 +1234,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    includes(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean;
+    includes(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
 
     /**
      * The index of the first occurrence of value in buf
@@ -1254,11 +1268,11 @@ declare namespace buffer {
     /**
      * Obtains the index of the first occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | number | Buffer | Uint8Array } value - Value to match.
-     * @param { number } [byteOffset] - Number of bytes to skip before starting to check data.
+     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance. The default value is 0.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
-     * @returns { number } The index of the first occurrence of value in buf, or -1 if buf does not contain value
+     * @returns { int } The index of the first occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1268,7 +1282,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    indexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
+    indexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Creates and returns an iterator of buf keys (indices).
@@ -1288,14 +1302,14 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator that contains the keys of this Buffer instance.
      *
-     * @returns { IterableIterator<number> }
+     * @returns { IterableIterator<int> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    keys(): IterableIterator<number>;
+    keys(): IterableIterator<int>;
 
     /**
      * Creates and returns an iterator for buf values (bytes).
@@ -1315,14 +1329,14 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator that contains the values of this Buffer instance.
      *
-     * @returns { IterableIterator<number> }
+     * @returns { IterableIterator<long> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    values(): IterableIterator<number>;
+    values(): IterableIterator<long>;
 
     /**
      * Creates and returns an iterator of [index, byte] pairs from the contents of buf.
@@ -1342,14 +1356,14 @@ declare namespace buffer {
     /**
      * Creates and returns an iterator that contains key-value pairs of this Buffer instance.
      *
-     * @returns { IterableIterator<[number, number]> }
+     * @returns { IterableIterator<[int, long]> }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    entries(): IterableIterator<[number, number]>;
+    entries(): IterableIterator<[int, long]>;
 
     /**
      * The index of the last occurrence of value in buf
@@ -1385,12 +1399,12 @@ declare namespace buffer {
     /**
      * Obtains the index of the last occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | number | Buffer | Uint8Array } value - Value to match.
-     * @param { number } [byteOffset] - Number of bytes to skip before starting to check data.
+     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance.
      * The default value is the length of this Buffer instance.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
-     * @returns { number } The index of the last occurrence of value in buf, or -1 if buf does not contain value
+     * @returns { int } The index of the last occurrence of value in buf, or -1 if buf does not contain value
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1400,7 +1414,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastIndexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
+    lastIndexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
@@ -1426,7 +1440,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian, signed big integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
      * @returns { bigint } Return a signed, big-endian 64-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1436,7 +1450,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readBigInt64BE(offset?: number): bigint;
+    readBigInt64BE(offset?: int): bigint;
 
     /**
      * Reads a signed, little-endian 64-bit integer from buf at the specified offset
@@ -1462,7 +1476,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian, signed big integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
      * @returns { bigint } Return a signed, little-endian 64-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1472,7 +1486,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readBigInt64LE(offset?: number): bigint;
+    readBigInt64LE(offset?: int): bigint;
 
     /**
      * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
@@ -1498,7 +1512,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian, unsigned big integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
      * @returns { bigint } Return a unsigned, big-endian 64-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1508,7 +1522,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readBigUInt64BE(offset?: number): bigint;
+    readBigUInt64BE(offset?: int): bigint;
 
     /**
      * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
@@ -1534,7 +1548,7 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian, unsigned big integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
      * @returns { bigint } Return a unsigned, little-endian 64-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
@@ -1544,7 +1558,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readBigUInt64LE(offset?: number): bigint;
+    readBigUInt64LE(offset?: int): bigint;
 
     /**
      * Reads a 64-bit, big-endian double from buf at the specified offset
@@ -1570,8 +1584,8 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, big-endian, double-precision floating-point number from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } Return a 64-bit, big-endian double
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { double } Return a 64-bit, big-endian double
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1580,7 +1594,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readDoubleBE(offset?: number): number;
+    readDoubleBE(offset?: int): double;
 
     /**
      * Reads a 64-bit, little-endian double from buf at the specified offset
@@ -1606,8 +1620,8 @@ declare namespace buffer {
     /**
      * Reads a 64-bit, little-endian, double-precision floating-point number from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } Return a 64-bit, little-endian double
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { double } Return a 64-bit, little-endian double
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1616,7 +1630,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readDoubleLE(offset?: number): number;
+    readDoubleLE(offset?: int): double;
 
     /**
      * Reads a 32-bit, big-endian float from buf at the specified offset
@@ -1642,8 +1656,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian, single-precision floating-point number from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Return a 32-bit, big-endian float
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { double } Return a 32-bit, big-endian float
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1652,7 +1666,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readFloatBE(offset?: number): number;
+    readFloatBE(offset?: int): double;
 
     /**
      * Reads a 32-bit, little-endian float from buf at the specified offset
@@ -1678,8 +1692,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian, single-precision floating-point number from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Return a 32-bit, little-endian float
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { double } Return a 32-bit, little-endian float
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1688,7 +1702,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readFloatLE(offset?: number): number;
+    readFloatLE(offset?: int): double;
 
     /**
      * Reads a signed 8-bit integer from buf at the specified offset
@@ -1714,8 +1728,8 @@ declare namespace buffer {
     /**
      * Reads an 8-bit signed integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 1].
-     * @returns { number } Return a signed 8-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 1].
+     * @returns { long } Return a signed 8-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1724,7 +1738,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readInt8(offset?: number): number;
+    readInt8(offset?: int): long;
 
     /**
      * Reads a signed, big-endian 16-bit integer from buf at the specified offset
@@ -1750,8 +1764,8 @@ declare namespace buffer {
     /**
      * Reads a 16-bit, big-endian, signed integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } Return a signed, big-endian 16-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { long } Return a signed, big-endian 16-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1760,7 +1774,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readInt16BE(offset?: number): number;
+    readInt16BE(offset?: int): long;
 
     /**
      * Reads a signed, little-endian 16-bit integer from buf at the specified offset
@@ -1786,8 +1800,8 @@ declare namespace buffer {
     /**
      * Reads a 16-bit, little-endian, signed integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } Return a signed, little-endian 16-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { long } Return a signed, little-endian 16-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1796,7 +1810,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readInt16LE(offset?: number): number;
+    readInt16LE(offset?: int): long;
 
     /**
      * Reads a signed, big-endian 32-bit integer from buf at the specified offset
@@ -1822,8 +1836,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian, signed integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Return a signed, big-endian 32-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { long } Return a signed, big-endian 32-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1832,7 +1846,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readInt32BE(offset?: number): number;
+    readInt32BE(offset?: int): long;
 
     /**
      * Reads a signed, little-endian 32-bit integer from buf at the specified offset
@@ -1858,8 +1872,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian, signed integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Return a signed, little-endian 32-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { long } Return a signed, little-endian 32-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1868,7 +1882,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readInt32LE(offset?: number): number;
+    readInt32LE(offset?: int): long;
 
     /**
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a big-endian,
@@ -1903,9 +1917,9 @@ declare namespace buffer {
      * Reads the specified number of bytes from this Buffer instance at the specified offset, and interprets the result as a big-endian,
      * two's complement signed value that supports up to 48 bits of precision.
      *
-     * @param { number } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to read. The value range is [1, 6].
-     * @returns { number }
+     * @param { int } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to read. The value range is [1, 6].
+     * @returns { long }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1916,7 +1930,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readIntBE(offset: number, byteLength: number): number;
+    readIntBE(offset: int, byteLength: int): long;
 
     /**
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as a little-endian,
@@ -1951,9 +1965,9 @@ declare namespace buffer {
      * Reads the specified number of bytes from this Buffer instance at the specified offset and interprets the result as a little-endian,
      * two's complement signed value that supports up to 48 bits of precision.
      *
-     * @param { number } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to read. The value range is [1, 6].
-     * @returns { number }
+     * @param { int } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to read. The value range is [1, 6].
+     * @returns { long }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -1964,7 +1978,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readIntLE(offset: number, byteLength: number): number;
+    readIntLE(offset: int, byteLength: int): long;
 
     /**
      * Reads an unsigned 8-bit integer from buf at the specified offset
@@ -1990,8 +2004,8 @@ declare namespace buffer {
     /**
      * Reads an 8-bit unsigned integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 1].
-     * @returns { number } Reads an unsigned 8-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 1].
+     * @returns { long } Reads an unsigned 8-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -2000,7 +2014,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUInt8(offset?: number): number;
+    readUInt8(offset?: int): long;
 
     /**
      * Reads an unsigned, big-endian 16-bit integer from buf at the specified offset
@@ -2026,8 +2040,8 @@ declare namespace buffer {
     /**
      * Reads a 16-bit, big-endian, unsigned integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } Reads an unsigned, big-endian 16-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { long } Reads an unsigned, big-endian 16-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -2036,7 +2050,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUInt16BE(offset?: number): number;
+    readUInt16BE(offset?: int): long;
 
     /**
      * Reads an unsigned, little-endian 16-bit integer from buf at the specified offset
@@ -2062,8 +2076,8 @@ declare namespace buffer {
     /**
      * Reads a 16-bit, little-endian, unsigned integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } Reads an unsigned, little-endian 16-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { long } Reads an unsigned, little-endian 16-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -2072,7 +2086,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUInt16LE(offset?: number): number;
+    readUInt16LE(offset?: int): long;
 
     /**
      * Reads an unsigned, big-endian 32-bit integer from buf at the specified offset
@@ -2098,8 +2112,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, big-endian, unsigned integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Reads an unsigned, big-endian 32-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { long } Reads an unsigned, big-endian 32-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -2108,7 +2122,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUInt32BE(offset?: number): number;
+    readUInt32BE(offset?: int): long;
 
     /**
      * Reads an unsigned, little-endian 32-bit integer from buf at the specified offset
@@ -2134,8 +2148,8 @@ declare namespace buffer {
     /**
      * Reads a 32-bit, little-endian, unsigned integer from this Buffer instance at the specified offset.
      *
-     * @param { number } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } Reads an unsigned, little-endian 32-bit integer
+     * @param { int } [offset] - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { long } Reads an unsigned, little-endian 32-bit integer
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -2144,7 +2158,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUInt32LE(offset?: number): number;
+    readUInt32LE(offset?: int): long;
 
     /**
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as
@@ -2179,9 +2193,9 @@ declare namespace buffer {
      * Reads the specified number of bytes from this Buffer instance at the specified offset, and interprets the result as an unsigned,
      * big-endian integer that supports up to 48 bits of precision.
      *
-     * @param { number } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to read. The value range is [1, 6].
-     * @returns { number }
+     * @param { int } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to read. The value range is [1, 6].
+     * @returns { long }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2192,7 +2206,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUIntBE(offset: number, byteLength: number): number;
+    readUIntBE(offset: int, byteLength: int): long;
 
     /**
      * Reads byteLength number of bytes from buf at the specified offset and interprets the result as an unsigned,
@@ -2227,9 +2241,9 @@ declare namespace buffer {
      * Reads the specified number of bytes from this Buffer instance at the specified offset, and interprets the result as an unsigned,
      * little-endian integer that supports up to 48 bits of precision.
      *
-     * @param { number } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to read. The value range is [1, 6].
-     * @returns { number }
+     * @param { int } offset - Number of bytes to skip before starting to read data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to read. The value range is [1, 6].
+     * @returns { long }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2240,7 +2254,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readUIntLE(offset: number, byteLength: number): number;
+    readUIntLE(offset: int, byteLength: int): long;
 
     /**
      * Returns a new Buffer that references the same memory as the original, but offset and cropped by the start and end indices.
@@ -2264,8 +2278,8 @@ declare namespace buffer {
     /**
      * Truncates this Buffer instance from the specified position to create a new Buffer instance.
      *
-     * @param { number } [start] - Offset to the start position in this Buffer instance where data is truncated. The default value is 0.
-     * @param { number } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
+     * @param { int } [start] - Offset to the start position in this Buffer instance where data is truncated. The default value is 0.
+     * @param { int } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
      * @returns { Buffer } Returns a new Buffer that references the same memory as the original
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -2273,7 +2287,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    subarray(start?: number, end?: number): Buffer;
+    subarray(start?: int, end?: int): Buffer;
 
     /**
      * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
@@ -2445,8 +2459,8 @@ declare namespace buffer {
      * Decodes buf to a string according to the specified character encoding in encoding
      *
      * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The character encoding to use
-     * @param { number } [start] - start [start = 0] The byte offset to start decoding at
-     * @param { number } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
+     * @param { int } [start] - start [start = 0] The byte offset to start decoding at
+     * @param { int } [end] - end [end = buf.length] The byte offset to stop decoding at (not inclusive)
      * @returns { string }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -2454,7 +2468,7 @@ declare namespace buffer {
      * @since 20
      * @arkts 1.2
      */
-    toString(encoding?: BufferEncoding, start?: number, end?: number): string;
+    toString(encoding?: BufferEncoding, start?: int, end?: int): string;
 
     /**
      * Writes string to buf at offset according to the character encoding in encoding
@@ -2491,10 +2505,10 @@ declare namespace buffer {
      * Writes a string of the specified length to this Buffer instance at the specified position in the given encoding format.
      *
      * @param { string } str - String to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0.
-     * @param { number } [length] - Maximum number of bytes to write. The default value is Buffer.length minus offset.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0.
+     * @param { int } [length] - Maximum number of bytes to write. The default value is Buffer.length minus offset.
      * @param { string } [encoding] - Encoding format of the string. The default value is 'utf8'.
-     * @returns { number } Number of bytes written.
+     * @returns { int } Number of bytes written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2505,7 +2519,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    write(str: string, offset?: number, length?: number, encoding?: string): number;
+    write(str: string, offset?: int, length?: int, encoding?: string): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian.
@@ -2539,8 +2553,8 @@ declare namespace buffer {
      * Writes a 64-bit, big-endian, signed big integer to this Buffer instance at the specified offset.
      *
      * @param { bigint } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2552,7 +2566,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeBigInt64BE(value: bigint, offset?: number): number;
+    writeBigInt64BE(value: bigint, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian.
@@ -2587,8 +2601,8 @@ declare namespace buffer {
      * Writes a 64-bit, little-endian, signed big integer to this Buffer instance at the specified offset.
      *
      * @param { bigint } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2600,7 +2614,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeBigInt64LE(value: bigint, offset?: number): number;
+    writeBigInt64LE(value: bigint, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian.
@@ -2635,8 +2649,8 @@ declare namespace buffer {
      * Writes a 64-bit, big-endian, unsigned big integer to this Buffer instance at the specified offset.
      *
      * @param { bigint } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2648,7 +2662,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeBigUInt64BE(value: bigint, offset?: number): number;
+    writeBigUInt64BE(value: bigint, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian.
@@ -2683,8 +2697,8 @@ declare namespace buffer {
      * Writes a 64-bit, little-endian, unsigned big integer to this Buffer instance at the specified offset.
      *
      * @param { bigint } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2696,7 +2710,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeBigUInt64LE(value: bigint, offset?: number): number;
+    writeBigUInt64LE(value: bigint, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian.
@@ -2728,9 +2742,9 @@ declare namespace buffer {
     /**
      * Writes a 64-bit, big-endian, double-precision floating-point number to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { double } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2741,7 +2755,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeDoubleBE(value: number, offset?: number): number;
+    writeDoubleBE(value: double, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian.
@@ -2773,9 +2787,9 @@ declare namespace buffer {
     /**
      * Writes a 64-bit, little-endian, double-precision floating-point number to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
-     * @returns { number } offset plus the number of bytes written
+     * @param { double } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 8].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2786,7 +2800,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeDoubleLE(value: number, offset?: number): number;
+    writeDoubleLE(value: double, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian.
@@ -2818,9 +2832,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, big-endian, single-precision floating-point number to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { double } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2831,7 +2845,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeFloatBE(value: number, offset?: number): number;
+    writeFloatBE(value: double, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian.
@@ -2863,9 +2877,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, little-endian, single-precision floating-point number to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { double } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -2876,7 +2890,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeFloatLE(value: number, offset?: number): number;
+    writeFloatLE(value: double, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset. value must be a valid signed 8-bit integer.
@@ -2910,9 +2924,9 @@ declare namespace buffer {
     /**
      * Writes an 8-bit signed integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 1].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 1].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2924,7 +2938,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeInt8(value: number, offset?: number): number;
+    writeInt8(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 16-bit integer
@@ -2958,9 +2972,9 @@ declare namespace buffer {
     /**
      * Writes a 16-bit, big-endian, signed integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -2972,7 +2986,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeInt16BE(value: number, offset?: number): number;
+    writeInt16BE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 16-bit integer
@@ -3006,9 +3020,9 @@ declare namespace buffer {
     /**
      * Writes a 16-bit, little-endian, signed integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3020,7 +3034,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeInt16LE(value: number, offset?: number): number;
+    writeInt16LE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid signed 32-bit integer.
@@ -3054,9 +3068,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, big-endian, signed integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3068,7 +3082,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeInt32BE(value: number, offset?: number): number;
+    writeInt32BE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid signed 32-bit integer.
@@ -3102,9 +3116,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, little-endian, signed integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3116,7 +3130,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeInt32LE(value: number, offset?: number): number;
+    writeInt32LE(value: long, offset?: int): int;
 
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
@@ -3150,10 +3164,10 @@ declare namespace buffer {
     /**
      * Writes a big-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to write.
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to write.
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -3164,7 +3178,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeIntBE(value: number, offset: number, byteLength: number): number;
+    writeIntBE(value: long, offset: int, byteLength: int): int;
 
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
@@ -3198,10 +3212,10 @@ declare namespace buffer {
     /**
      * Writes a little-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to write.
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to write.
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -3212,7 +3226,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeIntLE(value: number, offset: number, byteLength: number): number;
+    writeIntLE(value: long, offset: int, byteLength: int): int;
 
     /**
      * Writes value to buf at the specified offset. value must be a valid unsigned 8-bit integer
@@ -3246,9 +3260,9 @@ declare namespace buffer {
     /**
      * Writes an 8-bit unsigned integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 1].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 1].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3260,7 +3274,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUInt8(value: number, offset?: number): number;
+    writeUInt8(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 16-bit integer.
@@ -3294,9 +3308,9 @@ declare namespace buffer {
     /**
      * Writes a 16-bit, big-endian, unsigned integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - 	Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - 	Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3308,7 +3322,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUInt16BE(value: number, offset?: number): number;
+    writeUInt16BE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 16-bit integer.
@@ -3342,9 +3356,9 @@ declare namespace buffer {
     /**
      * Writes a 16-bit, little-endian, unsigned integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 2].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3356,7 +3370,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUInt16LE(value: number, offset?: number): number;
+    writeUInt16LE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as big-endian. The value must be a valid unsigned 32-bit integer.
@@ -3390,9 +3404,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, big-endian, unsigned integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3404,7 +3418,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUInt32BE(value: number, offset?: number): number;
+    writeUInt32BE(value: long, offset?: int): int;
 
     /**
      * Writes value to buf at the specified offset as little-endian. The value must be a valid unsigned 32-bit integer.
@@ -3438,9 +3452,9 @@ declare namespace buffer {
     /**
      * Writes a 32-bit, little-endian, unsigned integer to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } [offset] - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - 4].
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
@@ -3452,7 +3466,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUInt32LE(value: number, offset?: number): number;
+    writeUInt32LE(value: long, offset?: int): int;
 
     /**
      * Writes byteLength bytes of value to buf at the specified offset as big-endian
@@ -3486,10 +3500,10 @@ declare namespace buffer {
     /**
      * Writes an unsigned big-endian value of the specified length to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to write.
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to write.
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -3500,7 +3514,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUIntBE(value: number, offset: number, byteLength: number): number;
+    writeUIntBE(value: long, offset: int, byteLength: int): int;
 
     /**
      * Writes byteLength bytes of value to buf at the specified offset as little-endian
@@ -3534,10 +3548,10 @@ declare namespace buffer {
     /**
      * Writes an unsigned little-endian value of the specified length to this Buffer instance at the specified offset.
      *
-     * @param { number } value - Data to write.
-     * @param { number } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
-     * @param { number } byteLength - Number of bytes to write.
-     * @returns { number } offset plus the number of bytes written
+     * @param { long } value - Data to write.
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } byteLength - Number of bytes to write.
+     * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types.
@@ -3548,14 +3562,14 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeUIntLE(value: number, offset: number, byteLength: number): number;
+    writeUIntLE(value: long, offset: int, byteLength: int): int;
 
     /**
      * Returns the item at that index.
      *
-     * @param { number } index - The zero-based index of the desired code unit.
+     * @param { int } index - The zero-based index of the desired code unit.
      *     Throws error if index < 0 or index >= buffer.length.
-     * @returns { number } The element in the buffer matching the given index. 
+     * @returns { long } The element in the buffer matching the given index. 
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -3563,8 +3577,7 @@ declare namespace buffer {
      * @since 20
      * @arkts 1.2
      */
-    [index: number]: number;
-
+    [index: int]: Long;
   }
 
   /**
@@ -3708,14 +3721,14 @@ declare namespace buffer {
     /**
      * Total size of the Blob instance, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: int;
 
     /**
      * The content-type of the Blob
@@ -3795,8 +3808,8 @@ declare namespace buffer {
     /**
      * Creates a Blob instance by copying specified data from this Blob instance.
      *
-     * @param { number } [start] - Offset to the start position of the data to copy. The default value is 0.
-     * @param { number } [end] - Offset to the end position of the data to copy. The default value is the data length in the original Blob instance.
+     * @param { int } [start] - Offset to the start position of the data to copy. The default value is 0.
+     * @param { int } [end] - Offset to the end position of the data to copy. The default value is the data length in the original Blob instance.
      * @param { string } [type] - Type of the data in the new Blob instance. The default value is ''.
      * @returns { Blob }
      * @syscap SystemCapability.Utils.Lang
@@ -3805,7 +3818,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    slice(start?: number, end?: number, type?: string): Blob;
+    slice(start?: int, end?: int, type?: string): Blob;
 
     /**
      * Returns a promise that fulfills with the contents of the Blob decoded as a UTF-8 string.

@@ -74,18 +74,18 @@ export interface AutoStartupInfo {
 
   /**
    * The app clone index of ability instance.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 12
    */
-  appCloneIndex?: number;
+  appCloneIndex?: int;
 
   /**
    * The user id of application.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -93,12 +93,12 @@ export interface AutoStartupInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly userId?: number;
+  readonly userId?: int;
 
   /**
    * The user id of setter.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -106,7 +106,7 @@ export interface AutoStartupInfo {
    * @since 20
    * @arkts 1.1&1.2
    */
-  readonly setterUserId?: number;
+  readonly setterUserId?: int;
 
   /**
    * Whether to allow user to modify autostartup status.

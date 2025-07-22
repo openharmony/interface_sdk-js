@@ -672,7 +672,7 @@ declare class Context extends BaseContext {
    * Creates the context based on the specified display ID, so as to obtain and use other application contexts with
    * screen information (including ScreenDensity and Direction).
    *
-   * @param { number } displayId - Display ID.
+   * @param { long } displayId - Display ID.
    * @returns { Context } 	Context with the specified screen information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
@@ -682,7 +682,7 @@ declare class Context extends BaseContext {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  createDisplayContext(displayId: number): Context;
+  createDisplayContext(displayId: long): Context;
 }
 
 export default Context;

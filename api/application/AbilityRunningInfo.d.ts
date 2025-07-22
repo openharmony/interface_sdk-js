@@ -52,24 +52,24 @@ export interface AbilityRunningInfo {
   /**
    * Process ID.
    *
-   * @type { number }
+   * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  pid: number;
+  pid: int;
 
   /**
    * User ID.
    *
-   * @type { number }
+   * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid: number;
+  uid: int;
 
   /**
    * Process name.
@@ -85,13 +85,13 @@ export interface AbilityRunningInfo {
   /**
    * Ability startup time.
    *
-   * @type { number }
+   * @type { long }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  startTime: number;
+  startTime: long;
 
   /**
    * Ability status.

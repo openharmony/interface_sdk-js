@@ -1428,14 +1428,14 @@ declare namespace util {
   /**
    * Get the hash code of an object.
    *
-   * @param { object } [object] - The object that need to get hash code.
+   * @param { object } [obj] - The object that need to get hash code.
    * @returns { number } Return a hash code of an object.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  function getHash(object: object): number;
+  function getHash(obj: object): number;
 
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.

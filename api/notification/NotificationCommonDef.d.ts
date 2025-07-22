@@ -40,10 +40,10 @@ export interface BundleOption {
   /**
    * UID of an application, which is obtained from ApplicationInfo. The default value is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  uid?: number;
+  uid?: int;
 }
