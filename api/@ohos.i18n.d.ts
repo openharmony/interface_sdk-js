@@ -431,22 +431,8 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9
      * @deprecated since 20
-     * @useinstead ohos.System.setSystemLocaleInstance
      */
     static setSystemLocale(locale: string): void;
-
-    /**
-     * Set the locale object currently used by the system.
-     *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { Intl.Locale } locale - The locale to be used. It must be a valid locale.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     * permission required tocall the API.
-     * @static
-     * @syscap SystemCapability.Global.I18n
-     * @since 20
-     */
-    static setSystemLocaleInstance(locale: Intl.Locale): void;
 
     /**
      * Check out whether system is 24-hour system.
@@ -828,7 +814,7 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static setSystemMeasurement(identifier: string):void;
+    static setSystemMeasurement(identifier: string): void;
 
     /**
      * Gets numbering system currently used by system locale.
@@ -840,7 +826,7 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static getUsingNumberingSystems(): string;
+    static getUsingNumberingSystem(): string;
 
     /**
      * Sets the numbering system used by the system locale.
@@ -855,7 +841,7 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static setSystemNumberingSystem(identifier: string):void;
+    static setSystemNumberingSystem(identifier: string): void;
 
     /**
      * Gets numbering systems supported by system locale.
