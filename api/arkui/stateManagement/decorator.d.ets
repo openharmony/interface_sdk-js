@@ -172,7 +172,7 @@ export declare @interface LocalStorageProp {
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStoragePropRef {
     /**
-     * The give property in AppStorage.
+     * The give property in LocalStorage.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -708,15 +708,16 @@ export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutabl
  * Define Link source type.
  *
  * @typedef { IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
-    IPropDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | IStoragePropRefDecoratedVariable<T> |
-    IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T> } LinkSourceType<T>
+ *   IPropDecoratedVariable<T> | IPropRefDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | 
+ *   IStoragePropRefDecoratedVariable<T> | ILocalStoragePropRefDecoratedVariable<T> |
+ *   IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T> } LinkSourceType<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
 export type LinkSourceType<T> = IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
-    IPropDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | IStoragePropRefDecoratedVariable<T> |
+    IPropDecoratedVariable<T> | IPropRefDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> |
+    IStoragePropRefDecoratedVariable<T> | ILocalStoragePropRefDecoratedVariable<T> |
     IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T>;
-
 
 /**
  * Define mutable state meta interface.
