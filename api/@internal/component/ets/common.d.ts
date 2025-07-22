@@ -32180,6 +32180,7 @@ declare interface KeyframeAnimateParam {
    * Indicates expectedFrameRateRange of keyframe animation.
    *
    * @type { ?ExpectedFrameRateRange }
+   * @default { min: 0, expected: 0, max: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32229,6 +32230,7 @@ declare interface KeyframeState {
    * Animation curve of this keyframe.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -32237,6 +32239,7 @@ declare interface KeyframeState {
    * Animation curve of this keyframe.
    *
    * @type { ?(Curve | string | ICurve) }
+   * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
