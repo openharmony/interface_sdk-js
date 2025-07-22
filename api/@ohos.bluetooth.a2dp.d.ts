@@ -106,7 +106,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connect(deviceId: string): void;
 
@@ -126,7 +127,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disconnect(deviceId: string): void;
 
@@ -145,7 +147,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPlayingState(deviceId: string): PlayingState;
 
@@ -165,7 +168,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAbsoluteVolumeSupported(deviceId: string): Promise<boolean>;
 
@@ -185,7 +189,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAbsoluteVolumeSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -205,7 +210,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAbsoluteVolumeEnabled(deviceId: string): Promise<boolean>;
 
@@ -225,7 +231,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAbsoluteVolumeEnabled(deviceId: string, callback: AsyncCallback<boolean>): void;
 
@@ -245,7 +252,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableAbsoluteVolume(deviceId: string): Promise<void>;
 
@@ -265,7 +273,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -285,7 +294,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableAbsoluteVolume(deviceId: string): Promise<void>;
 
@@ -305,7 +315,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -344,7 +355,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCurrentCodecInfo(deviceId: string): CodecInfo;
     
@@ -364,7 +376,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCurrentCodecInfo(deviceId: string, codecInfo: CodecInfo): void;
 
@@ -385,7 +398,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disableAutoPlay(deviceId: string, duration: number): Promise<void>;
 
@@ -405,7 +419,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableAutoPlay(deviceId: string): Promise<void>;
 
@@ -426,7 +441,8 @@ declare namespace a2dp {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAutoPlayDisabledDuration(deviceId: string): Promise<number>;
   }
@@ -436,7 +452,8 @@ declare namespace a2dp {
    *
    * @typedef CodecInfo
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
    */
   interface CodecInfo {
     /**
@@ -444,7 +461,8 @@ declare namespace a2dp {
      *
      * @type { CodecType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     codecType: CodecType;
     /**
@@ -452,7 +470,8 @@ declare namespace a2dp {
      *
      * @type { CodecBitsPerSample }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     codecBitsPerSample: CodecBitsPerSample;
     /**
@@ -460,7 +479,8 @@ declare namespace a2dp {
      *
      * @type { CodecChannelMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     codecChannelMode: CodecChannelMode;
     /**
@@ -468,7 +488,8 @@ declare namespace a2dp {
      *
      * @type { CodecSampleRate }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     codecSampleRate: CodecSampleRate;
     /**
@@ -552,21 +573,24 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum PlayingState {
     /**
      * Not playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_NOT_PLAYING,
     /**
      * Playing.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_PLAYING
   }
@@ -576,49 +600,56 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CodecType {
     /**
      * invalid codec type.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_INVALID = -1,
     /**
      * SBC - Sub-band coding.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_SBC = 0,
     /**
      * AAC -Advanced Audio Coding.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_AAC = 1,
     /**
      * L2HC.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_L2HC = 2,
     /**
      * L2HCST.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_L2HCST = 3,
     /**
      * LDAC.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_TYPE_LDAC = 4
   }
@@ -628,28 +659,32 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CodecChannelMode {
     /**
      * Codec channel mode none.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_CHANNEL_MODE_NONE = 0,
     /**
      * Codec channel mode MONO.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_CHANNEL_MODE_MONO = 1,
     /**
      * Codec channel mode STEREO.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_CHANNEL_MODE_STEREO = 2
   }
@@ -659,35 +694,40 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CodecBitsPerSample {
     /**
      * Codec bits per sample none.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_BITS_PER_SAMPLE_NONE = 0,
     /**
      * Codec 16 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_BITS_PER_SAMPLE_16 = 1,
     /**
      * Codec 24 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_BITS_PER_SAMPLE_24 = 2,
     /**
      * Codec 32 bits per sample.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_BITS_PER_SAMPLE_32 = 3
   }
@@ -697,56 +737,64 @@ declare namespace a2dp {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CodecSampleRate {
     /**
      * Codec sample rate none.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_NONE = 0,
     /**
      * Codec sample rate 44.1k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_44100 = 1,
     /**
      * Codec sample rate 48k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_48000 = 2,
     /**
      * Codec sample rate 88.2k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_88200 = 3,
     /**
      * Codec sample rate 96k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_96000 = 4,
     /**
      * Codec sample rate 176.4k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_176400 = 5,
     /**
      * Codec sample rate 192k.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CODEC_SAMPLE_RATE_192000 = 6
   }
