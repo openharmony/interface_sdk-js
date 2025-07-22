@@ -3087,7 +3087,8 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCharacteristicChangeIndication(
       characteristic: BLECharacteristic,
@@ -3148,7 +3149,8 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
 
@@ -3598,7 +3600,8 @@ declare namespace ble {
      * @type { ?Array<GattService> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     includeServices?: Array<GattService>;
   }
@@ -3766,7 +3769,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicValueHandle?: number;
 
@@ -3919,7 +3923,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptorHandle?: number;
 
