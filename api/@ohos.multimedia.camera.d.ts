@@ -12152,7 +12152,8 @@ declare namespace camera {
      * @type { image.Image }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     main: image.Image;
 
@@ -12162,7 +12163,8 @@ declare namespace camera {
      * @type { ?image.Image }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     raw?: image.Image;
 
@@ -12172,7 +12174,8 @@ declare namespace camera {
      * @type { DepthData }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     depthData?: DepthData;
 
@@ -12189,7 +12192,8 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -12211,7 +12215,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getThumbnail(): Promise<image.PixelMap>;
 
@@ -12222,7 +12227,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
@@ -12457,7 +12463,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableRawDelivery(enabled: boolean): void;
 
@@ -12596,7 +12603,8 @@ declare namespace camera {
      * @param { AsyncCallback<Photo> } callback - Callback used to get the Photo.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void;
 
@@ -12615,7 +12623,8 @@ declare namespace camera {
      * @param { AsyncCallback<Photo> } callback - Callback used to get the Photo.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void;
 
@@ -12627,7 +12636,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'deferredPhotoProxyAvailable', callback: AsyncCallback<DeferredPhotoProxy>): void;
 
@@ -12639,7 +12649,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'deferredPhotoProxyAvailable', callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
@@ -12670,7 +12681,8 @@ declare namespace camera {
      * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
@@ -12689,7 +12701,8 @@ declare namespace camera {
      * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
@@ -13150,7 +13163,8 @@ declare namespace camera {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
 
@@ -13162,7 +13176,8 @@ declare namespace camera {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
 
@@ -15733,7 +15748,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly depthMap: image.PixelMap;
 
@@ -15768,7 +15784,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     release(): Promise<void>;
   }
