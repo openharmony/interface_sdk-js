@@ -2585,6 +2585,18 @@ declare namespace camera {
      * @since 18
      */
     readonly isRetractable?: boolean;
+
+    /**
+     * Camera lens equivalent focal length
+     *
+     * @type { ?Array<int> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    readonly lensEquivalentFocalLength?: Array<int>;
   }
 
   /**
