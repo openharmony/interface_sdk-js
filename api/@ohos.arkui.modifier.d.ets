@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/**
+ * Export TextModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { TextModifier } from './arkui/TextModifier';
 
 /**
  * Export CommonModifier, which is used to expose applyNormalAttribute function.
