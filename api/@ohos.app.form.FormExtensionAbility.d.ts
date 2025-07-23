@@ -19,14 +19,10 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-/*** if arkts 1.1 */
 import formInfo from './@ohos.app.form.formInfo';
-/*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
-/*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
-/*** endif */
 
 /**
  * Called to return a {@link FormState} object.
@@ -272,7 +268,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
