@@ -624,8 +624,8 @@ declare namespace distributedKVStore {
      * Indicates the default value of field node.
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @arkts 1.1
      * @since 9
+     * @arkts 1.1
      */
     default: string;
 
