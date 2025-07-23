@@ -707,17 +707,11 @@ export declare interface IParamOnceDecoratedVariable<T> extends IDecoratedMutabl
 /**
  * Define Link source type.
  *
- * @typedef { IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
- *   IPropDecoratedVariable<T> | IPropRefDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> | 
- *   IStoragePropRefDecoratedVariable<T> | ILocalStoragePropRefDecoratedVariable<T> |
- *   IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T> } LinkSourceType<T>
+ * @typedef { IDecoratedV1Variable<T> } LinkSourceType<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type LinkSourceType<T> = IStateDecoratedVariable<T> | ILinkDecoratedVariable<T> | IObjectLinkDecoratedVariable<T> |
-    IPropDecoratedVariable<T> | IPropRefDecoratedVariable<T> | IStorageLinkDecoratedVariable<T> | ILocalStorageLinkDecoratedVariable<T> |
-    IStoragePropRefDecoratedVariable<T> | ILocalStoragePropRefDecoratedVariable<T> |
-    IProvideDecoratedVariable<T> | IConsumeDecoratedVariable<T>;
+export type LinkSourceType<T> = IDecoratedV1Variable<T>;
 
 /**
  * Define mutable state meta interface.
