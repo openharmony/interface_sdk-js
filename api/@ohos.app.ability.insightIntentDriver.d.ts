@@ -772,7 +772,7 @@ declare namespace insightIntentDriver {
    * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed; 2.The system service failed to communicate with dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -789,7 +789,7 @@ declare namespace insightIntentDriver {
    * @returns { Promise<Array<InsightIntentInfo>> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed; 2.The system service failed to communicate with dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -808,7 +808,7 @@ declare namespace insightIntentDriver {
    * @returns { Promise<InsightIntentInfo> } Returns the insight intent information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed; 2.The system service failed to communicate with dependency module. 
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
