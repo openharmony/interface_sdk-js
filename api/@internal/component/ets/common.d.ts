@@ -18600,7 +18600,8 @@ declare interface ContextMenuOptions {
   /**
    * Defines the border radius for preview of menu.
    *
-   * @type { BorderRadiusType }
+   * @type { ?BorderRadiusType }
+   * @default 16vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18706,6 +18707,7 @@ declare interface ContextMenuOptions {
    * The margin of menu's layoutRegion.
    *
    * @type { ?Margin }
+   * @default 12vp for left and right, 16vp for top and bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18725,6 +18727,7 @@ declare interface ContextMenuOptions {
    * The preview animator options.
    *
    * @type { ?ContextMenuAnimationOptions }
+   * @default { scale: [0.95, 1.1], transition: undefined, hoverScale: undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18811,7 +18814,7 @@ declare interface ContextMenuOptions {
     * Determine if it is compatible menu's half folded.
     *
     * @type { ?boolean }
-    * @default false
+    * @default true for 2-in-1 devices and false for other devices
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
@@ -19009,7 +19012,7 @@ declare interface MenuOptions extends ContextMenuOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
-   * @default true for 2-in-1 devices and false for other devices
+   * @default true for 2-in-1 devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
