@@ -2595,19 +2595,19 @@ declare namespace window {
     /**
      * Indicates Parent window id
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Indicates Parent window id
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
      */
-    parentId?: number;
+    parentId?: int;
 
     /**
      * Indicates whether enable window decor, only support dialog, The default value is false.
