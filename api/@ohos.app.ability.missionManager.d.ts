@@ -94,7 +94,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -105,14 +105,14 @@ declare namespace missionManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
+  function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
   /**
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -123,7 +123,7 @@ declare namespace missionManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
+  function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
   /**
    * Get missionInfos in the given deviceId with maximum number of numMax.
