@@ -1107,7 +1107,6 @@ declare namespace accessibility {
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @atomicservice
    * @since 18
    */
   function isScreenReaderOpenSync(): boolean;
@@ -1506,7 +1505,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
-  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |      
+  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
   'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
   /**
    * Indicates the style of captions.
@@ -1726,8 +1725,7 @@ declare namespace accessibility {
      * The page id of the event source.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     pageId?: number;
 
@@ -1780,8 +1778,7 @@ declare namespace accessibility {
      * The start index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     beginIndex?: number;
 
@@ -1789,8 +1786,7 @@ declare namespace accessibility {
      * The index of the current item on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     currentIndex?: number;
 
@@ -1798,8 +1794,7 @@ declare namespace accessibility {
      * The end index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     endIndex?: number;
 
@@ -1807,8 +1802,7 @@ declare namespace accessibility {
      * The total of the items, talkback used it when scroll.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     itemCount?: number;
 
@@ -1816,8 +1810,7 @@ declare namespace accessibility {
      * The id of element.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     elementId?: number;
 
