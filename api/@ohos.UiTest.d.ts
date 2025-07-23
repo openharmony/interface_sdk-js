@@ -3390,8 +3390,6 @@ declare class Component {
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @crossplatform
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
@@ -3450,7 +3448,6 @@ declare class Component {
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
     * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
@@ -3619,7 +3616,6 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
@@ -3657,7 +3653,6 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
@@ -3698,7 +3693,6 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
@@ -3749,7 +3743,6 @@ declare class Driver {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
     * @throws { BusinessError } 17000002 - The async function is not called with await.
     * @syscap SystemCapability.Test.UiTest
-    * @atomicservice
     * @since 20
     * @test
     * @arkts 1.2
