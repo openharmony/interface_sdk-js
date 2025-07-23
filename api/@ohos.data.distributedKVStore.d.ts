@@ -625,7 +625,6 @@ declare namespace distributedKVStore {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
-     * @arkts 1.1
      */
     default: string;
 
