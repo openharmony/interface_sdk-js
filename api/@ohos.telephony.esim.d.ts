@@ -79,7 +79,7 @@ declare namespace eSIM {
 
   /**
    * Returns the current status of eUICC OS upgrade.
-   * 
+   *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { Promise<OsuStatus> } Return the status of eUICC OS upgrade.
@@ -97,7 +97,7 @@ declare namespace eSIM {
 
   /**
    * Execute OS upgrade if current OS upgrade is not the latest one.
-   * 
+   *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @returns { Promise<OsuStatus> } Return the status of OS upgrade when OS upgrade status changed.
@@ -139,7 +139,7 @@ declare namespace eSIM {
 
   /**
    * Gets downloadable profile List which are available for download on this device.
-   * 
+   *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
    * @param { number } slotId - Indicates the card slot index number.
    * @param { number } portIndex - Index of the port for the slot.
@@ -380,6 +380,87 @@ declare namespace eSIM {
   function cancelSession(slotId: number, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
   /**
+   * Get contract info
+   *
+   * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
+   * @param { number } slotId - Indicates the card slot index number.
+   * @param { ContractRequestData } requestData - request infomation required to get contract infomation.
+   * @returns { Promise<string> } Returns the contract info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getContractInfo(slotId: number, requestData: ContractRequestData) : Promise<string>;
+
+  /**
+   * Get supported pkids
+   *
+   * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
+   * @param { number } slotId - Indicates the card slot index number.
+   * @returns { Promise<string> } Returns the supported pkids.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3120001 - Service connection failed.
+   * @throws { BusinessError } 3120002 - System internal error.
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getSupportedPkids(slotId: number) : Promise<string>;
+
+  /**
+   * Contract request data
+   *
+   * @interface ContractRequestData
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export interface ContractRequestData {
+    /**
+     * Public key required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    publicKey: string;
+
+    /**
+     * Nonce required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    nonce: string;
+
+    /**
+     * Euicc Ci PKID to be used, required to get contract info
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    pkid: string;
+  }
+
+  /**
    * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
    *
    * @interface AccessRule
@@ -390,7 +471,7 @@ declare namespace eSIM {
   export interface AccessRule {
     /**
      * Certificate hash hexadecimal string.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -400,7 +481,7 @@ declare namespace eSIM {
 
     /**
      * The name of package.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -410,7 +491,7 @@ declare namespace eSIM {
 
     /**
      * The type of access.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -438,7 +519,7 @@ declare namespace eSIM {
 
     /**
      * Confirmation code.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18
@@ -447,7 +528,7 @@ declare namespace eSIM {
 
     /**
      * Carrier name.
-     * 
+     *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18
@@ -456,7 +537,7 @@ declare namespace eSIM {
 
     /**
      * Gets the accessRules.
-     * 
+     *
      * @type { ?Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18
@@ -475,7 +556,7 @@ declare namespace eSIM {
   export interface GetDownloadableProfileMetadataResult {
     /**
      * Information about a profile which is downloadable to an eUICC using.
-     * 
+     *
      * @type { DownloadableProfile }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -485,7 +566,7 @@ declare namespace eSIM {
 
     /**
      * The type of profile policy rule.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -493,9 +574,9 @@ declare namespace eSIM {
      */
     pprType: number;
 
-    /** 
+    /**
      * The flag of profile policy rule.
-     * 
+     *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -505,47 +586,47 @@ declare namespace eSIM {
 
     /**
      * The iccid of the profile.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-     iccid: string;
+    iccid: string;
 
-     /**
-      * The service provider name for the profile.
-      * 
-      * @type { string }
-      * @syscap SystemCapability.Telephony.CoreService.Esim
-      * @systemapi Hide this for inner system use.
-      * @since 18
-      */
-     serviceProviderName: string;
+    /**
+     * The service provider name for the profile.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    serviceProviderName: string;
 
-     /**
-      * The profile name.
-      * 
-      * @type { string }
-      * @syscap SystemCapability.Telephony.CoreService.Esim
-      * @systemapi Hide this for inner system use.
-      * @since 18
-      */
-     profileName: string;
+    /**
+     * The profile name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    profileName: string;
 
-     /**
-      * Profile class for the profile.
-      *
-      * @type { ProfileClass }
-      * @syscap SystemCapability.Telephony.CoreService.Esim
-      * @systemapi Hide this for inner system use.
-      * @since 18
-      */
-     profileClass: ProfileClass;
+    /**
+     * Profile class for the profile.
+     *
+     * @type { ProfileClass }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
+     * @since 18
+     */
+    profileClass: ProfileClass;
 
     /**
      * Gets the solvable errors.
-     * 
+     *
      * @type { SolvableErrors }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -555,7 +636,7 @@ declare namespace eSIM {
 
     /**
      * Gets the result of the operation.
-     * 
+     *
      * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -575,7 +656,7 @@ declare namespace eSIM {
   export interface GetDownloadableProfilesResult {
     /**
      * Gets the result of the operation.
-     * 
+     *
      * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -585,7 +666,7 @@ declare namespace eSIM {
 
     /**
      * Gets the downloadable Profiles with filled-in metadata.
-     * 
+     *
      * @type { Array<DownloadableProfile> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -605,7 +686,7 @@ declare namespace eSIM {
   export interface DownloadProfileResult {
     /**
      * Gets the result of the operation.
-     * 
+     *
      * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -615,7 +696,7 @@ declare namespace eSIM {
 
     /**
      * Gets the solvable errors.
-     * 
+     *
      * @type { SolvableErrors }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -625,7 +706,7 @@ declare namespace eSIM {
 
     /**
      * Gets the card Id. This value comes from EuiccService and is used when resolving solvable errors.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -645,7 +726,7 @@ declare namespace eSIM {
   export interface GetEuiccProfileInfoListResult {
     /**
      * Gets the result of the operation.
-     * 
+     *
      * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -655,7 +736,7 @@ declare namespace eSIM {
 
     /**
      * Gets the profile list (only upon success).
-     * 
+     *
      * @type { Array<EuiccProfile> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -665,7 +746,7 @@ declare namespace eSIM {
 
     /**
      * Gets whether the eUICC can be removed.
-     * 
+     *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -685,7 +766,7 @@ declare namespace eSIM {
   export interface OperatorId {
     /**
      * Mobile country code.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -695,7 +776,7 @@ declare namespace eSIM {
 
     /**
      * Mobile network code.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -705,7 +786,7 @@ declare namespace eSIM {
 
     /**
      * Group id level 1.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -715,7 +796,7 @@ declare namespace eSIM {
 
     /**
      * Group id level 2.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -735,7 +816,7 @@ declare namespace eSIM {
   export interface EuiccProfile {
     /**
      * The iccid of the profile.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -745,7 +826,7 @@ declare namespace eSIM {
 
     /**
      * An optional nickname for the profile.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -755,7 +836,7 @@ declare namespace eSIM {
 
     /**
      * The service provider name for the profile.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -765,7 +846,7 @@ declare namespace eSIM {
 
     /**
      * The profile name.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -795,7 +876,7 @@ declare namespace eSIM {
 
     /**
      * The operator Id of the profile.
-     * 
+     *
      * @type { OperatorId }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -815,7 +896,7 @@ declare namespace eSIM {
 
     /**
      * Optional access rules that specify which apps can manage this profile. Default platform management when not set.
-     * 
+     *
      * @type { Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -826,7 +907,7 @@ declare namespace eSIM {
 
   /**
    * Information related to eUICC chips/devices.
-   * 
+   *
    * @interface EuiccInfo
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
@@ -835,7 +916,7 @@ declare namespace eSIM {
   export interface EuiccInfo {
     /**
      * Operating system version.
-     * 
+     *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -878,7 +959,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    RESET_DEFAULT_SMDP_ADDRESS = 1 << 2,
+    RESET_DEFAULT_SMDP_ADDRESS = 1 << 2
   }
 
   /**
@@ -933,7 +1014,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    EUICC_UPGRADE_SERVICE_UNAVAILABLE = 5,
+    EUICC_UPGRADE_SERVICE_UNAVAILABLE = 5
   }
 
   /**
@@ -1226,7 +1307,7 @@ declare namespace eSIM {
 
     /**
      * Nothing is to be deleted.
-     * 
+     *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18
@@ -1244,7 +1325,7 @@ declare namespace eSIM {
 
     /**
      * A session is ongoing.
-     * 
+     *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18
@@ -1276,7 +1357,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    RESULT_SGP_22_OTHER = 400,
+    RESULT_SGP_22_OTHER = 400
   }
 
   /**
@@ -1322,7 +1403,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    CANCEL_REASON_PPR_NOT_ALLOWED = 3,
+    CANCEL_REASON_PPR_NOT_ALLOWED = 3
   }
 
   /**
@@ -1359,7 +1440,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    PROFILE_STATE_ENABLED = 1,
+    PROFILE_STATE_ENABLED = 1
   }
 
   /**
@@ -1405,7 +1486,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    PROFILE_CLASS_OPERATIONAL = 2,
+    PROFILE_CLASS_OPERATIONAL = 2
   }
 
   /**
@@ -1442,7 +1523,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    POLICY_RULE_DISABLE_AND_DELETE = 1 << 2,
+    POLICY_RULE_DISABLE_AND_DELETE = 1 << 2
   }
 
   /**
@@ -1470,7 +1551,7 @@ declare namespace eSIM {
      * @systemapi Hide this for inner system use.
      * @since 18
      */
-    SOLVABLE_ERROR_NEED_POLICY_RULE = 1 << 1,
+    SOLVABLE_ERROR_NEED_POLICY_RULE = 1 << 1
   }
 
   /**
