@@ -122,7 +122,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: ConfigurationConstant.Direction;
 
@@ -148,7 +149,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
@@ -165,7 +167,8 @@ export interface Configuration {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   displayId?: number;
 
@@ -182,7 +185,8 @@ export interface Configuration {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hasPointerDevice?: boolean;
 
@@ -222,7 +226,8 @@ export interface Configuration {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeightScale?: number;
 
@@ -232,7 +237,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   mcc?: string;
 
@@ -242,7 +248,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   mnc?: string;
 

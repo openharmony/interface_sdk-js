@@ -27,9 +27,10 @@ import type Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class InsightIntentContext {
+declare class InsightIntentContext {
   /**
    * Starts a new ability.
    * This interface only allows you to start abilities within the same bundle and specify the bundleName.
@@ -90,3 +91,5 @@ export default class InsightIntentContext {
    */
   startAbility(want: Want): Promise<void>;
 }
+
+export default InsightIntentContext;
