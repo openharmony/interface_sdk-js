@@ -101,6 +101,7 @@ declare namespace bundleResourceManager {
 
     /**
      * Used to obtain only main ability resource.
+     * Only effective on {@link getLauncherAbilityResourceInfo} and {@link getAllLauncherAbilityResourceInfo}
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi

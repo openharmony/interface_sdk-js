@@ -2453,7 +2453,7 @@ declare namespace bundleManager {
    * Get AbilityInfo by the given uri.
    *
    * @permission ohos.permission.GET_ABILITY_INFO
-   * @param { string } uri - Indicates the uri used for matching ability.
+   * @param { string } uri - Indicates the uri used for matching ability. The value is the same as that of the uris field under skills in the module.json5 file.
    * @param { number } abilityFlags {@link AbilityFlag} - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
