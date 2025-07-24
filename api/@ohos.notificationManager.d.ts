@@ -470,7 +470,7 @@ declare namespace notificationManager {
    * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
    *
    * @param { number } id - Notification ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined:
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -3993,7 +3993,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18
- */
+   */
   function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
   /**
@@ -4010,7 +4010,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18
- */
+   */
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
   /**
@@ -4026,7 +4026,7 @@ declare namespace notificationManager {
    * @since 20
    */
   function isDistributedEnabled(deviceType: string): Promise<boolean>;
-
+ 
   /**
    * Sets whether the device supports distributed notification.
    * 
@@ -4041,7 +4041,7 @@ declare namespace notificationManager {
    * @since 20
    */
   function setDistributedEnabled(enable: boolean, deviceType: string): Promise<void>;
-
+ 
   /**
    * Get distributed device list.
    * 
@@ -4075,7 +4075,7 @@ declare namespace notificationManager {
    * @arkts 1.1&1.2
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
-
+ 
   /**
    * Obtains whether an application silent reminder is enable.
    *
@@ -4095,7 +4095,7 @@ declare namespace notificationManager {
    * @arkts 1.1&1.2
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
-
+ 
   /**
    * Represents the state of a switch,
    * distinguishing system defaults from user modifications.
@@ -4117,7 +4117,7 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     USER_MODIFIED_OFF = 0,
-
+ 
     /**
      * User-modified ON state,
      * Represents an on state that was explicitly set by the user.
@@ -4128,7 +4128,7 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     USER_MODIFIED_ON = 1,
-
+ 
     /**
      * System default OFF state,
      * Represents the initial off state before any user modification.
@@ -4139,7 +4139,7 @@ declare namespace notificationManager {
      * @arkts 1.1&1.2
      */
     SYSTEM_DEFAULT_OFF = 2,
-
+ 
     /**
      * System default ON state,
      * Represents the initial on state before any user modification.
