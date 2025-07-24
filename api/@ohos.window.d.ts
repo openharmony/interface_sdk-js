@@ -8917,7 +8917,7 @@ declare namespace window {
     /**
      * Sets opacity  of window
      *
-     * @param { number } opacity Interval is 0.f-1.f.
+     * @param { double } opacity Interval is 0.f-1.f.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -8931,7 +8931,7 @@ declare namespace window {
      * Sets the opacity for this window.
      * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
-     * @param { number } opacity Interval is 0.f-1.f.
+     * @param { double } opacity Interval is 0.f-1.f.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -8943,7 +8943,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    opacity(opacity: number): void;
+    opacity(opacity: double): void;
 
     /**
      * Sets scale options of window.
@@ -9153,10 +9153,10 @@ declare namespace window {
     /**
      * Sets shadow.
      *
-     * @param { number } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow.
      * @param { string } color the color of the shadow.
-     * @param { number } offsetX the offset of the shadow on the x-axis.
-     * @param { number } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis.
+     * @param { double } offsetY the offset of the shadow on the y-axis.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9169,10 +9169,10 @@ declare namespace window {
     /**
      * Sets the shadow for the window borders.
      *
-     * @param { number } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow.
      * @param { string } color the color of the shadow.
-     * @param { number } offsetX the offset of the shadow on the x-axis.
-     * @param { number } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis.
+     * @param { double } offsetY the offset of the shadow on the y-axis.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9184,7 +9184,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
+    setShadow(radius: double, color?: string, offsetX?: double, offsetY?: double): void;
 
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
