@@ -589,8 +589,7 @@ declare namespace distributedKVStore {
    * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
    *
    * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   class FieldNode {
     /**
@@ -601,8 +600,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     constructor(name: string);
 
@@ -627,16 +625,6 @@ declare namespace distributedKVStore {
      * @since 9
      */
     default: string;
-
-    /**
-     * Indicates the default value of field node.
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @crossplatform
-     * @since 20
-     * @arkts 1.2
-     */
-    defaultValue: string;
 
     /**
      * Indicates the nullable of database field.
