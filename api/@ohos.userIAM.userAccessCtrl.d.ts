@@ -36,8 +36,8 @@ declare namespace userAccessCtrl {
    * @param { number } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
    * @returns { Promise<AuthToken> } Returns parsed authToken.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
