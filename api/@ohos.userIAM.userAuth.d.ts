@@ -18,7 +18,12 @@
  * @kit UserAuthenticationKit
  */
 
+/*** if arkts 1.1 */
 import type { AsyncCallback } from './@ohos.base';
+/*** endif */
+/*** if arkts 1.2 */
+import Context from './application/Context';
+/*** endif */
 
 /**
  * User authentication
@@ -34,7 +39,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace userAuth
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace userAuth {
   /**
@@ -46,6 +52,16 @@ declare namespace userAuth {
    * @since 12
    */
   const MAX_ALLOWABLE_REUSE_DURATION: 300000;
+  /**
+   * Maximum reuse duration of the authentication result, in milliseconds. The value is 300000.
+   *
+   * @constant
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
 
   /**
    * Enum for authentication result.
@@ -676,10 +692,11 @@ declare namespace userAuth {
   /**
    * Enumerates the identity authentication types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum UserAuthType {
     /**
@@ -693,7 +710,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN = 1,
 
@@ -708,7 +726,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE = 2,
 
@@ -723,7 +742,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FINGERPRINT = 4,
 
@@ -732,7 +752,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PRIVATE_PIN = 16
   }
@@ -749,10 +770,11 @@ declare namespace userAuth {
    * For details about typical scenarios and examples, see Principles for Classifying Biometric
    * Authentication Trust Levels.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthTrustLevel {
     /**
@@ -768,7 +790,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL1 = 10000,
 
@@ -785,7 +808,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL2 = 20000,
 
@@ -801,7 +825,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL3 = 30000,
 
@@ -817,7 +842,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ATL4 = 40000
   }
@@ -1060,7 +1086,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAvailableStatus(authType: UserAuthType, authTrustLevel: AuthTrustLevel): void;
 
@@ -1070,28 +1097,31 @@ declare namespace userAuth {
    * @typedef EnrolledState
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface EnrolledState {
     /**
      * Credential digest, which is randomly generated when a credential is added.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    credentialDigest: number;
+    credentialDigest: int;
 
     /**
      * Number of enrolled credentials.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    credentialCount: number;
+    credentialCount: int;
   }
 
   /**
@@ -1108,7 +1138,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getEnrolledState(authType: UserAuthType): EnrolledState;
 
@@ -1133,10 +1164,11 @@ declare namespace userAuth {
   /**
    * Enumerates the window types of the authentication widget.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WindowModeType {
     /**
@@ -1144,7 +1176,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIALOG_BOX = 1,
 
@@ -1153,7 +1186,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FULLSCREEN = 2
   }
@@ -1161,10 +1195,11 @@ declare namespace userAuth {
   /**
    * Enumerates the modes for reusing authentication results.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ReuseMode {
     /**
@@ -1173,7 +1208,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTH_TYPE_RELEVANT = 1,
 
@@ -1183,7 +1219,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTH_TYPE_IRRELEVANT = 2,
 
@@ -1194,7 +1231,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALLER_IRRELEVANT_AUTH_TYPE_RELEVANT = 3,
 
@@ -1204,7 +1242,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALLER_IRRELEVANT_AUTH_TYPE_IRRELEVANT = 4
   }
@@ -1226,7 +1265,8 @@ declare namespace userAuth {
    * @typedef ReuseUnlockResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ReuseUnlockResult {
     /**
@@ -1235,7 +1275,8 @@ declare namespace userAuth {
      * @type { ReuseMode }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reuseMode: ReuseMode;
 
@@ -1243,12 +1284,13 @@ declare namespace userAuth {
      * Period for which the authentication result can be reused. The value must be greater than 0 and less
      * than MAX_ALLOWABLE_REUSE_DURATION.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    reuseDuration: number;
+    reuseDuration: int;
   }
 
   /**
@@ -1264,7 +1306,8 @@ declare namespace userAuth {
    * @typedef AuthParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AuthParam {
     /**
@@ -1281,7 +1324,8 @@ declare namespace userAuth {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     challenge: Uint8Array;
 
@@ -1298,7 +1342,8 @@ declare namespace userAuth {
      * @type { UserAuthType[] }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType: UserAuthType[];
 
@@ -1315,7 +1360,8 @@ declare namespace userAuth {
      * @type { AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authTrustLevel: AuthTrustLevel;
 
@@ -1325,20 +1371,22 @@ declare namespace userAuth {
      * @type { ?ReuseUnlockResult }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reuseUnlockResult?: ReuseUnlockResult;
 
     /**
      * ID of the user to be authenticated.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default The ID of the current user. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    userId?: number;
+    userId?: int;
 
     /**
      * Indicates whether to skip biometric authentication which has been locked by continuous failures.
@@ -1364,7 +1412,8 @@ declare namespace userAuth {
    * @typedef WidgetParam
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WidgetParam {
     /**
@@ -1380,7 +1429,8 @@ declare namespace userAuth {
      * @type { string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title: string;
 
@@ -1399,7 +1449,8 @@ declare namespace userAuth {
      * @type { ?string }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     navigationButtonText?: string;
 
@@ -1410,7 +1461,8 @@ declare namespace userAuth {
      * @default WindowModeType.DIALOG_BOX
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowMode?: WindowModeType;
 
@@ -1422,7 +1474,8 @@ declare namespace userAuth {
      * @type { ?Context }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uiContext?: Context;
   }
@@ -1441,7 +1494,8 @@ declare namespace userAuth {
    * @typedef UserAuthResult
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UserAuthResult {
     /**
@@ -1455,12 +1509,13 @@ declare namespace userAuth {
      * User authentication result. If the authentication is successful, SUCCESS is returned. Otherwise, an error code
      * is returned. For details, see UserAuthResultCode.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    result: number;
+    result: int;
 
     /**
      * The authentication result if the authentication is passed.
@@ -1475,7 +1530,8 @@ declare namespace userAuth {
      * @type { ?Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     token?: Uint8Array;
 
@@ -1492,7 +1548,8 @@ declare namespace userAuth {
      * @type { ?UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     authType?: UserAuthType;
 
@@ -1502,7 +1559,8 @@ declare namespace userAuth {
      * @type { ?EnrolledState }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enrolledState?: EnrolledState;
   }
@@ -1520,7 +1578,8 @@ declare namespace userAuth {
    * @interface IAuthCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IAuthCallback {
     /**
@@ -1541,12 +1600,23 @@ declare namespace userAuth {
      * @since 12
      */
     onResult(result: UserAuthResult): void;
+    /**
+     * Called to return the authentication result. If the authentication is successful,
+     * UserAuthResult contains the token information.
+     *
+     * @type { function }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    onResult: (result: UserAuthResult) => void;
   }
 
   /**
    * Authentication tip code.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since 20
@@ -1662,7 +1732,8 @@ declare namespace userAuth {
    * @interface UserAuthInstance
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UserAuthInstance {
     /**
@@ -1690,7 +1761,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'result', callback: IAuthCallback): void;
 
@@ -1723,7 +1795,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'result', callback?: IAuthCallback): void;
 
@@ -1798,6 +1871,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     start(): void;
 
@@ -1826,7 +1900,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cancel(): void;
 
@@ -1892,17 +1967,19 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance;
 
   /**
    * Defines the type of the user authentication notification.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum NoticeType {
     /**
@@ -1910,7 +1987,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDGET_NOTICE = 1
   }
@@ -1930,7 +2008,8 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendNotice(noticeType: NoticeType, eventData: string): void;
 
@@ -1944,10 +2023,11 @@ declare namespace userAuth {
   /**
    * Enumerates the authentication result codes.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum UserAuthResultCode {
     /**
@@ -1961,7 +2041,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUCCESS = 12500000,
 
@@ -1976,7 +2057,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAIL = 12500001,
 
@@ -1991,7 +2073,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GENERAL_ERROR = 12500002,
 
@@ -2006,7 +2089,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CANCELED = 12500003,
 
@@ -2021,7 +2105,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TIMEOUT = 12500004,
 
@@ -2036,7 +2121,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_NOT_SUPPORT = 12500005,
 
@@ -2051,7 +2137,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRUST_LEVEL_NOT_SUPPORT = 12500006,
 
@@ -2066,7 +2153,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BUSY = 12500007,
 
@@ -2090,7 +2178,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LOCKED = 12500009,
 
@@ -2105,7 +2194,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOT_ENROLLED = 12500010,
 
@@ -2121,7 +2211,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CANCELED_FROM_WIDGET = 12500011,
 
@@ -2130,7 +2221,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PIN_EXPIRED = 12500013,
 
@@ -2139,7 +2231,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTH_TOKEN_CHECK_FAILED = 12500015,
 
@@ -2149,7 +2242,8 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTH_TOKEN_EXPIRED = 12500016,
 
@@ -2170,7 +2264,8 @@ declare namespace userAuth {
    * @interface UserAuthWidgetMgr
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface UserAuthWidgetMgr {
     /**
@@ -2187,7 +2282,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'command', callback: IAuthWidgetCallback): void;
 
@@ -2204,7 +2300,8 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'command', callback?: IAuthWidgetCallback): void;
   }
@@ -2217,7 +2314,7 @@ declare namespace userAuth {
    * </p>
    *
    * @permission ohos.permission.SUPPORT_USER_AUTH
-   * @param { number } version - Version of the user authentication widget.
+   * @param { int } version - Version of the user authentication widget.
    * @returns { UserAuthWidgetMgr } UserAuthWidgetMgr instance obtained.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -2227,9 +2324,10 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUserAuthWidgetMgr(version: number): UserAuthWidgetMgr;
+  function getUserAuthWidgetMgr(version: int): UserAuthWidgetMgr;
 
   /**
    * Provides the callback for returning the commands sent from the user authentication framework
@@ -2251,6 +2349,16 @@ declare namespace userAuth {
      * @since 10
      */
     sendCommand(cmdData: string): void;
+    /**
+     * Called to return the command sent from the user authentication framework to the user authentication widget.
+     *
+     * @type { function }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.2
+     */
+    sendCommand: (cmdData: string) => void;
   }
 
   /**
