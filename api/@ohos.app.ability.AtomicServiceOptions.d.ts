@@ -34,14 +34,14 @@ export default class AtomicServiceOptions extends StartOptions {
   /**
    * The options of the flags in this AtomicServiceOptions.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  flags?: number;
+  flags?: int;
 
   /**
    * The description of the WantParams object in an AtomicServiceOptions

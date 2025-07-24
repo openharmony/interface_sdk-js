@@ -70,10 +70,10 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect failed.
    *
-   * @param { number } code - The error code of the failed.
+   * @param { int } code - The error code of the failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onFailed(code: number): void;
+  onFailed(code: int): void;
 }

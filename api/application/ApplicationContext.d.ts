@@ -208,26 +208,19 @@ declare class ApplicationContext extends Context {
    * @since 9
    */
   /**
-   * Registers a listener for system environment changes.
-   * This API uses an asynchronous callback to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
+   * Register environment callback.
    *
-   * @param { 'environment' } type - Event type.
-   * @param { EnvironmentCallback } callback - Callback used to return the system environment changes.
-   * @returns { number } ID of the registered listener. The ID is incremented by 1 each time the listener is 
-   * registered. When the ID exceeds 2^63-1, -1 is returned.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * @param { 'environment' } type - environment.
+   * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { int } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  on(type: 'environment', callback: EnvironmentCallback): number;
+  on(type: 'environment', callback: EnvironmentCallback): int;
 
   /**
    * Unregister environment callback.
@@ -241,26 +234,19 @@ declare class ApplicationContext extends Context {
    * @since 9
    */
   /**
-   * Unregisters the listener for system environment changes.
-   * This API uses an asynchronous callback to return the result.
+   * Unregister environment callback.
    * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { 'environment' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
-   * err is undefined. Otherwise, err is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * @param { 'environment' } type - environment.
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
+  off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister environment callback.
@@ -274,25 +260,19 @@ declare class ApplicationContext extends Context {
    * @since 9
    */
   /**
-   * Unregisters the listener for system environment changes.
-   * This API uses a promise to return the result.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
+   * Unregister environment callback.
    *
-   * @param { 'environment' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
+   * @param { 'environment' } type - environment.
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  off(type: 'environment', callbackId: number): Promise<void>;
+  off(type: 'environment', callbackId: int): Promise<void>;
 
   /**
    * Register applicationStateChange callback.
@@ -766,29 +746,22 @@ declare class ApplicationContext extends Context {
   setFont(font: string): void;
 
   /**
-   * Obtains the index of the current application clone.
+   * Get current app clone index.
    *
-   * @returns { number } Index of the current application clone.
+   * @returns { int } Returns the app clone index for current app.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000071 - App clone is not supported.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link App_CLONE}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getCurrentAppCloneIndex(): number;
+  getCurrentAppCloneIndex(): int;
 
   /**
-   * Sets the scale ratio for the font size of this application.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   * 
-   * @param {number} fontSizeScale - Font scale ratio. The value is a non-negative number. When the application's
-   * {@link fontSizeScale} is set to <code>followSystem</code> and the value set here exceeds the value of
-   * fontSizeMaxScale, the value of fontSizeMaxScale takes effect.
+   * Set font size scale.
+   * @param {double} fontSizeScale - Font size scale.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -796,7 +769,7 @@ declare class ApplicationContext extends Context {
    * @since arkts {'1.1':'13', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setFontSizeScale(fontSizeScale: number): void;
+  setFontSizeScale(fontSizeScale: double): void;
 
   /**
    * Obtains the unique instance ID of this application.
