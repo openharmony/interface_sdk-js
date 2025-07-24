@@ -26,11 +26,11 @@ import { Callback } from './@ohos.base';
  * @throws { BusinessError } 17000001 - Initialization failed.
  * @syscap SystemCapability.Test.UiTest
  * @since 20
- * @test
  * @arkts 1.2
+ * @test
 */
-declare function loadAndSetUpUiTest(): void;
- 
+export function loadAndSetUpUiTest(): void {};
+
 /**
  * Enumerates the string value match pattern.
  *
@@ -5602,8 +5602,3 @@ export {
   TouchPadSwipeOptions,
   InputTextMode
 };
- /*** if arkts 1.2 */
- export {
-   loadAndSetUpUiTest
- };
- /*** endif */
