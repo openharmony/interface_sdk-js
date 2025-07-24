@@ -92,7 +92,8 @@ export interface NotificationRequest {
    * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
    * If an app publishes notifications with the same appMessageId locally or on the cloud, the device displays only one message.
    * Repeated notifications received later will be silenced and deduplicated, and will not be displayed or notified.
-   * The deduplication flag is valid only within 24 hours after the notification is published. After 24 hours or the device is restarted, the deduplication flag becomes invalid.
+   * The deduplication flag is valid only within 24 hours after the notification is published. After 24 hours or the device is restarted,
+   * the deduplication flag becomes invalid.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -204,7 +205,8 @@ export interface NotificationRequest {
 
   /**
    * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set new Date().getTime() + 3000 to meet this requirement.
+   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
+   * you can set new Date().getTime() + 3000 to meet this requirement.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
@@ -212,7 +214,8 @@ export interface NotificationRequest {
    */
   /**
    * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
-   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms), you can set new Date().getTime() + 3000 to meet this requirement.
+   * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
+   * you can set new Date().getTime() + 3000 to meet this requirement.
    *
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
@@ -274,7 +277,8 @@ export interface NotificationRequest {
 
   /**
    * Whether to send a notification only once when the notification is published or updated.
-   * - true: A notification is sent only when the notification is published for the first time. For subsequent update, the notification mode is changed to LEVEL_MIN.
+   * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
+   *         the notification mode is changed to LEVEL_MIN.
    * - false (default): A notification is sent based on the configured notification mode.
    *
    * @type { ?boolean }
@@ -283,7 +287,8 @@ export interface NotificationRequest {
    */
   /**
    * Whether to send a notification only once when the notification is published or updated.
-   * - true: A notification is sent only when the notification is published for the first time. For subsequent update, the notification mode is changed to LEVEL_MIN.
+   * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
+   *         the notification mode is changed to LEVEL_MIN.
    * - false (default): A notification is sent based on the configured notification mode.
    *
    * @type { ?boolean }
@@ -374,7 +379,8 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * Small notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+   * Small notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
+   * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
@@ -384,7 +390,8 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * Large notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+   * Large notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
+   * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
@@ -600,14 +607,16 @@ export interface NotificationRequest {
   removalWantAgent?: WantAgent;
 
   /**
-   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
+   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
+   * if the value is greater than 99, 99+ is displayed on the badge.
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
   /**
-   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared; if the value is greater than 99, 99+ is displayed on the badge.
+   * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
+   * if the value is greater than 99, 99+ is displayed on the badge.
    *
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
