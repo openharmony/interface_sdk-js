@@ -6646,7 +6646,7 @@ declare namespace webview {
      * The value cannot be empty or exceed 2048 characters.
      * When an invalid value is set, this API does not take effect.
      * @returns { BlanklessInfo } The prediction information about the blankless loading solution.
-     * @throws { BusinessError } 801 This functionality is not supported.
+     * @throws { BusinessError } 801 Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
@@ -6668,7 +6668,7 @@ declare namespace webview {
      * The value can be true or false.
      * Action for setting an invalid value: N/A.
      * @returns { WebBlanklessErrorCode } WebBlanklessErrorCode.
-     * @throws { BusinessError } 801 This functionality is not supported.
+     * @throws { BusinessError } 801 Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
@@ -6684,7 +6684,7 @@ declare namespace webview {
      * The URL is the same as that input to the Web component during page loading.
      * When the key length exceeds 2048 characters, the key does not take effect. When the number of keys
      * exceeds 100, the first 100 keys are used. If these parameters are left empty, the default values are used.
-     * @throws { BusinessError } 801 This functionality is not supported.
+     * @throws { BusinessError } 801 Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
@@ -6702,7 +6702,7 @@ declare namespace webview {
      * When the value is set to a number smaller than 0, the value 0 takes effect. When the value is set to a
      * number greater than 100, the value 100 takes effect.
      * @returns { number } The effective value that ranges from 0 MB to 100 MB.
-     * @throws { BusinessError } 801 This functionality is not supported.
+     * @throws { BusinessError } 801 Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
