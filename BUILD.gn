@@ -130,6 +130,85 @@ template("ohos_declaration_template") {
   }
 }
 
+# 适配arkui处理noninterop标签的主要api处理template
+template("ohos_handle_declaration_template") {
+  forward_variables_from(invoker, "*")
+  input_project_dir = invoker.input_project_dir
+  _module_info_target = "/ohos_sdk_arkui/${sdk_type}/${target_name}_info"
+
+  action_with_pydeps(target_name) {
+    deps = [ 
+      ":ohos_ets_dynamic",
+      ":ohos_ets_static" ]
+    deps += [ ":$_module_info_target" ]
+    inputs = []
+    outputs = [ target_out_dir + "/ohos_sdk_arkui/${target_name}" ]
+
+    script = "//interface/sdk-js/delete_arkui_label.py"
+    args = [
+      "--root-build-dir",
+      rebase_path("//", root_build_dir),
+      "--input-interface-sdk",
+      rebase_path(input_project_dir),
+      "--output-arkui-interface-sdk",
+      rebase_path("$target_out_dir/ohos_sdk_arkui/${target_name}"),
+      "--node-js",
+      rebase_path(nodejs, root_build_dir)
+      ]
+  }
+  _target_name = target_name
+  generate_module_info(_module_info_target) {
+    module_type = "jsdoc"
+    module_install_name = ""
+    module_name = _target_name
+    module_source_dir =
+        target_out_dir + "/ohos_sdk_arkui/$_target_name"
+    install_enable = false
+  }
+}
+
+# 最终打包SDK ets/api执行脚本
+ohos_handle_declaration_template("ohos_build_ets_sdk_api") {
+  sdk_type = "ets"
+  input_project_dir = "$ohos_ets_dynamic_path/api"
+}
+
+# 最终打包SDK ets/arkts执行脚本
+ohos_handle_declaration_template("ohos_build_ets_sdk_arkts") {
+  sdk_type = "ets"
+  input_project_dir = "$ohos_ets_dynamic_path/arkts"
+}
+
+# 最终打包SDK ets/component执行脚本
+ohos_handle_declaration_template("ohos_build_ets_sdk_component") {
+  sdk_type = "ets"
+  input_project_dir = "$ohos_ets_dynamic_path/component"
+}
+
+# 最终打包SDK ets/kits执行脚本
+ohos_handle_declaration_template("ohos_build_ets_sdk_kits") {
+  sdk_type = "ets"
+  input_project_dir = "$ohos_ets_dynamic_path/kits"
+}
+
+# 最终打包SDK ets2/api执行脚本
+ohos_handle_declaration_template("ohos_build_ets2_sdk_api") {
+  sdk_type = "ets2"
+  input_project_dir = "$ohos_ets_static_path/api"
+}
+
+# 最终打包SDK ets2/arkts执行脚本
+ohos_handle_declaration_template("ohos_build_ets2_sdk_arkts") {
+  sdk_type = "ets2"
+  input_project_dir = "$ohos_ets_static_path/arkts"
+}
+
+# 最终打包SDK ets2/kits执行脚本
+ohos_handle_declaration_template("ohos_build_ets2_sdk_kits") {
+  sdk_type = "ets2"
+  input_project_dir = "$ohos_ets_static_path/kits"
+}
+
 # ets/api执行脚本
 ohos_declaration_template("ohos_declaration_ets") {
   sdk_type = "ets"
@@ -259,58 +338,6 @@ ohos_copy("syscap_check") {
   outputs = [ target_out_dir + "/${target_name}/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/${target_name}"
   module_install_name = ""
-}
-
-# ets1.1的执行脚本
-ohos_copy("ohos_build_ets_sdk") {
-  deps = [ ":handle_ets1.1_arkui_label" ]
-  sources = [ "$root_build_dir/ohos_dynamic_arkui" ]
-  outputs=[ target_out_dir+"/${target_name}" ]
-  module_source_dir = target_out_dir + "/${target_name}"
-  module_install_name = ""
-}
-
-# ets1.2的执行脚本
-ohos_copy("ohos_build_ets2_sdk") {
-  deps = [ ":handle_ets1.2_arkui_label" ]
-  sources = [ "$root_build_dir/ohos_static_arkui" ]
-  outputs=[ target_out_dir+"/${target_name}" ]
-  module_source_dir = target_out_dir + "/${target_name}"
-  module_install_name = ""
-}
-
-# 处理ets1.1的@noninterop标签
-action("handle_ets1.1_arkui_label") {
-  deps = [ ":ohos_ets_dynamic" ]
-  script = "delete_arkui_label.py"
-  args = [
-    "--root-build-dir",
-    rebase_path("//", root_build_dir),
-    "--input-interface-sdk",
-    rebase_path(ohos_ets_dynamic_path),
-    "--output-arkui-interface-sdk",
-    rebase_path("$root_build_dir/ohos_dynamic_arkui"),
-    "--node-js",
-    rebase_path(nodejs, root_build_dir)
-  ]
-  outputs=[ "$root_build_dir/ohos_dynamic_arkui" ]
-}
-
-# 处理ets1.2的@noninterop标签
-action("handle_ets1.2_arkui_label") {
-  deps = [ ":ohos_ets_static" ]
-  script = "delete_arkui_label.py"
-  args = [
-    "--root-build-dir",
-    rebase_path("//", root_build_dir),
-    "--input-interface-sdk",
-    rebase_path(ohos_ets_static_path),
-    "--output-arkui-interface-sdk",
-    rebase_path("$root_build_dir/ohos_static_arkui"),
-    "--node-js",
-    rebase_path(nodejs, root_build_dir)
-  ]
-  outputs=[ "$root_build_dir/ohos_static_arkui" ]
 }
 
 # 处理ets1.1的interop
@@ -485,19 +512,23 @@ action("ohos_ets_static_component") {
     ":ets_component2",
     ":ohos_ets_static_api_declaration"
   ]
-  script = "//interface/sdk-js/arkui_transformer.py"
+  script = "//interface/sdk-js/process_internal.py"
   args = [
     "--input",
     rebase_path(interface_sdk_path + "/arkui_transformer_api", root_build_dir),
+    "--project-dir",
+    rebase_path(interface_sdk_path, root_build_dir),
+    "--base-dir",
+    rebase_path("//interface/sdk-js", root_build_dir),
+    "--remove",
+    rebase_path("//interface/sdk-js/remove_list.json", root_build_dir),
+    "--ispublic",
+    "${sdk_build_public}",
+    "--name",
+    "${target_name}",
     "--output",
-    rebase_path(ohos_ets_static_api_path + "/arkui/component", root_build_dir),
-    "--source_root_dir",
-    rebase_path("//", root_build_dir),
-    "--npm-path",
-    rebase_path(npm, root_build_dir),
-    "--node-js",
-    rebase_path(nodejs, root_build_dir),
-  ]
+    rebase_path(ohos_ets_static_api_path + "/arkui/component",root_build_dir)
+    ]
   outputs = [ ohos_ets_static_api_path + "/arkui/component" ]
 }
 
