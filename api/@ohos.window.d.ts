@@ -3774,7 +3774,7 @@ declare namespace window {
   /**
    * List the window modes of the foreground window on the specified display.
    *
-   * @param { long } displayId - Indicate the id of display.
+   * @param { long } [displayId] - Indicate the id of display.
    * @returns { Promise<int> } Promise used to return the window modes.
    * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
