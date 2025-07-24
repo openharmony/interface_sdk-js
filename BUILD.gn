@@ -315,7 +315,7 @@ action("handle_ets1.2_arkui_label") {
 
 # 处理ets1.1的interop
 ohos_copy("build_dynamic_sdk_interop") {
-  deps = [ ":build_sdk_interop1" ]
+  deps = [ ":build_sdk_interop1", ":ohos_ets_process_interop" ]
   sources = [ "${interface_sdk_path}/ets1.1interop"]
   outputs=[ target_out_dir + "/${target_name}" ]
   module_source_dir = target_out_dir + "/${target_name}"
@@ -324,7 +324,7 @@ ohos_copy("build_dynamic_sdk_interop") {
 
 # 处理ets1.2 声明文件的interop
 ohos_copy("build_static_declaration_sdk_interop") {
-  deps = [ ":build_sdk_interop2" ]
+  deps = [ ":build_sdk_interop2", ":ohos_ets_process_interop" ]
   sources = [ "${interface_sdk_path}/ets1.2interop/declaration"]
   outputs=[ target_out_dir + "/${target_name}" ]
   module_source_dir = target_out_dir + "/${target_name}"
@@ -333,7 +333,7 @@ ohos_copy("build_static_declaration_sdk_interop") {
 
 # 处理ets1.2 胶水代码的interop
 ohos_copy("build_static_bridge_sdk_interop") {
-  deps = [ ":build_sdk_interop2" ]
+  deps = [ ":build_sdk_interop2", ":ohos_ets_process_interop" ]
   sources = [ "${interface_sdk_path}/ets1.2interop/bridge"]
   outputs=[ target_out_dir + "/${target_name}" ]
   module_source_dir = target_out_dir + "/${target_name}"
@@ -554,4 +554,22 @@ group("ohos_ets_static") {
     ":ohos_ets_static_component",
     ":ohos_ets_static_kits"
   ]
+}
+
+action("ohos_ets_process_interop") {
+  deps = [
+    ":build_sdk_interop1",
+    ":build_sdk_interop2"
+  ]
+  script = "process_label_noninterop.py"
+  args = [
+    "--intermediates-output",
+    rebase_path("${interface_sdk_path}", root_build_dir),
+    "--source-root-dir",
+    rebase_path("//", root_build_dir),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir)
+  ]
+
+  outputs = ["${interface_sdk_path}/arkui_dummy_interop"]
 }
