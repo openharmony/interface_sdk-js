@@ -1067,7 +1067,8 @@ interface ListOptions {
    * <p><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list content area, the default value is used.
    * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider is used as the spacing.
-   * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed, but the spacing above and below them still takes effect.
+   * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed,
+   * but the spacing above and below them still takes effect.
    * </p>
    *
    * @type { ?(number | string) }
@@ -1645,6 +1646,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
+
 
   /**
    * Called when need to decide contentStartOffset the list will show.

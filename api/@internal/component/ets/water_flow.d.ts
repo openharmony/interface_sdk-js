@@ -44,7 +44,8 @@ declare class SectionOptions {
    * The number of FlowItems in this section.
    *
    * @type { number } itemsCount - Number of water flow items in the section. The value must be a positive integer.
-   * If the <em>splice</em>, <em>push</em>, or <em>update</em> APIs receive a section where the <em>itemsCount</em> value is less than 0, these APIs will not be executed.
+   * If the <em>splice</em>, <em>push</em>, or <em>update</em> APIs receive a section
+   * where the <em>itemsCount</em> value is less than 0, these APIs will not be executed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -149,7 +150,8 @@ declare class WaterFlowSections {
    *
    * @param { number } start - Zero-based index at which the changing starts. The value is converted to an integer.
    * <br><em>NOTE</em>
-   * <br>1. A negative index counts back from the end of the section list. If -<em>WaterFlowSections.length()</em> <= <em>start</em> < <em>0</em>, <em>start</em> + <em>array.length</em> is used.
+   * <br>1. A negative index counts back from the end of the section list.
+   * If -<em>WaterFlowSections.length()</em> <= <em>start</em> < <em>0</em>, <em>start</em> + <em>array.length</em> is used.
    * <br>2. If <em>start</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.
    * <br>3. If <em>start</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
    * @param { number } [deleteCount] - Number of sections to be deleted from the position specified by <em>start</em>.
@@ -185,8 +187,10 @@ declare class WaterFlowSections {
    *
    * @param { number } sectionIndex - Zero-based index of the water flow item section to update. The value is converted to an integer.
    * <br><em>NOTE</em>
-   * <br>1. A negative index counts back from the end of the section list. If -<em>WaterFlowSections.length()</em> <= <em>sectionIndex</em> < <em>0</em>, <em>sectionIndex</em> + <em>array.length</em> is used.
-   * <br>2. If <em>sectionIndex</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.<br>3. If <em>sectionIndex</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
+   * <br>1. A negative index counts back from the end of the section list.
+   * If -<em>WaterFlowSections.length()</em> <= <em>sectionIndex</em> < <em>0</em>, <em>sectionIndex</em> + <em>array.length</em> is used.
+   * <br>2. If <em>sectionIndex</em> < -<em>WaterFlowSections.length()</em>, <em>0</em> is used.<br>
+   * 3. If <em>sectionIndex</em> >= <em>WaterFlowSections.length()</em>, a new section is added at the end.
    * @param { SectionOptions } section - New section configuration.
    * @returns { boolean } Whether the update was successful.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -248,9 +252,11 @@ declare enum WaterFlowLayoutMode {
    * <br> 1. During a non-animated redirection to a distant location, water flow items are laid out forward or backward based on the target position.
    * If the user then swipes back to the position prior to the redirection, the layout of the content may not be consistent with its previous state.
    * This can lead to misalignment of the top nodes when the user swipes back to the top after the redirection.
-   * To counteract this issue, in this layout mode, the layout will be automatically adjusted after reaching the top of the viewport to ensure that the top is aligned.
+   * To counteract this issue, in this layout mode, the layout will be automatically adjusted after reaching the top of
+   * the viewport to ensure that the top is aligned.
    * If there are multiple sections, adjustments will be made to the sections within the viewport when scrolling ends.
-   * <br> 2. The total offset returned by the currentOffset API of scroller is inaccurate after a redirection or data update. This offset will be recalibrated when the user swipes back to the top.
+   * <br> 2. The total offset returned by the currentOffset API of scroller is inaccurate after a redirection or data update.
+   * This offset will be recalibrated when the user swipes back to the top.
    * <br> 3. If a jump action (for example, by calling scrollToIndex without animation or scrollEdge) and
    * an input offset (such as from a swipe gesture or a scrolling animation) are both initiated within the same frame, both will be executed.
    * <br> 4. If the scrollToIndex API is called without animation to jump to a distant position (beyond the range of visible water flow items in the window),

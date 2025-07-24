@@ -554,6 +554,7 @@ declare class Scroller {
    */
   scrollEdge(value: Edge, options?: ScrollEdgeOptions);
 
+
   /**
    * Performs inertial scrolling based on the initial velocity passed in.
    *
@@ -693,7 +694,8 @@ declare class Scroller {
    * <br> Default value when the container is <em>WaterFlow</em>: <em>ScrollAlign.START</em>
    * <br><em>NOTE</em>
    * <br>This parameter is only available for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components.
-   * @param { ScrollToIndexOptions } [options] - Options for scrolling to a specified index, for example, an extra offset for the scroll.<br>Default value: <em>0</em>, in vp
+   * @param { ScrollToIndexOptions } [options] - Options for scrolling to a specified index,
+   * for example, an extra offset for the scroll.<br>Default value: <em>0</em>, in vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
