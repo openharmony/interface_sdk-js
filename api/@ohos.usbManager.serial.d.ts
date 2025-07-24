@@ -52,7 +52,7 @@ declare namespace serialManager {
    * Requests the right for accessing a serial port device from the user. The system applications do not need to call this API.
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @returns { Promise<boolean>} Promise used to return the result. 
-   * The value <b class="+ topic/ph hi-d/b " id="b529434412284">true</b> means the user allows the access; 
+   * The value <b class="+ topic/ph hi-d/b " id="b529434412284">true</b> means the user allows the access;
    * the value <b class="+ topic/ph hi-d/b " id="b89755211297">false</b> means the opposite.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 
    * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -155,7 +155,7 @@ declare namespace serialManager {
    * Reads data from a serial port device. This API uses a promise to return the result.
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
-   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number. 
+   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b98612056312">0</b> indicates that there is no time limit for data reading.
    * @returns { Promise<number> } Promise used to return the length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 
@@ -176,7 +176,7 @@ declare namespace serialManager {
    * Reads data from a serial port device. This API returns the result synchronously.
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data read, with a maximum length of 8192 bytes.
-   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number. 
+   * @param { number } timeout Timeout duration for reading data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b25229382302">0</b> indicates that there is no time limit for data reading.
    * @returns {number} Length of the data read.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 
@@ -197,7 +197,7 @@ declare namespace serialManager {
    * Writes data to a serial port device. This API uses a promise to return the result.
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
-   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number. 
+   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b2661577365">0</b> indicates that there is no time limit for data writing.
    * @returns { Promise<number> } Promise used to return the length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 
@@ -218,7 +218,7 @@ declare namespace serialManager {
    * Writes data to a serial port device. This API returns the result synchronously.
    * @param { number} portId ID of the target device. For details, see <b>SerialPort.portId</b>.
    * @param { Uint8Array } buffer Buffer for storing the data written, with a maximum length of 128 KB.
-   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number. 
+   * @param { number } timeout Timeout duration for writing data. The value is a non-negative number.
    * The default value <b class="+ topic/ph hi-d/b " id="b45639213380">0</b> indicates that there is no time limit for data writing.
    * @returns { number } Length of the data written.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 
