@@ -357,10 +357,10 @@ action("build_sdk_interop2") {
       node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-arm64/bin/node"
     }
     else{
-      node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-darwin-x64/bin/node"
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v14.21.1-darwin-x64/bin/node"
     }
   } else {
-    node_path = "//prebuilts/build-tools/common/nodejs/node-v16.20.2-linux-x64/bin/node"
+    node_path = "//prebuilts/build-tools/common/nodejs/node-v14.21.1-linux-x64/bin/node"
   }
   args=[
     "--root-build-dir",
@@ -388,12 +388,13 @@ group("build_ohos_ets") {
   ]
   deps = [
     ":ohos_base_split",
-    ":ohos_ets_static",
+    ":ohos_ets_api",
+    ":ohos_ets_arkts",
+    ":ohos_ets_kits",
     ohos_ets_koala_wrapper_deps,  
     ohos_ets_ark_link_deps,
     ohos_ets_es2panda_deps,
-    ohos_ets_libes2panda_public_deps,
-    ohos_ets_ui_plugins_deps
+    ohos_ets_libes2panda_public_deps
   ]
 }
 
