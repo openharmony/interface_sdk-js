@@ -42,6 +42,69 @@ export { CommonModifier } from './arkui/CommonModifier';
  */
 export { AttributeUpdater } from './arkui/AttributeUpdater';
 
+/**
+ * Export GridModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { GridModifier } from './arkui/GridModifier';
+
+/**
+ * Export GridItemModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { GridItemModifier } from './arkui/GridItemModifier';
+
+/**
+ * Export ListItemGroupModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ListItemGroupModifier } from './arkui/ListItemGroupModifier';
+
+/**
+ * Export ListItemModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ListItemModifier } from './arkui/ListItemModifier';
+
+/**
+ * Export ListModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ListModifier } from './arkui/ListModifier';
+
+/**
+ * Export RefreshModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { RefreshModifier } from './arkui/RefreshModifier';
+
+/**
+ * Export RefreshModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ScrollModifier } from './arkui/ScrollModifier';
+
+/**
+ * Export RefreshModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { WaterFlowModifier } from './arkui/WaterFlowModifier';
 
 /**
  * Export AttributeUpdater, which is used to update attributes to native side.

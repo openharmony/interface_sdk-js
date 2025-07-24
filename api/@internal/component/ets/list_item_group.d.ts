@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ChildrenMainSize, CommonMethod } from './common';
-import { CustomBuilder } from './builder'
-import { ComponentContent } from '../ComponentContent'
-import { ListDividerOptions  } from './list';
-/*** endif */
 
 /**
  * Defines the list item group style.
@@ -39,8 +33,7 @@ import { ListDividerOptions  } from './list';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ListItemGroupStyle {
   /**
@@ -55,8 +48,7 @@ declare enum ListItemGroupStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NONE = 0,
 
@@ -72,8 +64,7 @@ declare enum ListItemGroupStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CARD = 1,
 }
@@ -100,8 +91,7 @@ declare enum ListItemGroupStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface ListItemGroupOptions {
   /**
@@ -126,8 +116,7 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   header?: CustomBuilder;
 
@@ -138,8 +127,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'13','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 13
     */
   headerComponent?: ComponentContent;
 
@@ -165,8 +153,7 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   footer?: CustomBuilder;
 
@@ -177,8 +164,7 @@ declare interface ListItemGroupOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'13','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 13
     */
   footerComponent?: ComponentContent;
 
@@ -204,8 +190,7 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   space?: number | string;
 
@@ -223,8 +208,7 @@ declare interface ListItemGroupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   style?: ListItemGroupStyle;
 }
@@ -251,8 +235,8 @@ declare interface ListItemGroupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 interface ListItemGroupInterface {
   /**
@@ -280,8 +264,7 @@ interface ListItemGroupInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (options?: ListItemGroupOptions): ListItemGroupAttribute;
 }
@@ -308,8 +291,8 @@ interface ListItemGroupInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
@@ -363,8 +346,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   divider(
     value: ListDividerOptions | null,
@@ -378,8 +360,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;
 }
