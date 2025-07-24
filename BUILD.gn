@@ -561,7 +561,7 @@ action("ohos_ets_process_interop") {
     ":build_sdk_interop1",
     ":build_sdk_interop2"
   ]
-  script = "process_interop.py"
+  script = "process_label_noninterop.py"
   args = [
     "--intermediates-output",
     rebase_path("${interface_sdk_path}", root_build_dir),

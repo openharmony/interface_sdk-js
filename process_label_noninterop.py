@@ -20,7 +20,7 @@ import shutil
 import subprocess
 
 INTERFACE_PATH = "interface/sdk-js"
-PROCESS_INTEROP = "interface/sdk-js/build-tools/process_interop.js"
+PROCESS_INTEROP = "interface/sdk-js/build-tools/process_label_noninterop.js"
 
 
 def process_interop(options, sub_input, sub_output, export_flag):
@@ -49,7 +49,7 @@ def main():
 
     options = parser.parse_args()
     process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
-    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "true")
+    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "false")
     process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
 
 

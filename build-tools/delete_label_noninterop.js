@@ -39,7 +39,7 @@ function transformFiles(inputDir) {
     readFile(inputDir, utFiles); // 读取文件
     tsTransform(utFiles);
   } catch (error) {
-    console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
+    console.error('DELETE_LABEL_NONINTEROP ERROR: ', error);
   }
 }
 
@@ -89,7 +89,7 @@ function writeFile(url, data, option) {
   const newFilePath = path.resolve(outputPath, path.relative(inputDir, url));
   fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
-      console.log(`ERROR FOR CREATE PATH ${err}`);
+      console.error(`ERROR FOR CREATE PATH ${err}`);
     } else {
       if (data === '') {
         fs.rmSync(newFilePath);
@@ -97,7 +97,7 @@ function writeFile(url, data, option) {
       }
       fs.writeFileSync(newFilePath, data, option, (err) => {
         if (err) {
-          console.log(`ERROR FOR CREATE FILE ${err}`);
+          console.error(`ERROR FOR CREATE FILE ${err}`);
         }
       });
     }
