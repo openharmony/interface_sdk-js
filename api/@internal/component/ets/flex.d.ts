@@ -275,7 +275,7 @@ declare interface FlexSpaceOptions {
   main?: LengthMetrics;
 
   /**
-   * Space on the main axis of the Flex component.
+   * Space on the cross axis of the Flex component.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
