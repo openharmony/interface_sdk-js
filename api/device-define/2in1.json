@@ -121,6 +121,7 @@
     "SystemCapability.ResourceSchedule.WorkScheduler",
     "SystemCapability.Security.Asset",
     "SystemCapability.USB.USBManager",
+    "SystemCapability.USB.USBManager.Serial",
     "SystemCapability.Security.AccessToken",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
