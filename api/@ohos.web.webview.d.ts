@@ -18,12 +18,17 @@
  * @kit ArkWeb
  */
 
+/*** if arkts 1.2 */
+import { Resource } from './global/resource';
+/*** endif */
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
+/*** if arkts 1.1 */
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
 import { WebNetErrorList } from './@ohos.web.netErrorList';
+/*** endif */
 
 /**
  * This module provides the capability to manage web modules.
@@ -47,7 +52,8 @@ import { WebNetErrorList } from './@ohos.web.netErrorList';
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace webview {
   /**
@@ -81,7 +87,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WebHeader {
     /**
@@ -101,7 +108,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     headerKey: string;
 
@@ -122,7 +130,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     headerValue: string;
   }
@@ -752,7 +761,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WebStorageOrigin {
     /**
@@ -776,7 +786,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     origin: string;
     /**
@@ -800,7 +811,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     usage: number;
     /**
@@ -824,7 +836,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
 	 * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     quota: number;
   }
@@ -944,7 +957,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebStorage {
     /**
@@ -971,7 +985,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static deleteAllData(incognito?: boolean): void;
 
@@ -1006,7 +1021,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static deleteOrigin(origin: string): void;
 
@@ -1040,7 +1056,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
@@ -1074,7 +1091,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
@@ -1108,7 +1126,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOriginQuota(origin: string): Promise<number>;
 
@@ -1143,7 +1162,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
@@ -1178,7 +1198,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOriginUsage(origin: string): Promise<number>;
 
@@ -1213,7 +1234,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
@@ -1629,7 +1651,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebCookieManager {
     /**
@@ -3665,7 +3688,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebviewController {
     /**
@@ -3674,7 +3698,8 @@ declare namespace webview {
      * @param { string } [webTag] - specified the name of the web component, Empty by default.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(webTag?: string);
 
@@ -3691,7 +3716,8 @@ declare namespace webview {
      * Web components are loaded.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static initializeWebEngine(): void;
 
@@ -3792,7 +3818,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accessForward(): boolean;
 
@@ -3812,7 +3839,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accessBackward(): boolean;
 
@@ -3859,7 +3887,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     forward(): void;
 
@@ -3879,7 +3908,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backward(): void;
 
@@ -3922,7 +3952,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onActive(): void;
 
@@ -3945,7 +3976,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onInactive(): void;
 
@@ -3965,7 +3997,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     refresh(): void;
 
@@ -4006,7 +4039,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void;
 
@@ -4054,7 +4088,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
@@ -4303,7 +4338,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWebId(): number;
 
@@ -4342,7 +4378,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTitle(): string;
 
@@ -4362,7 +4399,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getPageHeight(): number;
 
@@ -4407,7 +4445,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requestFocus(): void;
 
@@ -4492,7 +4531,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(): void;
 
@@ -4809,7 +4849,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
@@ -4983,7 +5024,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUrl(): string;
 
@@ -5098,7 +5140,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOriginalUrl(): string;
 
@@ -5687,7 +5730,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     postUrl(url: string, postData: ArrayBuffer): void;
 
@@ -5756,7 +5800,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getScrollable(): boolean;
 
@@ -5794,7 +5839,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLastJavascriptProxyCallingFrameUrl(): string;
 
@@ -5929,7 +5975,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clearWebSchemeHandler(): void;
 
@@ -7098,7 +7145,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebDownloadItem {
     /**
@@ -7250,7 +7298,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUrl(): string;
 
@@ -7414,7 +7463,8 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebDownloadDelegate {
     /**
@@ -7869,7 +7919,8 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebSchemeHandlerResponse {
     /**
@@ -7877,7 +7928,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -7887,7 +7939,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUrl(url: string): void;
     /**
@@ -7896,7 +7949,8 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUrl(): string;
     /**
