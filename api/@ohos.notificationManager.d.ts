@@ -470,7 +470,7 @@ declare namespace notificationManager {
    * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
    *
    * @param { number } id - Notification ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined:
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
