@@ -302,12 +302,21 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
   const finalContent = printer.printNode(ts.EmitHint.Unspecified, newTypeExpr);
   if (finalContent.includes('number') && typeExpr.kind === ts.SyntaxKind.JSDocNullableType && !finalContent.includes('?number') && isChange) {
-    const data = {
-      pos: typeExpr.pos,
-      end: typeExpr.end,
-      convertedText: '?' + finalContent
-    };
-    tagDataList.push(data);
+    if (typeExpr.type.type && typeExpr.type.type.kind === ts.SyntaxKind.UnionType) {
+      const data = {
+        pos: typeExpr.pos,
+        end: typeExpr.end,
+        convertedText: '?' + `(${finalContent})`
+      };
+      tagDataList.push(data);
+    } else {
+      const data = {
+        pos: typeExpr.pos,
+        end: typeExpr.end,
+        convertedText: '?' + finalContent
+      };
+      tagDataList.push(data);
+    }
   } else if (finalContent.includes('number')) {
     const data = {
       pos: typeExpr.pos,
