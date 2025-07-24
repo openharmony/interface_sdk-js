@@ -1189,6 +1189,7 @@ declare interface WebMediaOptions {
    * @type { ?AudioSessionType }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   audioSessionType?: AudioSessionType;
 }
@@ -7508,6 +7509,7 @@ declare enum WebBypassVsyncCondition {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum AudioSessionType {
   /**
@@ -7516,6 +7518,7 @@ declare enum AudioSessionType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   AMBIENT=3
 }
