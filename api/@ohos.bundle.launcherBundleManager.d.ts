@@ -219,7 +219,6 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
 
