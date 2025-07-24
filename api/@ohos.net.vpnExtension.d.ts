@@ -180,6 +180,7 @@ declare namespace vpnExtension {
      * generate vpn id.
      *
      * @returns { Promise<string> } The promise returns vpn id.
+     * @throws { BusinessError } 19900001 - Invalid parameter value.
      * @throws { BusinessError } 19900002 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 20
