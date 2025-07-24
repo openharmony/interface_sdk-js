@@ -3630,7 +3630,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
+  function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
