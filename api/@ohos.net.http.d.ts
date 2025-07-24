@@ -20,6 +20,9 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
+/*** if arkts 1.2 */
+import type { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Provides http related APIs.
@@ -192,10 +195,19 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     extraData?: string | Object | ArrayBuffer;
+
+    /**
+     * Additional data of the request.
+     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * @type { ?(string | RecordData | ArrayBuffer) }
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    extraData?: string | RecordData | ArrayBuffer;
 
     /**
      * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
@@ -288,10 +300,18 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     header?: Object;
+
+    /**
+     * HTTP request header. default is 'content-type': 'application/json'
+     * @type {?Record<string, string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    header?: Record<string, string>;
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
@@ -929,10 +949,18 @@ declare namespace http {
      * @type {?(string | Object | ArrayBuffer)}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     data?: string | Object | ArrayBuffer;
+
+    /**
+     * This parameter sets a mime part's body content from memory data.
+     * @type {?(string | RecordData | ArrayBuffer)}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    data?: string | RecordData | ArrayBuffer;
 
     /**
      * This parameter sets a mime part's body content from the file's contents.
@@ -3821,10 +3849,19 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     result: string | Object | ArrayBuffer;
+
+    /**
+     * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
+     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
+     * @type {string | RecordData | ArrayBuffer}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    result: string | RecordData | ArrayBuffer;
 
     /**
      * If the resultType is string, you can get result directly.
@@ -3899,10 +3936,18 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     header: Object;
+
+    /**
+     * All headers in the response from the server.
+     * @type {Record<string, string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    header: Record<string, string>;
 
     /**
      * Cookies returned by the server.
