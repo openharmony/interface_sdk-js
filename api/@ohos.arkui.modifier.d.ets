@@ -58,3 +58,60 @@ export { ButtonModifier } from './arkui/ButtonModifier';
  * @since 20
  */
 export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
+
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { LineModifier } from './arkui/LineModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { PathModifier } from './arkui/PathModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { PolygonModifier } from './arkui/PolygonModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { PolylineModifier } from './arkui/PolylineModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { RectModifier } from './arkui/RectModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ShapeModifier } from './arkui/ShapeModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { VideoModifier } from './arkui/VideoModifier';
