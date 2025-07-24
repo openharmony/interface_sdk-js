@@ -3398,7 +3398,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: long, callback: AsyncCallback<void>): void;
+  function minimizeAll(id: long, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
@@ -3429,7 +3429,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: long): Promise<void>;
+  function minimizeAll(id: long): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
