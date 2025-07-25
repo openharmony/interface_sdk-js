@@ -275,6 +275,46 @@ declare enum PlaybackSpeed {
    * @since 11
    */
   Speed_Forward_2_00_X,
+  /**
+   * 0.50x speed playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  SPEED_FORWARD_0_50_X = 5,
+  /**
+   * 1.50x speed playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  SPEED_FORWARD_1_50_X = 6,
+  /**
+   * 3.00x speed playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  SPEED_FORWARD_3_00_X = 7,
+  /**
+   * 0.25x speed playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  SPEED_FORWARD_0_25_X = 8,
+  /**
+   * 0.125x speed playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  SPEED_FORWARD_0_125_X = 9,
 }
 
 /**
