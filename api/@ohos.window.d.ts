@@ -6881,7 +6881,7 @@ declare namespace window {
      * Register the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6892,7 +6892,7 @@ declare namespace window {
      * Register the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -6901,13 +6901,13 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    on(type: 'keyboardHeightChange', callback: Callback<number>): void;
+    on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
     /**
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
      * If a value is passed in, the corresponding subscription is canceled. 
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -6919,7 +6919,7 @@ declare namespace window {
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
      * If a value is passed in, the corresponding subscription is canceled. 
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -6929,7 +6929,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
+    off(type: 'keyboardHeightChange', callback?: Callback<int>): void;
 
     /**
      * Register the callback of keyboardWillShow
@@ -12068,7 +12068,7 @@ declare namespace window {
     /**
      * Sets Image for recent.
      *
-     * @param { number } imgResourceId - This value is resource ID for the recent image.
+     * @param { long } imgResourceId - This value is resource ID for the recent image.
      * @param { ImageFit } value - Sets the zoom type of an image.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -12081,7 +12081,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 19
      */
-    setImageForRecent(imgResourceId: number, value: ImageFit): Promise<void>;
+    setImageForRecent(imgResourceId: long, value: ImageFit): Promise<void>;
   }
 
   /**
