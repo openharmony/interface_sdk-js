@@ -855,6 +855,7 @@ const apiNodeTypeArr = [
   ts.SyntaxKind.GetAccessor,
   ts.SyntaxKind.SetAccessor,
   ts.SyntaxKind.IndexSignature,
+  ts.SyntaxKind.OverloadDeclaration
 ];
 
 start();
