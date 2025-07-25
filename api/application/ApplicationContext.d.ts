@@ -24,14 +24,13 @@ import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
-/*** if arkts 1.1 */
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+/*** if arkts 1.1 */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 /*** if arkts 1.2 */
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
-
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -96,16 +95,17 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'abilityLifecycle' } type - Event type.
    * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
-   * @returns { number } Returns the number code of the callback.
+   * @returns { int } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): int;
 
   /**
    * Unregister ability lifecycle callback.
@@ -139,7 +139,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -148,9 +148,10 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
+  off(type: 'abilityLifecycle', callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -184,7 +185,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { number } callbackId - ID of the listener to unregister.
+   * @param { int } callbackId - ID of the listener to unregister.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
@@ -192,9 +193,10 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+  off(type: 'abilityLifecycle', callbackId: int): Promise<void>;
 
   /**
    * Register environment callback.
