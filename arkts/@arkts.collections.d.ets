@@ -2534,7 +2534,7 @@ declare namespace collections {
     /**
      * A constructor that creates an ArkTS Int8Array from an array-like object or ArkTS ArrayBuffer.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS TypedArray. When the
+     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int8Array. When the
      *      parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2545,7 +2545,7 @@ declare namespace collections {
     /**
      * A constructor that creates an ArkTS Int8Array from an array-like object or ArkTS ArrayBuffer.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS TypedArray. When the
+     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Int8Array. When the
      *      parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2561,7 +2561,7 @@ declare namespace collections {
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Int8Array.
      *     The number of bytes occupied by the buffer must be an integer multiple of 4.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is 0.
-     * @param { number } [length] - Length of the ArkTS TypedArray. The default value is 0.
+     * @param { number } [length] - Length of the ArkTS Int8Array. The default value is 0.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2574,7 +2574,7 @@ declare namespace collections {
      * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Int8Array.
      *     The number of bytes occupied by the buffer must be an integer multiple of 4.
      * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is 0.
-     * @param { number } [length] - Length of the ArkTS TypedArray. The default value is 0.
+     * @param { number } [length] - Length of the ArkTS Int8Array. The default value is 0.
      * @throws { BusinessError } 10200012 - The Int8Array's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -2737,9 +2737,9 @@ declare namespace collections {
      *
      * @param { number } value - Value to fill in.
      * @param { number } [start] - Start index of the range. If a negative number is passed in,
-     *     it refers to the index of start + typedarray.length. The default value is 0.
+     *     it refers to the index of start + Int8Array.length. The default value is 0.
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
-     *     it refers to the index of end + typedarray.length. The default value is the length of the ArkTS Int8Array.
+     *     it refers to the index of end + Int8Array.length. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } Filled ArkTS Int8Array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
@@ -2753,9 +2753,9 @@ declare namespace collections {
      *
      * @param { number } value - Value to fill in.
      * @param { number } [start] - Start index of the range. If a negative number is passed in,
-     *     it refers to the index of start + typedarray.length. The default value is 0.
+     *     it refers to the index of start + Int8Array.length. The default value is 0.
      * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
-     *     it refers to the index of end + typedarray.length. The default value is the length of the ArkTS Int8Array.
+     *     it refers to the index of end + Int8Array.length. The default value is the length of the ArkTS Int8Array.
      * @returns { Int8Array } Filled ArkTS Int8Array.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
@@ -3565,7 +3565,7 @@ declare namespace collections {
   @Sendable
   class Uint8ClampedArray {
     /**
-     * The size in bytes of each element in the array.
+     * Number of bytes occupied by each element in the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3575,7 +3575,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * The size in bytes of each element in the array.
+     * Number of bytes occupied by each element in the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3587,7 +3587,7 @@ declare namespace collections {
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
-     * The ArrayBuffer instance referenced by the array.
+     * Bottom-layer buffer used by an ArkTS array.
      *
      * @type { ArrayBuffer }
      * @readonly
@@ -3596,7 +3596,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * The ArrayBuffer instance referenced by the array.
+     * Bottom-layer buffer used by an ArkTS array.
      *
      * @type { ArrayBuffer }
      * @readonly
@@ -3607,7 +3607,7 @@ declare namespace collections {
      */
     readonly buffer: ArrayBuffer;
     /**
-     * The length in bytes of the array.
+     * Number of bytes occupied by the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3616,7 +3616,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * The length in bytes of the array.
+     * Number of bytes occupied by the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3627,7 +3627,7 @@ declare namespace collections {
      */
     readonly byteLength: number;
     /**
-     * The offset in bytes of the array.
+     * Offset between the ArkTS array and the start position of the ArrayBuffer.
      *
      * @type { number }
      * @readonly
@@ -3636,7 +3636,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * The offset in bytes of the array.
+     * Offset between the ArkTS array and the start position of the ArrayBuffer.
      *
      * @type { number }
      * @readonly
@@ -3647,7 +3647,7 @@ declare namespace collections {
      */
     readonly byteOffset: number;
     /**
-     * The length of the array.
+     * Number of elements in the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3656,7 +3656,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * The length of the array.
+     * Number of elements in the ArkTS array.
      *
      * @type { number }
      * @readonly
@@ -3667,7 +3667,7 @@ declare namespace collections {
      */
     readonly length: number;
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor used to create an empty ArkTS Uint8ClampedArray.
      *
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -3675,7 +3675,7 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor used to create an empty ArkTS Uint8ClampedArray.
      *
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @syscap SystemCapability.Utils.Lang
@@ -3685,9 +3685,9 @@ declare namespace collections {
      */
     constructor();
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor used to create an ArkTS Uint8ClampedArray of a given length.
      *
-     * @param { number } length - The length of the array
+     * @param { number } length - Length of the ArkTS Uint8ClampedArray.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3695,9 +3695,9 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor used to create an ArkTS Uint8ClampedArray of a given length.
      *
-     * @param { number } length - The length of the array
+     * @param { number } length - Length of the ArkTS Uint8ClampedArray.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3729,9 +3729,11 @@ declare namespace collections {
      */
     constructor(elements: Iterable<number>);
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor that creates an ArkTS Uint8ClampedArray from an array-like object or ArkTS ArrayBuffer.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8ClampedArray.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3739,9 +3741,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor that creates an ArkTS Uint8ClampedArray from an array-like object or ArkTS ArrayBuffer.
      *
-     * @param { ArrayLike<number> | ArrayBuffer } array - An array is initialized with the given elements
+     * @param { ArrayLike<number> | ArrayBuffer } array - Object used to construct the ArkTS Uint8ClampedArray.
+     *     When the parameter type is ArrayBuffer, the number of bytes occupied by the buffer must be
+     *     an integer multiple of 4.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3751,13 +3755,12 @@ declare namespace collections {
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor that creates an ArkTS Uint8ClampedArray from an ArrayBuffer.
      *
-     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
-     *     that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range
-     *     that will be exposed by the typed array view.
+     * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Uint8ClampedArray.
+     *     The number of bytes occupied by the buffer must be an integer multiple of 4.
+     * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is 0.
+     * @param { number } [length] - Length of the ArkTS Uint8ClampedArray. The default value is 0.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3765,13 +3768,12 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * A constructor used to create an Uint8ClampedArray.
+     * A constructor that creates an ArkTS Uint8ClampedArray from an ArrayBuffer.
      *
-     * @param { ArrayBuffer } buffer - An array is initialized with the given elements
-     * @param { number } [byteOffset] - The byteOffset (in bytes) parameter specifies the memory range
-     *     that will be exposed by the typed array view.
-     * @param { number } [length] - The length parameter specifies the memory range
-     *     that will be exposed by the typed array view.
+     * @param { ArrayBuffer } buffer - ArrayBuffer object used to construct the ArkTS Uint8ClampedArray.
+     *     The number of bytes occupied by the buffer must be an integer multiple of 4.
+     * @param { number } [byteOffset] - Byte offset of the buffer, beginning at 0. The default value is 0.
+     * @param { number } [length] - Length of the ArkTS Uint8ClampedArray. The default value is 0.
      * @throws { BusinessError } 10200012 - The Uint8ClampedArray's constructor cannot be directly invoked.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Utils.Lang
@@ -3781,10 +3783,10 @@ declare namespace collections {
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
-     * Creates an Uint8ClampedArray from an array-like object.
+     * Creates an ArkTS Uint8ClampedArray from an array-like or iterator object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Uint8ClampedArray.
-     * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
+     * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -3792,10 +3794,10 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an Uint8ClampedArray from an array-like object.
+     * Creates an ArkTS Uint8ClampedArray from an array-like or iterator object.
      *
-     * @param { ArrayLike<number> } arrayLike - An array-like object to convert to an Uint8ClampedArray.
-     * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
+     * @param { ArrayLike<number> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -3808,9 +3810,9 @@ declare namespace collections {
     /**
      * Creates an Uint8ClampedArray from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint8ClampedArray.
+     * @param { ArrayLike<T> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
-     * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -3818,11 +3820,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an Uint8ClampedArray from an array-like object.
+     * Creates an ArkTS Uint8ClampedArray from an array-like object.
      *
-     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an Uint8ClampedArray.
+     * @param { ArrayLike<T> } arrayLike - Array-like object used to construct the ArkTS Uint8ClampedArray.
      * @param { TypedArrayFromMapFn<T, number> } mapFn - A mapping function to call on every element of the array.
-     * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray generated.
      * @throws { BusinessError } 401 - Parameter error.
      * @static
      * @syscap SystemCapability.Utils.Lang
@@ -3834,9 +3836,9 @@ declare namespace collections {
     /**
      * Creates an Uint8ClampedArray from an iterable object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint8ClampedArray.
-     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
-     *     call on every element of the array.
+     * @param { Iterable<number> } arrayLike - Iterator object used to construct the ArkTS Uint8ClampedArray.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - Mapping function. If no value is passed in,
+     *     no special processing is conducted on the elements.
      * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3845,11 +3847,11 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Creates an Uint8ClampedArray from an iterable object.
+     * Creates an ArkTS Uint8ClampedArray from an iterator object.
      *
-     * @param { Iterable<number> } arrayLike - An iterable object to convert to an Uint8ClampedArray.
-     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - A mapping function to
-     *     call on every element of the array.
+     * @param { Iterable<number> } arrayLike - Iterator object used to construct the ArkTS Uint8ClampedArray.
+     * @param { TypedArrayFromMapFn<number, number> } [mapFn] - Mapping function. If no value is passed in,
+     *     no special processing is conducted on the elements.
      * @returns { Uint8ClampedArray } A new Uint8ClampedArray instance
      * @throws { BusinessError } 401 - Parameter error.
      * @static
@@ -3860,15 +3862,16 @@ declare namespace collections {
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray;
     /**
-     * Returns the this object after copying a section of the array identified by start and end
-     * to the same array starting at position target.
+     * Copies elements within a given range from this ArkTS Uint8ClampedArray to another position in sequence.
      *
      * @param { number } target - If target is negative, it is treated as length+target where length is the
      *     length of the array.
-     * @param { number } start - If start is negative, it is treated as length+start. If end is negative, it
-     *     is treated as length+end.
-     * @param { number } [end] - If not specified, length of the this object is used as its default value.
-     * @returns { Uint8ClampedArray } The array itself.
+     * @param { number } start - Start index of the range.
+     *     If a negative number is passed in, it refers to the index of start + Uint8ClampedArray.length.
+     * @param { number } [end] - End index of the range.
+     *     If a negative number is passed in, it refers to the index of end + Uint8ClampedArray.length.
+     *     The default value is the length of the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } ArkTS Uint8ClampedArray after being modified.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3877,15 +3880,16 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the this object after copying a section of the array identified by start and end
-     * to the same array starting at position target.
+     * Copies elements within a given range from this ArkTS Uint8ClampedArray to another position in sequence.
      *
      * @param { number } target - If target is negative, it is treated as length+target where length is the
      *     length of the array.
-     * @param { number } start - If start is negative, it is treated as length+start. If end is negative, it
-     *     is treated as length+end.
-     * @param { number } [end] - If not specified, length of the this object is used as its default value.
-     * @returns { Uint8ClampedArray } The array itself.
+     * @param { number } start - Start index of the range.
+     *     If a negative number is passed in, it refers to the index of start + Uint8ClampedArray.length.
+     * @param { number } [end] - End index of the range.
+     *     If a negative number is passed in, it refers to the index of end + Uint8ClampedArray.length.
+     *     The default value is the length of the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } ArkTS Uint8ClampedArray after being modified.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3896,14 +3900,14 @@ declare namespace collections {
      */
     copyWithin(target: number, start: number, end?: number): Uint8ClampedArray;
     /**
-     * Determines whether all the members of an array satisfy the specified test.
+     * Checks whether all elements in this ArkTS Uint8ClampedArray meet a given condition.
      *
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - A function
      *     that accepts up to three arguments.
      *     The every method calls the predicate function for each element in the array until
      *     the predicate returns a value which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element,
-     *     in which case false is immediately returned.
+     * @returns { boolean } Check result. The value true is returned if all elements meet the given condition;
+     *     otherwise, false is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3912,14 +3916,14 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Determines whether all the members of an array satisfy the specified test.
+     * Checks whether all elements in this ArkTS Uint8ClampedArray meet a given condition.
      *
      * @param { TypedArrayPredicateFn<number, Uint8ClampedArray> } predicate - A function
      *     that accepts up to three arguments.
      *     The every method calls the predicate function for each element in the array until
      *     the predicate returns a value which is coercible to the Boolean value false, or until the end of the array.
-     * @returns { boolean } true unless predicate returns a false value for a typed array element,
-     *     in which case false is immediately returned.
+     * @returns { boolean } Check result. The value true is returned if all elements meet the given condition;
+     *     otherwise, false is returned.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The every method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3930,14 +3934,15 @@ declare namespace collections {
      */
     every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean;
     /**
-     * Returns the this object after filling the section identified by start and end with value.
+     * Fills all elements in a given range in this ArkTS Uint8ClampedArray with a value.
      *
-     * @param { number } value - value to fill array section with.
-     * @param { number } [start] - index to start filling the array at. If start is negative, it is treated as
-     *     length+start where length is the length of the array.
-     * @param { number } [end] - index to stop filling the array at. If end is negative, it is treated as
-     *     length+end.
-     * @returns { Uint8ClampedArray } The array itself.
+     * @param { number } value - Value to fill in.
+     * @param { number } [start] - Start index of the range. If a negative number is passed in,
+     *     it refers to the index of start + Uint8ClampedArray.length. The default value is 0.
+     * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
+     *     it refers to the index of end + Uint8ClampedArray.length.
+     *     The default value is the length of the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } Filled ArkTS Uint8ClampedArray.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
@@ -3946,14 +3951,15 @@ declare namespace collections {
      * @since 12
      */
     /**
-     * Returns the this object after filling the section identified by start and end with value.
+     * Fills all elements in a given range in this ArkTS Uint8ClampedArray with a value.
      *
-     * @param { number } value - value to fill array section with.
-     * @param { number } [start] - index to start filling the array at. If start is negative, it is treated as
-     *     length+start where length is the length of the array.
-     * @param { number } [end] - index to stop filling the array at. If end is negative, it is treated as
-     *     length+end.
-     * @returns { Uint8ClampedArray } The array itself.
+     * @param { number } value - Value to fill in.
+     * @param { number } [start] - Start index of the range. If a negative number is passed in,
+     *     it refers to the index of start + Uint8ClampedArray.length. The default value is 0.
+     * @param { number } [end] - End index of the range (exclusive). If a negative number is passed in,
+     *     it refers to the index of end + Uint8ClampedArray.length.
+     *     The default value is the length of the ArkTS Uint8ClampedArray.
+     * @returns { Uint8ClampedArray } Filled ArkTS Uint8ClampedArray.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 10200011 - The fill method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
