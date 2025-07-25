@@ -53,6 +53,7 @@ export default class AbilityLifecycleCallback {
 /**
  * The ability lifecycle callback.
  *
+ * @typedef AbilityLifecycleCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @crossplatform
