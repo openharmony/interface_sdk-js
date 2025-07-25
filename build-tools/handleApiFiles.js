@@ -74,10 +74,11 @@ function start() {
   program
     .option('--path <string>', 'path name')
     .option('--type <string>', 'handle type')
-    .option('--output [string]', 'output path')
+    .option('--output <string>', 'output path')
+    .option('--create-keep-file <string>', 'create keep file', 'false')
     .action((opts) => {
       dirType = opts.type;
-      handleApiFiles(opts.path, opts.type, opts.output);
+      handleApiFiles(opts.path, opts.type, opts.output, opts.createKeepFile);
     });
   program.parse(process.argv);
 }
@@ -87,7 +88,7 @@ function start() {
  * @param {*} rootPath 
  * @param {*} type 
  */
-function handleApiFiles(rootPath, type, output) {
+function handleApiFiles(rootPath, type, output, createKeepFile) {
   const allApiFilePathSet = new Set();
   const fileNames = fs.readdirSync(rootPath);
   const apiRootPath = rootPath.replace(/\\/g, '/');
@@ -112,8 +113,8 @@ function handleApiFiles(rootPath, type, output) {
       console.log('error===>', error);
     }
   }
-  const hasApiDir = fs.existsSync(path.join(output, 'api'));
-  if (type === DirType.typeTwo && hasApiDir) {
+  const needCreateKeepFile = createKeepFile.toString() === 'true';
+  if (type === DirType.typeTwo && needCreateKeepFile) {
     NotNullFilePath.forEach((dir) => {
       const outDir = path.join(output, dir);
       if (!fs.existsSync(outDir)) {
