@@ -2781,6 +2781,17 @@ declare namespace bundleManager {
   function cleanBundleCacheFiles(bundleName: string, appIndex: number): Promise<void>;
 
   /**
+   * Clears cache data of the current application.
+   *
+   * @returns { Promise<void> } Clean bundle cache files result.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function cleanBundleCacheFilesForSelf(): Promise<void>;
+
+  /**
    * Get the all bundle cache size of the current user.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
