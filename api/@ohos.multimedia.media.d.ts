@@ -5260,8 +5260,8 @@ declare namespace media {
      */
     /**
      * Sets audio and video recording parameters. This API uses a promise to return the result.
-     * @permission ohos.permission.MICROPHONE
      * This permission is required only if audio recording is involved.
+     * @permission ohos.permission.MICROPHONE
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
