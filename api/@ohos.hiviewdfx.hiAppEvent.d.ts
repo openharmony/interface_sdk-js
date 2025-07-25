@@ -56,14 +56,14 @@ declare namespace hiAppEvent {
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 9
    */
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11
@@ -71,7 +71,7 @@ declare namespace hiAppEvent {
   /**
    * Enumerates event types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
@@ -965,7 +965,7 @@ declare namespace hiAppEvent {
   /**
    * Type of a custom event parameter value.
    *
-   * @typedef {number | string | boolean | Array<string>}
+   * @typedef {int | long | double | string | boolean | Array<string>}
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 12
@@ -973,14 +973,14 @@ declare namespace hiAppEvent {
   /**
    * Type of a custom event parameter value.
    *
-   * @typedef {number | string | boolean | Array<string>}
+   * @typedef {int | long | double | string | boolean | Array<string>}
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type ParamType = number | string | boolean | Array<string>;
+  type ParamType = int | long | double | string | boolean | Array<string>;
 
   /**
    * Sets custom event parameters. This API uses a promise to return the result. During the same lifecycle, system 
@@ -1094,14 +1094,14 @@ declare namespace hiAppEvent {
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1109,26 +1109,26 @@ declare namespace hiAppEvent {
     /**
      * Event package ID, which is named from 0 in ascending order.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    packageId: number;
+    packageId: int;
 
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1136,26 +1136,26 @@ declare namespace hiAppEvent {
     /**
      * Number of events in the event package.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    row: number;
+    row: int;
 
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1163,14 +1163,14 @@ declare namespace hiAppEvent {
     /**
      * Event size of the event package, in bytes.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: int;
 
     /**
      * Event data in the event package.
@@ -1279,7 +1279,7 @@ declare namespace hiAppEvent {
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11104001 - Invalid size value.
@@ -1289,7 +1289,7 @@ declare namespace hiAppEvent {
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1301,7 +1301,7 @@ declare namespace hiAppEvent {
     /**
      * Sets the threshold for the data size of the event package obtained each time.
      *
-     * @param { number } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
+     * @param { int } size Data size threshold, in bytes. The value range is [0, $2^{31}$-1]. If the value is out of 
      * the range, an exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1312,13 +1312,13 @@ declare namespace hiAppEvent {
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setSize(size: number): void;
+    setSize(size: int): void;
 
     /**
      * Sets the number of data records of the event package obtained each time. When setRow() and setSize() are called 
      * at the same time, only setRow() takes effect.
      *
-     * @param { number } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
+     * @param { int } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
      * exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1331,7 +1331,7 @@ declare namespace hiAppEvent {
      * Sets the number of data records of the event package obtained each time. When setRow() and setSize() are called 
      * at the same time, only setRow() takes effect.
      *
-     * @param { number } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
+     * @param { int } size Number of events. The value range is (0, $2^{31}$-1]. If the value is out of the range, an 
      * exception is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1342,7 +1342,7 @@ declare namespace hiAppEvent {
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setRow(size: number): void;
+    setRow(size: int): void;
 
     /**
      * Obtains the subscription event.
@@ -1418,7 +1418,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1427,7 +1427,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1437,21 +1437,21 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default 
      * value is used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    row?: number;
+    row?: int;
 
     /**
      * Total size of events that trigger callback. The value is a positive integer, in bytes. The default value is 0, 
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1460,7 +1460,7 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1470,21 +1470,21 @@ declare namespace hiAppEvent {
      * indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size?: number;
+    size?: int;
 
     /**
      * Timeout interval for triggering callback. The value is a positive integer, in unit of 30s. The default value is 
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 9
      */
@@ -1493,7 +1493,7 @@ declare namespace hiAppEvent {
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -1503,14 +1503,14 @@ declare namespace hiAppEvent {
      * 0, indicating that no callback is triggered. If this parameter is set to a negative value, the default value is 
      * used.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timeOut?: number;
+    timeOut?: int;
   }
 
   /**
@@ -1844,7 +1844,7 @@ declare namespace hiAppEvent {
      * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+    onTrigger?: (curRow: int, curSize: int, holder: AppEventPackageHolder) => void;
 
     /**
      * Real-time subscription callback. Only this callback function is triggered if it is passed together with 
@@ -2250,26 +2250,26 @@ declare namespace hiAppEvent {
      * Interval for event reporting, in seconds. The input value must be greater than or equal to 0. If the input value 
      * is less than 0, the default value 0 is used and periodic reporting is not performed.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    periodReport?: number;
+    periodReport?: int;
 
     /**
      * Event reporting threshold. When the number of events reaches the threshold, an event is reported. The value must 
      * be greater than 0 and less than 1000. If the value is not within the range, the default value 0 is used and no 
      * events are reported.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batchReport?: number;
+    batchReport?: int;
 
     /**
      * Name array of user IDs that can be reported by the data processor. name corresponds to the name parameter of the 
@@ -2312,13 +2312,13 @@ declare namespace hiAppEvent {
      * less than 0, the default value 0 is used. If the input value is greater than 0, the value uniquely identifies a 
      * data processor with its name.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    configId?: number;
+    configId?: int;
 
     /**
      * Custom extended parameters. If the input parameter name and value do not meet the specifications, extended 
@@ -2356,7 +2356,7 @@ declare namespace hiAppEvent {
    * is preset in the device for interaction for the moment, migrating events to the cloud is unavailable.
    *
    * @param { Processor } processor Data processor.
-   * @returns { number }  ID of the data processor of the reported event, which uniquely identifies the data processor 
+   * @returns { long }  ID of the data processor of the reported event, which uniquely identifies the data processor 
    * and can be used to remove the data processor. If the operation fails, -1 is returned. If the operation is 
    * successful, a value greater than 0 is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2367,14 +2367,14 @@ declare namespace hiAppEvent {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function addProcessor(processor: Processor): number;
+  function addProcessor(processor: Processor): long;
 
   /**
    * Add the processor from config asynchronously, who can report the event.
    *
    * @param { string } processorName The name of the processor.
    * @param { string } [configName] Initialize the processor by reading the configuration file based on the name.
-   * @returns { Promise<number> }  The processor unique ID.
+   * @returns { Promise<long> }  The processor unique ID.
    * @throws { BusinessError } 11105001 - Invalid parameter value. Possible causes: 1. Incorrect parameter length;
    * <br>2. Incorrect parameter format.
    * @static
@@ -2383,12 +2383,12 @@ declare namespace hiAppEvent {
    * @since 20
    * @arkts 1.1&1.2
    */
-  function addProcessorFromConfig(processorName: string, configName?: string): Promise<number>;
+  function addProcessorFromConfig(processorName: string, configName?: string): Promise<long>;
 
   /**
    * Removes the data processor of a reported event.
    *
-   * @param { number } id ID of a data processor. The value must be greater than 0. The value is obtained by calling 
+   * @param { long } id ID of a data processor. The value must be greater than 0. The value is obtained by calling 
    * addProcessor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2398,7 +2398,7 @@ declare namespace hiAppEvent {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function removeProcessor(id: number): void;
+  function removeProcessor(id: long): void;
 }
 
 export default hiAppEvent;
