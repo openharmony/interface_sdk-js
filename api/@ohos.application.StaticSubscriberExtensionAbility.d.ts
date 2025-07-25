@@ -38,8 +38,8 @@ declare class StaticSubscriberExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: StaticSubscriberExtensionContext;
 
@@ -50,8 +50,8 @@ declare class StaticSubscriberExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onReceiveEvent(event: CommonEventData): void;
 }
