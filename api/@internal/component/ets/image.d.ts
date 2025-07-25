@@ -1965,6 +1965,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   resizable(value: ResizableOptions): ImageAttribute;
 
   /**
+   * Set the quality enhancement level of image.
+   *
+   * @param { ResolutionQuality } imageQuality
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
+
+  /**
    * Sets whether to secure sensitive information on widgets.
    *
    * <p><strong>NOTE</strong>:
@@ -1979,17 +1990,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   privacySensitive(supported: boolean): ImageAttribute;
-
-  /**
-   * Set the quality enhancement level of image.
-   *
-   * @param { ResolutionQuality } imageQuality
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12
-   */
-  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
   /**
    * Sets the display orientation of the image content.
