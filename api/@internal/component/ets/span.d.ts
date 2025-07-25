@@ -18,6 +18,15 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Dimension, BorderRadiuses, Length, Font } from './units';
+import { CommonMethod, ShadowOptions } from './common';
+import { LengthMetrics } from './../Graphics';
+import { Resource } from './../../../api/global/resource';
+import { FontStyle, FontWeight, TextCase } from './enums';
+import { DecorationStyleInterface } from './styledString';
+/*** endif */
+
 /**
  * Define the background style of span.
  *
@@ -33,7 +42,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextBackgroundStyle {
   /**
@@ -51,7 +61,8 @@ declare interface TextBackgroundStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color?: ResourceColor;
   
@@ -70,7 +81,8 @@ declare interface TextBackgroundStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius?: Dimension | BorderRadiuses;
 }
@@ -90,7 +102,8 @@ declare interface TextBackgroundStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BaseSpan<T> extends CommonMethod<T> {
   /**
@@ -110,7 +123,8 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textBackgroundStyle(style: TextBackgroundStyle): T;
 
@@ -122,7 +136,8 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     baselineOffset(value: LengthMetrics): T;
 }
@@ -159,7 +174,8 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SpanInterface {
   /**
@@ -198,7 +214,8 @@ interface SpanInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: string | Resource): SpanAttribute;
 }
@@ -235,6 +252,7 @@ interface SpanInterface {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class SpanAttribute {
   /**
@@ -253,7 +271,8 @@ declare class SpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font(value: Font): SpanAttribute;
 
@@ -293,7 +312,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): SpanAttribute;
 
@@ -333,7 +353,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SpanAttribute;
 
@@ -373,7 +394,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle(value: FontStyle): SpanAttribute;
 
@@ -464,7 +486,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily(value: string | Resource): SpanAttribute;
 
@@ -515,7 +538,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decoration(value: DecorationStyleInterface): SpanAttribute;
 
@@ -606,7 +630,8 @@ declare class SpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textCase(value: TextCase): SpanAttribute;
 
@@ -626,7 +651,8 @@ declare class SpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineHeight(value: Length): SpanAttribute;
 
@@ -647,7 +673,8 @@ declare class SpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
 

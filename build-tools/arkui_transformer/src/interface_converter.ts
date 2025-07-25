@@ -22,7 +22,7 @@ import { ComponentFile } from './component_file';
 import { analyzeBaseClasses, isComponentHerirage, getBaseClassName, removeDuplicateMethods, mergeUniqueOrdered } from './lib/attribute_utils';
 
 function readLangTemplate(): string {
-    return uiconfig.useMemoM3 ? fs.readFileSync('./pattern/arkts_component_decl_m3.pattern', 'utf8') : fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8');
+    return fs.readFileSync('./pattern/arkts_component_decl.pattern', 'utf8');
 }
 
 function extractSignatureComment(
@@ -427,7 +427,7 @@ function isComponentInterface(node: ts.Node) {
 export function addMemoTransformer(componentFile: ComponentFile): ts.TransformerFactory<ts.SourceFile> {
     return (context) => {
         const visit: ts.Visitor = (node) => {
-            if (isComponentHerirage(node) && !uiconfig.useMemoM3) {
+            if (isComponentHerirage(node)) {
                 addAttributeMemo(node as ts.ClassDeclaration, componentFile);
             }
             return ts.visitEachChild(node, visit, context);

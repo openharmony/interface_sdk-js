@@ -18,6 +18,16 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
+import { ControlSize } from './button';
+import { DividerOptions } from './textPicker';
+import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, Resource, Font, Length, Offset, DividerStyleOptions } from './units';
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
+import { TextModifier } from '../TextModifier';
+import { OptionWidthMode } from './enums';
+/*** endif */
+
 /**
  * The declare of selectOption.
  *
@@ -40,7 +50,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SelectOption {
   /**
@@ -65,7 +76,8 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -91,7 +103,8 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 
@@ -111,6 +124,7 @@ declare interface SelectOption {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   symbolIcon?: SymbolGlyphModifier;
 }
@@ -137,7 +151,8 @@ declare interface SelectOption {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SelectInterface {
   /**
@@ -165,7 +180,8 @@ interface SelectInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: Array<SelectOption>): SelectAttribute;
 }
@@ -185,7 +201,8 @@ interface SelectInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ArrowPosition {
   /**
@@ -201,7 +218,8 @@ declare enum ArrowPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   END = 0,
 
@@ -218,7 +236,8 @@ declare enum ArrowPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   START = 1
 }
@@ -237,7 +256,8 @@ declare enum ArrowPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum MenuAlignType {
   /**
@@ -252,7 +272,8 @@ declare enum MenuAlignType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   START,
   /**
@@ -267,7 +288,8 @@ declare enum MenuAlignType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CENTER,
   /**
@@ -282,7 +304,8 @@ declare enum MenuAlignType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   END
 }
@@ -293,7 +316,8 @@ declare enum MenuAlignType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum AvoidanceMode {
   /**
@@ -302,7 +326,8 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   COVER_TARGET,
   /**
@@ -311,7 +336,8 @@ declare enum AvoidanceMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   AVOID_AROUND_TARGET
 }
@@ -325,7 +351,8 @@ declare enum AvoidanceMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnSelectCallback = (index: number, selectStr: string) => void;
 
@@ -337,6 +364,7 @@ declare type OnSelectCallback = (index: number, selectStr: string) => void;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface MenuOutlineOptions {
   /**
@@ -347,6 +375,7 @@ declare interface MenuOutlineOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   width?: Dimension | EdgeOutlineWidths;
  
@@ -358,6 +387,7 @@ declare interface MenuOutlineOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   color?: ResourceColor | EdgeColors;
  }
@@ -384,7 +414,8 @@ declare interface MenuOutlineOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
@@ -429,6 +460,20 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selected(numCount: Optional<number | Resource>): SelectAttribute;
 
   /**
+   * Sets the serial number of the select item, starting from 0.
+   *
+   * @param { number | Resource | undefined | Bindable<number> | Bindable<Resource> } numCount - the serial number of the select item.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): SelectAttribute;
+
+
+  /**
    * Sets the text display of the select button itself.
    *
    * @param { string } value
@@ -470,6 +515,19 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   value(resStr: Optional<ResourceStr>): SelectAttribute;
 
   /**
+   * Sets the text display of the select button itself.
+   *
+   * @param { ResourceStr | undefined | Bindable<string> | Bindable<Resource> } resStr - the text display of the select button itself.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value(resStr: ResourceStr | undefined | Bindable<string> | Bindable<Resource>): SelectAttribute;
+
+  /**
    * Sets the text properties of the select button itself.
    *
    * @param { Font } value
@@ -494,7 +552,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font(value: Font): SelectAttribute;
 
@@ -506,7 +565,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   font(selectFont: Optional<Font>): SelectAttribute;
 
@@ -535,7 +595,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): SelectAttribute;
 
@@ -547,7 +608,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   fontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -576,7 +638,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
@@ -588,7 +651,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selectedOptionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -617,7 +681,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedOptionFont(value: Font): SelectAttribute;
 
@@ -629,7 +694,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selectedOptionFont(selectFont: Optional<Font>): SelectAttribute;
 
@@ -658,7 +724,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
@@ -670,7 +737,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selectedOptionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -699,7 +767,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionBgColor(value: ResourceColor): SelectAttribute;
 
@@ -711,7 +780,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   optionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -740,7 +810,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionFont(value: Font): SelectAttribute;
 
@@ -752,7 +823,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionFont(selectFont: Optional<Font>): SelectAttribute;
 
@@ -781,7 +853,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionFontColor(value: ResourceColor): SelectAttribute;
 
@@ -793,7 +866,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   optionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -834,7 +908,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSelect(callback: Optional<OnSelectCallback>): SelectAttribute;
 
@@ -855,7 +930,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   space(value: Length): SelectAttribute;
 
@@ -867,7 +943,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   space(spaceLength: Optional<Length>): SelectAttribute;
 
@@ -888,7 +965,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   arrowPosition(value: ArrowPosition): SelectAttribute;
 
@@ -900,7 +978,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   arrowPosition(position: Optional<ArrowPosition>): SelectAttribute;
 
@@ -922,7 +1001,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
 
@@ -935,7 +1015,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset): SelectAttribute;
 
@@ -956,7 +1037,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
 
@@ -968,7 +1050,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   optionWidth(width: Optional<Dimension | OptionWidthMode> ): SelectAttribute;
 
@@ -989,7 +1072,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   optionHeight(value: Dimension): SelectAttribute;
 
@@ -1001,7 +1085,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   optionHeight(height: Optional<Dimension>): SelectAttribute;
 
@@ -1022,7 +1107,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuBackgroundColor(value: ResourceColor): SelectAttribute;
 
@@ -1034,7 +1120,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   menuBackgroundColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
@@ -1055,7 +1142,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
 
@@ -1067,7 +1155,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   menuBackgroundBlurStyle(style: Optional<BlurStyle>): SelectAttribute;
 
@@ -1079,7 +1168,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controlSize(value: ControlSize): SelectAttribute;
 
@@ -1091,7 +1181,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   controlSize(size: Optional<ControlSize>): SelectAttribute;
 
@@ -1103,7 +1194,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
 
@@ -1115,7 +1207,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>): SelectAttribute;
 
@@ -1127,7 +1220,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
 
@@ -1140,6 +1234,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   textModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1152,6 +1247,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
   
@@ -1164,6 +1260,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1176,6 +1273,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
@@ -1187,7 +1285,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dividerStyle(style: Optional<DividerStyleOptions>): SelectAttribute;
 
@@ -1199,7 +1298,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   avoidance(mode: AvoidanceMode): SelectAttribute;
 
@@ -1212,6 +1312,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
 
@@ -1248,7 +1349,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
   /**
@@ -1258,7 +1360,8 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -1269,7 +1372,8 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 
@@ -1289,6 +1393,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   symbolIcon?: SymbolGlyphModifier;
 
@@ -1299,7 +1404,8 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected: boolean;
 
@@ -1310,7 +1416,8 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   index: number;
 
@@ -1322,7 +1429,8 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerSelect(index: number, value: string): void;
 }

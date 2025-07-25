@@ -17,6 +17,12 @@
  * @file
  * @kit ArkUI
  */
+/*** if arkts 1.2 */
+import { ResourceStr } from './arkui/component/units';
+import { Prop } from './arkui/stateManagement/decorator';
+import { Component } from './arkui/component/customComponent';
+import { Builder } from './arkui/component/builder';
+/*** endif */
 
 /**
  * Declare component SwipeRefresher
@@ -35,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 @Component
 export declare struct SwipeRefresher {
@@ -46,7 +53,7 @@ export declare struct SwipeRefresher {
    */
   /**
    * Sets the content when loading.
-   * @type { string }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -58,6 +65,7 @@ export declare struct SwipeRefresher {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   @Prop content?: ResourceStr;
 
@@ -81,6 +89,16 @@ export declare struct SwipeRefresher {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   @Prop isLoading: boolean;
+
+  /**
+   * The method to build component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  @Builder build(): void;
 }

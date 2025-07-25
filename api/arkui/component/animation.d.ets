@@ -17,12 +17,6 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { int32 } from '@koalaui.runtime.common';
 
-export declare interface IObservedObject {
-    _permissibleAddRefDepth: int32;
-}
-
-export declare function castToIObservedObject<T>(obj: T): T | undefined;
-
-export declare function setObservationDepth<T>(obj: T, depth: number): void;
+@Retention({policy: "SOURCE"})
+export declare @interface AnimatableExtend {}

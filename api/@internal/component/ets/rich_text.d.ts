@@ -80,6 +80,18 @@ interface RichTextInterface {
    * @since 20
    */
   (content: string | Resource): RichTextAttribute;
+
+  /**
+   * Set value.
+   *
+   * @param { string } content
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  (content: string): RichTextAttribute;
 }
 
 /**

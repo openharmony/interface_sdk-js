@@ -18,6 +18,15 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceStr, ColorFilter} from './units';
+import { BaseSpan } from './span';
+import { ImageSpanAlignment, ImageFit } from './enums';
+import { ImageErrorCallback, DrawingColorFilter } from './image';
+import { PixelMap } from './common';
+import image from '../../@ohos.multimedia.image';
+/*** endif */
+
 /**
  * Provide image decoration in the text component.
  *
@@ -33,7 +42,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ImageSpanInterface {
   /**
@@ -53,7 +63,8 @@ interface ImageSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
@@ -73,7 +84,8 @@ interface ImageSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
@@ -93,7 +105,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
@@ -105,7 +118,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 
@@ -126,7 +140,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
   
@@ -139,7 +154,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
@@ -152,7 +168,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
 
@@ -163,7 +180,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alt(value: PixelMap): ImageSpanAttribute;
 }
@@ -210,7 +228,8 @@ declare const ImageSpanInstance: ImageSpanAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type ImageCompleteCallback = (result: ImageLoadResult) => void;
 
@@ -221,7 +240,8 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ImageLoadResult {
   /**
@@ -231,7 +251,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width: number;
   /**
@@ -241,7 +262,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height: number;
   /**
@@ -251,7 +273,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   componentWidth: number;
   /**
@@ -261,7 +284,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   componentHeight: number;
   /**
@@ -273,7 +297,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loadingStatus: number;
   /**
@@ -283,7 +308,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentWidth: number;
   /**
@@ -293,7 +319,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentHeight: number;
   /**
@@ -303,7 +330,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentOffsetX: number;
   /**
@@ -313,7 +341,8 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentOffsetY: number;
 }

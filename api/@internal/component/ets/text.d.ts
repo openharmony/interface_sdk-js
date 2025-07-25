@@ -18,6 +18,16 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, ShadowOptions,Optional,Callback} from "./common";
+import { CustomBuilder } from './builder'
+import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode} from './enums';
+import { Resource, ResourceColor, Font, Length, LengthMetrics } from './units';
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions } from "./textCommon";
+import { DecorationStyleInterface, StyledString } from "./styledString";
+import { SelectionMenuOptions } from './richEditor'
+/*** endif */
+
 /**
  * Text overflow options.
  *
@@ -27,7 +37,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextOverflowOptions {
   /**
@@ -74,7 +85,8 @@ declare interface TextOverflowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   overflow: TextOverflow;
 }
@@ -111,7 +123,8 @@ declare interface TextOverflowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TextInterface {
   /**
@@ -154,7 +167,8 @@ interface TextInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (content?: string | Resource, value?: TextOptions): TextAttribute;
   }
@@ -183,7 +197,8 @@ interface TextInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
@@ -221,7 +236,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   font(fontValue: Font, options?: FontSettingOptions): TextAttribute;
 
@@ -261,7 +277,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): TextAttribute;
 
@@ -305,7 +322,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): TextAttribute;
 
@@ -357,7 +375,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minFontSize(value: number | string | Resource): TextAttribute;
 
@@ -409,7 +428,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxFontSize(value: number | string | Resource): TextAttribute;
 
@@ -445,6 +465,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   minFontScale(scale: number | Resource): TextAttribute;
 
@@ -478,6 +499,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   maxFontScale(scale: number | Resource): TextAttribute;
 
@@ -517,7 +539,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle(value: FontStyle): TextAttribute;
 
@@ -584,14 +607,33 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the font weight is set.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It is only effective for the Text component, not for its child components.
-   * <br>For the number type, the value ranges from 100 to 900, at an interval of 100.
-   * <br>A larger value indicates a heavier font weight.
-   * <br>The default value is 400.
-   * <br>For the string type, only strings that represent a number, for example, "400",
-   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
-   * </p>
+   * @param { number | FontWeight | ResourceStr } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
+  
+  /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } weight
+   * @param { FontSettingOptions } options - font setting options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @arkts 1.2
+   * @since 20
+   */
+  fontWeight(weight: number | FontWeight | string, options?: FontSettingOptions): TextAttribute;
+
+  /**
+   * Called when the font weight is set.
    *
    * @param { number | FontWeight | string } weight
    * @param { FontSettingOptions } options - font setting options.
@@ -628,7 +670,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineSpacing(value: LengthMetrics): TextAttribute;
 
@@ -693,7 +736,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textAlign(value: TextAlign): TextAttribute;
 
@@ -751,7 +795,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineHeight(value: number | string | Resource): TextAttribute;
 
@@ -819,7 +864,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textOverflow(options: TextOverflowOptions): TextAttribute;
 
@@ -865,7 +911,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily(value: string | Resource): TextAttribute;
 
@@ -911,7 +958,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxLines(value: number): TextAttribute;
 
@@ -966,7 +1014,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   decoration(value: DecorationStyleInterface): TextAttribute;
 
@@ -1027,6 +1076,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20
    */
   letterSpacing(value: number | ResourceStr): TextAttribute;
+  
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  letterSpacing(value: number | string): TextAttribute;
 
   /**
    * Called when the type of letter in the text font is set.
@@ -1064,7 +1127,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textCase(value: TextCase): TextAttribute;
 
@@ -1123,6 +1187,20 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20
    */
   baselineOffset(value: number | ResourceStr): TextAttribute;
+  
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { number | string } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  baselineOffset(value: number | string): TextAttribute;
 
   /**
    * Allow replication.
@@ -1158,7 +1236,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   copyOption(value: CopyOptions): TextAttribute;
 
@@ -1194,7 +1273,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   draggable(value: boolean): TextAttribute;
 
@@ -1221,7 +1301,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextAttribute;
 
@@ -1262,7 +1343,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
 
@@ -1283,7 +1365,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textIndent(value: Length): TextAttribute;
 
@@ -1300,7 +1383,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wordBreak(value: WordBreak): TextAttribute;
 
@@ -1317,7 +1401,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextAttribute;
 
@@ -1330,7 +1415,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCopy(callback: (value: string) => void): TextAttribute;
 
@@ -1355,7 +1441,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
 
@@ -1367,7 +1454,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   caretColor(color: ResourceColor): TextAttribute;
 
@@ -1379,7 +1467,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
@@ -1418,7 +1507,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ellipsisMode(value: EllipsisMode): TextAttribute;
 
@@ -1459,7 +1549,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableDataDetector(enable: boolean): TextAttribute;
 
@@ -1490,7 +1581,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dataDetectorConfig(config: TextDataDetectorConfig): TextAttribute;
 
@@ -1524,7 +1616,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bindSelectionMenu(spanType: TextSpanType, content: CustomBuilder, responseType: TextResponseType,
     options?: SelectionMenuOptions): TextAttribute;
@@ -1546,7 +1639,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
 
@@ -1563,7 +1657,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFeature(value: string): TextAttribute;
   
@@ -1575,7 +1670,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   marqueeOptions(options: Optional<TextMarqueeOptions>): TextAttribute;
 
@@ -1587,7 +1683,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 
@@ -1605,7 +1702,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   privacySensitive(supported: boolean): TextAttribute;
 
@@ -1617,7 +1715,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textSelectable(mode: TextSelectableMode): TextAttribute;
 
@@ -1631,7 +1730,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editMenuOptions(editMenu: EditMenuOptions): TextAttribute;
 
@@ -1648,7 +1748,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   halfLeading(halfLeading: boolean): TextAttribute;
 
@@ -1660,7 +1761,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
 
@@ -1790,7 +1892,8 @@ declare const Text: TextInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum TextSpanType {
   /**
@@ -1806,7 +1909,8 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TEXT = 0,
 
@@ -1823,7 +1927,8 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE = 1,
 
@@ -1840,7 +1945,8 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MIXED = 2,
 
@@ -1852,7 +1958,8 @@ declare enum TextSpanType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DEFAULT = 3,
 }
@@ -1883,7 +1990,8 @@ declare enum TextSpanType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum TextResponseType {
   /**
@@ -1899,7 +2007,8 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RIGHT_CLICK = 0,
 
@@ -1916,7 +2025,8 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LONG_PRESS = 1,
 
@@ -1933,7 +2043,8 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SELECT = 2,
 
@@ -1945,7 +2056,8 @@ declare enum TextResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DEFAULT = 3,
 }
@@ -1957,7 +2069,8 @@ declare enum TextResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum MarqueeState {
   /**
@@ -1966,7 +2079,8 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   START = 0,
 
@@ -1976,7 +2090,8 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BOUNCE = 1,
 
@@ -1986,7 +2101,8 @@ declare enum MarqueeState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FINISH = 2,
 }
@@ -1998,7 +2114,8 @@ declare enum MarqueeState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum MarqueeStartPolicy {
   /**
@@ -2007,7 +2124,8 @@ declare enum MarqueeStartPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DEFAULT = 0,
 
@@ -2017,7 +2135,8 @@ declare enum MarqueeStartPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ON_FOCUS = 1,
 }
@@ -2037,7 +2156,8 @@ declare enum MarqueeStartPolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextOptions {
   /**
@@ -2055,7 +2175,8 @@ declare interface TextOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller: TextController;
 }
@@ -2067,7 +2188,8 @@ declare interface TextOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextMarqueeOptions {
   /**
@@ -2077,7 +2199,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start: boolean;
 
@@ -2088,7 +2211,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   step?: number;
 
@@ -2099,7 +2223,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loop?: number;
 
@@ -2110,7 +2235,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fromStart?: boolean;
 
@@ -2121,7 +2247,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   delay?: number;
 
@@ -2132,7 +2259,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fadeout?: boolean;
 
@@ -2143,7 +2271,8 @@ declare interface TextMarqueeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   marqueeStartPolicy?: MarqueeStartPolicy;
 }
@@ -2161,7 +2290,8 @@ declare interface TextMarqueeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextController {
   /**
@@ -2177,7 +2307,8 @@ declare class TextController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   closeSelectionMenu(): void;
 
@@ -2192,7 +2323,8 @@ declare class TextController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setStyledString(value: StyledString): void;
 
@@ -2203,7 +2335,8 @@ declare class TextController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getLayoutManager(): LayoutManager;
 }

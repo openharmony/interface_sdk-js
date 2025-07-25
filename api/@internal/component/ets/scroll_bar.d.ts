@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Scroller } from './scroll'
+import { BarState } from './enums'
+import { Optional, CommonMethod } from './common'
+/*** endif */
+
 /**
  * Content scroll direction.
  *
@@ -40,7 +46,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ScrollBarDirection {
   /**
@@ -62,7 +69,8 @@ declare enum ScrollBarDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Vertical,
 
@@ -85,7 +93,8 @@ declare enum ScrollBarDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Horizontal,
 }
@@ -112,7 +121,8 @@ declare enum ScrollBarDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ScrollBarOptions {
   /**
@@ -137,7 +147,8 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scroller: Scroller;
 
@@ -163,7 +174,8 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: ScrollBarDirection;
 
@@ -189,7 +201,8 @@ declare interface ScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   state?: BarState;
 }
@@ -216,7 +229,8 @@ declare interface ScrollBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ScrollBarInterface {
   /**
@@ -244,7 +258,8 @@ interface ScrollBarInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: ScrollBarOptions): ScrollBarAttribute;
 }
@@ -271,7 +286,8 @@ interface ScrollBarInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
     /**
@@ -281,7 +297,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 
