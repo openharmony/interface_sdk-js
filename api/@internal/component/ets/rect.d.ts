@@ -792,7 +792,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { Length | Array<any> } value
+   * @param { number | string | Array<any> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

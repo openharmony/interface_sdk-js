@@ -31,7 +31,7 @@ import { LengthMetrics } from '../Graphics';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'19','1.2':'20'}
  * @arkts 1.1&1.2
  */
 interface LazyVGridLayoutInterface {
@@ -42,7 +42,7 @@ interface LazyVGridLayoutInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   (): LazyVGridLayoutAttribute;
@@ -55,7 +55,7 @@ interface LazyVGridLayoutInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'19','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
@@ -67,7 +67,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   rowsGap(value: LengthMetrics): T;
@@ -80,7 +80,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   columnsGap(value: LengthMetrics): T;
@@ -93,7 +93,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since arkts {'1.1':'19','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
@@ -105,7 +105,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts {'1.1':'19','1.2':'20'}
    * @arkts 1.1&1.2
    */
   columnsTemplate(value: string): LazyVGridLayoutAttribute;

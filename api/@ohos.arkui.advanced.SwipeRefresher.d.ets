@@ -53,7 +53,7 @@ export declare struct SwipeRefresher {
    */
   /**
    * Sets the content when loading.
-   * @type { ?ResourceStr }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11

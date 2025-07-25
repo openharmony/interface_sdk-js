@@ -2499,7 +2499,7 @@ declare namespace promptAction {
  * @atomicservice
  * @since 12
  */
-export declare interface DismissDialogAction {
+declare interface DismissDialogAction {
   /**
    * Defines dialog dismiss function.
    *

@@ -1357,7 +1357,7 @@ export declare class PromptAction {
    * @atomicservice
    * @since arkts { '1.1':'12','1.2':'20' }
    * @arkts 1.1&1.2
-  */
+   */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
   /**
@@ -1724,7 +1724,7 @@ export interface OverlayManagerOptions {
    */
   renderRootOverlay?: boolean;
 
-/**
+  /**
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }

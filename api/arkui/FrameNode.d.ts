@@ -2934,6 +2934,40 @@ export declare namespace typeNode {
   function createNode(context: UIContext, nodeType: 'TextArea'): TextArea;
 
   /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextAreaAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function getAttribute(node: FrameNode, nodeType: 'TextArea'): TextAreaAttribute | undefined;
+
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { TextAreaController } controller - the controller which is bind to the target FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
+   * is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  export function bindController(node: FrameNode, controller: TextAreaController, nodeType: 'TextArea'): void;
+
+  /**
    * Define the FrameNode type for SymbolGlyph.
    * 
    * <p><strong>NOTE</strong>:

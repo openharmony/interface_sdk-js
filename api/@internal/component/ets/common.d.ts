@@ -14102,7 +14102,6 @@ declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').de
  *
  * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @atomicservice
  * @since 20
  */

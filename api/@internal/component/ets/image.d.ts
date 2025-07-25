@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import image from '../../@ohos.multimedia.image';
-import drawing from '../../@ohos.graphics.drawing';
+// import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4'
 import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
@@ -58,17 +58,17 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
-/**
- * Import the DrawingColorFilter type object for image color filter setting.
- *
- * @typedef { drawing.ColorFilter } DrawingColorFilter
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DrawingColorFilter = drawing.ColorFilter;
+// /**
+//  * Import the DrawingColorFilter type object for image color filter setting.
+//  *
+//  * @typedef { drawing.ColorFilter } DrawingColorFilter
+//  * @syscap SystemCapability.ArkUI.ArkUI.Full
+//  * @crossplatform
+//  * @atomicservice
+//  * @since 20
+//  * @arkts 1.2
+//  */
+// declare type DrawingColorFilter = drawing.ColorFilter;
 
 /**
  * Enumerates all the levels available for the image resolution quality.
@@ -102,17 +102,17 @@ declare type ResolutionQuality = image.ResolutionQuality;
  */
 declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
 
-/**
- * Lattice for dividing an image into grids.
- *
- * @typedef { drawing.Lattice } DrawingLattice
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-declare type DrawingLattice = drawing.Lattice;
+// /**
+//  * Lattice for dividing an image into grids.
+//  *
+//  * @typedef { drawing.Lattice } DrawingLattice
+//  * @syscap SystemCapability.ArkUI.ArkUI.Full
+//  * @crossplatform
+//  * @atomicservice
+//  * @since 20
+//  * @arkts 1.2
+//  */
+// declare type DrawingLattice = drawing.Lattice;
 
 /**
  * Object matrix used for setting image transformations.
@@ -1616,8 +1616,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
@@ -2552,8 +2551,7 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lattice?: DrawingLattice;
 }

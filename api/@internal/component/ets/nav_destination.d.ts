@@ -963,6 +963,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 15
    */
+  onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
+
   /**
    * Invoked when pop to the navDestination with result.
    * 

@@ -2688,6 +2688,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
+
   /**
    * Called when scrolling begin each frame.
    * Anonymous Object Rectification.
@@ -2699,7 +2701,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
    onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
 

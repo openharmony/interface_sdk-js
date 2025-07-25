@@ -24,10 +24,10 @@ import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationSty
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
 import { GestureEvent } from "./gesture";
-import { DrawingColorFilter } from './image';
+// import { DrawingColorFilter } from './image';
 import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
-import drawing from '../../@ohos.graphics.drawing';
+// import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
 /*** endif */
 
@@ -1827,8 +1827,7 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     readonly colorFilter?: ColorFilterType;
 }
@@ -1911,8 +1910,7 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     colorFilter?: ColorFilterType;
 
@@ -2008,8 +2006,7 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     colorFilter?: ColorFilterType;
 }
@@ -2033,8 +2030,7 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 

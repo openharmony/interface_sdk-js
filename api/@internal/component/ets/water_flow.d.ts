@@ -945,6 +945,8 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
+
   /**
    * Called when scrolling begin each frame.
    * Anonymous Object Rectification.
@@ -955,7 +957,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): WaterFlowAttribute;
   

@@ -339,7 +339,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    */
   selected(value: boolean): MenuItemAttribute;
 
-    /**
+  /**
    * Setting whether menuItem is selected.
    *
    * @param { boolean | undefined | Bindable<boolean> } value

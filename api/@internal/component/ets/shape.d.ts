@@ -775,7 +775,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the limit value for drawing acute angles as oblique angles is set.
    *
-   * @param { Length } value
+   * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -909,7 +909,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the width of the border is set.
    *
-   * @param { Length } value
+   * @param { number | string } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

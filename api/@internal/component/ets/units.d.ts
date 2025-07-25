@@ -419,7 +419,18 @@ declare type ResourceStr = string | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the padding property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } Padding
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface Padding {
@@ -719,7 +730,18 @@ declare type EdgeWidth = EdgeWidths;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the border width property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } EdgeWidths
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeWidths {
@@ -1053,7 +1075,18 @@ declare interface EdgeOutlineWidths {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the border radius property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } BorderRadiuses
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface BorderRadiuses {
@@ -1388,7 +1421,18 @@ declare interface OutlineRadiuses {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the border color property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } EdgeColors
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeColors {
@@ -1616,7 +1660,18 @@ declare type LocalizedMargin = LocalizedPadding;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the border style property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } EdgeStyles
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface EdgeStyles {
@@ -2004,7 +2059,18 @@ declare type ResourceColor = Color | number | string | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since 11
+ */
+/**
+ * Defines the length constrain property.
+ *
+ * Anonymous Object Rectification
+ * @typedef { object } LengthConstrain
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface LengthConstrain {

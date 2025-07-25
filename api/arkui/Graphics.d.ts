@@ -17,8 +17,10 @@
  * @file
  * @kit ArkUI
  */
+/*** if arkts 1.1 */
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
+/*** endif */
 import { Resource } from '../global/resource';
 
 /*** if arkts 1.2 */
@@ -164,8 +166,7 @@ export declare class DrawContext {
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Get canvas of the DrawContext.
@@ -174,8 +175,7 @@ export declare class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get canvas(): drawing.Canvas;
 }
@@ -1291,8 +1291,7 @@ export type BorderRadiuses = Corners<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Rect = common2D.Rect;
 
@@ -1314,8 +1313,7 @@ export interface RoundRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   rect: Rect,
 
@@ -1435,8 +1433,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRectShape(rect: Rect): void;
 
@@ -1471,8 +1468,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOvalShape(oval: Rect): void;
 
@@ -1560,8 +1556,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRectShape(rect: Rect): void;
 
@@ -1596,8 +1591,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOvalShape(oval: Rect): void;
 

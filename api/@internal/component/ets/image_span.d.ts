@@ -22,7 +22,8 @@
 import { ResourceStr, ColorFilter} from './units';
 import { BaseSpan } from './span';
 import { ImageSpanAlignment, ImageFit } from './enums';
-import { ImageErrorCallback, DrawingColorFilter } from './image';
+// import { ImageErrorCallback, DrawingColorFilter } from './image';
+import { ImageErrorCallback } from './image';
 import { PixelMap } from './common';
 import image from '../../@ohos.multimedia.image';
 /*** endif */
@@ -118,8 +119,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 

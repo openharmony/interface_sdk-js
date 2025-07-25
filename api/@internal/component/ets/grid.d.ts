@@ -1440,6 +1440,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @atomicservice
    * @since 11
    */
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): GridAttribute;
+
   /**
    * Called when scrolling begin each frame.
    * Anonymous Object Rectification.
@@ -1450,7 +1452,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): GridAttribute;
 
