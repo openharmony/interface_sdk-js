@@ -664,6 +664,7 @@ export interface NotificationIconButton {
    * @systemapi
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
+   */
   text?: string;
 
   /**
