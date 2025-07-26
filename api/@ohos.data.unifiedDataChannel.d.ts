@@ -85,6 +85,16 @@ declare namespace unifiedDataChannel {
   }
 
   /**
+   * RrcordData is used for input parameter obj of the equal function
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @since 20
+   * @arkTs 1.2
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
    * Indicated delay get UnifiedData
    * 
    * @typedef {function} GetDelayData
@@ -98,21 +108,31 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
   /**
    * Indicates type of value.
-   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
+  type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
+
+  /**
+   * Indicates type of value.
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined}
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkTs 1.2
+   */
+  type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined;
 
   /**
    * Describe the unified data properties.
@@ -130,6 +150,16 @@ declare namespace unifiedDataChannel {
      * @since 12
      */
     extras?: Record<string, object>;
+
+    /**
+     * extra property data. key-value pairs.
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 20
+     * @arkTs 1.2
+     */
+    extras?: Record<string, RecordData>;
 
     /**
      * the user-defined tag of a UnifiedData object.
