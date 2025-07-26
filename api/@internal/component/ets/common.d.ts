@@ -18885,18 +18885,6 @@ declare interface ContextMenuOptions {
   modalMode?: ModalMode;
 
   /**
-   * Defines the menu position.
-   *
-   * @type { ?Position }
-   * @default { x: 0, y: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  anchorPosition?: Position;
-
-  /**
    * Callback function when the menu appears.
    *
    * @type { ?Callback<void> }
@@ -18962,6 +18950,18 @@ declare interface ContextMenuOptions {
    * @since 20
    */
   availableLayoutArea?: AvailableLayoutArea;
+
+  /**
+   * Defines the menu position.
+   *
+   * @type { ?Position }
+   * @default { x: 0, y: 0 }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  anchorPosition?: Position;
 }
 
 /**
