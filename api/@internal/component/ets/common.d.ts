@@ -17163,7 +17163,7 @@ declare interface PopupOptions {
   popupColor?: Color | string | Resource | number;
 
   /**
-   * Whether hide popup when click mask
+   * Whether hide popup when click mask.
    *
    * @type { ?boolean }
    * @default true
@@ -17172,7 +17172,7 @@ declare interface PopupOptions {
    * @since 11
    */
   /**
-   * Whether hide popup when click mask
+   * Whether hide popup when click mask.
    *
    * @type { ?boolean }
    * @default true
@@ -17504,6 +17504,7 @@ declare interface CustomPopupOptions {
    * placement of popup
    *
    * @type { ?Placement }
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
@@ -17511,6 +17512,7 @@ declare interface CustomPopupOptions {
    * placement of popup
    *
    * @type { ?Placement }
+   * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -17595,14 +17597,14 @@ declare interface CustomPopupOptions {
   enableArrow?: boolean;
 
   /**
-   * whether hide popup when click mask
+   * whether hide popup when click mask.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * whether hide popup when click mask
+   * whether hide popup when click mask.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18193,7 +18195,6 @@ interface ContextMenuAnimationOptions {
    * Sets the start animator scale and end animator scale.
    *
    * @type { ?AnimationRange<number> }
-   * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18863,6 +18864,7 @@ declare interface ContextMenuOptions {
    * Whether it is a menu without mask.
    *
    * @type { ?(boolean | MenuMaskType) }
+   * @default true when preview is enabled, or is false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18886,6 +18888,7 @@ declare interface ContextMenuOptions {
    * Defines the menu position.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

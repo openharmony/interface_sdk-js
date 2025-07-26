@@ -1035,6 +1035,7 @@ declare interface AlertDialogParam {
    * Defines the alertDialog's corner radius.
    *
    * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
+   * @default { topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
