@@ -2004,7 +2004,8 @@ declare namespace relationalStore {
    * @interface TransactionOptions
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -2020,7 +2021,8 @@ declare namespace relationalStore {
      * @type { TransactionType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
@@ -8719,7 +8721,8 @@ declare namespace relationalStore {
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Transaction {
     /**
