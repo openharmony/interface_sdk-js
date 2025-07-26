@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +16,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Define options used to construct a polyline.
  *
@@ -34,26 +36,37 @@ export declare interface PolylineOptions {
     /**
      * Polyline width.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: string | number;
+    width?: string | double;
     /**
      * Polyline height.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: string | number;
+    height?: string | double;
 }
+
+/**
+ * Defines Polyline attribute
+ * @extends CommonShapeMethod<PolylineAttribute>
+ * @interface PolylineAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 11
+ */
 export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
      * Called when the polyline is set to pass through the coordinate point list.
@@ -67,9 +80,28 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      * @since 20
      */
     default points(value: Array<ShapePoint> | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Polyline’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Polyline is returned when the parameter is transferred.
+ *
+ * @param { PolylineOptions } [options] - The options to create a Polyline
+ * @returns { PolylineAttribute } The attribute of the Polyline.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Polyline(

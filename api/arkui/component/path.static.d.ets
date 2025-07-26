@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,10 +16,11 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Define options used to construct a path.
  *
@@ -32,24 +34,24 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 export declare interface PathOptions {
     /**
      * Width option.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Height option.
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: number | string;
+    height?: double | string;
     /**
      * Commands option.
      * @type { ?string }
@@ -61,6 +63,18 @@ export declare interface PathOptions {
      */
     commands?: string;
 }
+
+/**
+ * Provides methods for attribute path component.
+ *
+ * @extends CommonShapeMethod<PathAttribute>
+ * @interface PathAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
      * Called when the command string drawn by the path is set.
@@ -74,9 +88,28 @@ export declare interface PathAttribute extends CommonShapeMethod {
      * @since 20
      */
     default commands(value: string | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Path’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Path is returned when the parameter is transferred.
+ *
+ * @param { PathOptions } [options] - The options to create a Path
+ * @returns { PathAttribute } The attribute of the Path.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Path(

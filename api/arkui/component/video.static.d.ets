@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,7 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { Resource } from '../../global/resource';
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
@@ -23,6 +24,7 @@ import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier } from "./common";
 import { VoidCallback } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Seek mode.
  *
@@ -70,6 +72,7 @@ export declare enum SeekMode {
      */
     Accurate
 }
+
 /**
  * playback speed.
  *
@@ -126,6 +129,7 @@ export declare enum PlaybackSpeed {
      */
     Speed_Forward_2_00_X
 }
+
 /**
  * Fullscreen information of the video.
  *
@@ -147,6 +151,7 @@ export interface FullscreenInfo {
      */
     fullscreen: boolean;
 }
+
 /**
  * Prepared information of the video.
  *
@@ -160,14 +165,15 @@ export interface PreparedInfo {
     /**
      * The duration of the current video, in seconds.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    duration: number;
+    duration: int;
 }
+
 /**
  * Playback information of the video.
  *
@@ -181,14 +187,15 @@ export interface PlaybackInfo {
     /**
      * The current video playback progress, expressed in seconds.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    time: number;
+    time: int;
 }
+
 /**
  * Defines the video poster options.
  *
@@ -209,6 +216,7 @@ export declare interface PosterOptions {
      */
     showFirstFrame?: boolean;
 }
+
 /**
  * Defines the video options.
  *
@@ -232,13 +240,13 @@ export declare interface VideoOptions {
     /**
      * playback rate of video.
      *
-     * @type { ?(number | string | PlaybackSpeed) }
+     * @type { ?(double | string | PlaybackSpeed) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    currentProgressRate?: number | string | PlaybackSpeed;
+    currentProgressRate?: double | string | PlaybackSpeed;
     /**
      * preview uri of video.
      *
@@ -278,6 +286,7 @@ export declare interface VideoOptions {
      */
     posterOptions?: PosterOptions;
 }
+
 /**
  * Defines the video controller.
  *
@@ -324,16 +333,6 @@ export declare class VideoController {
      */
     stop(): void;
     /**
-     * Provide the progress method of video playback.
-     *
-     * @param { number } value
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    setCurrentTime(value: number): void;
-    /**
      * Provides a full screen playback method.
      *
      * @param { boolean } value
@@ -353,16 +352,27 @@ export declare class VideoController {
      */
     exitFullscreen(): void;
     /**
-     * Provide the progress method of video playback.
+     * Provide the progress method of video playback without SeekMode.
      *
-     * @param { number } value
+     * @param { double } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    setCurrentTimeDefault(value: double): void;
+    /**
+     * Provide the progress method of video playback with SeekMode.
+     *
+     * @param { double } value
      * @param { SeekMode } seekMode
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    setCurrentTime(value: number, seekMode: SeekMode): void;
+    setCurrentTimeWithMode(value: double, seekMode: SeekMode): void;
+    overload setCurrentTime {setCurrentTimeDefault, setCurrentTimeWithMode};
     /**
      * Provide the reset method of video playback.
      *
@@ -372,6 +382,17 @@ export declare class VideoController {
      */
     reset(): void;
 }
+
+/**
+ * Defines the Video attribute.
+ *
+ * @extends CommonMethod
+ * @interface VideoAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 export declare interface VideoAttribute extends CommonMethod {
     /**
      * Called when judging whether the video is muted.
@@ -572,9 +593,28 @@ export declare interface VideoAttribute extends CommonMethod {
      * @since 20
      */
     default enableShortcutKey(enabled: boolean | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Video’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Video is returned when the parameter is transferred.
+ *
+ * @param { VideoOptions } value - The options to create a Video
+ * @returns { VideoAttribute } The attribute of the Video
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Video(

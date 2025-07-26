@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +16,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { Length } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Defines the RadiusItem, the first element is the width of the rounded corner, the second is the height of the rounded corner.
  *
@@ -34,6 +36,7 @@ export type RadiusItem = [
     Length,
     Length
 ];
+
 /**
  * Define options used to construct a rectangle.
  *
@@ -48,25 +51,25 @@ export declare interface RectOptions {
     /**
      * Rectangle width.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Rectangle height.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: number | string;
+    height?: double | string;
     /**
      * Corner radius of the rectangle.
      *
@@ -79,6 +82,7 @@ export declare interface RectOptions {
      */
     radius?: Length | Array<RadiusItem>;
 }
+
 /**
  * Define options used to construct a rectangle with rounded corners.
  *
@@ -93,53 +97,65 @@ export declare interface RoundedRectOptions {
     /**
      * Rectangle width.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: number | string;
+    width?: double | string;
     /**
      * Rectangle height.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: number | string;
+    height?: double | string;
     /**
      * Width of the corner radius.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    radiusWidth?: number | string;
+    radiusWidth?: double | string;
     /**
      * Height of the corner radius.
      *
-     * @type { ?(number | string) }
+     * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    radiusHeight?: number | string;
+    radiusHeight?: double | string;
 }
+
+/**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod<RectAttribute>
+ * @interface RectAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare interface RectAttribute extends CommonShapeMethod {
     /**
      * Called when the fillet width is set.
      *
-     * @param { number | string } value
+     * @param { double | string } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -147,11 +163,11 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @atomicservice
      * @since 20
      */
-    default radiusWidth(value: number | string | undefined): this;
+    default radiusWidth(value: double | string | undefined): this;
     /**
      * Called when the fillet height is set.
      *
-     * @param { number | string } value
+     * @param { double | string } value
      * @returns { RectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -159,7 +175,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @atomicservice
      * @since 20
      */
-    default radiusHeight(value: number | string | undefined): this;
+    default radiusHeight(value: double | string | undefined): this;
     /**
      * Called when the fillet size is set.
      *
@@ -172,9 +188,28 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @since 20
      */
     default radius(value: Length | Array<RadiusItem> | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<RectAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Rect’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<RectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Rect is returned when the parameter is transferred.
+ *
+ * @param { RectOptions | RoundedRectOptions } [options] - The options to create a Rect
+ * @returns { RectAttribute } The attribute of the Rect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Rect(

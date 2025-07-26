@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,10 +16,11 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Ellipse constructor options.
  *
@@ -33,30 +35,60 @@ export interface EllipseOptions {
     /**
      * Set width.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: string | number;
+    width?: string | double;
     /**
      * Set height.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: string | number;
+    height?: string | double;
 }
+
+/**
+ * Provides attribute for Ellipse.
+ * @extends CommonShapeMethod<EllipseAttribute>
+ * @interface EllipseAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare interface EllipseAttribute extends CommonShapeMethod {
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Ellipse’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Ellipse is returned when the parameter is transferred.
+ *
+ * @param { EllipseOptions } [options] - The options to create an Ellipse
+ * @returns { EllipseAttribute } The attribute of the Ellipse.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Ellipse(

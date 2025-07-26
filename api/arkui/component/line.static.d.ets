@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +16,12 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { Length } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
  *
@@ -34,6 +36,7 @@ export type ShapePoint = [
     Length,
     Length
 ];
+
 /**
  * Defines Line constructor options.
  *
@@ -48,26 +51,38 @@ export interface LineOptions {
     /**
      * Width of the rectangle where the line resides.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: string | number;
+    width?: string | double;
     /**
      * Height of the rectangle where the line resides.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: string | number;
+    height?: string | double;
 }
+
+/**
+ * Provides attribute for Line.
+ *
+ * @extends CommonShapeMethod<LineAttribute>
+ * @interface LineAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare interface LineAttribute extends CommonShapeMethod {
     /**
      * Coordinate of the start point of the line (relative coordinate).
@@ -93,9 +108,28 @@ export declare interface LineAttribute extends CommonShapeMethod {
      * @since 20
      */
     default endPoint(value: ShapePoint | undefined): this;
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Line’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Line is returned when the parameter is transferred.
+ *
+ * @param { LineOptions } [options] - The options to create a Line
+ * @returns { LineAttribute } The attribute of the Line.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Line(

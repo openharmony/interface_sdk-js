@@ -1,3 +1,4 @@
+use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,10 +16,11 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
+ * @arkts static
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
 /**
  * Defines circle options for Circle component.
  *
@@ -33,34 +35,65 @@ export declare interface CircleOptions {
     /**
      * Defines the width property.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    width?: string | number;
+    width?: string | double;
     /**
      * Defines the height property.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    height?: string | number;
+    height?: string | double;
 }
+
+/**
+ * Circle drawing component attribute functions.
+ *
+ * @extends CommonShapeMethod<CircleAttribute>
+ * @interface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
 export declare interface CircleAttribute extends CommonShapeMethod {
+    /**
+     * Call attributeModifier.
+     *
+     * @param { AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Circle’s AttributeModifier
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Circle is returned when the parameter is transferred.
+ *
+ * @param { CircleOptions } [options] - The options to create a Circle
+ * @returns { CircleAttribute } The attribute of the Circle.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Circle(
-    value?: CircleOptions, 
+    options?: CircleOptions, 
     @memo
     content_?: () => void,
 ): CircleAttribute
