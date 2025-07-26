@@ -94,7 +94,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         "dependentModuleList": [],
         "isIDE": "false",
         # 工具处理时候的线程数
-        "maxWorkers": 128,
+        "maxWorkers": 64,
         # 工具处理的时候是否跳过检查
         "skipDeclCheck": False,
         "enableDeclgenEts2Ts": True,
@@ -125,6 +125,10 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
+        interop_path_declaration = os.path.join(out_interop_path, "ets1.2interop/declaration")
+        interop_path_bridge = os.path.join(out_interop_path, "ets1.2interop/bridge")
+        os.makedirs(interop_path_declaration, exist_ok=True)
+        os.makedirs(interop_path_bridge, exist_ok=True)
         cmd = [node_path, tool_path, json_path]
         result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
@@ -132,9 +136,11 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
             f.write(result.stdout)
         print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
+        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
     except Exception as e:
+        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         print(f"run_compile_ets_ts: {str(e)}")
 
 
