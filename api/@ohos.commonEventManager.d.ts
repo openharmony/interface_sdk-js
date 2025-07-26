@@ -193,7 +193,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -230,7 +231,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publishAsUser(
     event: string,
@@ -376,6 +378,7 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   function subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>;
 
@@ -425,7 +428,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
@@ -444,7 +448,8 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeStickyCommonEvent(event: string): Promise<void>;
 
@@ -461,7 +466,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -478,7 +484,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
@@ -496,7 +503,8 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 
@@ -522,7 +530,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BOOT_COMPLETED = 'usual.event.BOOT_COMPLETED',
 
@@ -530,7 +539,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device finnish booting, but still in the locked state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = 'usual.event.LOCKED_BOOT_COMPLETED',
 
@@ -538,7 +548,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is shutting down, note: turn off, not sleeping.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SHUTDOWN = 'usual.event.SHUTDOWN',
 
@@ -546,7 +557,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the charging state, level and so on about the battery.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BATTERY_CHANGED = 'usual.event.BATTERY_CHANGED',
 
@@ -554,7 +566,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device in low battery state..
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BATTERY_LOW = 'usual.event.BATTERY_LOW',
 
@@ -562,7 +575,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the battery level is an ok state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BATTERY_OKAY = 'usual.event.BATTERY_OKAY',
 
@@ -570,7 +584,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the other power is connected to the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_POWER_CONNECTED = 'usual.event.POWER_CONNECTED',
 
@@ -578,7 +593,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the other power is removed from the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_POWER_DISCONNECTED = 'usual.event.POWER_DISCONNECTED',
 
@@ -604,7 +620,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the thermal state level change
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = 'usual.event.THERMAL_LEVEL_CHANGED',
 
@@ -612,7 +629,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is about to enter the force sleep mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ENTER_FORCE_SLEEP = 'usual.event.ENTER_FORCE_SLEEP',
 
@@ -620,7 +638,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device exits the force sleep mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_EXIT_FORCE_SLEEP = 'usual.event.EXIT_FORCE_SLEEP',
 
@@ -628,7 +647,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device is about to enter the hibernate mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ENTER_HIBERNATE = 'usual.event.ENTER_HIBERNATE',
 
@@ -636,7 +656,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the device exits the hibernate mode
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_EXIT_HIBERNATE = 'usual.event.EXIT_HIBERNATE',
 
@@ -653,7 +674,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the current time is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_TIME_TICK = 'usual.event.TIME_TICK',
 
@@ -670,7 +692,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the current date is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DATE_CHANGED = 'usual.event.DATE_CHANGED',
 
@@ -687,7 +710,8 @@ declare namespace commonEventManager {
      * This commonEvent means when the dialog to dismiss.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CLOSE_SYSTEM_DIALOGS = 'usual.event.CLOSE_SYSTEM_DIALOGS',
 
@@ -695,7 +719,8 @@ declare namespace commonEventManager {
      * This commonEvent means when a new application package is installed on the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_ADDED = 'usual.event.PACKAGE_ADDED',
 
@@ -704,7 +729,8 @@ declare namespace commonEventManager {
      * replace the old version.the data contains the name of the package.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_REPLACED = 'usual.event.PACKAGE_REPLACED',
 
@@ -713,7 +739,8 @@ declare namespace commonEventManager {
      * replace the old version, it does not contain additional data and only be sent to the replaced application.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MY_PACKAGE_REPLACED = 'usual.event.MY_PACKAGE_REPLACED',
 
@@ -721,7 +748,8 @@ declare namespace commonEventManager {
      * This commonEvent means when an existing application package is removed from the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_REMOVED = 'usual.event.PACKAGE_REMOVED',
 
@@ -729,7 +757,8 @@ declare namespace commonEventManager {
      * This commonEvent means when an existing application package is removed from the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BUNDLE_REMOVED = 'usual.event.BUNDLE_REMOVED',
 
@@ -737,7 +766,8 @@ declare namespace commonEventManager {
      * This commonEvent means when an existing application package is completely removed from the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = 'usual.event.PACKAGE_FULLY_REMOVED',
 
@@ -745,7 +775,8 @@ declare namespace commonEventManager {
      * This commonEvent means when an existing application package has been changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_CHANGED = 'usual.event.PACKAGE_CHANGED',
 
@@ -753,7 +784,8 @@ declare namespace commonEventManager {
      * This commonEvent means the user has restarted a package, and all of its processes have been killed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_RESTARTED = 'usual.event.PACKAGE_RESTARTED',
 
@@ -761,7 +793,8 @@ declare namespace commonEventManager {
      * This commonEvent means the user has cleared the package data.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_DATA_CLEARED = 'usual.event.PACKAGE_DATA_CLEARED',
 
@@ -769,7 +802,8 @@ declare namespace commonEventManager {
      * This commonEvent means the user has cleared the package cache.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_CACHE_CLEARED = 'usual.event.PACKAGE_CACHE_CLEARED',
 
@@ -777,7 +811,8 @@ declare namespace commonEventManager {
      * This commonEvent means the packages have been suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = 'usual.event.PACKAGES_SUSPENDED',
 
@@ -785,7 +820,8 @@ declare namespace commonEventManager {
      * This commonEvent means the packages have been un-suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGES_UNSUSPENDED = 'usual.event.PACKAGES_UNSUSPENDED',
 
@@ -793,7 +829,8 @@ declare namespace commonEventManager {
      * This commonEvent Sent to a package that has been suspended by the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = 'usual.event.MY_PACKAGE_SUSPENDED',
 
@@ -801,7 +838,8 @@ declare namespace commonEventManager {
      * Sent to a package that has been un-suspended.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MY_PACKAGE_UNSUSPENDED = 'usual.event.MY_PACKAGE_UNSUSPENDED',
 
@@ -809,7 +847,8 @@ declare namespace commonEventManager {
      * A user id has been removed from the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_UID_REMOVED = 'usual.event.UID_REMOVED',
 
@@ -817,7 +856,8 @@ declare namespace commonEventManager {
      * The application is first launched after installed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = 'usual.event.PACKAGE_FIRST_LAUNCH',
 
@@ -825,7 +865,8 @@ declare namespace commonEventManager {
      * Sent by system package verifier when a package need to be verified.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION = 'usual.event.PACKAGE_NEEDS_VERIFICATION',
 
@@ -833,7 +874,8 @@ declare namespace commonEventManager {
      * Sent by system package verifier when a package is verified.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_VERIFIED = 'usual.event.PACKAGE_VERIFIED',
 
@@ -842,7 +884,8 @@ declare namespace commonEventManager {
      * available since the media on which they exist is available.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_AVAILABLE',
 
@@ -850,7 +893,8 @@ declare namespace commonEventManager {
      * Resources for a set of packages are currently unavailable since the media on which they exist is unavailable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_EXTERNAL_APPLICATIONS_UNAVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE',
 
@@ -858,7 +902,8 @@ declare namespace commonEventManager {
      * The device configuration such as orientation,locale have been changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CONFIGURATION_CHANGED = 'usual.event.CONFIGURATION_CHANGED',
 
@@ -866,7 +911,8 @@ declare namespace commonEventManager {
      * The current device's locale has changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_LOCALE_CHANGED = 'usual.event.LOCALE_CHANGED',
 
@@ -874,7 +920,8 @@ declare namespace commonEventManager {
      *  Indicates low memory condition notification acknowledged by user and package management should be started.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MANAGE_PACKAGE_STORAGE = 'usual.event.MANAGE_PACKAGE_STORAGE',
 
@@ -882,7 +929,8 @@ declare namespace commonEventManager {
      * Send by the smart function when the system in drive mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DRIVE_MODE = 'common.event.DRIVE_MODE',
 
@@ -890,7 +938,8 @@ declare namespace commonEventManager {
      * Send by the smart function when the system in home mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_HOME_MODE = 'common.event.HOME_MODE',
 
@@ -898,7 +947,8 @@ declare namespace commonEventManager {
      * Send by the smart function when the system in office mode.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_OFFICE_MODE = 'common.event.OFFICE_MODE',
 
@@ -906,7 +956,8 @@ declare namespace commonEventManager {
      * Remind new user of preparing to start.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_STARTED = 'usual.event.USER_STARTED',
 
@@ -914,7 +965,8 @@ declare namespace commonEventManager {
      * Remind previous user of that the service has been the background.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_BACKGROUND = 'usual.event.USER_BACKGROUND',
 
@@ -922,7 +974,8 @@ declare namespace commonEventManager {
      * Remind new user of that the service has been the foreground.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_FOREGROUND = 'usual.event.USER_FOREGROUND',
 
@@ -931,7 +984,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_SWITCHED = 'usual.event.USER_SWITCHED',
 
@@ -940,7 +994,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
 
@@ -948,7 +1003,8 @@ declare namespace commonEventManager {
      * Remind new user of that the service has been unlocked.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_UNLOCKED = 'usual.event.USER_UNLOCKED',
 
@@ -959,6 +1015,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_LOCKING = 'usual.event.USER_LOCKING',
 
@@ -969,6 +1026,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_LOCKED = 'usual.event.USER_LOCKED',
 
@@ -977,7 +1035,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_STOPPING = 'usual.event.USER_STOPPING',
 
@@ -985,7 +1044,8 @@ declare namespace commonEventManager {
      * Remind new user of that the service has stopped.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
@@ -1032,7 +1092,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID = 'common.event.DISTRIBUTED_ACCOUNT_TOKEN_INVALID',
 
@@ -1047,7 +1108,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF = 'common.event.DISTRIBUTED_ACCOUNT_LOGOFF',
 
@@ -1055,7 +1117,8 @@ declare namespace commonEventManager {
      * WIFI state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_POWER_STATE = 'usual.event.wifi.POWER_STATE',
 
@@ -1063,7 +1126,8 @@ declare namespace commonEventManager {
      * WIFI scan results.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_SCAN_FINISHED = 'usual.event.wifi.SCAN_FINISHED',
 
@@ -1071,7 +1135,8 @@ declare namespace commonEventManager {
      * WIFI RSSI change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_RSSI_VALUE = 'usual.event.wifi.RSSI_VALUE',
 
@@ -1079,7 +1144,8 @@ declare namespace commonEventManager {
      * WIFI connect state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_CONN_STATE = 'usual.event.wifi.CONN_STATE',
 
@@ -1087,7 +1153,8 @@ declare namespace commonEventManager {
      * WIFI hotspot state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
@@ -1095,7 +1162,8 @@ declare namespace commonEventManager {
      * WIFI ap sta join.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_AP_STA_JOIN = 'usual.event.wifi.WIFI_HS_STA_JOIN',
 
@@ -1103,7 +1171,8 @@ declare namespace commonEventManager {
      * WIFI ap sta join.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_AP_STA_LEAVE = 'usual.event.wifi.WIFI_HS_STA_LEAVE',
 
@@ -1111,7 +1180,8 @@ declare namespace commonEventManager {
      * Indicates Wi-Fi MpLink state notification acknowledged by binding or unbinding MpLink.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = 'usual.event.wifi.mplink.STATE_CHANGE',
 
@@ -1119,7 +1189,8 @@ declare namespace commonEventManager {
      * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = 'usual.event.wifi.p2p.CONN_STATE_CHANGE',
 
@@ -1127,7 +1198,8 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_STATE_CHANGED = 'usual.event.wifi.p2p.STATE_CHANGE',
 
@@ -1135,7 +1207,8 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P peers state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED = 'usual.event.wifi.p2p.DEVICES_CHANGE',
 
@@ -1143,7 +1216,8 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P discovery state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED = 'usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE',
 
@@ -1151,7 +1225,8 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P current device state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED = 'usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE',
 
@@ -1159,7 +1234,8 @@ declare namespace commonEventManager {
      * Indicates that the Wi-Fi P2P group info is changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED = 'usual.event.wifi.p2p.GROUP_STATE_CHANGED',
 
@@ -1167,7 +1243,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
 
@@ -1175,7 +1252,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
 
@@ -1183,7 +1261,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE',
 
@@ -1191,7 +1270,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE',
 
@@ -1199,7 +1279,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE',
 
@@ -1207,7 +1288,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE',
 
@@ -1215,7 +1297,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.avrcp.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
 
@@ -1223,7 +1306,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dpsource.codec.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE = 'usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE',
 
@@ -1231,7 +1315,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.discovered.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED = 'usual.event.bluetooth.remotedevice.DISCOVERED',
 
@@ -1239,7 +1324,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.class.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
 
@@ -1247,7 +1333,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.acl.connected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED = 'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
 
@@ -1255,7 +1342,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.acl.disconnected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED = 'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
 
@@ -1263,7 +1351,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE = 'usual.event.bluetooth.remotedevice.NAME_UPDATE',
 
@@ -1271,7 +1360,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.pair.state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE = 'usual.event.bluetooth.remotedevice.PAIR_STATE',
 
@@ -1279,7 +1369,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.battery.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE',
 
@@ -1287,7 +1378,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.sdp.result.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT = 'usual.event.bluetooth.remotedevice.SDP_RESULT',
 
@@ -1295,7 +1387,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.uuid.value.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE = 'usual.event.bluetooth.remotedevice.UUID_VALUE',
 
@@ -1303,7 +1396,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.pairing.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ = 'usual.event.bluetooth.remotedevice.PAIRING_REQ',
 
@@ -1311,7 +1405,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.pairing.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL = 'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
 
@@ -1319,7 +1414,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ = 'usual.event.bluetooth.remotedevice.CONNECT_REQ',
 
@@ -1327,7 +1423,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.reply.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY = 'usual.event.bluetooth.remotedevice.CONNECT_REPLY',
 
@@ -1335,7 +1432,8 @@ declare namespace commonEventManager {
      * Bluetooth.remotedevice.connect.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL = 'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
 
@@ -1343,7 +1441,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE',
 
@@ -1351,7 +1450,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE',
 
@@ -1359,7 +1459,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.ag.common.event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT = 'usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT',
 
@@ -1367,7 +1468,8 @@ declare namespace commonEventManager {
      * Bluetooth.handsfreeunit.ag.call.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
 
@@ -1375,7 +1477,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE = 'usual.event.bluetooth.host.STATE_UPDATE',
 
@@ -1383,7 +1486,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.discoverable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE = 'usual.event.bluetooth.host.REQ_DISCOVERABLE',
 
@@ -1391,7 +1495,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.enable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
 
@@ -1399,7 +1504,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.req.disable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE = 'usual.event.bluetooth.host.REQ_DISABLE',
 
@@ -1407,7 +1513,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.scan.mode.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE = 'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
@@ -1415,7 +1522,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.discovery.stated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED = 'usual.event.bluetooth.host.DISCOVERY_STARTED',
 
@@ -1423,7 +1531,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.discovery.finished.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED = 'usual.event.bluetooth.host.DISCOVERY_FINISHED',
 
@@ -1431,7 +1540,8 @@ declare namespace commonEventManager {
      * Bluetooth.host.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE = 'usual.event.bluetooth.host.NAME_UPDATE',
 
@@ -1439,7 +1549,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE',
 
@@ -1447,7 +1558,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE',
 
@@ -1455,7 +1567,8 @@ declare namespace commonEventManager {
      * Bluetooth.a2dp.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
@@ -1463,7 +1576,8 @@ declare namespace commonEventManager {
      * Nfc state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED = 'usual.event.nfc.action.ADAPTER_STATE_CHANGED',
 
@@ -1471,7 +1585,8 @@ declare namespace commonEventManager {
      * Nfc field on detected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED = 'usual.event.nfc.action.RF_FIELD_ON_DETECTED',
 
@@ -1479,7 +1594,8 @@ declare namespace commonEventManager {
      * Nfc field off detected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED = 'usual.event.nfc.action.RF_FIELD_OFF_DETECTED',
 
@@ -1487,7 +1603,8 @@ declare namespace commonEventManager {
      * Sent when stop charging battery.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISCHARGING = 'usual.event.DISCHARGING',
 
@@ -1495,7 +1612,8 @@ declare namespace commonEventManager {
      * Sent when start charging battery.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CHARGING = 'usual.event.CHARGING',
 
@@ -1504,7 +1622,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CHARGE_TYPE_CHANGED = 'usual.event.CHARGE_TYPE_CHANGED',
 
@@ -1512,7 +1631,8 @@ declare namespace commonEventManager {
      * Sent when device's idle mode changed
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
@@ -1520,7 +1640,8 @@ declare namespace commonEventManager {
      * Sent when device's charge idle mode changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED = 'usual.event.CHARGE_IDLE_MODE_CHANGED',
 
@@ -1529,7 +1650,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DEVICE_IDLE_EXEMPTION_LIST_UPDATED = 'usual.event.DEVICE_IDLE_EXEMPTION_LIST_UPDATED',
 
@@ -1537,7 +1659,8 @@ declare namespace commonEventManager {
      * Sent when device's power save mode changed
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = 'usual.event.POWER_SAVE_MODE_CHANGED',
 
@@ -1546,7 +1669,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_ADDED = 'usual.event.USER_ADDED',
 
@@ -1555,7 +1679,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USER_REMOVED = 'usual.event.USER_REMOVED',
 
@@ -1563,7 +1688,8 @@ declare namespace commonEventManager {
      * Sent when ability is added.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ABILITY_ADDED = 'common.event.ABILITY_ADDED',
 
@@ -1571,7 +1697,8 @@ declare namespace commonEventManager {
      * Sent when ability is removed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ABILITY_REMOVED = 'common.event.ABILITY_REMOVED',
 
@@ -1579,7 +1706,8 @@ declare namespace commonEventManager {
      * Sent when ability is updated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ABILITY_UPDATED = 'common.event.ABILITY_UPDATED',
 
@@ -1587,7 +1715,8 @@ declare namespace commonEventManager {
      * Gps mode state changed.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED = 'usual.event.location.MODE_STATE_CHANGED',
 
@@ -1596,7 +1725,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_SLEEP = 'common.event.IVI_SLEEP',
 
@@ -1605,7 +1735,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_PAUSE = 'common.event.IVI_PAUSE',
 
@@ -1614,7 +1745,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_STANDBY = 'common.event.IVI_STANDBY',
 
@@ -1623,7 +1755,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_LASTMODE_SAVE = 'common.event.IVI_LASTMODE_SAVE',
 
@@ -1632,7 +1765,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_VOLTAGE_ABNORMAL = 'common.event.IVI_VOLTAGE_ABNORMAL',
 
@@ -1642,7 +1776,8 @@ declare namespace commonEventManager {
      * please use COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_HIGH_TEMPERATURE = 'common.event.IVI_HIGH_TEMPERATURE',
 
@@ -1652,7 +1787,8 @@ declare namespace commonEventManager {
      * please use COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_EXTREME_TEMPERATURE = 'common.event.IVI_EXTREME_TEMPERATURE',
 
@@ -1661,7 +1797,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_TEMPERATURE_ABNORMAL = 'common.event.IVI_TEMPERATURE_ABNORMAL',
 
@@ -1670,7 +1807,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_VOLTAGE_RECOVERY = 'common.event.IVI_VOLTAGE_RECOVERY',
 
@@ -1679,7 +1817,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_TEMPERATURE_RECOVERY = 'common.event.IVI_TEMPERATURE_RECOVERY',
 
@@ -1688,7 +1827,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_IVI_ACTIVE = 'common.event.IVI_ACTIVE',
 
@@ -1697,7 +1837,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_STATE = 'usual.event.hardware.usb.action.USB_STATE',
 
@@ -1706,7 +1847,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_PORT_CHANGED = 'usual.event.hardware.usb.action.USB_PORT_CHANGED',
 
@@ -1715,7 +1857,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_DEVICE_ATTACHED = 'usual.event.hardware.usb.action.USB_DEVICE_ATTACHED',
 
@@ -1724,7 +1867,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_DEVICE_DETACHED = 'usual.event.hardware.usb.action.USB_DEVICE_DETACHED',
 
@@ -1733,7 +1877,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_ACCESSORY_ATTACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED',
 
@@ -1742,7 +1887,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
 
@@ -1751,7 +1897,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_REMOVED = 'usual.event.data.DISK_REMOVED',
 
@@ -1760,7 +1907,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_UNMOUNTED = 'usual.event.data.DISK_UNMOUNTED',
 
@@ -1769,7 +1917,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_MOUNTED = 'usual.event.data.DISK_MOUNTED',
 
@@ -1778,7 +1927,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_BAD_REMOVAL = 'usual.event.data.DISK_BAD_REMOVAL',
 
@@ -1787,7 +1937,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
@@ -1796,7 +1947,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DISK_EJECT = 'usual.event.data.DISK_EJECT',
 
@@ -1806,7 +1958,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VOLUME_REMOVED = 'usual.event.data.VOLUME_REMOVED',
 
@@ -1816,7 +1969,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VOLUME_UNMOUNTED = 'usual.event.data.VOLUME_UNMOUNTED',
 
@@ -1826,7 +1980,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VOLUME_MOUNTED = 'usual.event.data.VOLUME_MOUNTED',
 
@@ -1836,7 +1991,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VOLUME_BAD_REMOVAL = 'usual.event.data.VOLUME_BAD_REMOVAL',
 
@@ -1846,7 +2002,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VOLUME_EJECT = 'usual.event.data.VOLUME_EJECT',
 
@@ -1855,7 +2012,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VISIBLE_ACCOUNTS_UPDATED = 'usual.event.data.VISIBLE_ACCOUNTS_UPDATED',
 
@@ -1865,7 +2023,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * This API can be called only by system applications.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_ACCOUNT_DELETED = 'usual.event.data.ACCOUNT_DELETED',
 
@@ -1874,7 +2033,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
@@ -1883,7 +2043,8 @@ declare namespace commonEventManager {
      * Users can register this event to listen to the change of the airplane mode status of the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_AIRPLANE_MODE_CHANGED = 'usual.event.AIRPLANE_MODE',
 
@@ -1891,14 +2052,16 @@ declare namespace commonEventManager {
      * sent by the window manager service when the window mode is split.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * sent by the window manager service when the window mode is split.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SPLIT_SCREEN = 'common.event.SPLIT_SCREEN',
 
@@ -1908,7 +2071,8 @@ declare namespace commonEventManager {
      * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SLOT_CHANGE = 'usual.event.SLOT_CHANGE',
 
@@ -1917,7 +2081,8 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SPN_INFO_CHANGED = 'usual.event.SPN_INFO_CHANGED',
 
@@ -1926,7 +2091,8 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = 'usual.event.QUICK_FIX_APPLY_RESULT',
 
@@ -1935,7 +2101,8 @@ declare namespace commonEventManager {
      * This common event can be triggered only by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_QUICK_FIX_REVOKE_RESULT = 'usual.event.QUICK_FIX_REVOKE_RESULT',
 
@@ -1964,7 +2131,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIM_STATE_CHANGED = 'usual.event.SIM_STATE_CHANGED',
 
@@ -1975,7 +2143,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SMS_RECEIVE_COMPLETED = 'usual.event.SMS_RECEIVE_COMPLETED',
 
@@ -1985,7 +2154,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SMS_EMERGENCY_CB_RECEIVE_COMPLETED = 'usual.event.SMS_EMERGENCY_CB_RECEIVE_COMPLETED',
 
@@ -1995,7 +2165,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SMS_CB_RECEIVE_COMPLETED = 'usual.event.SMS_CB_RECEIVE_COMPLETED',
 
@@ -2007,7 +2178,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_STK_COMMAND = 'usual.event.STK_COMMAND',
 
@@ -2019,7 +2191,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_STK_SESSION_END = 'usual.event.STK_SESSION_END',
 
@@ -2031,7 +2204,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_STK_CARD_STATE_CHANGED = 'usual.event.STK_CARD_STATE_CHANGED',
 
@@ -2043,7 +2217,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_STK_ALPHA_IDENTIFIER = 'usual.event.STK_ALPHA_IDENTIFIER',
 
@@ -2053,7 +2228,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SMS_WAPPUSH_RECEIVE_COMPLETED = 'usual.event.SMS_WAPPUSH_RECEIVE_COMPLETED',
 
@@ -2063,7 +2239,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_OPERATOR_CONFIG_CHANGED = 'usual.event.OPERATOR_CONFIG_CHANGED',
 
@@ -2073,7 +2250,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_SMS_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_SMS_SUBSCRIPTION_CHANGED',
 
@@ -2083,7 +2261,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_DATA_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_DATA_SUBSCRIPTION_CHANGED',
 
@@ -2093,7 +2272,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED',
 
@@ -2103,7 +2283,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SET_PRIMARY_SLOT_STATUS = 'usual.event.SET_PRIMARY_SLOT_STATUS',
 
@@ -2113,7 +2294,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PRIMARY_SLOT_ROAMING = 'usual.event.PRIMARY_SLOT_ROAMING',
 
@@ -2123,7 +2305,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIM_CARD_DEFAULT_VOICE_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_VOICE_SUBSCRIPTION_CHANGED',
 
@@ -2134,7 +2317,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CALL_STATE_CHANGED = 'usual.event.CALL_STATE_CHANGED',
 
@@ -2144,7 +2328,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CELLULAR_DATA_STATE_CHANGED = 'usual.event.CELLULAR_DATA_STATE_CHANGED',
 
@@ -2153,7 +2338,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_NETWORK_STATE_CHANGED = 'usual.event.NETWORK_STATE_CHANGED',
 
@@ -2162,7 +2348,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SIGNAL_INFO_CHANGED = 'usual.event.SIGNAL_INFO_CHANGED',
 
@@ -2174,7 +2361,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_INCOMING_CALL_MISSED = 'usual.event.INCOMING_CALL_MISSED',
 
@@ -2184,7 +2372,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_RADIO_STATE_CHANGE = 'usual.event.RADIO_STATE_CHANGE',
 
@@ -2194,7 +2383,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DOMAIN_ACCOUNT_STATUS_CHANGED = 'usual.event.DOMAIN_ACCOUNT_STATUS_CHANGED',
 
@@ -2209,7 +2399,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_UNLOCKED = 'usual.event.SCREEN_UNLOCKED',
 
@@ -2224,7 +2415,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
 
@@ -2241,7 +2433,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_CONNECTIVITY_CHANGE = 'usual.event.CONNECTIVITY_CHANGE',
 
@@ -2251,7 +2444,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SPECIAL_CODE = 'common.event.SPECIAL_CODE',
 
@@ -2261,7 +2455,8 @@ declare namespace commonEventManager {
       *
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
-      * @since 10
+      * @since arkts {'1.1':'10', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
 
@@ -2271,7 +2466,8 @@ declare namespace commonEventManager {
       *
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
-      * @since 11
+      * @since arkts {'1.1':'11', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
 
@@ -2281,7 +2477,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
 
@@ -2291,7 +2488,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
 
@@ -2325,7 +2523,8 @@ declare namespace commonEventManager {
      * 
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',    
 
@@ -2335,7 +2534,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
 
@@ -2345,7 +2545,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_VPN_CONNECTION_STATUS_CHANGED = 'usual.event.VPN_CONNECTION_STATUS_CHANGED',
 
@@ -2357,7 +2558,8 @@ declare namespace commonEventManager {
      * 
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
 
@@ -2366,7 +2568,8 @@ declare namespace commonEventManager {
      * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED = 'usual.event.MANAGED_BROWSER_POLICY_CHANGED',
 
@@ -2378,7 +2581,8 @@ declare namespace commonEventManager {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_DEFAULT_APPLICATION_CHANGED = 'usual.event.DEFAULT_APPLICATION_CHANGED',
 
@@ -2390,6 +2594,7 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
 
