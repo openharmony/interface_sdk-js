@@ -5080,7 +5080,7 @@ declare namespace avSession {
      * @atomicservice
      * @since 20
      */
-    customData?: string;
+    launchClientData?: string;
   }
 
   /**
@@ -5863,12 +5863,12 @@ declare namespace avSession {
 
     /**
      * Whether the device supports pull-end playback, including a collection of pull-end client IDs.
-     * @type { ?Array<string> } Bundle names of pull-end clients.
+     * @type { ?Array<number> } IDs of pull-end clients.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 20
      */
-    supportedPullClients?: Array<string>;
+    supportedPullClients?: Array<number>;
 
     /**
      * Define different authentication status.
