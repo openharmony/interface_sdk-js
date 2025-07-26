@@ -23,7 +23,8 @@
  *
  * @typedef NotificationTemplate
  * @syscap SystemCapability.Notification.Notification
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationTemplate {
   /**
@@ -31,7 +32,8 @@ export interface NotificationTemplate {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   name: string;
 
@@ -43,7 +45,8 @@ export interface NotificationTemplate {
    *
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   data: Record<string, Object>;
 }

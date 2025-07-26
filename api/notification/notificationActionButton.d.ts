@@ -19,14 +19,20 @@
  */
 
 import { NotificationUserInput } from './notificationUserInput';
+/*** if arkts 1.1 */
 import { WantAgent } from '../@ohos.wantAgent';
+/*** endif */
+/*** if arkts 1.2 */
+import { WantAgent } from '../@ohos.app.ability.wantAgent';
+/*** endif */
 
 /**
  * The NotificationActionButton module provides APIs for describing the button displayed in the notification.
  *
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationActionButton {
   /**
@@ -34,7 +40,8 @@ export interface NotificationActionButton {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title: string;
 
@@ -43,7 +50,8 @@ export interface NotificationActionButton {
    *
    * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wantAgent: WantAgent;
 
@@ -57,11 +65,22 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
+   * Extra information of the button.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   * @arkts 1.2
+   */
+  extras?: Record<string, Object>;
+
+  /**
    * User input object. ID entered by a subscriber.
    *
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   userInput?: NotificationUserInput;
 }

@@ -23,7 +23,8 @@
  *
  * @typedef BundleOption
  * @syscap SystemCapability.Notification.Notification
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface BundleOption {
   /**
@@ -31,7 +32,8 @@ export interface BundleOption {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundle: string;
 
@@ -40,7 +42,8 @@ export interface BundleOption {
    *
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uid?: number;
 }
