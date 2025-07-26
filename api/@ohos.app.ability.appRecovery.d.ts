@@ -48,14 +48,14 @@ declare namespace appRecovery {
   /**
    * The flag that determines when to restart you app.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
    * The flag that determines when to restart you app.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
@@ -132,7 +132,7 @@ declare namespace appRecovery {
    * When start saving ability state, the { ohos.app.ability.UiAbility.onSaveState } will be called and
    * the page stack of current ability will be saved automatically.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -141,7 +141,7 @@ declare namespace appRecovery {
    * When start saving ability state, the { ohos.app.ability.UiAbility.onSaveState } will be called and
    * the page stack of current ability will be saved automatically.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
@@ -188,14 +188,14 @@ declare namespace appRecovery {
   /**
    * The flag that determines how to save the ability state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
   /**
    * The flag that determines how to save the ability state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
