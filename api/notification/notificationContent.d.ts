@@ -21,6 +21,7 @@
 import image from '../@ohos.multimedia.image';
 import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
+import type { WantAgent } from '../@ohos.wantAgent';
 /*** if arkts 1.1 */
 import notification from '../@ohos.notification';
 /*** endif */
