@@ -534,7 +534,7 @@ interface RectInterface {
    * Called when a rectangle is created.
    *
    * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
+   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -543,7 +543,7 @@ interface RectInterface {
    * Called when a rectangle is created.
    *
    * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
-  *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
+   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form

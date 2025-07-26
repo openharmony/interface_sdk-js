@@ -14,19 +14,20 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { LineAttribute } from './component/line';
+import { PathAttribute } from './component/path';
 
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
- * Defines Line Modifier
+ * Defines Path Modifier
  *
- * @implements LineAttribute, AttributeModifier<LineAttribute>
+ * @implements PathAttribute, AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
-export declare class LineModifier implements LineAttribute, AttributeModifier<LineAttribute> {}
+ * @noninterop
+ */
+export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}

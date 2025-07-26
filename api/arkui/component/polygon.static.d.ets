@@ -1,4 +1,3 @@
-use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@ use static;
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
@@ -27,9 +26,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface PolygonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface PolygonOptions {
@@ -38,9 +34,6 @@ export declare interface PolygonOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     width?: string | double;
@@ -49,9 +42,6 @@ export declare interface PolygonOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     height?: string | double;
@@ -60,34 +50,27 @@ export declare interface PolygonOptions {
 /**
  * Provides attribute for Polygon.
  *
- * @extends CommonShapeMethod<PolygonAttribute>
+ * @extends CommonShapeMethod
  * @interface PolygonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface PolygonAttribute extends CommonShapeMethod {
     /**
      * Called when the vertex coordinate list of a polygon is set.
      *
-     * @param { Array<ShapePoint> } value
+     * @param { Array<ShapePoint> | undefined } value
      * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
      * Call attributeModifier.
      *
-     * @param { AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Polygon’s AttributeModifier
-     * @returns { this }
+     * @param { AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -97,10 +80,9 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
  * Polygon is returned when the parameter is transferred.
  *
  * @param { PolygonOptions } [options] - The options to create a Polygon
+ * @param { function } [content_]
  * @returns { PolygonAttribute } The attribute of the Polygon.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo

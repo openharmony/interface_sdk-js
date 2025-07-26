@@ -66,7 +66,6 @@ import { SliderAttribute, SliderOptions } from './component/slider';
 import { ToggleAttribute, ToggleOptions } from './component/toggle';
 import { CheckboxGroupAttribute, CheckboxGroupOptions } from './component/checkboxgroup';
 import { RatingAttribute, RatingOptions } from './component/rating';
-import { XComponentAttribute, XComponentController, XComponentOptions, XComponentParameters, NativeXComponentParameters } from './component/xcomponent';
 
 /*** endif */
 /**
@@ -3026,69 +3025,6 @@ export declare namespace typeNode {
   type XComponent = TypedFrameNode<XComponentInterface, XComponentAttribute>;
 
   /**
-   * Defines the XComponent type of FrameNode.
-   * 
-   * @extends TypedFrameNode<XComponentAttribute>
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
-    /**
-     * Initialize XComponent FrameNode.
-     * 
-     * @param { XComponentParameters } value - Indicates the options of the xcomponent.
-     * @returns { XComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    abstract initialize(value: XComponentParameters): XComponentAttribute;
-
-    /**
-     * Initialize XComponent FrameNode.
-     * 
-     * @param { XComponentOptions } options - Indicates the options of the xcomponent.
-     * @returns { XComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    abstract initialize(options: XComponentOptions): XComponentAttribute;
-
-    /**
-     * Initialize XComponent FrameNode.
-     * 
-     * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the xcomponent for native developing.
-     * @returns { XComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    abstract initialize(params: NativeXComponentParameters): XComponentAttribute;
-  }
-
-  /**
-   * Define the FrameNode type for XComponent.
-   *
-   * @typedef { XComponentFrameNode } XComponent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type XComponent = XComponentFrameNode;
-
-  /**
    * Create a FrameNode of XComponent type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -3097,17 +3033,6 @@ export declare namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */
-  /**
-   * Create a FrameNode of XComponent type.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
    */
   function createNode(context: UIContext, nodeType: 'XComponent'): XComponent;
 
@@ -3122,18 +3047,6 @@ export declare namespace typeNode {
    * @atomicservice
    * @since 12
    */
-  /**
-   * Create a FrameNode of XComponent type with options.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
-   * @param { XComponentOptions } options - initialization parameters.
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
-   */
   function createNode(context: UIContext, nodeType: 'XComponent', options: XComponentOptions): XComponent;
 
   /**
@@ -3146,18 +3059,6 @@ export declare namespace typeNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 19
-   */
-  /**
-   * Create a FrameNode of XComponent type with options for native developing.
-   *
-   * @param { UIContext } context - uiContext used to create the FrameNode.
-   * @param { 'XComponent' } nodeType - node type.
-   * @param { NativeXComponentParameters } parameters - initialization parameters.
-   * @returns { XComponent } - Return XComponent type FrameNode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
    */
   function createNode(context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 

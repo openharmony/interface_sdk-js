@@ -14,19 +14,20 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { PolylineAttribute } from './component/polyline';
+import { LineAttribute } from './component/line';
 
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
- * Defines Polyline Modifier
+ * Defines Line Modifier
  *
- * @implements PolylineAttribute, AttributeModifier<PolylineAttribute>
+ * @implements LineAttribute, AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
-export declare class PolylineModifier implements PolylineAttribute, AttributeModifier<PolylineAttribute> {}
+ * @noninterop
+ */
+export declare class LineModifier implements LineAttribute, AttributeModifier<LineAttribute> {}

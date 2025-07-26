@@ -1,4 +1,3 @@
-use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@ use static;
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -26,9 +25,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface EllipseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export interface EllipseOptions {
@@ -37,9 +33,6 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     width?: string | double;
@@ -48,9 +41,6 @@ export interface EllipseOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     height?: string | double;
@@ -58,22 +48,18 @@ export interface EllipseOptions {
 
 /**
  * Provides attribute for Ellipse.
- * @extends CommonShapeMethod<EllipseAttribute>
+ * @extends CommonShapeMethod
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
      * Call attributeModifier.
      *
-     * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Ellipse’s AttributeModifier
-     * @returns { this }
+     * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { EllipseAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -83,10 +69,9 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * Ellipse is returned when the parameter is transferred.
  *
  * @param { EllipseOptions } [options] - The options to create an Ellipse
+ * @param { function } [content_]
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo

@@ -1,4 +1,3 @@
-use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@ use static;
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -26,9 +25,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface PathOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface PathOptions {
@@ -36,9 +32,6 @@ export declare interface PathOptions {
      * Width option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     width?: double | string;
@@ -46,9 +39,6 @@ export declare interface PathOptions {
      * Height option.
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     height?: double | string;
@@ -56,9 +46,6 @@ export declare interface PathOptions {
      * Commands option.
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     commands?: string;
@@ -67,34 +54,27 @@ export declare interface PathOptions {
 /**
  * Provides methods for attribute path component.
  *
- * @extends CommonShapeMethod<PathAttribute>
+ * @extends CommonShapeMethod
  * @interface PathAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
      * Called when the command string drawn by the path is set.
      *
-     * @param { string } value
+     * @param { string | undefined } value
      * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default commands(value: string | undefined): this;
     /**
      * Call attributeModifier.
      *
-     * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Path’s AttributeModifier
-     * @returns { this }
+     * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { PathAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -104,10 +84,9 @@ export declare interface PathAttribute extends CommonShapeMethod {
  * Path is returned when the parameter is transferred.
  *
  * @param { PathOptions } [options] - The options to create a Path
+ * @param { function } [content_]
  * @returns { PathAttribute } The attribute of the Path.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo

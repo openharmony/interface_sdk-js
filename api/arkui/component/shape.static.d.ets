@@ -1,4 +1,3 @@
-use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@ use static;
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonMethod, PixelMap, AttributeModifier } from "./common";
 import { ResourceColor, Length } from "./units";
@@ -29,9 +28,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @interface ViewportRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface ViewportRect {
@@ -41,9 +37,6 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     x?: double | string;
@@ -52,9 +45,6 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     y?: double | string;
@@ -63,9 +53,6 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     width?: double | string;
@@ -74,9 +61,6 @@ export declare interface ViewportRect {
      *
      * @type { ?(double | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     height?: double | string;
@@ -84,180 +68,137 @@ export declare interface ViewportRect {
 
 /**
  * Provides attribute for Shape.
- * @extends CommonMethod<ShapeAttribute>
+ * @extends CommonMethod
  * @interface ShapeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface ShapeAttribute extends CommonMethod {
     /**
      * Viewport of shape
      *
-     * @param { ViewportRect } value
+     * @param { ViewportRect | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default viewPort(value: ViewportRect | undefined): this;
     /**
      * Called when the border color is set.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default stroke(value: ResourceColor | undefined): this;
     /**
      * Called when the fill color is set.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default fill(value: ResourceColor | undefined): this;
     /**
      * Called when the offset of the starting point of border drawing is set.
      *
-     * @param { double | string } value
+     * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeDashOffset(value: double | string | undefined): this;
     /**
      * Called when the gap of the border is set.
      *
-     * @param { Array<Length> } value
+     * @param { Array<Length> | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeDashArray(value: Array<Length> | undefined): this;
     /**
      * Called when the path endpoint drawing style is set.
      *
-     * @param { LineCapStyle } value
+     * @param { LineCapStyle | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeLineCap(value: LineCapStyle | undefined): this;
     /**
      * Called when the border corner drawing style is set.
      *
-     * @param { LineJoinStyle } value
+     * @param { LineJoinStyle | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeLineJoin(value: LineJoinStyle | undefined): this;
     /**
      * Called when the limit value for drawing acute angles as oblique angles is set.
      *
-     * @param { double | string } value
+     * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeMiterLimit(value: double | string | undefined): this;
     /**
      * Called when the opacity of the border is set.
      *
-     * @param { double | string | Resource } value
+     * @param { double | string | Resource | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeOpacity(value: double | string | Resource | undefined): this;
     /**
      * Called when the transparency of the border is set.
      *
-     * @param { double | string | Resource } value
+     * @param { double | string | Resource | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default fillOpacity(value: double | string | Resource | undefined): this;
     /**
      * Called when the width of the border is set.
      *
-     * @param { double | string } value
+     * @param { double | string | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default strokeWidth(value: double | string | undefined): this;
     /**
      * Called when setting whether anti aliasing is on.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default antiAlias(value: boolean | undefined): this;
     /**
      * Called when shape mesh.
      *
-     * @param { Array<double> } value
-     * @param { int } column
-     * @param { int } row
+     * @param { Array<double> | undefined } value
+     * @param { int | undefined } column
+     * @param { int | undefined } row
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default mesh(value: Array<double> | undefined, column: int | undefined, row: int | undefined): this;
     /**
      * Call attributeModifier.
      *
-     * @param { AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Shape’s AttributeModifier
-     * @returns { this }
+     * @param { AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -267,10 +208,9 @@ export declare interface ShapeAttribute extends CommonMethod {
  * Shape is returned when the parameter is transferred.
  *
  * @param { PixelMap } [value] - A pixelMap can be drawn in the area of shape.
+ * @param { function } [content_]
  * @returns { ShapeAttribute } The attribute of the Shape.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo

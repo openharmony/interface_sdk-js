@@ -14,19 +14,20 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { PathAttribute } from './component/path';
+import { RectAttribute } from './component/rect';
 
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
- * Defines Path Modifier
+ * Defines Rect Modifier
  *
- * @implements PathAttribute, AttributeModifier<PathAttribute>
+ * @implements RectAttribute, AttributeModifier<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
-export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}
+ * @noninterop
+ */
+export declare class RectModifier implements RectAttribute, AttributeModifier<RectAttribute> {}

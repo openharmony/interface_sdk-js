@@ -14,19 +14,20 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { VideoAttribute } from './component/video';
+import { ShapeAttribute } from './component/shape';
 
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
- * Defines Video Modifier
+ * Defines Shape Modifier
  *
- * @implements VideoAttribute, AttributeModifier<VideoAttribute>
+ * @implements ShapeAttribute, AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
-export declare class VideoModifier implements VideoAttribute, AttributeModifier<VideoAttribute> {}
+ * @noninterop
+ */
+export declare class ShapeModifier implements ShapeAttribute, AttributeModifier<ShapeAttribute> {}

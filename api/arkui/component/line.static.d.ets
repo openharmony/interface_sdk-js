@@ -1,4 +1,3 @@
-use static;
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,7 @@ use static;
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { Length } from "./units";
@@ -27,9 +26,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @typedef { [Length, Length] } ShapePoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export type ShapePoint = [
@@ -42,9 +38,6 @@ export type ShapePoint = [
  *
  * @interface LineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export interface LineOptions {
@@ -53,9 +46,6 @@ export interface LineOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     width?: string | double;
@@ -64,9 +54,6 @@ export interface LineOptions {
      *
      * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     height?: string | double;
@@ -75,46 +62,36 @@ export interface LineOptions {
 /**
  * Provides attribute for Line.
  *
- * @extends CommonShapeMethod<LineAttribute>
+ * @extends CommonShapeMethod
  * @interface LineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface LineAttribute extends CommonShapeMethod {
     /**
      * Coordinate of the start point of the line (relative coordinate).
      *
-     * @param { ShapePoint } value
+     * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default startPoint(value: ShapePoint | undefined): this;
     /**
      * Line end coordinates (relative coordinates).
      *
-     * @param { ShapePoint } value
+     * @param { ShapePoint | undefined } value
      * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default endPoint(value: ShapePoint | undefined): this;
     /**
      * Call attributeModifier.
      *
-     * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - Line’s AttributeModifier
-     * @returns { this }
+     * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { LineAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -124,10 +101,9 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * Line is returned when the parameter is transferred.
  *
  * @param { LineOptions } [options] - The options to create a Line
+ * @param { function } [content_]
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo

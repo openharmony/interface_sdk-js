@@ -19,6 +19,7 @@ import { PolygonAttribute } from './component/polygon';
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
@@ -26,7 +27,7 @@ import { PolygonAttribute } from './component/polygon';
  *
  * @implements PolygonAttribute, AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class PolygonModifier implements PolygonAttribute, AttributeModifier<PolygonAttribute> {}
