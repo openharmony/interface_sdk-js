@@ -974,7 +974,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   onResult(callback: Optional<Callback<Object | null | undefined>>): NavDestinationAttribute;
 

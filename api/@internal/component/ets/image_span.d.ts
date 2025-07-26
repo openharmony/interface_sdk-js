@@ -22,7 +22,6 @@
 import { ResourceStr, ColorFilter} from './units';
 import { BaseSpan } from './span';
 import { ImageSpanAlignment, ImageFit } from './enums';
-// import { ImageErrorCallback, DrawingColorFilter } from './image';
 import { ImageErrorCallback } from './image';
 import { PixelMap } from './common';
 import image from '../../@ohos.multimedia.image';

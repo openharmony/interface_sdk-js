@@ -20,7 +20,6 @@
 
 /*** if arkts 1.2 */
 import image from '../../@ohos.multimedia.image';
-// import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4'
 import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
@@ -58,18 +57,6 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
-// /**
-//  * Import the DrawingColorFilter type object for image color filter setting.
-//  *
-//  * @typedef { drawing.ColorFilter } DrawingColorFilter
-//  * @syscap SystemCapability.ArkUI.ArkUI.Full
-//  * @crossplatform
-//  * @atomicservice
-//  * @since 20
-//  * @arkts 1.2
-//  */
-// declare type DrawingColorFilter = drawing.ColorFilter;
-
 /**
  * Enumerates all the levels available for the image resolution quality.
  *
@@ -101,18 +88,6 @@ declare type ResolutionQuality = image.ResolutionQuality;
  * @since 12
  */
 declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
-
-// /**
-//  * Lattice for dividing an image into grids.
-//  *
-//  * @typedef { drawing.Lattice } DrawingLattice
-//  * @syscap SystemCapability.ArkUI.ArkUI.Full
-//  * @crossplatform
-//  * @atomicservice
-//  * @since 20
-//  * @arkts 1.2
-//  */
-// declare type DrawingLattice = drawing.Lattice;
 
 /**
  * Object matrix used for setting image transformations.

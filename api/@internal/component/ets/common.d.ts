@@ -33272,8 +33272,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   /**
    * onFormRecover Method, this is only for ArkTS form, it is migrated from class CustomComponent.
@@ -33283,7 +33282,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFormRecover?(statusData: string): void;
 
@@ -33368,8 +33368,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * PageTransition Method and it is migrated from class CustomComponent.
@@ -33378,7 +33377,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pageTransition?(): void;
 

@@ -603,19 +603,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 20
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
-
-  /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | ResourceStr } value
-   * @returns { TextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
   
   /**
    * Called when the font weight is set.
