@@ -318,7 +318,7 @@ declare namespace onScreen {
    * @param { ControlEvent } event - Indicates the control event sent to the screen
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   * <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * <br> permission: ohos.permission.SIMULATE_USER_INPUT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
