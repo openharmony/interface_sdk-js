@@ -12,14 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
- */
+*/
 
- export declare class BackingValue<T> {
-    public constructor(initValue: T)
-    public get value(): T
-    public set value(newVale: T)
- }
+import promptAction from '@ohos.promptAction';
+import { ComponentContent } from '@ohos.arkui.node';
+export { promptAction, ComponentContent };
+export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.stateManagement';
+export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';

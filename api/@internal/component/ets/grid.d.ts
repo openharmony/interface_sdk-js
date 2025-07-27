@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { EdgeEffectOptions, NestedScrollOptions, ItemDragInfo, ScrollableCommonMethod, Optional, CommonMethod, OnWillScrollCallback, OnScrollCallback, OnItemDragStartCallback } from './common';
+import { Length, Resource } from './units';
+import { Scroller, OnScrollFrameBeginCallback } from './scroll';
+import { ScrollState } from './list';
+import { BarState, Color, EdgeEffect } from './enums';
+/*** endif */
+
 /**
  * The options to help grid layout
  *
@@ -33,7 +41,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GridLayoutOptions {
   /**
@@ -51,7 +60,8 @@ declare interface GridLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   regularSize: [number, number];
 
@@ -72,7 +82,8 @@ declare interface GridLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   irregularIndexes?: number[];
 
@@ -93,7 +104,8 @@ declare interface GridLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onGetIrregularSizeByIndex?: (index: number) => [number, number]
 
@@ -114,7 +126,8 @@ declare interface GridLayoutOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onGetRectByIndex?: (index: number) => [number, number, number, number]
 }
@@ -141,7 +154,8 @@ declare interface GridLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface GridInterface {
   /**
@@ -171,7 +185,8 @@ interface GridInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (scroller?: Scroller, layoutOptions?: GridLayoutOptions): GridAttribute;
 }
@@ -198,7 +213,8 @@ interface GridInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum GridDirection {
   /**
@@ -220,7 +236,8 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Row,
 
@@ -243,7 +260,8 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Column,
 
@@ -266,7 +284,8 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RowReverse,
 
@@ -289,7 +308,8 @@ declare enum GridDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ColumnReverse,
 }
@@ -301,7 +321,8 @@ declare enum GridDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum GridItemAlignment {
 
@@ -311,7 +332,8 @@ declare enum GridItemAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DEFAULT = 0,
 
@@ -322,7 +344,8 @@ declare enum GridItemAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   STRETCH = 1,
 }
@@ -342,7 +365,8 @@ declare enum GridItemAlignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ComputedBarAttribute {
   /**
@@ -360,7 +384,8 @@ declare interface ComputedBarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   totalOffset: number;
 
@@ -379,7 +404,8 @@ declare interface ComputedBarAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   totalLength: number;
 }
@@ -465,7 +491,8 @@ declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
@@ -493,7 +520,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   columnsTemplate(value: string): GridAttribute;
 
@@ -522,7 +550,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rowsTemplate(value: string): GridAttribute;
 
@@ -551,7 +580,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   columnsGap(value: Length): GridAttribute;
 
@@ -580,7 +610,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rowsGap(value: Length): GridAttribute;
 
@@ -692,7 +723,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onScrollBarUpdate(event: (index: number, offset: number) => ComputedBarAttribute): GridAttribute;
 
@@ -726,7 +758,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onScrollIndex(event: (first: number, last: number) => void): GridAttribute;
 
@@ -755,7 +788,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cachedCount(value: number): GridAttribute;
 
@@ -767,7 +801,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cachedCount(count: number, show: boolean): GridAttribute;
 
@@ -796,7 +831,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editMode(value: boolean): GridAttribute;
 
@@ -825,7 +861,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   multiSelectable(value: boolean): GridAttribute;
 
@@ -854,7 +891,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxCount(value: number): GridAttribute;
 
@@ -883,7 +921,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minCount(value: number): GridAttribute;
 
@@ -912,7 +951,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cellLength(value: number): GridAttribute;
 
@@ -941,7 +981,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   layoutDirection(value: GridDirection): GridAttribute;
 
@@ -970,7 +1011,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   supportAnimation(value: boolean): GridAttribute;
 
@@ -1006,6 +1048,19 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    */
   onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): GridAttribute;
 
+   /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { OnItemDragStartCallback } event
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onItemDragStart(event: OnItemDragStartCallback): GridAttribute;
+  
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
@@ -1031,7 +1086,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onItemDragEnter(event: (event: ItemDragInfo) => void): GridAttribute;
 
@@ -1060,7 +1116,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): GridAttribute;
 
@@ -1089,7 +1146,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): GridAttribute;
 
@@ -1121,7 +1179,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onItemDrop(
     event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
@@ -1219,7 +1278,8 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
@@ -1381,6 +1441,45 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 11
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): GridAttribute;
+
+  /**
+   * Called when scrolling begin each frame.
+   * Anonymous Object Rectification.
+   *
+   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * @returns { GridAttribute } Returns the instance of the GridAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onScrollFrameBegin(event: OnScrollFrameBeginCallback): GridAttribute;
+
+  /**
+   * Called when the scrollable will scroll.
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onWillScroll(handler: Optional<OnWillScrollCallback>): GridAttribute;
+  
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDidScroll(handler: OnScrollCallback): GridAttribute;
 }
 
 /**

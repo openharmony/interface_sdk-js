@@ -31,7 +31,8 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ColorMode {
   /**
@@ -45,7 +46,8 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LIGHT = 0,
 
@@ -60,7 +62,8 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DARK,
 }
@@ -78,7 +81,8 @@ declare enum ColorMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum LayoutDirection {
   /**
@@ -92,7 +96,8 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LTR,
 
@@ -107,7 +112,8 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RTL,
 
@@ -122,7 +128,8 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Auto,
 }
@@ -132,7 +139,8 @@ declare enum LayoutDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since arkts {'1.1':'7','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class Storage {
   /**
@@ -142,7 +150,8 @@ declare class Storage {
    * @param { string } file
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(needCrossThread?: boolean, file?: string);
 
@@ -153,7 +162,8 @@ declare class Storage {
    * @returns { string | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   get(key: string): string | undefined;
 
@@ -167,13 +177,26 @@ declare class Storage {
    * @since 7
    */
   set(key: string, val: any): void;
+  
+  /**
+   * Called when setting.
+   *
+   * @param { string } key
+   * @param { Object | undefined | null } val
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  set(key: string, val: Object | undefined | null): void;
 
   /**
    * Called when data is cleared.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clear(): void;
 
@@ -183,7 +206,8 @@ declare class Storage {
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   delete(key: string): void;
 }

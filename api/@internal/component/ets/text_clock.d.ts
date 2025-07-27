@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common'
+import { ResourceColor, Length, ResourceStr } from './units'
+import { FontStyle, FontWeight } from './enums'
+/*** endif */
+
 /**
  * Provides a way to control the textclock status.
  *
@@ -38,7 +44,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextClockController {
   /**
@@ -61,7 +68,8 @@ declare class TextClockController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -88,6 +96,17 @@ declare class TextClockController {
    */
   start();
   /**
+   * Provides a start event for textclock.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  start(): void;
+  /**
    * Provides a stop event for textclock.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -110,6 +129,17 @@ declare class TextClockController {
    * @since 11
    */
   stop();
+  /**
+   * Provides a stop event for textclock.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  stop(): void;
 }
 
 /**
@@ -120,7 +150,8 @@ declare class TextClockController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
   /**
@@ -132,7 +163,8 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   timeZoneOffset: number;
 
@@ -143,7 +175,8 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   started: boolean;
 
@@ -154,7 +187,8 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   timeValue: number;
 }
@@ -167,7 +201,8 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextClockOptions {
   /**
@@ -204,7 +239,8 @@ declare interface TextClockOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   timeZoneOffset?: number;
 
@@ -242,7 +278,8 @@ declare interface TextClockOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controller?: TextClockController
 }
@@ -270,7 +307,8 @@ declare interface TextClockOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TextClockInterface {
   /**
@@ -323,7 +361,8 @@ interface TextClockInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: TextClockOptions): TextClockAttribute;
 }
@@ -351,7 +390,8 @@ interface TextClockInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
@@ -410,6 +450,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   format(value: ResourceStr): TextClockAttribute;
 
@@ -456,7 +497,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDateChange(event: (value: number) => void): TextClockAttribute;
 
@@ -486,7 +528,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontColor(value: ResourceColor): TextClockAttribute;
 
@@ -516,7 +559,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontSize(value: Length): TextClockAttribute;
 
@@ -546,7 +590,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontStyle(value: FontStyle): TextClockAttribute;
 
@@ -576,7 +621,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): TextClockAttribute;
 
@@ -606,7 +652,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFamily(value: ResourceStr): TextClockAttribute;
 
@@ -629,7 +676,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
@@ -658,7 +706,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontFeature(value: string): TextClockAttribute;
 
@@ -670,7 +719,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
 
@@ -683,7 +733,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dateTimeOptions(dateTimeOptions: Optional<DateTimeOptions>): TextClockAttribute;
 }

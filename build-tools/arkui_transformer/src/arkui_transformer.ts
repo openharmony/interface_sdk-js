@@ -53,6 +53,13 @@ function convertFiles(files: string[]): string[] {
   return result
 }
 
+function getTransformationResult(sourceFile: ts.SourceFile, program: ts.Program, componentFile: ComponentFile): ts.TransformationResult<ts.SourceFile> {
+  if (uiconfig.isHdsComponent) {
+    return ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer()]);
+  }
+  return ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+}
+
 function printResult(source: string, file: ComponentFile) {
   const outPath = path.join(options.targetDir, file.outFileName)
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
@@ -80,10 +87,9 @@ function main() {
     return (context: ts.TransformationContext) => {
       return (sourceFile: ts.SourceFile) => {
         const componentFile = componentFileMap.get(f)!;
-        const result = ts.transform(sourceFile, [interfaceTransformer(program, componentFile), exportAllTransformer(), addImportTransformer()]);
+        const result = getTransformationResult(sourceFile, program, componentFile);
         const transformedFile = ts.createSourceFile(f, printFile(result.transformed[0]), ts.ScriptTarget.Latest, true);
-        const addMemoResult = ts.transform(transformedFile, [addMemoTransformer(componentFile)]);
-        const transformedSource = ts.createPrinter().printFile(addMemoResult.transformed[0]);
+        const transformedSource = ts.createPrinter().printFile(transformedFile);
         printResult(transformedSource, componentFile);
         return ts.createSourceFile("", "", ts.ScriptTarget.Latest, true);
       }
@@ -125,12 +131,6 @@ function main() {
   })
 }
 
-function mock() {
-  const mock_file = path.join(options.targetDir, "type-translated.d.ets")
-  fs.mkdirSync(options.targetDir, { recursive: true })
-  fs.writeFileSync(mock_file, "// WARNING! THIS FILE IS AUTO-GENERATED, DO NOT MAKE CHANGES, THEY WILL BE LOST ON NEXT GENERATION!\n")
-}
-
 const options = program
   .option('--input-dir <path>', "Path of where d.ets exist")
   .option('--target-dir <path>', "Path to generate d.ets file")
@@ -139,4 +139,4 @@ const options = program
   .parse()
   .opts()
 
-mock()
+main()

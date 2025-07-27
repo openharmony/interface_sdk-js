@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonConfiguration, Callback, CommonMethod, Optional, ContentModifier, Bindable } from './common'
+import { ResourceStr } from './units';
+/*** endif */
+
 /**
  * Define options used to construct a rating.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RatingOptions {
   /**
@@ -77,6 +83,19 @@ declare interface RatingOptions {
   rating: number;
 
   /**
+   * Rating option.
+   *
+   * @type { number | undefined | Bindable<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  rating: number | undefined | Bindable<number>;
+
+  /**
    * Indicator option.
    *
    * @type { ?boolean }
@@ -118,7 +137,8 @@ declare interface RatingOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indicator?: boolean
 }
@@ -131,7 +151,8 @@ declare interface RatingOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface StarStyleOptions {
   /**
@@ -178,6 +199,7 @@ declare interface StarStyleOptions {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   backgroundUri: ResourceStr;
 
@@ -225,6 +247,7 @@ declare interface StarStyleOptions {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   foregroundUri: ResourceStr;
 
@@ -272,6 +295,7 @@ declare interface StarStyleOptions {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   secondaryUri?: ResourceStr
 }
@@ -308,7 +332,8 @@ declare interface StarStyleOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RatingInterface {
   /**
@@ -359,7 +384,8 @@ interface RatingInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: RatingOptions): RatingAttribute;
 }
@@ -372,7 +398,8 @@ interface RatingInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RatingConfiguration extends CommonConfiguration<RatingConfiguration> {
   /**
@@ -382,7 +409,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rating: number;
 
@@ -393,7 +421,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indicator: boolean;
 
@@ -404,7 +433,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stars: number;
 
@@ -415,7 +445,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stepSize: number;
 
@@ -426,7 +457,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerChange: Callback<number>;
 }
@@ -439,7 +471,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
   declare type OnRatingChangeCallback = (rating: number) => void;
 
@@ -475,7 +508,8 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
@@ -514,7 +548,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stars(value: number): RatingAttribute;
 
@@ -527,7 +562,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   stars(starCount: Optional<number>): RatingAttribute;
 
@@ -567,7 +603,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stepSize(value: number): RatingAttribute;
 
@@ -580,7 +617,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   stepSize(size: Optional<number>): RatingAttribute;
 
@@ -632,7 +670,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   starStyle(options: StarStyleOptions): RatingAttribute;
 
@@ -645,7 +684,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   starStyle(options: Optional<StarStyleOptions>): RatingAttribute;
 
@@ -698,7 +738,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   onChange(callback: Optional<OnRatingChangeCallback>): RatingAttribute;
 
@@ -710,7 +751,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<RatingConfiguration>): RatingAttribute;
 
@@ -722,7 +764,8 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   contentModifier(modifier: Optional<ContentModifier<RatingConfiguration>>): RatingAttribute;
 }

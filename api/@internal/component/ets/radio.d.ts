@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod, ContentModifier, CommonConfiguration, Callback, Bindable } from './common';
+import { CustomBuilder } from './builder';
+import { ResourceColor } from './units';
+/*** endif */
+
 /**
  * Defines the IndicatorType of Radio component
  *
@@ -26,7 +32,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum RadioIndicatorType {
   /**
@@ -36,7 +43,8 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TICK = 0,
   /**
@@ -46,7 +54,8 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   DOT = 1,
     /**
@@ -56,7 +65,8 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CUSTOM = 2,
 }
@@ -93,7 +103,8 @@ declare enum RadioIndicatorType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RadioOptions {
   /**
@@ -128,7 +139,8 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   group: string;
 
@@ -164,7 +176,8 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
   /**
@@ -175,7 +188,8 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indicatorType?: RadioIndicatorType;
   /**
@@ -186,7 +200,8 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indicatorBuilder?: CustomBuilder;
 }
@@ -206,7 +221,8 @@ declare interface RadioOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RadioStyle {
   /**
@@ -226,7 +242,8 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checkedBackgroundColor?: ResourceColor;
 
@@ -247,7 +264,8 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   uncheckedBorderColor?: ResourceColor;
 
@@ -268,7 +286,8 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indicatorColor?: ResourceColor;
 }
@@ -305,7 +324,8 @@ declare interface RadioStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RadioInterface {
   /**
@@ -344,7 +364,8 @@ interface RadioInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: RadioOptions): RadioAttribute;
 }
@@ -356,7 +377,8 @@ interface RadioInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnRadioChangeCallback = (isChecked: boolean) => void;
 
@@ -392,7 +414,8 @@ declare type OnRadioChangeCallback = (isChecked: boolean) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
@@ -449,6 +472,20 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   checked(isChecked: Optional<boolean>): RadioAttribute;
 
   /**
+   * Called when the radio box is selected.
+   *
+   * @param { boolean | undefined | Bindable<boolean> } isChecked
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  checked(isChecked: boolean | undefined | Bindable<boolean>): RadioAttribute;
+
+  /**
    * Called when the radio box selection status changes.
    *
    * @param { function } callback
@@ -497,7 +534,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
 
@@ -518,7 +556,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radioStyle(value?: RadioStyle): RadioAttribute;
 
@@ -530,7 +569,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
 
@@ -542,7 +582,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   contentModifier(modifier: Optional<ContentModifier<RadioConfiguration>>): RadioAttribute;
 }
@@ -555,7 +596,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
     /**
@@ -565,7 +607,8 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
   
@@ -576,7 +619,8 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checked: boolean;
 
@@ -587,7 +631,8 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerChange: Callback<boolean>;
 }

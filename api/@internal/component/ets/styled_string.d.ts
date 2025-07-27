@@ -18,13 +18,25 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap } from './common';
+import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
+import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
+import { TextBackgroundStyle } from './span';
+import { GestureEvent } from "./gesture";
+import { LeadingMarginPlaceholder } from './richEditor';
+import image from '../../@ohos.multimedia.image';
+import { DrawContext } from '../../arkui/Graphics';
+/*** endif */
+
 /**
  * Defines the StyledStringMarshallingValue Type.
  *
  * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
 
@@ -37,7 +49,8 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
@@ -49,7 +62,8 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 19
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
 
@@ -59,7 +73,8 @@ declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class StyledString {
     /**
@@ -70,7 +85,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
@@ -82,7 +98,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly length: number;
 
@@ -93,7 +110,8 @@ declare class StyledString {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     getString(): string;
 
@@ -111,7 +129,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
 
@@ -123,7 +142,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     equals(other: StyledString): boolean;
 
@@ -140,7 +160,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     subStyledString(start: number, length?: number): StyledString;
 
@@ -156,7 +177,8 @@ declare class StyledString {
      * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static fromHtml(html: string): Promise<StyledString>;
 
@@ -172,7 +194,8 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static toHtml(styledString: StyledString): string;
 
@@ -184,7 +207,8 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
 
@@ -201,7 +225,8 @@ declare class StyledString {
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
@@ -212,7 +237,8 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static marshalling(styledString: StyledString): ArrayBuffer;
 
@@ -228,7 +254,8 @@ declare class StyledString {
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
@@ -240,7 +267,8 @@ declare class StyledString {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface StyleOptions {
     /**
@@ -250,7 +278,8 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start?: number;
 
@@ -261,7 +290,8 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     length?: number;
 
@@ -272,7 +302,8 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     styledKey: StyledStringKey;
 
@@ -283,7 +314,8 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     styledValue: StyledStringValue;
 }
@@ -295,7 +327,8 @@ declare interface StyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface SpanStyle {
     /**
@@ -305,7 +338,8 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start: number;
 
@@ -316,7 +350,8 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     length: number;
 
@@ -327,7 +362,8 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     styledKey: StyledStringKey;
 
@@ -338,7 +374,8 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     styledValue: StyledStringValue;
 }
@@ -349,7 +386,8 @@ declare interface SpanStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextStyle {
 
@@ -360,7 +398,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value?: TextStyleInterface);
 
@@ -372,7 +411,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fontColor?: ResourceColor;
 
@@ -384,7 +424,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fontFamily?: string;
 
@@ -397,7 +438,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fontSize?: number;
 
@@ -409,7 +451,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fontWeight?: number;
 
@@ -421,7 +464,8 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly fontStyle?: FontStyle;
 
@@ -469,7 +513,8 @@ declare class TextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TextStyleInterface {
     /**
@@ -479,7 +524,8 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontColor?: ResourceColor;
 
@@ -490,7 +536,8 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontFamily?: ResourceStr;
 
@@ -501,7 +548,8 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontSize?: LengthMetrics;
 
@@ -512,7 +560,8 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontWeight?: number | FontWeight | string;
 
@@ -523,7 +572,8 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontStyle?: FontStyle;
 
@@ -589,7 +639,8 @@ declare interface DecorationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class DecorationStyle {
 
@@ -600,7 +651,8 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value: DecorationStyleInterface);
 
@@ -624,7 +676,8 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly type: TextDecorationType;
 
@@ -636,7 +689,8 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly color?: ResourceColor;
 
@@ -648,7 +702,8 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly style?: TextDecorationStyle;
 
@@ -684,7 +739,8 @@ declare class DecorationStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DecorationStyleInterface {
     /**
@@ -694,7 +750,8 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: TextDecorationType;
 
@@ -705,7 +762,8 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     color?: ResourceColor;
 
@@ -716,7 +774,8 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     style?: TextDecorationStyle;
 
@@ -738,7 +797,8 @@ declare interface DecorationStyleInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BaselineOffsetStyle {
     
@@ -749,7 +809,8 @@ declare class BaselineOffsetStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value: LengthMetrics);
 
@@ -762,7 +823,8 @@ declare class BaselineOffsetStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly baselineOffset: number;
 }
@@ -773,7 +835,8 @@ declare class BaselineOffsetStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LetterSpacingStyle {
    
@@ -784,7 +847,8 @@ declare class LetterSpacingStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value: LengthMetrics);
 
@@ -797,7 +861,8 @@ declare class LetterSpacingStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly letterSpacing: number;
 }
@@ -808,7 +873,8 @@ declare class LetterSpacingStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TextShadowStyle {
    
@@ -819,7 +885,8 @@ declare class TextShadowStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
 
@@ -831,7 +898,8 @@ declare class TextShadowStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly textShadow: Array<ShadowOptions>;
 }
@@ -842,7 +910,8 @@ declare class TextShadowStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BackgroundColorStyle {
 
@@ -853,7 +922,8 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
 
@@ -865,7 +935,8 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
@@ -876,7 +947,8 @@ declare class BackgroundColorStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class GestureStyle {
 
@@ -887,7 +959,8 @@ declare class GestureStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value?: GestureStyleInterface);
 }
@@ -899,7 +972,8 @@ declare class GestureStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GestureStyleInterface {
     /**
@@ -909,7 +983,8 @@ declare interface GestureStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onClick?: Callback<ClickEvent>;
 
@@ -920,7 +995,8 @@ declare interface GestureStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onLongPress?: Callback<GestureEvent>;
 
@@ -942,7 +1018,8 @@ declare interface GestureStyleInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ParagraphStyle {
 
@@ -953,7 +1030,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(value?: ParagraphStyleInterface);
 
@@ -965,7 +1043,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly textAlign?: TextAlign;
 
@@ -990,7 +1069,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly textIndent?: number;
 
@@ -1002,7 +1082,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly maxLines?: number;
 
@@ -1014,7 +1095,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly overflow?: TextOverflow;
 
@@ -1026,7 +1108,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly wordBreak?: WordBreak;
 
@@ -1038,7 +1121,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
 
@@ -1051,7 +1135,8 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly paragraphSpacing?: number;
 }
@@ -1063,7 +1148,8 @@ declare class ParagraphStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ParagraphStyleInterface {
     /**
@@ -1073,7 +1159,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textAlign?: TextAlign;
 
@@ -1095,7 +1182,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textIndent?: LengthMetrics;
 
@@ -1106,7 +1194,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maxLines?: number;
 
@@ -1117,7 +1206,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     overflow?: TextOverflow;
 
@@ -1128,7 +1218,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wordBreak?: WordBreak;
 
@@ -1139,7 +1230,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 
@@ -1150,7 +1242,8 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     paragraphSpacing?: LengthMetrics;
 }
@@ -1161,7 +1254,8 @@ declare interface ParagraphStyleInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class LineHeightStyle {
    
@@ -1172,7 +1266,8 @@ declare class LineHeightStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(lineHeight: LengthMetrics);
 
@@ -1185,7 +1280,8 @@ declare class LineHeightStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly lineHeight: number;
 }
@@ -1197,7 +1293,8 @@ declare class LineHeightStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class UrlStyle {
 
@@ -1208,7 +1305,8 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(url: string);
 
@@ -1220,7 +1318,8 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly url: string;
 }
@@ -1246,7 +1345,8 @@ declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
@@ -1259,9 +1359,23 @@ UserDataSpan | BackgroundColorStyle;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class MutableStyledString extends StyledString {
+    /**
+     * constructor.
+     *
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the MutableStyledString.
+     * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
+
     /**
      * Replace the string of the specified range.
      *
@@ -1275,7 +1389,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     replaceString(start: number, length: number, other: string): void;
 
@@ -1291,7 +1406,8 @@ declare class MutableStyledString extends StyledString {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     insertString(start: number, other: string): void;
 
@@ -1307,7 +1423,8 @@ declare class MutableStyledString extends StyledString {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since arkts {'1.1':'12','1.2':'20'}
+    * @arkts 1.1&1.2
     */
     removeString(start: number, length: number): void;
 
@@ -1322,7 +1439,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     replaceStyle(spanStyle: SpanStyle): void;
 
@@ -1334,7 +1452,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setStyle(spanStyle: SpanStyle): void;
 
@@ -1351,7 +1470,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
 
@@ -1367,7 +1487,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeStyles(start: number, length: number): void;
 
@@ -1377,7 +1498,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clearStyles(): void;
 
@@ -1394,7 +1516,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     replaceStyledString(start: number, length: number, other: StyledString): void;
 
@@ -1410,7 +1533,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     insertStyledString(start: number, other: StyledString): void;
 
@@ -1421,7 +1545,8 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appendStyledString(other: StyledString): void;
 }
@@ -1434,7 +1559,8 @@ declare class MutableStyledString extends StyledString {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum StyledStringKey {
     /**
@@ -1443,7 +1569,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FONT = 0,
 
@@ -1453,7 +1580,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
      DECORATION = 1,
 
@@ -1463,7 +1591,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 12
+      * @since arkts {'1.1':'12','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      BASELINE_OFFSET = 2,
  
@@ -1473,7 +1602,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 12
+      * @since arkts {'1.1':'12','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      LETTER_SPACING = 3,
  
@@ -1483,7 +1613,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 12
+      * @since arkts {'1.1':'12','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      TEXT_SHADOW = 4,
 
@@ -1493,7 +1624,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 12
+      * @since arkts {'1.1':'12','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      LINE_HEIGHT = 5,
 
@@ -1503,7 +1635,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 14
+      * @since arkts {'1.1':'14','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      BACKGROUND_COLOR = 6,
 
@@ -1513,7 +1646,8 @@ declare enum StyledStringKey {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @atomicservice
-      * @since 14
+      * @since arkts {'1.1':'14','1.2':'20'}
+      * @arkts 1.1&1.2
       */
      URL = 7,
 
@@ -1523,7 +1657,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GESTURE = 100,
 
@@ -1533,7 +1668,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARAGRAPH_STYLE = 200,
 
@@ -1543,7 +1679,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE = 300,
 
@@ -1553,7 +1690,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CUSTOM_SPAN = 400,
 
@@ -1563,7 +1701,8 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     USER_DATA = 500,
 }
@@ -1574,7 +1713,8 @@ declare enum StyledStringKey {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ImageAttachment {
 
@@ -1601,6 +1741,18 @@ declare class ImageAttachment {
     constructor(attachment: Optional<AttachmentType>);
 
     /**
+     * constructor supported by AttachmentType.
+     *
+     * @param { ImageAttachmentInterface | Optional<AttachmentType> } attachment - image attachment object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor(value: ImageAttachmentInterface | Optional<AttachmentType>);
+
+    /**
      * Get the image content of the StyledString.
      *
      * @type { PixelMap } - the image content of the StyledString or undefined
@@ -1608,7 +1760,8 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly value: PixelMap;
 
@@ -1620,7 +1773,8 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly size?: SizeOptions;
 
@@ -1632,7 +1786,8 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly verticalAlign?: ImageSpanAlignment;
 
@@ -1644,7 +1799,8 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly objectFit?: ImageFit;
 
@@ -1656,7 +1812,8 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1680,7 +1837,8 @@ declare class ImageAttachment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ResourceImageAttachmentOptions {
     /**
@@ -1690,7 +1848,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     resourceValue: Optional<ResourceStr>;
 
@@ -1701,7 +1860,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
 
@@ -1712,7 +1872,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verticalAlign?: ImageSpanAlignment;
 
@@ -1723,7 +1884,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     objectFit?: ImageFit;
 
@@ -1734,7 +1896,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1757,7 +1920,8 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     syncLoad?: boolean;
 }
@@ -1769,7 +1933,8 @@ declare interface ResourceImageAttachmentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ImageAttachmentInterface {
     /**
@@ -1779,7 +1944,8 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: PixelMap;
 
@@ -1790,7 +1956,8 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
 
@@ -1801,7 +1968,8 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     verticalAlign?: ImageSpanAlignment;
 
@@ -1812,7 +1980,8 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     objectFit?: ImageFit;
 
@@ -1823,7 +1992,8 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
 
@@ -1846,7 +2016,8 @@ declare interface ImageAttachmentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts {'1.1':'15','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
@@ -1868,7 +2039,8 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ImageAttachmentLayoutStyle {
     /**
@@ -1878,7 +2050,8 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     margin?: LengthMetrics | Margin;
 
@@ -1889,7 +2062,8 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     padding?: LengthMetrics | Padding;
 
@@ -1900,7 +2074,8 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
 }
@@ -1912,7 +2087,8 @@ declare interface ImageAttachmentLayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CustomSpanMetrics {
     /**
@@ -1924,7 +2100,8 @@ declare interface CustomSpanMetrics {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
 
@@ -1936,7 +2113,8 @@ declare interface CustomSpanMetrics {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height?: number;
 }
@@ -1948,7 +2126,8 @@ declare interface CustomSpanMetrics {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CustomSpanDrawInfo {
     /**
@@ -1959,7 +2138,8 @@ declare interface CustomSpanDrawInfo {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x: number;
 
@@ -1971,7 +2151,8 @@ declare interface CustomSpanDrawInfo {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lineTop: number;
 
@@ -1983,7 +2164,8 @@ declare interface CustomSpanDrawInfo {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     lineBottom: number;
 
@@ -1995,7 +2177,8 @@ declare interface CustomSpanDrawInfo {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     baseline: number;
 }
@@ -2007,7 +2190,8 @@ declare interface CustomSpanDrawInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CustomSpanMeasureInfo {
     /**
@@ -2018,7 +2202,8 @@ declare interface CustomSpanMeasureInfo {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontSize: number;
 }
@@ -2029,7 +2214,8 @@ declare interface CustomSpanMeasureInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare abstract class CustomSpan {
     /**
@@ -2040,7 +2226,8 @@ declare abstract class CustomSpan {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
 
@@ -2052,7 +2239,8 @@ declare abstract class CustomSpan {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
 
@@ -2062,7 +2250,8 @@ declare abstract class CustomSpan {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     invalidate(): void;
 }
@@ -2073,6 +2262,7 @@ declare abstract class CustomSpan {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare abstract class UserDataSpan {}
