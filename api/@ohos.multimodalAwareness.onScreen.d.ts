@@ -22,7 +22,7 @@
  * This module provides the capability to use on screen awareness
  *
  * @namespace onScreen
- * @syscap SystemCapability.MultimodalAwareness.OnScreen
+ * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
  * @since 20
  */
 
@@ -31,21 +31,21 @@ declare namespace onScreen {
    * Enum for page content scenario
    *
    * @enum { number } Scenario
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20
   */
   export enum Scenario {
     /**
      * indicates unknown scenario
      *
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
      */
     UNKNOWN = 0,
     /**
      * indicates article scenario
      *
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
      */
     ARTICLE = 1,
@@ -54,39 +54,58 @@ declare namespace onScreen {
   /**
    * Enum for control event type
    *
-   * @enum { number } EvenType
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @enum { number } EventType
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20
   */
   export enum EventType {
     /**
-     * indicates unknown eventtype
-     *
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
-     * @since 20
-     */
-    UNKNOWN = 0,
-    /**
      * indicates scroll to hook event type
      *
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
      */
     SCROLL_TO_HOOK = 1,
   }
 
   /**
+   * Interface for paragraph size range
+   * @interface ParagraphSizeRange
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
+   * @since 20
+   */
+  export interface ParagraphSizeRange {
+    /**
+     * indicates mininum size of a paragraph being split
+     * @type { number }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @since 20
+     */
+    minSize: number,
+    /**
+     * indicates maxinum size of a paragraph being split
+     * @type { number }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @since 20
+     */
+    maxSize: number
+  }
+
+  /**
    * Interface for paragraph
    * @interface Paragraph
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
   export interface Paragraph {
     /**
-     * indicates hook id
+     * indicates paragraph hook id
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
@@ -94,139 +113,139 @@ declare namespace onScreen {
     /**
      * indicates paragraph title
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     title?: string,
     /**
-     * indicates paragraph content
+     * indicates paragraph text
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
-    content?: string,
+    text?: string
   }
 
   /**
    * Interface for content option
    * @interface ContentOption
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
   export interface ContentOption {
     /**
-     * indicates content option windowId
+     * indicates the windowId which need to gather, full screen window is specified by default
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     windowId?: number,
     /**
-     * indicates content option contentUnderstand
+     * indicates whether content understanding is required
      * @type { boolean }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     contentUnderstand?: boolean,
     /**
-     * indicates content option pageLink
+     * indicates whether page link is required
      * @type { boolean }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     pageLink?: boolean,
     /**
-     * indicates content option textOnly
+     * indicates whether only text needs to be processed to return paragraphs
      * @type { boolean }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     textOnly?: boolean,
     /**
-     * indicates content option maxPararaphSize
-     * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * indicates minimum and maximum size of paragraph being split, default minimun size is 300, maximum size is 500
+     * @type { ParagraphSizeRange }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
-    maxParagraphSize?: number,
+    paragraphSizeRange?: ParagraphSizeRange
   }
 
   /**
    * Interface for pageContent
    * @interface PageContent
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
   export interface PageContent {
     /**
-     * indicates content option maxPararaphSize
+     * indicates window id corresponding to the content
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     windowId: number,
     /**
-     * indicates content option maxPararaphSize
+     * indicates session id corresponding to the content
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     sessionId: number,
     /**
-     * indicates content option maxPararaphSize
+     * indicates bundle name corresponding to the content
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     bundleName: string,
     /**
-     * indicates content option maxPararaphSize
+     * indicates scenario of the content
      * @type { Scenario }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     scenario?: Scenario,
     /**
-     * indicates content option maxPararaphSize
+     * indicates title if content understand is needed
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     title?: string,
     /**
-     * indicates content option maxPararaphSize
+     * indicates content if content understand is needed
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     content?: string,
     /**
-     * indicates content option maxPararaphSize
+     * indicates page link if page link is needed
      * @type { string }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     pageLink?: string,
     /**
-     * indicates content option maxPararaphSize
+     * indicates paragraphs if text only is needed
      * @type { Array<Paragraph> }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
@@ -236,39 +255,39 @@ declare namespace onScreen {
   /**
    * Interface for control event
    * @interface ControlEvent
-   * @syscap SystemCapability.MultimodalAwareness.OnScreen
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
   export interface ControlEvent {
     /**
-     * indicates content option maxPararaphSize
+     * indicates controlled window id
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     windowId: number,
     /**
-     * indicates content option maxPararaphSize
+     * indicates session id 
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     sessionId: number,
     /**
-     * indicates content option maxPararaphSize
+     * indicates control event type
      * @type { EventType }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     eventType: EventType,
     /**
-     * indicates content option maxPararaphSize
+     * indicates controlled hookid for specific event type and specific session id
      * @type { number }
-     * @syscap SystemCapability.MultimodalAwareness.OnScreen
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
@@ -277,13 +296,18 @@ declare namespace onScreen {
 
   /**
    * get page content
-   * @param { ContentOption } contentOption - Indicates the event type.
-   * @returns { Promise<PageContent> } The result of device roatation radian.
-   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
+   * @param { ContentOption } contentOption - Indicates option to get page content
+   * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   * <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 32500001 - Service exception.
-   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @throws { BusinessError } 34000002 - Application or page is not supported.
+   * @throws { BusinessError } 34000003 - Window id is invalid. Possible causes: 1. window id is not passed
+   * <br> when screen is splited. 2. passed window id is not on screen or floating.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
@@ -291,13 +315,15 @@ declare namespace onScreen {
 
   /**
    * send control event
-   * @param { ControlEvent } event - Indicates the event type.
-   * @returns { Promise<void> } The result of device roatation radian.
-   * @throws { BusinessError } 201 - Permission check failed. A non-system application uses the system API.
+   * @param { ControlEvent } event - Indicates the control event sent to the screen
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
+   * <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    * <br> device capabilities.
-   * @throws { BusinessError } 32500001 - Service exception.
-   * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
+   * @throws { BusinessError } 34000001 - Service exception.
+   * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
