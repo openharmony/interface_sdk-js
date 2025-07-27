@@ -36,14 +36,14 @@ declare namespace onScreen {
   */
   export enum Scenario {
     /**
-     * indicates unknown scenario
+     * Indicates unknown scenario
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
      */
     UNKNOWN = 0,
     /**
-     * indicates article scenario
+     * Indicates article scenario
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
@@ -60,7 +60,7 @@ declare namespace onScreen {
   */
   export enum EventType {
     /**
-     * indicates scroll to hook event type
+     * Indicates scroll to hook event type
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @since 20
@@ -77,7 +77,7 @@ declare namespace onScreen {
    */
   export interface ParagraphSizeRange {
     /**
-     * indicates mininum size of a paragraph being split
+     * Indicates mininum size of a paragraph being split
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -85,7 +85,7 @@ declare namespace onScreen {
      */
     minSize: number,
     /**
-     * indicates maxinum size of a paragraph being split
+     * Indicates maxinum size of a paragraph being split
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -103,7 +103,7 @@ declare namespace onScreen {
    */
   export interface Paragraph {
     /**
-     * indicates paragraph hook id
+     * Indicates paragraph hook id
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -111,7 +111,7 @@ declare namespace onScreen {
      */
     hookId?: number,
     /**
-     * indicates paragraph title
+     * Indicates paragraph title
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -119,7 +119,7 @@ declare namespace onScreen {
      */
     title?: string,
     /**
-     * indicates paragraph text
+     * Indicates paragraph text
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -137,7 +137,7 @@ declare namespace onScreen {
    */
   export interface ContentOption {
     /**
-     * indicates the windowId which need to gather, full screen window is specified by default
+     * Indicates the windowId which need to gather, full screen window is specified by default
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -145,7 +145,7 @@ declare namespace onScreen {
      */
     windowId?: number,
     /**
-     * indicates whether content understanding is required
+     * Indicates whether content understanding is required
      * @type { boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -153,7 +153,7 @@ declare namespace onScreen {
      */
     contentUnderstand?: boolean,
     /**
-     * indicates whether page link is required
+     * Indicates whether page link is required
      * @type { boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -161,7 +161,7 @@ declare namespace onScreen {
      */
     pageLink?: boolean,
     /**
-     * indicates whether only text needs to be processed to return paragraphs
+     * Indicates whether only text needs to be processed to return paragraphs
      * @type { boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -169,7 +169,7 @@ declare namespace onScreen {
      */
     textOnly?: boolean,
     /**
-     * indicates minimum and maximum size of paragraph being split, default minimun size is 300, maximum size is 500
+     * Indicates minimum and maximum size of paragraph being split, default minimun size is 300, maximum size is 500
      * @type { ParagraphSizeRange }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -187,7 +187,7 @@ declare namespace onScreen {
    */
   export interface PageContent {
     /**
-     * indicates window id corresponding to the content
+     * Indicates window id corresponding to the content
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -195,7 +195,7 @@ declare namespace onScreen {
      */
     windowId: number,
     /**
-     * indicates session id corresponding to the content
+     * Indicates session id corresponding to the content
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -203,7 +203,7 @@ declare namespace onScreen {
      */
     sessionId: number,
     /**
-     * indicates bundle name corresponding to the content
+     * Indicates bundle name corresponding to the content
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -211,7 +211,7 @@ declare namespace onScreen {
      */
     bundleName: string,
     /**
-     * indicates scenario of the content
+     * Indicates scenario of the content
      * @type { Scenario }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -219,7 +219,7 @@ declare namespace onScreen {
      */
     scenario?: Scenario,
     /**
-     * indicates title if content understand is needed
+     * Indicates title if content understand is needed
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -227,7 +227,7 @@ declare namespace onScreen {
      */
     title?: string,
     /**
-     * indicates content if content understand is needed
+     * Indicates content if content understand is needed
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -235,7 +235,7 @@ declare namespace onScreen {
      */
     content?: string,
     /**
-     * indicates page link if page link is needed
+     * Indicates page link if page link is needed
      * @type { string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -243,7 +243,7 @@ declare namespace onScreen {
      */
     pageLink?: string,
     /**
-     * indicates paragraphs if text only is needed
+     * Indicates paragraphs if text only is needed
      * @type { Array<Paragraph> }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -261,7 +261,7 @@ declare namespace onScreen {
    */
   export interface ControlEvent {
     /**
-     * indicates controlled window id
+     * Indicates controlled window id
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -269,7 +269,7 @@ declare namespace onScreen {
      */
     windowId: number,
     /**
-     * indicates session id 
+     * Indicates session id 
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -277,7 +277,7 @@ declare namespace onScreen {
      */
     sessionId: number,
     /**
-     * indicates control event type
+     * Indicates control event type
      * @type { EventType }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -285,7 +285,7 @@ declare namespace onScreen {
      */
     eventType: EventType,
     /**
-     * indicates controlled hookid for specific event type and specific session id
+     * Indicates controlled hookid for specific event type and specific session id
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -295,7 +295,7 @@ declare namespace onScreen {
   }
 
   /**
-   * get page content
+   * Get page content
    * @param { ContentOption } contentOption - Indicates option to get page content
    * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
@@ -314,7 +314,7 @@ declare namespace onScreen {
   function getPageContent(option: ContentOption): Promise<PageContent>;
 
   /**
-   * send control event
+   * Send control event
    * @param { ControlEvent } event - Indicates the control event sent to the screen
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
