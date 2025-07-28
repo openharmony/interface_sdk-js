@@ -18,17 +18,13 @@
  * @kit NotificationKit
  */
 
-import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
-import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
-import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
-import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
 import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
 import { NotificationButton as _NotificationButton } from './notification/notificationContent';
@@ -39,13 +35,30 @@ import { NotificationFlagStatus as _NotificationFlagStatus } from './notificatio
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
 import { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
-import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
-import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+
+/*** if arkts 1.1 */
+import { AsyncCallback } from './@ohos.base';
+import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
+import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
+import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
+import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import type UIAbilityContext from './application/UIAbilityContext';
+/*** endif */
+/*** if arkts 1.2 */
+import { AsyncCallback } from '@ohos.base';
+import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
+import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
+import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
+import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
+import type UIAbilityContext from './application/UIAbilityContext';
+/*** endif */
+
 
 /**
  * The NotificationManager module provides notification management capabilities, covering notifications,
@@ -63,7 +76,8 @@ import type UIAbilityContext from './application/UIAbilityContext';
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace notificationManager {
   /**
@@ -133,7 +147,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
@@ -201,7 +216,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -283,7 +299,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
@@ -365,7 +382,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -495,7 +513,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
@@ -513,7 +532,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
@@ -530,7 +550,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(id: number, label?: string): Promise<void>;
 
@@ -551,7 +572,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancel(representativeBundle: BundleOption, id: number): Promise<void>;
 
@@ -657,7 +679,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAll(callback: AsyncCallback<void>): void;
 
@@ -680,7 +703,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAll(): Promise<void>;
 
@@ -946,7 +970,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -967,7 +992,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnable(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -987,7 +1013,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1007,7 +1034,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -1057,7 +1085,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -1100,7 +1129,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -1133,7 +1163,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
 
@@ -1153,7 +1184,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
@@ -1194,7 +1226,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1235,7 +1268,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -1274,7 +1308,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -1313,7 +1348,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -1434,7 +1470,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -1477,7 +1514,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -1516,7 +1554,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -1613,7 +1652,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1630,7 +1670,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -1645,7 +1686,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
 
@@ -1657,7 +1699,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationCount(): Promise<number>;
 
@@ -1673,7 +1716,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -1685,7 +1729,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -2281,7 +2326,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
@@ -2372,7 +2418,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
@@ -2982,7 +3029,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3036,7 +3084,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(
     bundle: BundleOption,
@@ -3111,7 +3160,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
@@ -3152,7 +3202,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
 
@@ -3193,7 +3244,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
@@ -3606,7 +3658,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
 
@@ -3641,7 +3694,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
@@ -3682,7 +3736,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
 
@@ -3721,7 +3776,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
@@ -3772,7 +3828,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -3811,7 +3868,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
@@ -3957,7 +4015,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function disableNotificationFeature(disabled: boolean, bundleList: Array<string>, userId: number): Promise<void>;
 
@@ -4158,7 +4215,8 @@ declare namespace notificationManager {
    * @typedef ButtonOptions
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ButtonOptions {
     /**
@@ -4168,7 +4226,8 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     buttonName: string;
   }
@@ -4179,7 +4238,8 @@ declare namespace notificationManager {
    * @typedef SystemLiveViewSubscriber
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SystemLiveViewSubscriber {
     /**
@@ -4188,7 +4248,8 @@ declare namespace notificationManager {
      * @type { ?function }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
   }
@@ -4199,7 +4260,8 @@ declare namespace notificationManager {
    * @typedef NotificationCheckInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NotificationCheckInfo {
     /**
@@ -4209,7 +4271,8 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -4220,7 +4283,8 @@ declare namespace notificationManager {
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notificationId: number;
 
@@ -4231,7 +4295,8 @@ declare namespace notificationManager {
      * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     label?: string;
 
@@ -4242,7 +4307,8 @@ declare namespace notificationManager {
      * @type { ContentType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contentType: ContentType;
 
@@ -4253,7 +4319,8 @@ declare namespace notificationManager {
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     creatorUserId: number;
 
@@ -4264,7 +4331,8 @@ declare namespace notificationManager {
      * @type { SlotType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     slotType: SlotType;
 
@@ -4275,7 +4343,8 @@ declare namespace notificationManager {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraInfos?: Record<string, Object>;
   }
@@ -4286,7 +4355,8 @@ declare namespace notificationManager {
    * @typedef NotificationCheckResult
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NotificationCheckResult {
     /**
@@ -4296,7 +4366,8 @@ declare namespace notificationManager {
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     code: number;
 
@@ -4307,7 +4378,8 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     message: string;
   }
@@ -4318,6 +4390,7 @@ declare namespace notificationManager {
    * @typedef NotificationSetting
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   export interface NotificationSetting {
     /**
@@ -4326,6 +4399,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     vibrationEnabled: boolean;
 
@@ -4335,6 +4409,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     soundEnabled: boolean;
   }
@@ -4352,7 +4427,8 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SlotType {
     /**
@@ -4366,7 +4442,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN_TYPE = 0,
 
@@ -4381,7 +4458,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SOCIAL_COMMUNICATION = 1,
 
@@ -4396,7 +4474,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SERVICE_INFORMATION = 2,
 
@@ -4411,7 +4490,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CONTENT_INFORMATION = 3,
 
@@ -4430,7 +4510,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LIVE_VIEW = 4,
 
@@ -4447,7 +4528,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CUSTOMER_SERVICE = 5,
 
@@ -4456,7 +4538,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMERGENCY_INFORMATION = 10,
 
@@ -4471,7 +4554,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OTHER_TYPES = 0xFFFF
   }
@@ -4490,7 +4574,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ContentType {
     /**
@@ -4505,7 +4590,8 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_BASIC_TEXT,
 
@@ -4521,7 +4607,8 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_LONG_TEXT,
 
@@ -4536,7 +4623,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_PICTURE,
 
@@ -4551,7 +4639,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_CONVERSATION,
 
@@ -4567,7 +4656,8 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_MULTILINE,
 
@@ -4584,7 +4674,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
 
@@ -4599,7 +4690,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_CONTENT_LIVE_VIEW,
   }
@@ -4609,14 +4701,16 @@ declare namespace notificationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SlotLevel {
     /**
      * Notification is disabled.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEVEL_NONE = 0,
 
@@ -4624,7 +4718,8 @@ declare namespace notificationManager {
      * Notification is enabled, but the notification icon is not displayed in the status bar, with no banner and alert tone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEVEL_MIN = 1,
 
@@ -4632,7 +4727,8 @@ declare namespace notificationManager {
      * Notification is enabled, and the notification icon is displayed in the status bar, with no banner and alert tone.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEVEL_LOW = 2,
 
@@ -4640,7 +4736,8 @@ declare namespace notificationManager {
      * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone but no banner.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEVEL_DEFAULT = 3,
 
@@ -4648,7 +4745,8 @@ declare namespace notificationManager {
      * Notification is enabled, and the notification icon is displayed in the status bar, with an alert tone and banner.
      *
      * @syscap SystemCapability.Notification.Notification
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     LEVEL_HIGH = 4
   }
@@ -4659,7 +4757,8 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DoNotDisturbType {
     /**
@@ -4667,7 +4766,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_NONE = 0,
 
@@ -4676,7 +4776,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_ONCE = 1,
 
@@ -4685,7 +4786,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_DAILY = 2,
 
@@ -4694,7 +4796,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_CLEARLY = 3
   }
@@ -4705,7 +4808,8 @@ declare namespace notificationManager {
    * @typedef DoNotDisturbDate
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DoNotDisturbDate {
     /**
@@ -4714,7 +4818,8 @@ declare namespace notificationManager {
      * @type { DoNotDisturbType }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: DoNotDisturbType;
 
@@ -4724,7 +4829,8 @@ declare namespace notificationManager {
      * @type { Date }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     begin: Date;
 
@@ -4734,7 +4840,8 @@ declare namespace notificationManager {
      * @type { Date }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     end: Date;
   }
@@ -4746,6 +4853,7 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   export interface DistributedBundleEnableInfo {
     /**
@@ -4755,16 +4863,18 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     bundleName: string;
-	
-	/**
+
+    /**
      * The uid.
      *
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     uid: number;
 
@@ -4775,6 +4885,7 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     enable?: boolean;
   }
@@ -4785,7 +4896,8 @@ declare namespace notificationManager {
    * @typedef DoNotDisturbProfile
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DoNotDisturbProfile {
     /**
@@ -4794,7 +4906,8 @@ declare namespace notificationManager {
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: number;
 
@@ -4804,7 +4917,8 @@ declare namespace notificationManager {
      * @type { string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -4814,7 +4928,8 @@ declare namespace notificationManager {
      * @type { ?Array<BundleOption> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     trustlist?: Array<BundleOption>;
   }
@@ -4825,7 +4940,8 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DeviceRemindType {
     /**
@@ -4833,7 +4949,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IDLE_DONOT_REMIND = 0,
 
@@ -4842,7 +4959,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IDLE_REMIND = 1,
 
@@ -4851,7 +4969,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVE_DONOT_REMIND = 2,
 
@@ -4860,7 +4979,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVE_REMIND = 3
   }
@@ -4871,7 +4991,8 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SourceType {
     /**
@@ -4879,7 +5000,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_NORMAL = 0,
 
@@ -4888,7 +5010,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_CONTINUOUS = 1,
 
@@ -4897,7 +5020,8 @@ declare namespace notificationManager {
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_TIMER = 2
   }
@@ -4908,14 +5032,16 @@ declare namespace notificationManager {
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum NotificationControlFlagStatus {
     /**
      * Manipulating of the enumeration by bitwise-or operation represents the closing of ringtone.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
 
@@ -4923,7 +5049,8 @@ declare namespace notificationManager {
      * Manipulating of the enumeration by bitwise-or operation represents the closing of lock screen.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
 
@@ -4931,7 +5058,8 @@ declare namespace notificationManager {
      * Manipulating of the enumeration by bitwise-or operation represents the closing of banner.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
 
@@ -4939,7 +5067,8 @@ declare namespace notificationManager {
      * Manipulating of the enumeration by bitwise-or operation represents the closing of light screen.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_LIGHT_SCREEN = 1 << 3,
 
@@ -4947,7 +5076,8 @@ declare namespace notificationManager {
      * Manipulating of the enumeration by bitwise-or operation represents the closing of vibration.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
 
@@ -4955,7 +5085,8 @@ declare namespace notificationManager {
      * Manipulating of the enumeration by bitwise-or operation represents the closing of status bar icon.
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
   }
@@ -4965,7 +5096,8 @@ declare namespace notificationManager {
    *
    * @typedef { _BundleOption } BundleOption
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type BundleOption = _BundleOption;
 
@@ -4974,7 +5106,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationActionButton } NotificationActionButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationActionButton = _NotificationActionButton;
 
@@ -4982,7 +5115,8 @@ declare namespace notificationManager {
    * Describes a normal text notification.
    *
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Describes a normal text notification.
@@ -4990,7 +5124,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationBasicContent } NotificationBasicContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationBasicContent = _NotificationBasicContent;
 
@@ -5006,7 +5141,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationContent } NotificationContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationContent = _NotificationContent;
 
@@ -5022,7 +5158,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationLongTextContent } NotificationLongTextContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
@@ -5032,7 +5169,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationLiveViewContent } NotificationLiveViewContent
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationLiveViewContent = _NotificationLiveViewContent;
 
@@ -5048,7 +5186,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationMultiLineContent } NotificationMultiLineContent
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationMultiLineContent = _NotificationMultiLineContent;
 
@@ -5057,7 +5196,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationPictureContent } NotificationPictureContent
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationPictureContent = _NotificationPictureContent;
 
@@ -5066,7 +5206,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationSystemLiveViewContent } NotificationSystemLiveViewContent
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent;
 
@@ -5076,7 +5217,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationFlags } NotificationFlags
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationFlags = _NotificationFlags;
 
@@ -5086,7 +5228,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationFlagStatus } NotificationFlagStatus
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationFlagStatus = _NotificationFlagStatus;
 
@@ -5102,7 +5245,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationRequest } NotificationRequest
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationRequest = _NotificationRequest;
 
@@ -5112,7 +5256,8 @@ declare namespace notificationManager {
    * @typedef { _UnifiedGroupInfo } UnifiedGroupInfo
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
@@ -5122,7 +5267,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationFilter } NotificationFilter
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationFilter = _NotificationFilter;
 
@@ -5132,7 +5278,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationCheckRequest } NotificationCheckRequest
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationCheckRequest = _NotificationCheckRequest;
 
@@ -5141,7 +5288,8 @@ declare namespace notificationManager {
    *
    * @typedef { _DistributedOptions } DistributedOptions
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type DistributedOptions = _DistributedOptions;
 
@@ -5150,7 +5298,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationSlot } NotificationSlot
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationSlot = _NotificationSlot;
 
@@ -5160,7 +5309,8 @@ declare namespace notificationManager {
    * @typedef { _LiveViewStatus } LiveViewStatus
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type LiveViewStatus = _LiveViewStatus;
 
@@ -5170,7 +5320,8 @@ declare namespace notificationManager {
    * @typedef { _LiveViewTypes } LiveViewTypes
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type LiveViewTypes = _LiveViewTypes;
 
@@ -5180,7 +5331,8 @@ declare namespace notificationManager {
    * @typedef { _NotificationSorting } NotificationSorting
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationSorting = _NotificationSorting;
 
@@ -5189,7 +5341,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationTemplate } NotificationTemplate
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationTemplate = _NotificationTemplate;
 
@@ -5198,7 +5351,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationUserInput } NotificationUserInput
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationUserInput = _NotificationUserInput;
 
@@ -5207,7 +5361,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationCapsule } NotificationCapsule
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationCapsule = _NotificationCapsule;
 
@@ -5216,7 +5371,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationButton } NotificationButton
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationButton = _NotificationButton;
 
@@ -5225,7 +5381,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationTime } NotificationTime
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationTime = _NotificationTime;
 
@@ -5234,7 +5391,8 @@ declare namespace notificationManager {
    *
    * @typedef { _NotificationProgress } NotificationProgress
    * @syscap SystemCapability.Notification.Notification
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type NotificationProgress = _NotificationProgress;
 }
