@@ -23,7 +23,11 @@ import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
 import { Builder } from './builder'
-import { LocalStorage } from './../stateManagement/storage/localStorage';
+import { LocalStorage } from './../stateManagement/storages/localStorage';
+import { UIContext } from './../../../api/@ohos.arkui.UIContext'
+import { WatchFuncType } from '../stateManagement/decorators/decoratorWatch'
+import { ProvideDecoratedVariable } from '../stateManagement/decorators/decoratorProvide'
+import { ConsumeDecoratedVariable } from '../stateManagement/decorators/decoratorConsume'
 
 /**
  * Defines Entry Annotation.
@@ -197,55 +201,34 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
     aboutToRecycle(): void;
 }
 
-/**
- * Definition of custom component class.
- *
- * @extends BaseCustomComponent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
-   /**
-    * Constructor to use to create a customComponent instance.
-    * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
-    * @param {LocalStorage} [storage] - localStorage instance.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
-    */
-   constructor(useSharedStorage?: boolean, storage?: LocalStorage);
-    
-    /**
-     * Define the constructor of custom component
-     *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
+export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> {
+    public addProvidedVar<T>(varName: string, providedPropName: string, initValue: T, allowOverride: boolean = false, watchFunc?: WatchFuncType): ProvideDecoratedVariable<T>;
+    public initConsume<T>(varName: string, providedPropName: string, watchFunc?: WatchFuncType): ConsumeDecoratedVariable<T>;
+    @memo
     @ComponentBuilder
-    static $_instantiate(
-        factory: () => T,
-        initializers?: T_Options,
-        reuseId?: string,
-        @Builder content?: () => void
-    ): T
+    static $_instantiate<S extends CustomComponent<S, S_Options>, S_Options>(
+        factory: () => S,
+        initializers?: S_Options,
+        @memo
+        content?: () => void,
+        reuseKey?: string   
+    ): S;
 
-    /**
-     * aboutToReuse Method
-     *
-     * @param { Record<string, Object> } params - Custom component init params.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    aboutToReuse(params: Record<string, Object>): void;
+   // Life cycle for custom component
+    aboutToAppear(): void
+    aboutToDisappear(): void
+    onDidBuild(): void
+
+    onPageShow(): void
+    onPageHide(): void
+    onBackPress(): boolean
+    getUIContext(): UIContext
+
+    @memo
+    build(): void;
+    
+    aboutToReuse(): void
+    aboutToRecycle(): void
 }
 
 /**

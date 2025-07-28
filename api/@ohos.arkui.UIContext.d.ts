@@ -55,7 +55,7 @@ import { TimePickerDialogOptions } from './arkui/component/timePicker';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
 import { ActionSheetOptions } from './arkui/component/actionSheet';
 import { TextPickerDialogOptions } from './arkui/component/textPicker';
-import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
+import { LocalStorage } from './arkui/stateManagement/storages/localStorage';
 import { DatePickerDialogOptions } from './arkui/component/datePicker';
 import { TabsController } from './arkui/component/tabs';
 import { Scroller } from './arkui/component/scroll';
