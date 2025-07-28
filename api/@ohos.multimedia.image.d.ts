@@ -22,9 +22,6 @@ import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
-/*** if arkts 1.1 */
-import { int, double, float } from './@ohos.base';
-/*** endif */
 
 /**
  * @namespace image
