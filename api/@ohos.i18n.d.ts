@@ -511,7 +511,6 @@ declare namespace i18n {
      *                             of the preferred language list.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *                                 required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -530,7 +529,6 @@ declare namespace i18n {
      * @param { int } index - Position of the preferred language to delete.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *                                 required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
