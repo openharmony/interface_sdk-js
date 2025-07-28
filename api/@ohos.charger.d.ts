@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit BasicServicesKit
+ * @arkts 1.1&1.2
  */
 
 /**

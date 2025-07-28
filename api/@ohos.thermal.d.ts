@@ -28,36 +28,41 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  *
  * @namespace thermal
  * @syscap SystemCapability.PowerManager.ThermalManager
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace thermal {
   /**
    * Enumerates the {@link ThermalLevel} types.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.PowerManager.ThermalManager
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ThermalLevel {
     /**
      * The device is cool, and services are not restricted.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COOL = 0,
     /**
      * The device is operational but is not cool. You need to pay attention to its heating.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NORMAL = 1,
     /**
      * The device is warm. You need to stop or delay some imperceptible services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WARM = 2,
     /**
@@ -65,7 +70,8 @@ declare namespace thermal {
      * or reduce the load of other services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     HOT = 3,
     /**
@@ -73,7 +79,8 @@ declare namespace thermal {
      * or reduce the load of major services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OVERHEATED = 4,
     /**
@@ -81,7 +88,8 @@ declare namespace thermal {
      * all imperceptible services and downgrade major services to the maximum extent.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WARNING = 5,
     /**
@@ -89,7 +97,8 @@ declare namespace thermal {
      * minimized, leaving only the basic functions available.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMERGENCY = 6,
     /**
@@ -97,7 +106,8 @@ declare namespace thermal {
      * stopped, you need to implement escape measures.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ESCAPE = 7
   }
@@ -120,7 +130,8 @@ declare namespace thermal {
    * this param is a function type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
@@ -141,7 +152,8 @@ declare namespace thermal {
    * @param { Callback<void> } callback Callback of thermal level changes.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
@@ -161,7 +173,8 @@ declare namespace thermal {
    *
    * @returns { ThermalLevel } The thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLevel(): ThermalLevel;
 }
