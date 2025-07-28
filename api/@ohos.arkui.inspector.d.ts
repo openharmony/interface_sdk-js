@@ -33,8 +33,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace inspector {
 
@@ -51,8 +50,7 @@ declare namespace inspector {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface ComponentObserver {
 
@@ -73,8 +71,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'layout', callback: () => void): void;
 
@@ -95,8 +92,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'layout', callback?: () => void): void;
 
@@ -117,8 +113,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'draw', callback: () => void): void;
 
@@ -139,8 +134,7 @@ declare namespace inspector {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'draw', callback?: () => void): void;
     
@@ -184,85 +178,11 @@ declare namespace inspector {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
    */
   function createComponentObserver(id: string): ComponentObserver;
-  
-  /**
-   * Obtains all attributes of the component with the specified ID.
-   *
-   * @param { string } id - ID of the component whose attributes are to be obtained.
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @test
-   * @arkts 1.2
-   */
-  function getInspectorByKey(id: string): string;
-  
-  /**
-   * Get components tree.
-   *
-   * @returns { Object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @test
-   * @arkts 1.2
-   */
-  function getInspectorTree(): Object;
-  
-  /**
-   * Sends an event to the component with the specified ID.
-   *
-   * @param { string } id - ID of the component for which the event is to be sent.
-   * @param { number } action - Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
-   * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @test
-   * @arkts 1.2
-   */
-  function sendEventByKey(id: string, action: number, params: string): boolean;
 }
 
 export default inspector;
-/**
- * export function getInspectorByKey from inspector namespace and provide it for kit ArkUI.
- * @constant
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
-/**
- * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
- * @constant
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export const GETINSPECTORTREE = inspector.getInspectorTree;
-/**
- * export function sendEventByKey from inspector namespace and provide it for kit ArkUI.
- * @constant
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export const SENDEVENTBYKEY = inspector.sendEventByKey;
