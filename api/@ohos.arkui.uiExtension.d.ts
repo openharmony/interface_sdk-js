@@ -61,7 +61,8 @@ declare namespace uiExtension {
     /**
      * Subscribes to the event indicating changes to the area where the window cannot be displayed.
      *
-     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
+     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange',
+     *     indicating the event of changes to the area where the window cannot be displayed.
      * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -77,7 +78,8 @@ declare namespace uiExtension {
     /**
      * Unsubscribes from the event indicating changes to the area where the window cannot be displayed.
      *
-     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange', indicating the event of changes to the area where the window cannot be displayed.
+     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at 'avoidAreaChange',
+     *     indicating the event of changes to the area where the window cannot be displayed.
      * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -125,7 +127,8 @@ declare namespace uiExtension {
     /**
      * Subscribes to changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent). This API can be used only on 2-in-1 devices.
      *
-     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange', indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
+     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange',
+     *     indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
      * @param { 'number' } reasons - The reasons of component rect change.
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
@@ -140,9 +143,11 @@ declare namespace uiExtension {
     on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void;
 
     /**
-     * Unsubscribes from changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent). This API can be used only on 2-in-1 devices.
+     * Unsubscribes from changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent).
+     * This API can be used only on 2-in-1 devices.
      *
-     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange', indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
+     * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange',
+     *     indicating the rectangle change event for the component (EmbeddedComponent or UIExtensionComponent).
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -201,7 +206,8 @@ declare namespace uiExtension {
     /**
      * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.
      *
-     * @param { boolean } enable - Whether to add or delete the flag. The value true means to add the watermark flag, and false means to delete the watermark flag.
+     * @param { boolean } enable - Whether to add or delete the flag. The value true means to add the watermark flag,
+     *     and false means to delete the watermark flag.
      * @returns { Promise<void> } - The promise returned by the function
      * @throws { BusinessError } 1300002 - The UIExtension window proxy is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -211,24 +217,25 @@ declare namespace uiExtension {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-     setWaterMarkFlag(enable: boolean): Promise<void>;
+    setWaterMarkFlag(enable: boolean): Promise<void>;
 
-     /**
-      * Sets the events that the component (EmbeddedComponent or UIExtensionComponent) will occupy, preventing the host from responding to these events within the component's area.
-      *
-      * @param { EventFlag } eventFlags - Type of events to occupy. For details about the available values, see {@link uiExtension.EventFlag }.
-      * @returns { Promise<void> } - The promise returned by the function
-      * @throws { BusinessError } 401 - Parameter error. Possible cause: 
-      * <br> 1. Mandatory parameters are left unspecified.
-      * <br> 2. Incorrect parameters types.
-      * <br> 3. Parameter verification failed.
-      * @throws { BusinessError } 1300002 - This window state is abnormal.
-      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @atomicservice
-      * @since 18
-      */
-     occupyEvents(eventFlags: number): Promise<void>;
+    /**
+     * Sets the events that the component (EmbeddedComponent or UIExtensionComponent) will occupy,
+     * preventing the host from responding to these events within the component's area.
+     *
+     * @param { EventFlag } eventFlags - Type of events to occupy. For details about the available values, see {@link uiExtension.EventFlag }.
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 18
+     */
+    occupyEvents(eventFlags: number): Promise<void>;
 
     /**
      * The properties of the UIExtension window
