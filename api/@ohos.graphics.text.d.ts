@@ -1839,13 +1839,13 @@ declare namespace text {
 
     /**
      * Obtains the range of the word where the glyph with a given offset is located.
-     * @param { double } offset - Offset of the glyph. The value is an integer.
+     * @param { int } offset - Offset of the glyph. The value is an integer.
      * @returns { Range } Range of the word.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getWordBoundary(offset: double): Range;
+    getWordBoundary(offset: int): Range;
 
     /**
      * Obtains the number of text lines.
