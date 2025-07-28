@@ -1063,7 +1063,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2 
    */
   static of(id: ResourceStr): TextMenuItemId;
-
+ 
   /**
    * Judge if two TextMenuItemId are equal.
    *
@@ -1076,7 +1076,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2 
    */
   equals(id: TextMenuItemId): boolean;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy and delete the currently selected text.
    *
@@ -1089,7 +1089,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2 
    */
   static readonly CUT: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy the currently selected text to the clipboard.
    *
@@ -1102,7 +1102,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2 
    */
   static readonly COPY: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to copy the current contents of the clipboard into the text view.
    *
@@ -1115,7 +1115,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2 
    */
   static readonly PASTE: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to select all text in a text view.
    * 
@@ -1128,7 +1128,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2
    */
   static readonly SELECT_ALL: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId for collaboration service menu items.
    *
@@ -1141,7 +1141,7 @@ declare class TextMenuItemId {
    * @arkts 1.1&1.2
    */
   static readonly COLLABORATION_SERVICE: TextMenuItemId;
-
+ 
   /**
    * Indicates the TextMenuItemId to recognize the text in the picture and input it into the text view.
    *
@@ -1281,7 +1281,7 @@ declare class TextMenuItemId {
    */
   static readonly askAI: TextMenuItemId;
 }
-
+ 
 /**
  * TextMenuItem
  *
@@ -1338,7 +1338,7 @@ declare interface TextMenuItem {
    */
   labelInfo?: ResourceStr;
 }
-
+ 
 /**
  * Callback before displaying the menu when the selection range changes.
  *
@@ -1998,6 +1998,58 @@ declare interface LineSpacingOptions {
 }
 
 /**
+ * Defines the options of max lines.
+ * @interface MaxLinesOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface MaxLinesOptions {
+  /**
+   * The mode of max lines.
+   *
+   * @type { ?MaxLinesMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  overflowMode?: MaxLinesMode;
+}
+
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum MaxLinesMode {
+  /**
+   * Default maxlines mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CLIP = 0,
+
+  /**
+   * Scroll mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  SCROLL = 1,
+}
+
+/**
  * Defines the reason for text changes.
  *
  * @enum { number }
@@ -2113,7 +2165,7 @@ declare enum TextChangeReason {
    * @since 20
    */
   COLLABORATION = 11,
- 
+
   /**
    * Reason for stylus input.
    *
@@ -2122,109 +2174,6 @@ declare enum TextChangeReason {
    * @since 20
    */
   STYLUS = 12
-}
-
-/**
- * Vertical Alignment of text.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare enum TextVerticalAlign {
-  /**
-   * Baseline alignment, the default value.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  BASELINE = 0,
-
-  /**
-   * Bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  BOTTOM = 1,
-
-  /**
-   * Center alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  CENTER = 2,
-
-  /**
-   * Top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  TOP = 3,
-}
-
-/**
- * Defines the options of max lines.
- * @interface MaxLinesOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare interface MaxLinesOptions {
-  /**
-   * The mode of max lines.
-   *
-   * @type { ?MaxLinesMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  overflowMode?: MaxLinesMode;
-}
-
-/**
- * Defines maxlines mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare enum MaxLinesMode {
-  /**
-   * Default maxlines mode
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  CLIP = 0,
-
-  /**
-   * Scroll mode of max lines
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  SCROLL = 1,
 }
 
 /**
@@ -2292,25 +2241,76 @@ declare enum KeyboardFluidLightMode {
  * @since 20
  */
 declare interface KeyboardAppearanceConfig {
-/**
-  * Used to set keyboard gradient mode.
-  *
-  * @type { ?KeyboardGradientMode }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @systemapi
-  * @since 20
-  */
+  /**
+   * Used to set keyboard gradient mode.
+   *
+   * @type { ?KeyboardGradientMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
   gradientMode?: KeyboardGradientMode;
 
-/**
-  * Used to set keyboard fluid light mode..
-  *
-  * @type { ?KeyboardFluidLightMode }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @systemapi
-  * @since 20
-  */
+  /**
+   * Used to set keyboard fluid light mode..
+   *
+   * @type { ?KeyboardFluidLightMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   */
   fluidLightMode?: KeyboardFluidLightMode;
+}
+
+/**
+ * Vertical Alignment of text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare enum TextVerticalAlign {
+  /**
+   * Baseline alignment, the default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BASELINE = 0,
+
+  /**
+   * Bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  BOTTOM = 1,
+
+  /**
+   * Center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  CENTER = 2,
+
+  /**
+   * Top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  TOP = 3,
 }
 
 /**

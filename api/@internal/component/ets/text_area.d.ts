@@ -1597,14 +1597,14 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Define max lines of the text area, behavior can be displayed as the scrolling capability.
    *
    * @param { number } lines - Max lines of the node
-   * @param { MaxLinesOptions } [options] - max lines of setting options.
+   * @param { MaxLinesOptions } options - max lines of setting options.
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  maxLines(lines: number, options?: MaxLinesOptions): TextAreaAttribute;
+  maxLines(lines: number, options: MaxLinesOptions): TextAreaAttribute;
 
   /**
    * Define min lines of the text area.
@@ -1999,7 +1999,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @arkts 1.1&1.2
    */
   halfLeading(halfLeading: Optional<boolean>): TextAreaAttribute;
-  
+
   /**
    * Set the ellipsis mode.
    * 
