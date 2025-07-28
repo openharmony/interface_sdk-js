@@ -7449,6 +7449,29 @@ declare namespace photoAccessHelper {
      * @since 19
      */
     videoDurationFilter?: VideoDurationFilter;
+
+    /**
+     * Configures filter conditions as a string array, supporting multiple combined 
+     * conditions to specify supported file types. When this parameter is set, the 
+     * original file type configuration parameters `MIMEType` and `mimeTypeFilter` become invalid.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    combinedMediaTypeFilter?: Array<string>;
+
+    /**
+     * Media file type and size combined filtering configuration. The array supports a maximum length of 3. 
+     * Setting this parameter will cause the `fileSizeFilter` and `MIMEType` parameters to be ignored.
+     *
+     * @type { ?Array<PhotoViewMimeTypeFileSizeFilter> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    photoViewMimeTypeFileSizeFilters?: Array<PhotoViewMimeTypeFileSizeFilter>;
   }
 
   /**
@@ -7547,6 +7570,35 @@ declare namespace photoAccessHelper {
        */
       extraVideoDuration?: number;
   }
+
+  /**
+   * Media file video duration filtering configuration.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+    class PhotoViewMimeTypeFileSizeFilter {
+      /**
+       * Specifing filter Type.
+       *
+       * @type { PhotoViewMIMETypes }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 20
+       */
+      photoViewMimeType: PhotoViewMIMETypes;
+  
+      /**
+       * Specifing file size filtering configuration.
+       *
+       * @type { FileSizeFilter }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 20
+       */
+      sizeFilter: FileSizeFilter;
+    }
 
   /**
    * PhotoSelectOptions Object
