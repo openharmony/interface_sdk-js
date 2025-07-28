@@ -1319,6 +1319,20 @@ export declare class FrameNode {
    * @since 20
    */
   getNodePropertyValue(property: AnimationPropertyType): number[];
+
+  /**
+  * Returns a flag indicating whether the current FrameNode was obtained through dynamic-static conversion,
+  * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+  *
+  * @returns { boolean } - Returns true if the FrameNode was converted between dynamic and static states,
+  * otherwise returns false.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 20
+  * @arkts 1.1&1.2
+  */
+  isTransferred(): boolean;
 }
 
 /**
