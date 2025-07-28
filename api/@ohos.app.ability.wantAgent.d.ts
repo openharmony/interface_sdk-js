@@ -134,7 +134,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<int>): void;
 
@@ -162,7 +163,8 @@ declare namespace wantAgent {
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUid(agent: WantAgent): Promise<int>;
 
@@ -889,7 +891,8 @@ declare namespace wantAgent {
      * @type { WantAgent }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     info: WantAgent;
 
@@ -906,7 +909,8 @@ declare namespace wantAgent {
      * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     want: Want;
 
@@ -923,7 +927,8 @@ declare namespace wantAgent {
      * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     finalCode: int;
 
@@ -940,7 +945,8 @@ declare namespace wantAgent {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     finalData: string;
 
@@ -964,7 +970,8 @@ declare namespace wantAgent {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraInfo?: Record<string, Object>;
   }
