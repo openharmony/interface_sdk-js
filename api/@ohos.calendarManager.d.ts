@@ -131,7 +131,7 @@ declare namespace calendarManager {
      * Get calendar instance from database.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -143,7 +143,7 @@ declare namespace calendarManager {
      * Get calendar instance from database.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -383,8 +383,8 @@ declare namespace calendarManager {
 
     /**
      * Query events based on filter conditions.
-     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
-     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
+     * @param { EventFilter } [eventFilter] - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned.
      * @returns { Promise<Event[]> } Information about events that match the filter conditions.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -447,8 +447,8 @@ declare namespace calendarManager {
      * Query event instances based on the conditions.
      * @param { number } start - start time of query range
      * @param { number } end - end time of query range
-     * @param { number[] } ids - Indicates the IDs of multiple events
-     * @param { (keyof Event)[] } eventKey - Expected column to be returned
+     * @param { number[] } [ids] - Indicates the IDs of multiple events
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned
      * @returns { Promise<Event[]> } Information about events that match the condition
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
