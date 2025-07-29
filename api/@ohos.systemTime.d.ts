@@ -40,6 +40,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
   function setTime(time: number, callback: AsyncCallback<void>): void;
 
@@ -53,6 +54,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
   function setTime(time: number): Promise<void>;
 
@@ -180,6 +182,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
   function setDate(date: Date, callback: AsyncCallback<void>): void;
 
@@ -193,6 +196,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTime
    */
   function setDate(date: Date): Promise<void>;
 
@@ -230,6 +234,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTimezone
    */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
@@ -243,6 +248,7 @@ declare namespace systemTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 7
    * @deprecated since 9
+   * @useinstead ohos.systemDateTime/systemDateTime.setTimezone
    */
   function setTimezone(timezone: string): Promise<void>;
 
