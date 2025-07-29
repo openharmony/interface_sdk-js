@@ -18,11 +18,11 @@
  * @kit MultimodalAwarenessKit
  */
 
-import stationary from '@ohos.stationary';
-import motion from '@ohos.multimodalAwareness.motion';
 import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
 import metadataBinding from '@ohos.multimodalAwareness.metadataBinding';
-import userStatus from '@ohos.multimodalAwareness.userStatus';
+import motion from '@ohos.multimodalAwareness.motion';
 import onScreen from '@ohos.multimodalAwareness.onScreen';
+import stationary from '@ohos.stationary';
+import userStatus from '@ohos.multimodalAwareness.userStatus';
 
-export { stationary, motion, deviceStatus, metadataBinding, userStatus, onScreen };
+export { deviceStatus, metadataBinding, motion, onScreen, stationary, userStatus };
