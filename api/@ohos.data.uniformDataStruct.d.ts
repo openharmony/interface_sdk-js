@@ -59,7 +59,6 @@ declare namespace uniformDataStruct {
      * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
-     * @arkts 1.1
      */
     abstract?: string;
 
