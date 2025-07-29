@@ -75,6 +75,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -86,6 +87,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
@@ -98,6 +100,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
@@ -130,6 +133,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -141,6 +145,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
@@ -153,6 +158,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
@@ -165,6 +171,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -176,6 +183,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
@@ -188,6 +196,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(isNano?: boolean): Promise<number>;
 
@@ -292,7 +301,7 @@ declare namespace systemDateTime {
 
   /**
    * Sets the system time.
-   * 
+   *
    * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date, it must > 0
    * @returns { Promise<void> } The promise returned by the function
