@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { BusinessError } from "./@ohos.base";
+
 /**
  * @file
  * @kit MultimodalAwarenessKit
@@ -104,7 +106,7 @@ declare namespace onScreen {
   export interface Paragraph {
     /**
      * Indicates paragraph hook id
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -112,7 +114,7 @@ declare namespace onScreen {
     hookId?: number,
     /**
      * Indicates paragraph title
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -120,7 +122,7 @@ declare namespace onScreen {
     title?: string,
     /**
      * Indicates paragraph text
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -138,31 +140,31 @@ declare namespace onScreen {
   export interface ContentOption {
     /**
      * Indicates the windowId which need to gather, full screen window is specified by default
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     windowId?: number,
     /**
-     * Indicates whether content understanding is required
-     * @type { boolean }
+     * Indicates whether content understanding is required, false by default
+     * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     contentUnderstand?: boolean,
     /**
-     * Indicates whether page link is required
-     * @type { boolean }
+     * Indicates whether page link is required, false by default
+     * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
     pageLink?: boolean,
     /**
-     * Indicates whether only text needs to be processed to return paragraphs
-     * @type { boolean }
+     * Indicates whether only text needs to be processed to return paragraphs, false by default
+     * @type { ?boolean }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -170,7 +172,7 @@ declare namespace onScreen {
     textOnly?: boolean,
     /**
      * Indicates minimum and maximum size of paragraph being split, default minimun size is 300, maximum size is 500
-     * @type { ParagraphSizeRange }
+     * @type { ?ParagraphSizeRange }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -212,7 +214,7 @@ declare namespace onScreen {
     bundleName: string,
     /**
      * Indicates scenario of the content
-     * @type { Scenario }
+     * @type { ?Scenario }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -220,7 +222,7 @@ declare namespace onScreen {
     scenario?: Scenario,
     /**
      * Indicates title if content understand is needed
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -228,7 +230,7 @@ declare namespace onScreen {
     title?: string,
     /**
      * Indicates content if content understand is needed
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -236,7 +238,7 @@ declare namespace onScreen {
     content?: string,
     /**
      * Indicates page link if page link is needed
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -244,12 +246,12 @@ declare namespace onScreen {
     pageLink?: string,
     /**
      * Indicates paragraphs if text only is needed
-     * @type { Array<Paragraph> }
+     * @type { ?Paragraph[] }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
      */
-    paragraphs?: Array<Paragraph>,
+    paragraphs?: Paragraph[],
   }
 
   /**
@@ -286,7 +288,7 @@ declare namespace onScreen {
     eventType: EventType,
     /**
      * Indicates controlled hookid for specific event type and specific session id
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20
@@ -296,17 +298,20 @@ declare namespace onScreen {
 
   /**
    * Get page content
-   * @param { ContentOption } contentOption - Indicates option to get page content
+   * 
+   * @permission ohos.permission.GET_SCREEN_CONTENT
+   * @param { ContentOption } option - Indicates option to get page content
    * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   * <br> permission: ohos.permission.GET_SCREEN_CONTENT.
+   *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
+   *     <br> device capabilities.
    * @throws { BusinessError } 34000001 - Service exception.
-   * @throws { BusinessError } 34000002 - Application or page is not supported.
-   * @throws { BusinessError } 34000003 - Window id is invalid. Possible causes: 1. window id is not passed
-   * <br> when screen is splited. 2. passed window id is not on screen or floating.
+   * @throws { BusinessError } 34000002 - The application or page is not supported.
+   * @throws { BusinessError } 34000003 - The window ID is invalid. Possible causes: 1. window id is not passed
+   *     <br> when screen is splited. 2. passed window id is not on screen or floating.
+   * @throws { BusinessError } 34000004 - The Page is not ready.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
@@ -315,14 +320,17 @@ declare namespace onScreen {
 
   /**
    * Send control event
+   * 
+   * @permission ohos.permission.SIMULATE_USER_INPUT
    * @param { ControlEvent } event - Indicates the control event sent to the screen
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
-   * <br> permission: ohos.permission.SIMULATE_USER_INPUT.
+   *     <br> permission: ohos.permission.SIMULATE_USER_INPUT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
-   * <br> device capabilities.
+   *     <br> device capabilities.
    * @throws { BusinessError } 34000001 - Service exception.
+   * @throws { BusinessError } 34000005 - The element is not found.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
