@@ -837,21 +837,8 @@ declare namespace unifiedDataChannel {
      * @crossplatform
      * @atomicservice
      * @since 14
-     * @arkts 1.1
      */
     abstract?: string;
-
-    /**
-     * Indicates the abstract of text
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    textAbstract?: string;
 
     /**
      * Indicates the abstract of text
@@ -873,7 +860,7 @@ declare namespace unifiedDataChannel {
      * @since 20
      * @arkts 1.2
      */
-    set textAbstract(value: string);
+    set textAbstract(value: string | undefined);
   }
 
   /**
@@ -2922,7 +2909,8 @@ declare namespace unifiedDataChannel {
    * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class ApplicationDefinedRecord extends UnifiedRecord {
     /**
@@ -2942,6 +2930,61 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     applicationDefinedType: string;
+
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @returns { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    get applicationDefinedType(): string;
+
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the type of data, should always be started with 'ApplicationDefined.', will
+     * return error otherwise
+     *
+     * @oaram { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    set applicationDefinedType(value: string);
+
     /**
      * Indicates the raw data of application defined data
      *
@@ -2957,6 +3000,54 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     rawData: Uint8Array;
+
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @returns { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    get rawData(): Uint8Array;
+
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * Indicates the raw data of application defined data
+     *
+     * @param { Uint8Array }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    set rawData(value: Uint8Array);
   }
 
   /**
