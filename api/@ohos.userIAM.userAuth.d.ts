@@ -984,7 +984,7 @@ declare namespace userAuth {
     /**
      * Turn on authentication event listening.
      *
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
@@ -995,7 +995,7 @@ declare namespace userAuth {
     /**
      * Turn off authentication event listening.
      *
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
@@ -1008,8 +1008,8 @@ declare namespace userAuth {
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @type { function }
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500003 - The operation is canceled.
@@ -1030,8 +1030,8 @@ declare namespace userAuth {
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @type { function }
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
@@ -1046,8 +1046,8 @@ declare namespace userAuth {
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
@@ -1076,8 +1076,8 @@ declare namespace userAuth {
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Authentication type. PIN is supported since API version 11.
    * @param { AuthTrustLevel } authTrustLevel - Authentication trust level.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
@@ -1130,8 +1130,8 @@ declare namespace userAuth {
    * @permission ohos.permission.ACCESS_BIOMETRIC
    * @param { UserAuthType } authType - Authentication type.
    * @returns { EnrolledState } Credential state obtained if the operation is successful.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
@@ -1150,7 +1150,7 @@ declare namespace userAuth {
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @returns { AuthInstance } Returns an authentication instance.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
@@ -1741,7 +1741,7 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -1754,7 +1754,7 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Event type. The value is result, which indicates the authentication result.
      * @param { IAuthCallback } callback - Callback used to return the user authentication result.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -1771,7 +1771,7 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -1788,7 +1788,7 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Event type. The value is result, which indicates the authentication result.
      * @param { IAuthCallback } callback - Callback to unregister.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -1804,8 +1804,8 @@ declare namespace userAuth {
      * Start this authentication, an instance can only perform authentication once.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
@@ -1824,8 +1824,8 @@ declare namespace userAuth {
      * Start this authentication, an instance can only perform authentication once.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
@@ -1852,10 +1852,10 @@ declare namespace userAuth {
      * </p>
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC or ohos.permission.USER_AUTH_FROM_BACKGROUND
-     * @throws { BusinessError } 201 - Permission verification failed. Possible causes:
+     * @throws { BusinessError } 201 - Permission denied. Possible causes:
      * <br>1. No permission to access biometric.
      * <br>2. No permission to start authentication from background.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
@@ -1879,8 +1879,8 @@ declare namespace userAuth {
      * Cancel this authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1894,8 +1894,8 @@ declare namespace userAuth {
      * </p>
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1911,7 +1911,6 @@ declare namespace userAuth {
      * @param { 'authTip' } type - Indicates the type of event.
      * @param { AuthTipCallback } callback - Indicates the listener.
      * @throws { BusinessError } 12500002 - General operation error.
-     * @throws { BusinessError } 12500008 - The parameter is out of range.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 20
@@ -1924,7 +1923,6 @@ declare namespace userAuth {
      * @param { 'authTip' } type - Indicates the type of event.
      * @param { AuthTipCallback } [callback] - Indicates the listener.
      * @throws { BusinessError } 12500002 - General operation error.
-     * @throws { BusinessError } 12500008 - The parameter is out of range.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
      * @since 20
@@ -1938,7 +1936,7 @@ declare namespace userAuth {
    * @param { AuthParam } authParam - Auth parameter.
    * @param { WidgetParam } widgetParam - Widget parameter.
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
@@ -1958,7 +1956,7 @@ declare namespace userAuth {
    * @param { AuthParam } authParam - Auth parameter.
    * @param { WidgetParam } widgetParam - Widget parameter.
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
@@ -1999,9 +1997,9 @@ declare namespace userAuth {
    * @permission ohos.permission.SUPPORT_USER_AUTH
    * @param { NoticeType } noticeType - Notification type.
    * @param { string } eventData - Event data. The data cannot exceed 65536 bytes.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
@@ -2275,7 +2273,7 @@ declare namespace userAuth {
      * authentication framework to the user authentication widget.
      * @param { IAuthWidgetCallback } callback - Callback used to return the command from the user authentication
      * framework to the user authentication widget.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -2293,7 +2291,7 @@ declare namespace userAuth {
      * @param { 'command' } type - Event type. The value is command, which indicates the command sent from the user
      * authentication framework to the user authentication widget.
      * @param { IAuthWidgetCallback } callback - Callback to unregister.
-     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * <br>3. Parameter verification failed.
@@ -2316,9 +2314,9 @@ declare namespace userAuth {
    * @permission ohos.permission.SUPPORT_USER_AUTH
    * @param { int } version - Version of the user authentication widget.
    * @returns { UserAuthWidgetMgr } UserAuthWidgetMgr instance obtained.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 12500002 - General operation error.
@@ -2367,8 +2365,8 @@ declare namespace userAuth {
    * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
    * @param { AuthParam } authParam - Auth parameter.
    * @returns { Uint8Array } The reuse authentication token.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500008 - The parameter is out of range.
    * @throws { BusinessError } 12500017 - Failed to reuse authentication result.
