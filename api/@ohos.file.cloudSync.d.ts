@@ -940,7 +940,7 @@ declare namespace cloudSync {
      *
      * @param { 'batchDownload' } event - event type.
      * @param { Callback<MultiDownloadProgress> } callback - callback function with a `MultiDownloadProgress` argument.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.
@@ -968,7 +968,7 @@ declare namespace cloudSync {
      *
      * @param { 'batchDownload' } event - event type.
      * @param { Callback<MultiDownloadProgress> } [callback] - callback function with a `MultiDownloadProgress` argument.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.
@@ -1018,7 +1018,7 @@ declare namespace cloudSync {
      * @returns { Promise<number> } - Return the downloadId in Promise mode.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400004 - Exceed the maximum limit.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -1081,7 +1081,7 @@ declare namespace cloudSync {
      * @returns { Promise<void> } - Return Promise.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.
@@ -1118,7 +1118,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -1279,7 +1279,7 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900010 - Try again
    * @throws { BusinessError } 13900012 - Permission denied by the file system
-   * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
    *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 13900031 - Function not implemented
    * @throws { BusinessError } 14000002 - Invalid URI.
@@ -1717,7 +1717,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @throws { BusinessError } 22400002 - Network unavailable.
@@ -1740,7 +1740,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @throws { BusinessError } 22400002 - Network unavailable.
@@ -1764,7 +1764,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900008 - Bad file descriptor.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI. Possible causes: 1.originalUri invalid; 2.versionUri invalid.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -1785,7 +1785,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
@@ -1805,7 +1805,7 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 13900010 - Try again.
      * @throws { BusinessError } 13900012 - Permission denied by the file system.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
