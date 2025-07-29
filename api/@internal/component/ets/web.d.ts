@@ -7287,7 +7287,6 @@ declare interface JavaScriptProxy {
    * @type { object }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
