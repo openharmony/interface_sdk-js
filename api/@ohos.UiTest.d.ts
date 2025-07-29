@@ -21,17 +21,6 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Used to initialize the uitest environment at the start of the test
- *
- * @throws { BusinessError } 17000001 - Initialization failed.
- * @syscap SystemCapability.Test.UiTest
- * @since 20
- * @arkts 1.2
- * @test
-*/
-export function loadAndSetUpUiTest(): void {};
- 
-/**
  * Enumerates the string value match pattern.
  *
  * @enum {number}
